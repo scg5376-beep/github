@@ -1,0 +1,19 @@
+{
+  "order_id": "ORD-20260819-001",
+  "status": "done",
+  "executed_by": "codex",
+  "finished": "2026-08-19",
+  "commit": "9ef3aa06dedfefd341ad640fb08738386b9594b2",
+  "expected": 6,
+  "produced": [
+    "RC-001__CH-001__LB-001-L1__BG-001__CM-001__PS-002__01.png",
+    "RC-001__CH-001__LB-001-L1__BG-001__CM-001__PS-003__02.png",
+    "RC-001__CH-001__LB-001-L1__BG-001__CM-002__PS-002__03.png",
+    "RC-001__CH-001__LB-001-L2__BG-001__CM-001__PS-002__04.png",
+    "RC-001__CH-001__LB-001-L2__BG-001__CM-001__PS-003__05.png",
+    "RC-001__CH-001__LB-001-L2__BG-001__CM-002__PS-002__06.png"
+  ],
+  "missing": [],
+  "inbox_left": [],
+  "note": ""
+}

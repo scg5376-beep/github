@@ -49,3 +49,35 @@ Markdown + YAML 프론트매터.
 
 ## 프로필 (`profile.yaml`)
 Q0의 답(`masterpiece_forms`)과 기본값(`defaults`)을 담는다. **모든 작업의 시작점.**
+
+---
+
+## 작업 오더 (`handoff/orders/ORD-*.json`) — RELAY 전용
+Claude가 발행하고 CODEX가 읽는 지시서.
+
+| 필드 | 설명 |
+|---|---|
+| `order_id` | `ORD-YYYYMMDD-###` |
+| `status` | open / claimed / done / partial / failed |
+| `branch` | 작업 브랜치 (발행 시점의 현재 브랜치) |
+| `recipe_id` / `project` / `shot_count` | 무엇을 몇 컷 만들지 |
+| `prompt_pack` | CODEX가 읽을 `PROMPTS.md` 경로 |
+| `job` / `dest` | 작업지시서 경로 / 이미지 목적지 |
+| `cards` | 이번 오더가 사용하는 마스터피스 카드 경로들 |
+| `answers` | **확정된 Q2~Q5 답.** CODEX는 이걸 다시 묻지 않는다 |
+| `note` | 사람이 덧붙인 추가 요청 |
+| `instructions` | CODEX가 순서대로 수행할 지시 목록 |
+| `acceptance.expected_files` | **완료 조건.** 이 파일들이 전부 있어야 `done` |
+
+## 영수증 (`handoff/receipts/ORD-*.json`) — RELAY 전용
+CODEX가 발행하고 Claude가 읽는 결과 보고. **상태는 자동 판정된다.**
+
+| 필드 | 설명 |
+|---|---|
+| `status` | done(전부 생성 + 인박스 비움) / partial(일부) / failed(0개) |
+| `produced` / `missing` | 실제 생성된 파일 / 누락된 파일 |
+| `inbox_left` | `outputs/_inbox/` 에 남은 파일 — 있으면 정리를 안 한 것 |
+| `commit` | 영수증 작성 시점의 커밋 SHA |
+| `note` | 실패 원인 등 CODEX의 메모 |
+
+예시는 `templates/order.example.md`, `templates/receipt.example.json` 참고.

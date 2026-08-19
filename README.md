@@ -11,6 +11,37 @@
 
 ---
 
+## 🔀 두 가지 실행 모드 (작업 전 반드시 선택)
+
+### 모드 A · SOLO — CODEX 단독
+```
+사용자 → CODEX (질문·설계·생성·정리·커밋) → GitHub
+```
+빠르고 단순. 혼자 몇 컷 뽑을 때.
+
+### 모드 B · RELAY — Claude → CODEX → GitHub
+```
+사용자 → Claude ──[오더 발행]──→ GitHub ──→ CODEX ──[생성·정리·영수증]──→ GitHub ──→ Claude 검수
+         기획·설계·검수                        생성·커밋
+```
+한 레포를 **우편함**처럼 공유합니다. Claude가 `handoff/orders/` 에 지시서를 커밋하면
+CODEX가 받아서 이미지를 만들고 `handoff/receipts/` 에 결과를 돌려줍니다.
+컷이 많거나, 여러 프로젝트를 병행하거나, 지시·검수 이력이 남아야 할 때.
+
+|  | SOLO | RELAY |
+|---|---|---|
+| 질문 주체 | CODEX | Claude |
+| 프롬프트 설계 | CODEX | Claude |
+| 이미지 생성 | CODEX 내장 이미지 스킬 | CODEX 내장 이미지 스킬 |
+| 커밋 | CODEX | CODEX |
+| 핸드오프 파일 | 없음 | `handoff/orders` ↔ `handoff/receipts` |
+| 검수 | 사용자가 직접 | Claude가 자동 검증 후 보완 오더 |
+| 이력 추적 | 커밋 메시지만 | 오더·영수증·상태보드 |
+
+모드는 `profile.yaml` 의 `defaults.run_mode` (`solo` / `relay` / `ask`) 에 저장됩니다.
+
+---
+
 ## ⚡ 5분 시작
 
 ```bash
@@ -27,6 +58,26 @@ git clone https://github.com/<계정>/<레포>.git && cd <레포>
 ./mp sync "feat(shoot): 첫 작업"   # 인덱스 갱신 + 커밋 + 푸시
 ```
 
+**RELAY 모드라면** — Claude 쪽에서 `--order` 를 붙여 지시서를 발행하고,
+CODEX 쪽에서 `./mp state --next` 로 받아 처리합니다.
+
+```bash
+# [Claude]  오더 발행
+./mp build --recipe recipes/RC-001-아리-카페데이트.yaml --order \
+  --answers "q2=제공,q3=자산축적,q5=manual"
+./mp sync "chore(order): ORD-20260819-001 발행"
+
+# [CODEX]   수령 → 생성 → 커밋
+git pull && ./mp state --next
+./mp receipt --order ORD-20260819-001 --claim
+#  → PROMPTS.md 를 CODEX 내장 이미지 스킬로 실행, outputs/_inbox/ 에 저장
+./mp organize && ./mp receipt --order ORD-20260819-001
+./mp sync "feat(shoot): ORD-20260819-001 처리"
+
+# [Claude]  검수
+git pull && ./mp state
+```
+
 Python 3.8+ 만 있으면 됩니다. 외부 패키지 설치 불필요(PyYAML 있으면 사용, 없어도 동작).
 
 ---
@@ -39,14 +90,22 @@ Python 3.8+ 만 있으면 됩니다. 외부 패키지 설치 불필요(PyYAML �
 
 답은 `profile.yaml` 에 저장되고, 다음부터는 *"이 형태 그대로 갈까요?"* 확인만 합니다.
 
+### 실행 모드 질문 (Q1) — Q0 바로 다음
+> **CODEX 혼자 한 번에 처리할까요(SOLO)?**
+> 아니면 **Claude가 지시서를 만들고 CODEX가 생성·커밋하는 릴레이(RELAY)** 로 갈까요?
+
+모드가 정해지기 전에는 아무것도 만들지 않습니다. 답이 없으면 SOLO를 권합니다.
+
 ### 그다음 4가지
 
 | # | 질문 | 무응답 시 |
 |---|---|---|
-| **1** | 마스터피스를 **제공**하시나요, **새로 만들**까요? | 다시 질문 |
-| **2** | 작업이 끝나면 **자산으로 쌓을까요**, **이번 작업만** 할까요? | 다시 질문 |
-| **3** | CODEX 이미지를 **어느 폴더**에 저장할까요? | `outputs/_unsorted/미정` 에 커밋 |
-| **4** | **AI 자동매칭**할까요, **직접 지정**하실래요? | 다시 질문 |
+| **Q2** | 마스터피스를 **제공**하시나요, **새로 만들**까요? | 다시 질문 |
+| **Q3** | 작업이 끝나면 **자산으로 쌓을까요**, **이번 작업만** 할까요? | 다시 질문 |
+| **Q4** | CODEX 이미지를 **어느 폴더**에 저장할까요? | `outputs/_unsorted/미정` 에 커밋 |
+| **Q5** | **AI 자동매칭**할까요, **직접 지정**하실래요? | 다시 질문 |
+
+> RELAY 모드에서는 Claude가 Q2~Q5의 답을 오더에 실어 보내므로 **CODEX는 다시 묻지 않습니다.**
 
 ---
 
@@ -68,8 +127,13 @@ outputs/
 ├── projects/<프로젝트>/<레시피>/{PROMPTS.md, job.json, images/}
 └── _unsorted/미정/          분류 실패 + 사용자 무응답
 
-templates/                   새 카드 서식
-profile.yaml                 Q0의 답(마스터피스 형태) + 기본값
+handoff/            ★RELAY 전용 우편함
+├── orders/                  Claude가 쓰고 CODEX가 읽는 지시서 (ORD-###)
+├── receipts/                CODEX가 쓰고 Claude가 읽는 결과 보고
+└── STATE.md                 상태 보드 (자동 생성)
+
+templates/                   새 카드 서식 + 오더/영수증 예시
+profile.yaml                 Q0(형태)·Q1(모드)의 답 + 기본값
 mp                           초보자용 단축 명령
 ```
 
@@ -85,6 +149,9 @@ mp                           초보자용 단축 명령
 | `./mp organize` | `_inbox` 이미지를 자동 분류 + `use_count` 갱신 |
 | `./mp audit` | 자주 안 쓰는 자산 점검 · **정리 제안** |
 | `./mp sync "메시지"` | 인덱스 갱신 → 커밋 → 푸시(재시도 포함) |
+| `./mp order --job <job.json>` | **[RELAY]** CODEX용 작업 오더 발행 |
+| `./mp state` / `./mp state --next` | **[RELAY]** 상태 보드 / 다음 오더 지시서 |
+| `./mp receipt --order ORD-...` | **[RELAY]** 자동 검증 + 영수증 발행 |
 
 <details>
 <summary>스크립트를 직접 호출하려면</summary>
@@ -135,7 +202,7 @@ Q0 형태 확인 → Q1~Q4 질문 → 카드 준비 → build(프롬프트 팩)
 
 | 도구 | 연동 방식 |
 |---|---|
-| **CODEX CLI** | 레포 루트 `AGENTS.md` 를 자동으로 읽습니다. `codex/prompts/masterpiece.md` 를 `~/.codex/prompts/` 에 복사하면 `/masterpiece` 슬래시 명령 사용 가능 |
+| **CODEX CLI** | 레포 루트 `AGENTS.md` 를 자동으로 읽습니다. `codex/prompts/masterpiece-solo.md` · `masterpiece-relay.md` 를 `~/.codex/prompts/` 에 복사하면 `/masterpiece-solo`, `/masterpiece-relay` 슬래시 명령 사용 가능 |
 | **Claude Code** | `.claude/skills/masterpiece-studio/` 스킬이 자동 등록됩니다 |
 | **그 외 LLM/CLI** | `AGENTS.md` + `SKILL.md` 를 컨텍스트로 넣어주세요 |
 
@@ -155,6 +222,9 @@ Q0 형태 확인 → Q1~Q4 질문 → 카드 준비 → build(프롬프트 팩)
 | [`03-prompt-assembly.md`](.claude/skills/masterpiece-studio/references/03-prompt-assembly.md) | 프롬프트 조립 순서·충돌 해결 |
 | [`04-github-for-beginners.md`](.claude/skills/masterpiece-studio/references/04-github-for-beginners.md) | 깃 초보자용 명령어 |
 | [`05-maintenance.md`](.claude/skills/masterpiece-studio/references/05-maintenance.md) | 점검·보관·백업 |
+| [`06-mode-solo.md`](.claude/skills/masterpiece-studio/references/06-mode-solo.md) | **모드 A — CODEX 단독** |
+| [`07-mode-relay.md`](.claude/skills/masterpiece-studio/references/07-mode-relay.md) | **모드 B — Claude→CODEX→GitHub 릴레이** |
+| [`handoff/README.md`](handoff/README.md) | 오더/영수증 우편함 사용법 |
 
 ---
 

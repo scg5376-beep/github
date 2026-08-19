@@ -28,6 +28,12 @@ masterpiece_forms:
     note: ""
 
 defaults:
+  # ── 실행 모드 (Q1) ───────────────────────────────────────
+  #   solo  : CODEX 단독 — 질문·생성·정리·커밋을 CODEX가 전부 처리
+  #   relay : Claude → CODEX → GitHub — Claude가 오더를 발행하고
+  #           CODEX가 생성·커밋, 한 레포를 우편함으로 공유
+  #   ask   : 매번 물어보기
+  run_mode: ask
   save_mode: ask               # ask | archive(자산으로 축적) | run(작업만)
   match_mode: ask              # ask | auto(AI 자동매칭) | manual(수동 지정)
   output_root: outputs/projects
@@ -35,3 +41,13 @@ defaults:
   aspect: "3:2"
   image_engine: codex-builtin  # 이미지 생성은 CODEX 내장 이미지 스킬만 사용
   stale_days: 90               # 이 기간 미사용 시 정리 후보로 제안
+
+# RELAY 모드 설정 (run_mode: relay 일 때만 사용)
+relay:
+  order_dir: handoff/orders
+  receipt_dir: handoff/receipts
+  max_open_orders: 1           # 동시에 열어둘 오더 수 (충돌 방지)
+  branch: ""                   # 비우면 현재 브랜치를 사용
+  owners:                      # 폴더 소유권 — 서로의 영역을 침범하지 않는다
+    claude: [masterpieces, recipes, handoff/orders, profile.yaml]
+    codex:  [outputs, handoff/receipts]

@@ -3,6 +3,7 @@
 #   ./mp new character 아리 "은발 단발, 하늘색 눈"
 #   ./mp build --character 아리 --mode auto --count 6
 #   ./mp organize | ./mp audit | ./mp index | ./mp sync "커밋 메시지"
+#   [RELAY] ./mp order --job <job.json> | ./mp state --next | ./mp receipt --order ORD-...
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 S="$ROOT/.claude/skills/masterpiece-studio/scripts"
@@ -17,6 +18,9 @@ case "$cmd" in
     ;;
   build)    "$PY" "$S/build_prompt.py" "$@" ;;
   organize) "$PY" "$S/organize.py" "$@" ;;
+  order)    "$PY" "$S/order.py" "$@" ;;
+  receipt)  "$PY" "$S/receipt.py" "$@" ;;
+  state)    "$PY" "$S/handoff.py" "$@" ;;
   audit)    "$PY" "$S/audit.py" "$@" ;;
   index)    "$PY" "$S/index.py" "$@" ;;
   sync)
@@ -36,6 +40,7 @@ case "$cmd" in
   *)
     sed -n '2,6p' "$ROOT/mp"
     echo
-    echo "명령: new | build | organize | audit | index | sync"
+    echo "공통  : new | build | organize | audit | index | sync"
+    echo "RELAY : order | receipt | state"
     ;;
 esac

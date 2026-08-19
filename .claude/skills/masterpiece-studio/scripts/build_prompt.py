@@ -118,6 +118,12 @@ def main() -> int:
     ap.add_argument("--mode", choices=["auto", "manual"], default="manual")
     ap.add_argument("--aspect", default="3:2")
     ap.add_argument("--out", default="", help="출력 폴더 직접 지정(레포 기준)")
+    ap.add_argument("--order", action="store_true",
+                    help="RELAY 모드: 프롬프트 팩과 함께 CODEX용 작업 오더를 발행")
+    ap.add_argument("--note", default="", help="오더에 덧붙일 추가 요청")
+    ap.add_argument("--answers", default="", help="오더에 기록할 확정 답변 q2=제공,...")
+    ap.add_argument("--force-order", action="store_true",
+                    help="열린 오더가 있어도 새 오더를 발행")
     a = ap.parse_args()
 
     csv = lambda s: [x.strip() for x in str(s).split(",") if x.strip()]  # noqa: E731
@@ -258,6 +264,16 @@ def main() -> int:
     print(f"  프롬프트: {outdir / 'PROMPTS.md'}")
     print(f"  작업지시서: {outdir / 'job.json'}")
     print(f"  이미지 저장 위치: {outdir / 'images'}")
+
+    if a.order:
+        import order as O
+        answers = {}
+        for pair in [x for x in a.answers.split(",") if "=" in x]:
+            k, v = pair.split("=", 1)
+            answers[k.strip()] = v.strip()
+        o = O.create_order(str(outdir / "job.json"), a.note, answers,
+                           force=a.force_order)
+        print(f"\n[OK] 오더 발행: {o['order_id']}  ->  handoff/orders/{o['order_id']}.md")
     return 0
 
 
