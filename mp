@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # 마스터피스 스튜디오 · 초보자용 단축 명령
+#   ./mp setup  (제일 먼저: 도구 구성 · GitHub 연결)
 #   ./mp new character 아리 "은발 단발, 하늘색 눈"
 #   ./mp build --character 아리 --mode auto --count 6
 #   ./mp organize | ./mp audit | ./mp index | ./mp sync "커밋 메시지"
@@ -16,6 +17,7 @@ case "$cmd" in
     name="${1:?이름 필요}"; shift
     "$PY" "$S/new_masterpiece.py" --type "$type" --name "$name" ${1+--positive "$1"} "${@:2}"
     ;;
+  setup)    "$PY" "$S/setup.py" "$@" ;;
   build)    "$PY" "$S/build_prompt.py" "$@" ;;
   organize) "$PY" "$S/organize.py" "$@" ;;
   order)    "$PY" "$S/order.py" "$@" ;;
@@ -39,8 +41,9 @@ case "$cmd" in
     echo "[FAIL] push 실패 — 네트워크를 확인하세요" >&2; exit 1
     ;;
   *)
-    sed -n '2,6p' "$ROOT/mp"
+    sed -n '2,7p' "$ROOT/mp"
     echo
+    echo "환경  : setup            (도구 구성 · GitHub 연결 — 제일 먼저)"
     echo "공통  : new | build | organize | audit | index | sync | selftest"
     echo "RELAY : order | receipt | state"
     ;;

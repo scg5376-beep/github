@@ -18,7 +18,7 @@ Markdown + YAML 프론트매터.
 | `prompt.negative` | str | 네거티브(중복 제거 후 병합) |
 | `prompt.keywords` | list | 검색 보조 |
 | `refs` | list | 참고 이미지 경로 |
-| `looks` | list | **룩북 전용.** `{key, desc, use_count, last_used}` |
+| `looks` | list | **룩북 전용.** `{key, desc, use_count, last_used}` — 룩별 사용 이력도 `organize.py` 가 자동으로 올린다 |
 
 ## 레시피 (`recipes/*.yaml`)
 | 필드 | 설명 |

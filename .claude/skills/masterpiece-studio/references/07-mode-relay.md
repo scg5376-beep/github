@@ -1,5 +1,6 @@
 # 모드 B · RELAY — Claude → CODEX → GitHub
 
+S1(도구 구성)에서 **"클로드코드와 코덱스를 혼합해서 쓴다"** 를 고른 경우입니다.
 **기획·검수(Claude)와 생성·커밋(CODEX)을 분리**하고, 한 레포를 우편함처럼 공유합니다.
 
 ```
@@ -36,6 +37,13 @@
 같은 파일을 양쪽이 쓰지 않으므로 충돌이 거의 없습니다.
 
 ## 절차
+
+### 0단계 — 양쪽 환경 확인 (최초 1회 + 의심될 때마다)
+```bash
+./mp setup     # Claude 쪽과 CODEX 쪽에서 각각 실행
+```
+`repo_url` 과 현재 브랜치가 **양쪽에서 같아야** 합니다. 다르면 오더는 발행되는데
+CODEX가 받지 못하는 상황이 됩니다. 연결이 안 돼 있으면 `./mp setup --guide`.
 
 ### 1단계 — Claude: 오더 발행
 ```bash
@@ -79,5 +87,8 @@ git pull origin <브랜치>
 - `push` 가 거부되면 `git pull --rebase origin <브랜치>` 후 재시도.
 
 ## SOLO ↔ RELAY 전환
-`profile.yaml` 의 `defaults.run_mode` 를 바꾸면 됩니다 (`solo` / `relay` / `ask`).
+```bash
+./mp setup --tools codex    # SOLO 로
+./mp setup --tools mixed    # RELAY 로
+```
 진행 중인 오더가 있는 상태에서 SOLO로 바꾸지 마세요 — 먼저 `done` 처리부터 하세요.

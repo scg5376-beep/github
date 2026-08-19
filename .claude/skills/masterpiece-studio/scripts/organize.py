@@ -86,7 +86,7 @@ def main() -> int:
         return 0
 
     exact, by_recipe = build_index(load_jobs())
-    moved, unmatched, bump_paths = [], [], []
+    moved, unmatched, bump_paths, bump_looks = [], [], [], []
 
     for f in files:
         kind, val = match(f.stem, exact, by_recipe)
@@ -117,6 +117,9 @@ def main() -> int:
                 bump_paths.append(cards[key])
         for key in ("cameras", "perspectives"):
             bump_paths.extend(cards.get(key) or [])
+        look_key = (shot or {}).get("components", {}).get("look")
+        if cards.get("lookbook") and look_key:
+            bump_looks.append((cards["lookbook"], str(look_key)))
 
     if unmatched:
         fallback = None
@@ -139,11 +142,15 @@ def main() -> int:
                     shutil.move(str(f), str(target))
             unmatched = []
 
-    if bump_paths and not a.dry_run and not a.no_bump:
+    if not a.dry_run and not a.no_bump:
         for rel in sorted(set(bump_paths)):
             p = L.ROOT / rel
             if p.exists():
                 L.bump_usage(p, bump_paths.count(rel))
+        for rel, key in sorted(set(bump_looks)):
+            p = L.ROOT / rel
+            if p.exists():
+                L.bump_look(p, key, bump_looks.count((rel, key)))
 
     for src, rel, kind in moved:
         print(f"[{kind:8}] {src.name}  ->  {rel}")

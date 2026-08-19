@@ -107,6 +107,27 @@ def main() -> int:
         lines.append(f"| {r['verdict']} | {L.TYPES.get(r['type'], {}).get('ko', r['type'])} | "
                      f"`{r['id']}` | {r['name']} | {r['used']} | {r['why']} |")
 
+    # 카드는 쓰이지만 특정 룩만 안 쓰이는 경우를 따로 보고한다
+    idle_looks = []
+    for t, path, meta, _b in L.iter_cards("lookbook"):
+        if int(meta.get("use_count") or 0) == 0:
+            continue  # 룩북 자체가 미사용이면 위 표에서 이미 잡힌다
+        for lk in (meta.get("looks") or []):
+            used = int(lk.get("use_count") or 0)
+            idle = days_since(lk.get("last_used")) if lk.get("last_used") else None
+            if used == 0 or (idle is not None and idle >= a.stale_days):
+                idle_looks.append((meta.get("id"), meta.get("name"), lk.get("key"),
+                                   str(lk.get("desc") or "")[:30], used, idle))
+    if idle_looks:
+        lines += ["", "## 안 쓰이는 룩 (룩북은 쓰이지만 이 룩만 미사용)", "",
+                  "| 룩북 | 룩 | 설명 | 사용 | 미사용일 |", "|---|---|---|---:|---:|"]
+        for lid, lname, key, desc, used, idle in idle_looks:
+            lines.append(f"| `{lid}` {lname} | `{key}` | {desc} | {used} | "
+                         f"{idle if idle is not None else '-'} |")
+        lines.append("")
+        lines.append("룩 단위 정리는 룩북 카드의 `looks` 목록에서 해당 항목을 지우면 됩니다. "
+                     "지우기 전에 사용자에게 확인하세요.")
+
     cand = [r for r in rows if r["verdict"] == "정리후보"]
     lines += ["", "## 정리 제안", ""]
     if cand:

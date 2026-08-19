@@ -38,7 +38,7 @@ CODEX가 받아서 이미지를 만들고 `handoff/receipts/` 에 결과를 돌�
 | 검수 | 사용자가 직접 | Claude가 자동 검증 후 보완 오더 |
 | 이력 추적 | 커밋 메시지만 | 오더·영수증·상태보드 |
 
-모드는 `profile.yaml` 의 `defaults.run_mode` (`solo` / `relay` / `ask`) 에 저장됩니다.
+모드는 S1(도구 구성)의 답으로 정해지고 `profile.yaml` 의 `defaults.run_mode` 에 저장됩니다.
 
 ---
 
@@ -47,6 +47,7 @@ CODEX가 받아서 이미지를 만들고 `handoff/receipts/` 에 결과를 돌�
 ```bash
 git clone https://github.com/<계정>/<레포>.git && cd <레포>
 
+./mp setup          # 0단계: 도구 구성 + GitHub 연결 (레포가 없으면 --guide)
 ./mp index          # 지금 어떤 자산이 있는지 확인
 ./mp build --character 아리 --mode auto --count 6 --mood "귀엽고 다양한 포즈"
 #   → outputs/projects/.../PROMPTS.md 생성
@@ -84,28 +85,41 @@ Python 3.8+ 만 있으면 됩니다. 외부 패키지 설치 불필요(PyYAML �
 
 ## 🙋 AI가 작업 전에 반드시 묻는 것
 
+질문은 **두 단계**입니다.
+
+### 0단계 · 환경 설정 (최초 1회) — `./mp setup`
+
+| # | 질문 | 무응답 / 모름 |
+|---|---|---|
+| **S1** | **CODEX로만 작업하시나요? 클로드코드와 코덱스를 혼합해서 쓰시나요?** | CODEX 단독(SOLO)을 권함 |
+| **S2** | **작업물을 어느 GitHub 레포에 저장할까요?** | **`./mp setup --guide`** — 계정 → 레포 생성 → clone → 연결 → 첫 커밋까지 안내 |
+
+S1의 답이 곧 실행 모드입니다. 코덱스만 → **SOLO**, 혼합 → **RELAY**.
+0단계가 통과하기 전에는 아무것도 만들지 않습니다.
+
+```bash
+./mp setup --tools codex                                  # 또는 --tools mixed
+./mp setup --repo https://github.com/<계정>/<레포>.git      # 모르면 --guide
+```
+
+### 1단계 · 작업 질문 (매 작업)
+
 ### 최상위 질문 (Q0) — 항상 유지
 > **다섯 가지 마스터피스를 각각 어떤 형태로 쓰시나요?**
 > (텍스트 프롬프트 / 참고이미지+프롬프트 / LoRA / 캐릭터시트 / 룩 리스트 / 무드보드 …)
 
 답은 `profile.yaml` 에 저장되고, 다음부터는 *"이 형태 그대로 갈까요?"* 확인만 합니다.
 
-### 실행 모드 질문 (Q1) — Q0 바로 다음
-> **CODEX 혼자 한 번에 처리할까요(SOLO)?**
-> 아니면 **Claude가 지시서를 만들고 CODEX가 생성·커밋하는 릴레이(RELAY)** 로 갈까요?
-
-모드가 정해지기 전에는 아무것도 만들지 않습니다. 답이 없으면 SOLO를 권합니다.
-
 ### 그다음 4가지
 
 | # | 질문 | 무응답 시 |
 |---|---|---|
-| **Q2** | 마스터피스를 **제공**하시나요, **새로 만들**까요? | 다시 질문 |
-| **Q3** | 작업이 끝나면 **자산으로 쌓을까요**, **이번 작업만** 할까요? | 다시 질문 |
-| **Q4** | CODEX 이미지를 **어느 폴더**에 저장할까요? | `outputs/_unsorted/미정` 에 커밋 |
-| **Q5** | **AI 자동매칭**할까요, **직접 지정**하실래요? | 다시 질문 |
+| **Q1** | 마스터피스를 **제공**하시나요, **새로 만들**까요? | 다시 질문 |
+| **Q2** | 작업이 끝나면 **자산으로 쌓을까요**, **이번 작업만** 할까요? | 다시 질문 |
+| **Q3** | CODEX 이미지를 **어느 폴더**에 저장할까요? | `outputs/_unsorted/미정` 에 커밋 |
+| **Q4** | **AI 자동매칭**할까요, **직접 지정**하실래요? | 다시 질문 |
 
-> RELAY 모드에서는 Claude가 Q2~Q5의 답을 오더에 실어 보내므로 **CODEX는 다시 묻지 않습니다.**
+> RELAY(혼합) 모드에서는 Claude가 Q1~Q4의 답을 오더에 실어 보내므로 **CODEX는 다시 묻지 않습니다.**
 
 ---
 
@@ -133,7 +147,7 @@ handoff/            ★RELAY 전용 우편함
 └── STATE.md                 상태 보드 (자동 생성)
 
 templates/                   새 카드 서식 + 오더/영수증 예시
-profile.yaml                 Q0(형태)·Q1(모드)의 답 + 기본값
+profile.yaml                 0단계(도구·연결) + Q0(형태) 답 + 기본값
 mp                           초보자용 단축 명령
 ```
 
@@ -143,6 +157,7 @@ mp                           초보자용 단축 명령
 
 | 명령 | 하는 일 |
 |---|---|
+| `./mp setup` | **0단계** — 도구 구성·GitHub 연결 점검 (`--tools`, `--repo`, `--guide`) |
 | `./mp index` | `INDEX.md` 3종(자산·레시피·결과물) 자동 생성 |
 | `./mp new <유형> <이름> "<프롬프트>"` | 마스터피스 카드 생성 |
 | `./mp build ...` | 조합 → `PROMPTS.md` + `job.json` 생성 |
@@ -170,7 +185,7 @@ python3 .claude/skills/masterpiece-studio/scripts/audit.py           --help
 ## 🔄 작업 흐름
 
 ```
-Q0 형태 확인 → Q1~Q4 질문 → 카드 준비 → build(프롬프트 팩)
+0단계 setup(도구·연결) → Q0 형태 확인 → Q1~Q4 질문 → 카드 준비 → build(프롬프트 팩)
     → CODEX 내장 이미지 스킬로 생성 → _inbox 에 저장
     → organize(자동 분류) → index(최신화) → commit & push
 ```
@@ -225,6 +240,7 @@ Q0 형태 확인 → Q1~Q4 질문 → 카드 준비 → build(프롬프트 팩)
 | [`05-maintenance.md`](.claude/skills/masterpiece-studio/references/05-maintenance.md) | 점검·보관·백업 |
 | [`06-mode-solo.md`](.claude/skills/masterpiece-studio/references/06-mode-solo.md) | **모드 A — CODEX 단독** |
 | [`07-mode-relay.md`](.claude/skills/masterpiece-studio/references/07-mode-relay.md) | **모드 B — Claude→CODEX→GitHub 릴레이** |
+| [`08-setup-github-connect.md`](.claude/skills/masterpiece-studio/references/08-setup-github-connect.md) | **GitHub 레포 만들기·연결 가이드** |
 | [`handoff/README.md`](handoff/README.md) | 오더/영수증 우편함 사용법 |
 
 ---

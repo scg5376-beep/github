@@ -318,6 +318,20 @@ def slugify(text: str) -> str:
     return s.strip("-") or "untitled"
 
 
+def bump_look(path: pathlib.Path, key: str, n: int = 1) -> None:
+    """룩북 카드 안의 개별 룩 사용 이력을 올린다."""
+    meta, body = read_card(path)
+    looks = meta.get("looks") or []
+    hit = False
+    for lk in looks:
+        if str(lk.get("key")) == str(key):
+            lk["use_count"] = int(lk.get("use_count") or 0) + n
+            lk["last_used"] = today()
+            hit = True
+    if hit:
+        write_card(path, meta, body)
+
+
 def bump_usage(path: pathlib.Path, n: int = 1) -> None:
     meta, body = read_card(path)
     meta["use_count"] = int(meta.get("use_count") or 0) + n
