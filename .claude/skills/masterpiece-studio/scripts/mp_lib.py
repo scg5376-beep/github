@@ -59,8 +59,28 @@ try:  # pragma: no cover
 except Exception:  # PyYAML 미설치 환경 대비 폴백
     HAVE_YAML = False
 
-    def _scalar(v: str):
+    def _strip_comment(v: str) -> str:
+        """따옴표 밖의 인라인 주석(# ...)을 제거한다."""
         v = v.strip()
+        if v and v[0] in "\"'":
+            quote = v[0]
+            end = v.find(quote, 1)
+            if end != -1:
+                return v[:end + 1]
+            return v
+        depth, out = 0, []
+        for i, ch in enumerate(v):
+            if ch in "[{":
+                depth += 1
+            elif ch in "]}":
+                depth -= 1
+            elif ch == "#" and depth == 0 and (i == 0 or v[i - 1] in " \t"):
+                break
+            out.append(ch)
+        return "".join(out).strip()
+
+    def _scalar(v: str):
+        v = _strip_comment(v)
         if v.startswith("[") and v.endswith("]"):
             inner = v[1:-1].strip()
             if not inner:
@@ -116,7 +136,7 @@ except Exception:  # PyYAML 미설치 환경 대비 폴백
                     d: dict = {}
                     parent.append(d)
                     stack.append((indent + 1, d))
-                    key, val = m.group(1).strip(), m.group(2)
+                    key, val = m.group(1).strip(), _strip_comment(m.group(2))
                     d[key] = _scalar(val) if val != "" else None
                 else:
                     parent.append(_scalar(content))
@@ -125,7 +145,7 @@ except Exception:  # PyYAML 미설치 환경 대비 폴백
             m = re.match(r"^([^:]+):\s*(.*)$", line)
             if not m:
                 continue
-            key, val = m.group(1).strip(), m.group(2)
+            key, val = m.group(1).strip(), _strip_comment(m.group(2))
 
             if val in ("|", ">", "|-", ">-"):
                 block, base = [], None

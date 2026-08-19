@@ -23,6 +23,7 @@ case "$cmd" in
   state)    "$PY" "$S/handoff.py" "$@" ;;
   audit)    "$PY" "$S/audit.py" "$@" ;;
   index)    "$PY" "$S/index.py" "$@" ;;
+  selftest) "$PY" "$S/selftest.py" "$@" ;;
   sync)
     msg="${1:-chore: 마스터피스 갱신}"
     "$PY" "$S/index.py"
@@ -40,7 +41,7 @@ case "$cmd" in
   *)
     sed -n '2,6p' "$ROOT/mp"
     echo
-    echo "공통  : new | build | organize | audit | index | sync"
+    echo "공통  : new | build | organize | audit | index | sync | selftest"
     echo "RELAY : order | receipt | state"
     ;;
 esac

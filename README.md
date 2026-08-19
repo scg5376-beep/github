@@ -152,6 +152,7 @@ mp                           초보자용 단축 명령
 | `./mp order --job <job.json>` | **[RELAY]** CODEX용 작업 오더 발행 |
 | `./mp state` / `./mp state --next` | **[RELAY]** 상태 보드 / 다음 오더 지시서 |
 | `./mp receipt --order ORD-...` | **[RELAY]** 자동 검증 + 영수증 발행 |
+| `./mp selftest` | 파서 일치성·카드 필드·레시피 참조 무결성 점검 |
 
 <details>
 <summary>스크립트를 직접 호출하려면</summary>

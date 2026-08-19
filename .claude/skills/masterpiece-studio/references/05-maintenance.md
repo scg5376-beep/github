@@ -7,6 +7,16 @@ python3 .claude/skills/masterpiece-studio/scripts/index.py      # 2) 인덱스 �
 git add -A && git commit -m "feat(shoot): ..." && git push -u origin <브랜치>   # 3) 반영
 ```
 
+## 무언가 이상할 때 (제일 먼저)
+```bash
+./mp selftest
+```
+- PyYAML이 있는 환경과 없는 환경(=GitHub Actions)의 파싱 결과가 갈리는지
+- 카드에 필수 필드가 빠졌는지
+- 레시피가 존재하지 않는 마스터피스를 가리키는지
+
+세 가지를 한 번에 확인합니다. CI에서도 매 push마다 자동 실행됩니다.
+
 ## 주기 점검 (월 1회 권장)
 ```bash
 python3 .claude/skills/masterpiece-studio/scripts/audit.py --report
