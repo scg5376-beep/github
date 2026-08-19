@@ -175,8 +175,9 @@ def main() -> int:
     if n < len(combos):
         step = len(combos) / n
         combos = [combos[int(i * step)] for i in range(n)]
-    while len(combos) < n:
-        combos.append(combos[len(combos) % max(len(combos), 1)])
+    base = list(combos)          # 순환의 기준은 '원래 조합' 이어야 한다
+    while len(combos) < n:       # (증가하는 리스트를 나누면 항상 0번만 반복된다)
+        combos.append(base[len(combos) % len(base)])
     poses = pick_poses(a.mood, csv(a.poses))
 
     rid = rid or f"AD-{L.slugify(ch.get('name'))}-{L.today().replace('-', '')}"

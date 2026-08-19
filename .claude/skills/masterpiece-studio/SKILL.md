@@ -49,6 +49,11 @@ description: 영상 AI용 마스터피스(캐릭터·룩북·배경·카메라�
                                 Q4 자동매칭 / 수동지정
 ```
 
+### 설치 직후라면 먼저 (`./mp init`)
+
+폴더 구조(`masterpieces/`, `outputs/`, `recipes/`, `handoff/`, `templates/`, `profile.yaml`, `mp` …)가
+없으면 `./mp init` 을 실행한다. 이미 있는 파일은 건드리지 않는다. 설치 안내는 `INSTALL.md`.
+
 ### 0단계 — 환경 설정 (`./mp setup`)
 
 **S1 · 도구 구성 — 제일 먼저 묻는 질문**
@@ -251,4 +256,5 @@ git pull origin <브랜치> && ./mp state
 | `references/06-mode-solo.md` | **모드 A — CODEX 단독** |
 | `references/07-mode-relay.md` | **모드 B — Claude→CODEX→GitHub 릴레이** |
 | `references/08-setup-github-connect.md` | **GitHub 레포 만들기·연결 가이드** |
+| `INSTALL.md` | 스킬 설치 방법 (다른 레포로 옮길 때) |
 | `handoff/README.md` | 오더/영수증 우편함 사용법 |

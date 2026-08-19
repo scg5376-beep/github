@@ -1,0 +1,9 @@
+이 파일이 있으면 "템플릿 레포(배포 원본)"라는 뜻입니다.
+
+selftest 의 "배포 사본 최신성" 검사는 이 표식이 있을 때만 실행됩니다.
+스킬을 설치해 실제 작업에 쓰는 레포에는 이 파일이 복사되지 않으므로,
+profile.yaml 처럼 사용자가 채우는 파일 때문에 헛경고가 뜨지 않습니다.
+
+이 레포에서 mp / AGENTS.md / templates 등을 고쳤다면
+.claude/skills/masterpiece-studio/assets/ 의 사본도 함께 갱신해야 합니다.
+selftest 가 그걸 잡아 줍니다.

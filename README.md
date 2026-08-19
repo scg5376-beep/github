@@ -47,6 +47,7 @@ CODEX가 받아서 이미지를 만들고 `handoff/receipts/` 에 결과를 돌�
 ```bash
 git clone https://github.com/<계정>/<레포>.git && cd <레포>
 
+./mp init           # 처음 한 번: 폴더 구조 생성 (이미 있으면 건너뜀)
 ./mp setup          # 0단계: 도구 구성 + GitHub 연결 (레포가 없으면 --guide)
 ./mp index          # 지금 어떤 자산이 있는지 확인
 ./mp build --character 아리 --mode auto --count 6 --mood "귀엽고 다양한 포즈"
@@ -157,6 +158,7 @@ mp                           초보자용 단축 명령
 
 | 명령 | 하는 일 |
 |---|---|
+| `./mp init` | 빈 레포에 폴더 구조 생성 (설치 후 최초 1회) |
 | `./mp setup` | **0단계** — 도구 구성·GitHub 연결 점검 (`--tools`, `--repo`, `--guide`) |
 | `./mp index` | `INDEX.md` 3종(자산·레시피·결과물) 자동 생성 |
 | `./mp new <유형> <이름> "<프롬프트>"` | 마스터피스 카드 생성 |
@@ -231,6 +233,7 @@ python3 .claude/skills/masterpiece-studio/scripts/audit.py           --help
 
 | 문서 | 내용 |
 |---|---|
+| [`INSTALL.md`](.claude/skills/masterpiece-studio/INSTALL.md) | **설치 방법 (스킬만 받은 경우)** |
 | [`SKILL.md`](.claude/skills/masterpiece-studio/SKILL.md) | 전체 워크플로우 (AI가 읽는 본문) |
 | [`00-question-protocol.md`](.claude/skills/masterpiece-studio/references/00-question-protocol.md) | 질문 문구·분기·무응답 처리 |
 | [`01-schema.md`](.claude/skills/masterpiece-studio/references/01-schema.md) | 카드/레시피/job.json 필드 |
@@ -244,6 +247,18 @@ python3 .claude/skills/masterpiece-studio/scripts/audit.py           --help
 | [`handoff/README.md`](handoff/README.md) | 오더/영수증 우편함 사용법 |
 
 ---
+
+## 📦 다른 레포에 설치하기
+
+이 스킬은 **폴더 하나로 배포**됩니다. `.claude/skills/masterpiece-studio/` 를 통째로 복사해 넣고:
+
+```bash
+python3 .claude/skills/masterpiece-studio/scripts/init_repo.py   # 폴더 구조 생성
+./mp setup                                                       # 0단계 질문
+```
+
+폴더·템플릿·`mp`·`AGENTS.md` 가 자동으로 만들어집니다(이미 있는 파일은 건드리지 않음).
+자세한 건 [`INSTALL.md`](.claude/skills/masterpiece-studio/INSTALL.md).
 
 ## 🌍 공개 레포로 쓰기
 

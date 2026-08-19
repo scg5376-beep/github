@@ -105,17 +105,45 @@ def recipe_refs() -> list[str]:
     return errs
 
 
+TEMPLATE_MARKER = ".masterpiece-template"
+
+
+def asset_drift():
+    """스킬에 동봉된 배포용 사본(assets/)과 레포 루트 파일이 갈라졌는지 검사.
+
+    갈라지면 스킬을 새 레포에 설치했을 때 구버전 mp/AGENTS.md 가 깔린다.
+    단 **템플릿 레포에서만** 의미가 있다. 설치해서 쓰는 레포에서는
+    profile.yaml 처럼 사용자가 채우는 파일이 당연히 갈라지므로 건너뛴다.
+    (None 을 반환하면 '건너뜀')
+    """
+    import init_repo as I
+    if not (L.ROOT / TEMPLATE_MARKER).exists():
+        return None
+    errs = []
+    for src_rel, dst_rel, _x in I.FILES:
+        src, dst = I.ASSETS / src_rel, L.ROOT / dst_rel
+        if not src.exists():
+            errs.append(f"배포 사본 없음: assets/{src_rel}")
+        elif dst.exists() and src.read_bytes() != dst.read_bytes():
+            errs.append(f"배포 사본이 오래됨: assets/{src_rel} ≠ {dst_rel} "
+                        f"(cp {dst_rel} .claude/skills/masterpiece-studio/assets/{src_rel})")
+    return errs
+
+
 def main() -> int:
     checks = [("파서 일치성 (PyYAML vs 폴백)", parser_parity),
               ("카드 필수 필드", card_fields),
-              ("레시피 참조 무결성", recipe_refs)]
+              ("레시피 참조 무결성", recipe_refs),
+              ("배포 사본 최신성 (assets ↔ 루트)", asset_drift)]
     failed = 0
     for title, fn in checks:
         try:
             errs = fn()
         except Exception as e:  # 점검 자체가 죽어도 전체는 계속
             errs = [f"점검 중 예외: {e!r}"]
-        if errs:
+        if errs is None:
+            print(f"⏭  {title} — 건너뜀 (템플릿 레포에서만 검사)")
+        elif errs:
             failed += 1
             print(f"❌ {title}")
             for e in errs[:20]:

@@ -1,0 +1,22 @@
+# 비밀 정보
+.env
+.env.*
+*.key
+*.pem
+
+# OS / 편집기
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# 파이썬
+__pycache__/
+*.pyc
+.venv/
+
+# 임시 산출물 (인박스는 폴더만 유지)
+outputs/_inbox/*
+!outputs/_inbox/.gitkeep
+*.tmp
