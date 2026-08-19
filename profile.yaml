@@ -1,0 +1,37 @@
+# ============================================================
+#  나의 마스터피스 형태 (Q0 · 최상위 질문의 답을 저장하는 곳)
+# ------------------------------------------------------------
+#  사용자마다 쓰는 마스터피스의 "형태"가 다릅니다.
+#  작업 시작 전 AI는 항상 이 파일을 먼저 읽고,
+#  비어 있거나 '미정'이면 사용자에게 형태를 물어봅니다.
+#  한 번 채우면 다음부터는 "이 형태 그대로 갈까요?" 확인만 합니다.
+# ============================================================
+
+owner: ""                      # 예: scg5376
+updated: ""                    # 예: 2026-08-19
+
+masterpiece_forms:
+  character:
+    form: 미정                 # 예: 텍스트프롬프트 / 참고이미지+프롬프트 / LoRA / 캐릭터시트
+    note: ""
+  lookbook:
+    form: 미정                 # 예: 룩 리스트(텍스트) / 룩별 참고이미지 / 브랜드 무드보드
+    note: ""
+  background:
+    form: 미정                 # 예: 장소 프롬프트 / 배경판(이미지) / 3D 레퍼런스
+    note: ""
+  camera:
+    form: 미정                 # 예: 앵글+렌즈 텍스트 / 콘티 썸네일 / 샷리스트
+    note: ""
+  perspective:
+    form: 미정                 # 예: 1·2·3점 투시 / 심도·보케 설정 / 렌즈 왜곡 프리셋
+    note: ""
+
+defaults:
+  save_mode: ask               # ask | archive(자산으로 축적) | run(작업만)
+  match_mode: ask              # ask | auto(AI 자동매칭) | manual(수동 지정)
+  output_root: outputs/projects
+  undecided_dir: outputs/_unsorted/미정
+  aspect: "3:2"
+  image_engine: codex-builtin  # 이미지 생성은 CODEX 내장 이미지 스킬만 사용
+  stale_days: 90               # 이 기간 미사용 시 정리 후보로 제안

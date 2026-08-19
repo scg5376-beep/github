@@ -1,0 +1,40 @@
+name: 마스터피스 인덱스 자동 갱신
+
+on:
+  push:
+    paths:
+      - 'masterpieces/**'
+      - 'recipes/**'
+      - 'outputs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 인덱스 생성
+        run: python3 .claude/skills/masterpiece-studio/scripts/index.py
+
+      - name: 자산 점검 리포트
+        run: python3 .claude/skills/masterpiece-studio/scripts/audit.py --report || true
+
+      - name: 변경 사항 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add masterpieces/INDEX.md recipes/INDEX.md outputs/INDEX.md reports/ || true
+          if git diff --cached --quiet; then
+            echo "변경 사항 없음"
+          else
+            git commit -m "chore(index): 인덱스 및 점검 리포트 자동 갱신"
+            git push
+          fi

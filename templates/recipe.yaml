@@ -1,0 +1,15 @@
+# 레시피 = 저장된 작업 워크플로우(조합)
+# 실행:  python3 .claude/skills/masterpiece-studio/scripts/build_prompt.py --recipe recipes/RC-000-....yaml
+id: RC-000
+name: 레시피 이름
+character: CH-000          # ID 또는 이름
+lookbook: LB-000
+looks: [L1, L2]            # 비우면 룩북 전체
+background: BG-000
+cameras: [CM-000]
+perspectives: [PS-000]
+mood: "귀엽고 다양한 포즈"
+count: 8                   # 만들 컷 수
+project: 2026-08-프로젝트명
+mode: manual               # manual(수동 지정) | auto(AI 자동매칭)
+aspect: "3:2"

@@ -1,0 +1,19 @@
+id: RC-001
+name: 아리 / 카페데이트 / 창가카페
+character: CH-001
+lookbook: LB-001
+looks:
+- L1
+- L2
+background: BG-001
+cameras:
+- CM-001
+- CM-002
+perspectives:
+- PS-002
+- PS-003
+mood: 귀엽고 다양한 포즈
+count: 6
+project: 2026-08-아리-카페
+mode: manual
+aspect: '3:2'
