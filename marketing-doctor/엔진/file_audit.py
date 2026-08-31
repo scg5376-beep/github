@@ -143,11 +143,12 @@ def main() -> int:
     # 그리고 확인기록 링크가 그 원전이 든 묶음을 가리키는지 본다.
     # 원전을 다른 파일로 옮기고 참조를 안 고치면 근거를 못 찾게 된다.
     원전방 = ROOT / "지식/원전"
-    if 원전방.is_dir():
+    레지방 = 원전방 / "레지스트리"
+    if 레지방.is_dir():
         묶음 = {}
         try:
             import yaml
-            for y in 원전방.glob("*.yaml"):
+            for y in 레지방.glob("*.yaml"):
                 for i in (yaml.safe_load(y.read_text(encoding="utf-8")) or {}).get("원전", []):
                     묶음[i["id"]] = y.stem
         except Exception as e:
@@ -163,16 +164,16 @@ def main() -> int:
             if 없는것:
                 문제["원전에 없는 출처 ID"].append(f"{이름} — {', '.join(없는것)}")
             기대 = {묶음[i] for i in ids if i in 묶음}
-            for 링크 in set(re.findall(r"확인기록-([\w-]+)\.md", t)):
+            for 링크 in set(re.findall(r"확인기록/([^/`) ]+)\.md", t)):
                 if 기대 and 링크 not in 기대:
                     문제["확인기록 링크가 엉뚱한 묶음"].append(
-                        f"{이름} — 확인기록-{링크} 가리킴, 출처는 {'·'.join(sorted(기대))} 에 있음")
+                        f"{이름} — 확인기록/{링크} 가리킴, 출처는 {'·'.join(sorted(기대))} 에 있음")
 
     # ── 원문확인 true 인데 보관본이 없으면 잡는다
     # 등급을 올려놓고 근거 파일이 없으면 나중에 확인할 방법이 사라진다.
     # (실제로 .replace() 실수로 엉뚱한 원전이 A 로 올라간 적이 있다)
-    if 원전방.is_dir():
-        for y in 원전방.glob("*.yaml"):
+    if 레지방.is_dir():
+        for y in 레지방.glob("*.yaml"):
             try:
                 import yaml
                 항목 = (yaml.safe_load(y.read_text(encoding="utf-8")) or {}).get("원전", [])
