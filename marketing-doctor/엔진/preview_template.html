@@ -1,0 +1,200 @@
+<title>동네가게 글 진단</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#FAFBFC; --surface:#EFF3F6; --line:#DBE3EA;
+  --ink:#16202B; --muted:#5D6C7B;
+  --accent:#0E6B68; --accent-soft:#E2F0EF;
+  --crit:#B8322A; --crit-bg:#FBEDEB;
+  --warn:#8F5C0C; --warn-bg:#FBF2E2;
+  --info:#2A6595; --info-bg:#E8F0F8;
+  --shadow:0 1px 2px rgba(22,32,43,.06),0 8px 24px rgba(22,32,43,.06);
+  --serif:"Gowun Batang",Georgia,serif;
+  --sans:"IBM Plex Sans KR","Malgun Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121A21; --surface:#1B252E; --line:#2C3945;
+    --ink:#E7EEF4; --muted:#95A5B3;
+    --accent:#57B8B2; --accent-soft:#16302F;
+    --crit:#EC8175; --crit-bg:#2E1A18;
+    --warn:#DCA84C; --warn-bg:#2B2418;
+    --info:#7FB4E4; --info-bg:#16232F;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121A21; --surface:#1B252E; --line:#2C3945;
+  --ink:#E7EEF4; --muted:#95A5B3;
+  --accent:#57B8B2; --accent-soft:#16302F;
+  --crit:#EC8175; --crit-bg:#2E1A18;
+  --warn:#DCA84C; --warn-bg:#2B2418;
+  --info:#7FB4E4; --info-bg:#16232F;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:18px;line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+
+.masthead{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;
+  padding-bottom:18px;border-bottom:2px solid var(--ink);margin-bottom:12px}
+.masthead h1{font-family:var(--serif);font-weight:700;font-size:30px;margin:0;letter-spacing:-.01em}
+.masthead .sub{color:var(--muted);font-size:15px}
+.note{color:var(--muted);font-size:15px;margin:0 0 26px;line-height:1.65}
+.note b{color:var(--ink)}
+
+.cols{display:grid;grid-template-columns:minmax(340px,420px) 1fr;gap:32px;align-items:start}
+@media (max-width:880px){.cols{grid-template-columns:1fr}}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:22px;box-shadow:var(--shadow)}
+.plabel{font-size:13px;letter-spacing:.12em;color:var(--muted);
+  text-transform:uppercase;margin:0 0 14px;font-weight:600}
+
+.score{display:flex;align-items:baseline;gap:12px;margin:0 0 4px}
+.score .n{font-family:var(--serif);font-weight:700;font-size:68px;line-height:1;
+  color:var(--crit);font-variant-numeric:tabular-nums}
+.score .of{color:var(--muted);font-size:17px}
+.grade{font-weight:600;font-size:19px;color:var(--crit);margin:0 0 6px}
+.cnt{color:var(--muted);font-size:15px;margin:0 0 20px}
+
+.findings{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.finding{background:var(--paper);border:1px solid var(--line);border-radius:11px;
+  padding:15px 16px;border-left:5px solid var(--line)}
+.finding.crit{border-left-color:var(--crit)}
+.finding.warn{border-left-color:var(--warn)}
+.finding.info{border-left-color:var(--info)}
+.fhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.sev{font-size:13px;font-weight:600;padding:3px 9px;border-radius:99px}
+.crit .sev,.sev.crit{background:var(--crit-bg);color:var(--crit)}
+.warn .sev,.sev.warn{background:var(--warn-bg);color:var(--warn)}
+.info .sev,.sev.info{background:var(--info-bg);color:var(--info)}
+.pts{font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;font-size:16px}
+.finding h3{margin:0 0 5px;font-size:19px;font-weight:600;line-height:1.4}
+.ev{margin:0 0 6px;font-size:15px;color:var(--muted);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}
+.say{margin:0 0 12px;font-size:16px;color:var(--muted);line-height:1.6}
+.fix{width:100%;min-height:54px;border:0;border-radius:9px;background:var(--accent);
+  color:#fff;font-family:var(--sans);font-size:17px;font-weight:600;cursor:pointer}
+.fix:hover{filter:brightness(1.08)}
+.fix:focus-visible,.back:focus-visible,.tocitem:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.soon{display:inline-block;font-size:15px;color:var(--muted);padding:6px 0}
+
+.toc{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.tocitem{display:flex;gap:11px;align-items:center;text-align:left;width:100%;
+  min-height:54px;padding:10px 14px;border:1px solid var(--line);border-radius:9px;
+  background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;cursor:pointer;
+  border-left:5px solid var(--line)}
+.tocitem.crit{border-left-color:var(--crit)}
+.tocitem.warn{border-left-color:var(--warn)}
+.tocitem.info{border-left-color:var(--info)}
+.tocitem:hover{background:var(--surface)}
+.tid{font-weight:600;color:var(--muted);font-size:15px;min-width:30px;
+  font-variant-numeric:tabular-nums}
+
+.stage{min-height:200px}
+.empty{border:2px dashed var(--line);border-radius:14px;padding:56px 26px;text-align:center;
+  color:var(--muted)}
+.empty p{margin:0 0 6px;font-size:17px}
+
+.guide{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  padding:30px 32px 40px;box-shadow:var(--shadow);max-width:62ch}
+@media (max-width:560px){.guide{padding:22px 18px 30px}}
+.back{display:none;min-height:50px;padding:0 16px;margin-bottom:16px;border:1px solid var(--line);
+  border-radius:9px;background:var(--surface);color:var(--ink);
+  font-family:var(--sans);font-size:16px;cursor:pointer}
+@media (max-width:880px){.back{display:inline-block}}
+.gmeta{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.gid{font-weight:600;color:var(--muted);font-size:15px}
+.gtime{color:var(--muted);font-size:15px;margin-left:auto}
+.gtitle{font-family:var(--serif);font-weight:700;font-size:32px;line-height:1.3;
+  margin:0 0 22px;text-wrap:balance}
+.guide .g2{font-family:var(--serif);font-weight:700;font-size:23px;margin:34px 0 12px;
+  padding-top:16px;border-top:1px solid var(--line);text-wrap:balance}
+.guide .g3{font-size:19px;font-weight:600;margin:24px 0 10px;color:var(--accent)}
+.guide p{margin:0 0 15px}
+.guide ul,.guide ol{margin:0 0 18px;padding-left:1.4em}
+.guide li{margin-bottom:9px}
+.guide code{background:var(--surface);padding:2px 6px;border-radius:5px;font-size:.9em}
+.guide pre{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;overflow-x:auto;margin:0 0 18px}
+.guide pre code{background:none;padding:0;font-size:16px;line-height:1.75}
+.guide blockquote{margin:0 0 18px;padding:14px 18px;background:var(--accent-soft);
+  border-left:4px solid var(--accent);border-radius:0 9px 9px 0;color:var(--ink)}
+.tw{overflow-x:auto;margin:0 0 20px}
+.guide table{border-collapse:collapse;width:100%;font-size:16.5px}
+.guide th,.guide td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;
+  vertical-align:top}
+.guide th{background:var(--surface);font-weight:600;white-space:nowrap}
+.guide hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <h1>동네가게 글 진단</h1>
+    <span class="sub">가이드 미리보기 · 사장님이 보는 화면</span>
+  </header>
+  <p class="note">
+    왼쪽은 <b>글을 붙여넣었을 때 나오는 진단 결과</b>, 오른쪽은 <b>고치는 법 가이드</b>입니다.
+    지적 항목의 <b>[고치는 법 보기]</b>를 누르면 해당 가이드가 열립니다.
+    현재 <b>{{DONE}}/{{TOTAL}}개</b> 작성됨 — 가장 중요한 '치명' 항목은 모두 준비됐습니다.
+  </p>
+
+  <div class="cols">
+    <section class="panel" id="result">
+      <p class="plabel">진단 결과</p>
+      <div class="score"><span class="n">{{SCORE}}</span><span class="of">/ 100점</span></div>
+      <p class="grade">{{GRADE}}</p>
+      <p class="cnt">고칠 곳 {{NCOUNT}}군데를 찾았습니다</p>
+      <ul class="findings">{{FINDINGS}}</ul>
+
+      <p class="plabel" style="margin-top:28px">작성된 가이드 전체</p>
+      <div class="toc">{{TOC}}</div>
+    </section>
+
+    <section class="stage" id="stage">
+      <div class="empty" id="empty">
+        <p>왼쪽에서 <b>[고치는 법 보기]</b>를 눌러보세요.</p>
+        <p>사장님이 실제로 읽게 될 가이드가 여기 열립니다.</p>
+      </div>
+      {{GUIDES}}
+    </section>
+  </div>
+</div>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'),empty=document.getElementById('empty'),
+      result=document.getElementById('result');
+  function show(id){
+    stage.querySelectorAll('.guide').forEach(function(g){g.hidden=(g.id!=='g-'+id)});
+    empty.hidden=true;
+    if(window.matchMedia('(max-width:880px)').matches){
+      result.style.display='none';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }else{
+      var g=document.getElementById('g-'+id);
+      if(g) g.scrollIntoView({block:'nearest',behavior:'smooth'});
+    }
+  }
+  // 넓은 화면에서는 첫 가이드를 열어둔다 (미리보기라 빈 화면을 보여줄 이유가 없다)
+  if(!window.matchMedia('(max-width:880px)').matches){
+    var first=stage.querySelector('.guide');
+    if(first){first.hidden=false;empty.hidden=true;}
+  }
+  document.addEventListener('click',function(e){
+    var go=e.target.closest('[data-go]');
+    if(go){show(go.getAttribute('data-go'));return}
+    if(e.target.closest('[data-back]')){
+      result.style.display='';
+      stage.querySelectorAll('.guide').forEach(function(g){g.hidden=true});
+      empty.hidden=false;
+      result.scrollIntoView({block:'start',behavior:'smooth'});
+    }
+  });
+})();
+</script>

@@ -1,0 +1,102 @@
+# 원전 레지스트리 — 해외 실증 연구 · 검색 · 읽기 · 퍼짐
+# 손님이 어떻게 찾고 어떻게 읽는가. 네이버·구글 공식 문서는 플랫폼.yaml 에 따로 있다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: 확인기록/해외-검색.md
+# 형제 묶음: 해외-가격 · 해외-고르게하기 · 해외-브랜드성장 · 해외-보여주기
+
+버전: 1.6
+갱신일: 2026-08-29
+
+원전:
+- id: SI-01
+  이름: A Taxonomy of Web Search
+  저자: Andrei Broder
+  기관: IBM Research · SIGIR Forum
+  연도: 2002
+  등급: B
+  근거: 실증
+  원문확인: false
+  자료: AltaVista 이용자 설문 + 질의 로그 분석
+  결과: "검색을 '질의 뒤에 있는 필요' 로 세 갈래로 나눴다.\n  정보형 informational   무언가를 알고 싶다        39~48%\n  거래형 transactional\
+    \   무언가를 하려 한다        22~36%\n  이동형 navigational    특정 사이트로 가려 한다    20~24.5%\nRose & Levinson (2004)\
+    \ 이 하위 분류로 다듬었다.\n"
+  확인한곳:
+  - https://sigir.org/files/forum/F2002/broder.pdf
+  - https://dl.acm.org/doi/pdf/10.1145/792550.792552
+
+- id: RD-01
+  이름: 웹에서 사람이 글을 읽는 방식 (아이트래킹 연구)
+  저자: Nielsen Norman Group
+  연도: 2006 F-패턴 최초 보고 · 이후 20년간 반복 확인
+  등급: B
+  근거: 실증
+  원문확인: false
+  성격주의: |
+    ⚠️ 상업 UX 연구기관이다. 동료심사를 거친 학술 논문이 아니다.
+    자체 아이트래킹 실험을 근거로 든다. 이 점을 밝히고 인용한다.
+  결과: |
+    사람은 웹에서 '읽지' 않고 '훑는다'. 평균적으로 페이지 내용의 20~28% 만 읽는다.
+    최초 실험은 232명 아이트래킹. 20년간 결과가 일관되게 재확인됐다.
+    훑는 방식은 네 가지로 정리된다.
+      F 패턴        위쪽을 가로로, 그 아래를 짧게 가로로, 그다음 왼쪽만 세로로
+      케이크층 패턴  소제목만 따라 내려가다 관심 있는 데서 멈춘다
+      점박이 패턴    찾는 낱말만 튀어 다닌다
+      몰입 패턴      실제로 처음부터 끝까지 읽는다 (드물다)
+    어떤 패턴이 나오는지는 페이지가 어떻게 생겼느냐에 달렸다.
+  확인한곳:
+    - https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/
+    - https://www.nngroup.com/articles/text-scanning-patterns-eyetracking/
+
+- id: SI-02
+  이름: 검색 의도 분포 최신 조사 (상업 조사기관)
+  저자: Semrush · Datos · Profound
+  연도: 2025~2026
+  등급: B
+  근거: 실증
+  원문확인: false
+  성격주의: |
+    ⚠️ 셋 다 상업 조사기관·SEO 도구 회사다. 동료심사 논문이 아니다.
+    자체 데이터 규모는 크지만 분류 기준을 공개하지 않는다.
+    "연구에 따르면" 이 아니라 "OO 사의 분석에서" 로 인용한다.
+  확인한것: |
+    [Semrush 2026] 184억 건 질의 · 142개국
+      정보형 57.3% (52% 에서 상승)
+      거래형 전년 대비 +19% 성장 · 이동형 -6% 감소
+      건강 · AI 활용법 · 재무설계 질의가 44% 급증한 것이 정보형 상승을 이끌었다
+
+    [Datos, The State of Search Q1 2025]
+      이동형 약 30%
+      거래형 0.82%  ← Semrush·Broder 와 극단적으로 어긋난다
+
+    [Profound 2025] ChatGPT 프롬프트 5,000만 건 이상 분석
+      생성형 37.5% · 정보형 32.7% · 무의도 12.1%
+      상업형 9.5% · 거래형 6.1% · 이동형 2.1%
+      → 이동형이 32% 에서 2% 로 붕괴했다.
+        AI 안에서는 '어디로 가려는' 검색이 필요 없기 때문이다.
+      → '생성형' 이라는 새 유형이 등장했다. 찾는 게 아니라 만들어 달라는 것.
+  확인한곳:
+    - https://www.semrush.com/blog/semrush-ai-overviews-study/
+    - https://www.tryprofound.com/blog/chatgpt-intent-landmark-study
+    - https://statista.com/statistics/1614663/usa-search-intent-google-chatgpt
+
+- id: VR-01
+  이름: "What Makes Online Content Viral?"
+  저자: Jonah Berger, Katherine L. Milkman
+  기관: Journal of Marketing Research
+  연도: 2012
+  등급: B
+  근거: 실증
+  원문확인: false
+  S후보: true
+  자료: 뉴욕타임스 3개월치 전체 기사와 '가장 많이 이메일로 공유된 기사' 목록
+  결과: |
+    퍼짐은 부분적으로 '생리적 각성(arousal)' 이 이끈다.
+    감정이 좋으냐 나쁘냐(valence)보다 '각성 수준' 이 중요하다.
+      높은 각성  경외(awe) · 분노 · 불안   → 잘 퍼진다
+      낮은 각성  슬픔                      → 덜 퍼진다
+    긍정 콘텐츠가 부정보다 더 잘 퍼지되, 각성 수준이 그만큼 중요하다.
+  영향: 10년 영향력상 수상. 1,300회 이상 인용.
+  확인한곳:
+    - https://journals.sagepub.com/doi/10.1509/jmr.10.0353
+    - http://jonahberger.com/wp-content/uploads/2013/02/ViralityB.pdf
+    - https://www.socialsciencespace.com/2023/05/a-viral-paper-on-determining-what-makes-online-content-viral/

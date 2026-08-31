@@ -1,0 +1,93 @@
+# 원전 레지스트리 — 플랫폼 공식 문서 · 네이버 가게(광고·플레이스)
+# 돈 내는 광고와 지도·플레이스. 블로그 검색 쪽은 플랫폼-네이버.yaml 에 있다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: 확인기록/플랫폼-네이버-가게.md
+# 형제 묶음: 플랫폼-네이버.yaml · 플랫폼-메타구글.yaml   |   전문 보관: 원문/
+
+버전: 1.0
+갱신일: 2026-08-31
+
+원전:
+- id: NV-04
+  이름: 네이버 광고주센터 공식 도움말 (검색광고·플레이스광고)
+  저자: 네이버
+  기관: 네이버 광고주센터 ads.naver.com
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 파워링크 노출 순위는 어떻게 결정되나요
+    url: https://ads.naver.com/help/faq/189
+  - 이름: 쇼핑 노출 순위는 어떻게 결정되나요
+    url: https://ads.naver.com/help/faq/253
+  - 이름: 플레이스광고 과금 영역은 어떻게 되나요
+    url: https://ads.naver.com/help/faq/400
+  - 이름: 플레이스광고가 무엇인지 궁금해요
+    url: https://ads.naver.com/help/faq/1044
+  - 이름: 브랜드검색 광고는 어떻게 과금되나요
+    url: https://ads.naver.com/help/faq/1006
+  - 이름: 최소 노출 입찰가와 중간 입찰가는 무엇입니까
+    url: https://ads.naver.com/help/faq/1341
+  - 이름: 내 파워링크 광고가 어디에 노출되는지 궁금해요
+    url: https://ads.naver.com/help/faq/1012
+  - 이름: 네이버 및 네이버 제휴사 사칭 광고 피해 주의 안내
+    url: https://ads.naver.com/help/faq/87
+  - 이름: 불법영업 피해예방
+    url: https://ads.naver.com/help/report
+  못한것: 전문 열람 (naver.com 접근 차단). 발췌문이 "..." 로 끊긴 뒤는 모른다.
+  승급조건: 위 URL 들을 열어 전문을 확인하면 A.
+  확인한곳:
+  - https://new.smartplace.naver.com/notices/26
+  - https://dream.gnsinbo.or.kr/bbs/board.php?bo_table=03_01&wr_id=14
+
+- id: NV-05
+  이름: 스마트플레이스 사업주 고객센터 공식 안내 (플레이스 순위·사진·어뷰징)
+  저자: 네이버
+  기관: 네이버 스마트플레이스 사업주 고객센터 help.naver.com/service/30026
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 플레이스 업체 검색 순위 알고리즘 안내
+    url: https://help.naver.com/service/30026/contents/23472
+  - 이름: 플레이스 업체 검색 순위를 높이는 방법 안내
+    url: https://help.naver.com/service/30026/contents/23473
+  - 이름: 플레이스 업체 검색 결과에서 어뷰징 요소의 판정 기준 안내
+    url: https://help.naver.com/search/searchAll.help?searchText=%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4+%EA%B2%80%EC%83%89+%EC%96%B4%EB%B7%B0%EC%A7%95
+  - 이름: 플레이스 SEO 및 어뷰징 운영원칙
+    url: https://smartplace.naver.com/help/policy?menu=abuse&tab=smartplace
+  - 이름: 미용실 플레이스 시술사진 등록 기준 안내
+    url: https://help.naver.com/service/30026/contents/20426
+  - 이름: 플레이스 AI 브리핑 노출 안내
+    url: https://help.naver.com/service/30026/contents/24632
+  - 이름: 업체 신규등록 방법
+    url: https://help.naver.com/service/30026/contents/20366
+  결과: |
+    확보한 발췌문(네이버 자체 색인 스니펫)에서 확인한 문장이다.
+
+    ① 순위 요소 — 두 문서에 같은 문장이 실려 있다.
+       "네이버 플레이스 검색 결과 순위는 이용자의 다양한 니즈를 고려하여,
+        검색 질의에 대한 업체 유사도, 검색질의에 대한 카테고리와 업체의 인기도,
+        거리, 정보의 충실성 등을 감안하여 결정합니다."
+       → 유사도 · 인기도 · 거리 · 정보의 충실성. '등' 으로 끝나므로 전부가 아니다.
+
+    ② 시술 사진 — 미용실 문서.
+       "스마트플레이스에서 시술 사진을 등록하면 업체 정보뿐 아니라,
+        네이버 검색 결과에도 함께 노출됩니다. 따라서 검색 결과 품질을 위해
+        수시로 시술 사진 모니터링을 진행하고 있습니다.
+        모자이크, 합성사진, 뒷머리만 ..."
+       → 모자이크·합성사진·뒷머리만 나온 사진이 걸린다. 뒤는 끊겨서 모른다.
+
+    ③ 어뷰징 — "각종 프로그램과 기술적인 도구들로 트래픽을 과도하게 유발" 하는
+       행위를 판정 대상으로 삼는다고 밝힌다. 세부 기준은 확보하지 못했다.
+  못한것: |
+    전문 열람 (naver.com 접근 차단). 스니펫이 "..." 로 끊긴 뒤는 모른다.
+    특히 시술사진 금지 목록의 나머지와, 순위 요소의 '등' 에 무엇이 더 있는지 모른다.
+    23473(순위 높이는 방법) 은 본문 첫 문단 말고는 확보하지 못했다.
+  승급조건: 위 URL 들을 열어 전문을 붙여 주시면 A. 특히 23472 · 23473 · 20426.
+  확인한곳:
+  - https://help.naver.com/service/30026/contents/23472
+  - https://smartplace.naver.com/help/policy?menu=abuse&tab=smartplace
+  - https://help.naver.com/service/30026/contents/20426
