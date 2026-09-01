@@ -183,7 +183,7 @@ def main() -> int:
                 if not i.get("원문확인"):
                     continue
                 보관 = i.get("원문보관", "")
-                실제 = list((원전방 / "원문").glob(f"{i['id']}-*.md")) if (원전방/"원문").is_dir() else []
+                실제 = list((원전방 / "원문").rglob(f"{i['id']}-*.md")) if (원전방/"원문").is_dir() else []
                 if not 보관 and not 실제:
                     문제["원문확인 true 인데 보관본 없음"].append(
                         f"{y.name} — {i['id']} · 원문을 확인했다면 원전/원문/ 에 보관본이 있어야 한다")
