@@ -1,11 +1,11 @@
-# 원전 레지스트리 — 플랫폼 공식 문서 · 메타 · 구글
-# 인스타·페이스북과 구글. 국가별 지원 범위가 자주 바뀐다 — 반년마다 확인.
+# 원전 레지스트리 — 플랫폼 공식 문서 · 메타(인스타그램·페이스북)
+# 자격 요건 · 머신 러닝 단계 · 광고 규정. "~라고 밝힌다" 로 인용한다.
 #
 # 등급 기준: 지식/출처등급.md   |   확인기록: ../확인기록/플랫폼-메타구글.md
-# 형제 묶음: 플랫폼-네이버.yaml · 플랫폼-네이버-가게.yaml   |   전문 보관: ../원문/
+# 형제 묶음: 플랫폼-구글.yaml · 플랫폼-네이버.yaml   |   전문 보관: ../원문/메타/
 
-버전: 1.8
-갱신일: 2026-08-31
+버전: 2.0
+갱신일: 2026-09-01
 
 원전:
 - id: MT-01
@@ -42,19 +42,6 @@
     '
   못한것: 전문 열람 (facebook.com · instagram.com 접근 차단)
   승급조건: 위 URL 을 열어 전문을 확인하면 A.
-- id: GG-01
-  이름: Creating Helpful, Reliable, People-First Content
-  저자: Google
-  기관: Google Search Central (공식 문서)
-  등급: B
-  근거: 공식
-  원문확인: false
-  공식문서:
-  - url: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
-  공식문서위치: 확인됨
-  못한것: 전문 열람 (developers.google.com 접근 차단). 자기점검 질문 전체 목록 미확보.
-  승급조건: 공식문서 URL 을 열어 전문을 확인하면 A.
-  오류복원: 2026-08-31 — MT-01 을 고칠 때 .replace() 가 같은 모양의 블록을 둘 다 바꿔 GG-01 이 A 로 잘못 올라가 있었다. 되돌렸다.
 
 - id: MT-02
   이름: 메타 광고 기준(Advertising Standards)과 광고 검토 정책
@@ -137,4 +124,3 @@
   확인한곳:
   - https://transparency.meta.com/policies/ad-standards/
   - https://www.facebook.com/business/ads/review-policy-guidelines
-
