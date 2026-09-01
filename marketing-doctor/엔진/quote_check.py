@@ -23,7 +23,18 @@ ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 \
 
 
 def 정규화(s: str) -> str:
-    return re.sub(r"[\s*\"“”·)…]", "", s)   # 생략 표시·강조 기호는 무시한다
+    return re.sub(r"[\s*\"“”·)\[\]]", "", s)   # 공백·강조 기호는 무시한다
+
+
+def 원문에있나(q: str, 원문: str) -> bool:
+    """생략 표시(… 또는 […])로 끊긴 인용은 조각마다 따로 찾는다.
+
+    가운데를 줄인 인용도 '표시했으면' 정직한 인용이다. 조각이 전부 원문에
+    있으면 통과시킨다. 표시 없이 잘라낸 것만 잡아내는 게 목적이다.
+    """
+    조각 = [정규화(x) for x in re.split(r"…", q)]
+    조각 = [x for x in 조각 if len(x) >= 6]     # 너무 짧은 꼬리는 버린다
+    return bool(조각) and all(x in 원문 for x in 조각)
 
 
 def main() -> int:
@@ -46,7 +57,7 @@ def main() -> int:
                 if "\n\n" in q:               # 인용 짝이 어긋나 문단을 삼킨 경우
                     continue
                 총 += 1
-                if 정규화(q.rstrip("…").rstrip(".")) not in 원문:
+                if not 원문에있나(q.rstrip("."), 원문):
                     못찾음.append((str(p.relative_to(ROOT)), " ".join(q.split())))
 
     print("인용 대조 — marketing-doctor")
