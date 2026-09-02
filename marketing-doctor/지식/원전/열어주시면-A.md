@@ -80,7 +80,8 @@
 ✅ NS-01  사이트 등록 및 소유확인              2026-09-02 확보 → A
 ✅ NS-01  콘텐츠 작성시 권장 사항            2026-09-02 확보 → A
 ✅ EC-01  스마트스토어 수수료의 종류          2026-09-02 확보 → A
-□ EC-03  쿠팡 FAQ · 수수료 표                marketplace.coupang.com/faq · cloud.mkt.coupang.com/Fee-Table
+✅ EC-03  쿠팡 카테고리별 판매 수수료 표      2026-09-02 확보 → A
+□ EC-03  쿠팡 FAQ 본문                    marketplace.coupang.com/faq
 □ GS-01  구글 검색 기술 요건                  developers.google.com/search/docs/essentials/technical
 □ GS-07  Core Web Vitals 기준값              web.dev/articles/vitals
 □ KA-01  KRNIC 도메인이름 등록               nic.or.kr/jsp/business/management/domain/registrationInfo.jsp
