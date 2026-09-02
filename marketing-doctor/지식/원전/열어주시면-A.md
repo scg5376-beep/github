@@ -77,7 +77,7 @@
 ✅ NS-01  검색엔진 최적화의 목적 (10가지)     2026-09-02 확보 → A
 □ NS-01  HTML 마크업 가이드
 □ NS-01  robots.txt 설정하기 · RSS 및 사이트맵 제출
-□ NS-01  사이트 등록 및 소유확인 FAQ          searchadvisor.naver.com/guide/faq-start-register
+✅ NS-01  사이트 등록 및 소유확인              2026-09-02 확보 → A
 □ NS-01  콘텐츠 작성시 권장 사항              searchadvisor.naver.com/guide/content-basic
 □ EC-01  스마트스토어 수수료 FAQ              help.sell.smartstore.naver.com/faq/content.help?faqId=3558
 □ EC-03  쿠팡 FAQ · 수수료 표                marketplace.coupang.com/faq · cloud.mkt.coupang.com/Fee-Table
