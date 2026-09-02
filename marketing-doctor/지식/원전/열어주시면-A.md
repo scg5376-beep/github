@@ -55,7 +55,7 @@
 **2026-09-02 에 기술 요구사항 하나가 A 가 됐다.** 나머지 구글 문서는 아직 B 다.
 
 ```
-□ GG-02  스팸 정책        developers.google.com/search/docs/essentials/spam-policies
+✅ GG-02  스팸 정책 (한국어판)          2026-09-02 확보 → A
 □ GG-02  2024-03 공식블로그 developers.google.com/search/blog/2024/03/core-update-spam-policies
 □ GG-03  비즈니스 정보 표시  support.google.com/business/answer/3038177
 □ GG-03  금지·제한 콘텐츠   support.google.com/business/answer/7400114

@@ -24,53 +24,50 @@
   오류복원: 2026-08-31 — MT-01 을 고칠 때 .replace() 가 같은 모양의 블록을 둘 다 바꿔 GG-01 이 A 로 잘못 올라가 있었다. 되돌렸다.
 
 - id: GG-02
-  이름: Google Search Essentials (검색 필수 요건) 와 Spam Policies (스팸 정책)
+  이름: Google 웹 검색의 스팸 정책
   저자: Google
   기관: Google Search Central (공식 문서)
-  연도: Search Essentials 는 2022-10-11 에 Webmaster Guidelines 를 대체했다고 전해진다
-  등급: B
+  등급: A
   근거: 공식
-  원문확인: false
+  원문확인: true
+  원문보관: 구글/
   공식문서위치: 확인됨
   공식문서:
+  - 이름: Google 웹 검색의 스팸 정책
+    url: https://developers.google.com/search/docs/essentials/spam-policies
   - 이름: Google Search Essentials
     url: https://developers.google.com/search/docs/essentials
-  - 이름: Spam Policies for Google Web Search
-    url: https://developers.google.com/search/docs/essentials/spam-policies
-  - 이름: March 2024 core update and new spam policies (공식 블로그)
-    url: https://developers.google.com/search/blog/2024/03/core-update-spam-policies
+  전문확인:
+  - 한국어판 전문 — 2026-09-02, 사장님이 열어 붙여 주심
+  미확인:
+  - 사이트 인지도 정책의 "자세한 안내"(사람 검토 요소 · 조치 가능성 예시 셋 · EEA FAQ 넷).
+    받았으나 동네 가게와 무관해 보관본에 담지 않았다
+  - 영어 원문. 확보한 것은 한국어판이다
+  - 2024-03 코어 업데이트 공식 블로그 (별도 문서)
   결과: |
-    ⚠️ google.com 계열이 전부 차단돼 원문을 못 열었다.
-    "구글 문서에 이렇게 적힌 것으로 전해진다" 로 쓴다. 큰따옴표를 쓰지 않는다.
-
-    검색 필수 요건은 세 부분으로 돼 있다고 전해진다.
-      기술 요건(Technical requirements)  구글이 페이지를 검색에 보여주려면 최소한
-                                        필요한 것. 크롤러 접근이 막히면 색인되지 않는다
-      스팸 정책(Spam policies)           순위가 내려가거나 아예 빠지게 만드는 행위
-      핵심 권장사항(Key best practices)   도움이 되는·신뢰할 수 있는·사람을 위한 콘텐츠
-
-    ★ 2024년 3월에 스팸 정책 세 가지가 새로 추가됐다고 전해진다.
-      대량 콘텐츠 남용(scaled content abuse)
-        검색 순위를 조작할 목적으로 이용자에게 도움이 되지 않는 페이지를 대량 생성하는 것.
-        가치가 거의 없는 비독창적 콘텐츠를 대량으로 만드는 데 초점이 맞춰진 관행이며,
-        ★ 만드는 방식과 무관하게 적용된다고 전해진다
-          (영어 표현은 no matter how it's created 로 전해진다. 원문 대조 못 함.
-           우리말 번역을 큰따옴표로 인용하지 않는다 — 확인한 문구가 아니다)
-      만료 도메인 남용(expired domain abuse)
-        만료된 도메인을 사서 과거 평판을 이용해 저품질 콘텐츠를 올리는 것
-      사이트 평판 남용(site reputation abuse)
-        기생 SEO(parasite SEO). 2024-05-05 부터 적용된다고 전해진다
-
-    그 밖에 클로킹, 도어웨이 남용, 해킹된 콘텐츠, 숨긴 텍스트, 키워드 스터핑 등이
-    스팸 정책에 포함된다고 전해진다.
-  못한것: |
-    각 항목의 원문 정의와 전체 목록을 확인하지 못했다.
-    기술 요건의 세부(상태 코드 · robots · 색인 가능 형식)도 원문을 못 봤다.
-  승급조건: 위 URL 을 열어 붙여 주시면 A. developers.google.com 차단.
-  확인한곳:
-  - https://developers.google.com/search/docs/essentials/spam-policies
-  - https://developers.google.com/search/blog/2024/03/core-update-spam-policies
-
+    ★ 이 창고가 틀리게 적어 뒀던 것 — 공식 명칭이 다르다
+    · "대량 콘텐츠 남용(scaled content abuse)" → 한국어 공식 명칭은 확장된 콘텐츠 악용
+    · "만료 도메인 남용" → 만료된 도메인 악용
+    · "사이트 평판 남용 / 기생 SEO" → 사이트 인지도 정책
+    · "키워드 스터핑" → 유인 키워드 반복
+    · "도어웨이 남용" → 도어웨이 악용
+    · 사이트 평판 남용의 2024-05-05 적용일은 이 문서에 없다. 2차 자료가 하던 말이다
+    ★ 오래 못 쓰고 있던 문장의 공식 한국어판을 확보했다
+    · 확장된 콘텐츠 악용은 "생성 방법에 관계없이" 가치 없고 독창적이지 않은 콘텐츠를
+      대량으로 만드는 데 중점을 둔 관행이라고 정의한다
+      → 그동안 영어 no matter how it's created 를 우리가 번역해 큰따옴표 없이 썼다.
+        이제 공식 문구가 있으므로 그대로 인용한다
+    · 예시 첫 줄이 "생성형 AI 도구 또는 기타 유사한 도구를 사용하여 사용자에 대한 가치
+      창출 없이 많은 다량의 페이지 생성" 이다
+    ★ 새로 확인한 것
+    · 스팸 정의에 "생성형 AI 대답을 조작하려고 시도하는 것" 이 들어간다
+    · 링크는 rel="nofollow" 또는 rel="sponsored" 를 붙이면 사고팔아도 위반이 아니다
+    · 사용자 생성 스팸 — 댓글·게시판 스팸. 사이트 소유자가 모르는 경우가 많다고 명시
+    · 사이트 인지도 정책은 EEA 안과 밖의 처리가 다르다 (밖은 직접 조치, 안은 별도 분류)
+    · 숨기기·표시 UI 중 위반이 아닌 것 넷을 명시 — 아코디언·탭 / 슬라이드쇼 /
+      상호작용 시 나오는 도움말 / 스크린 리더 전용 텍스트
+    · 순위 내리기·삭제로 이어지는 기타 관행 — 법적 삭제 · 개인 정보 삭제 · 정책 회피 · 사기
+  승급조건: 완료. 2024-03 공식 블로그와 사이트 인지도 자세한 안내는 별도.
 - id: GG-03
   이름: Google 비즈니스 프로필 정책 (Guidelines for representing your business on Google)
   저자: Google
