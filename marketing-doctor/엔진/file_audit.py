@@ -148,7 +148,7 @@ def main() -> int:
         묶음 = {}
         try:
             import yaml
-            for y in 레지방.glob("*.yaml"):
+            for y in 레지방.rglob("*.yaml"):
                 for i in (yaml.safe_load(y.read_text(encoding="utf-8")) or {}).get("원전", []):
                     묶음[i["id"]] = y.stem
         except Exception as e:
@@ -164,7 +164,7 @@ def main() -> int:
             if 없는것:
                 문제["원전에 없는 출처 ID"].append(f"{이름} — {', '.join(없는것)}")
             기대 = {묶음[i] for i in ids if i in 묶음}
-            for 링크 in set(re.findall(r"확인기록/([^/`) ]+)\.md", t)):
+            for 링크 in set(re.findall(r"확인기록/(?:[^/`) ]+/)?([^/`) ]+)\.md", t)):
                 if 기대 and 링크 not in 기대:
                     문제["확인기록 링크가 엉뚱한 묶음"].append(
                         f"{이름} — 확인기록/{링크} 가리킴, 출처는 {'·'.join(sorted(기대))} 에 있음")
@@ -173,7 +173,7 @@ def main() -> int:
     # 등급을 올려놓고 근거 파일이 없으면 나중에 확인할 방법이 사라진다.
     # (실제로 .replace() 실수로 엉뚱한 원전이 A 로 올라간 적이 있다)
     if 레지방.is_dir():
-        for y in 레지방.glob("*.yaml"):
+        for y in 레지방.rglob("*.yaml"):
             try:
                 import yaml
                 항목 = (yaml.safe_load(y.read_text(encoding="utf-8")) or {}).get("원전", [])

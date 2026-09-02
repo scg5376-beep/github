@@ -1,0 +1,235 @@
+# 원전 레지스트리 — 국내 법령·고시·행정 안내
+# 온라인 판매·홈페이지 운영에 걸리는 법. 시행일이 곧 유효기간이다 — 반드시 붙여 쓴다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/국내/국내-법령.md
+# ⚠️ law.go.kr · gov.kr · nts.go.kr · ftc.go.kr · pipc.go.kr 이 이 환경에서 전부 차단됐다.
+#    조문은 네이버 웹문서 발췌(법령정보센터 색인)로만 봤다. 전문 미확인 → 전부 B.
+
+버전: 1.0
+갱신일: 2026-09-02
+
+원전:
+- id: LW-01
+  이름: 전자상거래 등에서의 소비자보호에 관한 법률 (전자상거래법)
+  기관: 공정거래위원회 소관 · 국가법령정보센터
+  연도: 현행 [시행 2026-07-21] [법률 제21312호, 2026-01-20 일부개정]
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 법령 본문
+    url: https://www.law.go.kr/법령/전자상거래등에서의소비자보호에관한법률
+  - 이름: 제17조(청약철회등) 단독 조문
+    url: https://law.go.kr/법령/전자상거래등에서의소비자보호에관한법률/제17조
+  - 이름: 2026-01-20 개정 이유·주요내용
+    url: https://www.law.go.kr/lsInfoP.do?lsiSeq=282793&viewCls=lsRvsDocInfoR
+  결과: |
+    발췌로 확인한 조문 (원문 대조 못 함 — 큰따옴표 안 씀)
+    · 제12조 통신판매업자의 신고. 제4항에 따라 공정위가 신고된 사업자 신원정보를 공개
+    · 제13조 신원 및 거래조건에 대한 정보의 제공 — 제2항: 계약체결 전 거래조건 제공
+    · 제17조 청약철회 — 계약내용 서면을 받은 날부터 7일. 재화 공급이 더 늦으면 공급받은 날부터
+    · 제24조 소비자피해보상보험계약 등(결제대금예치) — 선지급식 통신판매에 구매안전서비스
+    · 제10조 사이버몰 운영자의 의무 — 공정위 제재 보도자료(당근마켓·에어비앤비·마이리얼트립)가
+      상호·대표자·주소·전화·전자우편·사업자등록번호·호스팅서비스 제공자 상호 표시,
+      이용약관 화면을 초기화면에 연결할 의무를 이 조에 근거해 적용했다
+    · 2026-01-20 개정 이유: C2C 성장에 따라 통신판매중개업자의 개인판매자 정보 확인·제공 의무 등
+      (법률 제21312호, 시행 2026-07-21). 해외사업자 국내대리인 지정·동의의결 도입도 같은 개정으로 전해진다
+  못한것: |
+    각 조문 전문. 제13조 제1항의 표시 항목 전체. 시행령 제10조(표시 방법) 본문.
+    easylaw 가 "2027-01-21 시행" 개정을 예고했는데 어느 조항인지 특정하지 못했다.
+  승급조건: 위 URL 을 열어 조문을 붙여 주시면 A. law.go.kr 차단.
+  확인한곳:
+  - https://www.easylaw.go.kr/CSP/CnpClsMainBtr.laf?csmSeq=25&ccfNo=2&cciNo=2&cnpClsNo=1
+  - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156738274
+  - https://www.ftc.go.kr/www/downloadBbsFile.do?atchmnflNo=50301
+  - https://www.bkl.co.kr/law/insight/newsletter/6365
+
+- id: LW-02
+  이름: 통신판매업 신고 면제 기준에 대한 고시
+  기관: 공정거래위원회 고시
+  연도: 2020-07-29 시행 개정 (간이과세자 면제 추가)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.law.go.kr/행정규칙/통신판매업신고면제기준에대한고시
+  결과: |
+    제2조 제1항 — 법 제12조 제1항에 따른 신고를 아니할 수 있는 통신판매업자
+      1. 직전년도 동안 통신판매의 거래횟수가 50회 미만인 경우
+      2. 부가가치세법상 간이과세자인 경우 (2020-07-29 시행 개정으로 추가 — 원주시 보도자료)
+    개정 전에는 "최근 6개월 거래 20회 미만 또는 거래금액 1,200만 원 미만" 이었다고 전해진다
+  못한것: 고시 전문. 제2항 이하.
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.ftc.go.kr/www/downloadBbsFile.do?atchmnflNo=42278
+  - https://www.wonju.go.kr/www/selectBbsNttView.do?bbsNo=145&nttNo=352320&key=222
+  - https://www.gukjenews.com/news/articleView.html?idxno=2058134
+
+- id: LW-03
+  이름: 통신판매업신고 (정부24 민원안내)
+  기관: 정부24 · 공정거래위원회
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 통신판매업신고
+    url: https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=11300000006
+  - 이름: 변경신고
+    url: https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=11300000007
+  - 이름: 휴업·폐업·영업재개 신고
+    url: https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=11300000008
+  - 이름: 통신판매사업자 조회 (공정위)
+    url: https://www.ftc.go.kr/www/selectBizCommList.do?key=254
+  결과: |
+    · 신청방법 인터넷·방문. 신청자격 본인 또는 대리인(온라인은 대리인 불가) — 변경·폐업 페이지 발췌
+    · 구청 안내(강동구·중구): 사업자등록 → 판매 준비(오픈마켓 입점 또는 자사몰) →
+      구매안전서비스 이용확인증 발급 → 신고. 서류: 신고서 · 구매안전서비스 이용확인증
+      (또는 비적용 대상 확인서)
+    · 2015-01-01 부터 신고기관이 사업자등록증 소재지 시·군·구 (안양시청 안내)
+    · 스마트스토어 고객센터: 이용확인증 출력은 PC 에서만 (faqId=5727)
+  못한것: 신규 신고의 처리기간·수수료 항목 본문 (발췌에 안 잡혔다)
+  승급조건: 정부24 페이지를 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.gangdong.go.kr/web/newportal/bbs/b_002/3592
+  - https://www.junggu.seoul.kr/minwon/content.do?cmsid=14027&mode=view&cid=738395432
+  - https://www.anyang.go.kr/main/contents.do?key=92
+
+- id: LW-04
+  이름: 사업자등록 신청 · 간이과세 기준 (부가가치세법 제8조 등)
+  기관: 국세청
+  연도: 간이과세 기준 1억 400만 원은 2024-07-01 부터
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 국세청 사업자등록 신청 안내
+    url: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7777&mi=2444
+  - 이름: 국세청 간이과세 Q&A
+    url: https://call.nts.go.kr/call/qna/selectQnaInfo.do?ctgId=CTG11937&mi=1329
+  - 이름: 현금영수증 발급의무
+    url: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7796&mi=2471
+  결과: |
+    · 사업자등록은 사업장마다. 사업 개시일부터 20일 이내 신청, 개시 전 신청 가능 (제8조 제1항 단서 — easylaw)
+    · 직전 연도 연 환산 공급대가 1억 400만 원 이상이면 다음 해 7월 1일 일반과세자 전환
+      (2024-07 부터 8,000만 → 1억 400만. 부동산임대·과세유흥장소 4,800만) — 네이버페이 비즈 안내
+    · 현금영수증 의무발행업종에 전자상거래 소매업 포함 — 건당 10만 원 이상 현금 거래 시 발급
+      (국세청 유권해석: 카드 결제는 대상 아님, 현금 수령 시 의무)
+  못한것: 조문 전문. 전자상거래 소매업이 의무발행업종에 들어간 시행일(2021-01-01 로 보도되나 원 보도 미확인)
+  승급조건: 국세청 페이지를 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.easylaw.go.kr/CSP/CnpClsMainBtr.laf?csmSeq=1966&ccfNo=2&cciNo=1&cnpClsNo=2
+  - https://mybiz.pay.naver.com/contentsGuide/1212/VAT/regYmdt
+  - https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000525487
+  - https://www.nocutnews.co.kr/news/5465047
+
+- id: LW-05
+  이름: 등록면허세 (지방세법 제34조 면허분)
+  기관: 지방세 · 시·군·구
+  등급: C
+  근거: 공식
+  원문확인: false
+  공식문서위치: 미확인
+  결과: |
+    통신판매업 신고는 면허분 등록면허세 제3종 — 인구 50만 이상 시 40,500원 · 그 밖의 시 22,500원 ·
+    군 12,000원 (+지방교육세 20%) 이라고 세무 블로그가 적었다. 매년 1월 1일 갱신 과세.
+    파주시 안내(2014)에 제1종 67,500/45,000/27,000 표가 있어 3단계 지역 구분은 맞다.
+    ⚠️ 통신판매업이 제3종이라는 근거 조문(시행령 별표)을 못 봤다 → C. 단독 인용 금지.
+  못한것: 지방세법 시행령 면허 종별 별표 원문
+  승급조건: 시행령 별표를 열어 종별을 확인하면 B, 조문 붙이면 A.
+  확인한곳:
+  - https://fis-refund.com/registration-license-tax/
+  - https://dong.paju.go.kr/user/board/BD_board.view.do?seq=2014012062306&bbsCd=9007
+  - https://www.olta.re.kr/explainInfo/judgeDecisionDetail.do?num=60088195
+
+- id: LW-06
+  이름: 개인정보 보호법 (제29·30·34조) · 2026-03-10 개정
+  기관: 개인정보보호위원회 소관
+  연도: 개정 법률 제21445호 2026-03-10 공포 · 대표자 책임 조항 2026-09-11 시행으로 전해진다
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 법령 본문
+    url: https://www.law.go.kr/법령/개인정보보호법
+  - 이름: 제30조(개인정보 처리방침)
+    url: https://law.go.kr/법령/개인정보보호법/제30조
+  - 이름: 2026 개정 이유
+    url: https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283839&viewCls=lsRvsDocInfoR
+  - 이름: 시행령 제39조 (유출 통지 72시간)
+    url: https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1033008151
+  결과: |
+    · 제29조 안전조치의무 · 제30조 처리방침 수립·공개 (제4항: 위원회가 작성지침 제정) ·
+      제34조 유출등의 통지·신고
+    · 시행령 제39조 제1항: 유출등을 알게 되었을 때 72시간 이내에 정보주체에게 통지
+    · 2026 개정 이유: 대규모 유출 반복 → 반복·중대 침해 제재 강화. 2차 자료: 과징금 상한
+      전체 매출액 3% → 10%, 대표자 총괄책임, 유출 가능성 통지제 (법률사무소 글 — 조문 미확인)
+    · 처리방침 작성지침 개정본 2024-04-30 공개 (김앤장 뉴스레터)
+  못한것: 조문 전문. 개정 조항별 시행일. 신고 기준(1천 명 등)은 발췌에 안 잡혀 적지 않는다.
+  승급조건: 법령정보센터 조문을 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.lawtalk.co.kr/posts/164916
+  - https://mediyulcolumn.com/updates/personal-info-protection-representative-liability-2026
+  - https://www.kimchang.com/ko/insights/detail.kc?idx=29477
+
+- id: LW-07
+  이름: 개인정보의 안전성 확보조치 기준 (고시)
+  기관: 개인정보보호위원회 고시 제2026-9호
+  연도: 시행 2026-07-01 (2026-07-01 일부개정). 직전 판 제2025-9호 시행 2025-10-31
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.law.go.kr/행정규칙/개인정보의안전성확보조치기준
+  - 이름: 안내서 (2024-10-31, KISA 배포)
+    url: https://www.kisa.or.kr/post/fileDownload?attachSeq=1&lang_type=KO&menuSeq=2060301&postSeq=37
+  결과: |
+    · 근거: 법 제23조②·제24조③·제29조, 시행령 제21조·제30조
+    · 제4조 내부 관리계획 — 1만 명 미만 정보주체의 개인정보를 처리하는 소상공인·개인·단체는
+      수립·시행 생략 가능 (제4조 제1항 단서 — 율촌 해설)
+    · 제7조 개인정보의 암호화 — 전송 시 고유식별정보·비밀번호·생체정보, 저장 시 비밀번호 일방향
+    · 제8조 접속기록의 보관 및 점검
+  못한것: 고시 전문. 2026-07-01 개정에서 무엇이 바뀌었는지.
+  승급조건: 고시 본문을 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.yulchon.com/getFileDownload.do?filename=News_202411211601087552545.pdf&adminID=1201&boardID=38712&fileType=resource
+  - https://www.lawtimes.co.kr/news/articleView.html?idxno=203320
+
+- id: LW-08
+  이름: 추천·보증 등에 관한 표시·광고 심사지침
+  기관: 공정거래위원회
+  연도: 시행 2026-06-01 (개정)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.law.go.kr/행정규칙/추천·보증등에관한표시·광고심사지침
+  - 이름: 경제적 이해관계 표시 안내서 개정본 (공정위)
+    url: https://www.ftc.go.kr/www/selectBbsNttView.do?bordCd=3&key=12&nttSn=46709
+  결과: 경제적 이해관계가 있는 추천·보증(SNS 게시물 포함)은 그 사실을 표시해야 한다. 이른바 뒷광고 규제.
+  못한것: 표시 위치·문구 요건 전문
+  승급조건: 지침 본문을 열어 붙여 주시면 A.
+
+- id: LW-09
+  이름: 인터넷주소자원에 관한 법률 · 도메인이름 관리준칙
+  기관: 과학기술정보통신부 소관 · 한국인터넷진흥원(KRNIC)
+  연도: 법률 제18736호 2022-01-11 개정
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.law.go.kr/lsInfoP.do?lsiSeq=239271
+  - 이름: 도메인이름 관리준칙
+    url: https://www.nic.or.kr/jsp/infoboard/law/domManRule.jsp
+  - 이름: 인터넷주소분쟁조정위원회 근거 조문(제16조)
+    url: https://www.idrc.or.kr/kr/dm/lawCharacterHtml.do
+  결과: 제16조 인터넷주소분쟁조정위원회 — 등록·사용 분쟁을 조정. 부정한 목적의 도메인 이전청구권 도입이 2009 개정 예고에 있었다.
+  못한것: 조문 전문. 부정한 목적 규정의 현행 조번호.
+  승급조건: 조문을 열어 붙여 주시면 A.

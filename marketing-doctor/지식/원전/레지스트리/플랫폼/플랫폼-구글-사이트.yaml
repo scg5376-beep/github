@@ -1,0 +1,182 @@
+# 원전 레지스트리 — 플랫폼 공식 문서 · 구글 (사이트 노출 · 속도)
+# 검색 기술 요건 · 시작 가이드 · 서치 콘솔 · 페이지 경험 · Core Web Vitals · 속도-매출 조사.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/플랫폼/플랫폼-구글-사이트.md
+# 형제 묶음: 플랫폼-구글.yaml (좋은 글 · 스팸 · 비즈니스 프로필)
+# ⚠️ developers.google.com · support.google.com · web.dev · httparchive.org 전부 차단.
+#    웹검색 요약 여러 개를 대조해 B. 큰따옴표는 쓰지 않는다.
+
+버전: 1.0
+갱신일: 2026-09-02
+
+원전:
+- id: GS-01
+  이름: Google Search Technical Requirements (검색 기술 요건)
+  저자: Google
+  기관: Google Search Central
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://developers.google.com/search/docs/essentials/technical
+  결과: |
+    색인 자격의 최소 요건 셋 — Googlebot 이 차단되지 않을 것 · 페이지가 작동할 것(HTTP 200) ·
+    색인 가능한 콘텐츠(지원 파일 형식, 스팸 정책 위반 아님). 요건을 채워도 색인이 보장되지는 않는다.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: GS-02
+  이름: SEO Starter Guide (검색엔진 최적화 기본 가이드)
+  저자: Google
+  기관: Google Search Central
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+  결과: |
+    제목 링크는 title 요소와 페이지 제목들로 만들어진다. 검색결과에서 눈에 띄는 것은 제목 링크와
+    스니펫. 메타 키워드 태그는 순위에 안 쓴다(2009 발표)고 2차 자료가 일치.
+  못한것: 원문. "집중하지 말 것" 절의 전체 목록.
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: GS-03
+  이름: Search Console — 사이트 소유권 확인 · URL 검사
+  저자: Google
+  기관: Search Console 고객센터
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: Verify your site ownership
+    url: https://support.google.com/webmasters/answer/9008080
+  - 이름: URL Inspection tool
+    url: https://support.google.com/webmasters/answer/9012289
+  결과: |
+    소유권 확인 방법 다섯 — HTML 파일 업로드 · HTML 메타 태그 · DNS 레코드 · Google Analytics ·
+    Google Tag Manager. URL 검사에서 색인 생성 요청 가능. 요청 횟수에 일일 한도가 있으나
+    구글은 정확한 수를 공개하지 않는다(2차 자료 10~12건은 이용자 보고).
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: GS-04
+  이름: 사이트맵 — 필요한가
+  저자: Google
+  기관: Google Search Central · Search Console 고객센터
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview
+  - url: https://support.google.com/webmasters/answer/7451001
+  결과: 약 500 페이지 이하의 작은 사이트이고 홈에서 링크로 모든 페이지에 닿는다면 사이트맵이 필요 없을 것이라고 전해진다.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: GS-05
+  이름: 모바일 우선 색인 완료
+  저자: Google
+  기관: Google Search Central Blog
+  연도: 2024-07-05 완료 (2023-10 · 2024-06 블로그)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://developers.google.com/search/blog/2023/10/mobile-first-is-here
+  결과: 2024-07-05 이후 모든 사이트가 Googlebot Smartphone 으로 수집·색인된다고 전해진다.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: GS-06
+  이름: 페이지 경험 · Core Web Vitals 와 검색 결과
+  저자: Google
+  기관: Google Search Central
+  연도: 2021 발행 · 2023-04 갱신
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://developers.google.com/search/docs/appearance/page-experience
+  - url: https://developers.google.com/search/docs/appearance/core-web-vitals
+  결과: |
+    Core Web Vitals 는 순위 시스템이 사용한다. 단일 신호는 없다. 리포트 점수가 좋다고 상위
+    노출이 보장되지 않는다. CWV 외의 페이지 경험 요소는 순위를 직접 올리지 않는다고 전해진다.
+    2020-05-28 발표 때는 관련성이 비슷할 때 가르는 요소로 설명됐고, 이후 John Mueller 가
+    타이브레이커 이상이지만 관련성을 대체하지는 않는다고 말한 것으로 전해진다.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: GS-07
+  이름: Web Vitals — 지표 정의와 기준값
+  저자: Google (web.dev)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://web.dev/articles/vitals
+  - 이름: 기준값을 어떻게 정했나
+    url: https://web.dev/articles/defining-core-web-vitals-thresholds
+  결과: |
+    LCP(로딩) 2.5초 이하 · INP(반응) 200ms 이하 · CLS(흔들림) 0.1 이하가 좋음. 실제 방문의
+    75번째 백분위로 판정 — 방문 넷 중 셋이 그 수준 이상. CrUX 28일 이동 데이터로 전해진다.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: GS-08
+  이름: Milliseconds Make Millions
+  저자: Deloitte · 55 (Google 의뢰)
+  연도: 2020
+  등급: B
+  근거: 실증
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://web.dev/case-studies/milliseconds-make-millions
+  결과: |
+    유럽·미국 브랜드 사이트 37개, 세션 3,000만 건. 모바일 속도 0.1초 개선이 리테일 전환율
+    8.4% 상승·평균 주문액 9.2% 상승과 연관. ⚠️ 구글 의뢰 조사이고 상관관계다.
+  못한것: 원 보고서 PDF. 측정 지표 정의.
+  승급조건: 보고서를 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.thedrum.com/opinion/milliseconds-make-millions-report-finds-faster-site-speed-increases-revenue-brands
+
+- id: GS-09
+  이름: The Need for Mobile Speed
+  저자: Google (DoubleClick)
+  연도: 2016-09
+  등급: B
+  근거: 실증
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.thinkwithgoogle.com/_qs/documents/2340/bc22e_The_Need_for_Mobile_Speed_-_FINAL_1.pdf
+  - url: https://blog.google/products/admanager/the-need-for-mobile-speed/
+  결과: |
+    모바일 사이트 3.7~4.5천 개, 2015-03~2016-05 데이터. 3초 넘게 걸리면 방문의 53% 가 이탈.
+    ⚠️ 2015~16년 네트워크 조건. 10년 된 숫자다. 연도를 붙여야 쓸 수 있다.
+  못한것: 원 보고서
+  승급조건: PDF 를 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.marketingdive.com/news/google-53-of-mobile-users-abandon-sites-that-take-over-3-seconds-to-load/426070/
+
+- id: GS-10
+  이름: Web Almanac 2024 — Performance · Page Weight
+  저자: HTTP Archive
+  연도: 2024
+  등급: B
+  근거: 실증
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://almanac.httparchive.org/en/2024/performance
+  - url: https://almanac.httparchive.org/en/2024/page-weight
+  결과: 2024년 모바일에서 CWV 를 통과한 사이트 44%. 모바일 홈페이지 중앙값 약 2.4MB (2025년 2.6MB).
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.

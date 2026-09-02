@@ -1,0 +1,121 @@
+# 원전 레지스트리 — 플랫폼 공식 문서 · 이커머스 (스마트스토어 · 쿠팡 · 국내 온라인쇼핑 통계)
+# 수수료·입점 조건은 자주 바뀐다. 숫자는 날짜를 붙이고, 글에는 "판매자센터에서 확인" 으로 쓴다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/플랫폼/플랫폼-이커머스.md
+# ⚠️ help.sell.smartstore.naver.com · marketplace.coupang.com · mods.go.kr 전부 차단. 발췌만 → B.
+
+버전: 1.0
+갱신일: 2026-09-02
+
+원전:
+- id: EC-01
+  이름: 스마트스토어 판매자 고객센터 (가입 · 사업자 전환 · 수수료 · 구매안전서비스)
+  저자: 네이버
+  기관: 스마트스토어센터 고객센터 (공식)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 정산 기준 수수료율
+    url: https://help.sell.smartstore.naver.com/faq/content.help?faqId=3558
+  - 이름: 수수료율 안내 링크 (2025-06-02 체계 변경)
+    url: https://help.sell.smartstore.naver.com/faq/content.help?faqId=15759
+  - 이름: Npay 수수료 기준
+    url: https://help.sell.smartstore.naver.com/faq/content.help?faqId=3713
+  - 이름: 개인판매자 → 사업자 전환
+    url: https://help.sell.smartstore.naver.com/faq/content.help?faqId=3759
+  - 이름: 사업자 전환 시 통신판매업 신고가 필수인가
+    url: https://help.sell.smartstore.naver.com/faq/content.help?faqId=12279
+  - 이름: 사업자 등록 없이 지속 판매 시 불이익
+    url: https://help.sell.smartstore.naver.com/faq/content.help?faqId=4014
+  - 이름: 구매안전서비스 이용확인증
+    url: https://help.sell.smartstore.naver.com/faq/content.help?faqId=5727
+  - 이름: 판매자 등급 (새싹·파워 등)
+    url: https://help.sell.smartstore.naver.com/faq/content.help?faqId=4360
+  결과: |
+    발췌로 확인한 것 (원문 대조 못 함)
+    · 수수료는 2가지 — Npay 수수료(결제·주문관리·배송추적·안심번호 등 포함, 결제금액 기준) 와
+      네이버쇼핑 판매수수료(쇼핑 검색을 거쳐 들어온 주문에 붙는다). 2025-06-02 결제건부터 약관·
+      수수료 체계 변경. 부가세 포함 수수료율로 정산. 등급은 정산관리 > 정산내역에서 확인
+    · 개인판매자로 가입 후 사업자번호를 얻으면 사업자 판매자로 전환 가능
+    · 전환 시 간이사업자는 통신판매업 신고번호 입력 미필수, 개인/법인 사업자는 필수
+    · 지속적으로 판매하면 사업자등록을 해야 하며 없이 팔면 불이익
+    · 통신판매업 신고용 구매안전서비스 이용확인증은 PC 에서만 출력
+    ⚠️ 수수료 숫자(매출 규모별 Npay 등급 등)는 2차 자료마다 달라 옮기지 않는다.
+  못한것: 수수료율 표 원문. 개인판매자 가입 요건(연령 등). 정산 주기.
+  승급조건: 위 URL 을 열어 붙여 주시면 A. 수수료는 그날 기준.
+  확인한곳:
+  - https://www.sacheon.go.kr/board/download.do?gcode=2864&name=1%EB%86%8D%EC%82%B0%EB%AC%BC%ED%8C%90%EB%A7%A4%EB%A5%BC%EC%9C%84%ED%95%B4%EB%84%A4%EC%9D%B4%EB%B2%84%EC%8A%A4%EB%A7%88%ED%8A%B8%EC%8A%A4%ED%86%A0%EC%96%B4%EC%97%90%EC%84%9C%EA%B0%9C%EC%9D%B8%ED%8C%90%EB%A7%A4%EC%9E%90%EB%A1%9C%EA%B0%80%EC%9E%85%ED%95%98%EB%8A%94%EB%B0%A9%EB%B2%95%EC%95%88%EB%82%B42.pdf
+
+- id: EC-02
+  이름: 네이버 쇼핑 검색 랭킹 — 적합도 · 인기도 · 신뢰도
+  저자: 네이버 (원 문서는 "네이버쇼핑 입점 및 광고_상품검색SEO 가이드" 로 전해진다)
+  등급: C
+  근거: 공식
+  원문확인: false
+  공식문서위치: 미확인
+  결과: |
+    2차 자료 셋(i-boss ×2 · adgate)이 랭킹 요소를 적합도(검색어와 상품 정보 연관) · 인기도 ·
+    신뢰도(어뷰징·상품명 가이드 위반 시 페널티) 셋으로 적고 원 문서 이름을 든다.
+    ★ 원 문서 URL 을 특정하지 못했다 → C. 단독 인용 금지. "세 축이 있다고 전해진다" 까지만.
+  못한것: 원 문서 위치. 각 요소의 정의.
+  승급조건: 스마트스토어센터 안 상품검색 SEO 가이드를 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.i-boss.co.kr/ab-6141-63145
+  - https://www.i-boss.co.kr/ab-6141-63771
+  - https://adgate.kr/bbs/board.php?bo_table=2012new_notice&wr_id=443
+
+- id: EC-03
+  이름: 쿠팡 마켓플레이스 — 입점 · 판매 방식 · 수수료
+  저자: 쿠팡
+  기관: 쿠팡 마켓플레이스 (공식)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 자주 묻는 질문 (판매 방식 차이 · 서류 · 수수료 체계)
+    url: https://marketplace.coupang.com/faq
+  - 이름: 셀러 아카데미 — 가입
+    url: https://marketplace.coupang.com/mba/register
+  - 이름: 셀러 아카데미 — 상품 등록
+    url: https://marketplace.coupang.com/mba/listing
+  - 이름: 로켓그로스
+    url: https://marketplace.coupang.com/rocket-growth
+  - 이름: 카테고리별 판매 수수료 표
+    url: https://cloud.mkt.coupang.com/Fee-Table
+  - 이름: 판매자 약관
+    url: https://www.coupang.com/nm/policies/seller
+  결과: |
+    · 판매 방식 셋 — 마켓플레이스(판매자 배송) · 로켓그로스(쿠팡 물류 이용) · 로켓배송(직매입)
+      (FAQ Q1 발췌). 판매자센터는 WING
+    · 상품 등록은 개별등록과 일괄등록
+    · 수수료 표 발췌: 기본 수수료 7.8%, 게임 소분류 6.8% 등 카테고리별 (cloud.mkt.coupang.com)
+    · 로켓그로스 페이지 주의 문구: 판매자 평균 매출은 참고용이며 매출·성과를 보장하지 않는다
+    ⚠️ 2차 자료의 5.5~10.8% 같은 범위는 옮기지 않는다. 표를 직접 보게 한다
+  못한것: FAQ 답변 본문(서류 목록 · 수수료 체계). 정산 주기. 로켓그로스 물류비.
+  승급조건: FAQ 와 수수료 표를 열어 붙여 주시면 A.
+
+- id: EC-04
+  이름: 온라인쇼핑동향 (월간)
+  저자: 국가데이터처 (옛 통계청)
+  연도: 2026-06 (2026-08 발표) · 2026-03 · 2025-12 연간
+  등급: B
+  근거: 실증
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 2026년 6월 온라인쇼핑동향 및 2/4분기 해외 직접 판매·구매
+    url: https://mods.go.kr/board.es?act=view&bid=241&list_no=446320&mid=a10301120300
+  - 이름: 2026년 3월
+    url: https://mods.go.kr/board.es?mid=a10301010000&bid=241&act=view&list_no=444909
+  - 이름: 2025년 12월 및 연간
+    url: https://www.korea.kr/briefing/pressReleaseView.do?newsId=156742557
+  결과: |
+    · 2026-06 온라인쇼핑 거래액 24조 6,067억 원, 전년동월 대비 10.7% 증가. 모바일 비중 76.9%
+      (전년동월 77.6%)
+    · 2026-03 거래액 25조 5,770억 원, 13.3% 증가. 모바일 75.9%
+    · 2025-12 거래액 24조 2,904억 원, 6.2% 증가. 모바일 77.4%
+  못한것: 상품군별 표. 연간 합계.
+  승급조건: 보도자료를 열어 붙여 주시면 A.

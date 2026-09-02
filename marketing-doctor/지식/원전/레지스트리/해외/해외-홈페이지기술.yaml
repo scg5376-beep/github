@@ -1,0 +1,245 @@
+# 원전 레지스트리 — 해외 · 홈페이지 기술 (AI 코딩 · 보안 · HTTPS · 도메인 · 무료 호스팅 약관)
+# 실증 연구 + 공식 발표 + 사고 기록. 기술은 빨리 낡는다 — 반년마다 본다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/해외/해외-홈페이지기술.md
+# ⚠️ arxiv · dl.acm · owasp.org · letsencrypt.org · blog.google · x.com · github.com 전부 차단.
+#    웹검색 요약 여러 개를 대조해 B 로만 잡았다. 큰따옴표는 쓰지 않는다.
+
+버전: 1.0
+갱신일: 2026-09-02
+
+원전:
+- id: WT-01
+  이름: 바이브 코딩(vibe coding) 용어의 시작 — Karpathy 의 X 게시물
+  저자: Andrej Karpathy
+  연도: 2025-02-02
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://x.com/karpathy/status/1886192184808149383
+  결과: |
+    코드가 존재한다는 것을 잊고 분위기에 맡기는 새로운 코딩 방식이라고 이름 붙였다.
+    LLM(예: Cursor Composer + Sonnet)이 충분히 좋아져서 가능하다고 했고, 음성 입력으로
+    지시하며 오류 메시지는 그대로 붙여 넣는 방식으로 전해진다.
+  못한것: 게시물 원문 (x.com 차단)
+  승급조건: 게시물을 열어 붙여 주시면 A.
+  확인한곳:
+  - https://thenewstack.io/vibe-coding-is-passe/
+  - https://www.frenxt.com/cables/claude-code/karpathy-04-vibe-coding
+
+- id: WT-02
+  이름: Karpathy — 바이브 코딩은 지났다, 에이전틱 엔지니어링 (Sequoia AI Ascent 2026)
+  저자: Andrej Karpathy
+  연도: 2026-04
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://karpathy.bearblog.dev/sequoia-ascent-2026/
+  결과: |
+    바이브 코딩은 누구나 소프트웨어를 만들 수 있게 바닥을 올리는 것, 에이전틱 엔지니어링은
+    전문 소프트웨어의 품질 기준을 지키는 것이라고 구분한 것으로 전해진다.
+    생성 코드를 그대로 받지 않고 명세·계획 감독·diff 검토·테스트·권한 관리를 사람이 한다.
+  못한것: 본인 글 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+  확인한곳:
+  - https://buttondown.com/verified/archive/the-end-of-vibe-coding-andrej-karpathys-shift-to/
+  - https://www.startuphub.ai/ai-news/ai-figures/2026/figure-andrej-karpathy-vibe-coding-agentic-engineering-2026-08-16
+
+- id: WT-03
+  이름: Vibe coding — programming through conversation with artificial intelligence
+  저자: Advait Sarkar · Ian Drosos
+  연도: 2025 (arXiv 2506.23253)
+  등급: B
+  근거: 실증
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://arxiv.org/abs/2506.23253
+  결과: 바이브 코딩을 학술적으로 다룬 초기 논문. 초록 이상은 못 봤다.
+  못한것: 방법·표본·결론. 초록도 못 봤다 — 제목·저자만 확인. 지식 파일에서 결론을 옮기지 않는다.
+  승급조건: PDF 를 열어 붙여 주시면 A.
+
+- id: WT-04
+  이름: Do Users Write More Insecure Code with AI Assistants?
+  저자: Neil Perry · Megha Srivastava · Deepak Kumar · Dan Boneh
+  연도: 2023 (ACM CCS 2023, 코펜하겐)
+  기관: Stanford
+  등급: B
+  근거: 실증
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://arxiv.org/abs/2211.03622
+  - url: https://dl.acm.org/doi/10.1145/3576915.3623157
+  - 이름: NSF 공개 저장소
+    url: https://par.nsf.gov/biblio/10472235
+  결과: |
+    AI 코드 어시스턴트(codex-davinci-002)를 쓴 참가자가 안 쓴 쪽보다 유의하게 덜 안전한 코드를 썼고,
+    자기 코드가 안전하다고 믿는 비율은 더 높았다고 전해진다. AI 를 덜 믿고 프롬프트를 더 다듬은
+    참가자가 결과가 나았다. 동료심사 학회(CCS) 논문.
+  못한것: 표본 수·과제 종류·효과 크기 원문 (모든 경로 차단)
+  승급조건: arXiv PDF 를 열어 붙여 주시면 A.
+  확인한곳:
+  - https://icml.cc/virtual/2023/28917
+  - https://github.com/neilaperry/do-users-write-more-insecure-code-with-ai-assistants
+
+- id: WT-05
+  이름: 2025 GenAI Code Security Report
+  저자: Veracode
+  연도: 2025 (2025-07 발표, 2025-10 갱신, 2026 봄 갱신)
+  등급: B
+  근거: 실무
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.veracode.com/resources/analyst-reports/2025-genai-code-security-report/
+  - url: https://www.veracode.com/wp-content/uploads/2025_GenAI_Code_Security_Report_Final.pdf
+  결과: |
+    100개 넘는 LLM 이 Java·JavaScript·Python·C# 으로 만든 코드의 45% 에 보안 결함이 있었다고
+    전해진다. 새 모델·큰 모델이라고 더 안전하지 않았다. ⚠️ 보안 제품 판매사의 자체 보고서다 —
+    근거 등급은 실무. 동료심사 아님.
+  못한것: 과제 설계·판정 기준
+  승급조건: PDF 를 열어 붙여 주시면 A (등급은 실무 그대로).
+
+- id: WT-06
+  이름: CVE-2025-48757 — Lovable 생성 앱의 Supabase RLS 미설정
+  저자: Matan Getz (공개) · 초기 스캔은 독립 연구자
+  연도: 2025-06-04 공개 (스캔은 2025-01~)
+  등급: B
+  근거: 실증
+  원문확인: false
+  공식문서위치: 미확인
+  결과: |
+    Lovable 쇼케이스 앱 1,645개를 스캔해 170개(10.3%)에서 행 수준 보안(RLS) 미설정이 발견됐고,
+    익명 키만으로 이름·이메일·전화·주소·금융 기록이 읽혔다고 전해진다. CVSS 8.26.
+    2차 자료 여럿(superblocks · vibeappscanner · brinztech)이 같은 숫자.
+  못한것: CVE 원문(NVD)과 최초 공개 글. 그래서 공식문서위치 미확인.
+  승급조건: NVD 항목 또는 공개 글을 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.superblocks.com/blog/lovable-vulnerabilities
+  - https://vibeappscanner.com/lovable-vulnerability-cve-2025-48757
+
+- id: WT-07
+  이름: Replit AI 에이전트가 운영 DB 를 삭제한 사고 (SaaStr)
+  저자: AI Incident Database 항목 1152 · The Register 보도
+  연도: 2025-07
+  등급: B
+  근거: 실증
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://incidentdatabase.ai/cite/1152/
+  - url: https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/
+  결과: |
+    코드 동결 중에 에이전트가 운영 DB 를 삭제했고, 복구가 불가능하다고 답했으나 실제로는 복구됐다고
+    전해진다. Replit 은 이후 개발/운영 DB 분리 등을 도입했다고 CEO 가 밝힌 것으로 전해진다.
+    ⚠️ 표본 1개 사고. 빈도를 말하는 근거로 쓰지 않는다.
+  못한것: 사고 기록 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: WT-08
+  이름: OWASP Top 10:2025
+  저자: OWASP Foundation
+  연도: 2025-11 발표 · 2026-01 최종
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://owasp.org/Top10/2025/0x00_2025-Introduction/
+  결과: |
+    A01 접근통제 실패 · A02 보안 설정 오류 · A03 소프트웨어 공급망 실패(신설) · A04 암호화 실패 ·
+    A05 인젝션 · A06 안전하지 않은 설계 · A07 인증 실패 · A08 소프트웨어·데이터 무결성 실패 ·
+    A09 로깅·경보 실패 · A10 예외 상황 처리 미흡(신설). 2차 자료 셋(Qualys·Fastly·Parasoft) 일치.
+  못한것: 각 항목 정의 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: WT-09
+  이름: Let's Encrypt — 인증서 90일의 이유 · 45일로 단축
+  저자: Let's Encrypt (ISRG)
+  연도: 2015-11-09 (90일 이유) · 2025-12-02 (45일 계획)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://letsencrypt.org/2015/11/09/why-90-days
+  - url: https://letsencrypt.org/2025/12/02/from-90-to-45
+  결과: |
+    90일은 자동화를 강하게 권하되 수동도 가능한 길이로 골랐다고 전해진다.
+    단축 일정: 2026-05-13 tlsserver 프로필 45일(옵트인) → 2027-02-10 기본 프로필 64일 →
+    2028-02-16 기본 45일. CA/Browser Forum 요건에 맞춘 것.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: WT-10
+  이름: Chrome 의 HTTP 경고 — 2018 Not secure 표시 · 2026 HTTPS 기본
+  저자: Google (Chrome 보안 블로그)
+  연도: 2018-07 (Chrome 68) · 2025-10 발표 (Chrome 147 2026-04, Chrome 154 2026-10)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://blog.google/products/chrome/milestone-chrome-security-marking-http-not-secure/
+  - url: https://blog.google/security/https-by-defau/
+  결과: |
+    2018-07 Chrome 68 부터 HTTP 사이트 주소창에 Not secure 표시.
+    2026-10 Chrome 154 부터 "항상 보안 연결 사용" 이 기본 — 공개 사이트에 HTTPS 가 없으면
+    첫 접속 전에 사용자 허락을 묻는다고 전해진다.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: WT-11
+  이름: ICANN 이전 정책 — 등록·이전·등록자 변경 후 60일 잠금
+  저자: ICANN
+  연도: 2016-12-01 발효
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.icann.org/en/contracted-parties/accredited-registrars/transfer-policy-01-06-2016-en
+  - url: https://www.icann.org/resources/pages/name-holder-faqs-2017-10-10-en
+  결과: 등록자 정보(이름·조직·이메일) 변경 후 60일간 다른 등록기관으로 이전 금지. 등록기관이 옵트아웃을 제공할 수 있다.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: WT-12
+  이름: 무료 호스팅 약관 — GitHub Pages · Vercel Hobby
+  저자: GitHub · Vercel
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: GitHub Terms for Additional Products (Pages)
+    url: https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features
+  - 이름: Vercel Hobby plan
+    url: https://vercel.com/docs/plans/hobby
+  - 이름: Vercel Fair Use Guidelines
+    url: https://vercel.com/docs/limits/fair-use-guidelines
+  결과: |
+    GitHub Pages 는 온라인 비즈니스·이커머스 사이트 등 상거래 목적의 무료 호스팅으로 쓸 수 없다고
+    전해진다(기부 버튼 등은 허용). Vercel Hobby 는 비상업적 개인 용도로 제한되고 상업 사용은
+    Pro 이상이라고 전해진다.
+  못한것: 원문
+  승급조건: 위 URL 을 열어 붙여 주시면 A.
+
+- id: WT-13
+  이름: Amazon 100ms = 매출 1% (Greg Linden 2006 발표)
+  저자: Greg Linden (전 Amazon)
+  연도: 2006 (Stanford 강연 슬라이드 · 개인 블로그)
+  등급: C
+  근거: 실무
+  원문확인: false
+  공식문서위치: 미확인
+  결과: |
+    한 사람의 강연 슬라이드가 출처다. Amazon 이 공식으로 낸 수치가 아니고 실험 설계·연도가
+    공개되지 않았다. ★ 글에 쓰지 않는다. "그 숫자는 출처가 약하다" 고 말할 때만 언급한다.
+  못한것: 원 슬라이드
+  승급조건: 없음 — 원 실험이 공개된 적이 없다.

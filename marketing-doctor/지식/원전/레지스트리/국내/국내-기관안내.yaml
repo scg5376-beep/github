@@ -1,0 +1,124 @@
+# 원전 레지스트리 — 국내 기관·서비스 안내 (도메인 · 보안 지원 · 홈페이지 빌더)
+# 공공기관의 절차 안내와 국내 빌더의 공식 요금 페이지. 반년마다 다시 본다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/국내/국내-기관안내.md
+# ⚠️ nic.or.kr · idrc.or.kr · boho.or.kr · kisa.or.kr · imweb.me · cafe24.com 전부 차단.
+#    네이버 웹문서 발췌로만 봤다. 전문 미확인 → 전부 B.
+
+버전: 1.0
+갱신일: 2026-09-02
+
+원전:
+- id: KA-01
+  이름: .kr/.한국 도메인 등록 안내 (KRNIC)
+  기관: 한국인터넷진흥원 한국인터넷정보센터
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 도메인이름 등록
+    url: https://www.nic.or.kr/jsp/business/management/domain/registrationInfo.jsp
+  - 이름: 등록대행자 이전
+    url: https://www.nic.or.kr/jsp/business/management/domain/transInfo.jsp
+  - 이름: 국가도메인이란 (한글.kr 등 종류)
+    url: https://www.nic.or.kr/jsp/resources/domainInfo/krDomainInfo.jsp
+  - 이름: 등록대행자 현황 (공공데이터포털)
+    url: https://www.data.go.kr/dataset/3049672/fileData.do
+  결과: |
+    · .kr/.한국 도메인 등록이란 원하는 도메인을 일정의 수수료를 납부하여 일정 기간 보유하는 것
+    · 등록은 진흥원과 등록대행 계약을 체결한 등록대행자 홈페이지에서 신청
+    · 등록대행자 이전: 별도 수수료 없음, 이전 시 사용기간 1년 연장 필요
+    · 한글.kr: 2단계 공공도메인(co·or·go 등)이 없고 한글을 쓰는 도메인
+  못한것: 등록 기간 단위·요금·필요 서류 본문. 등록대행자 목록.
+  승급조건: 위 페이지를 열어 붙여 주시면 A.
+
+- id: KA-02
+  이름: 인터넷주소 분쟁조정 안내서
+  기관: 인터넷주소분쟁조정위원회 (KISA)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.kisa.or.kr/post/fileDownload?menuSeq=204&postSeq=10000051&attachSeq=1&lang_type=KO
+  - url: https://www.idrc.or.kr/kr/dm/lawCharacterHtml.do
+  결과: 도메인이름 분쟁은 인터넷주소자원법 제16조·시행령·분쟁조정세칙에 따라 위원회에 조정 신청할 수 있다.
+  못한것: 조정 절차·기간·비용
+  승급조건: 안내서를 열어 붙여 주시면 A.
+
+- id: KA-03
+  이름: 중소기업 보안 취약점 점검 · 내서버 돌보미
+  기관: KISA 보호나라
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 보안취약점 점검 (기업 서비스)
+    url: https://www.boho.or.kr/kr/subPage.do?menuNo=205009
+  - 이름: 내서버 돌보미
+    url: https://www.kisa.kr/1051402
+  결과: |
+    기업의 시스템·서비스에서 해킹 피해 원인이 되는 보안취약점을 찾고 조치를 지원하는 사업.
+    영세·중소기업 주요 서버 원격보안점검(내서버 돌보미). 2025-10 ASM 기반 무료 점검 확대 보도(전자신문).
+  못한것: 신청 자격·기간·연간 정원
+  승급조건: 페이지를 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.etnews.com/20251028000240
+
+- id: KA-04
+  이름: 다음 검색등록
+  기관: 카카오
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://register.search.daum.net/index.daum
+  - url: https://register.search.daum.net/searchForm.daum
+  결과: 사이트·지역정보 등록 신청. 검색등록 가이드에 따라 검토되며 검색 노출을 보장하지 않는다. 처리 결과는 이메일로.
+  못한것: 심사 가이드 본문
+  승급조건: 페이지를 열어 붙여 주시면 A.
+
+- id: KA-05
+  이름: 국내 홈페이지 빌더 공식 요금·수수료 페이지 (아임웹 · 카페24)
+  기관: 아임웹 · 카페24 (사업자 자체 안내)
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - 이름: 아임웹 요금
+    url: https://www.imweb.me/price
+  - 이름: 아임웹 PG 가입비·수수료
+    url: https://www.imweb.me/qna?mode=faq&q=27596
+  - 이름: 카페24 PRO
+    url: https://www.cafe24.com/commerce/service/cafe24pro.html
+  - 이름: 카페24 이전센터 (월 이용료 영구 무료 문구)
+    url: https://migration.cafe24.com/
+  결과: |
+    · 아임웹 요금제는 Starter · Pro · Global 로 나뉜다 (요금 페이지 FAQ 발췌). 요금제·SSL 은 정기결제
+    · 아임웹 PG 이벤트 페이지: 연관리비 평생 무료, 신용카드 수수료 1.8~3.3%, 계좌이체 1.8%, 가상계좌 250원
+    · 카페24 이전센터: 월 이용료 영구 무료 문구. PRO 는 유료 운영 대행형
+    ⚠️ 요금은 자주 바뀐다. 숫자는 글에 옮기지 않고 "요금 페이지를 직접 확인" 으로 쓴다
+  못한것: 각 요금제의 실제 금액과 기능표
+  승급조건: 요금 페이지를 열어 붙여 주시면 A (그날 기준으로만 유효).
+
+- id: KA-06
+  이름: 네이버 modoo! 홈페이지 서비스 종료
+  기관: 네이버 (공지) — 원 공지는 못 열었다
+  연도: 2025-06-26 종료
+  등급: B
+  근거: 공식
+  원문확인: false
+  공식문서위치: 확인됨
+  공식문서:
+  - url: https://www.modoo.at/home/notice/noticeDetail?boardId=165&pageNum=1
+  결과: modoo! 서비스는 2025-06-26(목)을 마지막으로 운영 종료. 독립 출처 넷(더차칸·아임웹·waveon·isoftbox)이 같은 날짜.
+  못한것: 공지 원문. 기존 사이트 데이터 처리 안내.
+  승급조건: 공지를 열어 붙여 주시면 A.
+  확인한곳:
+  - https://www.thechakan.kr/bbs/blog/242841
+  - https://www.imweb.me/blog?idx=359
+  - https://www.waveon.io/blog/alternatives-to-naver-modoo

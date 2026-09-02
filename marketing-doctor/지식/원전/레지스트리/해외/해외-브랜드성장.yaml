@@ -1,0 +1,112 @@
+# 원전 레지스트리 — 해외 실증 연구 · 가게는 어떻게 크는가
+# 침투율 · 장단기 · 단골. 학습계획 B 묶음.
+# 숫자는 그 나라 것이다. 옮길 수 있는 건 대개 숫자가 아니라 방향이다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/해외/해외-브랜드성장.md
+# 다른 묶음: 해외-구매결정.yaml
+
+버전: 1.5
+갱신일: 2026-08-29
+
+원전:
+- id: EB-01
+  이름: How Brands Grow
+  저자: Byron Sharp
+  연도: 2010
+  기관: Ehrenberg-Bass Institute for Marketing Science (University of South Australia)
+  등급: B
+  근거: 실증
+  원문확인: false
+  비고: 후속서 How Brands Grow Part 2 (Romaniuk & Sharp, 2022 갱신) 존재
+  확인한곳:
+  - https://marketingscience.info/news-and-insights/answering-critics
+  - https://dreamdata.io/blog/scientific-laws-of-marketing-byron-sharp
+  - https://brandgenetics.com/how-brands-grow-speed-summary/
+- id: BF-01
+  이름: The Long and the Short of It
+  저자: Les Binet, Peter Field
+  연도: 2013
+  기관: IPA (Institute of Practitioners in Advertising)
+  등급: B
+  근거: 실증
+  원문확인: false
+  자료: IPA Databank — 1980~2010 광고효과상 출품 캠페인 996건
+  비고: 후속 연구 Effectiveness in Context 에서는 62:38 로 보고됨
+  확인한곳:
+  - https://ipa.co.uk/knowledge/effectiveness-research-analysis/les-binet-peter-field
+  - https://www.alexmurrell.co.uk/summaries/les-binet-and-peter-field-the-long-and-the-short-of-it
+- id: RH-01
+  이름: 'Zero Defections: Quality Comes to Services'
+  저자: Frederick F. Reichheld, W. Earl Sasser Jr.
+  기관: Harvard Business Review 68(5), 105-111
+  연도: 1990년 9-10월호
+  등급: B
+  근거: 실증
+  원문확인: false
+  S후보: true
+  비고: '마케팅 업계에서 가장 많이 인용되는 통계
+
+    "유지율 5% 올리면 이익 25~95% 증가" 의 원 출처.
+
+    그런데 원문에 그 문장이 그대로 있지는 않다. 확인기록 참조.
+
+    '
+  확인한곳:
+  - https://hbr.org/1990/09/zero-defections-quality-comes-to-services
+  - https://www.bain.com/insights/zero-defections-quality-comes-to-services-harvard-business-review-hbr/
+  - https://www.hbs.edu/faculty/Pages/item.aspx?num=9151
+  - https://scirp.org/reference/referencespapers?referenceid=139251
+
+- id: EB-02
+  이름: 정신적 가용성 · 물리적 가용성 · 범주 진입점(CEP)
+  저자: Byron Sharp, Jenni Romaniuk
+  기관: Ehrenberg-Bass Institute for Marketing Science
+  연도: How Brands Grow (2010) 이후 Romaniuk 의 후속 연구로 정교화
+  등급: B
+  근거: 실증
+  원문확인: false
+  정의: |
+    정신적 가용성  살 상황이 왔을 때 그 브랜드가 떠오를 확률.
+                   단순 '인지도' 나 '선호' 가 아니다 — 그 순간에 떠오르느냐다.
+    물리적 가용성  사려고 할 때 얼마나 쉽게 살 수 있는가.
+                   유통·진열·검색 순위·지역 커버리지까지 포함한다.
+    범주 진입점    사람이 그 범주를 떠올리게 되는 상황·계기·이유.
+    (CEP)          정신적 가용성은 이 진입점들의 묶음으로 만들어진다.
+  핵심: |
+    범주 진입점은 브랜드가 정하는 게 아니라 **손님이 정한다.**
+    우리 마케팅과 무관하게 이미 존재한다.
+    마케터의 일은 그중 흔하고 중요한 것을 찾아내
+    거기에 우리 이름을 붙여 두는 것이다.
+  안쓰는것: |
+    '정신적 가용성을 2배로 하면 시장점유율이 30~50% 오른다' 는 수치를 봤으나
+    대행사 블로그가 출처다. 원 연구를 확인 못 했으므로 쓰지 않는다.
+  확인한곳:
+    - https://marketingscience.info/learn-with-us/commercial-research/identifying-and-prioritising-category-entry-points
+    - http://www.jenniromaniuk.com/blog/2023/1/19/increasing-mental-market-share-by-using-category-entry-points
+    - https://www.insightplatforms.com/what-are-category-entry-points-and-how-do-they-improve-brand-tracking/
+
+- id: EB-03
+  이름: "Evidence concerning the importance of perceived brand differentiation"
+  저자: Jenni Romaniuk, Byron Sharp, Andrew Ehrenberg
+  기관: Australasian Marketing Journal · Ehrenberg-Bass Institute
+  연도: 2007
+  등급: B
+  근거: 실증
+  원문확인: false
+  S후보: true
+  결과: |
+    '다르다고 인식되지 않은' 브랜드들도 그렇지 않은 브랜드만큼 성공했다.
+    즉 인식된 차별화가 성공의 필요조건이 아니다.
+    대신 '독특함(distinctiveness)' — 의미가 없어도 우리 것이라고
+    바로 알아보게 하는 표시 — 를 브랜드 전략의 중심에 놓자고 제안한다.
+  구분: |
+    차별화 differentiation  남과 다른 '의미' 를 준다   ("우리는 더 친절합니다")
+    독특함 distinctiveness  우리 것이라고 '알아보게' 한다 (색·로고·말투·소리)
+    후자는 상표로 보호할 수 있고, 전자는 베껴진다.
+  안쓰는것: |
+    '독특한 브랜드 자산이 광고 인지를 평균 34% 높였다' 는 수치를 봤으나
+    대행사 블로그가 출처다. 원 연구를 확인 못 해 쓰지 않는다.
+  확인한곳:
+    - https://www.marketingscience.info/wp-content/uploads/staff/2015/08/different.pdf
+    - https://www.sciencedirect.com/science/article/abs/pii/S1441358207700423
+    - https://www.researchgate.net/publication/222523151

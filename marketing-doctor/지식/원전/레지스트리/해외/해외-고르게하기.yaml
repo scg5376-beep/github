@@ -1,0 +1,84 @@
+# 원전 레지스트리 — 해외 실증 연구 · 고르게 하기
+# 선택지 과부하 · 사회적 증거. 손님이 잘 모를 때 크게 작동한다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/해외/해외-고르게하기.md
+# 형제 묶음: 해외-리뷰응대 · 해외-가격 · 해외-가격바꾸기 · 해외-검색 · 해외-브랜드성장 · 해외-보여주기
+
+버전: 1.9
+갱신일: 2026-08-31
+
+원전:
+- id: CH-01
+  이름: 'When Choice is Demotivating: Can One Desire Too Much of a Good Thing? (잼 실험)'
+  저자: Sheena Iyengar, Mark Lepper
+  연도: 2000
+  등급: B
+  근거: 실증
+  원문확인: false
+  설계: '캘리포니아 멘로파크의 고급 슈퍼마켓. 연속된 두 토요일에 시식대를 놓았다.
+
+    한 날은 잼 6종, 다른 날은 24종. 1달러 할인 쿠폰으로 시식→구매를 추적했다.
+
+    '
+  결과: 6종일 때 구매율 30% · 24종일 때 3% — 10배 차이
+  주의: 이 연구 하나만 인용하면 안 된다. 반드시 CH-02·CH-03 과 함께 쓴다.
+  확인한곳:
+  - https://www.semanticscholar.org/paper/07775d812c00a97aaa57b55596b39e26b8baaa0b
+  - https://digitalwellbeing.org/the-jam-study-strikes-back-when-less-choice-does-mean-more-sales/
+- id: CH-02
+  이름: Can There Ever Be Too Many Options? A Meta-Analytic Review of Choice Overload
+  저자: Benjamin Scheibehenne, Rainer Greifeneder, Peter M. Todd
+  기관: Journal of Consumer Research 37(3), 409-
+  연도: 2010
+  등급: B
+  근거: 실증
+  원문확인: false
+  역할: CH-01 에 대한 반박
+  규모: 50개 실험 · 63개 조건 · N = 5,036
+  결과: '평균 효과크기가 사실상 0. 다만 연구 간 편차가 컸다.
+
+    직접 재현에 실패한 사례들이 있다.
+
+    출판 편향을 확인했다 — 성공한 실험은 실리고 실패한 실험은 안 실렸다.
+
+    '
+  확인한곳:
+  - https://academic.oup.com/jcr/article-abstract/37/3/409/1827647
+  - https://www.sciencedaily.com/releases/2010/01/100119121425.htm
+- id: CH-03
+  이름: 'Choice Overload: A Conceptual Review and Meta-Analysis'
+  저자: Alexander Chernev, Ulf Böckenholt, Joseph Goodman
+  기관: Journal of Consumer Psychology 25, 333-358
+  연도: 2015
+  등급: B
+  근거: 실증
+  원문확인: false
+  역할: CH-02 에 대한 재반박
+  규모: 99개 관측 · N = 7,202
+  결과: "조절변수 넷을 고려하면 선택지 과부하 효과는 견고하게 나타난다.\n  choice set complexity   선택지 묶음의 복잡도\n  decision task difficulty\
+    \ 결정 과제의 난이도\n  preference uncertainty   선호 불확실성 (내가 뭘 원하는지 모름)\n  decision goal            결정 목표\
+    \ (둘러보기 vs 사러 옴)\n즉 '늘 나타난다' 도 '없다' 도 아니고 '조건이 맞을 때 나타난다'.\n"
+  확인한곳:
+  - https://myscp.onlinelibrary.wiley.com/doi/abs/10.1016/j.jcps.2014.08.002
+  - https://www.scirp.org/reference/referencespapers?referenceid=3100773
+- id: SP-01
+  이름: 'Observational Learning: Evidence from a Randomized Natural Field Experiment'
+  저자: Hongbin Cai, Yuyu Chen, Hanming Fang
+  기관: American Economic Review 99(3), 864-882
+  연도: 2009
+  등급: B
+  근거: 실증
+  원문확인: false
+  S후보: true
+  설계: 중국의 실제 식당에서 무작위 현장실험. 메뉴판에 '지난주 많이 나간 5개' 를 표시
+  결과: '표시된 메뉴의 수요가 13~20% 늘었다.
+
+    효과는 가끔 오는 손님에게 더 강했다.
+
+    그리고 손님의 식사 만족도도 함께 올라갔다.
+
+    '
+  확인한곳:
+  - https://www.aeaweb.org/articles?id=10.1257/aer.99.3.864
+  - https://ideas.repec.org/a/aea/aecrev/v99y2009i3p864-82.html
+  - https://isps.yale.edu/research/publications/isps09-029
