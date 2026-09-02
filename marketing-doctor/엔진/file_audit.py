@@ -16,6 +16,11 @@ ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 \
 
 # (성격, 판별, 글자 상한, 줄 상한)
 성격 = [
+    # 원문 보관본은 우리가 쓴 글이 아니라 남의 문서를 그대로 옮겨 둔 것이다.
+    # 고치지 않으니 "읽다가 빠뜨린다" 는 위험이 없고, 잘게 쪼갤수록 인용 대조가 어려워진다.
+    # 그래서 성격을 따로 두고 상한을 크게 잡는다. 우리가 쓰는 파일의 상한은 그대로다.
+    ("원문 보관본", lambda p: p.parts[-4:-1] == ("지식", "원전", "원문")
+                            or "원문" in p.parts and "원전" in p.parts, 30000, 700),
     ("항상 로드", lambda p: p.name in ("SKILL.md", "CLAUDE.md", "AGENTS.md", "README.md"), 8000, 250),
     ("코드",     lambda p: p.suffix == ".py",   12000, 400),
     ("기계 읽음", lambda p: p.suffix in (".yaml", ".yml", ".json"), 10000, 350),
