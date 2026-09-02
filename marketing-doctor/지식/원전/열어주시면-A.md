@@ -79,7 +79,7 @@
 □ NS-01  robots.txt 설정하기 · RSS 및 사이트맵 제출
 ✅ NS-01  사이트 등록 및 소유확인              2026-09-02 확보 → A
 ✅ NS-01  콘텐츠 작성시 권장 사항            2026-09-02 확보 → A
-□ EC-01  스마트스토어 수수료 FAQ              help.sell.smartstore.naver.com/faq/content.help?faqId=3558
+✅ EC-01  스마트스토어 수수료의 종류          2026-09-02 확보 → A
 □ EC-03  쿠팡 FAQ · 수수료 표                marketplace.coupang.com/faq · cloud.mkt.coupang.com/Fee-Table
 □ GS-01  구글 검색 기술 요건                  developers.google.com/search/docs/essentials/technical
 □ GS-07  Core Web Vitals 기준값              web.dev/articles/vitals
@@ -136,5 +136,7 @@
 
 그 밖에
   정부24 변경신고·휴폐업 신고 페이지
+  스마트스토어 건별 정산내역 조회방법 — 화면 캡처로만 봐서 인용 못 함. 텍스트 필요
+  스마트스토어 가입·사업자 전환·이용확인증 FAQ 본문
   국세청 사업자등록·간이과세·현금영수증 (지금 B)
 ```
