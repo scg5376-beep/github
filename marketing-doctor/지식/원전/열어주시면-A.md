@@ -67,7 +67,7 @@
 □ LW-03  정부24 통신판매업신고               gov.kr/mw/AA020InfoCappView.do?CappBizCD=11300000006
 ✅ LW-06  개인정보 보호법 전문 (제1~75조)     2026-09-02 확보 → A
 □ LW-06  같은 법 시행령                    ★ 72시간·안전조치 세부가 여기 있다
-□ LW-07  안전성 확보조치 기준 고시            law.go.kr/행정규칙/개인정보의안전성확보조치기준
+✅ LW-07  안전성 확보조치 기준 고시 전문     2026-09-02 확보 → A
 □ NS-01  서치어드바이저 검색엔진 최적화의 목적  searchadvisor.naver.com/guide/seo-basic-intro
 □ NS-01  사이트 등록 및 소유확인 FAQ          searchadvisor.naver.com/guide/faq-start-register
 □ NS-01  콘텐츠 작성시 권장 사항              searchadvisor.naver.com/guide/content-basic
