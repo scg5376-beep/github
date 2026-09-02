@@ -83,7 +83,7 @@
 ✅ EC-03  쿠팡 카테고리별 판매 수수료 표      2026-09-02 확보 → A
 □ EC-03  쿠팡 FAQ 본문                    marketplace.coupang.com/faq
 ✅ GS-01  구글 검색 기술 요구사항            2026-09-02 확보 → A · 첫 구글 원문
-□ GS-07  Core Web Vitals 기준값              web.dev/articles/vitals
+✅ GS-07  Web Vitals (한국어판)              2026-09-02 확보 → A
 □ KA-01  KRNIC 도메인이름 등록               nic.or.kr/jsp/business/management/domain/registrationInfo.jsp
 ```
 
@@ -136,6 +136,8 @@
   자바스크립트 검색 최적화               AI로 만든 사이트와 직결
 
 그 밖에
+  Web Vitals 영어 원문 (한국어판은 기계 번역이라 구글이 고지했다)
+  Core Web Vitals 기준값 산정 방법 (web.dev/articles/defining-core-web-vitals-thresholds)
   정부24 변경신고·휴폐업 신고 페이지
   스마트스토어 건별 정산내역 조회방법 — 화면 캡처로만 봐서 인용 못 함. 텍스트 필요
   스마트스토어 가입·사업자 전환·이용확인증 FAQ 본문
