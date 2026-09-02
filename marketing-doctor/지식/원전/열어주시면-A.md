@@ -52,7 +52,7 @@
 
 ### 1순위-c · 구글 (무료 · 바로 열림) — **지금 창고에서 가장 약한 곳**
 
-**구글은 원문을 하나도 못 열었다.** 공식 B 셋이 전부 구글이다.
+**2026-09-02 에 기술 요구사항 하나가 A 가 됐다.** 나머지 구글 문서는 아직 B 다.
 
 ```
 □ GG-02  스팸 정책        developers.google.com/search/docs/essentials/spam-policies
@@ -82,7 +82,7 @@
 ✅ EC-01  스마트스토어 수수료의 종류          2026-09-02 확보 → A
 ✅ EC-03  쿠팡 카테고리별 판매 수수료 표      2026-09-02 확보 → A
 □ EC-03  쿠팡 FAQ 본문                    marketplace.coupang.com/faq
-□ GS-01  구글 검색 기술 요건                  developers.google.com/search/docs/essentials/technical
+✅ GS-01  구글 검색 기술 요구사항            2026-09-02 확보 → A · 첫 구글 원문
 □ GS-07  Core Web Vitals 기준값              web.dev/articles/vitals
 □ KA-01  KRNIC 도메인이름 등록               nic.or.kr/jsp/business/management/domain/registrationInfo.jsp
 ```
