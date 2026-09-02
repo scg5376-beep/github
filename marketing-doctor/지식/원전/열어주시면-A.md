@@ -56,7 +56,7 @@
 
 ```
 ✅ GG-02  스팸 정책 (한국어판)          2026-09-02 확보 → A
-□ GG-02  2024-03 공식블로그 developers.google.com/search/blog/2024/03/core-update-spam-policies
+✅ GG-02  2024-03 공식 블로그              2026-09-02 확보 → A
 □ GG-03  비즈니스 정보 표시  support.google.com/business/answer/3038177
 □ GG-03  금지·제한 콘텐츠   support.google.com/business/answer/7400114
 □ GG-01  좋은 글의 기준     developers.google.com/search/docs/fundamentals/creating-helpful-content
@@ -137,6 +137,7 @@
 
 그 밖에
   Web Vitals 영어 원문 (한국어판은 기계 번역이라 구글이 고지했다)
+  2024-03 공식 블로그의 접힌 FAQ 넷 (AI 콘텐츠 인식 · 자동 생성 정책 차이 · 순위 신호 · 쿠폰)
   Core Web Vitals 기준값 산정 방법 (web.dev/articles/defining-core-web-vitals-thresholds)
   정부24 변경신고·휴폐업 신고 페이지
   스마트스토어 건별 정산내역 조회방법 — 화면 캡처로만 봐서 인용 못 함. 텍스트 필요
