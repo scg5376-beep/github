@@ -10,6 +10,11 @@
 
 금지 단어 목록은 `.brandcheck.local` (커밋 안 됨) 에 둡니다.
 목록이 없어도 아래 '형식 검사'는 항상 동작합니다.
+
+원문 보관본(`지식/원전/원문/`)은 공식 문서를 그대로 옮겨 둔 것이고 손대지 않습니다.
+거기 적힌 관공서 대표번호 같은 것을 지우면 원문이 아니게 됩니다. 그래서 보관본에서는
+**형식 검사만 참고로 알리고 실패시키지 않습니다.** 금지 단어(실제로 아는 상호·번호)는
+보관본에서도 그대로 실패시킵니다 — 그건 진짜 유출이기 때문입니다.
 """
 from __future__ import annotations
 import pathlib, re, sys
@@ -57,28 +62,36 @@ def main() -> int:
         금지 = [ln.strip() for ln in LOCAL.read_text(encoding="utf-8").splitlines()
                 if ln.strip() and not ln.startswith("#")]
 
-    적발 = []
+    적발, 참고 = [], []
+    보관본 = lambda rel: rel.parts[:3] == ("지식", "원전", "원문")
     for p in 파일들():
         rel = p.relative_to(ROOT)
+        형식 = 참고 if 보관본(rel) else 적발
         for n, ln in enumerate(p.read_text(encoding="utf-8", errors="replace").splitlines(), 1):
             for w in 금지:
                 if w in ln:
                     적발.append((rel, n, "금지 단어", w, ln.strip()[:60]))
             for m in 전화.findall(ln):
                 if m not in 안전값:
-                    적발.append((rel, n, "실제 전화번호로 보임", m, ln.strip()[:60]))
+                    형식.append((rel, n, "실제 전화번호로 보임", m, ln.strip()[:60]))
             for m in 사업자.findall(ln):
-                적발.append((rel, n, "사업자번호 형식", m, ln.strip()[:60]))
+                형식.append((rel, n, "사업자번호 형식", m, ln.strip()[:60]))
             for mo in 도로명.finditer(ln):
                 if mo.group(2) == "로" and mo.group(1) in 부사:
                     continue
                 m = mo.group(0)
                 if m not in 안전값:
-                    적발.append((rel, n, "실제 주소로 보임", m, ln.strip()[:60]))
+                    형식.append((rel, n, "실제 주소로 보임", m, ln.strip()[:60]))
 
     if not LOCAL.exists():
         print("ℹ .brandcheck.local 이 없습니다 — 형식 검사만 했습니다.")
         print("  (.brandcheck.local.example 을 복사해 상호·지역을 적어두면 더 정확합니다)\n")
+
+    if 참고:
+        print(f"ℹ 원문 보관본에서 {len(참고)}건 — 공식 문서 그대로라 고치지 않습니다.")
+        for rel, n, 종류, 값, _ in 참고:
+            print(f"  {rel}:{n}  [{종류}] {값}")
+        print()
 
     if not 적발:
         print(f"✅ 브랜드 유출 없음  ({len(list(파일들()))}개 파일 검사)")
