@@ -68,7 +68,9 @@
 ✅ LW-06  개인정보 보호법 전문 (제1~75조)     2026-09-02 확보 → A
 □ LW-06  같은 법 시행령                    ★ 72시간·안전조치 세부가 여기 있다
 ✅ LW-07  안전성 확보조치 기준 고시 전문     2026-09-02 확보 → A
-□ NS-01  서치어드바이저 검색엔진 최적화의 목적  searchadvisor.naver.com/guide/seo-basic-intro
+✅ NS-01  검색엔진 최적화의 목적 (10가지)     2026-09-02 확보 → A
+□ NS-01  HTML 마크업 가이드            ★ 다음 목표. 제목·설명 규칙이 여기 있다
+□ NS-01  robots.txt 설정하기 · RSS 및 사이트맵 제출
 □ NS-01  사이트 등록 및 소유확인 FAQ          searchadvisor.naver.com/guide/faq-start-register
 □ NS-01  콘텐츠 작성시 권장 사항              searchadvisor.naver.com/guide/content-basic
 □ EC-01  스마트스토어 수수료 FAQ              help.sell.smartstore.naver.com/faq/content.help?faqId=3558
