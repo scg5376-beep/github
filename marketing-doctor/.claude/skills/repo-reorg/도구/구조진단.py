@@ -31,7 +31,17 @@ import collections, pathlib, re, sys
 폴더상한, 깊이상한 = 15, 4
 
 # 폴더 단위로 가리켜지는 게 정상인 곳 — 고아 판정에서 뺀다
-보관성폴더 = {"원문", "보관", "archive", "raw", "자산", "assets", "이미지", "images"}
+보관성폴더 = {"원문", "보관", "_보관", "archive", "raw", "자산", "assets", "이미지", "images"}
+
+# 자산 파일은 깊이 판정에서 뺀다 (2026-09-02).
+# 다른 레포에 돌려 보니 깊이 초과 96건이 전부 한 패턴이었다 —
+#   assets/<사람>/<이름>/룩북/….png
+# 사람 → 룩북으로 갈라야 하니 5단계가 그 자산의 최소값이다. 우리가 읽는 글이 아니라
+# 기계가 경로로 찾는 파일이라 '깊으면 못 찾는다' 는 문제가 애초에 없다.
+# 상한을 올리는 게 아니라 성격으로 뺐다.
+자산확장자 = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".mp4", ".mov",
+              ".webm", ".mp3", ".wav", ".ttf", ".otf", ".woff", ".woff2", ".pdf",
+              ".psd", ".ai", ".zip"}
 
 제목꼴 = re.compile(r"^(#{1,3})\s+(.+)$", re.M)
 펜스꼴 = re.compile(r"^```.*?^```", re.M | re.S)
@@ -144,6 +154,8 @@ def 진단(root: pathlib.Path):
         if n > 폴더상한:
             고칠것["폴더 과밀"].append(f"{이름(d)}/ — {n}개 (상한 {폴더상한})")
     for p in 파일들:
+        if p.suffix.lower() in 자산확장자:
+            continue
         깊이 = len(p.relative_to(root).parts) - 1
         if 깊이 > 깊이상한:
             고칠것["깊이 초과"].append(f"{이름(p)} — {깊이}단계 (상한 {깊이상한})")
