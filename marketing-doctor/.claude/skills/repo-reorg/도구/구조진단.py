@@ -81,6 +81,11 @@ def 진단(root: pathlib.Path):
             가리킴 = m.group(1).strip()
             if not 가리킴 or 가리킴.startswith(("http", "mailto:")):
                 continue
+            # 링크가 아니라 괄호 문장인 경우가 있다 — 실제로 이런 게 걸렸다.
+            #   … 도입 뒤·혜택 앞에 [클립](운영자 지시 2026-08-11).
+            # 경로처럼 생기지 않았으면(칸이 있고 / 도 . 도 없으면) 링크로 보지 않는다.
+            if " " in 가리킴 and "/" not in 가리킴 and "." not in 가리킴:
+                continue
             if not (p.parent / 가리킴).exists():
                 고칠것["깨진 링크"].append(f"{이름(p)} → {가리킴}")
 
