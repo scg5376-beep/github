@@ -53,6 +53,12 @@ import collections, fnmatch, json, pathlib, re, sys
               ".webm", ".mp3", ".wav", ".ttf", ".otf", ".woff", ".woff2", ".pdf",
               ".psd", ".ai", ".zip"}
 
+# 이력 문서는 "그때는 이 경로였다" 를 적어 두는 게 목적이다. 깨진 링크로 세면
+# **기록을 남기는 행위가 벌받는다** — 실제로 그 사고가 두 번 났다 (2026-09-02).
+이력말 = ("작업로그", "결과보고", "실측", "인수인계", "회고", "정리기록", "changelog", "history")
+# ⛔ 폐기 표시를 붙여 원문을 남긴 구간도 같다. 폐기된 절의 경로는 없는 게 정상이다.
+폐기꼴 = re.compile(r"^>?\s*⛔", re.M)
+
 제목꼴 = re.compile(r"^(#{1,3})\s+(.+)$", re.M)
 펜스꼴 = re.compile(r"^```.*?^```", re.M | re.S)
 링크꼴 = re.compile(r"\[[^\]]*\]\(([^)#:]+?)\)")
@@ -136,7 +142,22 @@ def 진단(root: pathlib.Path):
 
     # 1. 깨진 링크 — 읽는 사람이 그 자리에서 막힌다
     for p, t in 글본문.items():
-        for m in 링크꼴.finditer(t):
+        if any(w in p.name for w in 이력말) or (set(p.parts) & 기록성폴더):
+            continue                       # 이력 문서는 옛 경로를 적어 두는 게 목적이다
+        # ⛔ 폐기 표시가 붙은 줄부터 다음 큰 제목까지는 검사에서 뺀다
+        검사본 = t
+        if 폐기꼴.search(t):
+            # 폐기 배너는 대개 폐기 대상 절 '바로 위' 에 붙인다(references/2 의 처방).
+            # 그러니 배너 다음의 첫 제목은 그 절의 제목이다 — ⛔ 가 붙어 있으면 계속 끈다.
+            줄들, 끄기, 남길것 = t.split("\n"), False, []
+            for ln in 줄들:
+                if 폐기꼴.match(ln):
+                    끄기 = True
+                elif 끄기 and re.match(r"^#{1,3}\s", ln) and "⛔" not in ln:
+                    끄기 = False
+                남길것.append("" if 끄기 else ln)
+            검사본 = "\n".join(남길것)
+        for m in 링크꼴.finditer(검사본):
             가리킴 = m.group(1).strip()
             if not 가리킴 or 가리킴.startswith(("http", "mailto:")):
                 continue
