@@ -22,6 +22,7 @@
 | **파일을 새로 만들거나 옮김** | `기준/파일정리규칙.md` | |
 | **커밋 전** | `python3 엔진/file_audit.py` + `python3 엔진/brand_check.py` | |
 | **보고 검사** | `python3 엔진/report_check.py` — 계약·개인정보·기록 규칙 위반 | |
+| **구조가 흐트러졌나** | `python3 .claude/skills/repo-reorg/도구/구조진단.py .` — 같은 절 두 번·고아·낡은 문서. 설정은 `구조진단.설정.json` | |
 | **공식 문서를 인용했을 때** | `python3 엔진/quote_check.py` — 인용문이 원문 보관본에 진짜 있는지 대조 | |
 
 ## 지식창고는 폴더가 곧 성격이다

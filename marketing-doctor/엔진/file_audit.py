@@ -94,6 +94,9 @@ def main() -> int:
         if p.suffix == ".csv":
             continue
         t = p.read_text(encoding="utf-8", errors="replace")
+        # json 은 주석을 못 넣는다. 맨 위 "_설명" 키를 설명으로 인정한다.
+        if p.suffix == ".json" and re.search(r'^\s*"_?(설명|description)"\s*:', t, re.M):
+            continue
         앞머리 = re.match(r"^---\s*\n(.*?)\n---", t, re.S)
         if 앞머리 and re.search(r"^\s*(제목|이름|설명)\s*:", 앞머리.group(1), re.M):
             continue                      # 앞머리에 제목이 있으면 설명으로 인정

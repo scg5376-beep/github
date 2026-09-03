@@ -17,7 +17,7 @@
 무엇을 왜 재는지는 references/1-먼저-재는-법.md.
 """
 from __future__ import annotations
-import collections, pathlib, re, sys
+import collections, fnmatch, json, pathlib, re, sys
 
 글확장자 = {".md", ".txt", ".rst"}
 설정확장자 = {".yaml", ".yml", ".json", ".toml", ".ini"}
@@ -27,6 +27,9 @@ import collections, pathlib, re, sys
 
 상한 = {"항상 로드": (8000, 250), "글": (6000, 200),
         "설정": (10000, 350), "코드": (12000, 400)}
+성격패턴: dict[str, list[str]] = {}      # 성격 이름 → 경로 glob 목록 (설정 파일에서 온다)
+폴더상한예외: list[tuple[str, int]] = []  # (폴더 glob, 상한)
+허용초과: list[dict] = []                 # 상한을 일부러 넘긴 파일 — 왜 · 다시 볼 날
 항상로드 = {"CLAUDE.md", "AGENTS.md", "README.md", "SKILL.md", "GEMINI.md"}
 폴더상한, 깊이상한 = 15, 4
 
@@ -49,6 +52,34 @@ import collections, pathlib, re, sys
 연도꼴 = re.compile(r"\b(20[12]\d)\b")
 
 
+# ── 레포별 설정 ─────────────────────────────────────────────────────────
+# 도구를 갱신할 때 레포 고유 값이 날아가지 않게 값과 로직을 갈라 둔다.
+# 실제로 그 사고가 났다 — 갱신본을 그대로 덮었더니 승인받은 상수 넷이 사라져
+# '고칠 것' 이 57 에서 150+ 로 되돌아갈 뻔했다 (2026-09-02).
+# 설정 파일은 도구 옆이나 레포 뿌리의 `구조진단.설정.json` 이다. 없으면 기본값으로 돈다.
+설정파일이름 = "구조진단.설정.json"
+
+
+def 설정읽기(root: pathlib.Path, 도구폴더: pathlib.Path) -> str | None:
+    for 후보 in (도구폴더 / 설정파일이름, root / 설정파일이름):
+        if 후보.is_file():
+            c = json.loads(후보.read_text(encoding="utf-8"))
+            for 이름, 값 in (c.get("상한") or {}).items():
+                상한[이름] = (int(값[0]), int(값[1]))
+            성격패턴.update(c.get("성격패턴") or {})
+            폴더상한예외.extend((g, int(n)) for g, n in (c.get("폴더상한예외") or []))
+            항상로드.update(c.get("항상로드추가") or [])
+            보관성폴더.update(c.get("보관성폴더추가") or [])
+            자산확장자.update(x.lower() for x in (c.get("자산확장자추가") or []))
+            허용초과.extend(c.get("허용초과") or [])
+            return str(후보)
+    return None
+
+
+def 맞나(경로: str, 패턴들) -> bool:
+    return any(fnmatch.fnmatch(경로, g) for g in 패턴들)
+
+
 def 성격(p: pathlib.Path) -> str | None:
     if p.name in 항상로드:
         return "항상 로드"
@@ -59,6 +90,15 @@ def 성격(p: pathlib.Path) -> str | None:
     if p.suffix in 코드확장자:
         return "코드"
     return None
+
+
+def 성격판정(p: pathlib.Path, root: pathlib.Path) -> str | None:
+    """설정의 성격패턴이 기본 분류보다 먼저다."""
+    상대 = str(p.relative_to(root)).replace("\\", "/")
+    for 이름, 패턴들 in 성격패턴.items():
+        if 맞나(상대, 패턴들):
+            return 이름
+    return 성격(p)
 
 
 def 대상(root: pathlib.Path):
@@ -140,19 +180,28 @@ def 진단(root: pathlib.Path):
                 f"{이름(p)} — {' · '.join(겹침[:2])}")
 
     # 3. 크기 초과
+    면제된것 = []
     for p, t in 본문.items():
-        s = 성격(p)
-        자상한, 줄상한 = 상한[s]
+        s = 성격판정(p, root)
+        자상한, 줄상한 = 상한.get(s, (6000, 200))
         자, 줄 = len(t), t.count("\n") + 1
-        if 자 > 자상한 or 줄 > 줄상한:
-            고칠것[f"크기 초과 · {s}"].append(
-                f"{이름(p)} — {자:,}자 / {줄}줄 (상한 {자상한:,}자 · {줄상한}줄)")
+        if 자 <= 자상한 and 줄 <= 줄상한:
+            continue
+        상대 = 이름(p).replace("\\", "/")
+        봐준것 = next((x for x in 허용초과 if fnmatch.fnmatch(상대, x.get("파일", ""))), None)
+        if 봐준것:
+            면제된것.append((상대, 자, 줄, 봐준것))
+            continue
+        고칠것[f"크기 초과 · {s}"].append(
+            f"{이름(p)} — {자:,}자 / {줄}줄 (상한 {자상한:,}자 · {줄상한}줄)")
 
     # 4. 폴더 과밀 · 깊이
     칸 = collections.Counter(p.parent for p in 파일들)
     for d, n in sorted(칸.items()):
-        if n > 폴더상한:
-            고칠것["폴더 과밀"].append(f"{이름(d)}/ — {n}개 (상한 {폴더상한})")
+        상대d = 이름(d).replace("\\", "/")
+        이폴더상한 = next((x for g, x in 폴더상한예외 if fnmatch.fnmatch(상대d, g)), 폴더상한)
+        if n > 이폴더상한:
+            고칠것["폴더 과밀"].append(f"{이름(d)}/ — {n}개 (상한 {이폴더상한})")
     for p in 파일들:
         if p.suffix.lower() in 자산확장자:
             continue
@@ -194,6 +243,11 @@ def 진단(root: pathlib.Path):
             if len(해들) >= 2 and 기준해 - max(해들) >= 3:
                 참고["레포보다 3년 이상 뒤처진 문서"].append(f"{이름(p)} — 최신 {max(해들)}")
 
+    if 면제된것:
+        for 상대, 자, 줄, x in 면제된것:
+            참고["상한을 일부러 넘긴 것 (면제)"].append(
+                f"{상대} — {자:,}자 / {줄}줄 · {x.get('왜', '이유 없음')}"
+                + (f" · 다시 볼 날 {x['다시볼날']}" if x.get("다시볼날") else " · ⚠ 다시 볼 날 없음"))
     return 파일들, 글본문, 칸, 기준해, 고칠것, 참고
 
 
@@ -220,10 +274,13 @@ def main() -> int:
         print(f"❌ 폴더가 아니다: {root}")
         return 1
 
+    쓴설정 = 설정읽기(root, pathlib.Path(__file__).resolve().parent)
     파일들, 글본문, 칸, 기준해, 고칠것, 참고 = 진단(root)
 
     print(f"구조 진단 — {root.name}")
     print("─" * 60)
+    print(f"설정: {쓴설정}" if 쓴설정 else
+          f"설정: 기본값 ({설정파일이름} 이 없다 — 레포에 맞추려면 만든다)")
     print(f"파일 {len(파일들)}개 / 글 {len(글본문)}개 / 폴더 {len(칸)}개"
           + (f" / 기준 연도 {기준해}" if 기준해 else ""))
     print()
