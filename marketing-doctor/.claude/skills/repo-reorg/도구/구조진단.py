@@ -4,6 +4,7 @@
 
   python3 구조진단.py [레포경로]        # 기본: 현재 폴더
   python3 구조진단.py . --자세히         # 항목별 전체 목록
+  python3 구조진단.py --판               # 어느 판인지만 찍는다. 덮기 전에 대조한다
 
 **아무것도 고치지 않는다.** 재기만 한다.
 정리를 시작하기 전에 "무엇이 얼마나 문제인가" 를 숫자로 본 다음,
@@ -224,6 +225,9 @@ def 찍기(제목, 묶음, 자세히):
 
 
 def main() -> int:
+    if "--판" in sys.argv:
+        print(판)
+        return 0
     자세히 = "--자세히" in sys.argv
     인자 = [a for a in sys.argv[1:] if not a.startswith("--")]
     root = pathlib.Path(인자[0] if 인자 else ".").resolve()
@@ -234,7 +238,7 @@ def main() -> int:
     쓴설정 = 설정읽기(root, pathlib.Path(__file__).resolve().parent)
     파일들, 글본문, 칸, 기준해, 고칠것, 참고 = 진단(root)
 
-    print(f"구조 진단 — {root.name}")
+    print(f"구조 진단 — {root.name}   [{판}]")
     print("─" * 60)
     print(f"설정: {쓴설정}" if 쓴설정 else
           f"설정: 기본값 ({설정파일이름} 이 없다 — 레포에 맞추려면 만든다)")
