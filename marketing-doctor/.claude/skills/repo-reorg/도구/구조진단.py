@@ -154,6 +154,11 @@ def 진단(root: pathlib.Path):
     # 4. 폴더 과밀 · 깊이
     칸 = collections.Counter(p.parent for p in 파일들)
     for d, n in sorted(칸.items()):
+        # 보관 폴더는 쌓이는 곳이다. 개수가 많은 게 정상이지 문제가 아니다.
+        # 고아·같은절 판정에서만 빼고 과밀에서는 안 빼서, 받은 쪽이 폴더상한예외로
+        # 우회해야 했다 (2026-09-03). 같은 성격은 같은 자로 잰다.
+        if set(d.relative_to(root).parts) & 보관성폴더:
+            continue
         상대d = 이름(d).replace("\\", "/")
         이폴더상한 = next((x for g, x in 폴더상한예외 if fnmatch.fnmatch(상대d, g)), 폴더상한)
         if n > 이폴더상한:
