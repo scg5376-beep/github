@@ -26,12 +26,19 @@ import collections, fnmatch, json, pathlib, re, sys
           ".next", "vendor", "target", ".cache"}
 
 상한 = {"항상 로드": (8000, 250), "글": (6000, 200),
-        "설정": (10000, 350), "코드": (12000, 400)}
+        "설정": (10000, 350), "코드": (12000, 400),
+        # 정리 기록·회고는 길어지는 게 정상이다. 이걸 '글' 로 재면
+        # **기록을 남기는 행위가 진단 수치를 나쁘게 만든다** — 그러면 사람이 기록을 안 남긴다.
+        # 실제로 그랬다: 보고서 셋을 넣자마자 고칠 것이 55 → 57 로 늘었다 (2026-09-02).
+        "기록": (20000, 500)}
 성격패턴: dict[str, list[str]] = {}      # 성격 이름 → 경로 glob 목록 (설정 파일에서 온다)
 폴더상한예외: list[tuple[str, int]] = []  # (폴더 glob, 상한)
 허용초과: list[dict] = []                 # 상한을 일부러 넘긴 파일 — 왜 · 다시 볼 날
 항상로드 = {"CLAUDE.md", "AGENTS.md", "README.md", "SKILL.md", "GEMINI.md"}
 폴더상한, 깊이상한 = 15, 4
+
+# 쌓이는 기록이 사는 곳 — '글' 상한으로 재지 않는다 (위 "기록" 성격)
+기록성폴더 = {"정리기록", "기록", "회고", "history", "changelog", "reports", "adr"}
 
 # 폴더 단위로 가리켜지는 게 정상인 곳 — 고아 판정에서 뺀다
 보관성폴더 = {"원문", "보관", "_보관", "archive", "raw", "자산", "assets", "이미지", "images"}
@@ -83,6 +90,8 @@ def 맞나(경로: str, 패턴들) -> bool:
 def 성격(p: pathlib.Path) -> str | None:
     if p.name in 항상로드:
         return "항상 로드"
+    if set(p.parts) & 기록성폴더:
+        return "기록"
     if p.suffix in 글확장자:
         return "글"
     if p.suffix in 설정확장자:
