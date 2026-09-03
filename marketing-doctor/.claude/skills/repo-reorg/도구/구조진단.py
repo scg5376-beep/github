@@ -96,8 +96,8 @@ def 맞나(경로: str, 패턴들) -> bool:
 def 성격(p: pathlib.Path) -> str | None:
     if p.name in 항상로드:
         return "항상 로드"
-    if set(p.parts) & 기록성폴더:
-        return "기록"
+    if (set(p.parts) & 기록성폴더) or any(w in p.stem for w in 이력말):
+        return "기록"       # 폴더가 아니라 파일명이 '작업로그' 인 것도 기록이다
     if p.suffix in 글확장자:
         return "글"
     if p.suffix in 설정확장자:
@@ -138,6 +138,7 @@ def 진단(root: pathlib.Path):
 
     고칠것 = collections.defaultdict(list)
     참고 = collections.defaultdict(list)
+    면제된것: list = []
     def 이름(p): return str(p.relative_to(root))
 
     # 1. 깨진 링크 — 읽는 사람이 그 자리에서 막힌다
@@ -168,6 +169,13 @@ def 진단(root: pathlib.Path):
                 continue
             if not (p.parent / 가리킴).exists():
                 고칠것["깨진 링크"].append(f"{이름(p)} → {가리킴}")
+
+    def 면제(상대: str, 종류: str):
+        """허용초과 항목 중 이 파일·이 종류에 해당하는 것. 종류를 안 적으면 '크기' 다."""
+        for x in 허용초과:
+            if fnmatch.fnmatch(상대, x.get("파일", "")) and x.get("종류", "크기") == 종류:
+                return x
+        return None
 
     # 2. 한 파일 안에 같은 절이 두 번 — 낡은 판과 새 판이 같이 사는 자리
     #
@@ -206,11 +214,14 @@ def 진단(root: pathlib.Path):
         겹침 += [f"{v[0]} / {v[1]}" for v in 큰것.values() if len(v) > 1]
         겹침 += [f"{k[1]} (같은 절 안에서 두 번)" for k, v in 작은것.items() if len(v) > 1]
         if 겹침:
+            봐준것 = 면제(이름(p).replace("\\", "/"), "같은 절")
+            if 봐준것:
+                면제된것.append((이름(p), "같은 절", 봐준것))
+                continue
             고칠것["한 파일에 같은 절이 두 번"].append(
                 f"{이름(p)} — {' · '.join(겹침[:2])}")
 
     # 3. 크기 초과
-    면제된것 = []
     for p, t in 본문.items():
         s = 성격판정(p, root)
         자상한, 줄상한 = 상한.get(s, (6000, 200))
@@ -218,9 +229,9 @@ def 진단(root: pathlib.Path):
         if 자 <= 자상한 and 줄 <= 줄상한:
             continue
         상대 = 이름(p).replace("\\", "/")
-        봐준것 = next((x for x in 허용초과 if fnmatch.fnmatch(상대, x.get("파일", ""))), None)
+        봐준것 = 면제(상대, "크기")
         if 봐준것:
-            면제된것.append((상대, 자, 줄, 봐준것))
+            면제된것.append((상대, f"{자:,}자 / {줄}줄", 봐준것))
             continue
         고칠것[f"크기 초과 · {s}"].append(
             f"{이름(p)} — {자:,}자 / {줄}줄 (상한 {자상한:,}자 · {줄상한}줄)")
@@ -274,10 +285,12 @@ def 진단(root: pathlib.Path):
                 참고["레포보다 3년 이상 뒤처진 문서"].append(f"{이름(p)} — 최신 {max(해들)}")
 
     if 면제된것:
-        for 상대, 자, 줄, x in 면제된것:
-            참고["상한을 일부러 넘긴 것 (면제)"].append(
-                f"{상대} — {자:,}자 / {줄}줄 · {x.get('왜', '이유 없음')}"
-                + (f" · 다시 볼 날 {x['다시볼날']}" if x.get("다시볼날") else " · ⚠ 다시 볼 날 없음"))
+        for 상대, 무엇, x in 면제된것:
+            줄 = f"{상대} — {무엇} · {x.get('왜', '이유 없음')}"
+            줄 += f" · 다시 볼 날 {x['다시볼날']}" if x.get("다시볼날") else " · ⚠ 다시 볼 날 없음"
+            if x.get("그때볼것"):
+                줄 += f" · 그때: {x['그때볼것']}"
+            참고["일부러 두는 것 (면제)"].append(줄)
     return 파일들, 글본문, 칸, 기준해, 고칠것, 참고
 
 
