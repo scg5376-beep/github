@@ -21,12 +21,16 @@ ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 \
     # 그래서 성격을 따로 두고 상한을 크게 잡는다. 우리가 쓰는 파일의 상한은 그대로다.
     ("원문 보관본", lambda p: p.parts[-4:-1] == ("지식", "원전", "원문")
                             or "원문" in p.parts and "원전" in p.parts, 30000, 700),
+    # 실전 기록은 우리가 읽고 고치는 글이 아니라 한 주에 한 줄씩 쌓이는 로그다.
+    # 고치지 않으니 "읽다가 빠뜨린다" 는 위험이 없고, 자르면 추세를 못 본다.
+    # 대신 무한정 두지 않는다 — 300줄(5년치)이면 연도로 나눈다.
+    ("실전 기록", lambda p: "실전" in p.parts and p.suffix == ".csv", 20000, 300),
     ("항상 로드", lambda p: p.name in ("SKILL.md", "CLAUDE.md", "AGENTS.md", "README.md"), 8000, 250),
     ("코드",     lambda p: p.suffix == ".py",   12000, 400),
     ("기계 읽음", lambda p: p.suffix in (".yaml", ".yml", ".json"), 10000, 350),
     ("참고 문서", lambda p: p.suffix == ".md",   6000, 200),
 ]
-검사확장자 = {".md", ".yaml", ".yml", ".json", ".py"}
+검사확장자 = {".md", ".yaml", ".yml", ".json", ".py", ".csv"}
 제외 = {".git", "__pycache__", "이미지", "assets"}
 
 
@@ -83,6 +87,11 @@ def main() -> int:
     # 3. 파일 맨 위 설명
     for p in 파일들:
         if p.suffix == ".py":
+            continue
+        # csv 는 첫 줄이 헤더이고, 그 헤더 자체가 계약이다(실전/워크플로우.md).
+        # 설명 주석을 넣으면 엔진/report_check.py 의 헤더 대조가 깨진다.
+        # 무엇을 담는지는 같은 폴더의 INDEX.md·워크플로우.md 가 적는다.
+        if p.suffix == ".csv":
             continue
         t = p.read_text(encoding="utf-8", errors="replace")
         앞머리 = re.match(r"^---\s*\n(.*?)\n---", t, re.S)

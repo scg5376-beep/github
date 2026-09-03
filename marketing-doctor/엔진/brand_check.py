@@ -21,7 +21,9 @@ import pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 LOCAL = ROOT / ".brandcheck.local"
-대상확장자 = {".md", ".yaml", ".yml", ".py", ".json", ".txt", ".html"}
+대상확장자 = {".md", ".yaml", ".yml", ".py", ".json", ".txt", ".html", ".csv"}
+# .csv 는 2026-09-02 에 넣었다 — 실전 기록(실전/품목/**/주간.csv)이 csv 이고,
+# 손님 정보가 섞여 들어오기 가장 쉬운 자리인데 검사 밖에 있었다.
 
 # 예시로 써도 되는 값 — 검사에서 제외한다.
 # 문서에 새 예시를 만들 때는 반드시 여기에 등록된 값만 쓴다.
