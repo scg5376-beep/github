@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI가 답할 때 우리 글이 쓰이려면 | 사장님 마케팅 교실</title>
+<meta name="description" content="손님이 검색 대신 AI에게 물을 때 우리 가게가 답에 나오는 구조를 그림으로. GEO가 무엇이고, 무엇이 통하고 무엇이 안 통하는지, 지금 확실한 것만 적었습니다.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">사장님 마케팅 교실</a>
+    <nav>
+      <a href="seo.html">검색에 걸린다는 것</a>
+      <a href="geo.html" aria-current="page">AI가 답할 때</a>
+      <a href="aeo.html">말은 셋, 할 일은 하나</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<h1>AI가 답할 때<br>우리 글이 쓰이려면</h1>
+<p class="lead">요즘 손님은 검색창에 단어를 치는 대신 <b>"저녁 7시 넘어서 여는 안경원 있어?"</b>처럼 묻습니다. 그러면 AI가 여기저기 글을 읽고 한 문단으로 답합니다. 그 답에 우리 가게가 나오게 하는 일을 <b>GEO</b>라고 부릅니다.</p>
+
+<div class="oneline">
+  GEO(생성형 엔진 최적화)는 <u>AI가 뽑아 쓸 수 있는 문장</u>을 우리 글에 넣어 두는 일입니다.<br>
+  "이렇게 하면 AI가 우리를 인용한다"고 <b>보장할 근거는 아직 없습니다.</b> 그래서 이 글이 필요합니다.
+</div>
+
+<h2>AI는 이렇게 답을 만듭니다</h2>
+<p>아래 그림은 손님의 질문이 답이 되기까지를 나눈 것입니다. 왼쪽이 우리가 쓴 글, 오른쪽이 손님이 보는 답입니다.</p>
+
+<figure>
+<svg viewBox="0 0 720 620" xmlns="http://www.w3.org/2000/svg" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <!-- 질문 -->
+  <rect x="30" y="20" width="660" height="66" rx="33" fill="#fff" stroke="#6a3d99" stroke-width="3"/>
+  <text x="58" y="61" font-size="21" fill="#222">저녁 7시 넘어서 여는 안경원 있어?</text>
+  <circle cx="660" cy="53" r="20" fill="#b5482a"/><text x="660" y="61" font-size="20" fill="#fff" font-weight="800" text-anchor="middle">1</text>
+
+  <!-- 왼쪽: 글 두 개 -->
+  <text x="30" y="130" font-size="17" fill="#555" font-weight="700">AI가 읽은 글</text>
+
+  <rect x="30" y="146" width="320" height="150" rx="10" fill="#f8e1e1" stroke="#e6b8b8" stroke-width="2"/>
+  <text x="48" y="178" font-size="16" fill="#a12f2f" font-weight="700">가게 A 블로그</text>
+  <text x="48" y="212" font-size="18" fill="#222">"저희는 친절합니다."</text>
+  <text x="48" y="240" font-size="18" fill="#222">"믿고 맡기세요!"</text>
+  <text x="48" y="280" font-size="15" fill="#a12f2f">→ 뽑아 쓸 문장이 없음</text>
+  <circle cx="330" cy="166" r="18" fill="#b5482a"/><text x="330" y="173" font-size="18" fill="#fff" font-weight="800" text-anchor="middle">2</text>
+
+  <rect x="30" y="316" width="320" height="150" rx="10" fill="#e3f2e8" stroke="#b6d9c3" stroke-width="2"/>
+  <text x="48" y="348" font-size="16" fill="#2f7a4d" font-weight="700">가게 B 블로그</text>
+  <text x="48" y="382" font-size="18" fill="#222">"평일은 저녁 8시까지 접수합니다."</text>
+  <text x="48" y="410" font-size="18" fill="#222">"토요일은 6시에 마감합니다."</text>
+  <text x="48" y="450" font-size="15" fill="#2f7a4d">→ 그대로 옮겨 쓸 수 있음</text>
+  <circle cx="330" cy="336" r="18" fill="#b5482a"/><text x="330" y="343" font-size="18" fill="#fff" font-weight="800" text-anchor="middle">3</text>
+
+  <!-- 화살표 -->
+  <path d="M355 390 L 400 390 L 400 240 L 440 240" stroke="#6a3d99" stroke-width="4" fill="none"/>
+  <polygon points="440,232 456,240 440,248" fill="#6a3d99"/>
+  <path d="M355 220 L 385 220" stroke="#c9a9e6" stroke-width="4" stroke-dasharray="6 6" fill="none"/>
+  <text x="362" y="205" font-size="22" fill="#a12f2f">✗</text>
+
+  <!-- 오른쪽: AI 답 -->
+  <rect x="460" y="146" width="230" height="320" rx="10" fill="#faf3ff" stroke="#c9a9e6" stroke-width="2"/>
+  <text x="478" y="178" font-size="16" fill="#6a3d99" font-weight="700">AI 답변</text>
+  <circle cx="668" cy="166" r="18" fill="#b5482a"/><text x="668" y="173" font-size="18" fill="#fff" font-weight="800" text-anchor="middle">4</text>
+  <text x="478" y="216" font-size="17" fill="#222">평일 저녁 8시까지</text>
+  <text x="478" y="242" font-size="17" fill="#222">접수하는 곳이 있습니다.</text>
+  <text x="478" y="268" font-size="17" fill="#222">토요일은 6시 마감이니</text>
+  <text x="478" y="294" font-size="17" fill="#222">참고하세요.</text>
+  <rect x="478" y="330" width="190" height="34" rx="17" fill="#e9dcf5"/>
+  <text x="494" y="353" font-size="14" fill="#6a3d99">출처 · 가게 B 블로그</text>
+  <text x="478" y="410" font-size="14" fill="#888">가게 A는 답에 없음</text>
+
+  <!-- 아래: 조건 -->
+  <rect x="30" y="500" width="660" height="96" rx="10" fill="#fff8e6" stroke="#e0c27a" stroke-width="2"/>
+  <circle cx="60" cy="548" r="18" fill="#b5482a"/><text x="60" y="555" font-size="18" fill="#fff" font-weight="800" text-anchor="middle">5</text>
+  <text x="92" y="538" font-size="17" fill="#8a6d00" font-weight="700">단, AI가 그 글을 먼저 찾아서 읽어야 합니다.</text>
+  <text x="92" y="570" font-size="16" fill="#555">검색에 안 걸리는 글은 AI도 못 읽습니다 → 앞 글 「검색에 걸린다는 것」</text>
+</svg>
+<figcaption>AI가 답을 만드는 과정을 단순하게 그린 것입니다. AI마다 방식이 다르고, 같은 글이 어느 AI에서는 쓰이고 어느 AI에서는 안 쓰일 수 있다고 전해집니다.</figcaption>
+</figure>
+
+<ol class="legend">
+  <li><span class="num">1</span><div><b>손님이 문장으로 묻습니다</b>"안경원"이 아니라 "7시 넘어서 여는 안경원 있어?"입니다. 조건이 들어 있습니다.</div></li>
+  <li><span class="num">2</span><div><b>분위기만 있는 글은 못 씁니다</b>"친절합니다" "믿고 맡기세요"는 손님 질문에 답이 안 됩니다. AI가 옮겨 적을 문장이 없습니다.</div></li>
+  <li><span class="num">3</span><div><b>숫자·조건·기준이 있는 글은 씁니다</b>"평일 저녁 8시까지 접수"는 질문에 정확히 답합니다. 그대로 옮겨 적힙니다.</div></li>
+  <li><span class="num">4</span><div><b>답에 출처로 이름이 걸립니다</b>손님은 그 출처를 눌러 우리 글로 들어옵니다.</div></li>
+  <li><span class="num">5</span><div><b>먼저 읽혀야 합니다</b>AI는 검색에서 찾은 글을 읽습니다. 검색에 안 걸리면 아무리 좋은 문장도 소용없습니다.</div></li>
+</ol>
+
+<h2>확실한 것과 확실하지 않은 것을 가릅니다</h2>
+<p>GEO라는 말은 2024년 학술 논문 제목에서 나왔습니다. 그 논문이 "통계·인용을 넣으면 AI 노출이 늘었다"고 했는데, <b>2026년 7월에 연구 45편을 검토한 논문이 이를 강하게 반박</b>했습니다. 둘을 같이 봐야 합니다. <span class="grade b">B · 해외 연구, 원문 미확인</span></p>
+
+<table>
+  <tr><th>지금 말할 수 있는 것</th><th>말할 수 없는 것</th></tr>
+  <tr>
+    <td>AI가 <b>이미 읽고 있는 글</b>이라면, 문장을 고쳐서 인용되게 만들 수 있다고 합니다.</td>
+    <td>어떤 기법으로 <b>AI가 우리를 처음 찾아 읽게</b> 만들 수 있다 — 이건 어느 연구도 안정적으로 보이지 못했다고 합니다.</td>
+  </tr>
+  <tr>
+    <td>키워드를 반복해 넣는 방식은 <b>AI 답변에서 통하지 않았다</b>고 합니다.</td>
+    <td>"AI 노출 순위"라는 하나의 표 — AI마다 인용하는 곳이 달라서 그런 표가 없다고 전해집니다.</td>
+  </tr>
+</table>
+
+<div class="oneline" style="border-color:#6a3d99">
+  한 줄로 줄이면 — <b>AI에게 읽히는 건 여전히 검색(SEO)의 일이고,<br>읽힌 뒤 인용되는 건 문장의 일입니다.</b>
+</div>
+
+<h2>국내는 더 확실한 길이 있습니다</h2>
+<p>네이버 플레이스에는 <b>AI 브리핑</b>이 붙습니다. 손님이 리뷰에 쓴 말이 요약돼 가게 소개처럼 보입니다. 이건 네이버가 공식 문서로 밝힌 것이라 해외 연구보다 근거가 셉니다. <span class="grade a">A · 공식 문서</span></p>
+<blockquote class="official">
+  <span class="who">네이버 스마트플레이스 · 플레이스 AI 브리핑 노출 안내</span>
+  <q>AI 브리핑은 네이버 이용자가 작성한 데이터를 바탕으로 제공되기 때문에 내용을 임의로 수정할 수 없습니다.</q>
+</blockquote>
+<p><b>그 요약을 사장님이 고칠 수 없습니다.</b> 손님이 리뷰에 무엇을 쓰느냐가 곧 AI가 우리 가게를 소개하는 말이 됩니다. (원치 않으면 스마트플레이스에서 미노출로 바꿀 수는 있다고 적혀 있습니다.)</p>
+<p class="small">같은 문서에 "현재 음식점, 카페 등 일부 업종 및 리뷰가 많은 업체 대상"이라고 적혀 있습니다. 모든 업종에 바로 붙는 건 아닙니다.</p>
+<p>그래서 국내에서는 문장 기법보다 <b>리뷰가 훨씬 확실한 경로</b>입니다. 손님이 "저녁에 갔는데 열려 있었다"고 리뷰에 쓰면, 그게 AI 브리핑에 올라갑니다.</p>
+
+<div class="yesno">
+  <div class="no"><b>✗ AI가 못 쓰는 문장</b>"고객 만족을 최우선으로 생각합니다."<br>"정성을 다합니다."</div>
+  <div class="yes"><b>○ AI가 쓰는 문장</b>"평일 저녁 8시까지 접수합니다."<br>"렌즈 교체는 당일 30분 걸립니다."<br>"주차는 건물 뒤 3대."</div>
+</div>
+
+<div class="tomorrow">
+  <b>내일 할 수 있는 것 하나</b>
+  우리 가게 소개 글에서 "친절" "정성" "최선"이 들어간 문장을 찾아 <b>숫자나 조건이 있는 문장으로 바꾸십시오.</b><br>
+  단, 겪은 것만 씁니다. 지어낸 숫자는 네이버가 '사용자 혼동·피해 유발' 로 보고 검색에서 뺍니다.
+</div>
+
+<div class="warn">
+  <b>이런 말을 들으면 거르십시오</b>
+  <ul>
+    <li>"AI 노출 보장" · "챗GPT 상위노출" — 보장할 수 있다는 근거가 없습니다. AI마다 인용하는 곳이 다르다고 전해집니다.</li>
+    <li>"통계를 넣으면 41% 오릅니다" — 그 숫자는 <b>지어낸 통계로도 성립한 실험</b>에서 나왔다고 반박됐습니다. 우리는 겪은 숫자만 씁니다.</li>
+    <li>"GEO 전용 작업이 따로 있습니다" — 없습니다. 앞 글의 SEO를 제대로 하는 것과 같은 일입니다.</li>
+  </ul>
+</div>
+
+<div class="next">
+  <a href="aeo.html"><small>다음 글</small>AEO·GEO·SEO — 말은 셋, 할 일은 하나 →</a>
+  <a href="seo.html"><small>앞 글</small>← 검색에 걸린다는 것</a>
+</div>
+
+<footer class="sources">
+  <h2>근거</h2>
+  <ul>
+    <li><b>B · 해외 연구</b> — 「GEO: Generative Engine Optimization」(KDD 2024) 와 이를 비판한 2026년 7월 서베이(45편 검토). 둘 다 원문을 직접 열지 못해 초록·2차 자료를 대조했습니다. 그래서 "~라고 합니다"로 적었습니다. 원 논문 숫자는 반박과 함께만 씁니다.</li>
+    <li><b>A · 공식 문서</b> — 네이버 스마트플레이스 「플레이스 AI 브리핑 노출 안내」. 큰따옴표 안은 원문 그대로입니다.</li>
+    <li><b>B</b> — 네이버 검색 AI 브리핑이 검색 질의 약 20%에 적용된다는 것(2026년 4월, 네이버 발표 보도). 단일 매체 수치는 쓰지 않았습니다.</li>
+  </ul>
+  <p class="small">AI 쪽은 가장 빨리 바뀌는 자리라 <b>3개월마다</b> 다시 봅니다. 이 글은 2026년 9월 기준입니다.</p>
+</footer>
+
+</main>
+</body>
+</html>
