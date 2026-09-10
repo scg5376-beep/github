@@ -148,3 +148,40 @@ footer.sources ul { padding-left: 20px; margin: 0 0 12px; }
 .next a:hover { border-color: var(--accent); }
 
 .small { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* ── 추가 (2026-09-11) ───────────────────────────── */
+.crumbs { font-size: 0.85rem; color: var(--ink-soft); margin: 18px 0 -20px; }
+.crumbs a { color: var(--ink-soft); }
+footer.site { border-top: 2px solid var(--line); margin-top: 60px; padding: 24px 20px 40px; font-size: 0.85rem; color: var(--ink-soft); text-align: center; }
+footer.site a { color: var(--ink-soft); }
+
+/* 첫 화면 두 갈래 */
+.tracks { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; margin: 30px 0; }
+@media (max-width: 640px) { .tracks { grid-template-columns: 1fr; } }
+.track { display: block; text-decoration: none; color: var(--ink); border: 3px solid var(--line); border-radius: 16px; padding: 24px 24px 20px; background: #fff; }
+.track:hover { border-color: var(--accent); }
+.track .k { display: inline-block; background: var(--accent-soft); color: var(--accent); font-weight: 800; padding: 2px 10px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 10px; }
+.track b { display: block; font-size: 1.3rem; line-height: 1.4; margin-bottom: 8px; }
+.track span { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* 목차 — 자리 순서 */
+.steps { list-style: none; padding: 0; margin: 20px 0; counter-reset: s; }
+.steps li { border-left: 6px solid var(--line); padding: 8px 0 8px 18px; margin: 0 0 14px; }
+.steps li.now { border-color: var(--accent); }
+.steps .tag { display: inline-block; font-size: 0.8rem; font-weight: 800; color: var(--accent); margin-right: 8px; }
+.steps a { color: var(--ink); text-decoration: none; font-weight: 700; }
+.steps a:hover { text-decoration: underline; }
+.steps small { display: block; color: var(--ink-soft); }
+
+/* 점검표 */
+ul.check { list-style: none; padding: 0; }
+ul.check li { padding: 8px 0 8px 40px; position: relative; border-bottom: 1px dashed var(--line); }
+ul.check li::before { content: "☐"; position: absolute; left: 6px; top: 6px; font-size: 1.2rem; color: var(--accent); }
+
+/* 인용 소출처 */
+.src { font-size: 0.8rem; color: var(--ink-soft); }
+.grade.c { background: #eee; color: #666; }
+.kv { display: grid; grid-template-columns: 1fr 2fr; gap: 6px 14px; margin: 16px 0; font-size: 0.98rem; }
+.kv dt { font-weight: 700; } .kv dd { margin: 0; }
+@media (max-width: 560px) { .kv { grid-template-columns: 1fr; } }
+html[lang="en"] body { word-break: normal; }
