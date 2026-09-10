@@ -30,7 +30,7 @@ SITE_URL = "https://sajangmarketing.com"
 SITE_NAME = "사장님 마케팅 교실"
 SITE_NAME_EN = "Sajang Marketing — Korea marketing, explained"
 DEFAULT_OG = {"home": "/img/og-home.png", "guide": "/img/og-ko.png",
-              "en": "/img/og-en.png", "about": "/img/og-home.png"}
+              "en": "/img/og-en.png", "en-legal": "/img/og-en.png", "about": "/img/og-home.png"}
 VERIFY = ROOT / "_build" / "verify.json"   # {"naver": "...", "google": "..."} — 소유확인 코드 (없으면 생략)
 
 META_RE = re.compile(r"^\s*<!--meta\s*(\{.*?\})\s*-->\s*", re.S)
@@ -64,7 +64,7 @@ def nav_html(page, pages):
     if lang == "en":
         items = [("/en/", "Start here", "en"), ("/en/legal.html", "Legal", "en-legal"), ("/", "한국어", "home")]
     else:
-        items = [("/", "처음", "home"), ("/guide/", "사장님 가이드", "guide"), ("/en/", "English", "en"), ("/about.html", "이 교실은", "about")]
+        items = [("/", "처음", "home"), ("/guide/", "사장님 가이드", "guide"), ("/about.html", "이 교실은", "about"), ("/en/", "English", "en")]
     out = []
     for href, label, key in items:
         cur = ' aria-current="page"' if (page["section"] == key or page["url"] == href) else ""
@@ -163,8 +163,31 @@ def footer_html(page):
 </footer>'''
 
 
+def meta_line(page):
+    """글머리 한 줄 — 발행·수정·근거 등급·읽는 시간 (설계기준 R2). 목차·첫 화면에는 넣지 않는다."""
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex"):
+        return page["body"]
+    text = strip_tags(page["body"])
+    if page["lang"] == "en":
+        mins = max(1, round(len(text.split()) / 220))
+        parts = [f"Published {page.get('date')}", f"Updated {page.get('updated')}",
+                 f"Evidence: {page.get('grade', 'see sources')}", f"{mins} min read"]
+    else:
+        mins = max(1, round(len(text) / 450))
+        parts = [f"발행 {page.get('date')}", f"수정 {page.get('updated')}",
+                 f"근거 {page.get('grade', '글 끝 참조')}", f"읽는 시간 약 {mins}분"]
+    line = '<p class="meta-line">' + "".join(f"<span>{esc(x)}</span>" for x in parts) + "</p>"
+    body = page["body"]
+    m = re.search(r'<p class="lead">.*?</p>', body, re.S)
+    if m:
+        return body[:m.end()] + chr(10) + line + body[m.end():]
+    m = re.search(r"</h1>", body)
+    return body[:m.end()] + chr(10) + line + body[m.end():] if m else line + body
+
+
 def render(page, pages, verify):
     lang = page["lang"]
+    page = dict(page, body=meta_line(page))
     return f'''<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -247,12 +270,15 @@ def build():
     write(ROOT / "feed.xml", feed)
 
     # 404
-    nf = {"title": "찾는 글이 없습니다 — 사장님 마케팅 교실", "description": "주소가 바뀌었거나 없는 페이지입니다.",
+    nf = {"title": "찾는 글이 없습니다", "nav": "없는 페이지", "description": "주소가 바뀌었거나 없는 페이지입니다. 처음 화면이나 사장님 가이드 목차에서 다시 찾아보십시오.",
           "lang": "ko", "section": "about", "url": "/404.html", "rel": "404.html", "noindex": True, "date": "2026-09-11", "updated": "2026-09-11",
           "body": '<h1>찾는 글이 없습니다</h1><p class="lead">주소가 바뀌었거나 없는 페이지입니다. <a href="/">처음</a>이나 <a href="/guide/">사장님 가이드</a>에서 다시 찾아보세요.</p>'}
     write(ROOT / "404.html", render(nf, pages, verify))
 
-    print(f"built {len(pages)} pages + sitemap/robots/feed/404")
+    # 옛 주소 → 새 주소 (첫날 하루 쓰인 주소). noindex 이고 검사에서 뺀다
+    for old, new in {"seo.html": "/guide/seo.html", "geo.html": "/guide/geo.html", "aeo.html": "/guide/aeo.html"}.items():
+        write(ROOT / old, f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={new}"><link rel="canonical" href="{SITE_URL}{new}"><title>주소가 바뀌었습니다</title></head><body><p>이 글은 <a href="{new}">{new}</a> 로 옮겼습니다.</p></body></html>' + chr(10))
+    print(f"built {len(pages)} pages + sitemap/robots/feed/404 + redirects")
     return pages
 
 

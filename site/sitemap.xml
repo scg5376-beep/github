@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://sajangmarketing.com/about.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/ads.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/ads.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/ads.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/legal.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/before-selling.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/naver-place.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/naver-place.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/place.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/naver-search.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/naver-search.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/seo.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/selling-online.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/selling-online.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/selling.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/ads.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/ads.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/ads.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/aeo.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/before-selling.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/before-selling.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/legal.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/geo.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/homepage.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/numbers.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/place.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/place.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/naver-place.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/record.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/reviews.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/selling.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/selling.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/selling-online.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/seo.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/seo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/naver-search.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/"/>
+  </url>
+</urlset>

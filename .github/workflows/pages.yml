@@ -1,10 +1,11 @@
-name: 사이트 배포 (GitHub Pages)
+name: 사이트 검사·배포 (GitHub Pages)
 
 on:
   push:
     branches: [main]
     paths:
       - 'site/**'
+      - 'marketing-doctor/지식/원전/원문/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -25,9 +26,25 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 셋째 겹 — 설계기준 검사를 통과하지 못하면 배포하지 않는다
+      - name: 빌드
+        run: python site/_build/build.py
+      - name: 설계기준 검사 (오류 1개면 실패)
+        run: python site/_build/check.py
+      - name: 빌드 결과가 커밋과 같은지
+        run: git diff --exit-code -- site ':!site/_src' ':!site/_build' || (echo "빌드 결과가 커밋된 파일과 다르다. 로컬에서 build.py 를 돌리고 커밋하라." && exit 1)
+
       - uses: actions/configure-pages@v5
+      - name: 배포 묶음 만들기 (소스·빌더 제외)
+        run: |
+          mkdir -p /tmp/public
+          rsync -a --exclude '_src' --exclude '_build' --exclude 'docs' --exclude 'README.md' site/ /tmp/public/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: /tmp/public
       - id: deployment
         uses: actions/deploy-pages@v4
