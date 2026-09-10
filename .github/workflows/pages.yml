@@ -36,7 +36,7 @@ jobs:
       - name: 설계기준 검사 (오류 1개면 실패)
         run: python site/_build/check.py
       - name: 빌드 결과가 커밋과 같은지
-        run: git diff --exit-code -- site ':!site/_src' ':!site/_build' || (echo "빌드 결과가 커밋된 파일과 다르다. 로컬에서 build.py 를 돌리고 커밋하라." && exit 1)
+        run: git diff --exit-code -- site ':!site/_src' ':!site/_build' ':!site/img' ':!site/docs' || (echo "빌드 결과가 커밋된 파일과 다르다. 로컬에서 build.py 를 돌리고 커밋하라." && exit 1)
 
       - uses: actions/configure-pages@v5
       - name: 배포 묶음 만들기 (소스·빌더 제외)

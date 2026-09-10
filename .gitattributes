@@ -1,1 +1,3 @@
-site/** text eol=lf
+site/** text=auto eol=lf
+*.png binary
+*.jpg binary
