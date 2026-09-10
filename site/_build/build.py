@@ -157,8 +157,8 @@ def footer_html(page):
   <p><a href="/en/">Start here</a> · <a href="/en/legal.html">Legal</a> · <a href="/about.html">About (Korean)</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
     return '''<footer class="site">
-  <p>이 사이트는 특정 가게에 속하지 않습니다. 예시 가게 이름은 전부 지어낸 것입니다.<br>
-  물건을 팔지 않고, 손님 정보를 받지 않고, 스크립트를 돌리지 않습니다.</p>
+  <p>이 사이트는 특정 가게에 속하지 않아요. 예시 가게 이름은 전부 지어낸 거예요.<br>
+  물건을 팔지 않고, 손님 정보를 받지 않고, 스크립트를 돌리지 않아요.</p>
   <p><a href="/guide/">사장님 가이드</a> · <a href="/en/">English</a> · <a href="/about.html">이 교실이 지키는 것</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
 
@@ -190,7 +190,7 @@ def add_toc(page):
     body = page["body"]
     heads = []
     def rep(m):
-        text = re.sub(r"<[^>]+>", "", m.group(2)).strip()
+        text = re.sub(r"^\d+\.\s*", "", re.sub(r"<[^>]+>", "", m.group(2)).strip())   # 「1. 」 머리 번호는 목차에서 뺀다
         hid = "s%d" % (len(heads) + 1)
         heads.append((hid, text))
         return f'<h2 id="{hid}"{m.group(1)}>{m.group(2)}</h2>'
@@ -290,14 +290,14 @@ def build():
     write(ROOT / "feed.xml", feed)
 
     # 404
-    nf = {"title": "찾는 글이 없습니다", "nav": "없는 페이지", "description": "주소가 바뀌었거나 없는 페이지입니다. 처음 화면이나 사장님 가이드 목차에서 다시 찾아보십시오.",
+    nf = {"title": "찾는 글이 없어요", "nav": "없는 페이지", "description": "주소가 바뀌었거나 없는 페이지예요. 처음 화면이나 사장님 가이드 목차에서 다시 찾아보세요.",
           "lang": "ko", "section": "about", "url": "/404.html", "rel": "404.html", "noindex": True, "date": "2026-09-11", "updated": "2026-09-11",
-          "body": '<h1>찾는 글이 없습니다</h1><p class="lead">주소가 바뀌었거나 없는 페이지입니다. <a href="/">처음</a>이나 <a href="/guide/">사장님 가이드</a>에서 다시 찾아보세요.</p>'}
+          "body": '<h1>찾는 글이 없어요</h1><p class="lead">주소가 바뀌었거나 없는 페이지예요. <a href="/">처음</a>이나 <a href="/guide/">사장님 가이드</a>에서 다시 찾아보세요.</p>'}
     write(ROOT / "404.html", render(nf, pages, verify))
 
     # 옛 주소 → 새 주소 (첫날 하루 쓰인 주소). noindex 이고 검사에서 뺀다
     for old, new in {"seo.html": "/guide/seo.html", "geo.html": "/guide/geo.html", "aeo.html": "/guide/aeo.html"}.items():
-        write(ROOT / old, f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={new}"><link rel="canonical" href="{SITE_URL}{new}"><title>주소가 바뀌었습니다</title></head><body><p>이 글은 <a href="{new}">{new}</a> 로 옮겼습니다.</p></body></html>' + chr(10))
+        write(ROOT / old, f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={new}"><link rel="canonical" href="{SITE_URL}{new}"><title>주소가 바뀌었습니다</title></head><body><p>이 글은 <a href="{new}">{new}</a> 로 옮겼어요.</p></body></html>' + chr(10))
     print(f"built {len(pages)} pages + sitemap/robots/feed/404 + redirects")
     return pages
 

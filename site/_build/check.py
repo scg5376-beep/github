@@ -90,6 +90,10 @@ def check_tone(rel, prose_html):
     paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
     paras = [x for x in paras if len(x) > 8]
     plain = " ".join(paras)
+    # 범례의 표제어(「파워링크.」)는 문장 통계에서 뺀다
+    body_nolabel = re.sub(r"<li>\s*<span class=\"num\">\d+</span>\s*<div>\s*<b>[^<]*</b>", "<li><div>", body)
+    paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
+    paras_stat = [x for x in paras_stat if len(x) > 8]
     L = TONE["limit"]
     # S1 금지
     for group, pats in TONE["ban_s1"].items():
@@ -98,7 +102,7 @@ def check_tone(rel, prose_html):
             if hits:
                 m = re.search(pat, plain); ctx = plain[max(0, m.start()-14): m.end()+14]
                 err(rel, group.split()[0], f"{group}: '{hits[0] if isinstance(hits[0], str) else pat}' {len(hits)}회 … {ctx}")
-    sents = [s for para in paras for s in sentences_ko(para)]
+    sents = [s for para in paras_stat for s in sentences_ko(para)]
     if len(sents) < 8:
         return
     n = len(sents)
