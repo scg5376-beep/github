@@ -12,6 +12,7 @@ import json, re, sys, pathlib, struct, html as htmlmod
 ROOT = pathlib.Path(__file__).resolve().parents[1]          # site/
 REPO = ROOT.parent
 SPEC = json.loads((ROOT / "_build" / "spec.json").read_text(encoding="utf-8"))
+TONE = json.loads((ROOT / "_build" / "tone.json").read_text(encoding="utf-8"))   # ko-tone 스킬의 기계 판독본
 ORIG = REPO / "marketing-doctor" / "지식" / "원전" / "원문"   # 인용 대조용 원문 보관본
 
 errors, warns = [], []
@@ -76,6 +77,79 @@ def check_css():
         err("css", "S2", "CSS 가 외부 자원을 부른다")
     if re.search(r"animation|transition\s*:", css):
         warn("css", "D7", "애니메이션/전환이 있다 — 움직임은 쓰지 않는다")
+
+
+
+# ── K 말투 (ko-tone 스킬, 한국어 본문만) ─────────────────────
+def sentences_ko(text):
+    return [x.strip() for x in re.split(r"(?<=[.?!])\s+", text) if len(x.strip()) > 6]   # 「파워링크.」 같은 표제어는 문장으로 안 센다
+
+def check_tone(rel, prose_html):
+    """prose_html: <main> 에서 인용·표·그림·근거를 뺀 HTML 조각"""
+    body = re.sub(r"<(table|figure|footer|svg)\b.*?</\1>", " ", prose_html, flags=re.S)
+    paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
+    paras = [x for x in paras if len(x) > 8]
+    plain = " ".join(paras)
+    L = TONE["limit"]
+    # S1 금지
+    for group, pats in TONE["ban_s1"].items():
+        for pat in pats:
+            hits = re.findall(pat, plain)
+            if hits:
+                m = re.search(pat, plain); ctx = plain[max(0, m.start()-14): m.end()+14]
+                err(rel, group.split()[0], f"{group}: '{hits[0] if isinstance(hits[0], str) else pat}' {len(hits)}회 … {ctx}")
+    sents = [s for para in paras for s in sentences_ko(para)]
+    if len(sents) < 8:
+        return
+    n = len(sents)
+    hap = sum(1 for s in sents if re.search(TONE["endings"]["hapsyo"], s)) / n
+    ipn = sum(1 for s in sents if re.search(TONE["endings"]["ipnida"], s)) / n
+    if hap > L["hapsyo_ratio_max"]:
+        err(rel, "S2-1", f"합쇼체 종결 {hap:.0%} > {L['hapsyo_ratio_max']:.0%} (해요체 기본)")
+    if ipn > L["ipnida_ratio_max"]:
+        err(rel, "S2-2", f"'입니다' 종결 {ipn:.0%} > {L['ipnida_ratio_max']:.0%}")
+    # 같은 어미 연속
+    ends = [re.sub(r"[.?!\"”’)]+$", "", s)[-2:] for s in sents]
+    run = 1
+    for a, b in zip(ends, ends[1:]):
+        run = run + 1 if a == b else 1
+        if run > L["same_ending_run_max"]:
+            err(rel, "S2-3", f"같은 어미 '{a}' 로 {run}문장 연속"); break
+    lens = [len(s) for s in sents]; mean = sum(lens) / n
+    sd = (sum((x - mean) ** 2 for x in lens) / n) ** 0.5
+    if not (L["sentence_mean_min"] <= mean <= L["sentence_mean_max"]):
+        warn(rel, "S2-4", f"문장 평균 길이 {mean:.0f}자 (권장 {L['sentence_mean_min']}~{L['sentence_mean_max']})")
+    if sd / mean < L["sentence_sd_ratio_min"]:
+        err(rel, "S2-4", f"문장 길이가 고르다 (표준편차 {sd:.0f}자 = 평균의 {sd/mean:.0%}, 기준 {L['sentence_sd_ratio_min']:.0%} 이상)")
+    short = sum(1 for x in lens if x < L["short_sentence_chars"]) / n
+    if short > L["short_sentence_ratio_max"]:
+        err(rel, "S2-5", f"{L['short_sentence_chars']}자 미만 문장 {short:.0%} > {L['short_sentence_ratio_max']:.0%}")
+    comma = sum(1 for s in sents if "," in s) / n
+    if comma > L["comma_sentence_ratio_max"]:
+        err(rel, "S2-6", f"쉼표 있는 문장 {comma:.0%} > {L['comma_sentence_ratio_max']:.0%}")
+    trip = len(re.findall(r"[가-힣]+, [가-힣]+, [가-힣]+", plain)) + len(re.findall(r"첫째|둘째|셋째", plain)) // 3
+    if trip > L["triplet_max"]:
+        err(rel, "S2-7", f"셋 나열 {trip}회 > {L['triplet_max']}회")
+    conj = sum(1 for s in sents if re.match(r"(그래서|그런데|다만|또한|따라서|하지만|즉|그리고|그러나)[ ,]", s))
+    if conj > L["leading_conj_per_page_max"]:
+        err(rel, "S2-8", f"문두 접속사 {conj}회 > {L['leading_conj_per_page_max']}회")
+    for w in L["repeat_predicates"]:
+        c = len(re.findall(w, plain))
+        if c > L["repeat_predicate_max"]:
+            err(rel, "S2-9", f"서술어 '{w}' {c}회 > {L['repeat_predicate_max']}회")
+    for para in paras:
+        ps = sentences_ko(para)
+        dem = sum(1 for s in ps if re.match(r"(이|그|해당|이러한|이런|그런|여기|거기)[ 가-힣]", s))
+        if dem > L["demonstrative_start_per_para_max"]:
+            warn(rel, "S2-11", f"지시어로 시작하는 문장 {dem}개: {para[:24]}…")
+        if len(ps) > L["para_max_sentences"]:
+            warn(rel, "S2-15", f"문단에 문장 {len(ps)}개: {para[:24]}…")
+    can = len(re.findall(r"(할|될|볼|쓸|낼|갈|올|살) 수 있(습니다|어요|죠|다)", plain))
+    if can > L["can_form_max"]:
+        err(rel, "S2-12", f"'~할 수 있' 가능형 {can}회 > {L['can_form_max']}회")
+    for s in sents:
+        if len(s) > L["sentence_max_chars"]:
+            warn(rel, "S2-14", f"문장 {len(s)}자: {s[:36]}…")
 
 
 def check_page(p, all_titles):
@@ -184,7 +258,7 @@ def check_page(p, all_titles):
             err(rel, "L3", "새 창 링크는 쓰지 않는다")
 
     # ── T 문장 ── (원문 인용 <q>·<blockquote> 은 그대로 옮긴 것이라 문체 검사에서 뺀다)
-    prose = re.sub(r"<blockquote.*?</blockquote>", " ", main, flags=re.S)
+    prose = re.sub(r"<blockquote\b.*?</blockquote>", " ", main, flags=re.S)
     prose = re.sub(r"<q>.*?</q>", " ", prose, flags=re.S)
     plain = strip(prose)
     for ch in SPEC["text"]["banned_chars"]:
@@ -231,6 +305,9 @@ def check_page(p, all_titles):
             ipnida = sum(1 for s in sents if s.rstrip(".").endswith("입니다")) / len(sents)
             if ipnida > SPEC["text"]["ending_share_max"]:
                 warn(rel, "T8", f"'입니다' 로 끝나는 문장이 {ipnida:.0%} (기준 {SPEC['text']['ending_share_max']:.0%}) — 서술어를 섞는다")
+
+    if ko and not is_index:
+        check_tone(rel, prose)
 
     # ── Q 인용 ──
     if ORIG.is_dir():

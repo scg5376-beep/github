@@ -21,14 +21,14 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
-  line-height: 1.65;
+  line-height: 1.75;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 html[lang="en"] body { font-family: Georgia, "Times New Roman", serif; word-break: normal; }
 html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] header.top, html[lang="en"] table, html[lang="en"] figcaption, html[lang="en"] .meta-line { font-family: system-ui, "Segoe UI", Helvetica, Arial, sans-serif; }
 
-.wrap { max-width: 660px; margin: 0 auto; padding: 0 20px 72px; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 20px 72px; }
 
 /* 머리 */
 header.top { border-bottom: 1px solid var(--line); background: var(--paper); }
@@ -48,9 +48,9 @@ h1 { font-size: 1.85rem; line-height: 1.3; margin: 0 0 14px; letter-spacing: -0.
 .meta-line { font-size: 0.8rem; color: var(--ink-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 8px 0; margin: 18px 0 34px; }
 .meta-line span + span::before { content: " · "; }
 
-h2 { font-size: 1.32rem; line-height: 1.35; margin: 48px 0 12px; }
-h3 { font-size: 1.06rem; margin: 30px 0 8px; }
-p { margin: 0 0 16px; }
+h2 { font-size: 1.3rem; line-height: 1.4; margin: 56px 0 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+h3 { font-size: 1.05rem; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
 main a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 main a:hover { color: var(--accent); }
 b, strong { font-weight: 700; }
@@ -124,3 +124,12 @@ footer.site { border-top: 1px solid var(--line); margin-top: 40px; padding: 22px
 footer.site a { color: var(--ink-soft); }
 
 .small { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* 글머리 목차 (h2 3개 이상) — GOV.UK·위키·구글 문서에서 관찰 */
+nav.intoc { margin: 0 0 40px; padding: 14px 18px; border: 1px solid var(--line); background: #fff; font-size: 0.9rem; }
+nav.intoc span { display: block; font-weight: 700; margin-bottom: 6px; color: var(--ink-soft); font-size: 0.8rem; }
+nav.intoc ol { margin: 0; padding-left: 22px; }
+nav.intoc li { margin: 2px 0; }
+nav.intoc a { text-decoration: none; }
+nav.intoc a:hover { text-decoration: underline; }
+h2 { scroll-margin-top: 16px; }

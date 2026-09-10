@@ -185,9 +185,29 @@ def meta_line(page):
     return body[:m.end()] + chr(10) + line + body[m.end():] if m else line + body
 
 
+def add_toc(page):
+    """h2 에 id 를 달고, h2 가 3개 이상이면 글머리(meta-line 뒤)에 '이 글에서' 목차를 넣는다 (GOV.UK·위키 관찰)."""
+    body = page["body"]
+    heads = []
+    def rep(m):
+        text = re.sub(r"<[^>]+>", "", m.group(2)).strip()
+        hid = "s%d" % (len(heads) + 1)
+        heads.append((hid, text))
+        return f'<h2 id="{hid}"{m.group(1)}>{m.group(2)}</h2>'
+    cut = body.find('<footer class="sources">')          # 근거 footer 의 h2 는 목차에 넣지 않는다
+    head_part, tail_part = (body, "") if cut < 0 else (body[:cut], body[cut:])
+    body = re.sub(r"<h2([^>]*)>(.*?)</h2>", rep, head_part, flags=re.S) + tail_part
+    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/") and not page.get("noindex"):
+        label = "In this article" if page["lang"] == "en" else "이 글에서"
+        toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
+        m = re.search(r'<p class="meta-line">.*?</p>', body, re.S)
+        body = body[:m.end()] + chr(10) + toc + body[m.end():] if m else toc + body
+    return dict(page, body=body)
+
+
 def render(page, pages, verify):
     lang = page["lang"]
-    page = dict(page, body=meta_line(page))
+    page = add_toc(dict(page, body=meta_line(page)))
     return f'''<!DOCTYPE html>
 <html lang="{lang}">
 <head>
