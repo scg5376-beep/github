@@ -63,7 +63,27 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/legal.html"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/guide/blog-removed.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/blog.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/domain.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/guide/geo.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/google-content.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/google-profile.html</loc>
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
@@ -75,6 +95,14 @@
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/guide/instagram.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/meta-review.html</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/guide/numbers.html</loc>
     <lastmod>2026-09-11</lastmod>
   </url>
@@ -83,6 +111,10 @@
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/place.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/naver-place.html"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/guide/powerlink.html</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/guide/record.html</loc>
