@@ -63,19 +63,35 @@ def esc(s):
 def nav_html(page, pages):
     lang = page["lang"]
     if lang == "en":
-        items = [("/en/", "Start here", "en"), ("/en/legal.html", "Legal", "en-legal"), ("/", "한국어", "home")]
+        items = [("/en/", "Home", "en"), ("/en/privacy.html", "Privacy", "en-legal")]
+        alt = page.get("alt") or "/"
+        toggle = f'<a class="lang" href="{alt}" lang="ko" hreflang="ko">한국어</a>'
+        base = "/en/"
+        all_label = "All"
     else:
-        items = [("/", "처음", "home"), ("/guide/", "사장님 가이드", "guide"), ("/about.html", "이 교실은", "about"), ("/en/", "English", "en")]
+        items = [("/", "처음", "home"), ("/guide/", "전체 글", "guide"), ("/about.html", "이 교실은", "about")]
+        alt = page.get("alt") or "/en/"
+        toggle = f'<a class="lang" href="{alt}" lang="en" hreflang="en">English</a>'
+        base = "/guide/"
+        all_label = "전체"
     out = []
     for href, label, key in items:
         cur = ' aria-current="page"' if (page["section"] == key or page["url"] == href) else ""
         out.append(f'<a href="{href}"{cur}>{label}</a>')
     brand = SITE_NAME if lang != "en" else "Sajang Marketing"
+    # 게시판 탭 — 커뮤니티식. 현재 글의 게시판에 표시
+    tabs = [f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>']
+    for c in CATS[lang]:
+        if not posts(pages, lang, c):
+            continue
+        cur = ' aria-current="page"' if page.get("cat") == c else ""
+        tabs.append(f'<a href="{base}#{cat_id(lang, c)}"{cur}>{esc(c)}</a>')
     return f'''<header class="top">
   <div class="wrap">
     <a class="brand" href="{'/en/' if lang=='en' else '/'}">{brand}</a>
-    <nav>{"".join(out)}</nav>
+    <nav>{"".join(out)}{toggle}</nav>
   </div>
+  <nav class="tabs" aria-label="{"Boards" if lang == "en" else "게시판"}"><div class="wrap">{"".join(tabs)}</div></nav>
 </header>'''
 
 
@@ -143,11 +159,13 @@ def head_html(page, verify):
 
 
 def crumbs(page):
-    if page["url"] in ("/", "/en/"):
+    if page["url"] in ("/", "/en/", "/guide/"):
         return ""
     if page["lang"] == "en":
         return '<p class="crumbs"><a href="/en/">Start here</a> › ' + esc(page.get("nav", page["title"])) + '</p>'
-    root = {"guide": ("/guide/", "사장님 가이드"), "about": ("/", "처음")}.get(page["section"], ("/", "처음"))
+    if page["url"] in ("/", "/en/", "/guide/"):
+        return ""
+    root = {"guide": ("/guide/", "전체 글"), "about": ("/", "처음")}.get(page["section"], ("/", "처음"))
     return f'<p class="crumbs"><a href="{root[0]}">{root[1]}</a> › {esc(page.get("nav", page["title"]))}</p>'
 
 
@@ -161,7 +179,7 @@ def footer_html(page):
     return '''<footer class="site">
   <p>이 사이트는 특정 가게에 속하지 않아요. 예시 가게 이름은 전부 지어낸 거예요.<br>
   물건을 팔지 않고, 손님 정보를 받지 않아요. 광고 자리에는 「광고」라고 적어요.</p>
-  <p><a href="/guide/">사장님 가이드</a> · <a href="/en/">English</a> · <a href="/about.html">이 교실이 지키는 것</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
+  <p><a href="/guide/">전체 글</a> · <a href="/en/">English</a> · <a href="/about.html">이 교실이 지키는 것</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
 
 
@@ -193,8 +211,11 @@ def add_toc(page):
     heads = []
     def rep(m):
         text = re.sub(r"^\d+\.\s*", "", re.sub(r"<[^>]+>", "", m.group(2)).strip())   # 「1. 」 머리 번호는 목차에서 뺀다
-        hid = "s%d" % (len(heads) + 1)
+        has = re.search(r'id="([^"]+)"', m.group(1))                                   # 이미 id 가 있으면(게시판 h2) 그대로 쓴다
+        hid = has.group(1) if has else "s%d" % (len(heads) + 1)
         heads.append((hid, text))
+        if has:
+            return m.group(0)
         return f'<h2 id="{hid}"{m.group(1)}>{m.group(2)}</h2>'
     cut = body.find('<footer class="sources">')          # 근거 footer 의 h2 는 목차에 넣지 않는다
     head_part, tail_part = (body, "") if cut < 0 else (body[:cut], body[cut:])
@@ -232,9 +253,76 @@ def related(page, pages):
         f'<li><a href="{p["url"]}">{esc(p.get("nav", p["title"]))}</a><small>{esc(p["description"][:70])}…</small></li>' for p in items) + "</ul></section>"
 
 
+CATS = {"ko": ["시작 전 준비", "검색과 AI", "플레이스와 광고", "홈페이지와 판매", "리뷰와 기록"],
+        "en": ["Search", "Local", "Ads", "Selling", "Law"]}
+
+
+def cat_id(lang, cat):
+    return "cat-" + str(CATS[lang].index(cat) + 1)
+
+
+def read_minutes(page):
+    text = strip_tags(page["body"])
+    return max(1, round(len(text.split()) / 220)) if page["lang"] == "en" else max(1, round(len(text) / 450))
+
+
+def posts(pages, lang, cat=None):
+    """글(order 가 있고 cat 이 있는 페이지)만. 최신 발행 순."""
+    pool = [p for p in pages if p["lang"] == lang and p.get("cat") and "order" in p and not p.get("noindex")]
+    if cat:
+        pool = [p for p in pool if p["cat"] == cat]
+    pool.sort(key=lambda p: (p.get("date") or "", -p.get("order", 0)), reverse=True)
+    return pool
+
+
+def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True):
+    """커뮤니티식 글 목록 한 줄 = [게시판] 제목 / 날짜 · 읽는 시간. picks 는 url 목록(먼저 읽을 글)."""
+    items = [p for p in pages if p["url"] in picks] if picks else posts(pages, lang, cat)
+    if picks:
+        items.sort(key=lambda p: picks.index(p["url"]))
+    if limit:
+        items = items[:limit]
+    rows = []
+    for p in items:
+        mins = read_minutes(p)
+        meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
+        chip = f'<span class="cat">{esc(p["cat"])}</span>' if show_cat else ""
+        rows.append(f'<li><a href="{p["url"]}"{"" if show_cat else " class=\"nocat\""}>{chip}<b>{esc(p["title"])}</b>'
+                    f'<small>{esc(p["description"][:80])}…</small><span class="meta">{esc(meta)}</span></a></li>')
+    return '<ol class="board">' + "".join(rows) + "</ol>"
+
+
+def boards_by_cat(pages, lang):
+    out = []
+    for c in CATS[lang]:
+        ps = posts(pages, lang, c)
+        if not ps:
+            continue
+        out.append(f'<h2 id="{cat_id(lang, c)}">{esc(c)} <span class="count">{len(ps)}</span></h2>' + board(pages, lang, c, show_cat=False))
+    return "".join(out)
+
+
+def cat_box(page, pages):
+    lang = page["lang"]
+    base = "/en/" if lang == "en" else "/guide/"
+    head = "Boards" if lang == "en" else "게시판"
+    lis = "".join(f'<li><a href="{base}#{cat_id(lang, c)}">{esc(c)}</a><span>{len(posts(pages, lang, c))}</span></li>'
+                  for c in CATS[lang] if posts(pages, lang, c))
+    return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{lis}</ul></div>'
+
+
+def fill_boards(page, pages):
+    """본문 자리표: <!--board--> 전체 최신 · <!--boards--> 게시판별 · <!--picks:/a,/b--> 지정 글."""
+    body = page["body"]
+    body = body.replace("<!--boards-->", boards_by_cat(pages, page["lang"]))
+    body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
+    body = re.sub(r"<!--picks:([^>]*)-->", lambda m: board(pages, page["lang"], picks=[u.strip() for u in m.group(1).split(",")]), body)
+    return dict(page, body=body)
+
+
 def rail(page, pages):
     """오른쪽 기둥 (넓은 화면에서만). 목차는 본문 것을 쓰고, 여기엔 최신 글 + 광고."""
-    if not SITECFG.get("rail") or page["url"] in ("/", "/en/") or page.get("noindex"):
+    if not SITECFG.get("rail") or page.get("noindex"):
         return ""
     # 글(order 가 있는 페이지)만. 처리방침·소개 같은 고정 페이지는 발자국 아래 있으니 여기 안 넣는다.
     pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in ("/", "/en/", "/guide/") and not p.get("noindex") and p["url"] != page["url"] and "order" in p]
@@ -242,7 +330,7 @@ def rail(page, pages):
     head = "Latest" if page["lang"] == "en" else "최근 글"
     latest = '<div class="rail-box"><span class="rail-head">' + head + '</span><ul>' + "".join(
         f'<li><a href="{p["url"]}">{esc(p.get("nav", p["title"]))}</a></li>' for p in pool[:6]) + "</ul></div>"
-    return '<aside class="rail">' + ad("rail", "광고" if page["lang"] == "ko" else "Advertisement") + latest + "</aside>"
+    return '<aside class="rail">' + cat_box(page, pages) + ad("rail", "광고" if page["lang"] == "ko" else "Advertisement") + latest + "</aside>"
 
 
 def place_ads(page):
@@ -267,6 +355,7 @@ def place_ads(page):
 
 def render(page, pages, verify):
     lang = page["lang"]
+    page = fill_boards(page, pages)
     page = add_toc(dict(page, body=meta_line(page)))
     page = place_ads(page)
     page = dict(page, body=page["body"] + related(page, pages))
@@ -359,7 +448,7 @@ def build():
     # 404
     nf = {"title": "찾는 글이 없어요", "nav": "없는 페이지", "description": "주소가 바뀌었거나 없는 페이지예요. 처음 화면이나 사장님 가이드 목차에서 다시 찾아보세요.",
           "lang": "ko", "section": "about", "url": "/404.html", "rel": "404.html", "noindex": True, "date": "2026-09-11", "updated": "2026-09-11",
-          "body": '<h1>찾는 글이 없어요</h1><p class="lead">주소가 바뀌었거나 없는 페이지예요. <a href="/">처음</a>이나 <a href="/guide/">사장님 가이드</a>에서 다시 찾아보세요.</p>'}
+          "body": '<h1>찾는 글이 없어요</h1><p class="lead">주소가 바뀌었거나 없는 페이지예요. <a href="/">처음</a>이나 <a href="/guide/">전체 글</a>에서 다시 찾아보세요.</p>'}
     write(ROOT / "404.html", render(nf, pages, verify))
 
     # 옛 주소 → 새 주소 (첫날 하루 쓰인 주소). noindex 이고 검사에서 뺀다

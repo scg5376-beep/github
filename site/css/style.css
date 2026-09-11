@@ -167,3 +167,29 @@ section.related li { padding: 10px 0; border-bottom: 1px dashed var(--line); }
 section.related a { font-weight: 700; text-decoration: none; }
 section.related a:hover { text-decoration: underline; }
 section.related small { display: block; color: var(--ink-soft); font-size: 0.85rem; }
+
+/* ---- 커뮤니티식 구조 (2026-09-11 운영자: "커뮤니티 형태에서 보기 편한 구조") ---- */
+header.top nav a.lang { border: 1px solid var(--line); padding: 3px 10px; border-radius: 3px; color: var(--ink); margin-left: 18px; }
+header.top nav a.lang:hover { border-color: var(--accent); color: var(--accent); }
+nav.tabs { border-top: 1px solid var(--line); background: var(--paper-2); }
+nav.tabs .wrap { display: flex; justify-content: flex-start; gap: 0 4px; padding: 0 20px; overflow-x: auto; white-space: nowrap; max-width: 1020px; }
+nav.tabs a { display: inline-block; padding: 9px 12px; font-size: 0.86rem; color: var(--ink-soft); text-decoration: none; border-bottom: 3px solid transparent; min-height: 24px; }
+nav.tabs a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); font-weight: 700; }
+nav.tabs a:hover { color: var(--accent); }
+.board { list-style: none; padding: 0; margin: 4px 0 28px; }
+.board li { border-bottom: 1px solid var(--line); }
+.board a { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "cat title meta" "cat desc meta"; column-gap: 12px; align-items: center; padding: 12px 6px; text-decoration: none; color: var(--ink); }
+.board a:hover b { text-decoration: underline; }
+.board .cat { grid-area: cat; font-size: 0.74rem; color: var(--accent); border: 1px solid var(--accent-soft); background: var(--accent-soft); padding: 2px 7px; border-radius: 3px; white-space: nowrap; align-self: start; margin-top: 4px; }
+.board b { grid-area: title; font-size: 1rem; line-height: 1.45; }
+.board small { grid-area: desc; color: var(--ink-soft); font-size: 0.85rem; line-height: 1.5; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.board .meta { grid-area: meta; font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; }
+h2 .count { font-size: 0.8rem; color: var(--ink-soft); font-weight: 400; margin-left: 6px; }
+aside.rail ul.cats li { display: flex; justify-content: space-between; }
+aside.rail ul.cats span { color: var(--ink-soft); font-size: 0.8rem; }
+@media (max-width: 620px) {
+  .board a { grid-template-columns: 1fr; grid-template-areas: "cat" "title" "desc" "meta"; row-gap: 3px; }
+  .board .cat { justify-self: start; margin-top: 0; }
+}
+.board a.nocat { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "title meta" "desc meta"; }
+@media (max-width: 620px) { .board a.nocat { grid-template-columns: 1fr; grid-template-areas: "title" "desc" "meta"; } }
