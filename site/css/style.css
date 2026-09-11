@@ -202,3 +202,39 @@ aside.rail ul.cats li.top { margin-top: 6px; }
 aside.rail ul.cats li.top a { font-weight: 700; }
 aside.rail ul.cats li.subs { display: block; border-bottom: 0; padding: 0 0 6px; font-size: 0.8rem; color: var(--ink-soft); }
 aside.rail ul.cats li.subs a { color: var(--ink-soft); }
+
+/* ---- 플랫폼 색 (설계기준 D19, 운영자 2026-09-11: "네이버는 연초록 인스타는 연핑크 블로거는 연주황") ----
+   --pt 옅은 바탕 · --pa 그 플랫폼의 글자·선 색. 글자색은 바탕 위 4.5:1 이상(계산값 주석) */
+.plat-start     { --pt: #f1f3f5; --pa: #4b5563; }  /* 회색   7.6:1 */
+.plat-naver     { --pt: #e8f6ea; --pa: #0b6b34; }  /* 연초록 7.0:1 */
+.plat-google    { --pt: #fff0e0; --pa: #a5460b; }  /* 연주황 5.9:1 */
+.plat-instagram { --pt: #fde8f0; --pa: #a8235e; }  /* 연핑크 6.4:1 */
+.plat-youtube   { --pt: #fdeaea; --pa: #a51b1b; }  /* 연빨강 6.8:1 */
+.plat-ai        { --pt: #e6f4f5; --pa: #0b6a75; }  /* 연청록 6.6:1 */
+.plat-sell      { --pt: #fbf4d9; --pa: #7a5c00; }  /* 연노랑 6.9:1 */
+.plat-record    { --pt: #eceff4; --pa: #3f4a5c; }  /* 청회색 8.0:1 */
+.plat-none      { --pt: var(--paper-2); --pa: var(--ink-soft); }
+
+/* 탭: 플랫폼마다 점 하나, 현재 플랫폼은 그 색 밑줄 */
+nav.tabs a[class^="plat-"]::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--pa); margin-right: 6px; vertical-align: 1px; }
+nav.tabs a[class^="plat-"][aria-current="page"] { color: var(--pa); border-bottom-color: var(--pa); }
+nav.tabs .subs { background: var(--pt); border-top: 1px solid var(--line); }
+nav.tabs .subs .wrap { display: flex; gap: 0 4px; padding: 0 20px; overflow-x: auto; white-space: nowrap; max-width: 1020px; }
+nav.tabs .subs .of { color: var(--pa); font-weight: 700; }
+nav.tabs .subs a[aria-current="page"] { color: var(--pa); border-bottom-color: var(--pa); }
+
+/* 목록의 게시판 표시 */
+.board .cat { background: var(--pt); color: var(--pa); border-color: var(--pt); }
+
+/* 전체 글: 플랫폼마다 한 구역 */
+section.plat { background: var(--pt); border-left: 4px solid var(--pa); padding: 6px 20px 14px; margin: 28px 0; }
+section.plat h2 { border-top: 0; margin-top: 8px; padding-top: 0; color: var(--pa); }
+section.plat h3 { margin: 18px 0 4px; font-size: 1rem; }
+section.plat .board { margin-top: 0; }
+section.plat .board li { border-bottom-color: rgba(0,0,0,0.08); }
+section.plat .empty { margin-bottom: 8px; }
+
+/* 글 페이지: 머리말과 오른쪽 게시판 상자에 플랫폼 색 */
+body[class^="plat-"]:not(.plat-none) .kicker { display: inline-block; background: var(--pt); color: var(--pa); padding: 3px 10px; border-radius: 3px; }
+aside.rail ul.cats li.top a { color: var(--pa); }
+aside.rail ul.cats li.top a::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--pa); margin-right: 6px; }

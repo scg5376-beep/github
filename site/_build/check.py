@@ -160,7 +160,7 @@ def check_page(p, all_titles):
     rel = p.relative_to(ROOT).as_posix()
     raw = p.read_text(encoding="utf-8")
     head = re.search(r"<head>(.*?)</head>", raw, re.S).group(1)
-    body = re.search(r"<body>(.*?)</body>", raw, re.S).group(1)
+    body = re.search(r"<body[^>]*>(.*?)</body>", raw, re.S).group(1)
     main = re.search(r"<main[^>]*>(.*?)</main>", body, re.S)
     main = main.group(1) if main else body
     lang = re.search(r'<html lang="(\w+)"', raw).group(1)

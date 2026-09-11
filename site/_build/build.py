@@ -84,11 +84,11 @@ def nav_html(page, pages):
     tabs = [f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>']
     for t in tops(lang):
         cur = ' aria-current="page"' if cur_top == t else ""
-        tabs.append(f'<a href="{base}#{cat_id(lang, t)}"{cur}>{esc(t)}</a>')
+        tabs.append(f'<a class="{plat_class(t)}" href="{base}#{cat_id(lang, t)}"{cur}>{esc(t)}</a>')
     sub_row = ""
     if cur_top:
         chans = "".join(f'<a href="{base}#{cat_id(lang, cur_top, c)}"{" aria-current=\"page\"" if cur_sub == c else ""}>{esc(c)}</a>' for c in subs(lang, cur_top))
-        sub_row = f'<div class="wrap subs"><span class="of">{esc(cur_top)}</span>{chans}</div>'
+        sub_row = f'<div class="subs {plat_class(cur_top)}"><div class="wrap"><span class="of">{esc(cur_top)}</span>{chans}</div></div>'
     return f'''<header class="top">
   <div class="wrap">
     <a class="brand" href="{'/en/' if lang=='en' else '/'}">{brand}</a>
@@ -279,6 +279,16 @@ TAXO = {
 EMPTY = {"ko": "아직 글이 없어요. 준비 중이에요.", "en": "No posts yet."}
 
 
+PLAT_SLUG = {"시작 전": "start", "네이버": "naver", "구글": "google", "인스타그램": "instagram", "유튜브": "youtube", "AI": "ai", "판매": "sell", "기록": "record",
+             "Before you start": "start", "Naver": "naver", "Google": "google", "Selling": "sell"}
+
+
+def plat_class(cat_or_top):
+    """플랫폼 색 클래스 (설계기준 D19). cat '네이버/블로그' 나 top '네이버' 모두 받는다."""
+    top = split_cat(cat_or_top)[0] if "/" in (cat_or_top or "") else (cat_or_top or "")
+    return "plat-" + PLAT_SLUG.get(top, "none")
+
+
 def tops(lang):
     return [t for t, _ in TAXO[lang]]
 
@@ -329,7 +339,7 @@ def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True):
     for p in items:
         mins = read_minutes(p)
         meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
-        chip = f'<span class="cat">{esc(cat_label(p["cat"]))}</span>' if show_cat else ""
+        chip = f'<span class="cat {plat_class(p["cat"])}">{esc(cat_label(p["cat"]))}</span>' if show_cat else ""
         rows.append(f'<li><a href="{p["url"]}"{"" if show_cat else " class=\"nocat\""}>{chip}<b>{esc(p["title"])}</b>'
                     f'<small>{esc(p["description"][:80])}…</small><span class="meta">{esc(meta)}</span></a></li>')
     return '<ol class="board">' + "".join(rows) + "</ol>"
@@ -339,10 +349,11 @@ def boards_by_cat(pages, lang):
     """전체 글 페이지: 플랫폼 h2 → 채널 h3 → 목록."""
     out = []
     for top, chans in TAXO[lang]:
-        out.append(f'<h2 id="{cat_id(lang, top)}">{esc(top)} <span class="count">{len(posts(pages, lang, top))}</span></h2>')
+        out.append(f'<section class="plat {plat_class(top)}"><h2 id="{cat_id(lang, top)}">{esc(top)} <span class="count">{len(posts(pages, lang, top))}</span></h2>')
         for sub in chans:
             ps = posts(pages, lang, f"{top}/{sub}")
             out.append(f'<h3 id="{cat_id(lang, top, sub)}">{esc(sub)} <span class="count">{len(ps)}</span></h3>' + board(pages, lang, f"{top}/{sub}", show_cat=False))
+        out.append("</section>")
     return "".join(out)
 
 
@@ -352,7 +363,7 @@ def cat_box(page, pages):
     head = "Boards" if lang == "en" else "게시판"
     lis = []
     for top, chans in TAXO[lang]:
-        lis.append(f'<li class="top"><a href="{base}#{cat_id(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
+        lis.append(f'<li class="top {plat_class(top)}"><a href="{base}#{cat_id(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
         lis.append('<li class="subs">' + " · ".join(f'<a href="{base}#{cat_id(lang, top, c)}">{esc(c)}</a>' for c in chans) + "</li>")
     return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
@@ -414,7 +425,7 @@ def render(page, pages, verify):
 <head>
 {head_html(page, verify)}
 </head>
-<body>
+<body class="{plat_class(page.get('cat'))}">
 {nav_html(page, pages)}
 {cols}
 <main class="wrap">
