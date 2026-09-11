@@ -154,6 +154,26 @@ def check_tone(rel, prose_html):
     for s in sents:
         if len(s) > L["sentence_max_chars"]:
             warn(rel, "S2-14", f"문장 {len(s)}자: {s[:36]}…")
+    # ── S3 이용자 지적 (2026-09-11 조사 AI티-한국어-이용자-지적) ──
+    inten = sum(len(re.findall(rf"(?<![가-힣]){w}(?![가-힣])", plain)) for w in L["intensifiers"])
+    if inten > L["intensifier_max"]:
+        err(rel, "S3-1", f"강조 부사(매우·정말·너무…) {inten}회 > {L['intensifier_max']}회")
+    hedge = len(re.findall(r"것 같(아요|습니다|고요|아서|은데)", plain))
+    if hedge > L["hedge_max"]:
+        err(rel, "S3-2", f"'것 같아요' 류 얼버무림 {hedge}회 > {L['hedge_max']}회")
+    for s in sents:
+        j = len(re.findall(r"[가-힣]{1,4}적(?:인|으로|이|이다|이에요|입니다|\s)", s))
+        if j > L["jeok_per_sentence_max"]:
+            warn(rel, "S3-3", f"한 문장에 '-적' {j}회: {s[:36]}…")
+    pe = len(re.findall(r"[가-힣]\([A-Za-z][A-Za-z .\-]{2,}\)", plain))
+    if pe > L["paren_english_max"]:
+        warn(rel, "S3-4", f"괄호 영어 병기 {pe}회 > {L['paren_english_max']}회 (첫 등장만)")
+    nom = len(re.findall(r"[가-힣]+(?:하는|되는|한|된) 것(?:이|을|은|도) ", plain))
+    if nom > L["nominal_max"]:
+        warn(rel, "S3-5", f"'~하는 것이/을' 명사화 {nom}회 > {L['nominal_max']}회")
+    rq = sum(1 for a, b in zip(sents, sents[1:]) if a.endswith("요?") and b.startswith("바로"))
+    if rq > L["rhetorical_answer_max"]:
+        err(rel, "S3-6", f"'~까요? 바로 …' 자문자답 {rq}회")
 
 
 def check_page(p, all_titles):

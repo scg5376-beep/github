@@ -1,5 +1,4 @@
 {
-  "_설명": ".claude/skills/ko-tone/SKILL.md 의 기계 판독본. 한국어(lang=ko) 페이지 본문(인용·표·그림 제외)에 적용. 정규식은 Python re.",
   "ban_s1": {
     "S1-1 비유": [
       "자리(?![가-힣])(?!\\s*(수|잡|수가))",
@@ -115,6 +114,14 @@
       "우리가 붙인 것",
       "창고",
       "컨트롤 타워"
+    ],
+    "S1-11 접속사 뒤 쉼표": [
+      "(?:^|[.?!\"”」)]\\s*)(그리고|하지만|또한|즉|그런데|다만|따라서|그래서|그러나|한편),"
+    ],
+    "S1-12 양비론 마무리": [
+      "장단점이 공존",
+      "한편으로는 .{2,40}다른 한편으로",
+      "일장일단이 있"
     ]
   },
   "limit": {
@@ -143,10 +150,25 @@
     "demonstrative_start_per_para_max": 1,
     "can_form_max": 5,
     "sentence_max_chars": 55,
-    "para_max_sentences": 5
+    "para_max_sentences": 5,
+    "intensifier_max": 3,
+    "intensifiers": [
+      "매우",
+      "정말",
+      "너무",
+      "굉장히",
+      "대단히",
+      "엄청"
+    ],
+    "hedge_max": 3,
+    "jeok_per_sentence_max": 1,
+    "paren_english_max": 2,
+    "nominal_max": 5,
+    "rhetorical_answer_max": 0
   },
   "endings": {
     "hapsyo": "(습니다|ㅂ니다|십시오|입니다|됩니다|합니다)[.?!\"”’)]*$",
     "ipnida": "입니다[.?!\"”’)]*$"
-  }
+  },
+  "_설명": ".claude/skills/ko-tone/SKILL.md 의 기계 판독판. 한국어(lang=ko) 본문에만 적용. S1 금지, S2 통계 한도, S3(2026-09-11 추가: 이용자 지적 조사 N1~N9). 정규식은 Python re."
 }
