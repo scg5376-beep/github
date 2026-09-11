@@ -162,6 +162,30 @@ PLAT_PROFILE_EN = {
 }
 
 
+def card_grid(pages, lang, items):
+    out = []
+    for p in items:
+        mins = read_minutes(p)
+        meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
+        out.append(f'<a class="card {plat_class(p["cat"])}" href="{p["url"]}"><span class="cat">{esc(cat_label(p["cat"]))}</span><b>{esc(p["title"])}</b><small>{esc(p["description"][:90])}…</small><span class="meta">{esc(meta)}</span></a>')
+    return '<div class="cards">' + "".join(out) + "</div>"
+
+
+def featured_html(pages, lang, main_url, side_urls):
+    """블로그 첫 화면 관찰(Healthline·HubSpot·Zapier): 대표 글 하나 크게 + 옆에 네댓 개 목록."""
+    by = {p["url"]: p for p in pages}
+    m = by[main_url]
+    mins = read_minutes(m)
+    fig = re.search(r"<figure\b.*?</figure>", m["body"], re.S)
+    art = ("<div class=\"art\">" + re.sub(r"</?figure[^>]*>", "", re.sub(r"<figcaption.*?</figcaption>", "", fig.group(0), flags=re.S)) + "</div>") if fig else f'<div class="ph {plat_class(m["cat"])}"><img src="/img/mark-basic.svg" alt="" width="96" height="96"></div>'
+    head = "Start here" if lang == "en" else "먼저 읽을 글"
+    side = "".join(f'<li><a href="{by[u]["url"]}"><span class="cat {plat_class(by[u]["cat"])}">{esc(cat_label(by[u]["cat"]))}</span><b>{esc(by[u]["title"])}</b></a></li>' for u in side_urls if u in by)
+    return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
+            f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
+            f'<span class="meta">{esc(m.get("date"))} · {"%d min" % mins if lang == "en" else "약 %d분" % mins}</span></a>'
+            f'<div class="side"><span class="rail-head">{head}</span><ul>{side}</ul></div></section>')
+
+
 def tiles_html(pages, lang):
     """첫 화면 플랫폼 타일 (K-MOOC 카테고리 타일 관찰). 플랫폼 색 바탕, 이름, 글 수."""
     out = []
@@ -230,7 +254,7 @@ def nav_html(page, pages):
     # 게시판 탭 — 플랫폼 한 줄, 그 아래 현재 플랫폼의 채널 한 줄 (첫 화면에서는 채널 줄 없음)
     cur_top, cur_sub = split_cat(page.get("cat")) if page.get("cat") else (page.get("plat", ""), "")
     home = "/en/" if lang == "en" else "/"
-    site_tabs = ([("Home", "/en/"), ("How to use", "/en/#howto")] if lang == "en" else [("기초 과정", "/start/"), ("업종별 순서", "/tracks/"), ("이용법", "/about.html#howto")])
+    site_tabs = ([("Home", "/en/")] if lang == "en" else [("기초 과정", "/start/")])
     tabs = [f'<a class="site" href="{h}"{" aria-current=\"page\"" if page["url"] == h else ""}>{t}</a>' for i, (t, h) in enumerate(site_tabs)]
     tabs.append('<span class="gap" aria-hidden="true"></span>')
     tabs.append(f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>')
@@ -245,6 +269,7 @@ def nav_html(page, pages):
   <div class="wrap">
     <a class="brand" href="{'/en/' if lang=='en' else '/'}"><img src="/img/mark.svg" alt="" width="28" height="28">{brand}</a>
     <nav>{"".join(out)}{toggle}</nav>
+    <form class="search" action="https://www.google.com/search" method="get" role="search"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="{'Search' if lang == 'en' else '글 찾기'}" aria-label="{'Search this site' if lang == 'en' else '이 사이트 안에서 찾기'}"><button type="submit">{'Search' if lang == 'en' else '찾기'}</button></form>
   </div>
   <nav class="tabs" aria-label="{"Boards" if lang == "en" else "게시판"}"><div class="wrap">{"".join(tabs)}</div>{sub_row}</nav>
 </header>'''
@@ -279,7 +304,7 @@ def head_html(page, verify):
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
         # 보안: 외부 스크립트·인라인 스크립트 전부 차단. 이 사이트는 JS 를 쓰지 않는다.
         # 광고를 켜면 CSP 메타를 넣지 않는다 (애드센스 공식 안내는 nonce+strict-dynamic 인데 정적 사이트는 nonce 를 못 만든다)
-        *([] if SITECFG["ads"]["enabled"] else ['<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; img-src \'self\' data:; style-src \'self\'; script-src \'none\'; object-src \'none\'; base-uri \'self\'; form-action \'none\'">']),
+        *([] if SITECFG["ads"]["enabled"] else ['<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; img-src \'self\' data:; style-src \'self\'; script-src \'none\'; object-src \'none\'; base-uri \'self\'; form-action https://www.google.com">']),
         '<meta name="referrer" content="strict-origin-when-cross-origin">',
         f'<title>{esc(page["title"])}</title>',
         f'<meta name="description" content="{esc(page["description"])}">',
@@ -550,6 +575,9 @@ def fill_boards(page, pages):
     body = re.sub(r"<!--board:(\d+)-->", lambda m: board(pages, page["lang"], limit=int(m.group(1))), body)
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
     body = body.replace("<!--tiles-->", tiles_html(pages, page["lang"]))
+    body = re.sub(r"<!--featured:([^|>]+)\|([^>]+)-->", lambda m: featured_html(pages, page["lang"], m.group(1).strip(), [u.strip() for u in m.group(2).split(",")]), body)
+    body = re.sub(r"<!--cards:(\d+)-->", lambda m: card_grid(pages, page["lang"], posts(pages, page["lang"])[:int(m.group(1))]), body)
+    body = body.replace("<!--cards-->", card_grid(pages, page["lang"], posts(pages, page["lang"])))
     body = re.sub(r"<!--picks:([^>]*)-->", lambda m: board(pages, page["lang"], picks=[u.strip() for u in m.group(1).split(",")]), body)
     return dict(page, body=body)
 
@@ -593,8 +621,8 @@ def render(page, pages, verify):
     page = add_toc(dict(page, body=meta_line(page)))
     page = place_ads(page)
     page = dict(page, body=page["body"] + related(page, pages))
-    side = rail(page, pages)
-    cols = '<div class="cols">' if side else '<div class="cols one">'   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
+    side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
+    cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] in ("/", "/en/") else '<div class="cols one">')   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
     return f'''<!DOCTYPE html>
 <html lang="{lang}">
 <head>

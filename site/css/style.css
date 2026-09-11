@@ -309,3 +309,39 @@ ol.course a { text-decoration: none; }
 ol.course a b { font-size: 1.02rem; }
 ol.course .why { display: block; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.5; margin-top: 2px; }
 ol.course .time { display: block; font-size: 0.78rem; color: var(--accent); margin-top: 3px; }
+
+/* ---- 첫 화면 v5: 블로그형 (Healthline·HubSpot·Zapier 첫 화면 관찰: 대표 글 + 옆 목록 → 카드 격자) ---- */
+.cols.wide { grid-template-columns: minmax(0, 1020px); }
+.cols.wide > main.wrap { max-width: 1020px; }
+header.top .wrap { align-items: center; }
+form.search { display: flex; gap: 0; margin-left: auto; }
+form.search input[type="search"] { font: inherit; font-size: 0.9rem; padding: 6px 10px; border: 1px solid var(--line); border-right: 0; border-radius: 4px 0 0 4px; width: 180px; background: #fff; color: var(--ink); }
+form.search button { font: inherit; font-size: 0.85rem; padding: 6px 12px; border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: 0 4px 4px 0; cursor: pointer; min-height: 24px; }
+@media (max-width: 720px) { form.search { width: 100%; margin-left: 0; } form.search input[type="search"] { flex: 1; width: auto; } }
+p.banner { margin: 8px 0 18px; padding: 10px 14px; background: var(--paper-2); border-radius: 6px; font-size: 0.92rem; color: var(--ink-soft); }
+p.banner a { text-decoration: none; color: var(--ink); }
+p.banner a:hover { text-decoration: underline; }
+p.banner b { color: var(--accent); }
+section.featured { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px; margin: 8px 0 34px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+section.featured .hero { text-decoration: none; color: var(--ink); display: block; }
+section.featured .hero .art { margin: 0 0 14px; }
+section.featured .hero .art svg { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+h1.home { font-size: 1.1rem; color: var(--ink-soft); font-weight: 400; margin: 18px 0 6px; letter-spacing: 0; }
+section.featured .hero .ph { height: 260px; border-radius: 6px; background: var(--pt); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+section.featured .hero .cat, section.featured .side .cat, .cards .cat { display: inline-block; font-size: 0.74rem; color: var(--pa); background: var(--pt); padding: 2px 7px; border-radius: 3px; margin-bottom: 6px; }
+section.featured .hero b { display: block; font-size: 1.45rem; line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 8px; }
+section.featured .hero small { display: block; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.6; }
+section.featured .hero .meta, .cards .meta { display: block; font-size: 0.78rem; color: var(--ink-soft); margin-top: 8px; }
+section.featured .side ul { list-style: none; padding: 0; margin: 6px 0 0; }
+section.featured .side li { border-bottom: 1px solid var(--line); padding: 10px 0; }
+section.featured .side li:last-child { border-bottom: 0; }
+section.featured .side a { text-decoration: none; color: var(--ink); }
+section.featured .side a b { display: block; font-size: 1rem; line-height: 1.4; }
+section.featured .side a:hover b { text-decoration: underline; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 22px; margin: 12px 0 24px; }
+.card { display: block; text-decoration: none; color: var(--ink); border-top: 3px solid var(--pa); padding: 12px 0 14px; border-bottom: 1px solid var(--line); }
+.card b { display: block; font-size: 1.05rem; line-height: 1.4; margin-bottom: 6px; }
+.card:hover b { text-decoration: underline; }
+.card small { display: block; font-size: 0.86rem; color: var(--ink-soft); line-height: 1.55; }
+@media (max-width: 900px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } section.featured { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }

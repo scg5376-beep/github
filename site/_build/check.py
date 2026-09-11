@@ -196,8 +196,9 @@ def check_page(p, all_titles):
             continue
         if True:
             err(rel, "S2", "허용되지 않은 스크립트가 있다")
-    if re.search(r"<(iframe|embed|object|form|input|textarea)\b", raw):
-        err(rel, "S3", "iframe/embed/form/input 은 쓰지 않는다 (손님 정보를 받지 않는다)")
+    stripped = re.sub(r'<form class="search" action="https://www\.google\.com/search" method="get"[^>]*>.*?</form>', "", raw, flags=re.S)   # 검색창만 예외: 구글로 보내고 저장 안 함 (설계기준 S3)
+    if re.search(r"<(iframe|embed|object|form|input|textarea)\b", stripped):
+        err(rel, "S3", "iframe/embed/form/input 은 쓰지 않는다 (손님 정보를 받지 않는다) — 검색창 제외")
     if re.search(r'(src|href)="https?://(?!sajangmarketing\.com)', body):
         for m in re.finditer(r'(src|href)="(https?://[^"]+)"', body):
             if "sajangmarketing.com" not in m.group(2) and m.group(1) == "src" and not (SITECFG["ads"]["enabled"] and "googlesyndication" in m.group(2)):

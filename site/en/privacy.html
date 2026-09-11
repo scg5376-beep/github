@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action https://www.google.com">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Privacy</title>
 <meta name="description" content="No forms, no names, no emails collected. If ads are shown, Google uses cookies to pick them and you can opt out. What is logged, by whom, and why.">
@@ -31,8 +31,9 @@
   <div class="wrap">
     <a class="brand" href="/en/"><img src="/img/mark.svg" alt="" width="28" height="28">Sajang Marketing</a>
     <nav><a href="/en/">Home</a><a href="/en/privacy.html" aria-current="page">Privacy</a><a class="lang" href="/privacy.html" lang="ko" hreflang="ko">한국어</a></nav>
+    <form class="search" action="https://www.google.com/search" method="get" role="search"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="Search" aria-label="Search this site"><button type="submit">Search</button></form>
   </div>
-  <nav class="tabs" aria-label="Boards"><div class="wrap"><a class="site" href="/en/">Home</a><a class="site" href="/en/#howto">How to use</a><span class="gap" aria-hidden="true"></span><a href="/en/">All</a><a class="plat-start" href="/en/p/start/">Before you start</a><a class="plat-naver" href="/en/p/naver/">Naver</a><a class="plat-google" href="/en/p/google/">Google</a><a class="plat-sell" href="/en/p/sell/">Selling</a></div></nav>
+  <nav class="tabs" aria-label="Boards"><div class="wrap"><a class="site" href="/en/">Home</a><span class="gap" aria-hidden="true"></span><a href="/en/">All</a><a class="plat-start" href="/en/p/start/">Before you start</a><a class="plat-naver" href="/en/p/naver/">Naver</a><a class="plat-google" href="/en/p/google/">Google</a><a class="plat-sell" href="/en/p/sell/">Selling</a></div></nav>
 </header>
 <div class="cols">
 <main class="wrap">
@@ -44,7 +45,7 @@
 <nav class="intoc" aria-label="In this article"><span>In this article</span><ol><li><a href="#s1">What we collect directly</a></li><li><a href="#s2">Server logs</a></li><li><a href="#s3">Cookies and advertising</a></li><li><a href="#s4">Children</a></li><li><a href="#s5">Changes</a></li></ol></nav>
 
 <h2 id="s1">What we collect directly</h2>
-<p>Nothing. There are no input fields. If you want to report an error, you do it on the public repository's issue page, which runs on your GitHub account under GitHub's own privacy statement.</p>
+<p>Nothing. The only input is the search box, which sends your words to Google and opens Google's results; nothing is stored here. If you want to report an error, you do it on the public repository's issue page, which runs on your GitHub account under GitHub's own privacy statement.</p>
 
 <h2 id="s2">Server logs</h2>
 <p>The site is served by GitHub Pages. Like any web server, it briefly records the requesting IP address, browser type and time. GitHub holds those logs; we cannot see them. We have added no analytics of our own.</p>
