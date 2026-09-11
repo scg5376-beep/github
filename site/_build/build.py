@@ -77,6 +77,102 @@ PLAT_INTRO = {
 }
 
 
+
+# 플랫폼 프로필 (운영자 2026-09-11: "특징·어울리는 사업·누가 시작하면 좋은지·난이도·노출 기준·기준까지 걸리는 기간").
+# 공식 문서에 있는 것만 「공식」, 없는 것은 「편집자 주」로 표시하고, 평균 기간은 공식 자료가 없으면 없다고 쓴다.
+PLAT_PROFILE = {
+    "시작 전": {
+        "무엇": "온라인에서 팔거나 알리기 전에 법이 요구하는 것과, 손님이 지금 어디서 찾는지의 숫자예요.",
+        "어울리는 가게": "온라인으로 팔거나 문의 폼을 둘 모든 가게. 오프라인만 하는 가게도 광고 표시 규정은 걸려요.",
+        "먼저 시작하면 좋은 분": "이제 막 온라인을 시작하는 분. 광고부터 켜기 전에 여기부터예요.",
+        "난이도": "낮음. 신고와 표시는 반나절이면 돼요(편집자 주).",
+        "노출 기준": "노출이 아니라 의무예요. 사업자등록, 통신판매업 신고 또는 면제 확인, 홈페이지 표시 여섯, 광고 표시 셋, 청약철회, 개인정보 처리방침.",
+        "기준까지 걸리는 기간": "정부24 통신판매업 신고는 접수 뒤 처리되고, 나머지는 문구를 올리는 즉시예요. 평균 기간을 밝힌 공식 자료는 없어요.",
+        "돈": "통신판매업 신고 면허세 외에는 없어요. 대행사가 파는 「사이트 등록」은 필요 없어요.",
+    },
+    "네이버": {
+        "무엇": "한국 손님 열에 여덟이 먼저 여는 검색이에요. 화면은 광고(파워링크), 가게 정보(플레이스), 글(블로그·카페), AI 브리핑으로 나뉘어요.",
+        "어울리는 가게": "동네 손님을 받는 가게 전부. 식당, 미용실, 안경원, 병원, 학원처럼 「○○동 △△」으로 검색되는 업종.",
+        "먼저 시작하면 좋은 분": "플레이스는 가게가 있으면 누구나 오늘. 블로그는 한 주제로 꾸준히 쓸 수 있는 분.",
+        "난이도": "플레이스 등록은 낮음. 블로그는 중간, 꾸준함이 조건이에요(편집자 주).",
+        "노출 기준": "플레이스는 유사도·인기도·거리·정보의 충실성 넷(공식). 블로그는 한 주제의 깊이 있는 글을 꾸준히, 체험 없이 쓴 글과 홍보만 있는 글은 미노출(공식).",
+        "기준까지 걸리는 기간": "검색로봇 방문 뒤 최대 1주일 안에 반영(공식). AI 브리핑 미노출 설정은 1일 안(공식). 블로그가 검색에 잘 나오기까지는 「단기간에는 어렵다」고만 밝혔고(공식) 평균 몇 달인지는 공식 자료가 없어요.",
+        "돈": "플레이스·블로그·카페는 무료. 파워링크와 플레이스광고는 클릭당 과금, 월정액은 없어요(공식).",
+    },
+    "구글": {
+        "무엇": "외국 손님과 안드로이드 지도가 쓰는 검색이에요. 내 도메인의 홈페이지와 블로거가 여기 걸려요.",
+        "어울리는 가게": "외국 손님을 받는 가게, 홈페이지를 직접 운영하는 가게, 전국 단위로 파는 가게.",
+        "먼저 시작하면 좋은 분": "네이버 플레이스를 채운 뒤에. 같은 재료를 두 번 쓰는 일이라 품이 크게 늘지 않아요.",
+        "난이도": "비즈니스 프로필은 낮음. 홈페이지 검색 노출은 중간(편집자 주).",
+        "노출 기준": "최소 기술 요구사항을 충족하면 색인 대상이고 비용은 들지 않아요(공식). 좋은 글의 기준은 사람을 위한 유용한 콘텐츠이고 글자 수 기준은 없어요(공식).",
+        "기준까지 걸리는 기간": "구글은 색인까지 걸리는 시간을 밝히지 않아요. 블로거 맞춤 도메인은 DNS 반영 1시간 이상, 주소 전환 최대 24시간(공식).",
+        "돈": "검색 노출·비즈니스 프로필·블로거 무료. 도메인만 따로 사요.",
+    },
+    "인스타그램": {
+        "무엇": "사진과 짧은 영상으로 손님을 만나는 곳이에요. 릴스, 스레드, 광고가 한 계정에 붙어요.",
+        "어울리는 가게": "보여 줄 것이 있는 가게. 음식, 안경, 옷, 인테리어, 미용처럼 결과가 사진으로 남는 업종.",
+        "먼저 시작하면 좋은 분": "매주 사진이나 영상 하나를 올릴 수 있는 분. 프로페셔널 계정 전환과 프로필 정리가 먼저예요.",
+        "난이도": "계정 정리는 낮음, 도달을 내는 건 높음(편집자 주). 언제 얼마나 퍼질지 통제할 수 없어요.",
+        "노출 기준": "도달은 시청 시간, 도달 대비 좋아요, 도달 대비 전송 셋이라고 대표가 밝혔다고 여러 곳이 전해요(B). 팔로워 수는 그 목록에 없어요.",
+        "기준까지 걸리는 기간": "공식 자료가 없어요. 광고 검토는 보통 24시간 안, 계정 검토는 48시간 안(공식).",
+        "돈": "계정·게시물·제품 태그 무료. 광고는 메타 규정대로 검토를 거쳐요.",
+    },
+    "유튜브": {
+        "무엇": "영상 검색과 추천이에요. 가게 영상은 대부분 세로 3분 이내 쇼츠로 올라가요.",
+        "어울리는 가게": "과정을 보여 줄 수 있는 가게. 만드는 법, 고치는 법, 고르는 법이 영상이 되는 업종.",
+        "먼저 시작하면 좋은 분": "손님이 검색할 법한 질문에 영상으로 답할 수 있는 분. 수익이 아니라 손님이 목적이어야 해요.",
+        "난이도": "높음(편집자 주). 촬영과 편집이 매번 들어가요.",
+        "노출 기준": "검색은 관련성·참여도·품질 셋(공식). 추천은 보는 사람의 시청 기록 등 여덟 신호(공식). 검색 순위는 돈으로 살 수 없어요(공식).",
+        "기준까지 걸리는 기간": "노출까지의 평균 기간은 공식 자료가 없어요. 수익 조건은 구독자 1,000명과 12개월 시청 4,000시간 또는 90일 쇼츠 1,000만 회(공식), 검토는 보통 1개월(공식).",
+        "돈": "무료. 수익은 파트너 프로그램 가입 뒤 쇼츠 광고 수익의 45%(공식).",
+    },
+    "AI": {
+        "무엇": "손님이 검색창 대신 AI에게 물을 때 우리 가게가 답에 나오는 구조예요.",
+        "어울리는 가게": "질문으로 찾는 업종. 「○○할 때 어디 가야 하나」에 답이 되는 가게.",
+        "먼저 시작하면 좋은 분": "네이버 플레이스와 블로그를 이미 하고 있는 분. AI는 그 글을 재료로 써요.",
+        "난이도": "따로 할 일이 거의 없어요(편집자 주). AI가 옮겨 쓸 수 있는 글을 쓰는 것뿐이에요.",
+        "노출 기준": "국내에서 확인된 건 네이버 AI 브리핑이 플레이스 리뷰와 정보를 재료로 쓴다는 것(공식). 해외 AI 답변에 나오는 기준은 아직 근거가 없어요.",
+        "기준까지 걸리는 기간": "공식 자료가 없어요. 「AI 노출 보장」을 파는 제안은 근거가 없어요.",
+        "돈": "없음.",
+    },
+    "판매": {
+        "무엇": "스마트스토어, 쿠팡, 자사몰. 온라인에서 파는 세 길이에요.",
+        "어울리는 가게": "택배로 보낼 수 있는 물건을 파는 가게.",
+        "먼저 시작하면 좋은 분": "「시작 전」의 신고와 표시를 마친 분. 스마트스토어는 네이버 검색과 붙어 있어 처음 파는 분이 시작하기 쉬워요(편집자 주).",
+        "난이도": "입점은 낮음, 팔리게 하는 건 높음(편집자 주).",
+        "노출 기준": "스마트스토어 판매수수료는 내가 데려온 손님이면 3%가 1%로 내려가요(공식). 쿠팡은 카테고리마다 수수료가 다르고 등록 뒤 못 바꿔요(공식).",
+        "기준까지 걸리는 기간": "입점 심사 기간은 공식 자료를 확보하지 못했어요. 수수료 등급은 연 2회 갱신(공식).",
+        "돈": "판매 수수료. 자사몰은 월 요금.",
+    },
+    "기록": {
+        "무엇": "마케팅이 효과가 있었는지를 느낌 말고 기록으로 정하는 방법이에요.",
+        "어울리는 가게": "전부. 무엇을 하든 기록이 없으면 판단할 수 없어요.",
+        "먼저 시작하면 좋은 분": "광고를 켜기 전 주. 첫 주가 나중에 비교 기준이 돼요.",
+        "난이도": "낮음. 주 1회 5분(편집자 주).",
+        "노출 기준": "해당 없음. 판단 기준은 정산액과 내가 데려온 주문의 비율이에요(편집자 주).",
+        "기준까지 걸리는 기간": "12주. 네이버 반영 최대 1주(공식)와 판매수수료 등급 갱신 주기를 생각하면 4주로는 판단할 수 없어요(편집자 주).",
+        "돈": "없음.",
+    },
+}
+PLAT_PROFILE_EN = {
+    "Before you start": {"What": "What the law requires before you sell online in Korea.", "Fits": "Any business selling online or taking enquiries.", "Start if": "You are about to open an online channel.", "Difficulty": "Low (editor's note).", "Exposure rule": "Not exposure but duties: registration, six disclosures, three ad disclosures, withdrawal right, privacy policy.", "Time to meet it": "Immediate once posted; no official average.", "Cost": "Registration tax only."},
+    "Naver": {"What": "The search eight in ten Korean customers open first.", "Fits": "Any shop with local customers.", "Start if": "You have a physical shop: register on Place today.", "Difficulty": "Place low, blog medium (editor's note).", "Exposure rule": "Place: similarity, popularity, distance, completeness (official). Blog: sustained depth on one topic (official).", "Time to meet it": "Up to one week after the crawler visits (official); no official average for blog ranking.", "Cost": "Free; ads are pay-per-click."},
+    "Google": {"What": "The search used by foreign customers and Android Maps.", "Fits": "Shops with foreign customers or their own domain.", "Start if": "After Naver Place is filled in.", "Difficulty": "Low to medium (editor's note).", "Exposure rule": "Meet the technical requirements and indexing is free (official).", "Time to meet it": "Google does not state indexing time.", "Cost": "Free; domain sold separately."},
+    "Selling": {"What": "Smart Store, Coupang, your own shop.", "Fits": "Anything that ships by parcel.", "Start if": "Legal steps are done.", "Difficulty": "Listing low, selling high (editor's note).", "Exposure rule": "Smart Store cuts its fee from 3% to 1% for traffic you bring (official).", "Time to meet it": "No official onboarding time obtained.", "Cost": "Fees per order."},
+}
+
+
+def profile_html(page):
+    top, lang = page["plat"], page["lang"]
+    prof = (PLAT_PROFILE_EN if lang == "en" else PLAT_PROFILE).get(top)
+    if not prof:
+        return ""
+    head = "At a glance" if lang == "en" else "한눈에"
+    rows = "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in prof.items())
+    note = ("Items marked (official) come from the platform's own documents; editor's notes are our judgement." if lang == "en"
+            else "「공식」은 플랫폼 문서에 적힌 것, 「편집자 주」는 저희 판단이에요. 평균 기간은 공식 자료가 없으면 없다고 적었어요.")
+    return f'<h2>{head}</h2><table class="profile">{rows}</table><p class="small">{esc(note)}</p>'
+
 def platform_pages(pages):
     """플랫폼마다 페이지 하나 (운영자 2026-09-11 "누르면 이동이 아니라 각 플랫폼별 페이지"). 본문은 채널별 목록."""
     out = []
@@ -88,7 +184,7 @@ def platform_pages(pages):
             alt = (f"/en/p/{slug}/" if lang == "ko" else f"/p/{slug}/") if other else None
             head = "Boards" if lang == "en" else "게시판"
             body = (f'<p class="kicker">{esc(head)}</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(PLAT_INTRO[lang].get(top, ""))}</p>\n'
-                    f'<!--boards:{top}-->\n')
+                    f'<!--profile-->\n<!--boards:{top}-->\n')
             meta = {"title": top if lang == "en" else f"{top} 게시판", "description": PLAT_INTRO[lang].get(top, top), "lang": lang,
                     "section": "guide" if lang == "ko" else "en", "nav": top, "date": "2026-09-11", "updated": "2026-09-11",
                     "plat": top, "rel": url.strip("/") + "/index.html", "url": url, "body": body}
@@ -437,6 +533,8 @@ def fill_boards(page, pages):
     body = page["body"]
     if page.get("cat"):                                                            # 글머리 작은 제목은 게시판 이름으로 통일
         body = re.sub(r'<p class="kicker">.*?</p>', '<p class="kicker">' + esc(cat_label(page["cat"])) + '</p>', body, count=1, flags=re.S)
+    if page.get("plat"):
+        body = body.replace("<!--profile-->", profile_html(page))
     body = re.sub(r"<!--boards:([^>]+)-->", lambda m: boards_by_cat(pages, page["lang"], only=m.group(1).strip()), body)
     body = body.replace("<!--boards-->", boards_by_cat(pages, page["lang"]))
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))

@@ -280,3 +280,7 @@ body { background-color: var(--page); background-image: radial-gradient(#dfe2e7 
 header.top a.brand { display: inline-flex; align-items: center; gap: 9px; }
 header.top a.brand img { width: 28px; height: 28px; display: block; }
 footer.site::before { content: ""; display: block; width: 36px; height: 36px; margin: 0 auto 12px; background: url(/img/mark.svg) center/contain no-repeat; opacity: 0.85; }
+/* 플랫폼 페이지 한눈에 표 */
+table.profile th { width: 26%; white-space: nowrap; background: var(--pt, var(--paper-2)); color: var(--pa, var(--ink)); vertical-align: top; }
+table.profile td { line-height: 1.6; }
+@media (max-width: 620px) { table.profile th { width: 34%; white-space: normal; } }
