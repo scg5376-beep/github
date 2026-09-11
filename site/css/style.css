@@ -193,3 +193,12 @@ aside.rail ul.cats span { color: var(--ink-soft); font-size: 0.8rem; }
 }
 .board a.nocat { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "title meta" "desc meta"; }
 @media (max-width: 620px) { .board a.nocat { grid-template-columns: 1fr; grid-template-areas: "title" "desc" "meta"; } }
+nav.tabs .subs { border-top: 1px solid var(--line); background: #fff; }
+nav.tabs .subs .of { font-size: 0.8rem; color: var(--ink-soft); padding: 8px 10px 8px 0; align-self: center; }
+nav.tabs .subs a { padding: 7px 10px; font-size: 0.82rem; }
+.empty { color: var(--ink-soft); font-size: 0.9rem; margin: 6px 0 22px; }
+h3 .count { font-size: 0.78rem; color: var(--ink-soft); font-weight: 400; margin-left: 6px; }
+aside.rail ul.cats li.top { margin-top: 6px; }
+aside.rail ul.cats li.top a { font-weight: 700; }
+aside.rail ul.cats li.subs { display: block; border-bottom: 0; padding: 0 0 6px; font-size: 0.8rem; color: var(--ink-soft); }
+aside.rail ul.cats li.subs a { color: var(--ink-soft); }

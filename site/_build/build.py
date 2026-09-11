@@ -79,19 +79,22 @@ def nav_html(page, pages):
         cur = ' aria-current="page"' if (page["section"] == key or page["url"] == href) else ""
         out.append(f'<a href="{href}"{cur}>{label}</a>')
     brand = SITE_NAME if lang != "en" else "Sajang Marketing"
-    # 게시판 탭 — 커뮤니티식. 현재 글의 게시판에 표시
+    # 게시판 탭 — 플랫폼 한 줄, 그 아래 현재 플랫폼의 채널 한 줄 (첫 화면에서는 채널 줄 없음)
+    cur_top, cur_sub = split_cat(page.get("cat"))
     tabs = [f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>']
-    for c in CATS[lang]:
-        if not posts(pages, lang, c):
-            continue
-        cur = ' aria-current="page"' if page.get("cat") == c else ""
-        tabs.append(f'<a href="{base}#{cat_id(lang, c)}"{cur}>{esc(c)}</a>')
+    for t in tops(lang):
+        cur = ' aria-current="page"' if cur_top == t else ""
+        tabs.append(f'<a href="{base}#{cat_id(lang, t)}"{cur}>{esc(t)}</a>')
+    sub_row = ""
+    if cur_top:
+        chans = "".join(f'<a href="{base}#{cat_id(lang, cur_top, c)}"{" aria-current=\"page\"" if cur_sub == c else ""}>{esc(c)}</a>' for c in subs(lang, cur_top))
+        sub_row = f'<div class="wrap subs"><span class="of">{esc(cur_top)}</span>{chans}</div>'
     return f'''<header class="top">
   <div class="wrap">
     <a class="brand" href="{'/en/' if lang=='en' else '/'}">{brand}</a>
     <nav>{"".join(out)}{toggle}</nav>
   </div>
-  <nav class="tabs" aria-label="{"Boards" if lang == "en" else "게시판"}"><div class="wrap">{"".join(tabs)}</div></nav>
+  <nav class="tabs" aria-label="{"Boards" if lang == "en" else "게시판"}"><div class="wrap">{"".join(tabs)}</div>{sub_row}</nav>
 </header>'''
 
 
@@ -253,12 +256,50 @@ def related(page, pages):
         f'<li><a href="{p["url"]}">{esc(p.get("nav", p["title"]))}</a><small>{esc(p["description"][:70])}…</small></li>' for p in items) + "</ul></section>"
 
 
-CATS = {"ko": ["시작 전 준비", "검색과 AI", "플레이스와 광고", "홈페이지와 판매", "리뷰와 기록"],
-        "en": ["Search", "Local", "Ads", "Selling", "Law"]}
+# 게시판 분류 — 플랫폼(큰 탭) / 채널(작은 탭). 운영자 지시 2026-09-11 "네이버 / 플레이스, 블로그, 카페, 파워링크 · 구글 / 블로거, 티스토리, 도메인 …"
+# 글의 cat 메타는 "네이버/플레이스" 꼴. 글이 없는 채널도 탭에는 보이고 목록에는 「아직 글이 없어요」로 남긴다.
+TAXO = {
+    "ko": [
+        ("시작 전", ["법과 신고", "손님 숫자"]),
+        ("네이버", ["검색 화면", "플레이스", "블로그", "카페", "파워링크", "리뷰"]),
+        ("구글", ["검색", "블로거", "티스토리", "도메인"]),
+        ("인스타그램", ["계정", "릴스", "광고"]),
+        ("유튜브", ["채널", "쇼츠"]),
+        ("AI", ["AI 답변", "용어"]),
+        ("판매", ["스마트스토어", "쿠팡", "자사몰"]),
+        ("기록", ["12주 기록"]),
+    ],
+    "en": [
+        ("Before you start", ["Law"]),
+        ("Naver", ["Search", "Place", "Ads"]),
+        ("Google", ["Domain"]),
+        ("Selling", ["Smart Store"]),
+    ],
+}
+EMPTY = {"ko": "아직 글이 없어요. 준비 중이에요.", "en": "No posts yet."}
 
 
-def cat_id(lang, cat):
-    return "cat-" + str(CATS[lang].index(cat) + 1)
+def tops(lang):
+    return [t for t, _ in TAXO[lang]]
+
+
+def subs(lang, top):
+    return dict(TAXO[lang]).get(top, [])
+
+
+def split_cat(cat):
+    top, _, sub = (cat or "").partition("/")
+    return top, sub
+
+
+def cat_id(lang, top, sub=None):
+    i = tops(lang).index(top) + 1
+    return f"t{i}" if not sub else f"t{i}-{subs(lang, top).index(sub) + 1}"
+
+
+def cat_label(cat):
+    top, sub = split_cat(cat)
+    return f"{top} · {sub}" if sub else top
 
 
 def read_minutes(page):
@@ -267,38 +308,41 @@ def read_minutes(page):
 
 
 def posts(pages, lang, cat=None):
-    """글(order 가 있고 cat 이 있는 페이지)만. 최신 발행 순."""
+    """글(order 가 있고 cat 이 있는 페이지)만. cat 은 "네이버"(플랫폼 전체) 또는 "네이버/플레이스". 최신 발행 순."""
     pool = [p for p in pages if p["lang"] == lang and p.get("cat") and "order" in p and not p.get("noindex")]
     if cat:
-        pool = [p for p in pool if p["cat"] == cat]
+        pool = [p for p in pool if p["cat"] == cat or split_cat(p["cat"])[0] == cat]
     pool.sort(key=lambda p: (p.get("date") or "", -p.get("order", 0)), reverse=True)
     return pool
 
 
 def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True):
-    """커뮤니티식 글 목록 한 줄 = [게시판] 제목 / 날짜 · 읽는 시간. picks 는 url 목록(먼저 읽을 글)."""
+    """커뮤니티식 글 목록 한 줄 = [게시판] 제목 / 한 줄 요약 / 날짜 · 읽는 시간. picks 는 url 목록(먼저 읽을 글)."""
     items = [p for p in pages if p["url"] in picks] if picks else posts(pages, lang, cat)
     if picks:
         items.sort(key=lambda p: picks.index(p["url"]))
     if limit:
         items = items[:limit]
+    if not items:
+        return f'<p class="empty">{EMPTY[lang]}</p>'
     rows = []
     for p in items:
         mins = read_minutes(p)
         meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
-        chip = f'<span class="cat">{esc(p["cat"])}</span>' if show_cat else ""
+        chip = f'<span class="cat">{esc(cat_label(p["cat"]))}</span>' if show_cat else ""
         rows.append(f'<li><a href="{p["url"]}"{"" if show_cat else " class=\"nocat\""}>{chip}<b>{esc(p["title"])}</b>'
                     f'<small>{esc(p["description"][:80])}…</small><span class="meta">{esc(meta)}</span></a></li>')
     return '<ol class="board">' + "".join(rows) + "</ol>"
 
 
 def boards_by_cat(pages, lang):
+    """전체 글 페이지: 플랫폼 h2 → 채널 h3 → 목록."""
     out = []
-    for c in CATS[lang]:
-        ps = posts(pages, lang, c)
-        if not ps:
-            continue
-        out.append(f'<h2 id="{cat_id(lang, c)}">{esc(c)} <span class="count">{len(ps)}</span></h2>' + board(pages, lang, c, show_cat=False))
+    for top, chans in TAXO[lang]:
+        out.append(f'<h2 id="{cat_id(lang, top)}">{esc(top)} <span class="count">{len(posts(pages, lang, top))}</span></h2>')
+        for sub in chans:
+            ps = posts(pages, lang, f"{top}/{sub}")
+            out.append(f'<h3 id="{cat_id(lang, top, sub)}">{esc(sub)} <span class="count">{len(ps)}</span></h3>' + board(pages, lang, f"{top}/{sub}", show_cat=False))
     return "".join(out)
 
 
@@ -306,14 +350,18 @@ def cat_box(page, pages):
     lang = page["lang"]
     base = "/en/" if lang == "en" else "/guide/"
     head = "Boards" if lang == "en" else "게시판"
-    lis = "".join(f'<li><a href="{base}#{cat_id(lang, c)}">{esc(c)}</a><span>{len(posts(pages, lang, c))}</span></li>'
-                  for c in CATS[lang] if posts(pages, lang, c))
-    return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{lis}</ul></div>'
+    lis = []
+    for top, chans in TAXO[lang]:
+        lis.append(f'<li class="top"><a href="{base}#{cat_id(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
+        lis.append('<li class="subs">' + " · ".join(f'<a href="{base}#{cat_id(lang, top, c)}">{esc(c)}</a>' for c in chans) + "</li>")
+    return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
 
 def fill_boards(page, pages):
     """본문 자리표: <!--board--> 전체 최신 · <!--boards--> 게시판별 · <!--picks:/a,/b--> 지정 글."""
     body = page["body"]
+    if page.get("cat"):                                                            # 글머리 작은 제목은 게시판 이름으로 통일
+        body = re.sub(r'<p class="kicker">.*?</p>', '<p class="kicker">' + esc(cat_label(page["cat"])) + '</p>', body, count=1, flags=re.S)
     body = body.replace("<!--boards-->", boards_by_cat(pages, page["lang"]))
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
     body = re.sub(r"<!--picks:([^>]*)-->", lambda m: board(pages, page["lang"], picks=[u.strip() for u in m.group(1).split(",")]), body)
