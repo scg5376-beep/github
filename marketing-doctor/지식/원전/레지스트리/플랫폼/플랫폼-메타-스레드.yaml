@@ -1,0 +1,35 @@
+# 원전 레지스트리 — 플랫폼 공식 문서 · 메타 Threads
+# 헤들리스 Edge 로 본문 전문을 받아 원문/ 에 보관했다. "~라고 밝힌다" 로 인용한다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/플랫폼/플랫폼-메타-스레드.md
+
+버전: 1.0
+갱신일: 2026-09-11
+
+원전:
+- id: MT-03
+  이름: Threads 공식 자료
+  기관: Instagram 고객 센터 · Meta 비즈니스 지원 센터 · Meta 뉴스룸
+  등급: A
+  근거: 공식
+  원문확인: true
+  확인자: 설계자(Opus) — 헤들리스 Edge 로 열어 화면 텍스트 전문 확보
+  확인일: 2026-09-11
+  원문보관: 메타/
+  원문파일:
+  - 메타/MT-03-Threads-정보.md
+  - 메타/MT-03-Threads-프로필-만들기.md
+  - 메타/MT-03-Threads-광고-정보.md
+  - 메타/MT-03-Threads-광고-도입-2025-01.md
+  - 메타/MT-03-Threads-피드-정보.md
+  공식문서:
+  - 이름: Threads 정보
+    url: https://help.instagram.com/788669719351544/
+  - 이름: Threads에서 프로필 만들기
+    url: https://help.instagram.com/1747515265645443/
+  - 이름: Threads 광고 정보
+    url: https://ko-kr.facebook.com/business/help/655859553779869
+  - 이름: Threads 피드 정보
+    url: https://help.instagram.com/2249022798820145/
+  - 이름: Threads 광고 도입(2025-01-24)
+    url: https://about.fb.com/ko/news/2025/01/introducing-ads-in-threads/

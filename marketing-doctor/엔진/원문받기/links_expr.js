@@ -1,0 +1,1 @@
+(()=>{const out=[];for(const a of document.querySelectorAll('a[href]')){const t=(a.innerText||'').trim();if(t.length>1&&t.length<80)out.push(t+' => '+a.href);}return JSON.stringify({title:document.title,url:location.href,text:[...new Set(out)].join('\n')});})()

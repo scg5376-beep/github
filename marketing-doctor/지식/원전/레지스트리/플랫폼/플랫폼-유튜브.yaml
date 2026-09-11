@@ -1,0 +1,60 @@
+# 원전 레지스트리 — 플랫폼 공식 문서 · 유튜브
+# 헤들리스 Edge 로 본문 전문을 받아 원문/ 에 보관했다. "~라고 밝힌다" 로 인용한다.
+#
+# 등급 기준: 지식/출처등급.md   |   확인기록: ../../확인기록/플랫폼/플랫폼-유튜브.md
+
+버전: 1.0
+갱신일: 2026-09-11
+
+원전:
+- id: YT-01
+  이름: YouTube 검색·추천 작동 방식
+  기관: YouTube 고객센터
+  등급: A
+  근거: 공식
+  원문확인: true
+  확인자: 설계자(Opus) — 헤들리스 Edge 로 열어 화면 텍스트 전문 확보
+  확인일: 2026-09-11
+  원문보관: 유튜브/
+  원문파일:
+  - 유튜브/YT-01-YouTube-검색-작동-방식.md
+  - 유튜브/YT-01-YouTube-맞춤-동영상-작동-방식.md
+  공식문서:
+  - 이름: YouTube 검색 작동 방식
+    url: https://support.google.com/youtube/answer/16090438?hl=ko
+  - 이름: YouTube 맞춤 동영상 작동 방식
+    url: https://support.google.com/youtube/answer/16089387?hl=ko
+- id: YT-02
+  이름: YouTube Shorts · 파트너 프로그램
+  기관: YouTube 고객센터
+  등급: A
+  근거: 공식
+  원문확인: true
+  확인자: 설계자(Opus) — 헤들리스 Edge 로 열어 화면 텍스트 전문 확보
+  확인일: 2026-09-11
+  원문보관: 유튜브/
+  원문파일:
+  - 유튜브/YT-02-3분-길이의-Shorts-이해하기.md
+  - 유튜브/YT-02-Shorts-수익-창출-정책.md
+  - 유튜브/YT-02-파트너-프로그램-개요-및-자격요건.md
+  공식문서:
+  - 이름: 3분 길이의 YouTube Shorts 동영상 이해하기
+    url: https://support.google.com/youtube/answer/15424877?hl=ko
+  - 이름: YouTube Shorts 수익 창출 정책
+    url: https://support.google.com/youtube/answer/12504220?hl=ko
+  - 이름: YouTube 파트너 프로그램 개요 및 자격요건
+    url: https://support.google.com/youtube/answer/72851?hl=ko
+- id: YT-03
+  이름: YouTube 커뮤니티 가이드
+  기관: YouTube 고객센터
+  등급: A
+  근거: 공식
+  원문확인: true
+  확인자: 설계자(Opus) — 헤들리스 Edge 로 열어 화면 텍스트 전문 확보
+  확인일: 2026-09-11
+  원문보관: 유튜브/
+  원문파일:
+  - 유튜브/YT-03-커뮤니티-가이드.md
+  공식문서:
+  - 이름: YouTube 커뮤니티 가이드
+    url: https://support.google.com/youtube/answer/9288567?hl=ko
