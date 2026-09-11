@@ -186,6 +186,17 @@ def featured_html(pages, lang, main_url, side_urls):
             f'<div class="side"><span class="rail-head">{head}</span><ul>{side}</ul></div></section>')
 
 
+def trust_strip(pages, lang):
+    ko = [p for p in pages if p["lang"] == "ko" and p.get("cat") and "order" in p]
+    q = sum(quote_count(p) for p in ko)
+    originals = len(list((ROOT.parent / "marketing-doctor" / "지식" / "원전" / "원문").rglob("*.md")))
+    if lang == "en":
+        items = [f"{len([p for p in pages if p['lang']=='en' and p.get('cat')])} articles", f"{originals} official documents archived", "every quote checked on every build", "no numbers without a source"]
+    else:
+        items = [f"글 {len(ko)}편", f"공식 문서 원문 {originals}건 보관", f"인용 {q}건 올릴 때마다 대조", "출처 없는 숫자 0"]
+    return '<p class="trust">' + " · ".join(f"<span>{esc(x)}</span>" for x in items) + "</p>"
+
+
 def tiles_html(pages, lang):
     """첫 화면 플랫폼 타일 (K-MOOC 카테고리 타일 관찰). 플랫폼 색 바탕, 이름, 글 수."""
     out = []
@@ -370,6 +381,43 @@ def footer_html(page):
 </footer>'''
 
 
+RECHECK_MONTHS = {"AI": 3, "네이버": 6, "구글": 6, "인스타그램": 6, "유튜브": 6, "판매": 6, "시작 전": 12, "기록": 12,
+                  "Naver": 6, "Google": 6, "Selling": 6, "Before you start": 12}
+
+
+def recheck_date(page):
+    """다시 확인 예정 월. 근거: 창고 재확인 주기(플랫폼 반년·AI 3개월·법 개정 때)."""
+    top = split_cat(page.get("cat"))[0] if page.get("cat") else ""
+    months = RECHECK_MONTHS.get(top, 6)
+    y, m = [int(x) for x in (page.get("updated") or page.get("date")).split("-")[:2]]
+    m += months
+    while m > 12:
+        m -= 12; y += 1
+    return f"{y}-{m:02d}"
+
+
+def quote_count(page):
+    return len(re.findall(r"<q>", page["body"]))
+
+
+def author_block(page):
+    """글 끝 신뢰 블록 (Healthline 검토 배지·NerdWallet 전문가 표기 관찰). 익명이되 무엇을 확인했는지는 숫자로."""
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
+        return ""
+    q = quote_count(page)
+    if page["lang"] == "en":
+        rows = [("Written by", "The editor, who runs marketing for one eyewear shop and checks every source in the original."),
+                ("Quotes", f"{q} verbatim quotes, checked against our archive on every build" if q else "No verbatim quotes; secondary sources are marked 'reportedly'"),
+                ("Next review", recheck_date(page))]
+        head = "About this article"
+    else:
+        rows = [("쓴 사람", "안경원 한 곳의 마케팅을 직접 맡고 있는 편집자예요. 이름은 적지 않아요."),
+                ("인용", f"큰따옴표 {q}건, 올릴 때마다 원문 보관본과 자동 대조" if q else "원문 인용 없음. 2차 자료는 \"~라고 해요\"로 표시"),
+                ("다시 확인", f"{recheck_date(page)} 예정. 바뀌면 수정일과 정정 기록에 남겨요")]
+        head = "이 글은"
+    return '<section class="about-post"><h2>' + head + '</h2><table>' + "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in rows) + "</table></section>"
+
+
 def meta_line(page):
     """글머리 한 줄 — 발행·수정·근거 등급·읽는 시간 (설계기준 R2). 목차·첫 화면에는 넣지 않는다."""
     if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
@@ -378,11 +426,11 @@ def meta_line(page):
     if page["lang"] == "en":
         mins = max(1, round(len(text.split()) / 220))
         parts = [f"Published {page.get('date')}", f"Updated {page.get('updated')}",
-                 f"Evidence: {page.get('grade', 'see sources')}", f"{mins} min read"]
+                 f"Evidence: {page.get('grade', 'see sources')}", f"{mins} min read", f"Next review {recheck_date(page)}"]
     else:
         mins = max(1, round(len(text) / 450))
         parts = [f"발행 {page.get('date')}", f"수정 {page.get('updated')}",
-                 f"근거 {page.get('grade', '글 끝 참조')}", f"읽는 시간 약 {mins}분"]
+                 f"근거 {page.get('grade', '글 끝 참조')}", f"읽는 시간 약 {mins}분", f"다시 확인 {recheck_date(page)}"]
     line = '<p class="meta-line">' + "".join(f"<span>{esc(x)}</span>" for x in parts) + "</p>"
     body = page["body"]
     m = re.search(r'<p class="lead">.*?</p>', body, re.S)
@@ -431,7 +479,8 @@ def related(page, pages):
     if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return ""
     pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in (page["url"], "/", "/en/", "/guide/") and not p.get("noindex") and "order" in p]
-    pool.sort(key=lambda p: abs(p.get("order", 0) - page.get("order", 0)))
+    top = split_cat(page.get("cat"))[0] if page.get("cat") else ""
+    pool.sort(key=lambda p: (0 if split_cat(p.get("cat"))[0] == top else 1, abs(p.get("order", 0) - page.get("order", 0))))
     items = pool[:3]
     if not items:
         return ""
@@ -575,6 +624,7 @@ def fill_boards(page, pages):
     body = re.sub(r"<!--board:(\d+)-->", lambda m: board(pages, page["lang"], limit=int(m.group(1))), body)
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
     body = body.replace("<!--tiles-->", tiles_html(pages, page["lang"]))
+    body = body.replace("<!--trust-->", trust_strip(pages, page["lang"]))
     body = re.sub(r"<!--featured:([^|>]+)\|([^>]+)-->", lambda m: featured_html(pages, page["lang"], m.group(1).strip(), [u.strip() for u in m.group(2).split(",")]), body)
     body = re.sub(r"<!--cards:(\d+)-->", lambda m: card_grid(pages, page["lang"], posts(pages, page["lang"])[:int(m.group(1))]), body)
     body = body.replace("<!--cards-->", card_grid(pages, page["lang"], posts(pages, page["lang"])))
@@ -606,7 +656,7 @@ def place_ads(page):
         m = re.search(r"</nav>|</p>", body)          # 목차가 있으면 목차 뒤, 없으면 meta-line 뒤
         body = body[:m.end()] + top + body[m.end():] if m else top + body
     if mid:
-        hs = [m for m in re.finditer(r"<h2[ >]", body)]
+        hs = []   # 본문 중간 광고는 두지 않는다 (2026-09-11 성장 사례 조사: 광고 감축이 체류·속도에 유리)
         if len(hs) >= 2:
             i = hs[1].start(); body = body[:i] + mid + body[i:]
     if end:
@@ -620,6 +670,10 @@ def render(page, pages, verify):
     page = fill_boards(page, pages)
     page = add_toc(dict(page, body=meta_line(page)))
     page = place_ads(page)
+    ab = author_block(page)
+    if ab and '<footer class="sources">' in page["body"]:
+        i = page["body"].index('<footer class="sources">')
+        page = dict(page, body=page["body"][:i] + ab + page["body"][i:])
     page = dict(page, body=page["body"] + related(page, pages))
     side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
     cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] in ("/", "/en/") else '<div class="cols one">')   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬

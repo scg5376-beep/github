@@ -345,3 +345,9 @@ section.featured .side a:hover b { text-decoration: underline; }
 .card small { display: block; font-size: 0.86rem; color: var(--ink-soft); line-height: 1.55; }
 @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } section.featured { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+/* 신뢰 줄·글 끝 블록 (성장 사례 조사 2026-09-11: Healthline·NerdWallet 수치 노출, 검토·갱신 표기) */
+p.trust { font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 14px; }
+p.trust span { white-space: nowrap; }
+section.about-post { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 4px; }
+section.about-post h2 { border: 0; margin: 12px 0 8px; font-size: 1rem; padding: 0; }
+section.about-post table th { width: 22%; white-space: nowrap; }
