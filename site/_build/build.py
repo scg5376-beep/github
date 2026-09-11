@@ -95,7 +95,7 @@ def nav_html(page, pages):
         sub_row = f'<div class="subs {plat_class(cur_top)}"><div class="wrap"><span class="of">{esc(cur_top)}</span>{chans}</div></div>'
     return f'''<header class="top">
   <div class="wrap">
-    <a class="brand" href="{'/en/' if lang=='en' else '/'}">{brand}</a>
+    <a class="brand" href="{'/en/' if lang=='en' else '/'}"><img src="/img/mark.svg" alt="" width="28" height="28">{brand}</a>
     <nav>{"".join(out)}{toggle}</nav>
   </div>
   <nav class="tabs" aria-label="{"Boards" if lang == "en" else "게시판"}"><div class="wrap">{"".join(tabs)}</div>{sub_row}</nav>

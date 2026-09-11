@@ -271,3 +271,12 @@ ol.steps { padding-left: 0; counter-reset: st; list-style: none; margin: 14px 0 
 ol.steps li { counter-increment: st; position: relative; padding: 10px 0 10px 44px; border-bottom: 1px dashed var(--line); }
 ol.steps li::before { content: counter(st); position: absolute; left: 0; top: 12px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.85rem; text-align: center; line-height: 28px; }
 ol.steps b { display: block; margin-bottom: 2px; }
+
+
+/* ---- 로고·무늬 (설계기준 D22, 운영자 2026-09-11 "색감 로고 무늬") ----
+   로고 = 차양 달린 가게(남색 모서리 네모). 무늬 = 그 차양 줄무늬를 화면 맨 위 띠로, 페이지 바탕엔 아주 옅은 점 격자. */
+body::before { height: 8px; background: repeating-linear-gradient(90deg, var(--accent) 0 28px, #bcd3f2 28px 56px); }
+body { background-color: var(--page); background-image: radial-gradient(#dfe2e7 1px, transparent 1px); background-size: 22px 22px; }
+header.top a.brand { display: inline-flex; align-items: center; gap: 9px; }
+header.top a.brand img { width: 28px; height: 28px; display: block; }
+footer.site::before { content: ""; display: block; width: 36px; height: 36px; margin: 0 auto 12px; background: url(/img/mark.svg) center/contain no-repeat; opacity: 0.85; }
