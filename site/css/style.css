@@ -142,7 +142,7 @@ h2 { scroll-margin-top: 16px; }
 .cols.one { grid-template-columns: minmax(0, 640px); }
 .cols > main.wrap { padding-left: 0; padding-right: 0; margin: 0; max-width: 640px; }
 aside.rail { padding-top: 96px; font-size: 0.88rem; }
-aside.rail .rail-box { border: 1px solid var(--line); background: #fff; padding: 14px 16px; margin-bottom: 20px; position: sticky; top: 16px; }
+aside.rail .rail-box { border: 1px solid var(--line); background: #fff; padding: 14px 16px; margin-bottom: 20px; }
 aside.rail .rail-head { display: block; font-weight: 700; color: var(--ink-soft); font-size: 0.78rem; margin-bottom: 8px; }
 aside.rail ul { margin: 0; padding: 0; list-style: none; }
 aside.rail li { padding: 6px 0; border-bottom: 1px dashed var(--line); line-height: 1.45; }

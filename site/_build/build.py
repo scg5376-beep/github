@@ -230,7 +230,7 @@ def nav_html(page, pages):
     # 게시판 탭 — 플랫폼 한 줄, 그 아래 현재 플랫폼의 채널 한 줄 (첫 화면에서는 채널 줄 없음)
     cur_top, cur_sub = split_cat(page.get("cat")) if page.get("cat") else (page.get("plat", ""), "")
     home = "/en/" if lang == "en" else "/"
-    site_tabs = ([("Home", "/en/"), ("How to use", "/en/#howto")] if lang == "en" else [("처음이세요", "/start/"), ("업종별 순서", "/tracks/"), ("이용법", "/about.html#howto")])
+    site_tabs = ([("Home", "/en/"), ("How to use", "/en/#howto")] if lang == "en" else [("기초 과정", "/start/"), ("업종별 순서", "/tracks/"), ("이용법", "/about.html#howto")])
     tabs = [f'<a class="site" href="{h}"{" aria-current=\"page\"" if page["url"] == h else ""}>{t}</a>' for i, (t, h) in enumerate(site_tabs)]
     tabs.append('<span class="gap" aria-hidden="true"></span>')
     tabs.append(f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>')
