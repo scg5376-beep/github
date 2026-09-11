@@ -165,6 +165,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/privacy.html"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/start/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/tracks/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/p/start/</loc>
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/start/"/>

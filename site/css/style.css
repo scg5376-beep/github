@@ -284,3 +284,28 @@ footer.site::before { content: ""; display: block; width: 36px; height: 36px; ma
 table.profile th { width: 26%; white-space: nowrap; background: var(--pt, var(--paper-2)); color: var(--pa, var(--ink)); vertical-align: top; }
 table.profile td { line-height: 1.6; }
 @media (max-width: 620px) { table.profile th { width: 34%; white-space: normal; } }
+
+/* ---- 첫 화면 v4 (K-MOOC 관찰: 한 문장 → 들어가는 문 셋 → 카테고리 타일 → 추천) ---- */
+.doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 26px 0 8px; }
+.door { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--panel-line); border-radius: 8px; padding: 18px 18px 16px; background: #fff; min-height: 24px; }
+.door:hover { border-color: var(--accent); }
+.door .k { display: block; font-size: 0.78rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+.door b { display: block; font-size: 1.05rem; margin-bottom: 6px; }
+.door span:last-child { display: block; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; }
+.door:first-child { background: var(--accent); color: #fff; border-color: var(--accent); }
+.door:first-child .k, .door:first-child span:last-child { color: #dbe7f8; }
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 8px; }
+.tile { display: block; text-decoration: none; background: var(--pt); color: var(--pa); border-radius: 8px; padding: 14px 14px 12px; min-height: 24px; border: 1px solid transparent; }
+.tile:hover { border-color: var(--pa); }
+.tile b { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+.tile span { display: block; font-size: 0.78rem; line-height: 1.45; color: var(--pa); opacity: 0.85; min-height: 2.4em; }
+.tile em { display: block; font-style: normal; font-size: 0.75rem; margin-top: 6px; opacity: 0.8; }
+@media (max-width: 720px) { .doors { grid-template-columns: 1fr; } .tiles { grid-template-columns: repeat(2, 1fr); } }
+/* 코스 목록 */
+ol.course { list-style: none; padding: 0; margin: 14px 0 26px; counter-reset: c; }
+ol.course li { counter-increment: c; position: relative; padding: 12px 0 12px 46px; border-bottom: 1px solid var(--line); }
+ol.course li::before { content: counter(c); position: absolute; left: 0; top: 14px; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; text-align: center; line-height: 30px; font-size: 0.9rem; }
+ol.course a { text-decoration: none; }
+ol.course a b { font-size: 1.02rem; }
+ol.course .why { display: block; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.5; margin-top: 2px; }
+ol.course .time { display: block; font-size: 0.78rem; color: var(--accent); margin-top: 3px; }

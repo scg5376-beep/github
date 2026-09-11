@@ -162,6 +162,16 @@ PLAT_PROFILE_EN = {
 }
 
 
+def tiles_html(pages, lang):
+    """첫 화면 플랫폼 타일 (K-MOOC 카테고리 타일 관찰). 플랫폼 색 바탕, 이름, 글 수."""
+    out = []
+    for top, chans in TAXO[lang]:
+        n = len(posts(pages, lang, top))
+        label = ("posts" if lang == "en" else "글")
+        out.append(f'<a class="tile {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span>{esc(" · ".join(chans[:4]))}</span><em>{n} {label}</em></a>')
+    return '<div class="tiles">' + "".join(out) + "</div>"
+
+
 def profile_html(page):
     top, lang = page["plat"], page["lang"]
     prof = (PLAT_PROFILE_EN if lang == "en" else PLAT_PROFILE).get(top)
@@ -220,8 +230,8 @@ def nav_html(page, pages):
     # 게시판 탭 — 플랫폼 한 줄, 그 아래 현재 플랫폼의 채널 한 줄 (첫 화면에서는 채널 줄 없음)
     cur_top, cur_sub = split_cat(page.get("cat")) if page.get("cat") else (page.get("plat", ""), "")
     home = "/en/" if lang == "en" else "/"
-    site_tabs = ([("Home", "/en/#intro"), ("How to use", "/en/#howto")] if lang == "en" else [("홈페이지 소개", "/#intro"), ("이용법", "/#howto")])
-    tabs = [f'<a class="site" href="{h}"{" aria-current=\"page\"" if page["url"] == home and i == 0 else ""}>{t}</a>' for i, (t, h) in enumerate(site_tabs)]
+    site_tabs = ([("Home", "/en/"), ("How to use", "/en/#howto")] if lang == "en" else [("처음이세요", "/start/"), ("업종별 순서", "/tracks/"), ("이용법", "/about.html#howto")])
+    tabs = [f'<a class="site" href="{h}"{" aria-current=\"page\"" if page["url"] == h else ""}>{t}</a>' for i, (t, h) in enumerate(site_tabs)]
     tabs.append('<span class="gap" aria-hidden="true"></span>')
     tabs.append(f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>')
     for t in tops(lang):
@@ -337,7 +347,7 @@ def footer_html(page):
 
 def meta_line(page):
     """글머리 한 줄 — 발행·수정·근거 등급·읽는 시간 (설계기준 R2). 목차·첫 화면에는 넣지 않는다."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat"):
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return page["body"]
     text = strip_tags(page["body"])
     if page["lang"] == "en":
@@ -372,7 +382,7 @@ def add_toc(page):
     cut = body.find('<footer class="sources">')          # 근거 footer 의 h2 는 목차에 넣지 않는다
     head_part, tail_part = (body, "") if cut < 0 else (body[:cut], body[cut:])
     body = re.sub(r"<h2([^>]*)>(.*?)</h2>", rep, head_part, flags=re.S) + tail_part
-    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/") and not page.get("noindex") and not page.get("plat"):
+    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
         label = "In this article" if page["lang"] == "en" else "이 글에서"
         toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
         m = re.search(r'<p class="meta-line">.*?</p>', body, re.S)
@@ -393,7 +403,7 @@ def ad(slot, label):
 
 def related(page, pages):
     """같은 언어·같은 구역의 다른 글 3개 (order 가 가까운 순). 정적이라 빌드 때 고정."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat"):
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return ""
     pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in (page["url"], "/", "/en/", "/guide/") and not p.get("noindex") and "order" in p]
     pool.sort(key=lambda p: abs(p.get("order", 0) - page.get("order", 0)))
@@ -537,7 +547,9 @@ def fill_boards(page, pages):
         body = body.replace("<!--profile-->", profile_html(page))
     body = re.sub(r"<!--boards:([^>]+)-->", lambda m: boards_by_cat(pages, page["lang"], only=m.group(1).strip()), body)
     body = body.replace("<!--boards-->", boards_by_cat(pages, page["lang"]))
+    body = re.sub(r"<!--board:(\d+)-->", lambda m: board(pages, page["lang"], limit=int(m.group(1))), body)
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
+    body = body.replace("<!--tiles-->", tiles_html(pages, page["lang"]))
     body = re.sub(r"<!--picks:([^>]*)-->", lambda m: board(pages, page["lang"], picks=[u.strip() for u in m.group(1).split(",")]), body)
     return dict(page, body=body)
 
@@ -557,7 +569,7 @@ def rail(page, pages):
 
 def place_ads(page):
     """본문에 광고 자리 셋: 글머리(목차 뒤) · 본문 중간(둘째 h2 앞) · 글 끝(근거 앞)."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat"):
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return page
     lab = "광고" if page["lang"] == "ko" else "Advertisement"
     body = page["body"]
