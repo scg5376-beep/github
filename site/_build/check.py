@@ -299,7 +299,7 @@ def check_page(p, all_titles):
         if n:
             err(rel, "T2", f"금지 표현 '{ph}' {n}회")
     # 문단 길이·문장 길이 (본문 p 만 — 표·인용·그림 설명은 제외)
-    paras = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs)\")[^>]*>(.*?)</p>", main, re.S)]
+    paras = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|empty)\")[^>]*>(.*?)</p>", main, re.S)]
     for para in paras:
         sents = [s for s in re.split(r"(?<=[.다요까!?])\s+", para) if len(s) > 1]
         if ko and len(para) > SPEC["text"]["para_max_chars"]:
