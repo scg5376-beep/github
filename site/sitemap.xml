@@ -164,4 +164,68 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/privacy.html"/>
   </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/start/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/start/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/start/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/naver/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/naver/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/naver/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/google/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/google/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/google/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/instagram/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/youtube/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/ai/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/sell/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/sell/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/sell/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/record/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/p/start/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/start/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/start/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/p/naver/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/naver/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/naver/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/p/google/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/google/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/google/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/p/sell/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/sell/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/sell/"/>
+  </url>
 </urlset>

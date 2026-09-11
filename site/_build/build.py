@@ -53,7 +53,49 @@ def read_pages():
         meta.setdefault("updated", meta.get("date"))
         meta["rel"], meta["url"], meta["body"] = rel, url, body
         pages.append(meta)
+    pages += platform_pages(pages)
     return pages
+
+
+PLAT_INTRO = {
+    "ko": {
+        "시작 전": "온라인에서 무엇을 하든 그 전에 닫아야 할 것들이에요. 신고와 표시 의무, 그리고 손님이 지금 어디서 찾는지의 숫자.",
+        "네이버": "한국 손님 열에 여덟이 먼저 여는 곳이에요. 검색 화면, 플레이스, 블로그, 카페, 파워링크, 리뷰를 네이버 공식 문서 원문으로 다뤄요.",
+        "구글": "외국 손님과 안드로이드 지도, 그리고 내 도메인의 홈페이지가 걸리는 곳이에요. 검색, 블로거, 티스토리, 도메인.",
+        "인스타그램": "계정 정리부터 릴스, 스레드, 광고까지. 메타가 직접 적은 규정과 인스타그램 대표의 발언을 갈라서 적어요.",
+        "유튜브": "채널과 쇼츠. 유튜브 고객센터가 밝힌 검색·추천 방식과 수익 조건만 옮겨요.",
+        "AI": "손님이 검색창 대신 AI에게 물을 때 우리 가게가 답에 나오는 구조와, 제안서에 나오는 용어 정리.",
+        "판매": "스마트스토어, 쿠팡, 자사몰. 수수료가 어디에 얼마나 붙는지 공식 문서 원문으로.",
+        "기록": "마케팅이 효과가 있었는지는 느낌 말고 기록으로 정해요. 주 1회 5분, 열두 주.",
+    },
+    "en": {
+        "Before you start": "What the law asks before you sell in Korea.",
+        "Naver": "Where eight in ten Korean customers look first: search, Place, and paid channels, from Naver's own documents.",
+        "Google": "Your own domain and the customers who search in English.",
+        "Selling": "Smart Store, Coupang, and Instagram without checkout: the fee documents.",
+    },
+}
+
+
+def platform_pages(pages):
+    """플랫폼마다 페이지 하나 (운영자 2026-09-11 "누르면 이동이 아니라 각 플랫폼별 페이지"). 본문은 채널별 목록."""
+    out = []
+    for lang, taxo in TAXO.items():
+        for top, chans in taxo:
+            slug = PLAT_SLUG[top]
+            url = f"/en/p/{slug}/" if lang == "en" else f"/p/{slug}/"
+            other = [t for t in (TAXO["en"] if lang == "ko" else TAXO["ko"]) if PLAT_SLUG[t[0]] == slug]
+            alt = (f"/en/p/{slug}/" if lang == "ko" else f"/p/{slug}/") if other else None
+            head = "Boards" if lang == "en" else "게시판"
+            body = (f'<p class="kicker">{esc(head)}</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(PLAT_INTRO[lang].get(top, ""))}</p>\n'
+                    f'<!--boards:{top}-->\n')
+            meta = {"title": top if lang == "en" else f"{top} 게시판", "description": PLAT_INTRO[lang].get(top, top), "lang": lang,
+                    "section": "guide" if lang == "ko" else "en", "nav": top, "date": "2026-09-11", "updated": "2026-09-11",
+                    "plat": top, "rel": url.strip("/") + "/index.html", "url": url, "body": body}
+            if alt:
+                meta["alt"] = alt
+            out.append(meta)
+    return out
 
 
 def esc(s):
@@ -80,7 +122,7 @@ def nav_html(page, pages):
         out.append(f'<a href="{href}"{cur}>{label}</a>')
     brand = SITE_NAME if lang != "en" else "Sajang Marketing"
     # 게시판 탭 — 플랫폼 한 줄, 그 아래 현재 플랫폼의 채널 한 줄 (첫 화면에서는 채널 줄 없음)
-    cur_top, cur_sub = split_cat(page.get("cat"))
+    cur_top, cur_sub = split_cat(page.get("cat")) if page.get("cat") else (page.get("plat", ""), "")
     home = "/en/" if lang == "en" else "/"
     site_tabs = ([("Home", "/en/#intro"), ("How to use", "/en/#howto")] if lang == "en" else [("홈페이지 소개", "/#intro"), ("이용법", "/#howto")])
     tabs = [f'<a class="site" href="{h}"{" aria-current=\"page\"" if page["url"] == home and i == 0 else ""}>{t}</a>' for i, (t, h) in enumerate(site_tabs)]
@@ -88,11 +130,11 @@ def nav_html(page, pages):
     tabs.append(f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>')
     for t in tops(lang):
         cur = ' aria-current="page"' if cur_top == t else ""
-        tabs.append(f'<a class="{plat_class(t)}" href="{base}#{cat_id(lang, t)}"{cur}>{esc(t)}</a>')
+        tabs.append(f'<a class="{plat_class(t)}" href="{plat_url(lang, t)}"{cur}>{esc(t)}</a>')
     sub_row = ""
     if cur_top:
-        chans = "".join(f'<a href="{base}#{cat_id(lang, cur_top, c)}"{" aria-current=\"page\"" if cur_sub == c else ""}>{esc(c)}</a>' for c in subs(lang, cur_top))
-        sub_row = f'<div class="subs {plat_class(cur_top)}"><div class="wrap"><span class="of">{esc(cur_top)}</span>{chans}</div></div>'
+        chans = "".join(f'<a href="{plat_url(lang, cur_top, c)}"{" aria-current=\"page\"" if cur_sub == c else ""}>{esc(c)}</a>' for c in subs(lang, cur_top))
+        sub_row = f'<div class="subs {plat_class(cur_top)}"><div class="wrap"><a class="of" href="{plat_url(lang, cur_top)}">{esc(cur_top)}</a>{chans}</div></div>'
     return f'''<header class="top">
   <div class="wrap">
     <a class="brand" href="{'/en/' if lang=='en' else '/'}"><img src="/img/mark.svg" alt="" width="28" height="28">{brand}</a>
@@ -174,7 +216,13 @@ def crumbs(page):
     if page["url"] in ("/", "/en/", "/guide/"):
         return ""
     root = {"guide": ("/guide/", "전체 글"), "about": ("/", "처음")}.get(page["section"], ("/", "처음"))
-    return f'<p class="crumbs"><a href="{root[0]}">{root[1]}</a> › {esc(page.get("nav", page["title"]))}</p>'
+    mid = ""
+    if page.get("plat"):
+        return f'<p class="crumbs"><a href="/guide/">전체 글</a> › {esc(page["plat"])}</p>'
+    if page.get("cat"):
+        top = split_cat(page["cat"])[0]
+        mid = f'<a href="{plat_url(page["lang"], top)}">{esc(top)}</a> › '
+    return f'<p class="crumbs"><a href="{root[0]}">{root[1]}</a> › {mid}{esc(page.get("nav", page["title"]))}</p>'
 
 
 def footer_html(page):
@@ -193,7 +241,7 @@ def footer_html(page):
 
 def meta_line(page):
     """글머리 한 줄 — 발행·수정·근거 등급·읽는 시간 (설계기준 R2). 목차·첫 화면에는 넣지 않는다."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex"):
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat"):
         return page["body"]
     text = strip_tags(page["body"])
     if page["lang"] == "en":
@@ -228,7 +276,7 @@ def add_toc(page):
     cut = body.find('<footer class="sources">')          # 근거 footer 의 h2 는 목차에 넣지 않는다
     head_part, tail_part = (body, "") if cut < 0 else (body[:cut], body[cut:])
     body = re.sub(r"<h2([^>]*)>(.*?)</h2>", rep, head_part, flags=re.S) + tail_part
-    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/") and not page.get("noindex"):
+    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/") and not page.get("noindex") and not page.get("plat"):
         label = "In this article" if page["lang"] == "en" else "이 글에서"
         toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
         m = re.search(r'<p class="meta-line">.*?</p>', body, re.S)
@@ -249,7 +297,7 @@ def ad(slot, label):
 
 def related(page, pages):
     """같은 언어·같은 구역의 다른 글 3개 (order 가 가까운 순). 정적이라 빌드 때 고정."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex"):
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat"):
         return ""
     pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in (page["url"], "/", "/en/", "/guide/") and not p.get("noindex") and "order" in p]
     pool.sort(key=lambda p: abs(p.get("order", 0) - page.get("order", 0)))
@@ -350,14 +398,25 @@ def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True):
     return '<ol class="board">' + "".join(rows) + "</ol>"
 
 
-def boards_by_cat(pages, lang):
-    """전체 글 페이지: 플랫폼 h2 → 채널 h3 → 목록."""
+def plat_url(lang, top, sub=None):
+    u = f"/en/p/{PLAT_SLUG[top]}/" if lang == "en" else f"/p/{PLAT_SLUG[top]}/"
+    return u + (f"#{cat_id(lang, top, sub)}" if sub else "")
+
+
+def boards_by_cat(pages, lang, only=None):
+    """전체 글 페이지: 플랫폼 h2(플랫폼 페이지로 링크) → 채널 h3 → 목록. only 를 주면 그 플랫폼만(플랫폼 페이지)."""
     out = []
     for top, chans in TAXO[lang]:
-        out.append(f'<section class="plat {plat_class(top)}"><h2 id="{cat_id(lang, top)}">{esc(top)} <span class="count">{len(posts(pages, lang, top))}</span></h2>')
+        if only and top != only:
+            continue
+        if only:
+            out.append(f'<section class="plat {plat_class(top)}">')
+        else:
+            out.append(f'<section class="plat {plat_class(top)}"><h2 id="{cat_id(lang, top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a> <span class="count">{len(posts(pages, lang, top))}</span></h2>')
         for sub in chans:
             ps = posts(pages, lang, f"{top}/{sub}")
-            out.append(f'<h3 id="{cat_id(lang, top, sub)}">{esc(sub)} <span class="count">{len(ps)}</span></h3>' + board(pages, lang, f"{top}/{sub}", show_cat=False))
+            tag = "h2" if only else "h3"
+            out.append(f'<{tag} id="{cat_id(lang, top, sub)}">{esc(sub)} <span class="count">{len(ps)}</span></{tag}>' + board(pages, lang, f"{top}/{sub}", show_cat=False))
         out.append("</section>")
     return "".join(out)
 
@@ -368,8 +427,8 @@ def cat_box(page, pages):
     head = "Boards" if lang == "en" else "게시판"
     lis = []
     for top, chans in TAXO[lang]:
-        lis.append(f'<li class="top {plat_class(top)}"><a href="{base}#{cat_id(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
-        lis.append('<li class="subs">' + " · ".join(f'<a href="{base}#{cat_id(lang, top, c)}">{esc(c)}</a>' for c in chans) + "</li>")
+        lis.append(f'<li class="top {plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
+        lis.append('<li class="subs">' + " · ".join(f'<a href="{plat_url(lang, top, c)}">{esc(c)}</a>' for c in chans) + "</li>")
     return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
 
@@ -378,6 +437,7 @@ def fill_boards(page, pages):
     body = page["body"]
     if page.get("cat"):                                                            # 글머리 작은 제목은 게시판 이름으로 통일
         body = re.sub(r'<p class="kicker">.*?</p>', '<p class="kicker">' + esc(cat_label(page["cat"])) + '</p>', body, count=1, flags=re.S)
+    body = re.sub(r"<!--boards:([^>]+)-->", lambda m: boards_by_cat(pages, page["lang"], only=m.group(1).strip()), body)
     body = body.replace("<!--boards-->", boards_by_cat(pages, page["lang"]))
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
     body = re.sub(r"<!--picks:([^>]*)-->", lambda m: board(pages, page["lang"], picks=[u.strip() for u in m.group(1).split(",")]), body)
@@ -399,7 +459,7 @@ def rail(page, pages):
 
 def place_ads(page):
     """본문에 광고 자리 셋: 글머리(목차 뒤) · 본문 중간(둘째 h2 앞) · 글 끝(근거 앞)."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex"):
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat"):
         return page
     lab = "광고" if page["lang"] == "ko" else "Advertisement"
     body = page["body"]
@@ -430,7 +490,7 @@ def render(page, pages, verify):
 <head>
 {head_html(page, verify)}
 </head>
-<body class="{plat_class(page.get('cat'))}">
+<body class="{plat_class(page.get('cat') or page.get('plat'))}">
 {nav_html(page, pages)}
 {cols}
 <main class="wrap">
@@ -481,7 +541,7 @@ def build():
     write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /_build/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
 
     # feed.xml — 네이버: "최신글은 본문 전체를 포함하여 RSS 피드에" (NS-01)
-    arts = sorted([p for p in indexable if p["url"] not in ("/", "/en/", "/guide/")],
+    arts = sorted([p for p in indexable if p["url"] not in ("/", "/en/", "/guide/") and not p.get("plat")],
                   key=lambda p: (p.get("updated") or "", p["url"]), reverse=True)
     items = []
     for p in arts[:30]:
