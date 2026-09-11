@@ -168,16 +168,19 @@ def check_page(p, all_titles):
     is_index = rel.endswith("index.html") or rel == "404.html"
 
     # ── S 보안 ──
-    if 'http-equiv="Content-Security-Policy"' not in head:
+    SITECFG = json.loads((ROOT / "_build" / "site.json").read_text(encoding="utf-8"))
+    if 'http-equiv="Content-Security-Policy"' not in head and not SITECFG["ads"]["enabled"]:
         err(rel, "S1", "CSP 메타가 없다")
-    for m in re.finditer(r"<script\b([^>]*)>", raw):
-        if 'type="application/ld+json"' not in m.group(1):
-            err(rel, "S2", "JSON-LD 외의 스크립트가 있다")
+    for m in re.finditer(r"<script([^>]*)>(.*?)</script>", raw, re.S):
+        if 'type="application/ld+json"' in m.group(1) or (SITECFG["ads"]["enabled"] and ("googlesyndication" in m.group(1) or "adsbygoogle" in m.group(2))):
+            continue
+        if True:
+            err(rel, "S2", "허용되지 않은 스크립트가 있다")
     if re.search(r"<(iframe|embed|object|form|input|textarea)\b", raw):
         err(rel, "S3", "iframe/embed/form/input 은 쓰지 않는다 (손님 정보를 받지 않는다)")
     if re.search(r'(src|href)="https?://(?!sajangmarketing\.com)', body):
         for m in re.finditer(r'(src|href)="(https?://[^"]+)"', body):
-            if "sajangmarketing.com" not in m.group(2) and m.group(1) == "src":
+            if "sajangmarketing.com" not in m.group(2) and m.group(1) == "src" and not (SITECFG["ads"]["enabled"] and "googlesyndication" in m.group(2)):
                 err(rel, "S2", f"외부 자원 로드: {m.group(2)}")
     for pat in SPEC["privacy"]["patterns"]:
         if re.search(pat, strip(main)):

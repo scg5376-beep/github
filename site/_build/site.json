@@ -1,0 +1,14 @@
+{
+  "_설명": "사이트 전역 설정. ads.enabled 가 false 면 광고 자리는 비워 두고 스크립트도 넣지 않는다 (승인 전).",
+  "ads": {
+    "enabled": false,
+    "adsense_client": "",
+    "slots": {
+      "top": "",
+      "mid": "",
+      "end": "",
+      "rail": ""
+    }
+  },
+  "rail": true
+}

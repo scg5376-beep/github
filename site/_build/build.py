@@ -31,6 +31,7 @@ SITE_NAME = "사장님 마케팅 교실"
 SITE_NAME_EN = "Sajang Marketing — Korea marketing, explained"
 DEFAULT_OG = {"home": "/img/og-home.png", "guide": "/img/og-ko.png",
               "en": "/img/og-en.png", "en-legal": "/img/og-en.png", "about": "/img/og-home.png"}
+SITECFG = json.loads((ROOT / "_build" / "site.json").read_text(encoding="utf-8"))
 VERIFY = ROOT / "_build" / "verify.json"   # {"naver": "...", "google": "..."} — 소유확인 코드 (없으면 생략)
 
 META_RE = re.compile(r"^\s*<!--meta\s*(\{.*?\})\s*-->\s*", re.S)
@@ -106,7 +107,8 @@ def head_html(page, verify):
         '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
         # 보안: 외부 스크립트·인라인 스크립트 전부 차단. 이 사이트는 JS 를 쓰지 않는다.
-        '<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; img-src \'self\' data:; style-src \'self\'; script-src \'none\'; object-src \'none\'; base-uri \'self\'; form-action \'none\'">',
+        # 광고를 켜면 CSP 메타를 넣지 않는다 (애드센스 공식 안내는 nonce+strict-dynamic 인데 정적 사이트는 nonce 를 못 만든다)
+        *([] if SITECFG["ads"]["enabled"] else ['<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; img-src \'self\' data:; style-src \'self\'; script-src \'none\'; object-src \'none\'; base-uri \'self\'; form-action \'none\'">']),
         '<meta name="referrer" content="strict-origin-when-cross-origin">',
         f'<title>{esc(page["title"])}</title>',
         f'<meta name="description" content="{esc(page["description"])}">',
@@ -152,14 +154,14 @@ def crumbs(page):
 def footer_html(page):
     if page["lang"] == "en":
         return '''<footer class="site">
-  <p>This site belongs to no particular business. Example shop names are invented. We sell nothing, collect nothing, and run no scripts.<br>
+  <p>This site belongs to no particular business. Example shop names are invented. We sell nothing and collect nothing; ad slots, when present, are labelled.<br>
   Quotes in “double quotes” are verbatim from official platform or legal documents; “reportedly” marks secondary sources.</p>
-  <p><a href="/en/">Start here</a> · <a href="/en/legal.html">Legal</a> · <a href="/about.html">About (Korean)</a> · <a href="/feed.xml">RSS</a></p>
+  <p><a href="/en/">Start here</a> · <a href="/en/legal.html">Legal</a> · <a href="/en/privacy.html">Privacy</a> · <a href="/about.html">About (Korean)</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
     return '''<footer class="site">
   <p>이 사이트는 특정 가게에 속하지 않아요. 예시 가게 이름은 전부 지어낸 거예요.<br>
-  물건을 팔지 않고, 손님 정보를 받지 않고, 스크립트를 돌리지 않아요.</p>
-  <p><a href="/guide/">사장님 가이드</a> · <a href="/en/">English</a> · <a href="/about.html">이 교실이 지키는 것</a> · <a href="/feed.xml">RSS</a></p>
+  물건을 팔지 않고, 손님 정보를 받지 않아요. 광고 자리에는 「광고」라고 적어요.</p>
+  <p><a href="/guide/">사장님 가이드</a> · <a href="/en/">English</a> · <a href="/about.html">이 교실이 지키는 것</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
 
 
@@ -205,9 +207,71 @@ def add_toc(page):
     return dict(page, body=body)
 
 
+def ad(slot, label):
+    """광고 자리. 승인 전엔 빈 칸(높이 예약 안 함). 승인 후 site.json 에 client·slot 을 넣으면 <ins> 가 들어간다."""
+    cfg = SITECFG["ads"]
+    if not cfg["enabled"] or not cfg.get("adsense_client"):
+        return ""
+    sid = cfg["slots"].get(slot, "")
+    return (f'<div class="ad ad-{slot}"><span class="ad-label">{label}</span>'
+            f'<ins class="adsbygoogle" style="display:block" data-ad-client="{esc(cfg["adsense_client"])}" data-ad-slot="{esc(sid)}" data-ad-format="auto" data-full-width-responsive="true"></ins>'
+            f'<script>(adsbygoogle = window.adsbygoogle || []).push({{}});</script></div>')
+
+
+def related(page, pages):
+    """같은 언어·같은 구역의 다른 글 3개 (order 가 가까운 순). 정적이라 빌드 때 고정."""
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex"):
+        return ""
+    pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in (page["url"], "/", "/en/", "/guide/") and not p.get("noindex") and "order" in p]
+    pool.sort(key=lambda p: abs(p.get("order", 0) - page.get("order", 0)))
+    items = pool[:3]
+    if not items:
+        return ""
+    head = "Related" if page["lang"] == "en" else "이어서 읽을 글"
+    return '<section class="related"><h2>' + head + '</h2><ul>' + "".join(
+        f'<li><a href="{p["url"]}">{esc(p.get("nav", p["title"]))}</a><small>{esc(p["description"][:70])}…</small></li>' for p in items) + "</ul></section>"
+
+
+def rail(page, pages):
+    """오른쪽 기둥 (넓은 화면에서만). 목차는 본문 것을 쓰고, 여기엔 최신 글 + 광고."""
+    if not SITECFG.get("rail") or page["url"] in ("/", "/en/") or page.get("noindex"):
+        return ""
+    # 글(order 가 있는 페이지)만. 처리방침·소개 같은 고정 페이지는 발자국 아래 있으니 여기 안 넣는다.
+    pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in ("/", "/en/", "/guide/") and not p.get("noindex") and p["url"] != page["url"] and "order" in p]
+    pool.sort(key=lambda p: (p.get("date") or "", p["url"]), reverse=True)
+    head = "Latest" if page["lang"] == "en" else "최근 글"
+    latest = '<div class="rail-box"><span class="rail-head">' + head + '</span><ul>' + "".join(
+        f'<li><a href="{p["url"]}">{esc(p.get("nav", p["title"]))}</a></li>' for p in pool[:6]) + "</ul></div>"
+    return '<aside class="rail">' + ad("rail", "광고" if page["lang"] == "ko" else "Advertisement") + latest + "</aside>"
+
+
+def place_ads(page):
+    """본문에 광고 자리 셋: 글머리(목차 뒤) · 본문 중간(둘째 h2 앞) · 글 끝(근거 앞)."""
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex"):
+        return page
+    lab = "광고" if page["lang"] == "ko" else "Advertisement"
+    body = page["body"]
+    top, mid, end = ad("top", lab), ad("mid", lab), ad("end", lab)
+    if top:
+        m = re.search(r"</nav>|</p>", body)          # 목차가 있으면 목차 뒤, 없으면 meta-line 뒤
+        body = body[:m.end()] + top + body[m.end():] if m else top + body
+    if mid:
+        hs = [m for m in re.finditer(r"<h2[ >]", body)]
+        if len(hs) >= 2:
+            i = hs[1].start(); body = body[:i] + mid + body[i:]
+    if end:
+        i = body.find('<footer class="sources">')
+        body = (body[:i] + end + body[i:]) if i >= 0 else body + end
+    return dict(page, body=body)
+
+
 def render(page, pages, verify):
     lang = page["lang"]
     page = add_toc(dict(page, body=meta_line(page)))
+    page = place_ads(page)
+    page = dict(page, body=page["body"] + related(page, pages))
+    side = rail(page, pages)
+    cols = '<div class="cols">' if side else '<div class="cols one">'   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
     return f'''<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -215,10 +279,13 @@ def render(page, pages, verify):
 </head>
 <body>
 {nav_html(page, pages)}
+{cols}
 <main class="wrap">
 {crumbs(page)}
 {page["body"].strip()}
 </main>
+{side}
+</div>
 {footer_html(page)}
 </body>
 </html>

@@ -133,3 +133,33 @@ nav.intoc li { margin: 2px 0; }
 nav.intoc a { text-decoration: none; }
 nav.intoc a:hover { text-decoration: underline; }
 h2 { scroll-margin-top: 16px; }
+
+/* ── 두 칸 (본문 + 오른쪽 기둥) — wikiHow·Healthline·오마이뉴스 실측: 본문 650~750 + 기둥 300 ── */
+.cols { display: grid; grid-template-columns: minmax(0, 640px) 300px; gap: 40px; justify-content: center; padding: 0 20px; }
+.cols.one { grid-template-columns: minmax(0, 640px); }
+.cols > main.wrap { padding-left: 0; padding-right: 0; margin: 0; max-width: 640px; }
+aside.rail { padding-top: 96px; font-size: 0.88rem; }
+aside.rail .rail-box { border: 1px solid var(--line); background: #fff; padding: 14px 16px; margin-bottom: 20px; position: sticky; top: 16px; }
+aside.rail .rail-head { display: block; font-weight: 700; color: var(--ink-soft); font-size: 0.78rem; margin-bottom: 8px; }
+aside.rail ul { margin: 0; padding: 0; list-style: none; }
+aside.rail li { padding: 6px 0; border-bottom: 1px dashed var(--line); line-height: 1.45; }
+aside.rail li:last-child { border-bottom: 0; }
+aside.rail a { text-decoration: none; color: var(--ink); }
+aside.rail a:hover { text-decoration: underline; }
+@media (max-width: 1060px) { .cols { grid-template-columns: minmax(0, 640px); } aside.rail { display: none; } }
+
+/* 광고 자리 — 높이를 미리 잡아 화면이 밀리지 않게 (구글 게시자 문서: min-height 예약) */
+.ad { margin: 28px 0; text-align: center; }
+.ad .ad-label { display: block; font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 4px; }
+.ad-top, .ad-end { min-height: 100px; }
+.ad-mid { min-height: 280px; }
+.ad-rail { min-height: 250px; position: static; }
+
+/* 이어서 읽을 글 */
+section.related { margin-top: 44px; border-top: 1px solid var(--line); padding-top: 16px; }
+section.related h2 { border: 0; padding: 0; margin: 0 0 10px; font-size: 1rem; }
+section.related ul { list-style: none; padding: 0; margin: 0; }
+section.related li { padding: 10px 0; border-bottom: 1px dashed var(--line); }
+section.related a { font-weight: 700; text-decoration: none; }
+section.related a:hover { text-decoration: underline; }
+section.related small { display: block; color: var(--ink-soft); font-size: 0.85rem; }

@@ -35,6 +35,12 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/guide/seo.html"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/en/privacy.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/privacy.html"/>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/en/selling-online.html</loc>
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/selling-online.html"/>
@@ -103,5 +109,11 @@
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/privacy.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/privacy.html"/>
   </url>
 </urlset>
