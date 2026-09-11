@@ -212,7 +212,7 @@ def profile_html(page):
     prof = (PLAT_PROFILE_EN if lang == "en" else PLAT_PROFILE).get(top)
     if not prof:
         return ""
-    head = "At a glance" if lang == "en" else "한눈에"
+    head = "This board at a glance" if lang == "en" else "이 게시판 한눈에"
     rows = "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in prof.items())
     note = ("Items marked (official) come from the platform's own documents; editor's notes are our judgement." if lang == "en"
             else "「공식」은 플랫폼 문서에 적힌 것, 「편집자 주」는 저희 판단이에요. 평균 기간은 공식 자료가 없으면 없다고 적었어요.")
@@ -229,7 +229,7 @@ def platform_pages(pages):
             alt = (f"/en/p/{slug}/" if lang == "ko" else f"/p/{slug}/") if other else None
             head = "Boards" if lang == "en" else "게시판"
             body = (f'<p class="kicker">{esc(head)}</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(PLAT_INTRO[lang].get(top, ""))}</p>\n'
-                    f'<!--profile-->\n<!--boards:{top}-->\n')
+                    f'<!--boards:{top}-->\n<!--profile-->\n')
             meta = {"title": top if lang == "en" else f"{top} 게시판", "description": PLAT_INTRO[lang].get(top, top), "lang": lang,
                     "section": "guide" if lang == "ko" else "en", "nav": top, "date": "2026-09-11", "updated": "2026-09-11",
                     "plat": top, "rel": url.strip("/") + "/index.html", "url": url, "body": body}
@@ -674,7 +674,7 @@ def render(page, pages, verify):
     if ab and '<footer class="sources">' in page["body"]:
         i = page["body"].index('<footer class="sources">')
         page = dict(page, body=page["body"][:i] + ab + page["body"][i:])
-    page = dict(page, body=page["body"] + related(page, pages))
+    # 「이어서 읽을 글」 자동 목록은 뺐다 (2026-09-11 재개편: 글마다 손으로 고른 「다음 글」이 있어 중복. 게시판 상자가 같은 플랫폼 글을 이미 보여 준다)
     side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
     cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] in ("/", "/en/") else '<div class="cols one">')   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
     return f'''<!DOCTYPE html>
