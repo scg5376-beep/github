@@ -74,46 +74,46 @@
 <svg viewBox="0 0 720 860" role="img" aria-labelledby="f1t f1d" xmlns="http://www.w3.org/2000/svg" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
   <title id="f1t">네이버 검색 결과 화면의 네 부분</title>
   <desc id="f1d">검색창 아래로 파워링크(광고), 플레이스(가게 정보), 인기글(블로그), AI 브리핑 순서로 놓인 화면. 각 부분에 1부터 4까지 번호가 붙어 있다.</desc>
-  <rect x="30" y="24" width="660" height="56" rx="28" fill="#fff" stroke="#1c1c1a" stroke-width="2"/>
-  <text x="58" y="60" font-size="22" fill="#1c1c1a">동네 빵집</text>
-  <circle cx="653" cy="49" r="7" fill="none" stroke="#1c1c1a" stroke-width="3"/><line x1="658" y1="54" x2="666" y2="62" stroke="#1c1c1a" stroke-width="3"/>
+  <rect x="30" y="24" width="660" height="56" rx="28" fill="#fff" stroke="#1e2124" stroke-width="2"/>
+  <text x="58" y="60" font-size="22" fill="#1e2124">동네 빵집</text>
+  <circle cx="653" cy="49" r="7" fill="none" stroke="#1e2124" stroke-width="3"/><line x1="658" y1="54" x2="666" y2="62" stroke="#1e2124" stroke-width="3"/>
 
-  <rect x="30" y="104" width="660" height="150" rx="6" fill="#f7efd9" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="50" y="134" font-size="16" fill="#1c1c1a" font-weight="700">파워링크</text>
-  <rect x="122" y="118" width="46" height="22" rx="3" fill="#1c1c1a"/>
+  <rect x="30" y="104" width="660" height="150" rx="6" fill="#fbf3d5" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="50" y="134" font-size="16" fill="#1e2124" font-weight="700">파워링크</text>
+  <rect x="122" y="118" width="46" height="22" rx="3" fill="#1e2124"/>
   <text x="129" y="135" font-size="14" fill="#fff" font-weight="700">광고</text>
-  <text x="50" y="170" font-size="19" fill="#1c1c1a">역앞 베이커리, 갓 구운 빵 매일 아침</text>
-  <text x="50" y="200" font-size="15" fill="#454541">bakery-example.com</text>
-  <text x="50" y="236" font-size="19" fill="#1c1c1a">골목 빵공방, 오늘 구운 것만 팝니다</text>
-  <circle cx="660" cy="130" r="18" fill="#9a3a1f"/><text x="660" y="137" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+  <text x="50" y="170" font-size="19" fill="#1e2124">역앞 베이커리, 갓 구운 빵 매일 아침</text>
+  <text x="50" y="200" font-size="15" fill="#484949">bakery-example.com</text>
+  <text x="50" y="236" font-size="19" fill="#1e2124">골목 빵공방, 오늘 구운 것만 팝니다</text>
+  <circle cx="660" cy="130" r="18" fill="#0f4c9c"/><text x="660" y="137" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">1</text>
 
-  <rect x="30" y="278" width="660" height="230" rx="6" fill="#e6f1e8" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="50" y="308" font-size="16" fill="#1c1c1a" font-weight="700">플레이스 · 가게 정보</text>
-  <circle cx="660" cy="304" r="18" fill="#9a3a1f"/><text x="660" y="311" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">2</text>
-  <rect x="50" y="326" width="180" height="160" rx="6" fill="#fff" stroke="#cfc7b6"/>
-  <path d="M60 470 L120 400 L170 440 L220 360" stroke="#cfc7b6" stroke-width="6" fill="none"/>
-  <circle cx="120" cy="400" r="8" fill="#1c1c1a"/><circle cx="170" cy="440" r="8" fill="#1c1c1a"/><circle cx="90" cy="360" r="8" fill="#1c1c1a"/>
-  <text x="250" y="352" font-size="19" fill="#1c1c1a" font-weight="700">우리동네 빵집</text>
-  <text x="250" y="378" font-size="15" fill="#454541">별점 4.6 · 방문자 리뷰 312 · 영업 중</text>
-  <text x="250" y="414" font-size="19" fill="#1c1c1a" font-weight="700">햇살 베이커리</text>
-  <text x="250" y="440" font-size="15" fill="#454541">별점 4.4 · 방문자 리뷰 128 · 영업 중</text>
-  <text x="250" y="476" font-size="19" fill="#1c1c1a" font-weight="700">모퉁이 빵집</text>
-  <text x="250" y="502" font-size="15" fill="#454541">별점 4.7 · 방문자 리뷰 89 · 20시 마감</text>
+  <rect x="30" y="278" width="660" height="230" rx="6" fill="#e6f1e8" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="50" y="308" font-size="16" fill="#1e2124" font-weight="700">플레이스 · 가게 정보</text>
+  <circle cx="660" cy="304" r="18" fill="#0f4c9c"/><text x="660" y="311" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+  <rect x="50" y="326" width="180" height="160" rx="6" fill="#fff" stroke="#d6d9de"/>
+  <path d="M60 470 L120 400 L170 440 L220 360" stroke="#d6d9de" stroke-width="6" fill="none"/>
+  <circle cx="120" cy="400" r="8" fill="#1e2124"/><circle cx="170" cy="440" r="8" fill="#1e2124"/><circle cx="90" cy="360" r="8" fill="#1e2124"/>
+  <text x="250" y="352" font-size="19" fill="#1e2124" font-weight="700">우리동네 빵집</text>
+  <text x="250" y="378" font-size="15" fill="#484949">별점 4.6 · 방문자 리뷰 312 · 영업 중</text>
+  <text x="250" y="414" font-size="19" fill="#1e2124" font-weight="700">햇살 베이커리</text>
+  <text x="250" y="440" font-size="15" fill="#484949">별점 4.4 · 방문자 리뷰 128 · 영업 중</text>
+  <text x="250" y="476" font-size="19" fill="#1e2124" font-weight="700">모퉁이 빵집</text>
+  <text x="250" y="502" font-size="15" fill="#484949">별점 4.7 · 방문자 리뷰 89 · 20시 마감</text>
 
-  <rect x="30" y="532" width="660" height="180" rx="6" fill="#e8eef6" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="50" y="562" font-size="16" fill="#1c1c1a" font-weight="700">인기글 · 블로그</text>
-  <circle cx="660" cy="558" r="18" fill="#9a3a1f"/><text x="660" y="565" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">3</text>
-  <rect x="50" y="580" width="90" height="70" rx="4" fill="#fff" stroke="#cfc7b6"/>
-  <text x="156" y="604" font-size="18" fill="#1c1c1a">아침 7시에 문 여는 동네 빵집, 직접 가 봤습니다</text>
-  <text x="156" y="632" font-size="15" fill="#454541">블로그 · 2주 전</text>
-  <rect x="50" y="660" width="90" height="40" rx="4" fill="#fff" stroke="#cfc7b6"/>
-  <text x="156" y="688" font-size="18" fill="#1c1c1a">식빵 세 군데 비교, 가격과 무게를 재 봤습니다</text>
+  <rect x="30" y="532" width="660" height="180" rx="6" fill="#e8eef6" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="50" y="562" font-size="16" fill="#1e2124" font-weight="700">인기글 · 블로그</text>
+  <circle cx="660" cy="558" r="18" fill="#0f4c9c"/><text x="660" y="565" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+  <rect x="50" y="580" width="90" height="70" rx="4" fill="#fff" stroke="#d6d9de"/>
+  <text x="156" y="604" font-size="18" fill="#1e2124">아침 7시에 문 여는 동네 빵집, 직접 가 봤습니다</text>
+  <text x="156" y="632" font-size="15" fill="#484949">블로그 · 2주 전</text>
+  <rect x="50" y="660" width="90" height="40" rx="4" fill="#fff" stroke="#d6d9de"/>
+  <text x="156" y="688" font-size="18" fill="#1e2124">식빵 세 군데 비교, 가격과 무게를 재 봤습니다</text>
 
-  <rect x="30" y="736" width="660" height="100" rx="6" fill="#fff" stroke="#1c1c1a" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="50" y="766" font-size="16" fill="#1c1c1a" font-weight="700">AI 브리핑</text>
-  <circle cx="660" cy="762" r="18" fill="#9a3a1f"/><text x="660" y="769" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">4</text>
-  <text x="50" y="800" font-size="17" fill="#1c1c1a">"아침 일찍 여는 곳은 ○○, 식빵은 △△가 …"</text>
-  <text x="50" y="824" font-size="14" fill="#454541">출처: 블로그 글 3건 · 방문자 리뷰</text>
+  <rect x="30" y="736" width="660" height="100" rx="6" fill="#fff" stroke="#1e2124" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="50" y="766" font-size="16" fill="#1e2124" font-weight="700">AI 브리핑</text>
+  <circle cx="660" cy="762" r="18" fill="#0f4c9c"/><text x="660" y="769" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">4</text>
+  <text x="50" y="800" font-size="17" fill="#1e2124">"아침 일찍 여는 곳은 ○○, 식빵은 △△가 …"</text>
+  <text x="50" y="824" font-size="14" fill="#484949">출처: 블로그 글 3건 · 방문자 리뷰</text>
 </svg>
 <figcaption>그림 1. 네이버에서 "동네 빵집"을 검색한 화면을 네 부분으로 나눈 것. 실제 화면과 순서와 모양이 다를 수 있고, 가게 이름은 전부 지어낸 것.</figcaption>
 </figure>
@@ -481,31 +481,31 @@
 <svg viewBox="0 0 720 300" role="img" aria-labelledby="f5t f5d" xmlns="http://www.w3.org/2000/svg" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
   <title id="f5t">스마트플레이스 등록 세 단계</title>
   <desc id="f5d">스마트플레이스 검색해 들어가기, 상호·주소·전화 입력, 사업자등록증 올리고 신청. 세 칸이 화살표로 이어진다.</desc>
-  <rect x="30" y="40" width="200" height="200" rx="6" fill="#e6f1e8" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="60" cy="70" r="16" fill="#9a3a1f"/><text x="60" y="76" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
-  <text x="90" y="76" font-size="16" fill="#1c1c1a" font-weight="700">스마트플레이스</text>
-  <rect x="50" y="100" width="160" height="34" rx="17" fill="#fff" stroke="#1c1c1a" stroke-width="1.5"/>
-  <text x="64" y="123" font-size="14" fill="#1c1c1a">스마트플레이스</text>
-  <text x="50" y="165" font-size="14" fill="#454541">네이버에서 검색해</text>
-  <text x="50" y="187" font-size="14" fill="#454541">들어갑니다</text>
-  <text x="50" y="222" font-size="13" fill="#454541">신규 등록, 업체 유형 고르기</text>
-  <polygon points="240,140 262,130 262,150" fill="#1c1c1a"/>
-  <rect x="270" y="40" width="200" height="200" rx="6" fill="#e8eef6" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="300" cy="70" r="16" fill="#9a3a1f"/><text x="300" y="76" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
-  <text x="330" y="76" font-size="16" fill="#1c1c1a" font-weight="700">정보 입력</text>
-  <rect x="290" y="100" width="160" height="26" rx="3" fill="#fff" stroke="#cfc7b6"/><text x="298" y="118" font-size="13" fill="#454541">상호</text>
-  <rect x="290" y="132" width="160" height="26" rx="3" fill="#fff" stroke="#cfc7b6"/><text x="298" y="150" font-size="13" fill="#454541">주소</text>
-  <rect x="290" y="164" width="160" height="26" rx="3" fill="#fff" stroke="#cfc7b6"/><text x="298" y="182" font-size="13" fill="#454541">전화번호</text>
-  <text x="290" y="222" font-size="13" fill="#1c1c1a" font-weight="700">사업자등록증과 한 글자도 다르지 않게</text>
-  <polygon points="480,140 502,130 502,150" fill="#1c1c1a"/>
-  <rect x="510" y="40" width="180" height="200" rx="6" fill="#f7efd9" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="540" cy="70" r="16" fill="#9a3a1f"/><text x="540" y="76" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
-  <text x="570" y="76" font-size="16" fill="#1c1c1a" font-weight="700">신청, 대기</text>
-  <text x="530" y="118" font-size="14" fill="#454541">사업자등록증 올리고</text>
-  <text x="530" y="140" font-size="14" fill="#454541">신청. 보통 며칠 안에</text>
-  <text x="530" y="162" font-size="14" fill="#454541">승인됩니다</text>
-  <text x="530" y="205" font-size="13" fill="#454541">"이미 등록된 가게"라고 나오면</text>
-  <text x="530" y="225" font-size="13" fill="#454541">새로 만들지 말고 소유권 요청</text>
+  <rect x="30" y="40" width="200" height="200" rx="6" fill="#e6f1e8" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="60" cy="70" r="16" fill="#0f4c9c"/><text x="60" y="76" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+  <text x="90" y="76" font-size="16" fill="#1e2124" font-weight="700">스마트플레이스</text>
+  <rect x="50" y="100" width="160" height="34" rx="17" fill="#fff" stroke="#1e2124" stroke-width="1.5"/>
+  <text x="64" y="123" font-size="14" fill="#1e2124">스마트플레이스</text>
+  <text x="50" y="165" font-size="14" fill="#484949">네이버에서 검색해</text>
+  <text x="50" y="187" font-size="14" fill="#484949">들어갑니다</text>
+  <text x="50" y="222" font-size="13" fill="#484949">신규 등록, 업체 유형 고르기</text>
+  <polygon points="240,140 262,130 262,150" fill="#1e2124"/>
+  <rect x="270" y="40" width="200" height="200" rx="6" fill="#e8eef6" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="300" cy="70" r="16" fill="#0f4c9c"/><text x="300" y="76" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+  <text x="330" y="76" font-size="16" fill="#1e2124" font-weight="700">정보 입력</text>
+  <rect x="290" y="100" width="160" height="26" rx="3" fill="#fff" stroke="#d6d9de"/><text x="298" y="118" font-size="13" fill="#484949">상호</text>
+  <rect x="290" y="132" width="160" height="26" rx="3" fill="#fff" stroke="#d6d9de"/><text x="298" y="150" font-size="13" fill="#484949">주소</text>
+  <rect x="290" y="164" width="160" height="26" rx="3" fill="#fff" stroke="#d6d9de"/><text x="298" y="182" font-size="13" fill="#484949">전화번호</text>
+  <text x="290" y="222" font-size="13" fill="#1e2124" font-weight="700">사업자등록증과 한 글자도 다르지 않게</text>
+  <polygon points="480,140 502,130 502,150" fill="#1e2124"/>
+  <rect x="510" y="40" width="180" height="200" rx="6" fill="#fbf3d5" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="540" cy="70" r="16" fill="#0f4c9c"/><text x="540" y="76" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+  <text x="570" y="76" font-size="16" fill="#1e2124" font-weight="700">신청, 대기</text>
+  <text x="530" y="118" font-size="14" fill="#484949">사업자등록증 올리고</text>
+  <text x="530" y="140" font-size="14" fill="#484949">신청. 보통 며칠 안에</text>
+  <text x="530" y="162" font-size="14" fill="#484949">승인됩니다</text>
+  <text x="530" y="205" font-size="13" fill="#484949">"이미 등록된 가게"라고 나오면</text>
+  <text x="530" y="225" font-size="13" fill="#484949">새로 만들지 말고 소유권 요청</text>
 </svg>
 <figcaption>그림 5. 등록 순서. 실제 화면은 네이버가 바꾸니 순서만 보세요.</figcaption>
 </figure>
@@ -770,39 +770,39 @@
 <svg viewBox="0 0 720 620" role="img" aria-labelledby="f2t f2d" xmlns="http://www.w3.org/2000/svg" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
   <title id="f2t">AI가 두 가게의 글을 읽고 답을 만드는 과정</title>
   <desc id="f2d">손님 질문 아래에 가게 A와 가게 B의 블로그 글이 있고, 조건이 적힌 가게 B의 글만 AI 답변에 옮겨진다. 맨 아래에는 AI가 그 글을 먼저 찾아 읽어야 한다는 조건이 적혀 있다.</desc>
-  <rect x="30" y="20" width="660" height="66" rx="33" fill="#fff" stroke="#1c1c1a" stroke-width="2"/>
-  <text x="58" y="61" font-size="21" fill="#1c1c1a">저녁 7시 넘어서 여는 안경원 있어?</text>
-  <circle cx="660" cy="53" r="18" fill="#9a3a1f"/><text x="660" y="60" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">1</text>
-  <text x="30" y="130" font-size="16" fill="#454541" font-weight="700">AI가 읽은 글</text>
-  <rect x="30" y="146" width="320" height="150" rx="6" fill="#fff" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="48" y="178" font-size="15" fill="#454541" font-weight="700">가게 A 블로그</text>
-  <text x="48" y="212" font-size="18" fill="#1c1c1a">"저희는 친절합니다."</text>
-  <text x="48" y="240" font-size="18" fill="#1c1c1a">"믿고 맡기세요."</text>
-  <text x="48" y="280" font-size="14" fill="#454541">옮겨 쓸 문장이 없음</text>
-  <circle cx="330" cy="166" r="16" fill="#9a3a1f"/><text x="330" y="172" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
-  <rect x="30" y="316" width="320" height="150" rx="6" fill="#e6f1e8" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="48" y="348" font-size="15" fill="#454541" font-weight="700">가게 B 블로그</text>
-  <text x="48" y="382" font-size="18" fill="#1c1c1a">"평일은 저녁 8시까지 접수합니다."</text>
-  <text x="48" y="410" font-size="18" fill="#1c1c1a">"토요일은 6시에 마감합니다."</text>
-  <text x="48" y="450" font-size="14" fill="#454541">그대로 옮겨 쓸 수 있음</text>
-  <circle cx="330" cy="336" r="16" fill="#9a3a1f"/><text x="330" y="342" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
-  <path d="M355 390 L 400 390 L 400 240 L 440 240" stroke="#1c1c1a" stroke-width="3" fill="none"/>
-  <polygon points="440,232 456,240 440,248" fill="#1c1c1a"/>
-  <path d="M355 220 L 385 220" stroke="#cfc7b6" stroke-width="3" stroke-dasharray="6 6" fill="none"/>
-  <rect x="460" y="146" width="230" height="320" rx="6" fill="#fff" stroke="#1c1c1a" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="478" y="178" font-size="15" fill="#454541" font-weight="700">AI 답변</text>
-  <circle cx="668" cy="166" r="16" fill="#9a3a1f"/><text x="668" y="172" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">4</text>
-  <text x="478" y="216" font-size="17" fill="#1c1c1a">평일 저녁 8시까지</text>
-  <text x="478" y="242" font-size="17" fill="#1c1c1a">접수하는 곳이 있습니다.</text>
-  <text x="478" y="268" font-size="17" fill="#1c1c1a">토요일은 6시 마감이니</text>
-  <text x="478" y="294" font-size="17" fill="#1c1c1a">참고하세요.</text>
-  <rect x="478" y="330" width="190" height="34" rx="4" fill="#f6f1e7" stroke="#cfc7b6"/>
-  <text x="494" y="353" font-size="14" fill="#1c1c1a">출처 · 가게 B 블로그</text>
-  <text x="478" y="410" font-size="14" fill="#454541">가게 A는 답에 없음</text>
-  <rect x="30" y="500" width="660" height="96" rx="6" fill="#f7efd9" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="60" cy="548" r="16" fill="#9a3a1f"/><text x="60" y="554" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">5</text>
-  <text x="92" y="538" font-size="16" fill="#1c1c1a" font-weight="700">단, AI가 그 글을 먼저 찾아서 읽어야 합니다.</text>
-  <text x="92" y="570" font-size="15" fill="#454541">검색에 안 걸리는 글은 AI도 읽지 못합니다.</text>
+  <rect x="30" y="20" width="660" height="66" rx="33" fill="#fff" stroke="#1e2124" stroke-width="2"/>
+  <text x="58" y="61" font-size="21" fill="#1e2124">저녁 7시 넘어서 여는 안경원 있어?</text>
+  <circle cx="660" cy="53" r="18" fill="#0f4c9c"/><text x="660" y="60" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+  <text x="30" y="130" font-size="16" fill="#484949" font-weight="700">AI가 읽은 글</text>
+  <rect x="30" y="146" width="320" height="150" rx="6" fill="#fff" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="48" y="178" font-size="15" fill="#484949" font-weight="700">가게 A 블로그</text>
+  <text x="48" y="212" font-size="18" fill="#1e2124">"저희는 친절합니다."</text>
+  <text x="48" y="240" font-size="18" fill="#1e2124">"믿고 맡기세요."</text>
+  <text x="48" y="280" font-size="14" fill="#484949">옮겨 쓸 문장이 없음</text>
+  <circle cx="330" cy="166" r="16" fill="#0f4c9c"/><text x="330" y="172" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+  <rect x="30" y="316" width="320" height="150" rx="6" fill="#e6f1e8" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="48" y="348" font-size="15" fill="#484949" font-weight="700">가게 B 블로그</text>
+  <text x="48" y="382" font-size="18" fill="#1e2124">"평일은 저녁 8시까지 접수합니다."</text>
+  <text x="48" y="410" font-size="18" fill="#1e2124">"토요일은 6시에 마감합니다."</text>
+  <text x="48" y="450" font-size="14" fill="#484949">그대로 옮겨 쓸 수 있음</text>
+  <circle cx="330" cy="336" r="16" fill="#0f4c9c"/><text x="330" y="342" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+  <path d="M355 390 L 400 390 L 400 240 L 440 240" stroke="#1e2124" stroke-width="3" fill="none"/>
+  <polygon points="440,232 456,240 440,248" fill="#1e2124"/>
+  <path d="M355 220 L 385 220" stroke="#d6d9de" stroke-width="3" stroke-dasharray="6 6" fill="none"/>
+  <rect x="460" y="146" width="230" height="320" rx="6" fill="#fff" stroke="#1e2124" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="478" y="178" font-size="15" fill="#484949" font-weight="700">AI 답변</text>
+  <circle cx="668" cy="166" r="16" fill="#0f4c9c"/><text x="668" y="172" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">4</text>
+  <text x="478" y="216" font-size="17" fill="#1e2124">평일 저녁 8시까지</text>
+  <text x="478" y="242" font-size="17" fill="#1e2124">접수하는 곳이 있습니다.</text>
+  <text x="478" y="268" font-size="17" fill="#1e2124">토요일은 6시 마감이니</text>
+  <text x="478" y="294" font-size="17" fill="#1e2124">참고하세요.</text>
+  <rect x="478" y="330" width="190" height="34" rx="4" fill="#f4f6f8" stroke="#d6d9de"/>
+  <text x="494" y="353" font-size="14" fill="#1e2124">출처 · 가게 B 블로그</text>
+  <text x="478" y="410" font-size="14" fill="#484949">가게 A는 답에 없음</text>
+  <rect x="30" y="500" width="660" height="96" rx="6" fill="#fbf3d5" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="60" cy="548" r="16" fill="#0f4c9c"/><text x="60" y="554" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">5</text>
+  <text x="92" y="538" font-size="16" fill="#1e2124" font-weight="700">단, AI가 그 글을 먼저 찾아서 읽어야 합니다.</text>
+  <text x="92" y="570" font-size="15" fill="#484949">검색에 안 걸리는 글은 AI도 읽지 못합니다.</text>
 </svg>
 <figcaption>그림 2. AI가 답을 만드는 과정을 단순하게 그린 것. AI마다 방식이 다르고, 같은 글이 어느 AI에서는 쓰이고 어느 AI에서는 안 쓰일 수 있다고 해요.</figcaption>
 </figure>
@@ -887,30 +887,30 @@
 <svg viewBox="0 0 720 470" role="img" aria-labelledby="f4t f4d" xmlns="http://www.w3.org/2000/svg" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
   <title id="f4t">법적 의무가 붙는 네 곳</title>
   <desc id="f4d">가게 자체, 홈페이지 화면, 광고와 판매 게시물, 주문이 들어온 뒤. 네 칸에 각각 해야 할 일이 적혀 있다.</desc>
-  <rect x="30" y="20" width="660" height="120" rx="6" fill="#f6f1e7" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="60" cy="50" r="16" fill="#9a3a1f"/><text x="60" y="56" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
-  <text x="90" y="56" font-size="18" fill="#1c1c1a" font-weight="700">가게 자체</text>
-  <text x="90" y="86" font-size="15" fill="#454541">사업자등록 (세무서·홈택스)</text>
-  <text x="90" y="112" font-size="15" fill="#454541">통신판매업 신고, 또는 면제 확인 (구청·정부24)</text>
-  <rect x="30" y="160" width="320" height="150" rx="6" fill="#e8eef6" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="60" cy="190" r="16" fill="#9a3a1f"/><text x="60" y="196" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
-  <text x="90" y="196" font-size="18" fill="#1c1c1a" font-weight="700">홈페이지 화면</text>
-  <text x="50" y="228" font-size="14" fill="#454541">제10조 여섯 가지 표시</text>
-  <text x="50" y="252" font-size="14" fill="#454541">청약철회 7일 안내</text>
-  <text x="50" y="276" font-size="14" fill="#454541">개인정보 처리방침 게재</text>
-  <text x="50" y="300" font-size="14" fill="#454541">HTTPS</text>
-  <rect x="370" y="160" width="320" height="150" rx="6" fill="#f7efd9" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="400" cy="190" r="16" fill="#9a3a1f"/><text x="400" y="196" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
-  <text x="430" y="196" font-size="18" fill="#1c1c1a" font-weight="700">광고·판매 게시물</text>
-  <text x="390" y="228" font-size="14" fill="#454541">제13조 세 가지 표시</text>
-  <text x="390" y="252" font-size="14" fill="#454541">상호·대표자 / 주소·전화·이메일 /</text>
-  <text x="390" y="276" font-size="14" fill="#454541">신고번호와 신고 기관</text>
-  <text x="390" y="300" font-size="13" fill="#454541">인스타 판매글·블로그 공동구매도 여기</text>
-  <rect x="30" y="330" width="660" height="120" rx="6" fill="#e6f1e8" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="60" cy="360" r="16" fill="#9a3a1f"/><text x="60" y="366" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">4</text>
-  <text x="90" y="366" font-size="18" fill="#1c1c1a" font-weight="700">주문이 들어온 뒤</text>
-  <text x="90" y="396" font-size="15" fill="#454541">주문 내역 서면(메일·문자) 보내기. 안 보내면 7일이 시작되지 않는다</text>
-  <text x="90" y="424" font-size="15" fill="#454541">받은 손님 정보는 다 쓰면 지우기</text>
+  <rect x="30" y="20" width="660" height="120" rx="6" fill="#f4f6f8" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="60" cy="50" r="16" fill="#0f4c9c"/><text x="60" y="56" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+  <text x="90" y="56" font-size="18" fill="#1e2124" font-weight="700">가게 자체</text>
+  <text x="90" y="86" font-size="15" fill="#484949">사업자등록 (세무서·홈택스)</text>
+  <text x="90" y="112" font-size="15" fill="#484949">통신판매업 신고, 또는 면제 확인 (구청·정부24)</text>
+  <rect x="30" y="160" width="320" height="150" rx="6" fill="#e8eef6" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="60" cy="190" r="16" fill="#0f4c9c"/><text x="60" y="196" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+  <text x="90" y="196" font-size="18" fill="#1e2124" font-weight="700">홈페이지 화면</text>
+  <text x="50" y="228" font-size="14" fill="#484949">제10조 여섯 가지 표시</text>
+  <text x="50" y="252" font-size="14" fill="#484949">청약철회 7일 안내</text>
+  <text x="50" y="276" font-size="14" fill="#484949">개인정보 처리방침 게재</text>
+  <text x="50" y="300" font-size="14" fill="#484949">HTTPS</text>
+  <rect x="370" y="160" width="320" height="150" rx="6" fill="#fbf3d5" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="400" cy="190" r="16" fill="#0f4c9c"/><text x="400" y="196" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+  <text x="430" y="196" font-size="18" fill="#1e2124" font-weight="700">광고·판매 게시물</text>
+  <text x="390" y="228" font-size="14" fill="#484949">제13조 세 가지 표시</text>
+  <text x="390" y="252" font-size="14" fill="#484949">상호·대표자 / 주소·전화·이메일 /</text>
+  <text x="390" y="276" font-size="14" fill="#484949">신고번호와 신고 기관</text>
+  <text x="390" y="300" font-size="13" fill="#484949">인스타 판매글·블로그 공동구매도 여기</text>
+  <rect x="30" y="330" width="660" height="120" rx="6" fill="#e6f1e8" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="60" cy="360" r="16" fill="#0f4c9c"/><text x="60" y="366" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">4</text>
+  <text x="90" y="366" font-size="18" fill="#1e2124" font-weight="700">주문이 들어온 뒤</text>
+  <text x="90" y="396" font-size="15" fill="#484949">주문 내역 서면(메일·문자) 보내기. 안 보내면 7일이 시작되지 않는다</text>
+  <text x="90" y="424" font-size="15" fill="#484949">받은 손님 정보는 다 쓰면 지우기</text>
 </svg>
 <figcaption>그림 4. 의무가 붙는 곳 넷. 쇼핑몰이 없어도 3번은 걸려요.</figcaption>
 </figure>
@@ -1025,44 +1025,44 @@
 <svg viewBox="0 0 720 640" role="img" aria-labelledby="f3t f3d" xmlns="http://www.w3.org/2000/svg" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
   <title id="f3t">검색창과 AI 답변으로 갈라진 길이 하나의 할 일로 모이는 그림</title>
   <desc id="f3d">위에 손님, 왼쪽 아래에 검색창(SEO), 오른쪽 아래에 AI 답변(GEO, AEO). 두 길이 아래에서 '할 일은 하나' 상자로 합쳐진다. AI는 검색에서 찾은 글을 읽는다는 점선 화살표가 오른쪽에서 왼쪽으로 이어진다.</desc>
-  <circle cx="360" cy="60" r="34" fill="#f6f1e7" stroke="#1c1c1a" stroke-width="2"/>
-  <circle cx="360" cy="50" r="11" fill="#1c1c1a"/>
-  <path d="M340 82 Q360 62 380 82" fill="#1c1c1a"/>
-  <text x="360" y="120" font-size="17" fill="#1c1c1a" text-anchor="middle" font-weight="700">손님이 찾는다</text>
-  <path d="M360 130 L360 160 L150 160 L150 190" stroke="#1c1c1a" stroke-width="2" fill="none"/>
-  <path d="M360 160 L570 160 L570 190" stroke="#1c1c1a" stroke-width="2" fill="none"/>
-  <rect x="40" y="190" width="220" height="180" rx="6" fill="#e8eef6" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="70" cy="216" r="15" fill="#9a3a1f"/><text x="70" y="221" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">1</text>
-  <text x="96" y="222" font-size="16" fill="#1c1c1a" font-weight="700">검색창에 친다</text>
-  <rect x="60" y="240" width="180" height="36" rx="18" fill="#fff" stroke="#1c1c1a" stroke-width="1.5"/>
-  <text x="74" y="264" font-size="15" fill="#1c1c1a">동네 안경원</text>
-  <text x="60" y="310" font-size="14" fill="#454541">네이버·구글 화면에</text>
-  <text x="60" y="334" font-size="14" fill="#454541">목록으로 나온다</text>
-  <rect x="60" y="346" width="60" height="20" rx="3" fill="#1c1c1a"/>
+  <circle cx="360" cy="60" r="34" fill="#f4f6f8" stroke="#1e2124" stroke-width="2"/>
+  <circle cx="360" cy="50" r="11" fill="#1e2124"/>
+  <path d="M340 82 Q360 62 380 82" fill="#1e2124"/>
+  <text x="360" y="120" font-size="17" fill="#1e2124" text-anchor="middle" font-weight="700">손님이 찾는다</text>
+  <path d="M360 130 L360 160 L150 160 L150 190" stroke="#1e2124" stroke-width="2" fill="none"/>
+  <path d="M360 160 L570 160 L570 190" stroke="#1e2124" stroke-width="2" fill="none"/>
+  <rect x="40" y="190" width="220" height="180" rx="6" fill="#e8eef6" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="70" cy="216" r="15" fill="#0f4c9c"/><text x="70" y="221" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+  <text x="96" y="222" font-size="16" fill="#1e2124" font-weight="700">검색창에 친다</text>
+  <rect x="60" y="240" width="180" height="36" rx="18" fill="#fff" stroke="#1e2124" stroke-width="1.5"/>
+  <text x="74" y="264" font-size="15" fill="#1e2124">동네 안경원</text>
+  <text x="60" y="310" font-size="14" fill="#484949">네이버·구글 화면에</text>
+  <text x="60" y="334" font-size="14" fill="#484949">목록으로 나온다</text>
+  <rect x="60" y="346" width="60" height="20" rx="3" fill="#1e2124"/>
   <text x="90" y="361" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">SEO</text>
-  <rect x="460" y="190" width="220" height="180" rx="6" fill="#fff" stroke="#1c1c1a" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <circle cx="490" cy="216" r="15" fill="#9a3a1f"/><text x="490" y="221" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">2</text>
-  <text x="516" y="222" font-size="16" fill="#1c1c1a" font-weight="700">AI에게 묻는다</text>
-  <rect x="480" y="240" width="180" height="36" rx="18" fill="#fff" stroke="#1c1c1a" stroke-width="1.5"/>
-  <text x="494" y="264" font-size="14" fill="#1c1c1a">7시 넘어 여는 데 있어?</text>
-  <text x="480" y="310" font-size="14" fill="#454541">AI가 글을 읽고</text>
-  <text x="480" y="334" font-size="14" fill="#454541">한 문단으로 답한다</text>
-  <rect x="480" y="346" width="60" height="20" rx="3" fill="#1c1c1a"/>
+  <rect x="460" y="190" width="220" height="180" rx="6" fill="#fff" stroke="#1e2124" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <circle cx="490" cy="216" r="15" fill="#0f4c9c"/><text x="490" y="221" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+  <text x="516" y="222" font-size="16" fill="#1e2124" font-weight="700">AI에게 묻는다</text>
+  <rect x="480" y="240" width="180" height="36" rx="18" fill="#fff" stroke="#1e2124" stroke-width="1.5"/>
+  <text x="494" y="264" font-size="14" fill="#1e2124">7시 넘어 여는 데 있어?</text>
+  <text x="480" y="310" font-size="14" fill="#484949">AI가 글을 읽고</text>
+  <text x="480" y="334" font-size="14" fill="#484949">한 문단으로 답한다</text>
+  <rect x="480" y="346" width="60" height="20" rx="3" fill="#1e2124"/>
   <text x="510" y="361" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">GEO</text>
-  <rect x="548" y="346" width="70" height="20" rx="3" fill="#fff" stroke="#1c1c1a"/>
-  <text x="583" y="361" font-size="13" fill="#1c1c1a" font-weight="700" text-anchor="middle">= AEO</text>
-  <path d="M460 300 L 262 300" stroke="#1c1c1a" stroke-width="2" stroke-dasharray="7 6" fill="none"/>
-  <polygon points="262,292 246,300 262,308" fill="#1c1c1a"/>
-  <text x="360" y="290" font-size="13" fill="#454541" text-anchor="middle">AI는 검색에서 찾은 글을 읽는다</text>
-  <path d="M150 370 L150 410 L360 410 L360 440" stroke="#1c1c1a" stroke-width="2" fill="none"/>
-  <path d="M570 370 L570 410 L360 410" stroke="#1c1c1a" stroke-width="2" fill="none"/>
-  <polygon points="350,440 360,456 370,440" fill="#1c1c1a"/>
-  <rect x="80" y="460" width="560" height="150" rx="6" fill="#e6f1e8" stroke="#1c1c1a" stroke-width="2"/>
-  <circle cx="112" cy="490" r="15" fill="#9a3a1f"/><text x="112" y="495" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">3</text>
-  <text x="140" y="496" font-size="18" fill="#1c1c1a" font-weight="700">가게가 할 일은 하나</text>
-  <text x="112" y="536" font-size="17" fill="#1c1c1a">손님이 묻는 것에 답이 되는 글을</text>
-  <text x="112" y="566" font-size="17" fill="#1c1c1a">겪은 대로, 숫자와 조건을 넣어, 반복 없이 쓴다</text>
-  <text x="112" y="596" font-size="13" fill="#454541">그러면 1에도 걸리고, 1에 걸린 글을 2가 읽는다</text>
+  <rect x="548" y="346" width="70" height="20" rx="3" fill="#fff" stroke="#1e2124"/>
+  <text x="583" y="361" font-size="13" fill="#1e2124" font-weight="700" text-anchor="middle">= AEO</text>
+  <path d="M460 300 L 262 300" stroke="#1e2124" stroke-width="2" stroke-dasharray="7 6" fill="none"/>
+  <polygon points="262,292 246,300 262,308" fill="#1e2124"/>
+  <text x="360" y="290" font-size="13" fill="#484949" text-anchor="middle">AI는 검색에서 찾은 글을 읽는다</text>
+  <path d="M150 370 L150 410 L360 410 L360 440" stroke="#1e2124" stroke-width="2" fill="none"/>
+  <path d="M570 370 L570 410 L360 410" stroke="#1e2124" stroke-width="2" fill="none"/>
+  <polygon points="350,440 360,456 370,440" fill="#1e2124"/>
+  <rect x="80" y="460" width="560" height="150" rx="6" fill="#e6f1e8" stroke="#1e2124" stroke-width="2"/>
+  <circle cx="112" cy="490" r="15" fill="#0f4c9c"/><text x="112" y="495" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+  <text x="140" y="496" font-size="18" fill="#1e2124" font-weight="700">가게가 할 일은 하나</text>
+  <text x="112" y="536" font-size="17" fill="#1e2124">손님이 묻는 것에 답이 되는 글을</text>
+  <text x="112" y="566" font-size="17" fill="#1e2124">겪은 대로, 숫자와 조건을 넣어, 반복 없이 쓴다</text>
+  <text x="112" y="596" font-size="13" fill="#484949">그러면 1에도 걸리고, 1에 걸린 글을 2가 읽는다</text>
 </svg>
 <figcaption>그림 3. 손님이 찾는 길은 둘로 갈리지만 밑에서 다시 하나로 모여요.</figcaption>
 </figure>
@@ -1129,45 +1129,45 @@
 <svg viewBox="0 0 720 420" role="img" aria-labelledby="f6t f6d" xmlns="http://www.w3.org/2000/svg" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
   <title id="f6t">광고비가 나가는 세 곳</title>
   <desc id="f6d">왼쪽은 플레이스광고 카드에서 전화·저장·길찾기 버튼이 과금이고 공유는 무과금임을 보여 준다. 오른쪽 위는 파워링크가 큰 키워드 10개, 동네 키워드 3개임을, 오른쪽 아래는 메타 광고 학습 곡선이 소재를 바꾸면 처음으로 돌아감을 보여 준다.</desc>
-  <rect x="30" y="30" width="330" height="360" rx="6" fill="#e6f1e8" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="50" y="62" font-size="16" fill="#1c1c1a" font-weight="700">플레이스광고, 손님이 보는 카드</text>
-  <rect x="50" y="80" width="290" height="200" rx="6" fill="#fff" stroke="#cfc7b6"/>
-  <text x="66" y="112" font-size="19" fill="#1c1c1a" font-weight="700">우리동네 안경원</text>
-  <rect x="230" y="94" width="46" height="22" rx="3" fill="#1c1c1a"/><text x="238" y="110" font-size="13" fill="#fff" font-weight="700">광고</text>
-  <text x="66" y="138" font-size="14" fill="#454541">별점 4.6 · 방문자 리뷰 128</text>
-  <g font-size="13" fill="#1c1c1a">
-    <rect x="66" y="160" width="58" height="40" rx="6" fill="#f4e3dc" stroke="#9a3a1f" stroke-width="2"/><text x="95" y="185" text-anchor="middle">전화</text>
-    <rect x="132" y="160" width="58" height="40" rx="6" fill="#f4e3dc" stroke="#9a3a1f" stroke-width="2"/><text x="161" y="185" text-anchor="middle">저장</text>
-    <rect x="198" y="160" width="58" height="40" rx="6" fill="#f4e3dc" stroke="#9a3a1f" stroke-width="2"/><text x="227" y="185" text-anchor="middle">길찾기</text>
-    <rect x="264" y="160" width="62" height="40" rx="6" fill="#fff" stroke="#1c1c1a" stroke-width="1.5" stroke-dasharray="4 3"/><text x="295" y="185" text-anchor="middle">공유</text>
+  <rect x="30" y="30" width="330" height="360" rx="6" fill="#e6f1e8" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="50" y="62" font-size="16" fill="#1e2124" font-weight="700">플레이스광고, 손님이 보는 카드</text>
+  <rect x="50" y="80" width="290" height="200" rx="6" fill="#fff" stroke="#d6d9de"/>
+  <text x="66" y="112" font-size="19" fill="#1e2124" font-weight="700">우리동네 안경원</text>
+  <rect x="230" y="94" width="46" height="22" rx="3" fill="#1e2124"/><text x="238" y="110" font-size="13" fill="#fff" font-weight="700">광고</text>
+  <text x="66" y="138" font-size="14" fill="#484949">별점 4.6 · 방문자 리뷰 128</text>
+  <g font-size="13" fill="#1e2124">
+    <rect x="66" y="160" width="58" height="40" rx="6" fill="#e8eef6" stroke="#0f4c9c" stroke-width="2"/><text x="95" y="185" text-anchor="middle">전화</text>
+    <rect x="132" y="160" width="58" height="40" rx="6" fill="#e8eef6" stroke="#0f4c9c" stroke-width="2"/><text x="161" y="185" text-anchor="middle">저장</text>
+    <rect x="198" y="160" width="58" height="40" rx="6" fill="#e8eef6" stroke="#0f4c9c" stroke-width="2"/><text x="227" y="185" text-anchor="middle">길찾기</text>
+    <rect x="264" y="160" width="62" height="40" rx="6" fill="#fff" stroke="#1e2124" stroke-width="1.5" stroke-dasharray="4 3"/><text x="295" y="185" text-anchor="middle">공유</text>
   </g>
-  <text x="66" y="232" font-size="14" fill="#9a3a1f" font-weight="700">실선 칸: 누르면 돈이 나갑니다</text>
-  <text x="66" y="256" font-size="14" fill="#1c1c1a">점선 칸: 무과금 (공유, 길찾기 안의 '출발')</text>
-  <circle cx="330" cy="60" r="16" fill="#9a3a1f"/><text x="330" y="66" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
-  <text x="50" y="316" font-size="14" fill="#454541">PC 지도에선 마커만 눌러도 과금,</text>
-  <text x="50" y="340" font-size="14" fill="#454541">모바일은 요약카드를 눌러야 과금.</text>
-  <text x="50" y="364" font-size="14" fill="#454541">같은 광고인데 기기마다 과금 시점이 다릅니다.</text>
-  <rect x="380" y="30" width="310" height="170" rx="6" fill="#f7efd9" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="660" cy="60" r="16" fill="#9a3a1f"/><text x="660" y="66" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
-  <text x="400" y="62" font-size="16" fill="#1c1c1a" font-weight="700">파워링크 칸 수</text>
-  <text x="400" y="96" font-size="15" fill="#1c1c1a">큰 키워드 "안경"</text>
-  <g fill="#fff" stroke="#1c1c1a" stroke-width="1.5">
+  <text x="66" y="232" font-size="14" fill="#0f4c9c" font-weight="700">실선 칸: 누르면 돈이 나갑니다</text>
+  <text x="66" y="256" font-size="14" fill="#1e2124">점선 칸: 무과금 (공유, 길찾기 안의 '출발')</text>
+  <circle cx="330" cy="60" r="16" fill="#0f4c9c"/><text x="330" y="66" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+  <text x="50" y="316" font-size="14" fill="#484949">PC 지도에선 마커만 눌러도 과금,</text>
+  <text x="50" y="340" font-size="14" fill="#484949">모바일은 요약카드를 눌러야 과금.</text>
+  <text x="50" y="364" font-size="14" fill="#484949">같은 광고인데 기기마다 과금 시점이 다릅니다.</text>
+  <rect x="380" y="30" width="310" height="170" rx="6" fill="#fbf3d5" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="660" cy="60" r="16" fill="#0f4c9c"/><text x="660" y="66" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+  <text x="400" y="62" font-size="16" fill="#1e2124" font-weight="700">파워링크 칸 수</text>
+  <text x="400" y="96" font-size="15" fill="#1e2124">큰 키워드 "안경"</text>
+  <g fill="#fff" stroke="#1e2124" stroke-width="1.5">
     <rect x="400" y="106" width="22" height="14" rx="2"/><rect x="426" y="106" width="22" height="14" rx="2"/><rect x="452" y="106" width="22" height="14" rx="2"/><rect x="478" y="106" width="22" height="14" rx="2"/><rect x="504" y="106" width="22" height="14" rx="2"/>
     <rect x="530" y="106" width="22" height="14" rx="2"/><rect x="556" y="106" width="22" height="14" rx="2"/><rect x="582" y="106" width="22" height="14" rx="2"/><rect x="608" y="106" width="22" height="14" rx="2"/><rect x="634" y="106" width="22" height="14" rx="2"/>
   </g>
-  <text x="662" y="118" font-size="13" fill="#1c1c1a">10</text>
-  <text x="400" y="150" font-size="15" fill="#1c1c1a">동네 키워드 "중앙동 안경원"</text>
-  <g fill="#9a3a1f">
+  <text x="662" y="118" font-size="13" fill="#1e2124">10</text>
+  <text x="400" y="150" font-size="15" fill="#1e2124">동네 키워드 "중앙동 안경원"</text>
+  <g fill="#0f4c9c">
     <rect x="400" y="160" width="22" height="14" rx="2"/><rect x="426" y="160" width="22" height="14" rx="2"/><rect x="452" y="160" width="22" height="14" rx="2"/>
   </g>
-  <text x="480" y="172" font-size="13" fill="#9a3a1f" font-weight="700">최대 3. 4등부터는 안 보일 수 있음</text>
-  <rect x="380" y="220" width="310" height="170" rx="6" fill="#e8eef6" stroke="#cfc7b6" stroke-width="1.5"/>
-  <circle cx="660" cy="250" r="16" fill="#9a3a1f"/><text x="660" y="256" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
-  <text x="400" y="252" font-size="16" fill="#1c1c1a" font-weight="700">메타 광고의 머신 러닝 단계</text>
-  <path d="M400 340 L440 300 L480 320 L520 290 L560 305 L600 280 L640 290" stroke="#1c1c1a" stroke-width="2.5" fill="none"/>
-  <text x="400" y="362" font-size="13" fill="#454541">결과 50건까지는 비싸고 불안정</text>
-  <path d="M520 290 L520 345" stroke="#9a3a1f" stroke-width="2" stroke-dasharray="4 4"/>
-  <text x="528" y="345" font-size="13" fill="#9a3a1f" font-weight="700">소재 바꿈: 처음부터</text>
+  <text x="480" y="172" font-size="13" fill="#0f4c9c" font-weight="700">최대 3. 4등부터는 안 보일 수 있음</text>
+  <rect x="380" y="220" width="310" height="170" rx="6" fill="#e8eef6" stroke="#d6d9de" stroke-width="1.5"/>
+  <circle cx="660" cy="250" r="16" fill="#0f4c9c"/><text x="660" y="256" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+  <text x="400" y="252" font-size="16" fill="#1e2124" font-weight="700">메타 광고의 머신 러닝 단계</text>
+  <path d="M400 340 L440 300 L480 320 L520 290 L560 305 L600 280 L640 290" stroke="#1e2124" stroke-width="2.5" fill="none"/>
+  <text x="400" y="362" font-size="13" fill="#484949">결과 50건까지는 비싸고 불안정</text>
+  <path d="M520 290 L520 345" stroke="#0f4c9c" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="528" y="345" font-size="13" fill="#0f4c9c" font-weight="700">소재 바꿈: 처음부터</text>
 </svg>
 <figcaption>그림 6. 과금, 칸 수, 학습. 셋 다 공식 문서에 적혀 있고, 가게 이름은 지어낸 거예요.</figcaption>
 </figure>
@@ -1408,28 +1408,28 @@
 <svg viewBox="0 0 720 560" role="img" aria-labelledby="e1t e1d" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, Helvetica, Arial, sans-serif">
   <title id="e1t">The four blocks of a Naver search results page</title>
   <desc id="e1d">From top to bottom: a search box, a paid block labelled Power Link, a Place block with a small map and three shops, a Popular Posts block with two blog entries, and a dashed AI Briefing block. Each block is numbered 1 to 4.</desc>
-  <rect x="30" y="20" width="660" height="50" rx="25" fill="#fff" stroke="#1c1c1a" stroke-width="2"/>
-  <text x="56" y="52" font-size="19" fill="#1c1c1a">bakery near me</text>
-  <rect x="30" y="90" width="660" height="100" rx="6" fill="#f7efd9" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="50" y="118" font-size="15" fill="#1c1c1a" font-weight="700">Power Link</text><rect x="140" y="103" width="36" height="20" rx="3" fill="#1c1c1a"/><text x="147" y="118" font-size="12" fill="#fff" font-weight="700">AD</text>
-  <text x="50" y="150" font-size="16" fill="#1c1c1a">Station Bakery, fresh every morning</text>
-  <text x="50" y="176" font-size="16" fill="#1c1c1a">Alley Bread Studio, baked today only</text>
-  <circle cx="660" cy="115" r="16" fill="#9a3a1f"/><text x="660" y="121" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
-  <rect x="30" y="210" width="660" height="140" rx="6" fill="#e6f1e8" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="50" y="238" font-size="15" fill="#1c1c1a" font-weight="700">Place · shop listings</text>
-  <circle cx="660" cy="235" r="16" fill="#9a3a1f"/><text x="660" y="241" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
-  <rect x="50" y="252" width="120" height="84" rx="4" fill="#fff" stroke="#cfc7b6"/><circle cx="90" cy="290" r="7" fill="#1c1c1a"/><circle cx="130" cy="310" r="7" fill="#1c1c1a"/>
-  <text x="190" y="274" font-size="16" fill="#1c1c1a" font-weight="700">Our Town Bakery</text><text x="190" y="294" font-size="13" fill="#454541">4.6 · 312 visitor reviews · open</text>
-  <text x="190" y="322" font-size="16" fill="#1c1c1a" font-weight="700">Sunny Bakery</text><text x="190" y="342" font-size="13" fill="#454541">4.4 · 128 visitor reviews · open</text>
-  <rect x="30" y="370" width="660" height="100" rx="6" fill="#e8eef6" stroke="#cfc7b6" stroke-width="1.5"/>
-  <text x="50" y="398" font-size="15" fill="#1c1c1a" font-weight="700">Popular posts · blogs</text>
-  <circle cx="660" cy="395" r="16" fill="#9a3a1f"/><text x="660" y="401" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
-  <text x="50" y="430" font-size="16" fill="#1c1c1a">A bakery that opens at 7 a.m., I went to check</text>
-  <text x="50" y="456" font-size="16" fill="#1c1c1a">Three loaves compared by price and weight</text>
-  <rect x="30" y="490" width="660" height="56" rx="6" fill="#fff" stroke="#1c1c1a" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="50" y="514" font-size="15" fill="#1c1c1a" font-weight="700">AI Briefing</text>
-  <text x="50" y="536" font-size="13" fill="#454541">Summary built from blocks 2 and 3</text>
-  <circle cx="660" cy="518" r="16" fill="#9a3a1f"/><text x="660" y="524" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">4</text>
+  <rect x="30" y="20" width="660" height="50" rx="25" fill="#fff" stroke="#1e2124" stroke-width="2"/>
+  <text x="56" y="52" font-size="19" fill="#1e2124">bakery near me</text>
+  <rect x="30" y="90" width="660" height="100" rx="6" fill="#fbf3d5" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="50" y="118" font-size="15" fill="#1e2124" font-weight="700">Power Link</text><rect x="140" y="103" width="36" height="20" rx="3" fill="#1e2124"/><text x="147" y="118" font-size="12" fill="#fff" font-weight="700">AD</text>
+  <text x="50" y="150" font-size="16" fill="#1e2124">Station Bakery, fresh every morning</text>
+  <text x="50" y="176" font-size="16" fill="#1e2124">Alley Bread Studio, baked today only</text>
+  <circle cx="660" cy="115" r="16" fill="#0f4c9c"/><text x="660" y="121" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+  <rect x="30" y="210" width="660" height="140" rx="6" fill="#e6f1e8" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="50" y="238" font-size="15" fill="#1e2124" font-weight="700">Place · shop listings</text>
+  <circle cx="660" cy="235" r="16" fill="#0f4c9c"/><text x="660" y="241" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+  <rect x="50" y="252" width="120" height="84" rx="4" fill="#fff" stroke="#d6d9de"/><circle cx="90" cy="290" r="7" fill="#1e2124"/><circle cx="130" cy="310" r="7" fill="#1e2124"/>
+  <text x="190" y="274" font-size="16" fill="#1e2124" font-weight="700">Our Town Bakery</text><text x="190" y="294" font-size="13" fill="#484949">4.6 · 312 visitor reviews · open</text>
+  <text x="190" y="322" font-size="16" fill="#1e2124" font-weight="700">Sunny Bakery</text><text x="190" y="342" font-size="13" fill="#484949">4.4 · 128 visitor reviews · open</text>
+  <rect x="30" y="370" width="660" height="100" rx="6" fill="#e8eef6" stroke="#d6d9de" stroke-width="1.5"/>
+  <text x="50" y="398" font-size="15" fill="#1e2124" font-weight="700">Popular posts · blogs</text>
+  <circle cx="660" cy="395" r="16" fill="#0f4c9c"/><text x="660" y="401" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+  <text x="50" y="430" font-size="16" fill="#1e2124">A bakery that opens at 7 a.m., I went to check</text>
+  <text x="50" y="456" font-size="16" fill="#1e2124">Three loaves compared by price and weight</text>
+  <rect x="30" y="490" width="660" height="56" rx="6" fill="#fff" stroke="#1e2124" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="50" y="514" font-size="15" fill="#1e2124" font-weight="700">AI Briefing</text>
+  <text x="50" y="536" font-size="13" fill="#484949">Summary built from blocks 2 and 3</text>
+  <circle cx="660" cy="518" r="16" fill="#0f4c9c"/><text x="660" y="524" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">4</text>
 </svg>
 <figcaption>Figure 1. A Naver results page divided into its four blocks. Order and layout vary; shop names are invented.</figcaption>
 </figure>
