@@ -95,6 +95,12 @@ def check_tone(rel, prose_html):
     paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
     paras_stat = [x for x in paras_stat if len(x) > 8]
     L = TONE["limit"]
+    # 이름표(제목·문·타일·탭·머리말)에는 S1-13 만 따로 돈다 — 본문 통계에서는 빠지는 자리라서
+    labels = " | ".join(strip(x) for x in re.findall(r"<(?:h1|h2|h3|a class=\"door\"|a class=\"tile[^\"]*\"|p class=\"kicker\"|span class=\"k\")[^>]*>(.*?)</(?:h1|h2|h3|a|p|span)>", body, re.S))
+    for pat in TONE["ban_s1"].get("S1-13 이름표 호객", []):
+        m = re.search(pat, labels)
+        if m:
+            err(rel, "S1-13", f"이름표 호객 '{m.group(0)}' … {labels[max(0, m.start()-12): m.end()+12]}")
     # S1 금지
     for group, pats in TONE["ban_s1"].items():
         for pat in pats:
