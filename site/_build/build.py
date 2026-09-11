@@ -81,7 +81,11 @@ def nav_html(page, pages):
     brand = SITE_NAME if lang != "en" else "Sajang Marketing"
     # 게시판 탭 — 플랫폼 한 줄, 그 아래 현재 플랫폼의 채널 한 줄 (첫 화면에서는 채널 줄 없음)
     cur_top, cur_sub = split_cat(page.get("cat"))
-    tabs = [f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>']
+    home = "/en/" if lang == "en" else "/"
+    site_tabs = ([("Home", "/en/#intro"), ("How to use", "/en/#howto")] if lang == "en" else [("홈페이지 소개", "/#intro"), ("이용법", "/#howto")])
+    tabs = [f'<a class="site" href="{h}"{" aria-current=\"page\"" if page["url"] == home and i == 0 else ""}>{t}</a>' for i, (t, h) in enumerate(site_tabs)]
+    tabs.append('<span class="gap" aria-hidden="true"></span>')
+    tabs.append(f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>')
     for t in tops(lang):
         cur = ' aria-current="page"' if cur_top == t else ""
         tabs.append(f'<a class="{plat_class(t)}" href="{base}#{cat_id(lang, t)}"{cur}>{esc(t)}</a>')
@@ -132,6 +136,7 @@ def head_html(page, verify):
         f'<title>{esc(page["title"])}</title>',
         f'<meta name="description" content="{esc(page["description"])}">',
         f'<link rel="canonical" href="{url}">',
+        f'<link rel="stylesheet" href="/fonts/pretendard/pretendard.css">',
         f'<link rel="stylesheet" href="/css/style.css">',
         '<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">',
         f'<link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)}" href="{SITE_URL}/feed.xml">',
@@ -260,7 +265,7 @@ def related(page, pages):
 # 글의 cat 메타는 "네이버/플레이스" 꼴. 글이 없는 채널도 탭에는 보이고 목록에는 「아직 글이 없어요」로 남긴다.
 TAXO = {
     "ko": [
-        ("시작 전", ["법과 신고", "손님 숫자"]),
+        ("시작 전", ["법과 신고", "손님 숫자"]),   # 첫 탭은 「홈페이지 소개·이용법」(nav_html), 플랫폼 탭은 여기부터
         ("네이버", ["검색 화면", "플레이스", "블로그", "카페", "파워링크", "리뷰"]),
         ("구글", ["검색", "블로거", "티스토리", "도메인"]),
         ("인스타그램", ["계정", "릴스", "스레드", "광고"]),

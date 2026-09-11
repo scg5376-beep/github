@@ -24,13 +24,12 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  font-family: Pretendard, "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;   /* Pretendard 자체 호스팅(OFL), 400·700 만 */
   line-height: 1.75;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
-html[lang="en"] body { font-family: Georgia, "Times New Roman", serif; word-break: normal; }
-html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] header.top, html[lang="en"] table, html[lang="en"] figcaption, html[lang="en"] .meta-line { font-family: system-ui, "Segoe UI", Helvetica, Arial, sans-serif; }
+html[lang="en"] body { word-break: normal; }
 
 .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px 72px; }
 
@@ -150,7 +149,6 @@ aside.rail li { padding: 6px 0; border-bottom: 1px dashed var(--line); line-heig
 aside.rail li:last-child { border-bottom: 0; }
 aside.rail a { text-decoration: none; color: var(--ink); }
 aside.rail a:hover { text-decoration: underline; }
-@media (max-width: 1060px) { .cols { grid-template-columns: minmax(0, 640px); } aside.rail { display: none; } }
 
 /* 광고 자리 — 높이를 미리 잡아 화면이 밀리지 않게 (구글 게시자 문서: min-height 예약) */
 .ad { margin: 28px 0; text-align: center; background: var(--ad-bg); border: 1px dashed var(--line); padding: 6px 0 8px; }
@@ -238,3 +236,38 @@ section.plat .empty { margin-bottom: 8px; }
 body[class^="plat-"]:not(.plat-none) .kicker { display: inline-block; background: var(--pt); color: var(--pa); padding: 3px 10px; border-radius: 3px; }
 aside.rail ul.cats li.top a { color: var(--pa); }
 aside.rail ul.cats li.top a::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--pa); margin-right: 6px; }
+
+
+/* ---- v3 바탕 (운영자 2026-09-11: "단정하고 깔끔한데 고급진 느낌") ----
+   페이지는 옅은 회색, 읽는 판은 흰색. 선은 가늘게, 모서리는 살짝. 장식은 머리 위 가는 남색 띠 하나. */
+:root { --page: #f3f4f6; --panel-line: #e3e5e9; }
+body { background: var(--page); }
+body::before { content: ""; display: block; height: 3px; background: var(--accent); }
+header.top { background: #fff; border-bottom: 1px solid var(--panel-line); }
+header.top a.brand { font-size: 1.05rem; letter-spacing: -0.02em; }
+header.top nav a.lang { border-radius: 4px; background: #fff; }
+nav.tabs { background: #fff; border-top: 1px solid var(--panel-line); border-bottom: 1px solid var(--panel-line); }
+nav.tabs .wrap { gap: 0 2px; }
+nav.tabs a { padding: 10px 12px; }
+nav.tabs a.site { font-weight: 700; color: var(--ink); }
+nav.tabs .gap { display: inline-block; width: 1px; height: 18px; background: var(--line); margin: 0 10px; align-self: center; }
+nav.tabs .subs { border-bottom: 0; }
+.cols { padding-top: 28px; padding-bottom: 8px; }
+.cols > main.wrap { background: #fff; border: 1px solid var(--panel-line); border-radius: 6px; padding: 4px 40px 48px; max-width: 720px; }
+.cols { grid-template-columns: minmax(0, 720px) 300px; }
+.cols.one { grid-template-columns: minmax(0, 720px); }
+@media (max-width: 1140px) { .cols { grid-template-columns: minmax(0, 720px); } aside.rail { display: none; } }
+@media (max-width: 720px) { .cols { padding-left: 12px; padding-right: 12px; } .cols > main.wrap { padding: 4px 18px 36px; border-radius: 4px; } }
+aside.rail { padding-top: 0; }
+aside.rail .rail-box { border: 1px solid var(--panel-line); border-radius: 6px; }
+.crumbs { margin-top: 18px; }
+h1 { font-weight: 700; letter-spacing: -0.02em; }
+h2 { letter-spacing: -0.01em; }
+footer.site { border-top: 0; background: transparent; }
+section.plat { border-radius: 4px; }
+.ad { border-radius: 4px; }
+/* 이용법 단계 */
+ol.steps { padding-left: 0; counter-reset: st; list-style: none; margin: 14px 0 24px; }
+ol.steps li { counter-increment: st; position: relative; padding: 10px 0 10px 44px; border-bottom: 1px dashed var(--line); }
+ol.steps li::before { content: counter(st); position: absolute; left: 0; top: 12px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.85rem; text-align: center; line-height: 28px; }
+ol.steps b { display: block; margin-bottom: 2px; }
