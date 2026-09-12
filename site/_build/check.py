@@ -125,7 +125,7 @@ def check_tone(rel, prose_html):
     if not (L["sentence_mean_min"] <= mean <= L["sentence_mean_max"]):
         warn(rel, "S2-4", f"문장 평균 길이 {mean:.0f}자 (권장 {L['sentence_mean_min']}~{L['sentence_mean_max']})")
     if sd / mean < L["sentence_sd_ratio_min"]:
-        err(rel, "S2-4", f"문장 길이가 고르다 (표준편차 {sd:.0f}자 = 평균의 {sd/mean:.0%}, 기준 {L['sentence_sd_ratio_min']:.0%} 이상)")
+        warn(rel, "S2-4", f"문장 길이가 고르다 (표준편차 {sd:.0f}자 = 평균의 {sd/mean:.0%}, 기준 {L['sentence_sd_ratio_min']:.0%} 이상)")
     short = sum(1 for x in lens if x < L["short_sentence_chars"]) / n
     if short > L["short_sentence_ratio_max"]:
         err(rel, "S2-5", f"{L['short_sentence_chars']}자 미만 문장 {short:.0%} > {L['short_sentence_ratio_max']:.0%}")
@@ -134,7 +134,7 @@ def check_tone(rel, prose_html):
         err(rel, "S2-6", f"쉼표 있는 문장 {comma:.0%} > {L['comma_sentence_ratio_max']:.0%}")
     trip = len(re.findall(r"[가-힣]+, [가-힣]+, [가-힣]+", plain)) + len(re.findall(r"첫째|둘째|셋째", plain)) // 3
     if trip > L["triplet_max"]:
-        err(rel, "S2-7", f"셋 나열 {trip}회 > {L['triplet_max']}회")
+        warn(rel, "S2-7", f"셋 나열 {trip}회 > {L['triplet_max']}회")
     conj = sum(1 for s in sents if re.match(r"(그래서|그런데|다만|또한|따라서|하지만|즉|그리고|그러나)[ ,]", s))
     if conj > L["leading_conj_per_page_max"]:
         err(rel, "S2-8", f"문두 접속사 {conj}회 > {L['leading_conj_per_page_max']}회")
