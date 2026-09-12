@@ -246,29 +246,26 @@ def esc(s):
 def nav_html(page, pages):
     lang = page["lang"]
     if lang == "en":
-        items = [("/en/", "Home", "en"), ("/en/privacy.html", "Privacy", "en-legal")]
+        items = [("/en/", "Home", "en"), ("/en/legal.html", "Law", "en-legal"), ("/en/privacy.html", "Privacy", "en-privacy")]
         alt = page.get("alt") or "/"
         toggle = f'<a class="lang" href="{alt}" lang="ko" hreflang="ko">한국어</a>'
         base = "/en/"
         all_label = "All"
     else:
-        items = [("/", "홈", "home"), ("/guide/", "전체 글", "guide"), ("/about.html", "소개", "about")]
+        items = [("/", "홈", "home"), ("/guide/", "전체 글", "guide"), ("/start/", "기초 과정", "start"), ("/about.html", "소개", "about")]
         alt = page.get("alt") or "/en/"
         toggle = f'<a class="lang" href="{alt}" lang="en" hreflang="en">English</a>'
         base = "/guide/"
         all_label = "전체"
     out = []
     for href, label, key in items:
-        cur = ' aria-current="page"' if (page["section"] == key or page["url"] == href) else ""
+        cur = ' aria-current="page"' if (page["section"] == key or page["url"] == href or (key == "start" and page["url"] in ("/start/", "/tracks/"))) else ""
         out.append(f'<a href="{href}"{cur}>{label}</a>')
     brand = SITE_NAME if lang != "en" else "Sajang Marketing"
     # 게시판 탭 — 플랫폼 한 줄, 그 아래 현재 플랫폼의 채널 한 줄 (첫 화면에서는 채널 줄 없음)
     cur_top, cur_sub = split_cat(page.get("cat")) if page.get("cat") else (page.get("plat", ""), "")
     home = "/en/" if lang == "en" else "/"
-    site_tabs = ([("Home", "/en/")] if lang == "en" else [("기초 과정", "/start/")])
-    tabs = [f'<a class="site" href="{h}"{" aria-current=\"page\"" if page["url"] == h else ""}>{t}</a>' for i, (t, h) in enumerate(site_tabs)]
-    tabs.append('<span class="gap" aria-hidden="true"></span>')
-    tabs.append(f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>')
+    tabs = [f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>']
     for t in tops(lang):
         cur = ' aria-current="page"' if cur_top == t else ""
         tabs.append(f'<a class="{plat_class(t)}" href="{plat_url(lang, t)}"{cur}>{esc(t)}</a>')
@@ -278,12 +275,23 @@ def nav_html(page, pages):
         sub_row = f'<div class="subs {plat_class(cur_top)}"><div class="wrap"><a class="of" href="{plat_url(lang, cur_top)}">{esc(cur_top)}</a>{chans}</div></div>'
     return f'''<header class="top">
   <div class="wrap">
-    <a class="brand" href="{'/en/' if lang=='en' else '/'}"><img src="/img/mark.svg" alt="" width="28" height="28">{brand}</a>
+    {'<span class="brand">' if page["url"] in ("/", "/en/") else '<a class="brand" href="' + ('/en/' if lang == 'en' else '/') + '">'}<img src="/img/mark.svg" alt="" width="28" height="28">{brand}{'</span>' if page["url"] in ("/", "/en/") else '</a>'}
     <nav>{"".join(out)}{toggle}</nav>
     <form class="search" action="https://www.google.com/search" method="get" role="search"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="{'Search' if lang == 'en' else '글 찾기'}" aria-label="{'Search this site' if lang == 'en' else '이 사이트 안에서 찾기'}"><button type="submit">{'Search' if lang == 'en' else '찾기'}</button></form>
   </div>
   <nav class="tabs" aria-label="{"Boards" if lang == "en" else "게시판"}"><div class="wrap">{"".join(tabs)}</div>{sub_row}</nav>
 </header>'''
+
+
+def breadcrumb_ld(page):
+    """구글 BreadcrumbList (최소 2항목, 실제 경로)."""
+    if page["url"] in ("/", "/en/") or page.get("noindex") or not page.get("cat"):
+        return ""
+    top = split_cat(page["cat"])[0]
+    items = [("전체 글" if page["lang"] == "ko" else "All posts", "/guide/" if page["lang"] == "ko" else "/en/"), (top, plat_url(page["lang"], top)), (page.get("nav", page["title"]), page["url"])]
+    data = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE_URL + u} for i, (n, u) in enumerate(items)]}
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
 
 
 def jsonld(page):
@@ -364,7 +372,7 @@ def crumbs(page):
     if page.get("cat"):
         top = split_cat(page["cat"])[0]
         mid = f'<a href="{plat_url(page["lang"], top)}">{esc(top)}</a> › '
-    return f'<p class="crumbs"><a href="{root[0]}">{root[1]}</a> › {mid}{esc(page.get("nav", page["title"]))}</p>'
+    return f'<p class="crumbs" aria-label="현재 위치"><a href="{root[0]}">{root[1]}</a> › {mid}<span aria-current="page">{esc(page.get("nav", page["title"]))}</span></p>'
 
 
 def footer_html(page):
@@ -398,6 +406,23 @@ def recheck_date(page):
 
 def quote_count(page):
     return len(re.findall(r"<q>", page["body"]))
+
+
+def prev_next(page, pages):
+    """같은 플랫폼 안에서 order 순 이전·다음 글. 손으로 고른 「다음 글」과 별개로 위치 이동용."""
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course") or not page.get("cat"):
+        return ""
+    top = split_cat(page["cat"])[0]
+    pool = sorted([p for p in pages if p["lang"] == page["lang"] and p.get("cat") and split_cat(p["cat"])[0] == top and "order" in p], key=lambda p: p.get("order", 0))
+    idx = next((i for i, p in enumerate(pool) if p["url"] == page["url"]), None)
+    if idx is None or len(pool) < 2:
+        return ""
+    prv = pool[idx - 1] if idx > 0 else None
+    nxt = pool[idx + 1] if idx + 1 < len(pool) else None
+    pl, nl = ("Previous", "Next") if page["lang"] == "en" else ("이전 글", "다음 글")
+    a = f'<a class="prev" href="{prv["url"]}"><small>{pl}</small>{esc(prv.get("nav", prv["title"]))}</a>' if prv else "<span></span>"
+    b = f'<a class="next" href="{nxt["url"]}"><small>{nl}</small>{esc(nxt.get("nav", nxt["title"]))}</a>' if nxt else "<span></span>"
+    return f'<nav class="prevnext" aria-label="{esc(top)} 안 이동">{a}{b}</nav>'
 
 
 def author_block(page):
@@ -659,7 +684,7 @@ def rail(page, pages):
     head = "Latest" if page["lang"] == "en" else "최근 글"
     latest = '<div class="rail-box"><span class="rail-head">' + head + '</span><ul>' + "".join(
         f'<li><a href="{p["url"]}">{esc(p.get("nav", p["title"]))}</a></li>' for p in pool[:6]) + "</ul></div>"
-    return '<aside class="rail">' + cat_box(page, pages) + ad("rail", "광고" if page["lang"] == "ko" else "Advertisement") + latest + "</aside>"
+    return '<aside class="rail">' + cat_box(page, pages) + ad("rail", "광고" if page["lang"] == "ko" else "Advertisement") + "</aside>"
 
 
 def place_ads(page):
@@ -687,7 +712,7 @@ def render(page, pages, verify):
     page = fill_boards(page, pages)
     page = add_toc(lift_todo(dict(page, body=meta_line(page))))
     page = place_ads(page)
-    ab = author_block(page)
+    ab = prev_next(page, pages) + author_block(page)
     if ab and '<footer class="sources">' in page["body"]:
         i = page["body"].index('<footer class="sources">')
         page = dict(page, body=page["body"][:i] + ab + page["body"][i:])
@@ -698,13 +723,16 @@ def render(page, pages, verify):
 <html lang="{lang}">
 <head>
 {head_html(page, verify)}
+{breadcrumb_ld(page)}
 </head>
-<body class="{plat_class(page.get('cat') or page.get('plat'))}">
+<body class="{plat_class(page.get('cat') or page.get('plat'))}" id="top">
+<a class="skip" href="#main">{'Skip to content' if lang == 'en' else '본문 바로가기'}</a>
 {nav_html(page, pages)}
 {cols}
-<main class="wrap">
+<main class="wrap" id="main">
 {crumbs(page)}
 {page["body"].strip()}
+{'' if page["url"] in ("/", "/en/") else ('<a class="totop" href="#top">' + ('Back to top' if lang == 'en' else '맨 위로') + '</a>')}
 </main>
 {side}
 </div>

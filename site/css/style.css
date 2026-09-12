@@ -354,3 +354,17 @@ section.about-post table th { width: 22%; white-space: nowrap; }
 /* 바로 할 일 상자 — 글머리 (가독성 2026-09-12: 결론 먼저) */
 .note.todo { border-left: 5px solid var(--accent); background: var(--accent-soft); margin: 18px 0 8px; font-size: 1.02rem; }
 .note.todo b { display: block; color: var(--accent); margin-bottom: 4px; font-size: 0.9rem; letter-spacing: 0.02em; }
+
+/* ---- 내비 v2 (조사 블로그-내비게이션 2026-09-12: NN/g 메뉴 1~4·현재 위치, W3C 건너뛰기·aria-current, 구글 빵부스러기, 실측 이전/다음) ---- */
+a.skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: #fff; padding: 8px 14px; border-radius: 4px; z-index: 10; }
+a.skip:focus { left: 16px; }
+header.top span.brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 1.05rem; color: var(--ink); letter-spacing: -0.02em; }
+header.top span.brand img { width: 28px; height: 28px; }
+.crumbs span[aria-current="page"] { color: var(--ink); }
+nav.prevnext { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 30px 0 0; }
+nav.prevnext a { text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; font-weight: 700; }
+nav.prevnext a small { display: block; font-weight: 400; color: var(--ink-soft); font-size: 0.78rem; margin-bottom: 2px; }
+nav.prevnext a.next { text-align: right; }
+nav.prevnext a:hover { border-color: var(--accent); }
+a.totop { display: block; text-align: center; margin: 26px auto 0; font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 560px) { nav.prevnext { grid-template-columns: 1fr; } }
