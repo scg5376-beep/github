@@ -351,3 +351,6 @@ p.trust span { white-space: nowrap; }
 section.about-post { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 4px; }
 section.about-post h2 { border: 0; margin: 12px 0 8px; font-size: 1rem; padding: 0; }
 section.about-post table th { width: 22%; white-space: nowrap; }
+/* 바로 할 일 상자 — 글머리 (가독성 2026-09-12: 결론 먼저) */
+.note.todo { border-left: 5px solid var(--accent); background: var(--accent-soft); margin: 18px 0 8px; font-size: 1.02rem; }
+.note.todo b { display: block; color: var(--accent); margin-bottom: 4px; font-size: 0.9rem; letter-spacing: 0.02em; }

@@ -433,11 +433,28 @@ def meta_line(page):
                  f"근거 {page.get('grade', '글 끝 참조')}", f"읽는 시간 약 {mins}분", f"다시 확인 {recheck_date(page)}"]
     line = '<p class="meta-line">' + "".join(f"<span>{esc(x)}</span>" for x in parts) + "</p>"
     body = page["body"]
-    m = re.search(r'<p class="lead">.*?</p>', body, re.S)
-    if m:
+    ms = list(re.finditer(r'<p class="lead">.*?</p>', body, re.S))
+    if ms:
+        m = ms[-1]                                          # 요약 문단이 둘로 나뉘어 있어도 마지막 것 뒤에
         return body[:m.end()] + chr(10) + line + body[m.end():]
     m = re.search(r"</h1>", body)
     return body[:m.end()] + chr(10) + line + body[m.end():] if m else line + body
+
+
+def lift_todo(page):
+    """글 끝의 「내일 할 일」 상자를 메타 줄 바로 뒤로 올린다 (2026-09-12 가독성: 보자마자 할 일). 첫 상자 하나만."""
+    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
+        return page
+    body = page["body"]
+    m = re.search(r'<div class="note">\s*<b>(내일 할 일|오늘 할 일)</b>(.*?)</div>', body, re.S)
+    ml = re.search(r'<p class="meta-line">.*?</p>', body, re.S)
+    if not m or not ml or m.start() < ml.end():
+        return page
+    box = '<div class="note todo"><b>바로 할 일</b>' + m.group(2) + '</div>'
+    body = body[:m.start()] + body[m.end():]
+    ml = re.search(r'<p class="meta-line">.*?</p>', body, re.S)
+    body = body[:ml.end()] + chr(10) + box + body[ml.end():]
+    return dict(page, body=body)
 
 
 def add_toc(page):
@@ -458,7 +475,7 @@ def add_toc(page):
     if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
         label = "In this article" if page["lang"] == "en" else "목차"
         toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
-        m = re.search(r'<p class="meta-line">.*?</p>', body, re.S)
+        m = re.search(r'<div class="note todo">.*?</div>', body, re.S) or re.search(r'<p class="meta-line">.*?</p>', body, re.S)   # 「바로 할 일」 뒤, 없으면 메타 줄 뒤
         body = body[:m.end()] + chr(10) + toc + body[m.end():] if m else toc + body
     return dict(page, body=body)
 
@@ -668,7 +685,7 @@ def place_ads(page):
 def render(page, pages, verify):
     lang = page["lang"]
     page = fill_boards(page, pages)
-    page = add_toc(dict(page, body=meta_line(page)))
+    page = add_toc(lift_todo(dict(page, body=meta_line(page))))
     page = place_ads(page)
     ab = author_block(page)
     if ab and '<footer class="sources">' in page["body"]:
