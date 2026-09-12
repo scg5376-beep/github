@@ -368,3 +368,42 @@ nav.prevnext a.next { text-align: right; }
 nav.prevnext a:hover { border-color: var(--accent); }
 a.totop { display: block; text-align: center; margin: 26px auto 0; font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; }
 @media (max-width: 560px) { nav.prevnext { grid-template-columns: 1fr; } }
+
+/* ---- v4 레퍼런스 ⑨ 모방 (운영자 2026-09-12 "9번 레퍼런스 모방해서 꾸며봐": 노션 블로그 Tools & Craft 관찰)
+   흰 바탕에 판·점무늬 없음. 첫 화면 = 왼쪽 기둥(큰 제목·한 줄·갈래 목록) + 오른쪽 두 칸 카드(옅은 그림판·작은 갈래·굵은 제목·회색 요약).
+   가는 선, 넉넉한 여백, 색은 플랫폼 옅은 바탕에만. 어르신 가독성(18px)·이름표 규칙·내비 4층은 그대로. */
+body { background-color: #fff; background-image: none; }
+body::before { display: none; }
+header.top { border-bottom-color: var(--line); }
+nav.tabs { background: #fff; border-top: 0; border-bottom: 1px solid var(--line); }
+nav.tabs .subs { border-top: 1px solid var(--line); }
+.cols { padding-top: 36px; }
+.cols > main.wrap { border: 0; border-radius: 0; padding: 0 0 48px; background: transparent; }
+@media (max-width: 720px) { .cols > main.wrap { padding: 0 0 36px; } }
+aside.rail .rail-box { border: 0; border-left: 1px solid var(--line); border-radius: 0; padding-left: 18px; }
+.cols.wide > main.wrap { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px 64px; align-items: start; }
+aside.hs { position: sticky; top: 24px; }
+aside.hs h1 { font-size: 2rem; line-height: 1.2; margin: 6px 0 12px; letter-spacing: -0.03em; }
+aside.hs p { font-size: 0.98rem; color: var(--ink-soft); line-height: 1.6; margin: 0 0 10px; }
+aside.hs p.trust { font-size: 0.78rem; margin-bottom: 22px; }
+aside.hs p.trust span { display: block; white-space: normal; }
+ul.hs-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+ul.hs-list li { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--line); }
+ul.hs-list li a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.98rem; }
+ul.hs-list li a:hover { color: var(--accent); }
+ul.hs-list li span { font-size: 0.78rem; color: var(--ink-soft); }
+ul.hs-list li[class^="plat-"] a::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--pa); margin-right: 8px; vertical-align: 1px; }
+.hm p.banner { margin: 0 0 22px; }
+h2.hm-head { border: 0; padding: 0; margin: 0 0 4px; font-size: 1rem; color: var(--ink-soft); font-weight: 600; }
+.cols.wide .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 36px; margin: 6px 0 24px; }
+.card { border: 0; padding: 0; }
+.card .art { display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 10; max-width: 100%; background: var(--pt); border-radius: 10px; margin-bottom: 16px; }
+.card .art img { width: 96px; height: 96px; }
+.card:hover .art { outline: 1px solid var(--pa); }
+.card .cat { display: block; background: none; padding: 0; margin-bottom: 6px; font-size: 0.8rem; color: var(--ink-soft); }
+.card b { font-size: 1.18rem; line-height: 1.35; letter-spacing: -0.01em; }
+.card:hover b { text-decoration: none; color: var(--accent); }
+.card small { font-size: 0.92rem; line-height: 1.6; }
+.card .meta { margin-top: 10px; }
+@media (max-width: 900px) { .cols.wide > main.wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; } aside.hs { position: static; } aside.hs h1 { font-size: 1.7rem; } aside.hs p.trust span { display: inline; } ul.hs-list { display: flex; flex-wrap: wrap; gap: 6px 14px; border: 0; } ul.hs-list li { border: 0; padding: 2px 0; gap: 6px; } }
+@media (max-width: 560px) { .cols.wide .cards { grid-template-columns: 1fr; gap: 30px; } }

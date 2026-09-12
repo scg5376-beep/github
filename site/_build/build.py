@@ -167,7 +167,9 @@ def card_grid(pages, lang, items):
     for p in items:
         mins = read_minutes(p)
         meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
-        out.append(f'<a class="card {plat_class(p["cat"])}" href="{p["url"]}"><span class="cat">{esc(cat_label(p["cat"]))}</span><b>{esc(p["title"])}</b><small>{esc(p["description"][:90])}…</small><span class="meta">{esc(meta)}</span></a>')
+        pc = plat_class(p["cat"])
+        icon = "/img/mark-basic.svg" if pc == "plat-none" else f"/img/icons/{pc[5:]}.svg"
+        out.append(f'<a class="card {pc}" href="{p["url"]}"><span class="art"><img src="{icon}" alt="" width="120" height="120" loading="lazy"></span><span class="cat">{esc(cat_label(p["cat"]))}</span><b>{esc(p["title"])}</b><small>{esc(p["description"][:90])}…</small><span class="meta">{esc(meta)}</span></a>')
     return '<div class="cards">' + "".join(out) + "</div>"
 
 
@@ -184,6 +186,23 @@ def featured_html(pages, lang, main_url, side_urls):
             f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
             f'<span class="meta">{esc(m.get("date"))} · {"%d min" % mins if lang == "en" else "약 %d분" % mins}</span></a>'
             f'<div class="side"><span class="rail-head">{head}</span><ul>{side}</ul></div></section>')
+
+
+def home_side(pages, lang):
+    """레퍼런스 ⑨(노션 블로그 Tools & Craft) 왼쪽 기둥: 큰 제목, 한 줄 설명, 갈래 목록. 갈래 = 전체 글 + 플랫폼 게시판(글 수)."""
+    if lang == "en":
+        title, tag = "Marketing in Korea", "Naver, Google, the law. Official documents only."
+        first = [("Latest", "/en/")]
+    else:
+        title, tag = "사장님 마케팅 교실", "네이버·구글·인스타그램·광고·법. 공식 문서 원문으로만 풀어요."
+        first = [("전체 글", "/guide/"), ("기초 과정", "/start/"), ("업종별 순서", "/tracks/")]
+    lis = "".join(f'<li><a href="{h}">{esc(t)}</a></li>' for t, h in first)
+    for top, chans in TAXO[lang]:
+        n = len(posts(pages, lang, top))
+        if n:
+            lis += f'<li class="{plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{n}</span></li>'
+    return (f'<aside class="hs"><h1>{esc(title)}</h1><p>{esc(tag)}</p>{trust_strip(pages, lang)}'
+            f'<ul class="hs-list">{lis}</ul></aside><div class="hm">')
 
 
 def trust_strip(pages, lang):
@@ -666,6 +685,8 @@ def fill_boards(page, pages):
     body = re.sub(r"<!--board:(\d+)-->", lambda m: board(pages, page["lang"], limit=int(m.group(1))), body)
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
     body = body.replace("<!--tiles-->", tiles_html(pages, page["lang"]))
+    if "<!--homeside-->" in body:
+        body = body.replace("<!--homeside-->", home_side(pages, page["lang"])).rstrip() + "\n</div>"
     body = body.replace("<!--trust-->", trust_strip(pages, page["lang"]))
     body = re.sub(r"<!--featured:([^|>]+)\|([^>]+)-->", lambda m: featured_html(pages, page["lang"], m.group(1).strip(), [u.strip() for u in m.group(2).split(",")]), body)
     body = re.sub(r"<!--cards:(\d+)-->", lambda m: card_grid(pages, page["lang"], posts(pages, page["lang"])[:int(m.group(1))]), body)
