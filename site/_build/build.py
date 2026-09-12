@@ -252,7 +252,7 @@ def nav_html(page, pages):
         base = "/en/"
         all_label = "All"
     else:
-        items = [("/", "처음", "home"), ("/guide/", "전체 글", "guide"), ("/about.html", "이 교실은", "about")]
+        items = [("/", "홈", "home"), ("/guide/", "전체 글", "guide"), ("/about.html", "소개", "about")]
         alt = page.get("alt") or "/en/"
         toggle = f'<a class="lang" href="{alt}" lang="en" hreflang="en">English</a>'
         base = "/guide/"
@@ -357,7 +357,7 @@ def crumbs(page):
         return '<p class="crumbs"><a href="/en/">Start here</a> › ' + esc(page.get("nav", page["title"])) + '</p>'
     if page["url"] in ("/", "/en/", "/guide/"):
         return ""
-    root = {"guide": ("/guide/", "전체 글"), "about": ("/", "처음")}.get(page["section"], ("/", "처음"))
+    root = {"guide": ("/guide/", "전체 글"), "about": ("/", "홈")}.get(page["section"], ("/", "처음"))
     mid = ""
     if page.get("plat"):
         return f'<p class="crumbs"><a href="/guide/">전체 글</a> › {esc(page["plat"])}</p>'
@@ -377,7 +377,7 @@ def footer_html(page):
     return '''<footer class="site">
   <p>이 사이트는 특정 가게에 속하지 않아요. 예시 가게 이름은 전부 지어낸 거예요.<br>
   물건을 팔지 않고, 손님 정보를 받지 않아요. 광고 자리에는 「광고」라고 적어요.</p>
-  <p><a href="/guide/">전체 글</a> · <a href="/about.html">이 교실이 지키는 것</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
+  <p><a href="/guide/">전체 글</a> · <a href="/about.html">소개</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
 
 
@@ -456,7 +456,7 @@ def add_toc(page):
     head_part, tail_part = (body, "") if cut < 0 else (body[:cut], body[cut:])
     body = re.sub(r"<h2([^>]*)>(.*?)</h2>", rep, head_part, flags=re.S) + tail_part
     if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
-        label = "In this article" if page["lang"] == "en" else "이 글에서"
+        label = "In this article" if page["lang"] == "en" else "목차"
         toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
         m = re.search(r'<p class="meta-line">.*?</p>', body, re.S)
         body = body[:m.end()] + chr(10) + toc + body[m.end():] if m else toc + body
