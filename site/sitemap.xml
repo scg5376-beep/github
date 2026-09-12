@@ -159,6 +159,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/local/1-law.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/local/2-numbers.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/local/3-place.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/local/4-rank.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/local/5-reviews.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/local/6-search.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/local/7-blog.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/local/8-powerlink.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/local/9-record.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/privacy.html</loc>
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/privacy.html"/>
@@ -169,14 +205,20 @@
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
-    <loc>https://sajangmarketing.com/tracks/</loc>
+    <loc>https://sajangmarketing.com/p/local/</loc>
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
-    <loc>https://sajangmarketing.com/p/start/</loc>
+    <loc>https://sajangmarketing.com/p/online/</loc>
     <lastmod>2026-09-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/start/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/start/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/service/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/foreign/</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/p/naver/</loc>
@@ -215,8 +257,6 @@
   <url>
     <loc>https://sajangmarketing.com/en/p/start/</loc>
     <lastmod>2026-09-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/start/"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/start/"/>
   </url>
   <url>
     <loc>https://sajangmarketing.com/en/p/naver/</loc>

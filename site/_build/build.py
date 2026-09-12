@@ -57,9 +57,41 @@ def read_pages():
     return pages
 
 
+TRACK_INFO = {
+    "동네 매장": {"who": "식당·카페·미용실·안경원·병원·학원", "lead": "손님이 지도와 플레이스로 들어와요. 무료이고 근거가 센 것부터, 돈 드는 것은 뒤에 놓았어요.",
+                "why": {"관련법": "문의 폼 하나만 있어도 법이 걸려요.", "손님 숫자": "열에 여덟이 네이버예요. 어디에 힘을 쓸지 이 숫자로.", "플레이스 등록": "동네 손님이 가장 먼저 보는 곳이고 무료예요.", "플레이스 순위": "인기도는 거리를 이길 수 있어요. 리뷰의 말이 검색어.", "리뷰 답글": "독립 매장에서 매출을 움직였어요. 답글은 정중함보다 내용.", "검색 화면": "어디가 광고이고 어디가 무료인지 알아야 대행사 말을 가려요.", "블로그": "가게 주제 하나로 꾸준히. 일상 글로 개수를 채우지 않아요.", "파워링크": "동네 키워드는 칸이 3개예요. 앞 단계가 돼 있어야 안 새요.", "12주 기록": "한 주에 하나만 바꾸고 적어요."}},
+    "온라인 판매": {"who": "스마트스토어·쿠팡·자사몰", "lead": "손님이 장터에서 찾고 장터에서 사요. 법이 요구하는 것이 전부 걸리고, 수수료가 어디에 붙는지가 먼저예요.",
+                "why": {"관련법": "통신판매업 신고, 홈페이지 표시, 청약철회, 처리방침. 전부 법 원문.", "수수료": "스마트스토어는 두 갈래, 쿠팡은 카테고리 고정, 인스타그램 안 결제는 안 돼요.", "도메인": "빌더·오픈마켓·직접 구축 세 길. 공짜 호스팅은 장사에 못 써요.", "홈페이지 노출": "등록은 노출 조건이 아니고, 제목은 페이지마다 달라야 해요.", "블로그": "직접 데려온 주문을 만드는 길. 비체험 원고는 미노출.", "인스타그램": "제품 태그는 무료, 링크를 걸어도 도달은 안 떨어져요.", "광고": "메타 광고는 소재를 바꾸면 학습이 처음부터예요.", "12주 기록": "직접 데려온 주문 비율이 첫 줄이에요."}},
+    "예약·상담": {"who": "학원·공방·상담·시술", "lead": "손님이 검색해서 비교하고, 문의하고, 예약해요. 문의 폼이 있는 순간 개인정보 규정이 걸려요.",
+                "why": {"관련법": "개인정보 처리방침과 보호책임자.", "플레이스 등록": "예약과 문의 버튼이 여기 있어요.", "홈페이지 노출": "제목이 다 같은 빌더 사이트가 여기서 걸려요.", "구글 글쓰기": "건강에 닿는 업종은 가중치가 다르고, 경험이 드러나야 해요.", "리뷰 답글": "시술 업종은 비포 앤 애프터 사진이 두 플랫폼에서 막혀요.", "AI 답변": "질문으로 찾는 업종이라 AI 브리핑의 재료가 되는 리뷰가 중요해요.", "12주 기록": "문의 수를 세요. 노출 수는 성과가 아니에요."}},
+    "외국 손님": {"who": "관광지·외국인 단골 가게", "lead": "외국 손님은 한국어로 검색하지 않고 구글 지도를 열어요. 네이버 플레이스를 먼저 채운 뒤 같은 재료로 구글을 채워요.",
+                "why": {"플레이스 등록": "재료가 여기서 나와요. 두 번 쓰는 일이에요.", "구글 프로필": "프로필은 하나만, 설명에 링크 금지.", "도메인": "구글 검색과 인스타그램 판매 자격이 도메인을 요구해요.", "홈페이지 노출": "구글은 기술 요건만 맞으면 색인이 무료예요.", "인스타그램": "사진으로 보여 주는 게 언어를 넘어요.", "12주 기록": "어느 길로 왔는지 세요."}},
+}
+# 플랫폼 게시판: 종류 + 추천 순서 (운영자 2026-09-12 "네이버 마케팅 종류에 대한 이야기와 뭐부터 하면 좋은지 추천 순서"). 순서 이유는 각 글의 공식 문서 근거
+PLAT_KINDS = {
+    "네이버": [("검색 화면", "검색 결과의 칸. 어디가 광고이고 어디가 무료인지."), ("플레이스", "지도와 가게 정보. 전화·길찾기·예약 버튼이 붙는 곳."), ("블로그", "글 검색. 가게 주제로 꾸준히 쓰는 곳."), ("카페", "모임 게시판. 동네 카페의 홍보 규칙은 카페마다 달라요."), ("파워링크", "검색 광고. 클릭마다 과금."), ("리뷰", "플레이스의 리뷰와 답글. 순위이자 검색어.")],
+    "구글": [("검색", "외국 손님과 안드로이드 지도의 검색. 좋은 글의 기준이 문서로 있어요."), ("블로거", "구글의 무료 블로그. 내 도메인을 붙일 수 있어요."), ("티스토리", "카카오의 블로그. 구글 검색에 잘 걸리는 편이라는 말은 공식 자료가 없어요."), ("도메인", "내 주소. 사는 게 아니라 빌리는 것.")],
+    "인스타그램": [("계정", "프로페셔널 계정 전환과 프로필. 돈 안 드는 것."), ("릴스", "짧은 세로 영상."), ("스레드", "글 위주. 인스타그램 계정 하나로 시작."), ("광고", "메타 광고. 거부 사유가 문서에 있어요.")],
+    "유튜브": [("채널", "검색과 추천이 무엇을 보는지."), ("쇼츠", "3분 이내 세로 영상. 수익 조건이 따로 있어요.")],
+    "AI": [("AI 답변", "손님이 AI에게 물을 때 우리 글이 쓰이는 구조."), ("용어", "AEO·GEO·SEO. 제안서에 나오는 말.")],
+    "판매": [("관련법", "팔기 전에 법이 요구하는 것."), ("스마트스토어", "네이버 장터. 수수료가 두 갈래."), ("쿠팡", "카테고리별 고정 수수료."), ("자사몰", "내 도메인의 가게.")],
+    "기록": [("12주 기록", "한 주에 하나만 바꾸고 적는 틀.")],
+}
+PLAT_ORDER = {
+    "네이버": [("/guide/place.html", "플레이스 등록", "무료이고, 네이버가 사업주의 의무로 적은 유일한 일이에요."), ("/guide/reviews.html", "리뷰 답글", "돈 안 드는 것 가운데 효과가 측정된 일. 리뷰의 말이 검색어가 돼요."), ("/guide/seo.html", "검색 화면", "광고 칸과 무료 칸을 알아야 「상위 노출 보장」을 가려요."), ("/guide/blog.html", "블로그", "한 주제로 꾸준히. 언급수가 플레이스 인기도로 돌아와요."), ("/guide/powerlink.html", "파워링크", "앞 단계가 돼 있어야 클릭이 손님이 돼요. 여기서 처음 돈이 들어요.")],
+    "구글": [("/guide/google-profile.html", "구글 프로필", "네이버 플레이스와 같은 재료로 채워요. 프로필은 하나만."), ("/guide/domain.html", "도메인", "홈페이지와 인스타그램 판매 자격이 도메인을 요구해요."), ("/guide/homepage.html", "홈페이지 노출", "기술 요건만 맞으면 색인이 무료예요."), ("/guide/google-content.html", "구글 글쓰기", "구글이 밝힌 좋은 글의 기준. 단어 수는 없어요."), ("/guide/blogger.html", "블로거", "무료로 시작하고 내 도메인을 붙이는 길.")],
+    "인스타그램": [("/guide/instagram.html", "계정", "돈 안 드는 것부터. 제품 태그는 무료예요."), ("/guide/threads.html", "스레드", "계정 하나로 글부터 시작할 수 있어요."), ("/guide/meta-review.html", "광고", "거부 사유를 먼저 알고 켜요.")],
+    "유튜브": [("/guide/youtube-search.html", "채널", "검색과 추천이 무엇을 보는지부터."), ("/guide/youtube-shorts.html", "쇼츠", "가게 영상은 대부분 쇼츠로 잡혀요. 1분 넘는 쇼츠의 저작권 규정을 알고 올려요.")],
+    "AI": [("/guide/aeo.html", "용어", "제안서의 말을 먼저 가려요."), ("/guide/geo.html", "AI 답변", "AI가 옮겨 쓸 수 있는 글과 리뷰를 쌓는 구조.")],
+    "판매": [("/guide/before-selling.html", "관련법", "신고와 표시가 먼저예요. 반나절이면 돼요."), ("/guide/selling.html", "수수료", "어디에 얼마나 붙는지 알고 장터를 골라요.")],
+    "기록": [("/guide/record.html", "12주 기록", "광고를 켜기 전 주부터 적어요.")],
+}
 PLAT_INTRO = {
     "ko": {
-        "시작 전": "온라인에서 무엇을 하든 그 전에 닫아야 할 것들이에요. 신고와 표시 의무, 그리고 손님이 지금 어디서 찾는지의 숫자.",
+        "동네 매장": "식당·카페·미용실·안경원·병원·학원. 손님이 지도와 플레이스로 들어오는 가게의 순서예요.",
+        "온라인 판매": "스마트스토어·쿠팡·자사몰. 손님이 장터에서 찾고 장터에서 사는 가게의 순서예요.",
+        "예약·상담": "학원·공방·상담·시술. 손님이 검색해서 비교하고 문의하는 가게의 순서예요.",
+        "외국 손님": "외국 손님은 구글 지도를 열어요. 플레이스를 먼저 채운 뒤 같은 재료로 구글을 채우는 순서예요.",
         "네이버": "한국 손님 열에 여덟이 먼저 여는 곳이에요. 검색 화면, 플레이스, 블로그, 카페, 파워링크, 리뷰를 네이버 공식 문서 원문으로 다뤄요.",
         "구글": "외국 손님과 안드로이드 지도, 그리고 내 도메인의 홈페이지가 걸리는 곳이에요. 검색, 블로거, 티스토리, 도메인.",
         "인스타그램": "계정 정리부터 릴스, 스레드, 광고까지. 메타가 직접 적은 규정과 인스타그램 대표의 발언을 갈라서 적어요.",
@@ -195,14 +227,62 @@ def home_side(pages, lang):
         first = [("Latest", "/en/")]
     else:
         title, tag = "사장님 마케팅 교실", "네이버·구글·인스타그램·광고·법. 공식 문서 원문으로만 풀어요."
-        first = [("전체 글", "/guide/"), ("기초 과정", "/start/"), ("업종별 순서", "/tracks/")]
+        first = [("전체 글", "/guide/")]
     lis = "".join(f'<li><a href="{h}">{esc(t)}</a></li>' for t, h in first)
+    if lang == "ko":
+        lis += '<li class="head">업종별 따라하기</li>'
+        for top in TRACKS:
+            n = len(posts(pages, lang, top))
+            lis += f'<li class="{plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{n}/{len(subs(lang, top))}</span></li>'
+        lis += '<li class="head">플랫폼별 찾아보기</li>'
     for top, chans in TAXO[lang]:
         n = len(posts(pages, lang, top))
-        if n:
+        if n and top not in TRACKS:
             lis += f'<li class="{plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{n}</span></li>'
     return (f'<aside class="hs"><h1>{esc(title)}</h1><p>{esc(tag)}</p>{trust_strip(pages, lang)}'
             f'<ul class="hs-list">{lis}</ul></aside><div class="hm">')
+
+
+def course_html(pages, lang, top):
+    """갈래 페이지·첫 화면: 단계 순서 목록 (Ghost resources 「Part 1 — Building」 목록 관찰). 글이 없는 단계는 「준비 중」."""
+    info = TRACK_INFO[top]
+    out = []
+    for sub in subs(lang, top):
+        ps = posts(pages, lang, f"{top}/{sub}")
+        why = info["why"].get(sub, "")
+        if ps:
+            p = ps[0]
+            out.append(f'<li><a href="{p["url"]}"><b>{esc(sub)}</b><span class="why">{esc(why)}</span><span class="time">{read_minutes(p)}분</span></a></li>')
+        else:
+            out.append(f'<li class="soon"><span class="soon"><b>{esc(sub)}</b><span class="why">{esc(why)}</span><span class="time">준비 중</span></span></li>')
+    return '<ol class="course">' + "".join(out) + "</ol>"
+
+
+def track_sections(pages, lang):
+    """첫 화면: 갈래마다 제목·한 줄·단계 목록."""
+    out = []
+    for top in TRACKS:
+        info = TRACK_INFO[top]
+        n = len(posts(pages, lang, top))
+        out.append(f'<section class="track {plat_class(top)}"><h2 id="{PLAT_SLUG[top]}"><a href="{plat_url(lang, top)}">{esc(top)}</a> <span class="count">{esc(info["who"])}</span></h2>'
+                   f'<p class="lead">{esc(info["lead"])}</p>{course_html(pages, lang, top)}</section>')
+    return "".join(out)
+
+
+def kinds_html(top):
+    rows = PLAT_KINDS.get(top)
+    if not rows:
+        return ""
+    return '<h2>종류</h2><table class="kinds">' + "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in rows) + "</table>"
+
+
+def order_html(pages, top):
+    rows = PLAT_ORDER.get(top)
+    if not rows:
+        return ""
+    by = {p["url"]: p for p in pages}
+    lis = "".join(f'<li><a href="{u}"><b>{esc(t)}</b><span class="why">{esc(w)}</span><span class="time">{read_minutes(by[u])}분</span></a></li>' for u, t, w in rows if u in by)
+    return '<h2>추천 순서</h2><p>무료이고 근거가 센 것부터, 돈 드는 것은 뒤예요. 이유는 각 글의 공식 문서에 있어요.</p><ol class="course">' + lis + "</ol>"
 
 
 def trust_strip(pages, lang):
@@ -246,10 +326,18 @@ def platform_pages(pages):
             url = f"/en/p/{slug}/" if lang == "en" else f"/p/{slug}/"
             other = [t for t in (TAXO["en"] if lang == "ko" else TAXO["ko"]) if PLAT_SLUG[t[0]] == slug]
             alt = (f"/en/p/{slug}/" if lang == "ko" else f"/p/{slug}/") if other else None
-            head = "Boards" if lang == "en" else "게시판"
-            body = (f'<p class="kicker">{esc(head)}</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(PLAT_INTRO[lang].get(top, ""))}</p>\n'
-                    f'<!--boards:{top}-->\n<!--profile-->\n')
-            meta = {"title": top if lang == "en" else f"{top} 게시판", "description": PLAT_INTRO[lang].get(top, top), "lang": lang,
+            if top in TRACKS:
+                info = TRACK_INFO[top]
+                body = (f'<p class="kicker">따라하기</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(info["lead"])}</p>\n<p class="lead">{esc(info["who"])}. 단계마다 글 하나예요. 순서대로 하시면 돼요.</p>\n'
+                        f'<!--course:{top}-->\n<p class="small">내 업종이 여기 없으면 <a href="/start/">공통 순서</a>를 그대로 쓰시면 돼요.</p>\n')
+            else:
+                head = "Boards" if lang == "en" else "게시판"
+                body = (f'<p class="kicker">{esc(head)}</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(PLAT_INTRO[lang].get(top, ""))}</p>\n'
+                        f'<!--kinds:{top}-->\n<!--order:{top}-->\n<!--boards:{top}-->\n<!--profile-->\n')
+            desc = PLAT_INTRO[lang].get(top, top)
+            if top in TRACKS:
+                desc = f"{desc} {TRACK_INFO[top]['lead']}"
+            meta = {"title": top if lang == "en" else (f"{top}, 순서대로" if top in TRACKS else f"{top} 게시판"), "description": desc, "lang": lang,
                     "section": "guide" if lang == "ko" else "en", "nav": top, "date": "2026-09-11", "updated": "2026-09-11",
                     "plat": top, "rel": url.strip("/") + "/index.html", "url": url, "body": body}
             if alt:
@@ -271,7 +359,7 @@ def nav_html(page, pages):
         base = "/en/"
         all_label = "All"
     else:
-        items = [("/", "홈", "home"), ("/guide/", "전체 글", "guide"), ("/start/", "기초 과정", "start"), ("/about.html", "소개", "about")]
+        items = [("/", "홈", "home"), ("/guide/", "전체 글", "guide"), ("/about.html", "소개", "about")]
         alt = page.get("alt") or "/en/"
         toggle = f'<a class="lang" href="{alt}" lang="en" hreflang="en">English</a>'
         base = "/guide/"
@@ -290,7 +378,12 @@ def nav_html(page, pages):
         tabs.append(f'<a class="{plat_class(t)}" href="{plat_url(lang, t)}"{cur}>{esc(t)}</a>')
     sub_row = ""
     if cur_top:
-        chans = "".join(f'<a href="{plat_url(lang, cur_top, c)}"{" aria-current=\"page\"" if cur_sub == c else ""}>{esc(c)}</a>' for c in subs(lang, cur_top))
+        def sub_href(c):
+            if cur_top in TRACKS:
+                ps = posts(pages, lang, f"{cur_top}/{c}")
+                return ps[0]["url"] if ps else plat_url(lang, cur_top)
+            return plat_url(lang, cur_top, c)
+        chans = "".join(f'<a href="{sub_href(c)}"{" aria-current=\"page\"" if cur_sub == c else ""}>{esc(c)}</a>' for c in subs(lang, cur_top))
         sub_row = f'<div class="subs {plat_class(cur_top)}"><div class="wrap"><a class="of" href="{plat_url(lang, cur_top)}">{esc(cur_top)}</a>{chans}</div></div>'
     return f'''<header class="top">
   <div class="wrap">
@@ -408,7 +501,7 @@ def footer_html(page):
 </footer>'''
 
 
-RECHECK_MONTHS = {"AI": 3, "네이버": 6, "구글": 6, "인스타그램": 6, "유튜브": 6, "판매": 6, "시작 전": 12, "기록": 12,
+RECHECK_MONTHS = {"동네 매장": 6, "온라인 판매": 6, "예약·상담": 6, "외국 손님": 6, "AI": 3, "네이버": 6, "구글": 6, "인스타그램": 6, "유튜브": 6, "판매": 6, "시작 전": 12, "기록": 12,
                   "Naver": 6, "Google": 6, "Selling": 6, "Before you start": 12}
 
 
@@ -554,13 +647,18 @@ def related(page, pages):
 # 글의 cat 메타는 "네이버/플레이스" 꼴. 글이 없는 채널도 탭에는 보이고 목록에는 「아직 글이 없어요」로 남긴다.
 TAXO = {
     "ko": [
-        ("시작 전", ["법과 신고", "손님 숫자"]),   # 첫 탭은 「홈페이지 소개·이용법」(nav_html), 플랫폼 탭은 여기부터
+        # 업종 갈래(따라하기): 채널 = 단계 이름, 순서대로 한 글씩. 운영자 2026-09-12
+        ("동네 매장", ["관련법", "손님 숫자", "플레이스 등록", "플레이스 순위", "리뷰 답글", "검색 화면", "블로그", "파워링크", "12주 기록"]),
+        ("온라인 판매", ["관련법", "수수료", "도메인", "홈페이지 노출", "블로그", "인스타그램", "광고", "12주 기록"]),
+        ("예약·상담", ["관련법", "플레이스 등록", "홈페이지 노출", "구글 글쓰기", "리뷰 답글", "AI 답변", "12주 기록"]),
+        ("외국 손님", ["플레이스 등록", "구글 프로필", "도메인", "홈페이지 노출", "인스타그램", "12주 기록"]),
+        # 플랫폼 게시판(찾아보기)
         ("네이버", ["검색 화면", "플레이스", "블로그", "카페", "파워링크", "리뷰"]),
         ("구글", ["검색", "블로거", "티스토리", "도메인"]),
         ("인스타그램", ["계정", "릴스", "스레드", "광고"]),
         ("유튜브", ["채널", "쇼츠"]),
         ("AI", ["AI 답변", "용어"]),
-        ("판매", ["스마트스토어", "쿠팡", "자사몰"]),
+        ("판매", ["관련법", "스마트스토어", "쿠팡", "자사몰"]),
         ("기록", ["12주 기록"]),
     ],
     "en": [
@@ -573,7 +671,8 @@ TAXO = {
 EMPTY = {"ko": "아직 글이 없어요. 준비 중이에요.", "en": "No posts yet."}
 
 
-PLAT_SLUG = {"시작 전": "start", "네이버": "naver", "구글": "google", "인스타그램": "instagram", "유튜브": "youtube", "AI": "ai", "판매": "sell", "기록": "record",
+TRACKS = ("동네 매장", "온라인 판매", "예약·상담", "외국 손님")
+PLAT_SLUG = {"동네 매장": "local", "온라인 판매": "online", "예약·상담": "service", "외국 손님": "foreign", "시작 전": "start", "네이버": "naver", "구글": "google", "인스타그램": "instagram", "유튜브": "youtube", "AI": "ai", "판매": "sell", "기록": "record",
              "Before you start": "start", "Naver": "naver", "Google": "google", "Selling": "sell"}
 
 
@@ -669,7 +768,12 @@ def cat_box(page, pages):
     lis = []
     for top, chans in TAXO[lang]:
         lis.append(f'<li class="top {plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
-        lis.append('<li class="subs">' + " · ".join(f'<a href="{plat_url(lang, top, c)}">{esc(c)}</a>' for c in chans) + "</li>")
+        def cu(c):
+            if top in TRACKS:
+                ps = posts(pages, lang, f"{top}/{c}")
+                return ps[0]["url"] if ps else plat_url(lang, top)
+            return plat_url(lang, top, c)
+        lis.append('<li class="subs">' + " · ".join(f'<a href="{cu(c)}">{esc(c)}</a>' for c in chans) + "</li>")
     return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
 
@@ -685,6 +789,10 @@ def fill_boards(page, pages):
     body = re.sub(r"<!--board:(\d+)-->", lambda m: board(pages, page["lang"], limit=int(m.group(1))), body)
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
     body = body.replace("<!--tiles-->", tiles_html(pages, page["lang"]))
+    body = re.sub(r"<!--course:([^>]+)-->", lambda m: course_html(pages, page["lang"], m.group(1).strip()), body)
+    body = re.sub(r"<!--kinds:([^>]+)-->", lambda m: kinds_html(m.group(1).strip()), body)
+    body = re.sub(r"<!--order:([^>]+)-->", lambda m: order_html(pages, m.group(1).strip()), body)
+    body = body.replace("<!--tracks-->", track_sections(pages, page["lang"]))
     if "<!--homeside-->" in body:
         body = body.replace("<!--homeside-->", home_side(pages, page["lang"])).rstrip() + "\n</div>"
     body = body.replace("<!--trust-->", trust_strip(pages, page["lang"]))
@@ -834,7 +942,7 @@ def build():
     write(ROOT / "404.html", render(nf, pages, verify))
 
     # 옛 주소 → 새 주소 (첫날 하루 쓰인 주소). noindex 이고 검사에서 뺀다
-    for old, new in {"seo.html": "/guide/seo.html", "geo.html": "/guide/geo.html", "aeo.html": "/guide/aeo.html"}.items():
+    for old, new in {"tracks/index.html": "/", "seo.html": "/guide/seo.html", "geo.html": "/guide/geo.html", "aeo.html": "/guide/aeo.html"}.items():
         write(ROOT / old, f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={new}"><link rel="canonical" href="{SITE_URL}{new}"><title>주소가 바뀌었습니다</title></head><body><p>이 글은 <a href="{new}">{new}</a> 로 옮겼어요.</p></body></html>' + chr(10))
     print(f"built {len(pages)} pages + sitemap/robots/feed/404 + redirects")
     return pages

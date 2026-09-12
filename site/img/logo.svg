@@ -1,10 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" width="300" height="64" role="img" aria-label="사장님 마케팅 교실">
-  <g>
-  <rect width="64" height="64" rx="14" fill="#0f4c9c"/>
-  <path fill="#fff" d="M19.04 21.92H25.52L23.36 37.76C23.36 40.144 21.426 42.08 19.04 42.08S14.72 40.144 14.72 37.76L19.04 21.92Z"/>
-  <path fill="#bcd3f2" d="M25.52 21.92H32V37.76C32 40.144 30.066 42.08 27.68 42.08S23.36 40.144 23.36 37.76L25.52 21.92Z"/>
-  <path fill="#fff" d="M32 21.92H38.48L40.64 37.76C40.64 40.144 38.706 42.08 36.32 42.08S32 40.144 32 37.76V21.92Z"/>
-  <path fill="#bcd3f2" d="M38.48 21.92H44.96L49.28 37.76C49.28 40.144 47.346 42.08 44.96 42.08S40.64 40.144 40.64 37.76L38.48 21.92Z"/>
-</g>
-  <text x="80" y="41" font-family="Pretendard, 'Malgun Gothic', sans-serif" font-size="26" font-weight="700" fill="#1e2124" letter-spacing="-0.5">사장님 마케팅 교실</text>
+  <rect x="17" y="7" width="30" height="50" rx="4" fill="none" stroke="#0f4c9c" stroke-width="4"/>
+  <path d="M22 12 L38 17.5 V46.5 L22 52 Z" fill="#bcd3f2" stroke="#0f4c9c" stroke-width="4" stroke-linejoin="round"/>
+  <text x="76" y="41" font-family="Pretendard, 'Malgun Gothic', sans-serif" font-weight="700" font-size="26" fill="#1e2124" letter-spacing="-0.5">사장님 마케팅 교실</text>
 </svg>
