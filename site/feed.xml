@@ -14,11 +14,13 @@
     <description>동네 매장, 온라인 판매, 예약·상담 서비스, 외국 손님 받는 가게. 네 업종마다 손님이 찾는 길이 달라서 배우는 순서도 달라요. 각 순서의 이유를 공식 문서 근거와 함께 적었어요.</description>
     <content:encoded><![CDATA[<p class="kicker">업종별 추천 순서</p>
 <h1>내 업종은 어디서 시작하나</h1>
-<p class="lead">손님이 찾는 길이 업종마다 달라요. 동네 손님은 「○○동 △△」으로 검색하고, 온라인으로 사는 손님은 장터에서 찾고, 외국 손님은 구글 지도를 열어요.</p>
+<p class="lead">손님이 찾는 길이 업종마다 달라요. 동네 손님은 「○○동 △△」으로 검색해요.</p>
+<p class="lead">온라인으로 사는 손님은 장터에서 찾고, 외국 손님은 구글 지도를 열어요.</p>
 <p class="lead">그래서 배우는 순서도 달라요. 네 갈래로 나눴고, 내 가게가 둘에 걸치면 둘 다 보시면 돼요.</p>
 
 <h2 id="local">동네 매장 (식당·카페·미용실·안경원·병원·학원)</h2>
-<p>손님이 지도와 플레이스로 들어와요. 네이버가 밝힌 플레이스 순위 요소 넷 가운데 인기도는 거리를 이길 수 있고, 리뷰의 말이 검색어가 돼요. 리뷰 효과가 독립 매장에서 확인된 연구도 이 업종 얘기예요.</p>
+<p>손님이 지도와 플레이스로 들어와요. 네이버가 밝힌 순위 요소 가운데 인기도는 거리를 이길 수 있어요. 리뷰의 말이 검색어가 되고요.</p>
+<p>리뷰 효과가 독립 매장에서 확인된 연구도 이 업종 얘기예요.</p>
 <ol class="course">
   <li><a href="/guide/before-selling.html"><b>관련법</b></a><span class="why">오프라인 가게도 광고 표시와 문의 폼 규정은 걸려요.</span><span class="time">8분</span></li>
   <li><a href="/guide/place.html"><b>플레이스 등록</b></a><span class="why">빈칸을 다 채우는 게 가게의 의무로 적혀 있어요.</span><span class="time">8분</span></li>
@@ -30,7 +32,8 @@
 </ol>
 
 <h2 id="online">온라인 판매 (스마트스토어·쿠팡·자사몰)</h2>
-<p>손님이 장터에서 찾고 장터에서 사요. 그래서 법이 요구하는 것이 전부 걸리고, 수수료가 어디에 붙는지가 먼저예요. 직접 데려온 주문은 판매수수료가 3%에서 1%로 내려가니, 블로그와 홈페이지로 손님을 데려오는 일이 숫자로 돌아와요.</p>
+<p>손님이 장터에서 찾고 장터에서 사요. 그래서 법이 요구하는 것이 전부 걸리고, 수수료가 어디에 붙는지가 먼저예요. 직접 데려온 주문은 판매수수료가 3%에서 1%로 내려가요.</p>
+<p>블로그와 홈페이지로 손님을 데려오는 일이 숫자로 돌아와요.</p>
 <ol class="course">
   <li><a href="/guide/before-selling.html"><b>관련법</b></a><span class="why">통신판매업 신고, 홈페이지 표시, 청약철회, 처리방침. 전부 법 원문이에요.</span><span class="time">8분</span></li>
   <li><a href="/guide/selling.html"><b>수수료</b></a><span class="why">스마트스토어는 수수료가 두 갈래, 쿠팡은 카테고리 고정, 인스타그램 안 결제는 안 돼요.</span><span class="time">6분</span></li>
@@ -43,7 +46,8 @@
 </ol>
 
 <h2 id="service">예약·상담 서비스 (학원·공방·상담·시술)</h2>
-<p>손님이 검색해서 비교하고, 문의하고, 예약해요. 문의 폼이 있는 순간 개인정보 규정이 걸리고, 검색에서 어떤 글이 올라가는지가 매출로 이어져요. 홈페이지와 플레이스가 둘 다</p>
+<p>손님이 검색해서 비교하고, 문의하고, 예약해요. 문의 폼이 있는 순간 개인정보 규정이 걸려요. 검색에서 어떤 글이 올라가는지가 매출로 이어지고요.</p>
+<p>홈페이지와 플레이스가 둘 다</p>
 <p>필요해요.</p>
 <ol class="course">
   <li><a href="/guide/before-selling.html"><b>관련법</b></a><span class="why">개인정보 처리방침과 보호책임자. 그 글의 마지막 항목이에요.</span><span class="time">8분</span></li>
@@ -67,7 +71,8 @@
 </ol>
 
 <h2>순서의 근거</h2>
-<p>네 순서 모두 손님이 지나가는 길(법, 알게 됨, 검색, 들어옴, 구매, 재방문)을 따르되, 업종마다 손님이 실제로 들어오는 문을 앞에 놓았어요. 동네 매장은 플레이스(네이버 공식 문서), 온라인 판매는 수수료(네이버·쿠팡 공식 문서), 예약 업종은 문의 폼 규정(법 원문), 외국 손님은 구글 프로필(B등급)이에요.</p>
+<p>네 순서 모두 손님이 지나가는 길을 따라요. 다만 업종마다 손님이 실제로 들어오는 문을 앞에 놓았어요.</p>
+<p>동네 매장은 플레이스, 온라인 판매는 수수료, 예약 업종은 문의 폼 규정, 외국 손님은 구글 프로필이에요. 근거는 각 글의 공식 문서예요.</p>
 <p>업종별로 「몇 주 만에 된다」는 숫자는 공식 자료가 없어서 적지 않았어요.</p>
 <p class="small">내 업종이 여기 없으면 <a href="/start/">기초 과정</a> 순서를 그대로 쓰시면 돼요.</p>]]></content:encoded>
   </item>
@@ -93,7 +98,8 @@
 </ol>
 
 <h2>순서의 근거</h2>
-<p>손님이 지나가는 길은 여섯 자리예요. 팔 수 있는 상태(법), 알게 된다(광고·추천), 찾아본다(검색), 들어온다(플레이스·홈페이지), 산다(결제·수수료), 다시 온다(리뷰). 광고는 두 번째 자리인데 돈이 들고, 플레이스와 리뷰는 무료인데 효과가 공식 문서와 연구로 확인돼 있어요.</p>
+<p>손님이 지나가는 길은 여섯 자리예요. 팔 수 있는 상태(법), 알게 된다(광고), 찾아본다(검색). 들어온다(플레이스·홈페이지), 산다(수수료), 다시 온다(리뷰).</p>
+<p>광고는 두 번째 자리인데 돈이 들어요. 플레이스와 리뷰는 무료인데 효과가 공식 문서와 연구로 확인돼 있고요.</p>
 <p>그래서 무료이고 근거가 센 것을 앞에, 돈 드는 것을 뒤에 놓았어요.</p>
 <p class="small">업종에 따라 순서가 달라지는 부분은 <a href="/tracks/">업종별 추천 순서</a>에 있어요. 온라인으로 파는 가게는 3번 대신 판매 수수료 글이 먼저예요.</p>
 
@@ -115,7 +121,8 @@
 <p class="lead">아래에 적었어요.</p>
 
 <h2>직접 모으는 정보</h2>
-<p>회원 가입, 문의 양식, 뉴스레터, 댓글이 없어요. 위에 「글 찾기」 칸이 하나 있는데, 거기 적은 말은 구글 검색으로 넘어가 구글 결과 화면이 열려요. 저희 서버에는 남지 않아요.</p>
+<p>회원 가입, 문의 양식, 뉴스레터, 댓글이 없어요. 위에 「글 찾기」 칸이 하나 있어요. 거기 적은 말은 구글 검색으로 넘어가 구글 결과 화면이 열려요.</p>
+<p>저희 서버에는 남지 않아요.</p>
 <p>틀린 곳을 알려 주시려면 공개 저장소의 이슈 페이지를 쓰시게 돼요. 그건 깃허브 계정으로 하는 일이라 깃허브의 방침을 따라요.</p>
 
 <h2>서버 기록</h2>
@@ -201,7 +208,7 @@
 </blockquote>
 <p>쇼츠만 올리면 4,000시간 쪽은 안 쌓여요. 쇼츠 채널은 90일에 1,000만 회 쪽으로 가야 해요. 동네 가게 채널이 그 숫자에 닿기는 어려워요.</p>
 <p>그러니 가게 채널의 목적은 수익이 아니고 손님이에요. 그 전제로 하시는 게 맞아요.</p>
-<p>이 밖에 구글 계정 2단계 인증, 활성 상태인 가이드 위반 경고 없음, 애드센스 계정이 조건이에요. 2027년 2월 1일에 프로그램 약관이 바뀐다는 안내도 붙어 있어요.</p>
+<p>이 밖에 구글 계정 2단계 인증, 가이드 위반 경고 없음, 애드센스 계정이 조건이에요. 2027년 2월 1일에 프로그램 약관이 바뀐다는 안내도 붙어 있어요.</p>
 
 <h2>수익 배분 45%</h2>
 <blockquote class="official">
@@ -263,7 +270,8 @@
 <p>네이버가 상위 고정 노출은 없다고 적은 것과 같은 자리예요. 검색 순위를 올려 주겠다는 제안은 이 문장과 어긋나요. 광고로 위에 뜨는 건 별개고요.</p>
 
 <h2>추천 신호</h2>
-<p>홈 화면과 다음 동영상에 뜨는 추천은 채널이 아니고 보는 사람 쪽 신호로 정해진다고 적혀 있어요. 시청 기록, 검색 기록, 구독, 좋아요, 싫어요, 관심 없음, 채널 추천 안 함, 만족도 설문. 여덟 개예요.</p>
+<p>홈 화면과 다음 동영상의 추천은 보는 사람 쪽 신호로 정해진다고 적혀 있어요. 시청 기록, 검색 기록, 구독, 좋아요. 싫어요, 관심 없음, 채널 추천 안 함, 만족도 설문.</p>
+<p>여덟 개예요.</p>
 <blockquote class="official">
   <span class="who">YouTube 고객센터, 「YouTube 맞춤 동영상 작동 방식」</span>
   <q>예를 들어 다음에 재생할 동영상을 추천할 때는 현재 보고 있는 동영상을 주된 신호로 사용합니다.</q>
@@ -332,7 +340,7 @@
 <p>그래서 "이렇게 하면 스레드에서 퍼진다"는 말은 이 글에 없어요.</p>
 
 <h2>스레드 광고</h2>
-<p>메타 뉴스룸이 2025년 1월 24일에 스레드 광고 테스트를 알렸고, 같은 해 4월에 확대했어요. 비즈니스 문서에는 이렇게 적혀 있어요.</p>
+<p>메타 뉴스룸이 2025년 1월 24일에 스레드 광고 테스트를 알렸어요. 같은 해 4월에 확대했고요. 비즈니스 문서에는 이렇게 적혀 있어요.</p>
 <blockquote class="official">
   <span class="who">Meta 비즈니스 지원 센터, 「Threads 광고 정보」</span>
   <q>이전에 'Sponsored' 레이블이 지정되었던 광고는 이제 '광고' 레이블이 지정됩니다.</q>
@@ -341,7 +349,8 @@
   <span class="who">같은 문서</span>
   <q>Threads 광고를 게재하거나 Meta Business Suite에서 Threads 계정 권한을 관리하려면 Threads와 Instagram 사용자 이름이 일치해야 합니다.</q>
 </blockquote>
-<p>광고 관리자에서 노출 위치에 스레드 피드를 넣으면 기존 인스타그램 광고 소재가 그대로 나가요. 자동 노출 위치를 쓰면 스레드가 기본으로 포함된다고 해요. 그러니 인스타그램 광고를 돌리고 있다면 이미 스레드에도 나가고 있을 수 있어요.</p>
+<p>광고 관리자에서 노출 위치에 스레드 피드를 넣으면 돼요. 기존 인스타그램 광고 소재가 그대로 나가요. 자동 노출 위치를 쓰면 스레드가 기본으로 포함된다고 해요.</p>
+<p>그러니 인스타그램 광고를 돌리고 있다면 이미 스레드에도 나가고 있을 수 있어요.</p>
 <p>광고 관리자의 노출 위치를 한 번 열어 보세요. 슬라이드 광고는 이미지만 되고, 일부 전환 위치는 아직 지원하지 않는다고 적혀 있어요.</p>
 
 <h2>가게가 할 일</h2>
@@ -482,7 +491,7 @@
 </blockquote>
 
 <h2>구글의 기준</h2>
-<p>구글이 낸 「유용하고 신뢰할 수 있는 사용자 중심 콘텐츠」 문서에서 두 문장을 옮겨 올게요. <span class="grade a">A · 공식 문서</span></p>
+<p>구글 문서 「유용하고 신뢰할 수 있는 사용자 중심 콘텐츠」에서 두 문장을 옮겨 올게요. <span class="grade a">A · 공식 문서</span></p>
 <blockquote class="official">
   <span class="who">구글, 자체 점검 질문 가운데</span>
   <q>콘텐츠에 경험을 통해 얻은 전문성과 깊이 있는 지식이 명확하게 드러나나요? 예를 들어 제품이나 서비스를 실제로 사용하거나 어떤 장소를 방문함으로써 얻을 수 있는 전문성을 확인할 수 있나요?</q>
@@ -534,7 +543,8 @@
     <description>스마트스토어 수수료는 둘이고 붙는 곳이 달라요. 직접 데려온 주문은 판매수수료가 3%에서 1%로 내려가고요. 쿠팡은 카테고리마다 다르고 등록 뒤에는 바꿀 수 없어요. 인스타그램 안 결제는 한국에서 안 돼요. 공식 문서 원문으로 정리했어요.</description>
     <content:encoded><![CDATA[<p class="kicker">판매 · 수수료</p>
 <h1>온라인으로 팔면 수수료가 어떻게 되나</h1>
-<p class="lead">온라인에서 파는 길은 크게 셋이에요. 네이버 스마트스토어, 쿠팡, 그리고 내 도메인의 자사몰. 앞의 둘은 손님이 이미 있는 장터라 수수료를 내고, 셋째는 수수료 대신 손님을 직접 모아야 해요.</p>
+<p class="lead">온라인에서 파는 길은 크게 셋이에요. 네이버 스마트스토어, 쿠팡, 그리고 내 도메인의 자사몰. 앞의 둘은 손님이 이미 있는 장터라 수수료를 내요.</p>
+<p class="lead">셋째는 수수료 대신 손님을 직접 모아야 해요.</p>
 <p class="lead">수수료가 어디에 얼마나 붙는지를 공식 문서 원문으로 볼게요. 수수료율은 날짜가 붙은 값이라 기준일을 같이 적었어요.</p>
 
 <h2>스마트스토어 수수료</h2>
@@ -669,7 +679,7 @@
     <td>"코받침이 내려앉았다고 하셨는데, 처음 맞출 때 각도를 덜 잡았습니다. 들러 주시면 다시 잡아 드리겠습니다. 5분이면 됩니다."</td>
   </tr>
 </table>
-<p>모든 리뷰에 반사적으로 답하는 게 정답도 아니에요. 답글이 후속 게시물의 양과 부정성을 같이 늘려 악순환을 만들 수 있다는 연구도 있다고 하거든요. 어떤 리뷰에 어떤 방식으로 답하느냐가 관건이죠.</p>
+<p>모든 리뷰에 반사적으로 답하는 게 정답도 아니에요. 답글이 후속 게시물의 양과 부정성을 같이 늘릴 수 있다는 연구도 있다고 하거든요. 어떤 리뷰에 어떤 방식으로 답하느냐가 관건이죠.</p>
 <table>
   <tr><th>리뷰</th><th>답글</th></tr>
   <tr><td>구체적인 불만</td><td>사실 확인과 어떻게 하겠다는 것</td></tr>
@@ -736,7 +746,8 @@
 
 <h2>지키는 것</h2>
 <h3>한 주에 하나만</h3>
-<p>둘을 같이 바꾸면 어느 쪽이 움직였는지 영영 몰라요. 메타 광고 문서가 좋은 예인데, 소재를 바꾸면 머신 러닝 단계가 다시 시작된다고 적혀 있거든요. 사진 교체와 가격 조정과 광고 시작을 한 주에 하면 어떻게 될까요.</p>
+<p>둘을 같이 바꾸면 어느 쪽이 움직였는지 영영 몰라요. 메타 광고 문서가 좋은 예예요. 소재를 바꾸면 머신 러닝 단계가 다시 시작된다고 적혀 있거든요.</p>
+<p>사진 교체와 가격 조정과 광고 시작을 한 주에 하면 어떻게 될까요.</p>
 <p>그 주의 변화를 무엇 때문이라고 말할 수 없게 돼요.</p>
 <h3>정산액은 실수령액</h3>
 <p>결제 금액 말고 수수료를 뺀 뒤 실제로 들어온 돈이에요. 노출, 클릭, 도달은 플랫폼이 정의하고 플랫폼이 세죠. 정산액은 통장에 찍혀요.</p>
@@ -851,8 +862,9 @@
 <p>이 정도면 걸리겠지 하고 넣은 금액이 다음 달엔 안 걸릴 수 있어요.</p>
 
 <h2>월정액 제안</h2>
-<p>네이버 공식 안내는 광고비가 실시간 입찰로 정해지고 클릭될 때만 과금된다는 거예요. 네이버가 따로 운영하는 사칭 광고 피해 주의 안내의 첫 사례가 월정액제 결제 유도라고 해요. "공식 대행사인데 월 얼마에 상위 노출"이라는 제안이 정확히 그거예요.</p>
-<p>대행사를 통하더라도 광고 계정은 사장님 것이어야 하고, 과금 내역을 직접 볼 수 있어야 해요. <a href="/guide/ads.html">광고비는 어디서 새나</a>에 대행사 점검표가 있어요.</p>
+<p>네이버 공식 안내는 광고비가 실시간 입찰로 정해지고 클릭될 때만 과금된다는 거예요. 네이버가 사칭 광고 피해 주의 안내를 따로 운영해요. 그 첫 사례가 월정액제 결제 유도라고 해요.</p>
+<p>"공식 대행사인데 월 얼마에 상위 노출"이라는 제안이 정확히 그거예요.</p>
+<p>대행사를 통하더라도 광고 계정은 사장님 것이어야 해요. 과금 내역을 직접 볼 수 있어야 하고요. <a href="/guide/ads.html">광고비는 어디서 새나</a>에 대행사 점검표가 있어요.</p>
 
 <div class="note">
   <b>내일 할 일</b>
@@ -881,7 +893,8 @@
     <description>동네 손님이 가장 먼저 보는 곳이에요. 스마트플레이스 등록 순서, 네이버가 밝힌 순위 요소, 어뷰징 판정 기준, 리뷰가 검색어가 되는 구조, AI 브리핑까지 네이버 공식 문서 원문으로 정리했어요.</description>
     <content:encoded><![CDATA[<p class="kicker">가게 알리기 · 네이버 플레이스</p>
 <h1>네이버 플레이스, 등록부터 순위까지</h1>
-<p class="lead">동네 손님이 가게를 찾는 순서는 거의 정해져 있어요. 네이버에 "중앙동 미용실"이라고 치고, 지도에 뜬 목록을 보고, 사진과 리뷰를 보고, 전화하죠. 이 목록에 없으면 블로그를 아무리 잘 써도 손님이 못 찾아요.</p>
+<p class="lead">동네 손님이 가게를 찾는 순서는 거의 정해져 있어요. 네이버에 "중앙동 미용실"이라고 쳐요. 지도에 뜬 목록을 보고, 사진과 리뷰를 보고, 전화하죠.</p>
+<p class="lead">이 목록에 없으면 블로그를 아무리 잘 써도 손님이 못 찾아요.</p>
 <p class="lead">등록은 무료라서 다른 것보다 먼저 해요.</p>
 
 <h2>등록 준비물과 순서</h2>
@@ -962,7 +975,8 @@
   <span class="who">같은 문서</span>
   <q>사업주는 스마트플레이스에 등록한 업체정보에 실제 현장을 사실에 맞게 충실히 반영해야 하고, 허위 콘텐츠를 담지 않도록 노력해야 합니다.</q>
 </blockquote>
-<p>네이버가 권한 방법은 하나예요. <q>'스마트 플레이스 정보'를 우선 정확하고 풍부하게 반영해주셔야 합니다.</q> 업체명, 업종, 전화번호, 주소, 홈페이지, 찾아오는 길, 가격, 사진, 영업시간, 대표 키워드. 이 빈칸을 채우는 일이에요.</p>
+<p>네이버가 권한 방법은 하나예요. <q>'스마트 플레이스 정보'를 우선 정확하고 풍부하게 반영해주셔야 합니다.</q> 업체명, 업종, 전화번호, 주소, 홈페이지. 찾아오는 길, 가격, 사진, 영업시간, 대표 키워드.</p>
+<p>이 빈칸을 채우는 일이에요.</p>
 <p>요령은 없고 빈칸 채우기예요.</p>
 
 <h2>어뷰징 기준</h2>
@@ -1037,7 +1051,7 @@
 <p>숫자를 볼 때 누구를 조사한 숫자인지부터 봐야 하는 이유죠.</p>
 
 <h2>네이버 이용률</h2>
-<p>오픈서베이의 AI 검색 트렌드 리포트 2026(만 10~50대 2,000명)에 나온 검색 서비스 이용률이에요.</p>
+<p>오픈서베이 AI 검색 트렌드 리포트 2026의 검색 서비스 이용률이에요(만 10~50대 2,000명).</p>
 <table>
   <tr><th>검색 서비스</th><th>이용률</th></tr>
   <tr><td>네이버</td><td>81.6%</td></tr>
@@ -1058,7 +1072,7 @@
 <p>나스미디어 2026 NPR의 숫자예요. 매일 숏폼을 본다 82.5%.</p>
 <p>보다가 제품 정보를 찾아본다 62.6%. 보고 그 자리에서 산다</p>
 <p>24.7%.</p>
-<p>블로그는 찾아온 사람에게 답하는 매체이고, 숏폼은 안 찾던 사람에게 들이미는 매체라 성질이 달라요.</p>
+<p>블로그는 찾아온 사람에게 답하는 매체예요. 숏폼은 안 찾던 사람에게 들이미는 매체라 성질이 달라요.</p>
 
 <h2>나이대별 이용 매체</h2>
 <table>
@@ -1142,7 +1156,7 @@
 <p>신용, 고용, 주택, 사회 문제, 선거가 여기 들어가요. 동네 가게는 대개 무관한데, 직원 구인 광고를 하신다면 고용에 걸려요.</p>
 
 <h2>5. 비현실적 약속</h2>
-<p>건강, 체중 감량, 경제적 기회에서 비현실적인 결과를 약속하거나 암시하면 안 된다고 적혀 있어요. "한 달에 10kg"이나 "월 천만 원" 같은 문구가 여기예요.</p>
+<p>건강, 체중 감량, 경제적 기회에서 비현실적인 결과를 약속하면 안 된다고 적혀 있어요. "한 달에 10kg"이나 "월 천만 원" 같은 문구가 여기예요.</p>
 
 <h2>검토 범위</h2>
 <p>이미지, 영상, 문구, 타게팅에 더해 광고를 눌러서 가는 페이지도 검토될 수 있다고 해요. 그리고 계정도 봐요. 광고 하나가 거부되는 것과 계정이 제한되는 것은 차원이 달라요.</p>
@@ -1344,7 +1358,7 @@
   <span class="who">구글 검색센터, 「검색 기술 요구사항」</span>
   <q>robots.txt 파일로 Googlebot을 차단하면 크롤링은 차단되지만, 페이지의 URL이 검색결과에 계속 표시될 수 있습니다. Google에서 페이지의 색인을 생성하지 않도록 하려면 noindex를 사용하여 Google이 URL을 크롤링하도록 허용합니다.</q>
 </blockquote>
-<p>"검색에서 빼려면 robots.txt로 막으면 된다"는 흔한 오해가 정면으로 부정된 대목이에요.</p>
+<p>"검색에서 빼려면 robots.txt로 막으면 된다"는 오해가 부정된 대목이에요.</p>
 
 <div class="note">
   <b>내일 할 일</b>
@@ -1465,7 +1479,7 @@
   <tr><td>넷을 다 갖춰야 한다</td><td>다 갖출 필요는 없어요</td></tr>
   <tr><td>권위가 중요하다</td><td>가장 중요한 건 신뢰성이에요</td></tr>
 </table>
-<p>건강, 금융, 안전처럼 사람의 생활에 큰 영향을 주는 주제에는 더 큰 가중치를 준다고 해요. 안경원이나 피부 관리처럼 건강에 닿는 업종은 여기 해당할 수 있어요.</p>
+<p>건강, 금융, 안전처럼 생활에 큰 영향을 주는 주제에는 가중치를 더 준다고 해요. 안경원이나 피부 관리처럼 건강에 닿는 업종은 여기 해당할 수 있어요.</p>
 
 <h2>품질 평가자</h2>
 <blockquote class="official">
@@ -1475,7 +1489,7 @@
 <p>품질 평가자가 내 페이지를 보고 순위를 내린다는 건 흔한 오해예요. 구글은 평가자 의견을 식당의 만족도 카드처럼 쓴다고 적었어요. 시스템이 잘 작동하는지 보는 용도죠.</p>
 
 <h2>경험이라는 재료</h2>
-<p>점검 질문 가운데 이런 것이 있어요. 제품이나 서비스를 실제로 쓰거나 어떤 장소를 방문해야 얻을 수 있는 전문성이 글에 드러나느냐고요. 직접 써 보고 가 본 사람만 쓸 수 있는 것을 문서가 예로 들어요.</p>
+<p>점검 질문 가운데 이런 것이 있어요. 제품을 실제로 쓰거나 장소를 방문해야 얻는 전문성이 글에 드러나느냐고요. 직접 써 보고 가 본 사람만 쓸 수 있는 것을 문서가 예로 들어요.</p>
 <p>네이버가 비체험 원고를 미노출 사유로 든 것과 같은 방향이에요. <a href="/guide/blog-removed.html">블로그가 검색에서 빠지는 이유</a>에 있어요.</p>
 
 <h2>흔한 위험 신호</h2>
@@ -1525,7 +1539,8 @@
     <description>손님이 검색창 대신 AI에게 물을 때 우리 가게가 답에 나오는 구조를 그림으로 봐요. 생성형 엔진 최적화(GEO)라는 말이 어디서 왔고, 무엇이 확인됐고 무엇이 아직 근거가 없는지 가려요.</description>
     <content:encoded><![CDATA[<p class="kicker">검색 · AI 답변</p>
 <h1>AI가 답할 때 우리 글이 쓰이려면</h1>
-<p class="lead">요즘 손님은 검색창에 낱말을 치는 대신 "저녁 7시 넘어서 여는 안경원 있어?"처럼 물어요. 그러면 AI가 여기저기 글을 읽고 한 문단으로 답하고요. 그 답에 우리 가게가 들어가게 하는 일을 생성형 엔진 최적화(GEO)라고 불러요.</p>
+<p class="lead">요즘 손님은 검색창에 낱말을 치지 않아요. "저녁 7시 넘어서 여는 안경원 있어?"처럼 물어요. 그러면 AI가 여기저기 글을 읽고 한 문단으로 답하고요.</p>
+<p class="lead">그 답에 우리 가게가 들어가게 하는 일을 생성형 엔진 최적화(GEO)라고 불러요.</p>
 <p class="lead">이 말이 어디까지 믿을 만한지부터 가려 볼게요.</p>
 
 <h2>AI가 답을 만드는 구조</h2>
@@ -1659,7 +1674,8 @@
   <tr><td>.kr, .co.kr, 한글.kr</td><td>한국인터넷진흥원</td><td>진흥원과 계약한 등록대행자</td></tr>
   <tr><td>.com, .net, .shop 등</td><td>ICANN 체계</td><td>ICANN 인가 등록기관. 국내 대행사도 있어요</td></tr>
 </table>
-<p>.kr은 진흥원 사이트가 아니고 등록대행자 홈페이지에서 신청한다고 해요. .com 계열은 등록자 이름이나 이메일을 바꾸면 60일 동안 다른 곳으로 못 옮긴다고 해요. 도메인 탈취를 막으려는 규정이에요. 누가 먼저 잡았느냐로 다툼이 생기면 인터넷주소분쟁조정위원회에 조정을 신청할 수 있다고 하고요.</p>
+<p>.kr은 진흥원 사이트가 아니고 등록대행자 홈페이지에서 신청한다고 해요. .com 계열은 등록자 이름이나 이메일을 바꾸면 60일 동안 못 옮긴다고 해요. 도메인 탈취를 막으려는 규정이에요. 누가 먼저 잡았느냐로 다툼이 생기면 조정을 신청할 수 있어요.</p>
+<p>인터넷주소분쟁조정위원회예요.</p>
 <p class="small">상호와 도메인은 별개예요. 도메인을 잡았다고 상표권이 생기지 않아요. 상표는 특허청 문제이고 이 사이트에는 아직 그 글이 없어요.</p>
 
 <h2>올리는 곳 세 갈래</h2>
@@ -1674,7 +1690,8 @@
 <p>빌더 요금은 자주 바뀌어서 여기 숫자를 옮기지 않아요. 요금 페이지를 직접 보세요.</p>
 
 <h2>공짜 호스팅 약관</h2>
-<p>직접 구축을 고른 사장님이 흔히 듣는 말이 GitHub Pages나 Vercel은 공짜라는 거예요. 약관이 막아요. GitHub Pages는 온라인 비즈니스나 이커머스 같은 상거래 목적으로 쓸 수 없다고 해요.</p>
+<p>직접 구축을 고르면 흔히 듣는 말이 있어요. GitHub Pages나 Vercel은 공짜라는 말이에요. 약관이 막아요.</p>
+<p>GitHub Pages는 상거래 목적으로 쓸 수 없다고 해요.</p>
 <p>Vercel의 무료 플랜은 비상업적 개인 용도로 제한된다고 하고요. 가게 홈페이지는 상업 사용이에요.</p>
 <p>공짜 플랜에 올렸다가 내려가면 손님이 못 들어와요.</p>
 <p class="small">이 사이트는 GitHub Pages에 있어요. 물건을 팔지 않는 교육 사이트라 약관에 걸리지 않아요. 가게 홈페이지와는 경우가 달라요.</p>
@@ -1727,7 +1744,8 @@
   <tr><td>검색</td><td>네이버 검색과 붙어 있어요</td><td>구글 검색의 일반 사이트로 취급돼요</td></tr>
   <tr><td>돈</td><td>무료</td><td>무료. 도메인만 따로 사요</td></tr>
 </table>
-<p>한국 손님은 네이버에서 먼저 찾으니 <a href="/guide/blog.html">네이버 블로그</a>가 먼저예요. 블로거는 내 도메인으로 글을 쌓고 싶은데 홈페이지 빌더 요금이 부담될 때 고를 수 있는 길이에요. 외국 손님을 받는 가게라면 구글 쪽이 더 맞고요.</p>
+<p>한국 손님은 네이버에서 먼저 찾으니 <a href="/guide/blog.html">네이버 블로그</a>가 먼저예요. 블로거는 내 도메인으로 글을 쌓고 싶을 때 고르는 길이에요. 홈페이지 빌더 요금이 부담될 때요.</p>
+<p>외국 손님을 받는 가게라면 구글 쪽이 더 맞고요.</p>
 
 <h2>만드는 순서</h2>
 <p>블로거에 로그인해서 새 블로그를 누르고, 이름을 적고, 주소를 고르고, 저장. 문서에 적힌 절차가 이게 전부예요. 그리고 이 문장이 붙어 있어요.</p>
@@ -1797,12 +1815,12 @@
 <p class="lead">여기서는 그 두 문서에 적힌 것만 옮길게요.</p>
 
 <h2>2016년 공개 항목</h2>
-<p>네이버 검색 공식 블로그가 C-Rank라는 계산 방식을 설명하면서 참고 항목을 표로 공개했어요. 다만 10년 된 글이고, 네이버가 문서 안에 이렇게 못 박아 뒀어요.</p>
+<p>네이버 검색 공식 블로그가 C-Rank라는 계산 방식을 설명했어요. 참고 항목을 표로 공개했고요. 다만 10년 된 글이고, 네이버가 문서 안에 이렇게 못 박아 뒀어요.</p>
 <blockquote class="official">
   <span class="who">네이버 검색 공식 블로그, 「C-Rank 알고리즘」(2016)</span>
   <q>C-Rank에서 참고하는 항목들은 알고리즘 개선을 위해 계속 변경 적용됩니다.</q>
 </blockquote>
-<p>그러니 "지금 이렇다"로 읽으면 안 되고, "2016년에 이렇게 공개했다"로 읽으셔야 해요.</p>
+<p>그러니 "지금 이렇다"로 읽으면 안 돼요. "2016년에 이렇게 공개했다"로 읽으셔야 해요.</p>
 <table>
   <tr><th>항목</th><th>네이버 설명을 줄이면</th><th>사장님 입장에서</th></tr>
   <tr><td>문서 기본 정보</td><td>제목, 본문, 이미지, 링크로 문서의 기본 품질을 계산</td><td>글과 사진을 제대로 채워요</td></tr>
@@ -1831,7 +1849,7 @@
   <span class="who">같은 문서</span>
   <q>아무리 노력해도 검색 결과에서는 항상 뒤쳐지는 블로그로만 남는 것은 아닙니다.</q>
 </blockquote>
-<p>두 문장을 같이 읽어야 해요. 한 달 만에 올려 주겠다는 제안은 첫 문장과 어긋나고, 이미 늦었다는 말은 둘째 문장과 어긋나요.</p>
+<p>두 문장을 같이 읽어야 해요. 한 달 만에 올려 주겠다는 제안은 첫 문장과 어긋나요. 이미 늦었다는 말은 둘째 문장과 어긋나고요.</p>
 
 <h2>저품질·블로그 지수</h2>
 <blockquote class="official">
@@ -1893,7 +1911,7 @@
     <content:encoded><![CDATA[<p class="kicker">네이버 · 블로그</p>
 <h1>블로그가 검색에서 빠지는 이유</h1>
 <p class="lead">네이버 공식 문서 세 건에 빠지는 사유가 전부 적혀 있어요. 추측이 필요 없죠.</p>
-<p class="lead">전체 목록은 웹사이트 운영자용이 많아서, 여기서는 가게 블로그에 실제로 해당하는 것만 골랐어요.</p>
+<p class="lead">전체 목록은 웹사이트 운영자용이 많아요. 여기서는 가게 블로그에 실제로 해당하는 것만 골랐어요.</p>
 
 <h2>안심해도 되는 것</h2>
 <blockquote class="official">
@@ -1955,7 +1973,7 @@
   <span class="who">네이버, 「블로그 검색 노출 제한 기준 안내」</span>
   <q>일관되지 않게 표기</q>
 </blockquote>
-<p>원고료만 적고 식음료 쿠폰은 안 적는 식이면 불이익이 있을 수 있다고 해요. 받은 걸 전부 적어야 해요. 그리고 대가성 후기를 지나치게 반복하면 정상 글까지 같이 불이익을 받을 수 있다고 적혀 있어요.</p>
+<p>원고료만 적고 식음료 쿠폰은 안 적는 식이면 불이익이 있을 수 있다고 해요. 받은 걸 전부 적어야 해요. 대가성 후기를 지나치게 반복하면 정상 글까지 불이익을 받을 수 있다고도 적혀 있어요.</p>
 <p>그래서 체험단 후기와 가게 글은 블로그 하나로 같이 하지 않는 게 좋아요.</p>
 
 <h3>7. 품앗이</h3>
@@ -1963,7 +1981,8 @@
   <span class="who">네이버, 「웹 콘텐츠 스팸 사례」</span>
   <q>댓글 작성·방문·추천 수를 조작</q>
 </blockquote>
-<p>여러 계정을 동원해 수를 만드는 것이 여기 걸려요. <a href="/guide/blog.html">앞 글</a>에서 본 "이웃과 활발하게 소통"과 헷갈리면 안 돼요. 진짜 관심 있는 이웃과 오가는 건 소통이고, 순위를 올릴 목적으로 수를 만드는 건 조작이에요.</p>
+<p>여러 계정을 동원해 수를 만드는 것이 여기 걸려요. <a href="/guide/blog.html">앞 글</a>에서 본 "이웃과 활발하게 소통"과 헷갈리면 안 돼요. 진짜 관심 있는 이웃과 오가는 건 소통이에요.</p>
+<p>순위를 올릴 목적으로 수를 만드는 건 조작이고요.</p>
 
 <h2>목록 밖의 경우</h2>
 <blockquote class="official">
@@ -2056,7 +2075,8 @@
   <li>사업 개시일부터 20일 안에 신청했다 (개시 전 신청도 돼요)</li>
   <li>간이과세자인지 일반과세자인지 안다</li>
 </ul>
-<p>간이과세자면 통신판매업 신고가 면제돼요. 기준은 직전 연도 연 환산 공급대가 1억 400만 원이고, 2024년 7월 1일부터 적용됐어요. 부동산임대와 과세유흥장소는 4,800만 원이고요.</p>
+<p>간이과세자면 통신판매업 신고가 면제돼요. 기준은 직전 연도 연 환산 공급대가 1억 400만 원이에요. 2024년 7월 1일부터 적용됐어요.</p>
+<p>부동산임대와 과세유흥장소는 4,800만 원이고요.</p>
 <p><span class="grade">B · 국세청 안내 발췌</span></p>
 
 <h2>2. 통신판매업 신고·면제</h2>
@@ -2080,7 +2100,8 @@
   <dt>낼 서류</dt><dd>구매안전서비스 이용 확인증. 선지급식 통신판매를 하려는 경우만</dd>
 </dl>
 <p>신고서에는 도메인과 호스트서버 소재지가 들어가요(법 제12조 제1항 제2호). 도메인과 호스팅을 정한 뒤라야 신고가 되니, 순서를 거꾸로 하면 막혀요.</p>
-<p>변경이 생기면 15일 안에 신고하고, 휴업과 폐업은 미리 신고해요. 안 하면 1천만 원 이하 과태료예요(제45조). 신고 자체를 안 하면 3천만 원 이하 벌금인데(제42조), 과태료가 아니고 벌금이라 전과가 남아요.</p>
+<p>변경이 생기면 15일 안에 신고하고, 휴업과 폐업은 미리 신고해요. 안 하면 1천만 원 이하 과태료예요(제45조). 신고 자체를 안 하면 3천만 원 이하 벌금이에요(제42조).</p>
+<p>과태료가 아니고 벌금이라 전과가 남아요.</p>
 
 <h2>3. 홈페이지 표시 사항 (제10조)</h2>
 <blockquote class="official">
@@ -2096,7 +2117,7 @@
   <li>주소, 전화번호, 전자우편주소</li>
   <li>신고번호와 신고 기관 이름</li>
 </ul>
-<p>인스타그램 판매 게시물과 블로그 공동구매 글도 "청약을 받을 목적의 표시·광고"에 해당해요. 쇼핑몰이 없어도 이 조는 걸려요(편집자 주).</p>
+<p>인스타그램 판매 게시물과 블로그 공동구매 글도 여기 해당해요. 쇼핑몰이 없어도 이 조는 걸려요(편집자 주).</p>
 
 <h2>5. 청약철회 안내</h2>
 <ul class="check">
@@ -2159,7 +2180,8 @@
     <description>제안서에 번갈아 나오는 세 글자를 그림 하나로 정리해요. 손님이 검색창에서 찾으면 SEO, AI 답변에서 찾으면 GEO이고, AEO는 GEO를 업계에서 달리 부르는 말이에요. 셋을 따로 파는 제안서를 읽는 법도 같이 봐요.</description>
     <content:encoded><![CDATA[<p class="kicker">검색 · 용어 정리</p>
 <h1>AEO, GEO, SEO는 무엇이 다른가</h1>
-<p class="lead">대행사 제안서에 이 세 글자가 번갈아 나와요. 서로 다른 상품처럼 보이게 돼 있는데, 손님이 어디서 찾느냐가 다를 뿐 가게가 할 일은 같아요. 그림 3에서 갈라졌다가 다시 만나는 길을 보세요.</p>
+<p class="lead">대행사 제안서에 이 세 글자가 번갈아 나와요. 서로 다른 상품처럼 보이게 돼 있어요. 손님이 어디서 찾느냐가 다를 뿐 가게가 할 일은 같아요.</p>
+<p class="lead">그림 3에서 갈라졌다가 다시 만나는 길을 보세요.</p>
 
 <figure>
 <svg viewBox="0 0 720 640" role="img" aria-labelledby="f3t f3d" xmlns="http://www.w3.org/2000/svg" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
@@ -2339,7 +2361,7 @@
   <span class="who">같은 문서</span>
   <q>다만, 검색 품질 향상을 위해 검색 사용자가 많이 찾지 않는 일부 키워드의 광고는 파워링크 영역에 최대 3개까지만 노출될 수도 있습니다.</q>
 </blockquote>
-<p>사장님이 노리는 "중앙동 안경원" 같은 동네 검색어가 바로 그 '많이 찾지 않는 키워드'예요. 그러니 3등 안에 못 들면 광고비를 걸어도 화면에 안 나올 수 있어요. 순위 계산법도 흔히 듣는 "입찰가 곱하기 품질지수"와 달라요.</p>
+<p>사장님이 노리는 "중앙동 안경원" 같은 동네 검색어가 바로 그거예요. 그러니 3등 안에 못 들면 광고비를 걸어도 화면에 안 나올 수 있어요. 순위 계산법도 흔히 듣는 "입찰가 곱하기 품질지수"와 달라요.</p>
 <blockquote class="official">
   <span class="who">같은 문서</span>
   <q>이용자의 검색어와 사이트 콘텐츠의 연관성이 가장 높은 광고를 우선하여 광고를 선정됨에 따라, 검색어와 사이트 콘텐츠의 연관성, 입찰가(자동입찰), 소재 품질 등의 종합적인 결과를 바탕으로 광고 순위가 결정됩니다.</q>
@@ -2358,7 +2380,7 @@
   <span class="who">같은 문서</span>
   <q>머신 러닝 단계에서는 광고 세트의 성과가 안정적이지 못하며 일반적으로 CPA가 높아집니다.</q>
 </blockquote>
-<p>주 50건 결과가 안 나오는 가게는 이 단계 안에 계속 머물러요. 그래서 구매처럼 드문 일 대신 랜딩 조회나 문의, 전화처럼 자주 일어나는 일로 최적화하는 편이 나아요. 광고 세트도 쪼개지 않고요.</p>
+<p>주 50건 결과가 안 나오는 가게는 이 단계 안에 계속 머물러요. 그래서 구매처럼 드문 일 대신 문의나 전화처럼 자주 일어나는 일로 최적화하는 편이 나아요. 광고 세트도 쪼개지 않고요.</p>
 <p>다시 시작되는 변경은 여섯 가지예요.</p>
 <blockquote class="official">
   <span class="who">Meta, 「영향이 큰 변경과 머신 러닝 단계」</span>
@@ -2385,7 +2407,7 @@
 </table>
 <p>둘은 모순이 아니고 처지가 달라요. 이미 다 아는 브랜드를 검색한 사람은 광고가 없어도 오죠.</p>
 <p>동네 가게는 나를 모르는 사람이 '근처 안경원'으로 찾으니까 광고가 없으면 아예 안 보이고요.</p>
-<p>광고는 나를 이미 찾는 사람에게는 효과가 낮고, 나를 모르는 사람에게 닿을 때 효과가 나요. 이 정리는 두 논문을 이어 붙인 편집자 주예요.</p>
+<p>광고는 나를 이미 찾는 사람에게는 효과가 낮아요. 나를 모르는 사람에게 닿을 때 효과가 나요. 이 정리는 두 논문을 이어 붙인 편집자 주예요.</p>
 <p>그 실험이 말하지 않는 것도 적어 둘게요. 잰 것은 구매 의도이지 매출이 아니에요. 광고를 무료로 줬으니 '광고의 효과'이지 '광고비의 값'이 아니고요.</p>
 <p>미국 데이터이기도 해요. 광고비를 얼마 써서 얼마가 남는지는 그 연구가 답하지 않아요.</p>
 <p>그 답은 <a href="/guide/record.html">12주 기록</a>에서만 나와요.</p>
@@ -2433,7 +2455,8 @@
     <description>Smart Store&#x27;s two fee layers and its 3% to 1% cut for traffic you bring, Coupang&#x27;s category fees locked at listing, and why Instagram checkout is US-only.</description>
     <content:encoded><![CDATA[<p class="kicker">4 · Selling</p>
 <h1>Selling online in Korea: Smart Store, Coupang, and Instagram without checkout</h1>
-<p class="lead">There are three ways to sell online in Korea. Naver Smart Store (스마트스토어), Coupang (쿠팡), and your own shop on your own domain. The first two already have the customers and charge fees; the third charges no commission but you must bring the customers. Below is what the fee documents say, with the effective dates, because these numbers change.</p>
+<p class="lead">There are three ways to sell online in Korea. Naver Smart Store (스마트스토어), Coupang (쿠팡), and your own shop on your own domain. The first two already have the customers and charge fees; the third charges no commission but you must bring the customers.</p>
+<p class="lead">Below is what the fee documents say, with the effective dates, because these numbers change.</p>
 
 <h2>Smart Store has two fee layers</h2>
 <blockquote class="official">
@@ -2447,14 +2470,16 @@
   <tr><td>Initial shipping</td><td>Yes</td><td>No</td></tr>
   <tr><td>Return and exchange shipping</td><td>Yes</td><td>No</td></tr>
 </table>
-<p>The Npay fee is the payment and order-management layer. Since 1 October 2025 it runs from 1.947% for the smallest merchant tier to 3.630% for the general tier, VAT included. New sellers start on the general tier. Naver's document says merchants later classified into a lower tier are refunded the difference for the previous half-year. Tiers are set from tax-office revenue and updated on 14 February and 14 August.</p>
+<p>The Npay fee is the payment and order-management layer. Since 1 October 2025 it runs from 1.947% for the smallest merchant tier to 3.630% for the general tier, VAT included. New sellers start on the general tier.</p>
+<p>Naver's document says merchants later classified into a lower tier are refunded the difference for the previous half-year. Tiers are set from tax-office revenue and updated on 14 February and 14 August.</p>
 <p>The Naver Shopping sales fee is the marketplace layer, and one of four rates always applies. It is 3% for a Smart Store sale and 4% for a Brand Store sale. When the seller brought the customer, those drop to 1% and 2%.</p>
 <blockquote class="official">
   <span class="who">Same document</span>
   <q>판매자가 직접 네이버 내부 또는 외부에서 광고 및 홍보를 통해 유입한 고객이 상품을 구매한 경우, 판매자 마케팅 수수료가 적용되어 낮은 수수료가 과금됩니다.</q><br>
   <span class="src">Our rendering: "When a customer the seller brought in through its own advertising or promotion, inside or outside Naver, makes a purchase, the lower seller-marketing fee applies."</span>
 </blockquote>
-<p>This is the one place in Korean e-commerce where marketing shows up in the settlement statement as a number. Take a 10,000-won order at the general tier. The document's own example gives 9,337 won settled for an organic sale and 9,537 won when you brought the customer. That 200-won gap, counted over a quarter, is the cleanest measure of whether your Korean marketing is working.</p>
+<p>This is the one place in Korean e-commerce where marketing shows up in the settlement statement as a number. Take a 10,000-won order at the general tier. The document's own example gives 9,337 won settled for an organic sale and 9,537 won when you brought the customer.</p>
+<p>That 200-won gap, counted over a quarter, is the cleanest measure of whether your Korean marketing is working.</p>
 
 <h2>Coupang fees depend on category and are locked at listing</h2>
 <blockquote class="official">
@@ -2462,7 +2487,8 @@
   <q>상품이 등록된 후에는 카테고리를 변경할 수 없습니다.</q><br>
   <span class="src">Our rendering: "The category cannot be changed after the product is listed."</span>
 </blockquote>
-<p>Base rates by top-level category run from 7.8% (household goods, electronics) through 9.6% (beauty), 10% (baby, automotive), 10.5% (fashion), 10.6% (food) to 10.8% (furniture, books, kitchen, toys, pets). Sub-categories vary further. Coupang states that fees are charged on the discounted price and that it does not double-charge payment fees. If Coupang decides your category was wrong, it may reassign it and apply that category's rate. The table does not say whether VAT is included; Naver's does.</p>
+<p>Base rates by top-level category run from 7.8% (household goods, electronics) through 9.6% (beauty), 10% (baby, automotive), 10.5% (fashion), 10.6% (food) to 10.8% (furniture, books, kitchen, toys, pets). Sub-categories vary further. Coupang states that fees are charged on the discounted price and that it does not double-charge payment fees.</p>
+<p>If Coupang decides your category was wrong, it may reassign it and apply that category's rate. The table does not say whether VAT is included; Naver's does.</p>
 <p>Keep that in mind when comparing.</p>
 
 <h2>Instagram checkout does not exist in Korea</h2>
@@ -2471,7 +2497,8 @@
   <q>Facebook과 Instagram 결제 기능은 현재 미국에서만 사용할 수 있습니다.</q><br>
   <span class="src">Our rendering: "Facebook and Instagram checkout is currently available only in the United States."</span>
 </blockquote>
-<p>Korea is one of seven Asia-Pacific markets where Meta kept shops after its 2023 regional cutback, so product tags still work. But they only send the customer to your website. The purchase happens on your own shop, and conversion tracking must live there for Meta's learning phase to have anything to learn from. Meta also asks for a single, unshortened domain that your account represents and may require domain verification. A shop hosted under someone else's domain, such as a Smart Store address, may struggle with that step.</p>
+<p>Korea is one of seven Asia-Pacific markets where Meta kept shops after its 2023 regional cutback, so product tags still work. But they only send the customer to your website. The purchase happens on your own shop, and conversion tracking must live there for Meta's learning phase to have anything to learn from.</p>
+<p>Meta also asks for a single, unshortened domain that your account represents and may require domain verification. A shop hosted under someone else's domain, such as a Smart Store address, may struggle with that step.</p>
 <p>The document does not say Smart Store is ineligible, so we do not say it either.</p>
 
 <h2>Mobile first, by a wide margin</h2>
@@ -2504,16 +2531,20 @@
     <description>No forms, no names, no emails collected. If ads are shown, Google uses cookies to pick them and you can opt out. What is logged, by whom, and why.</description>
     <content:encoded><![CDATA[<p class="kicker">Site · Privacy</p>
 <h1>Privacy</h1>
-<p class="lead">This site has no sign-up, no contact form and no comments, so there is nothing for you to type and nothing for us to keep. Two things still happen when you open a page. The server logs the request, and, when ads are switched on, Google sets cookies to choose them. Both are explained below.</p>
+<p class="lead">This site has no sign-up, no contact form and no comments, so there is nothing for you to type and nothing for us to keep. Two things still happen when you open a page. The server logs the request, and, when ads are switched on, Google sets cookies to choose them.</p>
+<p class="lead">Both are explained below.</p>
 
 <h2>What we collect directly</h2>
-<p>Nothing. The only input is the search box, which sends your words to Google and opens Google's results; nothing is stored here. If you want to report an error, you do it on the public repository's issue page. That runs on your GitHub account under GitHub's own privacy statement.</p>
+<p>Nothing. The only input is the search box, which sends your words to Google and opens Google's results; nothing is stored here. If you want to report an error, you do it on the public repository's issue page.</p>
+<p>That runs on your GitHub account under GitHub's own privacy statement.</p>
 
 <h2>Server logs</h2>
-<p>The site is served by GitHub Pages. Like any web server, it briefly records the requesting IP address, browser type and time. GitHub holds those logs; we cannot see them. We have added no analytics of our own.</p>
+<p>The site is served by GitHub Pages. Like any web server, it briefly records the requesting IP address, browser type and time. GitHub holds those logs; we cannot see them.</p>
+<p>We have added no analytics of our own.</p>
 
 <h2>Cookies and advertising</h2>
-<p>The site itself sets no cookies. It may carry Google AdSense advertising. When ads are on, Google and its partners use cookies to serve ads based on your prior visits to this and other websites. Those cookies are set and read by Google, not by us.</p>
+<p>The site itself sets no cookies. It may carry Google AdSense advertising. When ads are on, Google and its partners use cookies to serve ads based on your prior visits to this and other websites.</p>
+<p>Those cookies are set and read by Google, not by us.</p>
 <table>
   <tr><th>What</th><th>Who</th><th>Why</th></tr>
   <tr><td>Advertising cookies</td><td>Google and its ad partners</td><td>To select ads based on browsing history</td></tr>
@@ -2681,7 +2712,8 @@
   <q>플레이스 업체 설명과 리뷰를 분석하여 의미 기반 매칭을 하고 있기 때문에 플레이스와 관련된 리뷰가 풍부할수록 다양한 검색 결과에 노출될 수 있습니다.</q><br>
   <span class="src">Our rendering: "Because we match on meaning by analysing the shop description and reviews, a shop with richer reviews can appear for more varied searches."</span>
 </blockquote>
-<p>This is the sentence to remember. Review text is used to match queries. When a customer writes "easy parking" in a review, your listing can surface for someone searching that phrase. Asking for five stars adds stars; letting customers write in their own words adds search terms.</p>
+<p>This is the sentence to remember. Review text is used to match queries. When a customer writes "easy parking" in a review, your listing can surface for someone searching that phrase.</p>
+<p>Asking for five stars adds stars; letting customers write in their own words adds search terms.</p>
 <blockquote class="official">
   <span class="who">Same document</span>
   <q>해당 업체의 언급수, 이미지수, 클릭수 등 다양한 요소로 결정됩니다. 이에 따라, 인기도가 높다면 사용자 위치와 더 먼 거리여도 검색결과 상단에 우선 노출될 수 있습니다.</q><br>
@@ -2695,7 +2727,8 @@
   <q>다수의 계정으로 접속, 불법 프로그램, 검색 광고 마케팅 업체나 앱 등을 통해 허위 클릭을 과다하게 유발하는 경우</q><br>
   <span class="src">Our rendering: "Generating excessive false clicks through multiple accounts, illegal programs, or search-advertising marketing agencies or apps."</span>
 </blockquote>
-<p>Marketing agencies are named in the first criterion. Traffic-boosting services sold by local agencies are, by Naver's definition, abuse. The other three criteria cover fake bookings followed by cancellations, abnormal search patterns, and any other act that degrades search quality. Naver also states that the detailed filter thresholds are not published, so no vendor can credibly promise that a tactic "will not be caught".</p>
+<p>Marketing agencies are named in the first criterion. Traffic-boosting services sold by local agencies are, by Naver's definition, abuse. The other three criteria cover fake bookings followed by cancellations, abnormal search patterns, and any other act that degrades search quality.</p>
+<p>Naver also states that the detailed filter thresholds are not published, so no vendor can credibly promise that a tactic "will not be caught".</p>
 
 <h2>AI Briefing: a summary you cannot edit</h2>
 <blockquote class="official">
@@ -2703,7 +2736,8 @@
   <q>AI 브리핑은 네이버 이용자가 작성한 데이터를 바탕으로 제공되기 때문에 내용을 임의로 수정할 수 없습니다.</q><br>
   <span class="src">Our rendering: "Because AI Briefing is generated from data written by Naver users, its content cannot be edited at will."</span>
 </blockquote>
-<p>Naver summarises your reviews into a short blurb shown with your listing. You can switch it off in the Smart Place admin, but you cannot rewrite it. What customers write becomes how Naver introduces you. The document says it currently covers some categories, such as restaurants and cafés, and only shops with enough reviews. The threshold is not published.</p>
+<p>Naver summarises your reviews into a short blurb shown with your listing. You can switch it off in the Smart Place admin, but you cannot rewrite it. What customers write becomes how Naver introduces you.</p>
+<p>The document says it currently covers some categories, such as restaurants and cafés, and only shops with enough reviews. The threshold is not published.</p>
 
 <div class="note">
   <b>Order of operations for a new entrant</b>
