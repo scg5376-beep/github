@@ -22,8 +22,8 @@
   },
   "text": {
     "heading_max_chars": 34,
-    "para_max_chars": 230,
-    "sentence_max_chars_ko": 50,
+    "para_max_chars": 320,
+    "sentence_max_chars_ko": 75,
     "sentence_max_words_en": 25,
     "bold_per_para_max": 1,
     "ending_share_max": 0.5,
@@ -131,7 +131,7 @@
       "!"
     ],
     "heading_max_chars_en": 70,
-    "para_max_sentences": 3
+    "para_max_sentences": 5
   },
   "privacy": {
     "patterns": [

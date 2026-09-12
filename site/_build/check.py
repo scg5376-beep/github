@@ -86,13 +86,14 @@ def sentences_ko(text):
 
 def check_tone(rel, prose_html):
     """prose_html: <main> 에서 인용·표·그림·근거를 뺀 HTML 조각"""
-    body = re.sub(r"<(table|figure|footer|svg)\b.*?</\1>", " ", prose_html, flags=re.S)
+    body = re.sub(r"<(table|figure|footer|svg|nav|h[1-6])\b.*?</\1>", " ", prose_html, flags=re.S)
+    body = re.sub(r"<div class=\"next\">.*?</div>", " ", body, flags=re.S)   # 다음 글 링크·제목·내비는 문장 통계에서 뺀다
     paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
     paras = [x for x in paras if len(x) > 8]
     plain = " ".join(paras)
     # 범례의 표제어(「파워링크.」)는 문장 통계에서 뺀다
     body_nolabel = re.sub(r"<li>\s*<span class=\"num\">\d+</span>\s*<div>\s*<b>[^<]*</b>", "<li><div>", body)
-    paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
+    paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
     paras_stat = [x for x in paras_stat if len(x) > 8]
     L = TONE["limit"]
     # S1 금지
@@ -154,6 +155,12 @@ def check_tone(rel, prose_html):
     for s in sents:
         if len(s) > L["sentence_max_chars"]:
             warn(rel, "S2-14", f"문장 {len(s)}자: {s[:36]}…")
+    # S2-16 조각문: 본문 p 의 문장이 서술어 없이 끝나면(「사진은 오늘, 언급은 6단계에서.」) 말이 안 된다 (조사 자연스러운-구어체 2026-09-13: 유시민 주어+서술어, 개조식 비판)
+    body_ng = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", "", body, flags=re.S)
+    p_only = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|empty|banner|trust)\")[^>]*>(.*?)</p>", body_ng, re.S)]
+    frags = [x for para in p_only for x in sentences_ko(para) if not re.search(r"(요|죠|다|까|네|게|고요|는데요|거든요)[.?!]$", x) and not re.search(r"[)\]」]$", x.rstrip(".")) and len(x) > 8]
+    if len(frags) > L["fragment_max"]:
+        err(rel, "S2-16", f"서술어 없이 끝나는 조각 문장 {len(frags)}개 > {L['fragment_max']}개: {frags[0][:30]}…")
     # ── S3 이용자 지적 (2026-09-11 조사 AI티-한국어-이용자-지적) ──
     inten = sum(len(re.findall(rf"(?<![가-힣]){w}(?![가-힣])", plain)) for w in L["intensifiers"])
     if inten > L["intensifier_max"]:
@@ -191,7 +198,7 @@ def check_page(p, all_titles):
     SITECFG = json.loads((ROOT / "_build" / "site.json").read_text(encoding="utf-8"))
     if 'http-equiv="Content-Security-Policy"' not in head and not SITECFG["ads"]["enabled"]:
         err(rel, "S1", "CSP 메타가 없다")
-    for m in re.finditer(r"<script([^>]*)>(.*?)</script>", raw, re.S):
+    for m in re.finditer(r"<script\b([^>]*)>(.*?)</script>", raw, re.S):
         if 'type="application/ld+json"' in m.group(1) or (SITECFG["ads"]["enabled"] and ("googlesyndication" in m.group(1) or "adsbygoogle" in m.group(2))):
             continue
         if True:
