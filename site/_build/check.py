@@ -337,10 +337,13 @@ def check_page(p, all_titles):
     if ko:
         # 이름표(제목·문·타일·탭·머리말)는 본문 통계에서 빠지므로 S1-13 만 따로 돈다 — 목차 페이지 포함
         labels = " | ".join(strip(x) for x in re.findall(r"<(?:h1|h2|h3|a class=\"door\"|a class=\"tile[^\"]*\"|p class=\"kicker\"|span class=\"k\")[^>]*>(.*?)</(?:h1|h2|h3|a|p|span)>", main, re.S))
-        for pat in TONE["ban_s1"].get("S1-13 이름표 호객", []):
-            m = re.search(pat, labels)
-            if m:
-                err(rel, "S1-13", f"이름표 호객 '{m.group(0)}' … {labels[max(0, m.start()-12): m.end()+12]}")
+        tt = re.search(r"<title>(.*?)</title>", head, re.S); dd = re.search(r'name="description" content="([^"]*)"', head)
+        labels = " | ".join([labels, tt.group(1) if tt else "", dd.group(1) if dd else ""])
+        for key in ("S1-13 이름표 호객", "S1-14 수사 나열 예고"):
+            for pat in TONE["ban_s1"].get(key, []):
+                m = re.search(pat, labels)
+                if m:
+                    err(rel, key.split()[0], f"{key}: '{m.group(0)}' … {labels[max(0, m.start()-12): m.end()+12]}")
     if ko and not is_index:
         check_tone(rel, prose)
 
