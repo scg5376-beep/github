@@ -1,5 +1,5 @@
 // 헤들리스 Edge 로 페이지를 열어 본문 텍스트를 저장한다. usage: node fetch_text.mjs URL OUT.txt [waitMs]
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import http from "node:http"; import fs from "node:fs";
 const EDGE = "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe";
 const [url, out, waitMs] = [process.argv[2], process.argv[3], +(process.argv[4]||7000)];
@@ -18,4 +18,4 @@ try{
  fs.writeFileSync(out, `# ${v.title}\n# ${v.url}\n\n${v.text}`);
  console.log(`${v.title} | ${v.url} | ${v.text.length} chars`);
  ws.close();
-}catch(e){console.log("ERR",e.message);} p.kill();
+}catch(e){console.log("ERR",e.message);} try{spawnSync("taskkill",["/PID",String(p.pid),"/T","/F"],{stdio:"ignore"});}catch(e){} p.kill();

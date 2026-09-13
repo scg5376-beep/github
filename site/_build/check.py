@@ -161,6 +161,24 @@ def check_tone(rel, prose_html):
     frags = [x for para in p_only for x in sentences_ko(para) if not re.search(r"(요|죠|다|까|네|게|고요|는데요|거든요)[.?!]$", x) and not re.search(r"[)\]」]$", x.rstrip(".")) and len(x) > 8]
     if len(frags) > L["fragment_max"]:
         err(rel, "S2-16", f"서술어 없이 끝나는 조각 문장 {len(frags)}개 > {L['fragment_max']}개: {frags[0][:30]}…")
+    # ── H 규칙 (2026-09-14 말뭉치 분석: 사람이 쓴 글 116편의 하한) — 전부 경고 ──
+    if hap < L.get("hapsyo_ratio_min", 0):
+        warn(rel, "H9", f"합쇼체 종결 {hap:.0%} < {L['hapsyo_ratio_min']:.0%} (규정·강조 문장은 -합니다로 섞는다)")
+    nq = sum(1 for s in sents if s.rstrip().endswith("?"))
+    if nq < L.get("question_min", 0):
+        warn(rel, "H5", f"질문 문장 {nq}개 < {L['question_min']}개 (독자에게 묻고 답한다)")
+    nex = len(re.findall(r"예를 들어|예컨대|이를테면|가령", plain))
+    if nex < L.get("example_min", 0):
+        warn(rel, "H6", f"「예를 들어」 예시 {nex}개 < {L['example_min']}개")
+    nad = sum(len(re.findall(w, plain)) for w in L.get("address_words", []))
+    if nad < L.get("address_min", 0):
+        warn(rel, "H7", f"호칭 「사장님」 {nad}회 < {L['address_min']}회")
+    cps = sum(s.count(",") for s in sents) / n
+    if cps < L.get("comma_per_sent_min", 0):
+        warn(rel, "H3", f"문장당 쉼표 {cps:.2f} < {L['comma_per_sent_min']} (절을 이어 붙인다)")
+    nfp = len(re.findall(r"(?<![가-힣])(저도|제가|저는|저희가|저희는)(?![가-힣])", plain))
+    if nfp < L.get("first_person_min", 0):
+        warn(rel, "H13", f"편집자 1인칭 {nfp}회 < {L['first_person_min']}회 (쓴 사람이 보이게)")
     # ── S3 이용자 지적 (2026-09-11 조사 AI티-한국어-이용자-지적) ──
     inten = sum(len(re.findall(rf"(?<![가-힣]){w}(?![가-힣])", plain)) for w in L["intensifiers"])
     if inten > L["intensifier_max"]:
