@@ -250,12 +250,105 @@ def course_html(pages, lang, top):
     for sub in subs(lang, top):
         ps = posts(pages, lang, f"{top}/{sub}")
         why = info["why"].get(sub, "")
+        cost = step_cost(sub)
+        here = '<span class="here">여기부터</span>' if not out else ""
         if ps:
             p = ps[0]
-            out.append(f'<li><a href="{p["url"]}"><b>{esc(sub)}</b><span class="why">{esc(why)}</span><span class="time">{read_minutes(p)}분</span></a></li>')
+            out.append(f'<li class="{cost[0]}"><a href="{p["url"]}">{here}<b>{esc(sub)}</b><span class="why">{esc(why)}</span><span class="time"><span class="badge">{cost[1]}</span>{read_minutes(p)}분</span></a></li>')
         else:
             out.append(f'<li class="soon"><span class="soon"><b>{esc(sub)}</b><span class="why">{esc(why)}</span><span class="time">준비 중</span></span></li>')
-    return '<ol class="course">' + "".join(out) + "</ol>"
+    return '<ol class="course roadmap">' + "".join(out) + "</ol>"
+
+
+def step_cost(sub):
+    """단계의 비용 표시: 돈이 드는 단계(파워링크·광고), 법 확인 단계, 나머지는 무료."""
+    if sub in ("파워링크", "광고"):
+        return ("paid", "돈 듦")
+    if sub == "관련법":
+        return ("law", "법 확인")
+    return ("free", "무료")
+
+
+def chooser_html(pages, lang):
+    """첫 화면 맨 위: 「우리 가게는 어느 쪽인가요?」 업종 고르기 카드 (운영자 2026-09-14 "글로 안내하는 게 아니라 레이아웃으로 뭐부터 해야 할지"). 카드마다 1단계로 가는 큰 단추."""
+    if lang != "ko":
+        return ""
+    cards = []
+    for top in TRACKS:
+        info = TRACK_INFO[top]
+        first = posts(pages, lang, f"{top}/{subs(lang, top)[0]}")
+        url = first[0]["url"] if first else plat_url(lang, top)
+        n = len(subs(lang, top))
+        mins = sum(read_minutes(posts(pages, lang, f"{top}/{s}")[0]) for s in subs(lang, top) if posts(pages, lang, f"{top}/{s}"))
+        cards.append(f'<a class="pick {plat_class(top)}" href="{url}"><span class="who">{esc(info["who"])}</span><b>{esc(top)}</b>'
+                     f'<span class="lead">{esc(info["lead"])}</span><span class="btn">1단계부터 시작하기</span><span class="meta">{n}단계 · 읽는 시간 약 {mins}분</span></a>')
+    return ('<section class="chooser"><h2 class="hm-head">우리 가게는 어느 쪽인가요?</h2>'
+            '<p class="lead">하나를 고르시면 1단계 글로 가요. 글마다 「바로 할 일」이 하나씩 있고, 끝에 다음 단계 단추가 있어요.</p>'
+            '<div class="picks">' + "".join(cards) + "</div></section>")
+
+
+TODAY = [
+    ("스마트플레이스 빈칸 세기", "영업시간·가격·찾아오는 길·사진 가운데 빈 칸이 몇 개인지만 세어 보세요.", "5분", "/guide/place.html"),
+    ("최근 불만 리뷰 답글 하나 고치기", "「감사합니다, 노력하겠습니다」만 있으면 무슨 일이 있었는지와 어떻게 할지를 한 문장씩 넣으세요.", "10분", "/guide/reviews.html"),
+    ("우리 동네 + 업종으로 검색해 보기", "화면에서 「광고」 표시가 붙은 칸과 안 붙은 칸을 나눠 보세요. 대행사 말을 가리는 눈이 생겨요.", "5분", "/guide/seo.html"),
+]
+
+
+def today_html(pages, lang):
+    """업종을 몰라도 오늘 할 세 가지. 전부 무료이고 20분 안."""
+    if lang != "ko":
+        return ""
+    lis = "".join(f'<li><a href="{u}"><span class="tick" aria-hidden="true"></span><b>{esc(t)}</b><span class="why">{esc(w)}</span><span class="time">{m} · 무료</span></a></li>' for t, w, m, u in TODAY)
+    return ('<section class="today"><h2 class="hm-head">업종을 아직 못 고르셨으면, 오늘은 이것부터</h2>'
+            '<p class="lead">어느 가게든 해당되고 돈이 안 들어요. 다 해도 20분이에요.</p><ol class="today">' + lis + "</ol></section>")
+
+
+def _course_pos(page):
+    if page["lang"] != "ko" or not page.get("cat") or page.get("plat") or page.get("course"):
+        return None
+    top, sub = split_cat(page["cat"])
+    if top not in TRACKS:
+        return None
+    ss = subs("ko", top)
+    if sub not in ss:
+        return None
+    return top, ss, ss.index(sub)
+
+
+def step_nav(page, pages):
+    """코스 글 맨 위 진행 표시: 「동네 매장 코스 · 3/9단계」 + 단계 점(앞 단계는 채움, 지금 단계는 강조)."""
+    pos = _course_pos(page)
+    if not pos:
+        return ""
+    top, ss, cur = pos
+    dots = []
+    for i, s in enumerate(ss):
+        ps = posts(pages, "ko", f"{top}/{s}")
+        cls = "done" if i < cur else ("now" if i == cur else "todo")
+        cur_attr = ' aria-current="step"' if i == cur else ""
+        if ps:
+            dots.append(f'<li class="{cls}"><a href="{ps[0]["url"]}" title="{i+1}단계 {esc(s)}"{cur_attr}><span class="n">{i+1}</span><span class="s">{esc(s)}</span></a></li>')
+        else:
+            dots.append(f'<li class="{cls} soon"><span class="n">{i+1}</span><span class="s">{esc(s)}</span></li>')
+    return (f'<nav class="steps" aria-label="{esc(top)} 코스 진행"><a class="steps-head" href="{plat_url("ko", top)}">{esc(top)} 코스</a>'
+            f'<span class="steps-count">{cur+1}/{len(ss)}단계<em> · {esc(ss[cur])}</em></span><ol>{"".join(dots)}</ol></nav>')
+
+
+def course_rail(page, pages):
+    """코스 글의 오른쪽 기둥 맨 위: 이 코스의 단계 목록, 지난 단계는 체크, 지금 단계는 강조, 아래에 다음 단계 단추."""
+    pos = _course_pos(page)
+    if not pos:
+        return ""
+    top, ss, cur = pos
+    lis = []
+    for i, s in enumerate(ss):
+        ps = posts(pages, "ko", f"{top}/{s}")
+        cls = "done" if i < cur else ("now" if i == cur else "todo")
+        inner = f'<a href="{ps[0]["url"]}">{esc(s)}</a>' if ps else esc(s)
+        lis.append(f'<li class="{cls}"><span class="n">{i+1}</span>{inner}<span class="badge">{step_cost(s)[1]}</span></li>')
+    nxt = next((posts(pages, "ko", f"{top}/{s}") for s in ss[cur+1:] if posts(pages, "ko", f"{top}/{s}")), None)
+    tail = f'<a class="rail-btn" href="{nxt[0]["url"]}">다음 단계로</a>' if nxt else f'<a class="rail-btn" href="{plat_url("ko", top)}">코스 처음으로</a>'
+    return f'<div class="rail-box course-rail"><span class="rail-head">{esc(top)} 코스 · {cur+1}/{len(ss)}</span><ol class="course-mini">{"".join(lis)}</ol>{tail}</div>'
 
 
 def track_sections(pages, lang):
@@ -531,7 +624,7 @@ def prev_next(page, pages):
         return ""
     prv = pool[idx - 1] if idx > 0 else None
     nxt = pool[idx + 1] if idx + 1 < len(pool) else None
-    pl, nl = ("Previous", "Next") if page["lang"] == "en" else ("이전 글", "다음 글")
+    pl, nl = ("Previous", "Next") if page["lang"] == "en" else (("이전 단계", "다음 단계") if top in TRACKS else ("이전 글", "다음 글"))
     a = f'<a class="prev" href="{prv["url"]}"><small>{pl}</small>{esc(prv.get("nav", prv["title"]))}</a>' if prv else "<span></span>"
     b = f'<a class="next" href="{nxt["url"]}"><small>{nl}</small>{esc(nxt.get("nav", nxt["title"]))}</a>' if nxt else "<span></span>"
     return f'<nav class="prevnext" aria-label="{esc(top)} 안 이동">{a}{b}</nav>'
@@ -794,6 +887,11 @@ def fill_boards(page, pages):
     body = re.sub(r"<!--kinds:([^>]+)-->", lambda m: kinds_html(m.group(1).strip()), body)
     body = re.sub(r"<!--order:([^>]+)-->", lambda m: order_html(pages, m.group(1).strip()), body)
     body = body.replace("<!--tracks-->", track_sections(pages, page["lang"]))
+    body = body.replace("<!--chooser-->", chooser_html(pages, page["lang"]))
+    body = body.replace("<!--today-->", today_html(pages, page["lang"]))
+    sn = step_nav(page, pages)
+    if sn:
+        body = sn + "\n" + body
     if "<!--homeside-->" in body:
         body = body.replace("<!--homeside-->", home_side(pages, page["lang"])).rstrip() + "\n</div>"
     body = body.replace("<!--trust-->", trust_strip(pages, page["lang"]))
@@ -814,7 +912,7 @@ def rail(page, pages):
     head = "Latest" if page["lang"] == "en" else "최근 글"
     latest = '<div class="rail-box"><span class="rail-head">' + head + '</span><ul>' + "".join(
         f'<li><a href="{p["url"]}">{esc(p.get("nav", p["title"]))}</a></li>' for p in pool[:6]) + "</ul></div>"
-    return '<aside class="rail">' + cat_box(page, pages) + ad("rail", "광고" if page["lang"] == "ko" else "Advertisement") + "</aside>"
+    return '<aside class="rail">' + course_rail(page, pages) + cat_box(page, pages) + ad("rail", "광고" if page["lang"] == "ko" else "Advertisement") + "</aside>"
 
 
 def place_ads(page):
