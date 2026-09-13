@@ -193,7 +193,7 @@
       "사장님"
     ],
     "comma_per_sent_min": 0.5,
-    "first_person_min": 1
+    "case_min": 1
   },
   "endings": {
     "hapsyo": "(습니다|ㅂ니다|십시오|입니다|됩니다|합니다)[.?!\"”’)]*$",

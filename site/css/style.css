@@ -302,3 +302,8 @@ h2.hm-head { margin:0 0 5px; padding:0; border:0; color:var(--ink-soft); font-si
 @media (max-width:400px) {
   .tiles { grid-template-columns:1fr; }
 }
+
+/* 실제 사례 (H13, 2026-09-14): 출처 있는 사례 한 토막. 인용문과 구별되게 왼쪽 회색 선 */
+p.case { margin:24px 0 26px; padding:12px 16px; border-left:3px solid var(--line); background:var(--paper-2); font-size:.98rem; }
+p.case .src { display:block; margin-top:6px; color:var(--ink-soft); font-size:.78rem; }
+p.case .src a { color:var(--ink-soft); }

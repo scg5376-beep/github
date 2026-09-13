@@ -178,9 +178,9 @@ def check_tone(rel, prose_html):
     cps = sum(s.count(",") for s in sents) / n
     if cps < L.get("comma_per_sent_min", 0):
         warn(rel, "H3", f"문장당 쉼표 {cps:.2f} < {L['comma_per_sent_min']} (절을 이어 붙인다)")
-    nfp = len(re.findall(r"(?<![가-힣])(저도|제가|저는|저희가|저희는)(?![가-힣])", plain))
-    if nfp < L.get("first_person_min", 0):
-        warn(rel, "H13", f"편집자 1인칭 {nfp}회 < {L['first_person_min']}회 (쓴 사람이 보이게)")
+    ncase = len(re.findall(r"class=\"case\"", prose_html))
+    if ncase < L.get("case_min", 0):
+        warn(rel, "H13", f"출처 있는 실제 사례(p.case) {ncase}개 < {L['case_min']}개")
     # ── S3 이용자 지적 (2026-09-11 조사 AI티-한국어-이용자-지적) ──
     inten = sum(len(re.findall(rf"(?<![가-힣]){w}(?![가-힣])", plain)) for w in L["intensifiers"])
     if inten > L["intensifier_max"]:
@@ -315,6 +315,7 @@ def check_page(p, all_titles):
     # ── T 문장 ── (원문 인용 <q>·<blockquote> 은 그대로 옮긴 것이라 문체 검사에서 뺀다)
     prose = re.sub(r"<blockquote\b.*?</blockquote>", " ", main, flags=re.S)
     prose = re.sub(r"<q>.*?</q>", " ", prose, flags=re.S)
+    prose = re.sub(r"<span class=\"src\">.*?</span>", " ", prose, flags=re.S)      # 사례 상자의 출처 줄은 문장이 아니다
     plain = strip(prose)
     for ch in SPEC["text"]["banned_chars"]:
         if ch in plain:
