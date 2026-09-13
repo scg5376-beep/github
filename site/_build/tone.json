@@ -161,7 +161,7 @@
     ],
     "demonstrative_start_per_para_max": 1,
     "can_form_max": 5,
-    "sentence_max_chars": 50,
+    "sentence_max_chars": 75,
     "para_max_sentences": 3,
     "intensifier_max": 3,
     "intensifiers": [
