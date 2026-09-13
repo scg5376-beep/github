@@ -88,6 +88,8 @@ def check_tone(rel, prose_html):
     """prose_html: <main> 에서 인용·표·그림·근거를 뺀 HTML 조각"""
     body = re.sub(r"<(table|figure|footer|svg|nav|h[1-6])\b.*?</\1>", " ", prose_html, flags=re.S)
     body = re.sub(r"<div class=\"next\">.*?</div>", " ", body, flags=re.S)   # 다음 글 링크·제목·내비는 문장 통계에서 뺀다
+    body = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", " ", body, flags=re.S)          # 등급 표시(A · 공식 문서)는 문장이 아니다
+    body = re.sub(r"<(ol|ul) class=\"(legend|check)\">.*?</>", " ", body, flags=re.S)    # 그림 범례·점검표는 조각이어도 된다
     paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
     paras = [x for x in paras if len(x) > 8]
     plain = " ".join(paras)
