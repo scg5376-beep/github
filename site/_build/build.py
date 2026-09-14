@@ -194,14 +194,14 @@ PLAT_PROFILE_EN = {
 }
 
 
-def card_grid(pages, lang, items):
+def card_grid(pages, lang, items, brief=False):
     out = []
     for p in items:
         mins = read_minutes(p)
         meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
         pc = plat_class(p["cat"])
         icon = "/img/mark-basic.svg" if pc == "plat-none" else f"/img/icons/{pc[5:]}.svg"
-        out.append(f'<a class="card {pc}" href="{p["url"]}"><span class="art"><img src="{icon}" alt="" width="120" height="120" loading="lazy"></span><span class="cat">{esc(cat_label(p["cat"]))}</span><b>{esc(p["title"])}</b><small>{esc(p["description"][:90])}…</small><span class="meta">{esc(meta)}</span></a>')
+        out.append(f'<a class="card {pc}" href="{p["url"]}"><span class="art"><img src="{icon}" alt="" width="120" height="120" loading="lazy"></span><span class="cat">{esc(cat_label(p["cat"]))}</span><b>{esc(p["title"])}</b>{"" if brief else "<small>" + esc(p["description"][:90]) + "…</small>"}<span class="meta">{esc(meta)}</span></a>')
     return '<div class="cards">' + "".join(out) + "</div>"
 
 
@@ -280,9 +280,8 @@ def chooser_html(pages, lang):
         n = len(subs(lang, top))
         mins = sum(read_minutes(posts(pages, lang, f"{top}/{s}")[0]) for s in subs(lang, top) if posts(pages, lang, f"{top}/{s}"))
         cards.append(f'<a class="pick {plat_class(top)}" href="{url}"><span class="who">{esc(info["who"])}</span><b>{esc(top)}</b>'
-                     f'<span class="lead">{esc(info["lead"])}</span><span class="btn">1단계부터 시작하기</span><span class="meta">{n}단계 · 읽는 시간 약 {mins}분</span></a>')
+                     f'<span class="btn">1단계부터 시작하기</span><span class="meta">{n}단계 · 읽는 시간 약 {mins}분</span></a>')
     return ('<section class="chooser"><h2 class="hm-head">우리 가게는 어느 쪽인가요?</h2>'
-            '<p class="lead">하나를 고르시면 1단계 글로 가요. 글마다 「바로 할 일」이 하나씩 있고, 끝에 다음 단계 단추가 있어요.</p>'
             '<div class="picks">' + "".join(cards) + "</div></section>")
 
 
@@ -297,9 +296,8 @@ def today_html(pages, lang):
     """업종을 몰라도 오늘 할 세 가지. 전부 무료이고 20분 안."""
     if lang != "ko":
         return ""
-    lis = "".join(f'<li><a href="{u}"><span class="tick" aria-hidden="true"></span><b>{esc(t)}</b><span class="why">{esc(w)}</span><span class="time">{m} · 무료</span></a></li>' for t, w, m, u in TODAY)
-    return ('<section class="today"><h2 class="hm-head">업종을 아직 못 고르셨으면, 오늘은 이것부터</h2>'
-            '<p class="lead">어느 가게든 해당되고 돈이 안 들어요. 다 해도 20분이에요.</p><ol class="today">' + lis + "</ol></section>")
+    lis = "".join(f'<li><a href="{u}"><span class="tick" aria-hidden="true"></span><b>{esc(t)}</b><span class="time">{m} · 무료</span></a></li>' for t, w, m, u in TODAY)
+    return ('<section class="today"><h2 class="hm-head">업종을 아직 못 고르셨으면, 오늘은 이것부터</h2><ol class="today">' + lis + "</ol></section>")
 
 
 def _course_pos(page):
@@ -357,7 +355,7 @@ def track_sections(pages, lang):
         info = TRACK_INFO[top]
         n = len(posts(pages, lang, top))
         out.append(f'<section class="track {plat_class(top)}"><h2 id="{PLAT_SLUG[top]}"><a href="{plat_url(lang, top)}">{esc(top)}</a> <span class="count">{esc(info["who"])}</span></h2>'
-                   f'<p class="lead">{esc(info["lead"])}</p>{course_html(pages, lang, top)}</section>')
+                   f'{course_html(pages, lang, top)}</section>')
     return "".join(out)
 
 
@@ -896,7 +894,7 @@ def fill_boards(page, pages):
     body = body.replace("<!--trust-->", trust_strip(pages, page["lang"]))
     body = re.sub(r"<!--featured:([^|>]+)\|([^>]+)-->", lambda m: featured_html(pages, page["lang"], m.group(1).strip(), [u.strip() for u in m.group(2).split(",")]), body)
     body = re.sub(r"<!--cards:(\d+)-->", lambda m: card_grid(pages, page["lang"], posts(pages, page["lang"])[:int(m.group(1))]), body)
-    body = body.replace("<!--cards-->", card_grid(pages, page["lang"], posts(pages, page["lang"])))
+    body = body.replace("<!--cards-->", card_grid(pages, page["lang"], posts(pages, page["lang"])[:6], brief=True))
     body = re.sub(r"<!--picks:([^>]*)-->", lambda m: board(pages, page["lang"], picks=[u.strip() for u in m.group(1).split(",")]), body)
     return dict(page, body=body)
 

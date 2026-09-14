@@ -312,12 +312,12 @@ p.case .src a { color:var(--ink-soft); }
 /* 첫 화면 업종 고르기 카드 */
 section.chooser { margin:0 0 48px; }
 .picks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:16px; }
-a.pick { position:relative; display:flex; flex-direction:column; gap:6px; min-height:210px; padding:20px 22px 22px; border:1px solid var(--line); border-top:4px solid var(--pa); background:var(--paper); color:var(--ink); text-decoration:none; transition:border-color .15s, box-shadow .15s; }
+a.pick { position:relative; display:flex; flex-direction:column; gap:8px; min-height:0; padding:20px 22px 22px; border:1px solid var(--line); border-top:4px solid var(--pa); background:var(--paper); color:var(--ink); text-decoration:none; transition:border-color .15s, box-shadow .15s; }
 a.pick:hover { border-color:var(--pa); box-shadow:0 6px 18px rgba(20,30,50,.08); color:var(--ink); }
 a.pick .who { color:var(--pa); font-size:.78rem; font-weight:700; letter-spacing:.02em; }
 a.pick b { font-size:1.45rem; line-height:1.25; letter-spacing:-.02em; }
 a.pick .lead { flex:1; margin:2px 0 8px; color:var(--ink-soft); font-size:.9rem; line-height:1.6; }
-a.pick .btn { align-self:flex-start; padding:9px 16px; border-radius:2px; background:var(--pa); color:#fff; font-size:.92rem; font-weight:700; }
+a.pick .btn { align-self:flex-start; margin-top:6px; padding:9px 16px; border-radius:2px; background:var(--pa); color:#fff; font-size:.92rem; font-weight:700; }
 a.pick:hover .btn { filter:brightness(1.08); }
 a.pick .meta { margin-top:8px; color:var(--ink-soft); font-size:.76rem; }
 
@@ -326,14 +326,14 @@ section.today { margin:0 0 54px; padding:18px 22px 6px; background:var(--paper-2
 ol.today { list-style:none; margin:14px 0 0; padding:0; counter-reset:t; }
 ol.today li { border-top:1px dashed var(--line); }
 ol.today li:first-child { border-top:0; }
-ol.today a { position:relative; display:block; padding:14px 90px 14px 46px; color:var(--ink); text-decoration:none; }
+ol.today a { position:relative; display:block; padding:12px 90px 12px 46px; color:var(--ink); text-decoration:none; }
 ol.today a:hover b { color:var(--accent); }
-ol.today .tick { position:absolute; left:2px; top:16px; width:24px; height:24px; border:2px solid var(--accent); border-radius:50%; box-sizing:border-box; }
+ol.today .tick { position:absolute; left:2px; top:13px; width:24px; height:24px; border:2px solid var(--accent); border-radius:50%; box-sizing:border-box; }
 ol.today .tick::after { content:""; position:absolute; left:6px; top:2px; width:6px; height:11px; border:solid var(--accent); border-width:0 2px 2px 0; transform:rotate(45deg); opacity:.35; }
 ol.today a:hover .tick::after { opacity:1; }
 ol.today b { display:block; font-size:1.02rem; }
 ol.today .why { display:block; color:var(--ink-soft); font-size:.86rem; line-height:1.55; }
-ol.today .time { position:absolute; right:0; top:17px; color:var(--ink-soft); font-size:.76rem; white-space:nowrap; }
+ol.today .time { position:absolute; right:0; top:15px; color:var(--ink-soft); font-size:.76rem; white-space:nowrap; }
 
 /* 코스 로드맵: 연결선 + 비용 표시 + 여기부터 */
 ol.course.roadmap { position:relative; }
