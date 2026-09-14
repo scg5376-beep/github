@@ -404,3 +404,5 @@ nav.prevnext a.next { background:var(--pt); border-color:var(--pa); }
   figure { overflow-x:auto; -webkit-overflow-scrolling:touch; }
   figure svg { min-width:560px; }
 }
+form.search input[type="search"] { min-width:0; }
+form.search button { flex:0 0 auto; }
