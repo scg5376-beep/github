@@ -251,10 +251,9 @@ def course_html(pages, lang, top):
         ps = posts(pages, lang, f"{top}/{sub}")
         why = info["why"].get(sub, "")
         cost = step_cost(sub)
-        here = '<span class="here">여기부터</span>' if not out else ""
         if ps:
             p = ps[0]
-            out.append(f'<li class="{cost[0]}"><a href="{p["url"]}"><b>{here}{esc(sub)}</b><span class="time"><span class="badge">{cost[1]}</span>{read_minutes(p)}분</span></a></li>')
+            out.append(f'<li class="{cost[0]}"><a href="{p["url"]}"><b>{esc(sub)}</b><span class="time"><span class="badge">{cost[1]}</span>{read_minutes(p)}분</span></a></li>')
         else:
             out.append(f'<li class="soon"><span class="soon"><b>{esc(sub)}</b><span class="time">준비 중</span></span></li>')
     return '<ol class="course roadmap">' + "".join(out) + "</ol>"
