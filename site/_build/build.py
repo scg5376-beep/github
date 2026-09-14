@@ -686,6 +686,8 @@ def lift_todo(page):
 
 def add_toc(page):
     """h2 에 id 를 달고, h2 가 3개 이상이면 글머리(meta-line 뒤)에 '이 글에서' 목차를 넣는다 (GOV.UK·위키 관찰)."""
+    if page.get("kind") == "howto":                                              # 따라 하기 글은 목차 없이 바로 절차
+        return page
     body = page["body"]
     heads = []
     def rep(m):
@@ -954,7 +956,7 @@ def render(page, pages, verify):
 <a class="skip" href="#main">{'Skip to content' if lang == 'en' else '본문 바로가기'}</a>
 {nav_html(page, pages)}
 {cols}
-<main class="wrap" id="main">
+<main class="wrap{" howto" if page.get("kind") == "howto" else ""}" id="main">
 {crumbs(page)}
 {page["body"].strip()}
 {'' if page["url"] in ("/", "/en/") else ('<a class="totop" href="#top">' + ('Back to top' if lang == 'en' else '맨 위로') + '</a>')}

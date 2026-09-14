@@ -406,3 +406,11 @@ nav.prevnext a.next { background:var(--pt); border-color:var(--pa); }
 }
 form.search input[type="search"] { min-width:0; }
 form.search button { flex:0 0 auto; }
+
+/* 따라 하기(방법) 글 */
+main.howto dl.kv.prep { padding:12px 16px; background:var(--paper-2); border-left:3px solid var(--accent); }
+main.howto ol.steps li { padding:12px 0 12px 44px; font-size:1rem; line-height:1.7; }
+main.howto ol.steps b { display:block; margin-bottom:2px; }
+main.howto dl.kv.stuck dt { color:var(--accent); }
+main.howto dl.kv.stuck dt::before { content:"Q. "; }
+main.howto p.why { margin:34px 0 0; padding:12px 16px; border:1px dashed var(--line); color:var(--ink-soft); font-size:.92rem; }

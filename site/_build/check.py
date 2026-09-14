@@ -84,8 +84,8 @@ def check_css():
 def sentences_ko(text):
     return [x.strip() for x in re.split(r"(?<=[.?!])\s+", text) if len(x.strip()) > 6]   # 「파워링크.」 같은 표제어는 문장으로 안 센다
 
-def check_tone(rel, prose_html):
-    """prose_html: <main> 에서 인용·표·그림·근거를 뺀 HTML 조각"""
+def check_tone(rel, prose_html, stats=True):
+    """prose_html: <main> 에서 인용·표·그림·근거를 뺀 HTML 조각. stats=False 면 금지 표현(S1)만 보고 문장 통계·H 규칙은 건너뛴다(따라 하기 글: 짧은 지시문이 정상)"""
     body = re.sub(r"<(table|figure|footer|svg|nav|h[1-6])\b.*?</\1>", " ", prose_html, flags=re.S)
     body = re.sub(r"<div class=\"next\">.*?</div>", " ", body, flags=re.S)   # 다음 글 링크·제목·내비는 문장 통계에서 뺀다
     body = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", " ", body, flags=re.S)          # 등급 표시(A · 공식 문서)는 문장이 아니다
@@ -106,7 +106,7 @@ def check_tone(rel, prose_html):
                 m = re.search(pat, plain); ctx = plain[max(0, m.start()-14): m.end()+14]
                 err(rel, group.split()[0], f"{group}: '{hits[0] if isinstance(hits[0], str) else pat}' {len(hits)}회 … {ctx}")
     sents = [s for para in paras_stat for s in sentences_ko(para)]
-    if len(sents) < 8:
+    if len(sents) < 8 or not stats:
         return
     n = len(sents)
     hap = sum(1 for s in sents if re.search(TONE["endings"]["hapsyo"], s)) / n
@@ -373,7 +373,7 @@ def check_page(p, all_titles):
                 if m:
                     err(rel, key.split()[0], f"{key}: '{m.group(0)}' … {labels[max(0, m.start()-12): m.end()+12]}")
     if ko and not is_index:
-        check_tone(rel, prose)
+        check_tone(rel, prose, stats='class="wrap howto"' not in raw)
 
     # ── Q 인용 ──
     if ORIG.is_dir():
