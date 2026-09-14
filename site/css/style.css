@@ -43,7 +43,7 @@ form.search input[type="search"], form.search button { min-height:36px; font:inh
 form.search input[type="search"] { width:190px; padding:5px 10px; border:1px solid var(--line); border-right:0; border-radius:2px 0 0 2px; color:var(--ink); background:var(--paper); }
 form.search button { padding:5px 12px; border:1px solid var(--accent); border-radius:0 2px 2px 0; color:#fff; background:var(--accent); cursor:pointer; }
 nav.tabs { border-bottom:1px solid var(--line); background:var(--paper); }
-nav.tabs .wrap { display:flex; max-width:1100px; gap:0 4px; padding:0 22px; overflow-x:auto; white-space:nowrap; }
+nav.tabs .wrap { display:flex; flex-wrap:wrap; justify-content:flex-start; max-width:1100px; gap:0 4px; padding:0 22px; white-space:nowrap; }
 nav.tabs a { display:inline-block; padding:11px 12px 9px; border-bottom:2px solid transparent; color:var(--ink-soft); text-decoration:none; font-size:.84rem; }
 nav.tabs a[aria-current="page"] { color:var(--accent); border-bottom-color:var(--accent); font-weight:700; }
 nav.tabs a[class^="plat-"]::before { content:""; display:inline-block; width:7px; height:7px; margin:0 7px 1px 0; border-radius:50%; background:var(--pa); }
@@ -147,7 +147,9 @@ aside.rail ul.cats li.top { margin-top:6px; }
 aside.rail ul.cats li.top a { color:var(--pa); font-weight:700; }
 aside.rail ul.cats li.top a::before { content:""; display:inline-block; width:7px; height:7px; margin:0 7px 1px 0; border-radius:50%; background:var(--pa); }
 aside.rail ul.cats li.subs { display:block; padding:0 0 6px; border-bottom:0; font-size:.8rem; }
-aside.rail ul.cats li.subs a { color:var(--ink-soft); }
+aside.rail ul.cats li.subs a { color:var(--ink-soft); white-space:nowrap; }
+aside.rail ul.cats li.subs a::after { content:" · "; color:var(--ink-soft); }
+aside.rail ul.cats li.subs a:last-child::after { content:""; }
 
 /* 광고 자리 — 본문과 다른 결, 이름표 (AdSense 모방 금지) */
 .ad { min-height:70px; margin:30px 0; padding:8px 0 10px; border:1px dashed var(--line); color:var(--ink-soft); background:var(--ad-bg); text-align:center; }
@@ -158,12 +160,12 @@ aside.rail ul.cats li.subs a { color:var(--ink-soft); }
 /* 게시판 목록 */
 .board { list-style:none; margin:5px 0 30px; padding:0; }
 .board li { border-bottom:1px solid var(--line); }
-.board a { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-areas:"cat title meta" "cat desc meta"; gap:0 12px; align-items:center; padding:14px 4px; text-decoration:none; }
+.board a { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-areas:"cat title meta"; gap:0 12px; align-items:center; padding:13px 4px; text-decoration:none; }
 .board .cat { grid-area:cat; color:var(--pa); font-size:.72rem; white-space:nowrap; }
 .board b { grid-area:title; font-size:1rem; line-height:1.45; }
 .board small { grid-area:desc; overflow:hidden; color:var(--ink-soft); font-size:.83rem; text-overflow:ellipsis; white-space:nowrap; }
 .board .meta { grid-area:meta; color:var(--ink-soft); font-size:.76rem; white-space:nowrap; }
-.board a.nocat { grid-template-areas:"title meta" "desc meta"; grid-template-columns:minmax(0,1fr) auto; }
+.board a.nocat { grid-template-areas:"title meta"; grid-template-columns:minmax(0,1fr) auto; }
 h2 .count, h3 .count { margin-left:6px; color:var(--ink-soft); font-size:.8rem; font-weight:400; }
 .empty { margin:7px 0 24px; color:var(--ink-soft); font-size:.9rem; }
 section.plat { margin:30px 0; padding:7px 20px 16px; border-left:3px solid var(--pa); background:var(--pt); }
@@ -283,8 +285,8 @@ h2.hm-head { margin:0 0 5px; padding:0; border:0; color:var(--ink-soft); font-si
 @media (max-width:620px) {
   table { display:block; overflow-x:auto; }
   table.profile th, table.kinds th { width:34%; white-space:normal; }
-  .board a, .board a.nocat { grid-template-columns:1fr; grid-template-areas:"cat" "title" "desc" "meta"; gap:0; }
-  .board a.nocat { grid-template-areas:"title" "desc" "meta"; }
+  .board a, .board a.nocat { grid-template-columns:1fr; grid-template-areas:"cat" "title" "meta"; gap:0; }
+  .board a.nocat { grid-template-areas:"title" "meta"; }
   .board .cat { margin-bottom:3px; }
   .board .meta { margin-top:5px; }
 }
@@ -396,4 +398,9 @@ nav.prevnext a.next { background:var(--pt); border-color:var(--pa); }
 @media (max-width:560px) {
   ol.course.roadmap li { padding-left:54px; }
   ol.course.roadmap li::after { left:16px; }
+}
+@media (max-width:600px) {
+  /* 좁은 화면에서 그림 글자가 너무 작아지지 않게: 그림은 최소 폭을 지키고 옆으로 넘겨 본다 */
+  figure { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  figure svg { min-width:560px; }
 }

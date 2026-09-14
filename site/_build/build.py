@@ -371,8 +371,8 @@ def order_html(pages, top):
     if not rows:
         return ""
     by = {p["url"]: p for p in pages}
-    lis = "".join(f'<li><a href="{u}"><b>{esc(t)}</b><span class="why">{esc(w)}</span><span class="time">{read_minutes(by[u])}분</span></a></li>' for u, t, w in rows if u in by)
-    return '<h2>추천 순서</h2><p>돈이 안 들고 근거가 확실한 것부터 하고, 돈 드는 것은 뒤에 두었어요. 이유는 각 글의 공식 문서에 있어요.</p><ol class="course">' + lis + "</ol>"
+    lis = "".join(f'<li class="{step_cost(t)[0]}"><a href="{u}"><b>{esc(t)}</b><span class="time"><span class="badge">{step_cost(t)[1]}</span>{read_minutes(by[u])}분</span></a></li>' for u, t, w in rows if u in by)
+    return '<h2>추천 순서</h2><ol class="course roadmap">' + lis + "</ol>"
 
 
 def trust_strip(pages, lang):
@@ -423,7 +423,7 @@ def platform_pages(pages):
             else:
                 head = "Boards" if lang == "en" else "게시판"
                 body = (f'<p class="kicker">{esc(head)}</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(PLAT_INTRO[lang].get(top, ""))}</p>\n'
-                        f'<!--kinds:{top}-->\n<!--order:{top}-->\n<!--boards:{top}-->\n<!--profile-->\n')
+                        f'<!--kinds:{top}-->\n<!--order:{top}-->\n<!--boards:{top}-->\n')
             desc = PLAT_INTRO[lang].get(top, top)
             if top in TRACKS:
                 desc = f"{desc} {TRACK_INFO[top]['lead']}"
@@ -825,7 +825,7 @@ def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True):
         meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
         chip = f'<span class="cat {plat_class(p["cat"])}">{esc(cat_label(p["cat"]))}</span>' if show_cat else ""
         rows.append(f'<li><a href="{p["url"]}"{"" if show_cat else " class=\"nocat\""}>{chip}<b>{esc(p["title"])}</b>'
-                    f'<small>{esc(p["description"][:80])}…</small><span class="meta">{esc(meta)}</span></a></li>')
+                    f'<span class="meta">{esc(meta)}</span></a></li>')
     return '<ol class="board">' + "".join(rows) + "</ol>"
 
 
@@ -864,7 +864,7 @@ def cat_box(page, pages):
                 ps = posts(pages, lang, f"{top}/{c}")
                 return ps[0]["url"] if ps else plat_url(lang, top)
             return plat_url(lang, top, c)
-        lis.append('<li class="subs">' + " · ".join(f'<a href="{cu(c)}">{esc(c)}</a>' for c in chans) + "</li>")
+        lis.append('<li class="subs">' + " ".join(f'<a href="{cu(c)}">{esc(c)}</a>' for c in chans) + "</li>")
     return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
 
