@@ -192,7 +192,7 @@ ol.steps b { display:block; }
 
 /* 단계 목록 — Ghost resources 관찰: 큰 가벼운 번호, 가는 선, 오른쪽에 분 */
 ol.course { list-style:none; counter-reset:c; margin:16px 0 28px; padding:0; }
-ol.course li { position:relative; min-height:72px; padding:14px 74px 14px 58px; border-bottom:1px solid var(--line); counter-increment:c; }
+ol.course li { position:relative; min-height:0; padding:12px 74px 12px 58px; border-bottom:1px solid var(--line); counter-increment:c; }
 ol.course li::before { content:counter(c,decimal-leading-zero); position:absolute; left:0; top:10px; color:#b7bdc5; font-size:2.1rem; line-height:1; font-weight:300; letter-spacing:-.06em; font-variant-numeric:tabular-nums; }
 ol.course a, ol.course span.soon { display:block; text-decoration:none; }
 ol.course a b, ol.course span.soon b { display:block; font-size:1.02rem; line-height:1.45; }
@@ -339,9 +339,9 @@ ol.today .time { position:absolute; right:0; top:17px; color:var(--ink-soft); fo
 ol.course.roadmap { position:relative; }
 ol.course.roadmap li { padding-left:64px; }
 ol.course.roadmap li::before { left:4px; }
-ol.course.roadmap li::after { content:""; position:absolute; left:23px; top:56px; bottom:-10px; border-left:1px dashed var(--line); }
+ol.course.roadmap li::after { content:""; position:absolute; left:23px; top:46px; bottom:-10px; border-left:1px dashed var(--line); }
 ol.course.roadmap li:last-child::after { display:none; }
-ol.course.roadmap .here { display:inline-block; margin:0 0 4px; padding:1px 7px; background:var(--accent); color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.06em; }
+ol.course.roadmap .here { display:inline-block; margin:0 8px 0 0; vertical-align:2px; padding:1px 7px; background:var(--accent); color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.06em; }
 ol.course .badge, ol.course-mini .badge { display:inline-block; margin-right:8px; padding:0 6px; border:1px solid var(--line); border-radius:2px; color:var(--ink-soft); font-size:.7rem; font-weight:700; vertical-align:middle; }
 ol.course li.paid .badge, ol.course-mini li .badge.paid { border-color:#c98a1a; color:#8a5a00; background:#fff7e6; }
 ol.course li.law .badge { border-color:#7a8899; color:#3f4a5c; background:#eef1f5; }
