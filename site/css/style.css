@@ -276,6 +276,8 @@ h2.hm-head { margin:0 0 5px; padding:0; border:0; color:var(--ink-soft); font-si
 @media (max-width:720px) {
   .wrap { padding-right:16px; padding-left:16px; }
   header.top .wrap, nav.tabs .wrap { padding-right:16px; padding-left:16px; }
+  header.top nav { gap:0 12px; }
+  header.top nav a { font-size:.8rem; }
   form.search { width:100%; margin-left:0; }
   form.search input[type="search"] { flex:1; width:auto; }
   .cols { padding-right:14px; padding-left:14px; }
@@ -424,3 +426,47 @@ main.howto details.why[open] summary::before { content:"– "; }
 main.howto details.why summary:hover { color:var(--accent); border-color:var(--accent); }
 main.howto details.why .box { margin:8px 0 4px; padding:10px 14px; border-left:3px solid var(--line); background:var(--paper-2); color:var(--ink-soft); font-size:.9rem; line-height:1.65; }
 main.howto details.why .box a { color:var(--ink-soft); }
+
+/* 자가진단 (운영자 2026-09-15 "자가진단 탭도 설계"): 한 번에 한 질문, 자바스크립트 없이 라디오 + :has(). 상태 규칙은 /css/diag.css */
+h2.hm-head .hm-link { float:right; font-weight:500; letter-spacing:0; color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+main.diag .diag { margin-top:24px; }
+.diag .prog { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin:0 0 20px; }
+.diag .prog .n { font-weight:800; color:var(--accent); font-size:1.05rem; }
+.diag .prog .n b::before { content:"1"; }
+.diag .prog .reset { margin-left:auto; padding:6px 16px; border:2px solid var(--accent); border-radius:20px; color:var(--accent); font-weight:700; font-size:.9rem; text-decoration:none; }
+.diag .prog .bar { flex-basis:100%; height:6px; border-radius:3px; background:var(--paper-2); overflow:hidden; }
+.diag .prog .bar i { display:block; height:100%; width:14%; background:var(--accent); }
+.diag .q { display:none; margin:0 0 18px; padding:0; border:0; min-width:0; }
+.diag .q.q1 { display:block; }
+.diag .q legend { padding:0; margin:0 0 14px; font-size:1.45rem; font-weight:800; line-height:1.3; }
+.diag .q .qn { display:none; }
+.diag .q .req { display:inline-block; margin-left:6px; padding:2px 8px; border-radius:6px; background:var(--accent); color:#fff; font-size:.72rem; font-weight:700; vertical-align:middle; }
+.diag .opts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.diag .opts label { display:flex; flex-direction:column; justify-content:center; gap:4px; min-height:74px; padding:14px 18px; border:1.5px solid var(--line); border-radius:14px; background:#fff; cursor:pointer; font-size:1.05rem; font-weight:600; line-height:1.35; overflow-wrap:anywhere; }
+.diag .opts label:hover { border-color:var(--accent); }
+.diag .opts label:has(:checked) { border-color:var(--accent); background:var(--paper-2); box-shadow:inset 0 0 0 1px var(--accent); }
+.diag .opts label:has(:focus-visible) { outline:3px solid var(--accent); outline-offset:2px; }
+.diag .opts input { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.diag .opts .s { font-size:.8rem; font-weight:400; color:var(--ink-soft); }
+.diag .result { display:none; margin-top:8px; }
+.diag .result .r { display:none; }
+.diag .r-head { display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px; margin:14px 0 16px; }
+.diag .r-head .who { flex-basis:100%; font-size:.82rem; color:var(--ink-soft); }
+.diag .r-head b { font-size:1.5rem; }
+.diag .r-head .btn { margin-left:auto; padding:10px 18px; border-radius:8px; background:var(--accent); color:#fff; font-weight:700; text-decoration:none; }
+.diag .recs { display:flex; flex-direction:column; gap:10px; }
+.diag .rec { display:none; align-items:baseline; gap:12px; padding:14px 18px; border:1.5px solid var(--line); border-left:4px solid var(--accent); border-radius:10px; background:#fff; text-decoration:none; color:inherit; }
+.diag .rec b { flex:0 0 auto; font-size:1.05rem; }
+.diag .rec span { color:var(--ink-soft); font-size:.92rem; line-height:1.5; }
+.diag .r-note { margin-top:18px; font-size:.85rem; color:var(--ink-soft); }
+@supports not selector(:has(*)) {
+  .diag .q, .diag .result, .diag .result .r { display:block; }
+  .diag .rec { display:flex; }
+  .diag .prog { display:none; }
+}
+@media (max-width:560px) {
+  .diag .opts label { min-height:64px; padding:12px 14px; font-size:1rem; }
+  .diag .q legend { font-size:1.25rem; }
+  .diag .rec { flex-direction:column; gap:2px; }
+  .diag .r-head .btn { margin-left:0; }
+}

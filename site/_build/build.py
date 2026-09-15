@@ -30,7 +30,7 @@ SITE_URL = "https://sajangmarketing.com"
 SITE_NAME = "사장님 마케팅 교실"
 SITE_NAME_EN = "Sajang Marketing — Korea marketing, explained"
 DEFAULT_OG = {"home": "/img/og-home.png", "guide": "/img/og-ko.png",
-              "en": "/img/og-en.png", "en-legal": "/img/og-en.png", "about": "/img/og-home.png", "why": "/img/og-ko.png"}
+              "en": "/img/og-en.png", "en-legal": "/img/og-en.png", "about": "/img/og-home.png", "why": "/img/og-ko.png", "diag": "/img/og-home.png"}
 SITECFG = json.loads((ROOT / "_build" / "site.json").read_text(encoding="utf-8"))
 VERIFY = ROOT / "_build" / "verify.json"   # {"naver": "...", "google": "..."} — 소유확인 코드 (없으면 생략)
 
@@ -281,7 +281,7 @@ def chooser_html(pages, lang):
         mins = sum(read_minutes(posts(pages, lang, f"{top}/{s}")[0]) for s in subs(lang, top) if posts(pages, lang, f"{top}/{s}"))
         cards.append(f'<a class="pick {plat_class(top)}" href="{url}"><span class="who">{esc(info["who"])}</span><b>{esc(top)}</b>'
                      f'<span class="btn">1단계부터 시작하기</span><span class="meta">{n}단계 · 읽는 시간 약 {mins}분</span></a>')
-    return ('<section class="chooser"><h2 class="hm-head">우리 가게는 어느 쪽인가요?</h2>'
+    return ('<section class="chooser"><h2 class="hm-head">우리 가게는 어느 쪽인가요? <a class="hm-link" href="/check/">모르겠으면 자가진단</a></h2>'
             '<div class="picks">' + "".join(cards) + "</div></section>")
 
 
@@ -449,7 +449,7 @@ def nav_html(page, pages):
         base = "/en/"
         all_label = "All"
     else:
-        items = [("/", "방법", "how"), ("/why/", "마케팅의 필요성", "why"), ("/guide/", "플랫폼 설명", "guide"), ("/about.html", "소개", "about")]
+        items = [("/", "방법", "how"), ("/check/", "자가진단", "diag"), ("/why/", "마케팅의 필요성", "why"), ("/guide/", "플랫폼 설명", "guide"), ("/about.html", "소개", "about")]
         alt = page.get("alt") or "/en/"
         toggle = f'<a class="lang" href="{alt}" lang="en" hreflang="en">English</a>'
         base = "/guide/"
@@ -467,7 +467,7 @@ def nav_html(page, pages):
     if lang == "en" or area == "guide":
         tabs.append(f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>')
     for t in tops(lang):
-        if lang == "ko" and ((area == "how" and t not in TRACKS) or (area == "guide" and t in TRACKS) or area in ("why", "about")):
+        if lang == "ko" and ((area == "how" and t not in TRACKS) or (area == "guide" and t in TRACKS) or area in ("why", "about", "diag")):
             continue
         cur = ' aria-current="page"' if cur_top == t else ""
         tabs.append(f'<a class="{plat_class(t)}" href="{plat_url(lang, t)}"{cur}>{esc(t)}</a>')
@@ -503,6 +503,8 @@ def page_area(page):
         return "why"
     if page.get("section") in ("about",):
         return "about"
+    if page.get("section") == "diag" or page["url"] == "/check/":
+        return "diag"
     return "guide"
 
 
@@ -553,6 +555,7 @@ def head_html(page, verify):
         f'<link rel="canonical" href="{url}">',
         f'<link rel="stylesheet" href="/fonts/pretendard/pretendard.css">',
         f'<link rel="stylesheet" href="/css/style.css">',
+        *(['<link rel="stylesheet" href="/css/diag.css">'] if page.get("kind") == "diag" else []),
         '<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">',
         f'<link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)}" href="{SITE_URL}/feed.xml">',
         # 오픈그래프 — 네이버 검색로봇도 본다 (NS-01)
@@ -582,13 +585,13 @@ def head_html(page, verify):
 
 
 def crumbs(page):
-    if page["url"] in ("/", "/en/", "/guide/", "/why/"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/"):
         return ""
     if page["lang"] == "en":
         return '<p class="crumbs"><a href="/en/">Start here</a> › ' + esc(page.get("nav", page["title"])) + '</p>'
-    if page["url"] in ("/", "/en/", "/guide/", "/why/"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/"):
         return ""
-    root = {"how": ("/", "방법"), "why": ("/why/", "마케팅의 필요성"), "guide": ("/guide/", "플랫폼 설명"), "about": ("/", "방법")}.get(page_area(page), ("/", "방법"))
+    root = {"how": ("/", "방법"), "why": ("/why/", "마케팅의 필요성"), "guide": ("/guide/", "플랫폼 설명"), "about": ("/", "방법"), "diag": ("/check/", "자가진단")}.get(page_area(page), ("/", "방법"))
     mid = ""
     if page.get("plat"):
         return f'<p class="crumbs"><a href="/guide/">플랫폼 설명</a> › {esc(page["plat"])}</p>'
@@ -633,7 +636,7 @@ def quote_count(page):
 
 def prev_next(page, pages):
     """같은 플랫폼 안에서 order 순 이전·다음 글. 손으로 고른 「다음 글」과 별개로 위치 이동용."""
-    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course") or not page.get("cat"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/") or page.get("noindex") or page.get("plat") or page.get("course") or not page.get("cat"):
         return ""
     top = split_cat(page["cat"])[0]
     pool = sorted([p for p in pages if p["lang"] == page["lang"] and p.get("cat") and split_cat(p["cat"])[0] == top and "order" in p], key=lambda p: p.get("order", 0))
@@ -650,7 +653,7 @@ def prev_next(page, pages):
 
 def author_block(page):
     """글 끝 신뢰 블록 (Healthline 검토 배지·NerdWallet 전문가 표기 관찰). 익명이되 무엇을 확인했는지는 숫자로."""
-    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return ""
     q = quote_count(page)
     if page["lang"] == "en":
@@ -668,7 +671,7 @@ def author_block(page):
 
 def meta_line(page):
     """글머리 한 줄 — 발행·수정·근거 등급·읽는 시간 (설계기준 R2). 목차·첫 화면에는 넣지 않는다."""
-    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return page["body"]
     text = strip_tags(page["body"])
     if page["lang"] == "en":
@@ -691,7 +694,7 @@ def meta_line(page):
 
 def lift_todo(page):
     """글 끝의 「내일 할 일」 상자를 메타 줄 바로 뒤로 올린다 (2026-09-12 가독성: 보자마자 할 일). 첫 상자 하나만."""
-    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return page
     body = page["body"]
     m = re.search(r'<div class="note">\s*<b>(내일 할 일|오늘 할 일)</b>(.*?)</div>', body, re.S)
@@ -722,7 +725,7 @@ def add_toc(page):
     cut = body.find('<footer class="sources">')          # 근거 footer 의 h2 는 목차에 넣지 않는다
     head_part, tail_part = (body, "") if cut < 0 else (body[:cut], body[cut:])
     body = re.sub(r"<h2([^>]*)>(.*?)</h2>", rep, head_part, flags=re.S) + tail_part
-    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/", "/why/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
+    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/", "/why/", "/check/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
         label = "In this article" if page["lang"] == "en" else "목차"
         toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
         m = re.search(r'<div class="note todo">.*?</div>', body, re.S) or re.search(r'<p class="meta-line">.*?</p>', body, re.S)   # 「바로 할 일」 뒤, 없으면 메타 줄 뒤
@@ -743,7 +746,7 @@ def ad(slot, label):
 
 def related(page, pages):
     """같은 언어·같은 구역의 다른 글 3개 (order 가 가까운 순). 정적이라 빌드 때 고정."""
-    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return ""
     pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in (page["url"], "/", "/en/", "/guide/") and not p.get("noindex") and "order" in p]
     top = split_cat(page.get("cat"))[0] if page.get("cat") else ""
@@ -891,6 +894,127 @@ def cat_box(page, pages):
     return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
 
+# ── 자가진단 (운영자 2026-09-15 "이런식으로 자가진단 탭도 설계") ─────────────────────────
+# 자바스크립트 없이 라디오 단추 + CSS :has() 로 한 번에 한 질문. 답은 어디로도 보내지 않는다(서버·저장소 없음, 화면을 떠나면 사라진다).
+DIAG_Q = [
+    ("d1", "손님은 주로 어떻게 오나요?", [
+        ("local", "동네에서 찾아와요", "식당·카페·미용실·병원·학원"),
+        ("online", "온라인으로 주문해요", "스마트스토어·쿠팡·자사몰"),
+        ("service", "예약이나 상담을 하고 와요", "학원·공방·상담·시술"),
+        ("foreign", "외국 손님이 많아요", "관광지·외국인 단골 가게")]),
+    ("d2", "네이버 플레이스에 우리 가게가 있나요?", [
+        ("mine", "있고 내가 관리해요", ""), ("noauth", "있는데 관리 권한이 없어요", ""), ("none", "없어요", ""), ("unknown", "모르겠어요", "")]),
+    ("d3", "최근 한 달 리뷰에 답글을 달았나요?", [
+        ("all", "다 달았어요", ""), ("some", "일부만 달았어요", ""), ("no", "안 달았어요", ""), ("noreview", "리뷰가 없어요", "")]),
+    ("d4", "블로그나 인스타그램에 가게 글을 올리나요?", [
+        ("weekly", "매주 올려요", ""), ("sometimes", "가끔 올려요", ""), ("acct", "계정만 있어요", ""), ("none", "없어요", "")]),
+    ("d5", "홈페이지가 있나요?", [
+        ("yes", "있어요", ""), ("making", "만드는 중이에요", ""), ("no", "없어요", "")]),
+    ("d6", "광고비를 내고 있나요?", [
+        ("no", "안 내요", ""), ("self", "직접 돌려요", ""), ("agency", "대행사에 맡겼어요", ""), ("quit", "냈다가 끊었어요", "")]),
+    ("d7", "문의 수와 매출을 매주 적어 두나요?", [
+        ("yes", "적어요", ""), ("sometimes", "가끔 적어요", ""), ("no", "안 적어요", "")]),
+]
+DIAG_TRACK = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님"}
+# 결과 카드: (코스, 조건{질문: 답 목록} 또는 None=항상, 채널 이름 또는 "/주소", 한 줄)
+DIAG_REC = [
+    ("local", {"d2": ["none", "unknown"]}, "플레이스 등록", "지도 목록에 없으면 동네 손님이 못 찾아요."),
+    ("local", {"d2": ["noauth"]}, "플레이스 등록", "주인 변경으로 관리 권한부터 받으세요."),
+    ("local", {"d2": ["mine"]}, "플레이스 순위", "빈칸과 사진 수를 채우세요."),
+    ("local", {"d3": ["some", "no", "noreview"]}, "리뷰 답글", "답글 없는 리뷰부터 오래된 순으로."),
+    ("local", {"d4": ["sometimes", "acct", "none"]}, "블로그", "손님이 물은 것에 겪은 대로 답하는 글."),
+    ("local", {"d5": ["yes", "making"]}, "관련법", "홈페이지에 붙어야 하는 표시 사항."),
+    ("local", {"d6": ["agency"]}, "파워링크", "내 계정으로 옮기고 과금 내역을 직접 보세요."),
+    ("local", {"d6": ["self"]}, "파워링크", "하루예산·제휴 사이트 설정을 확인하세요."),
+    ("local", {"d7": ["sometimes", "no"]}, "12주 기록", "한 주에 하나만 바꾸고 정산액으로 판단."),
+    ("online", None, "수수료", "가격을 정하기 전에 수수료부터."),
+    ("online", {"d5": ["yes", "making"]}, "관련법", "첫 화면 표시 사항 여섯 가지."),
+    ("online", {"d5": ["no", "making"]}, "도메인", "내 명의로 등록하세요."),
+    ("online", {"d5": ["yes"]}, "홈페이지 노출", "서치어드바이저 소유확인과 사이트맵."),
+    ("online", {"d4": ["sometimes", "acct", "none"]}, "블로그", "직접 데려온 주문은 수수료가 내려가요."),
+    ("online", {"d4": ["acct", "none"]}, "인스타그램", "비즈니스 계정으로 바꾸세요."),
+    ("online", {"d6": ["self", "agency"]}, "광고", "학습 단계와 소재 규정."),
+    ("online", {"d7": ["sometimes", "no"]}, "12주 기록", "내가 데려온 주문 비율을 적으세요."),
+    ("service", {"d2": ["none", "unknown", "noauth"]}, "플레이스 등록", "가격과 예약 방법을 채우세요."),
+    ("service", {"d3": ["some", "no", "noreview"]}, "리뷰 답글", "무슨 일이 있었고 어떻게 할지 두 문장."),
+    ("service", {"d4": ["sometimes", "acct", "none"]}, "구글 글쓰기", "직접 겪어야 알 수 있는 내용."),
+    ("service", {"d5": ["yes", "making"]}, "홈페이지 노출", "과정·선생님 페이지 제목을 따로."),
+    ("service", {"d5": ["yes"]}, "관련법", "이름·전화번호를 받으면 처리방침."),
+    ("service", {"d6": ["self", "agency"]}, "/guide/ads.html", "광고비는 어디서 새나."),
+    ("service", {"d7": ["sometimes", "no"]}, "12주 기록", "문의 몇 건, 예약 몇 건."),
+    ("foreign", {"d2": ["none", "unknown", "noauth"]}, "플레이스 등록", "네이버부터 채우면 구글은 옮겨 적기만."),
+    ("foreign", {"d2": ["mine"]}, "구글 프로필", "네이버 정보를 그대로 옮기세요."),
+    ("foreign", {"d3": ["some", "no", "noreview"]}, "구글 프로필", "구글 리뷰 답글."),
+    ("foreign", {"d4": ["sometimes", "acct", "none"]}, "인스타그램", "사진과 위치 태그."),
+    ("foreign", {"d5": ["no", "making"]}, "도메인", "내 명의로 등록하세요."),
+    ("foreign", {"d5": ["yes"]}, "홈페이지 노출", "구글 서치콘솔 등록."),
+    ("foreign", {"d6": ["self", "agency"]}, "/guide/ads.html", "광고비는 어디서 새나."),
+    ("foreign", {"d7": ["sometimes", "no"]}, "12주 기록", "외국 손님 수를 따로 세세요."),
+]
+
+
+def diag_html(pages, lang):
+    if lang != "ko":
+        return ""
+    n = len(DIAG_Q)
+    out = [f'<div class="diag"><div class="prog"><span class="n"><b></b> / {n}</span><a class="reset" href="/check/">처음부터</a><span class="bar"><i></i></span></div>']
+    for i, (name, q, opts) in enumerate(DIAG_Q, 1):
+        cards = "".join(f'<label><input type="radio" name="{name}" value="{v}"><span class="t">{esc(a)}</span>'
+                        + (f'<span class="s">{esc(s)}</span>' if s else "") + "</label>" for v, a, s in opts)
+        out.append(f'<fieldset class="q q{i}"><legend><span class="qn">{i}</span>{esc(q)} <span class="req">필수</span></legend><div class="opts">{cards}</div></fieldset>')
+    out.append('<section class="result"><h2 class="hm-head">진단 결과 · 지금 볼 단계</h2>')
+    for code, top in DIAG_TRACK.items():
+        first = posts(pages, lang, f"{top}/{subs(lang, top)[0]}")
+        start = first[0]["url"] if first else plat_url(lang, top)
+        recs = []
+        for k, (tr, cond, target, line) in enumerate(DIAG_REC):
+            if tr != code:
+                continue
+            if target.startswith("/"):
+                url, label = target, next((p.get("nav", p["title"]) for p in pages if p["url"] == target), target)
+            else:
+                pp = posts(pages, lang, f"{top}/{target}")
+                url, label = (pp[0]["url"], target) if pp else (plat_url(lang, top), target)
+            recs.append(f'<a class="rec" id="rec{k}" href="{url}"><b>{esc(label)}</b><span>{esc(line)}</span></a>')
+        out.append(f'<div class="r r-{code}"><p class="r-head"><span class="who">{esc(TRACK_INFO[top]["who"])}</span><b class="{plat_class(top)}">{esc(top)} 코스</b>'
+                   f'<a class="btn" href="{start}">1단계부터 시작하기</a></p><div class="recs">{"".join(recs)}</div>'
+                   f'<p class="r-note">표시된 단계만 먼저 보세요. 답을 바꾸려면 「처음부터」를 누르세요.</p></div>')
+    out.append("</section></div>")
+    return "".join(out)
+
+
+def diag_css():
+    """상태 규칙은 데이터에서 만든다. style.css 의 고정 규칙 뒤에 붙인다."""
+    n = len(DIAG_Q)
+    css = []
+    for i, (name, _, _) in enumerate(DIAG_Q, 1):
+        chk = f'.diag:has([name={name}]:checked)'
+        if i < n:
+            css.append(f'{chk} .q{i + 1}{{display:block}}')
+        css.append(f'{chk} .q{i}{{padding:8px 0;border-bottom:1px dashed var(--line)}}')
+        css.append(f'{chk} .q{i} legend{{font-size:.9rem;color:var(--ink-soft);margin:0 0 4px}}')
+        css.append(f'{chk} .q{i} .req{{display:none}}')
+        css.append(f'{chk} .q{i} label:not(:has(:checked)){{display:none}}')
+        css.append(f'{chk} .q{i} label{{padding:6px 12px;min-height:0;border-color:var(--accent);background:var(--paper-2)}}')
+        css.append(f'{chk} .q{i} .s{{display:none}}')
+        css.append(f'{chk} .q{i} .opts{{display:block}}')
+        css.append(f'{chk} .q{i} label{{display:inline-flex;flex-direction:row;max-width:100%}}')
+        css.append(f'{chk} .prog b::before{{content:"{min(i + 1, n)}"}}')
+        css.append(f'{chk} .prog i{{width:{round(min(i + 1, n) / n * 100)}%}}')
+    last = DIAG_Q[-1][0]
+    css.append(f'.diag:has([name={last}]:checked) .result{{display:block}}')
+    css.append(f'.diag:has([name={last}]:checked) .prog{{display:none}}')
+    for code in DIAG_TRACK:
+        css.append(f'.diag:has([name=d1][value={code}]:checked) .r-{code}{{display:block}}')
+    for k, (tr, cond, target, line) in enumerate(DIAG_REC):
+        if cond is None:
+            css.append(f'#rec{k}{{display:flex}}')
+            continue
+        sel = ", ".join(f'[name={q}][value={v}]:checked' for q, vs in cond.items() for v in vs)
+        css.append(f'.diag:has({sel}) #rec{k}{{display:flex}}')
+    return "\n".join(css) + "\n"
+
+
 def fill_boards(page, pages):
     """본문 자리표: <!--board--> 전체 최신 · <!--boards--> 게시판별 · <!--picks:/a,/b--> 지정 글."""
     body = page["body"]
@@ -908,6 +1032,7 @@ def fill_boards(page, pages):
     body = re.sub(r"<!--order:([^>]+)-->", lambda m: order_html(pages, m.group(1).strip()), body)
     body = body.replace("<!--tracks-->", track_sections(pages, page["lang"]))
     body = body.replace("<!--chooser-->", chooser_html(pages, page["lang"]))
+    body = body.replace("<!--diag-->", diag_html(pages, page["lang"]))
     body = body.replace("<!--today-->", today_html(pages, page["lang"]))
     sn = step_nav(page, pages)
     if sn:
@@ -927,7 +1052,7 @@ def rail(page, pages):
     if not SITECFG.get("rail") or page.get("noindex"):
         return ""
     # 글(order 가 있는 페이지)만. 처리방침·소개 같은 고정 페이지는 발자국 아래 있으니 여기 안 넣는다.
-    pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in ("/", "/en/", "/guide/", "/why/") and not p.get("noindex") and p["url"] != page["url"] and "order" in p]
+    pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in ("/", "/en/", "/guide/", "/why/", "/check/") and not p.get("noindex") and p["url"] != page["url"] and "order" in p]
     pool.sort(key=lambda p: (p.get("date") or "", p["url"]), reverse=True)
     head = "Latest" if page["lang"] == "en" else "최근 글"
     latest = '<div class="rail-box"><span class="rail-head">' + head + '</span><ul>' + "".join(
@@ -937,7 +1062,7 @@ def rail(page, pages):
 
 def place_ads(page):
     """본문에 광고 자리 셋: 글머리(목차 뒤) · 본문 중간(둘째 h2 앞) · 글 끝(근거 앞)."""
-    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return page
     lab = "광고" if page["lang"] == "ko" else "Advertisement"
     body = page["body"]
@@ -977,7 +1102,7 @@ def render(page, pages, verify):
 <a class="skip" href="#main">{'Skip to content' if lang == 'en' else '본문 바로가기'}</a>
 {nav_html(page, pages)}
 {cols}
-<main class="wrap{" howto" if page.get("kind") == "howto" else ""}" id="main">
+<main class="wrap{" " + page["kind"] if page.get("kind") else ""}" id="main">
 {crumbs(page)}
 {page["body"].strip()}
 {'' if page["url"] in ("/", "/en/") else ('<a class="totop" href="#top">' + ('Back to top' if lang == 'en' else '맨 위로') + '</a>')}
@@ -1023,10 +1148,11 @@ def build():
     write(ROOT / "sitemap.xml", "\n".join(sm) + "\n")
 
     # robots.txt — Yeti(네이버)·Googlebot 포함 전부 허용. IP 차단 안 함.
+    write(ROOT / "css/diag.css", "/* 자가진단 상태 규칙 — build.py diag_css() 가 만든다. 손으로 고치지 말 것 */" + chr(10) + diag_css())
     write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /_build/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
 
     # feed.xml — 네이버: "최신글은 본문 전체를 포함하여 RSS 피드에" (NS-01)
-    arts = sorted([p for p in indexable if p["url"] not in ("/", "/en/", "/guide/", "/why/") and not p.get("plat")],
+    arts = sorted([p for p in indexable if p["url"] not in ("/", "/en/", "/guide/", "/why/", "/check/") and not p.get("plat")],
                   key=lambda p: (p.get("updated") or "", p["url"]), reverse=True)
     items = []
     for p in arts[:30]:

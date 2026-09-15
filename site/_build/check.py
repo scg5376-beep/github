@@ -225,6 +225,8 @@ def check_page(p, all_titles):
         if True:
             err(rel, "S2", "허용되지 않은 스크립트가 있다")
     stripped = re.sub(r'<form class="search" action="https://www\.google\.com/search" method="get"[^>]*>.*?</form>', "", raw, flags=re.S)   # 검색창만 예외: 구글로 보내고 저장 안 함 (설계기준 S3)
+    if 'class="wrap diag"' in raw:                                                # 자가진단: 라디오 단추만, form 없음, 어디로도 안 보냄 (설계기준 D38)
+        stripped = re.sub(r'<input type="radio" name="d\d" value="[a-z]+">', "", stripped)
     if re.search(r"<(iframe|embed|object|form|input|textarea)\b", stripped):
         err(rel, "S3", "iframe/embed/form/input 은 쓰지 않는다 (손님 정보를 받지 않는다) — 검색창 제외")
     if re.search(r'(src|href)="https?://(?!sajangmarketing\.com)', body):
@@ -374,7 +376,7 @@ def check_page(p, all_titles):
                 if m:
                     err(rel, key.split()[0], f"{key}: '{m.group(0)}' … {labels[max(0, m.start()-12): m.end()+12]}")
     if ko and not is_index:
-        check_tone(rel, prose, stats='class="wrap howto"' not in raw)
+        check_tone(rel, prose, stats='class="wrap howto"' not in raw and 'class="wrap diag"' not in raw)
 
     # ── Q 인용 ──
     if ORIG.is_dir():
