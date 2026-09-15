@@ -414,3 +414,13 @@ main.howto ol.steps b { display:block; margin-bottom:2px; }
 main.howto dl.kv.stuck dt { color:var(--accent); }
 main.howto dl.kv.stuck dt::before { content:"Q. "; }
 main.howto p.why { margin:34px 0 0; padding:12px 16px; border:1px dashed var(--line); color:var(--ink-soft); font-size:.92rem; }
+
+/* 방법 글의 접힌 「이유」 (운영자 2026-09-15: 기본 닫힘, 열고 접기) */
+main.howto details.why { margin:8px 0 2px; }
+main.howto details.why summary { display:inline-block; padding:2px 10px; border:1px solid var(--line); border-radius:12px; color:var(--ink-soft); font-size:.78rem; cursor:pointer; list-style:none; }
+main.howto details.why summary::-webkit-details-marker { display:none; }
+main.howto details.why summary::before { content:"+ "; color:var(--accent); font-weight:700; }
+main.howto details.why[open] summary::before { content:"– "; }
+main.howto details.why summary:hover { color:var(--accent); border-color:var(--accent); }
+main.howto details.why .box { margin:8px 0 4px; padding:10px 14px; border-left:3px solid var(--line); background:var(--paper-2); color:var(--ink-soft); font-size:.9rem; line-height:1.65; }
+main.howto details.why .box a { color:var(--ink-soft); }

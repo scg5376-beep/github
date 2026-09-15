@@ -30,7 +30,7 @@ SITE_URL = "https://sajangmarketing.com"
 SITE_NAME = "사장님 마케팅 교실"
 SITE_NAME_EN = "Sajang Marketing — Korea marketing, explained"
 DEFAULT_OG = {"home": "/img/og-home.png", "guide": "/img/og-ko.png",
-              "en": "/img/og-en.png", "en-legal": "/img/og-en.png", "about": "/img/og-home.png"}
+              "en": "/img/og-en.png", "en-legal": "/img/og-en.png", "about": "/img/og-home.png", "why": "/img/og-ko.png"}
 SITECFG = json.loads((ROOT / "_build" / "site.json").read_text(encoding="utf-8"))
 VERIFY = ROOT / "_build" / "verify.json"   # {"naver": "...", "google": "..."} — 소유확인 코드 (없으면 생략)
 
@@ -227,14 +227,14 @@ def home_side(pages, lang):
         first = [("Latest", "/en/")]
     else:
         title, tag = "사장님 마케팅 교실", "네이버·구글·인스타그램·광고·법. 공식 문서 원문으로만 풀어요."
-        first = [("전체 글", "/guide/")]
+        first = [("마케팅의 필요성", "/why/"), ("플랫폼 설명", "/guide/")]
     lis = "".join(f'<li><a href="{h}">{esc(t)}</a></li>' for t, h in first)
     if lang == "ko":
-        lis += '<li class="head">업종별 따라하기</li>'
+        lis += '<li class="head">방법 · 업종별 코스</li>'
         for top in TRACKS:
             n = len(posts(pages, lang, top))
             lis += f'<li class="{plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{n}/{len(subs(lang, top))}</span></li>'
-        lis += '<li class="head">플랫폼별 찾아보기</li>'
+        lis += '<li class="head">플랫폼 설명</li>'
     for top, chans in TAXO[lang]:
         n = len(posts(pages, lang, top))
         if n and top not in TRACKS:
@@ -449,21 +449,26 @@ def nav_html(page, pages):
         base = "/en/"
         all_label = "All"
     else:
-        items = [("/", "홈", "home"), ("/guide/", "전체 글", "guide"), ("/about.html", "소개", "about")]
+        items = [("/", "방법", "how"), ("/why/", "마케팅의 필요성", "why"), ("/guide/", "플랫폼 설명", "guide"), ("/about.html", "소개", "about")]
         alt = page.get("alt") or "/en/"
         toggle = f'<a class="lang" href="{alt}" lang="en" hreflang="en">English</a>'
         base = "/guide/"
         all_label = "전체"
     out = []
+    area = page_area(page)
     for href, label, key in items:
-        cur = ' aria-current="page"' if (page["section"] == key or page["url"] == href or (key == "start" and page["url"] in ("/start/", "/tracks/"))) else ""
+        cur = ' aria-current="page"' if (lang == "ko" and area == key) or (lang == "en" and (page["section"] == key or page["url"] == href)) else ""
         out.append(f'<a href="{href}"{cur}>{label}</a>')
     brand = SITE_NAME if lang != "en" else "Sajang Marketing"
     # 게시판 탭 — 플랫폼 한 줄, 그 아래 현재 플랫폼의 채널 한 줄 (첫 화면에서는 채널 줄 없음)
     cur_top, cur_sub = split_cat(page.get("cat")) if page.get("cat") else (page.get("plat", ""), "")
     home = "/en/" if lang == "en" else "/"
-    tabs = [f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>']
+    tabs = []
+    if lang == "en" or area == "guide":
+        tabs.append(f'<a href="{base}"{" aria-current=\"page\"" if page["url"] == base else ""}>{all_label}</a>')
     for t in tops(lang):
+        if lang == "ko" and ((area == "how" and t not in TRACKS) or (area == "guide" and t in TRACKS) or area in ("why", "about")):
+            continue
         cur = ' aria-current="page"' if cur_top == t else ""
         tabs.append(f'<a class="{plat_class(t)}" href="{plat_url(lang, t)}"{cur}>{esc(t)}</a>')
     sub_row = ""
@@ -481,8 +486,24 @@ def nav_html(page, pages):
     <nav>{"".join(out)}{toggle}</nav>
     <form class="search" action="https://www.google.com/search" method="get" role="search"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="{'Search' if lang == 'en' else '글 찾기'}" aria-label="{'Search this site' if lang == 'en' else '이 사이트 안에서 찾기'}"><button type="submit">{'Search' if lang == 'en' else '찾기'}</button></form>
   </div>
-  <nav class="tabs" aria-label="{"Boards" if lang == "en" else "게시판"}"><div class="wrap">{"".join(tabs)}</div>{sub_row}</nav>
+  {('<nav class="tabs" aria-label="' + ("Boards" if lang == "en" else "게시판") + '"><div class="wrap">' + "".join(tabs) + '</div>' + sub_row + '</nav>') if tabs else ''}
 </header>'''
+
+
+WHY_URLS = ["/guide/numbers.html", "/guide/seo.html", "/guide/reviews.html", "/guide/ads.html", "/guide/record.html", "/guide/geo.html", "/guide/aeo.html"]
+
+
+def page_area(page):
+    """네 갈래 가운데 이 페이지가 어디 속하나: how(방법) · why(마케팅의 필요성) · guide(플랫폼 설명) · about(소개). 운영자 2026-09-15."""
+    if page["lang"] != "ko":
+        return page.get("section", "")
+    if page["url"] in ("/", "/start/") or page.get("kind") == "howto" or (page.get("cat") and split_cat(page["cat"])[0] in TRACKS) or page.get("plat") in TRACKS:
+        return "how"
+    if page["url"] in WHY_URLS or page["url"] == "/why/" or page.get("section") == "why":
+        return "why"
+    if page.get("section") in ("about",):
+        return "about"
+    return "guide"
 
 
 def breadcrumb_ld(page):
@@ -490,7 +511,7 @@ def breadcrumb_ld(page):
     if page["url"] in ("/", "/en/") or page.get("noindex") or not page.get("cat"):
         return ""
     top = split_cat(page["cat"])[0]
-    items = [("전체 글" if page["lang"] == "ko" else "All posts", "/guide/" if page["lang"] == "ko" else "/en/"), (top, plat_url(page["lang"], top)), (page.get("nav", page["title"]), page["url"])]
+    items = [("플랫폼 설명" if page["lang"] == "ko" else "All posts", "/guide/" if page["lang"] == "ko" else "/en/"), (top, plat_url(page["lang"], top)), (page.get("nav", page["title"]), page["url"])]
     data = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE_URL + u} for i, (n, u) in enumerate(items)]}
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
@@ -561,16 +582,16 @@ def head_html(page, verify):
 
 
 def crumbs(page):
-    if page["url"] in ("/", "/en/", "/guide/"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/"):
         return ""
     if page["lang"] == "en":
         return '<p class="crumbs"><a href="/en/">Start here</a> › ' + esc(page.get("nav", page["title"])) + '</p>'
-    if page["url"] in ("/", "/en/", "/guide/"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/"):
         return ""
-    root = {"guide": ("/guide/", "전체 글"), "about": ("/", "홈")}.get(page["section"], ("/", "처음"))
+    root = {"how": ("/", "방법"), "why": ("/why/", "마케팅의 필요성"), "guide": ("/guide/", "플랫폼 설명"), "about": ("/", "방법")}.get(page_area(page), ("/", "방법"))
     mid = ""
     if page.get("plat"):
-        return f'<p class="crumbs"><a href="/guide/">전체 글</a> › {esc(page["plat"])}</p>'
+        return f'<p class="crumbs"><a href="/guide/">플랫폼 설명</a> › {esc(page["plat"])}</p>'
     if page.get("cat"):
         top = split_cat(page["cat"])[0]
         mid = f'<a href="{plat_url(page["lang"], top)}">{esc(top)}</a> › '
@@ -587,7 +608,7 @@ def footer_html(page):
     return '''<footer class="site">
   <p>이 사이트는 특정 가게에 속하지 않아요. 예시 가게 이름은 전부 지어낸 거예요.<br>
   물건을 팔지 않고, 손님 정보를 받지 않아요. 광고 자리에는 「광고」라고 적어요.</p>
-  <p><a href="/guide/">전체 글</a> · <a href="/about.html">소개</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
+  <p><a href="/">방법</a> · <a href="/why/">마케팅의 필요성</a> · <a href="/guide/">플랫폼 설명</a> · <a href="/about.html">소개</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
 
 
@@ -612,7 +633,7 @@ def quote_count(page):
 
 def prev_next(page, pages):
     """같은 플랫폼 안에서 order 순 이전·다음 글. 손으로 고른 「다음 글」과 별개로 위치 이동용."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course") or not page.get("cat"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course") or not page.get("cat"):
         return ""
     top = split_cat(page["cat"])[0]
     pool = sorted([p for p in pages if p["lang"] == page["lang"] and p.get("cat") and split_cat(p["cat"])[0] == top and "order" in p], key=lambda p: p.get("order", 0))
@@ -629,7 +650,7 @@ def prev_next(page, pages):
 
 def author_block(page):
     """글 끝 신뢰 블록 (Healthline 검토 배지·NerdWallet 전문가 표기 관찰). 익명이되 무엇을 확인했는지는 숫자로."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return ""
     q = quote_count(page)
     if page["lang"] == "en":
@@ -647,7 +668,7 @@ def author_block(page):
 
 def meta_line(page):
     """글머리 한 줄 — 발행·수정·근거 등급·읽는 시간 (설계기준 R2). 목차·첫 화면에는 넣지 않는다."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return page["body"]
     text = strip_tags(page["body"])
     if page["lang"] == "en":
@@ -670,7 +691,7 @@ def meta_line(page):
 
 def lift_todo(page):
     """글 끝의 「내일 할 일」 상자를 메타 줄 바로 뒤로 올린다 (2026-09-12 가독성: 보자마자 할 일). 첫 상자 하나만."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return page
     body = page["body"]
     m = re.search(r'<div class="note">\s*<b>(내일 할 일|오늘 할 일)</b>(.*?)</div>', body, re.S)
@@ -701,7 +722,7 @@ def add_toc(page):
     cut = body.find('<footer class="sources">')          # 근거 footer 의 h2 는 목차에 넣지 않는다
     head_part, tail_part = (body, "") if cut < 0 else (body[:cut], body[cut:])
     body = re.sub(r"<h2([^>]*)>(.*?)</h2>", rep, head_part, flags=re.S) + tail_part
-    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
+    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/", "/why/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
         label = "In this article" if page["lang"] == "en" else "목차"
         toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
         m = re.search(r'<div class="note todo">.*?</div>', body, re.S) or re.search(r'<p class="meta-line">.*?</p>', body, re.S)   # 「바로 할 일」 뒤, 없으면 메타 줄 뒤
@@ -722,7 +743,7 @@ def ad(slot, label):
 
 def related(page, pages):
     """같은 언어·같은 구역의 다른 글 3개 (order 가 가까운 순). 정적이라 빌드 때 고정."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return ""
     pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in (page["url"], "/", "/en/", "/guide/") and not p.get("noindex") and "order" in p]
     top = split_cat(page.get("cat"))[0] if page.get("cat") else ""
@@ -906,7 +927,7 @@ def rail(page, pages):
     if not SITECFG.get("rail") or page.get("noindex"):
         return ""
     # 글(order 가 있는 페이지)만. 처리방침·소개 같은 고정 페이지는 발자국 아래 있으니 여기 안 넣는다.
-    pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in ("/", "/en/", "/guide/") and not p.get("noindex") and p["url"] != page["url"] and "order" in p]
+    pool = [p for p in pages if p["lang"] == page["lang"] and p["url"] not in ("/", "/en/", "/guide/", "/why/") and not p.get("noindex") and p["url"] != page["url"] and "order" in p]
     pool.sort(key=lambda p: (p.get("date") or "", p["url"]), reverse=True)
     head = "Latest" if page["lang"] == "en" else "최근 글"
     latest = '<div class="rail-box"><span class="rail-head">' + head + '</span><ul>' + "".join(
@@ -916,7 +937,7 @@ def rail(page, pages):
 
 def place_ads(page):
     """본문에 광고 자리 셋: 글머리(목차 뒤) · 본문 중간(둘째 h2 앞) · 글 끝(근거 앞)."""
-    if page["url"] in ("/", "/en/", "/guide/") or page.get("noindex") or page.get("plat") or page.get("course"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return page
     lab = "광고" if page["lang"] == "ko" else "Advertisement"
     body = page["body"]
@@ -1005,7 +1026,7 @@ def build():
     write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /_build/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
 
     # feed.xml — 네이버: "최신글은 본문 전체를 포함하여 RSS 피드에" (NS-01)
-    arts = sorted([p for p in indexable if p["url"] not in ("/", "/en/", "/guide/") and not p.get("plat")],
+    arts = sorted([p for p in indexable if p["url"] not in ("/", "/en/", "/guide/", "/why/") and not p.get("plat")],
                   key=lambda p: (p.get("updated") or "", p["url"]), reverse=True)
     items = []
     for p in arts[:30]:
@@ -1036,7 +1057,7 @@ def build():
     # 404
     nf = {"title": "찾는 글이 없어요", "nav": "없는 페이지", "description": "주소가 바뀌었거나 없는 페이지예요. 처음 화면이나 사장님 가이드 목차에서 다시 찾아보세요.",
           "lang": "ko", "section": "about", "url": "/404.html", "rel": "404.html", "noindex": True, "date": "2026-09-11", "updated": "2026-09-11",
-          "body": '<h1>찾는 글이 없어요</h1><p class="lead">주소가 바뀌었거나 없는 페이지예요. <a href="/">처음</a>이나 <a href="/guide/">전체 글</a>에서 다시 찾아보세요.</p>'}
+          "body": '<h1>찾는 글이 없어요</h1><p class="lead">주소가 바뀌었거나 없는 페이지예요. <a href="/">방법</a>이나 <a href="/guide/">플랫폼 설명</a>에서 다시 찾아보세요.</p>'}
     write(ROOT / "404.html", render(nf, pages, verify))
 
     # 옛 주소 → 새 주소 (첫날 하루 쓰인 주소). noindex 이고 검사에서 뺀다
