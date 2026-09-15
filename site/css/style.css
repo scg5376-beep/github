@@ -470,3 +470,36 @@ main.diag .diag { margin-top:24px; }
   .diag .rec { flex-direction:column; gap:2px; }
   .diag .r-head .btn { margin-left:0; }
 }
+
+/* 첫 화면 문 다섯 + 플랫폼별 길라잡이 (운영자 2026-09-15: 들어오자마자 알고 싶은 걸 클릭) */
+nav.doors { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin:0 0 36px; }
+nav.doors .door { display:flex; flex-direction:column; gap:4px; padding:14px 14px 12px; border:1.5px solid var(--line); border-radius:12px; background:#fff; text-decoration:none; color:inherit; min-width:0; }
+nav.doors .door b { font-size:1.05rem; }
+nav.doors .door span { font-size:.78rem; color:var(--ink-soft); line-height:1.4; }
+nav.doors .door:hover { border-color:var(--accent); }
+nav.doors .door[aria-current="page"] { border-color:var(--accent); background:var(--paper-2); box-shadow:inset 0 0 0 1px var(--accent); }
+.hix-top { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; }
+.hix-top h2.hm-head { margin:0; }
+.diag-btn { padding:10px 16px; border-radius:8px; background:var(--accent); color:#fff; font-weight:700; font-size:.92rem; text-decoration:none; }
+.hix h3 { margin:26px 0 8px; padding-left:14px; border-left:4px solid var(--c, var(--accent)); font-size:1.05rem; }
+.hix h3.plat-naver { --c:#03c75a; } .hix h3.plat-google { --c:#e8710a; } .hix h3.plat-instagram { --c:#d6249f; } .hix h3.plat-sell { --c:#8a6d00; } .hix h3.plat-ai { --c:#0f7b8a; }
+ul.hix-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+ul.hix-list a { display:grid; grid-template-columns:1fr auto; grid-template-areas:"t m" "l l"; gap:2px 10px; padding:12px 16px; border:1.5px solid var(--line); border-radius:10px; text-decoration:none; color:inherit; }
+ul.hix-list a:hover { border-color:var(--accent); }
+ul.hix-list b { grid-area:t; font-size:1.02rem; }
+ul.hix-list .line { grid-area:l; color:var(--ink-soft); font-size:.85rem; line-height:1.45; }
+ul.hix-list .meta { grid-area:m; color:var(--ink-soft); font-size:.78rem; white-space:nowrap; }
+.hix p.small { margin-top:28px; }
+/* 화면 캡처 */
+main.howto figure.shot { margin:12px 0 6px; max-width:640px; }
+main.howto figure.shot img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; }
+main.howto figure.shot figcaption { margin-top:6px; font-size:.82rem; color:var(--ink-soft); }
+main.howto figure.shot + figure.shot { margin-top:14px; }
+/* 용어·업데이트 */
+dl.terms, dl.updates { margin:0 0 28px; }
+dl.terms dt, dl.updates dt { margin-top:16px; font-weight:800; font-size:1.02rem; }
+dl.terms dd, dl.updates dd { margin:4px 0 0; color:var(--ink-soft); line-height:1.65; }
+dl.updates dt { color:var(--accent); font-variant-numeric:tabular-nums; }
+main.terms h2 { margin-top:36px; }
+@media (max-width:900px) { nav.doors { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:560px) { nav.doors { grid-template-columns:repeat(2,minmax(0,1fr)); } ul.hix-list { grid-template-columns:1fr; } .diag-btn { width:100%; text-align:center; } }

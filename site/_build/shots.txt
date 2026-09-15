@@ -1,0 +1,12 @@
+# 이름 | 주소 | 폭x높이 | 선택자(!=스크롤 안 함, ^=부모 단추, big:=제일 큰 것, text=글자) | 자르기 | (선택) 먼저 실행할 JS
+place-search | https://search.naver.com/search.naver?query=%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4 | 1200x760 | !^text=신규 등록 | 30,40,720,640
+place-home | https://smartplace.naver.com/ | 1200x760 | ^text=업체 신규 등록 | 0,0,1200,470
+place-login | https://nid.naver.com/nidlogin.login?url=https%3A%2F%2Fnew.smartplace.naver.com%2F | 1200x760 | input#id|input#pw|^text=로그인 | auto:60
+place-faq | https://smartplace.naver.com/ | 1200x760 | text=등록 안내|text=검수 기준|text=주인 변경 안내 | auto:80
+searchad | https://searchad.naver.com/ | 1200x760 | !^text=신규가입|^text=로그인 | 0,0,1200,700 | (()=>{for(const e of document.querySelectorAll('button,a,span,label')){if(/오늘 하루/.test(e.innerText||'')){e.click();}}})()
+advisor | https://searchadvisor.naver.com/ | 1200x760 | ^text=웹마스터 도구 | 0,0,1200,700
+gsc | https://search.google.com/search-console/welcome?hl=ko | 1200x760 | !^text=다음 | 0,0,1200,700
+gbp | https://www.google.com/intl/ko_kr/business/ | 1200x760 | ^text=프로필 만들기 | 0,0,1200,700
+smartstore | https://sell.smartstore.naver.com/ | 1200x760 | !box=290,430,238,72 | 0,0,1200,700
+meta-ads | https://adsmanager.facebook.com/ | 1200x760 | !^text=Facebook으로 계속하기 | 0,0,1200,700
+blog | https://section.blog.naver.com/ | 1200x760 | ^text=로그인 | 0,0,1200,700

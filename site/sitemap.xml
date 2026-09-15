@@ -186,7 +186,7 @@
   </url>
   <url>
     <loc>https://sajangmarketing.com/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/"/>
   </url>
@@ -303,6 +303,14 @@
   <url>
     <loc>https://sajangmarketing.com/start/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/terms/</loc>
+    <lastmod>2026-09-15</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/updates/</loc>
+    <lastmod>2026-09-15</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/why/</loc>
