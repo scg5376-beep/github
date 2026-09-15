@@ -94,6 +94,12 @@ def check_tone(rel, prose_html, stats=True):
     paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
     paras = [x for x in paras if len(x) > 8]
     plain = " ".join(paras)
+    L = TONE["limit"]
+    plain_noq = re.sub(r"「[^」]*」|“[^”]*”", " ", plain)                                  # 인용문 안 쉼표는 원문 그대로
+    ex = set(L.get("conj_ending_comma_exclude", []))
+    cec = [m.group(1) + m.group(2) for m in re.finditer(r"([가-힣]+?)(고|며|지만|면서|아서|어서|는데),(?=\s)", plain_noq) if (m.group(1) + m.group(2)) not in ex and (m.group(1) + m.group(2))[-2:] not in ex]
+    if len(cec) > L.get("conj_ending_comma_max", 99):                          # im-not-ai C-11 (KatFish 4.84배) 2026-09-15
+        err(rel, "S2-17", f"연결어미 뒤 쉼표 {len(cec)}회 > {L['conj_ending_comma_max']}회 … {', '.join(cec[:4])}")
     # 범례의 표제어(「파워링크.」)는 문장 통계에서 뺀다
     body_nolabel = re.sub(r"<li>\s*<span class=\"num\">\d+</span>\s*<div>\s*<b>[^<]*</b>", "<li><div>", body)
     paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
