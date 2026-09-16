@@ -658,7 +658,8 @@ def prev_next(page, pages):
 
 
 def author_block(page):
-    """글 끝 신뢰 블록 (Healthline 검토 배지·NerdWallet 전문가 표기 관찰). 익명이되 무엇을 확인했는지는 숫자로."""
+    """글 끝 신뢰 블록 — 운영자 2026-09-16 "이 글은 이런거 없애줘": 전부 뺀다(D43). 코드는 남겨 둔다."""
+    return ""
     if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/", "/terms/", "/updates/") or page.get("noindex") or page.get("plat") or page.get("course"):
         return ""
     q = quote_count(page)
@@ -1162,6 +1163,8 @@ def render(page, pages, verify):
     if ab and '<footer class="sources">' in page["body"]:
         i = page["body"].index('<footer class="sources">')
         page = dict(page, body=page["body"][:i] + ab + page["body"][i:])
+    if page.get("kind") == "howto":                                              # 방법 글은 근거 footer 없음 (운영자 2026-09-16, D43)
+        page = dict(page, body=re.sub(r'<footer class="sources">.*?</footer>', "", page["body"], flags=re.S))
     # 「이어서 읽을 글」 자동 목록은 뺐다 (2026-09-11 재개편: 글마다 손으로 고른 「다음 글」이 있어 중복. 게시판 상자가 같은 플랫폼 글을 이미 보여 준다)
     side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
     cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] in ("/", "/en/") else '<div class="cols one">')   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
