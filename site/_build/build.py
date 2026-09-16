@@ -1098,6 +1098,37 @@ def howto_index_html(pages, lang):
     return "".join(out)
 
 
+# ── 설명 글 → 방법 글 문 (발전 루프 1바퀴, 2026-09-17: 네이버 비즈니스 스쿨은 강의마다 「왜」와 「어떻게」를 짝지어 둔다. 우리 설명 글 본문에는 방법 글 링크가 0개였다) ──
+GUIDE_TO_HOWTO = {
+    "/guide/place.html": ["/local/2-place.html", "/local/3-rank.html"], "/guide/reviews.html": ["/local/4-reviews.html"],
+    "/guide/seo.html": ["/local/5-search.html"], "/guide/blog.html": ["/local/6-blog.html"], "/guide/blog-removed.html": ["/local/6-blog.html"],
+    "/guide/powerlink.html": ["/local/8-powerlink.html"], "/guide/ads.html": ["/local/8-powerlink.html", "/online/8-ads.html"],
+    "/guide/record.html": ["/local/9-record.html"], "/guide/before-selling.html": ["/online/3-law.html", "/service/6-law.html"],
+    "/guide/selling.html": ["/online/2-fees.html"], "/guide/domain.html": ["/online/4-domain.html"], "/guide/homepage.html": ["/online/5-homepage.html"],
+    "/guide/instagram.html": ["/online/7-instagram.html"], "/guide/threads.html": ["/online/7-instagram.html"], "/guide/meta-review.html": ["/online/8-ads.html"],
+    "/guide/google-profile.html": ["/foreign/3-google.html"], "/guide/google-content.html": ["/service/4-content.html"],
+    "/guide/geo.html": ["/service/7-ai.html"], "/guide/aeo.html": ["/service/7-ai.html"], "/guide/numbers.html": ["/check/"],
+}
+
+
+def do_box(page, pages):
+    urls = GUIDE_TO_HOWTO.get(page["url"])
+    if not urls:
+        return ""
+    by = {p["url"]: p for p in pages}
+    links = []
+    for u in urls:
+        p = by.get(u)
+        if not p:
+            continue
+        if u == "/check/":
+            links.append('<a href="/check/">1분 자가진단</a>')
+        else:
+            sub = split_cat(p["cat"])[1]
+            links.append(f'<a href="{u}">{esc(sub)} 따라 하기<span>{read_minutes(p)}분 · {step_cost(sub)[1]}</span></a>')
+    return '<div class="do"><b>바로 하려면</b>' + "".join(links) + "</div>" if links else ""
+
+
 def fill_boards(page, pages):
     """본문 자리표: <!--board--> 전체 최신 · <!--boards--> 게시판별 · <!--picks:/a,/b--> 지정 글."""
     body = page["body"]
@@ -1170,6 +1201,15 @@ def render(page, pages, verify):
     page = fill_boards(page, pages)
     page = add_toc(lift_todo(dict(page, body=meta_line(page))))
     page = place_ads(page)
+    if lang == "ko" and page_area(page) in ("guide", "why") and page.get("cat") and "order" in page:                # 설명 글 → 방법 글 문
+        box = do_box(page, pages)
+        if box:
+            bd = page["body"]
+            ml = re.search(r'<p class="meta-line">.*?</p>', bd, re.S)
+            bd = bd[:ml.end()] + box + bd[ml.end():] if ml else box + bd
+            nx = bd.rfind('<div class="next">')
+            bd = bd[:nx] + box + bd[nx:] if nx > 0 else bd + box
+            page = dict(page, body=bd)
     if lang == "ko" and page.get("cat") and "order" in page and not page.get("plat") and not page.get("course"):   # 강조 장치 (D44)
         page = dict(page, body=emphasis.apply(page["body"], "howto" if page.get("kind") == "howto" else "guide", page["url"]))
     ab = prev_next(page, pages) + author_block(page)
