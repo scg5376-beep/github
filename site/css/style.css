@@ -524,3 +524,9 @@ main.howto ol.steps b .ui { font-weight:700; }
 .do a { display:inline-flex; flex-direction:column; padding:6px 12px; border-radius:8px; background:var(--accent); color:#fff; font-weight:700; text-decoration:none; font-size:.95rem; line-height:1.3; }
 .do a span { font-size:.72rem; font-weight:500; opacity:.85; }
 @media (max-width:560px) { .do a { width:100%; } }
+
+/* 수수료 계산표 (발전 루프 3바퀴 2026-09-17: 토스 피드 「금융 계산기」 관찰 — 자바스크립트 없이 미리 계산한 표) */
+table.fee { font-variant-numeric:tabular-nums; }
+table.fee th:first-child { width:22%; white-space:nowrap; }
+table.fee td .pn { display:block; }
+main h3 + table.fee { margin-top:8px; }

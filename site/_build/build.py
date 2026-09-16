@@ -1053,6 +1053,7 @@ HOWTO_INDEX = [
     ]),
     ("sell", "판매", [
         ("스마트스토어·쿠팡 수수료", "/online/2-fees.html", "수수료 계산, 카테고리"),
+        ("수수료 계산표", "/guide/fee-table.html", "1만 원 팔면 얼마 남나, 등급별로 미리 계산"),
         ("도메인", "/online/4-domain.html", "내 명의로 주소 잡기"),
         ("통신판매업 신고·표시", "/online/3-law.html", "신고, 첫 화면 표시 사항"),
     ]),
@@ -1104,7 +1105,7 @@ GUIDE_TO_HOWTO = {
     "/guide/seo.html": ["/local/5-search.html"], "/guide/blog.html": ["/local/6-blog.html"], "/guide/blog-removed.html": ["/local/6-blog.html"],
     "/guide/powerlink.html": ["/local/8-powerlink.html"], "/guide/ads.html": ["/local/8-powerlink.html", "/online/8-ads.html"],
     "/guide/record.html": ["/local/9-record.html"], "/guide/before-selling.html": ["/online/3-law.html", "/service/6-law.html"],
-    "/guide/selling.html": ["/online/2-fees.html"], "/guide/domain.html": ["/online/4-domain.html"], "/guide/homepage.html": ["/online/5-homepage.html"],
+    "/guide/selling.html": ["/online/2-fees.html", "/guide/fee-table.html"], "/guide/fee-table.html": ["/online/2-fees.html"], "/guide/domain.html": ["/online/4-domain.html"], "/guide/homepage.html": ["/online/5-homepage.html"],
     "/guide/instagram.html": ["/online/7-instagram.html"], "/guide/threads.html": ["/online/7-instagram.html"], "/guide/meta-review.html": ["/online/8-ads.html"],
     "/guide/google-profile.html": ["/foreign/3-google.html"], "/guide/google-content.html": ["/service/4-content.html"],
     "/guide/geo.html": ["/service/7-ai.html"], "/guide/aeo.html": ["/service/7-ai.html"], "/guide/numbers.html": ["/check/"],
@@ -1123,6 +1124,8 @@ def do_box(page, pages):
             continue
         if u == "/check/":
             links.append('<a href="/check/">1분 자가진단</a>')
+        elif p.get("kind") != "howto":
+            links.append(f'<a href="{u}">{esc(p.get("nav", p["title"]))} 보기<span>{read_minutes(p)}분</span></a>')
         else:
             sub = split_cat(p["cat"])[1]
             links.append(f'<a href="{u}">{esc(sub)} 따라 하기<span>{read_minutes(p)}분 · {step_cost(sub)[1]}</span></a>')

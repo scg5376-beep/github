@@ -69,8 +69,8 @@ if "--calibrate" in sys.argv:
         print(f"아직 못 잰다: Δ5시간% = {dpct} (3 이상 필요, 창이 바뀌면 다시 --start)"); sys.exit(1)
     st["cap"] = int(used / dpct * 25); st["calibrated"] = datetime.date.today().isoformat(); st["per_pct"] = int(used / dpct)
     STATE.write_text(json.dumps(st, ensure_ascii=False), encoding="utf-8")
-    print(f"캘리브레이션: {used:,} 토큰 = {dpct}%p → 1%p ≈ {st['per_pct']:,} → cap(25%p) = {st['cap']:,}"); sys.exit(0)
-print(f"쓴 토큰 {used:,} / cap {cap:,} ({used / cap:.0%}) · 여유 한도 {int(cap * (1 + GRACE)):,} · 5시간 {pct}%(Δ{dpct}) · 주간 {week}%")
+    print(f"캘리브레이션: {used:,} 토큰 = {dpct:.0f}%p → 1%p ≈ {st['per_pct']:,} → cap(25%p) = {st['cap']:,}"); sys.exit(0)
+print(f"쓴 토큰 {used:,} / cap {cap:,} ({used / cap:.0%}) · 여유 한도 {int(cap * (1 + GRACE)):,} · 5시간 {pct:.0f}%(Δ{dpct if dpct is None else round(dpct)}) · 주간 {week}%")
 if week is not None and week >= 95 and "--no-week" not in sys.argv:
     print("주간 한도 임박 — 멈춤"); sys.exit(2)
 if used >= cap * (1 + GRACE):
