@@ -396,8 +396,7 @@ def check_page(p, all_titles):
 
     # ── R 근거·날짜 ──
     if not is_index:
-        if not re.search(r'<footer class="sources">', main) and lang == "ko" and 'class="wrap howto"' not in raw:   # 방법 글은 근거 footer 없음 (D43)
-            err(rel, "R1", "근거 footer 가 없다")
+        pass                                                                    # R1(근거 footer)은 폐지 — 화면에 안 보인다 (D43). 인용 대조 Q1 은 그대로
         if not re.search(r'"dateModified":\s*"\d{4}-\d{2}-\d{2}"', head):
             err(rel, "R2", "수정일이 없다")
         if not re.search(r'class="meta-line"', main):

@@ -683,12 +683,11 @@ def meta_line(page):
     text = strip_tags(page["body"])
     if page["lang"] == "en":
         mins = max(1, round(len(text.split()) / 220))
-        parts = [f"Published {page.get('date')}", f"Updated {page.get('updated')}",
-                 f"Evidence: {page.get('grade', 'see sources')}", f"{mins} min read", f"Next review {recheck_date(page)}"]
+        parts = [f"Published {page.get('date')}", f"Updated {page.get('updated')}", f"{mins} min read"]
     else:
         mins = max(1, round(len(text) / 450))
         parts = [f"발행 {page.get('date')}", f"수정 {page.get('updated')}",
-                 f"근거 {page.get('grade', '글 끝 참조')}", f"읽는 시간 약 {mins}분", f"다시 확인 {recheck_date(page)}"]
+                 f"읽는 시간 약 {mins}분"]
     line = '<p class="meta-line">' + "".join(f"<span>{esc(x)}</span>" for x in parts) + "</p>"
     body = page["body"]
     ms = list(re.finditer(r'<p class="lead">.*?</p>', body, re.S))
@@ -1163,8 +1162,8 @@ def render(page, pages, verify):
     if ab and '<footer class="sources">' in page["body"]:
         i = page["body"].index('<footer class="sources">')
         page = dict(page, body=page["body"][:i] + ab + page["body"][i:])
-    if page.get("kind") == "howto":                                              # 방법 글은 근거 footer 없음 (운영자 2026-09-16, D43)
-        page = dict(page, body=re.sub(r'<footer class="sources">.*?</footer>', "", page["body"], flags=re.S))
+    # 「근거」 footer 는 화면에 안 보인다 (운영자 2026-09-16 "굳이 근거까지 말해줄 필요없어 빼", D43). 원본(_src)에는 남겨 두고 인용 대조(Q1)에만 쓴다
+    page = dict(page, body=re.sub(r'<footer class="sources">.*?</footer>', "", page["body"], flags=re.S))
     # 「이어서 읽을 글」 자동 목록은 뺐다 (2026-09-11 재개편: 글마다 손으로 고른 「다음 글」이 있어 중복. 게시판 상자가 같은 플랫폼 글을 이미 보여 준다)
     side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
     cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] in ("/", "/en/") else '<div class="cols one">')   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
