@@ -12,6 +12,7 @@ PROJ = "C--Users-USER-Desktop------"
 RATE = pathlib.Path(HOME) / ".claude" / "statusline-rate.json"
 STATE = pathlib.Path(__file__).resolve().parents[2] / "docs/발전/예산.json"
 DEFAULT_CAP = 5_000_000                                                          # 잠정 — 캘리브레이션 전 기본값(환산 토큰)
+GRACE = 0.10                                                                     # 마무리(검수·배포·기록)용 초과 여유 +10% (운영자 2026-09-17)
 
 
 def tokens_all():
@@ -69,7 +70,11 @@ if "--calibrate" in sys.argv:
     st["cap"] = int(used / dpct * 25); st["calibrated"] = datetime.date.today().isoformat(); st["per_pct"] = int(used / dpct)
     STATE.write_text(json.dumps(st, ensure_ascii=False), encoding="utf-8")
     print(f"캘리브레이션: {used:,} 토큰 = {dpct}%p → 1%p ≈ {st['per_pct']:,} → cap(25%p) = {st['cap']:,}"); sys.exit(0)
-print(f"쓴 토큰 {used:,} / cap {cap:,} ({used / cap:.0%}) · 5시간 {pct}%(Δ{dpct}) · 주간 {week}%")
+print(f"쓴 토큰 {used:,} / cap {cap:,} ({used / cap:.0%}) · 여유 한도 {int(cap * (1 + GRACE)):,} · 5시간 {pct}%(Δ{dpct}) · 주간 {week}%")
 if week is not None and week >= 95:
     print("주간 한도 임박 — 멈춤"); sys.exit(2)
-sys.exit(2 if used >= cap else 0)
+if used >= cap * (1 + GRACE):
+    print("여유분까지 소진 — 즉시 멈춤"); sys.exit(3)
+if used >= cap:
+    print("상한 도달 — 새 바퀴 시작 금지, 하던 바퀴의 검수·배포·기록만 마치고 멈춤"); sys.exit(2)
+sys.exit(0)
