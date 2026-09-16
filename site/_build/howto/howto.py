@@ -91,6 +91,29 @@ def inject_reasons(track, fname, body):
         out.append(li)
     return body[:m.start(1)] + "".join(out) + body[m.end(1):]
 
+CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮"
+
+
+def shot_figures(items):
+    """한 단계의 캡처 여럿에 번호를 1부터 이어 붙인다. 번호 배지는 그림 위 HTML(상자 위치 %는 img/shots/이름.boxes.json)."""
+    import json
+    root = pathlib.Path(__file__).resolve().parents[2] / "img/shots"
+    out, k = [], 0
+    for n, cap in items:
+        try:
+            meta = json.loads((root / f"{n}.boxes.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            meta = {"boxes": []}
+        badges, nums = [], []
+        for b in meta["boxes"]:
+            k += 1; nums.append(k)
+            badges.append(f'<span class="n b{len(nums)}">{k}</span>')                  # 위치는 css/shots.css (CSP 가 inline style 을 막는다)
+        it = iter(nums)
+        cap2 = re.sub(r"[①②③④⑤⑥⑦⑧⑨⑩]", lambda m: CIRCLED[next(it) - 1] if nums else m.group(0), cap)
+        out.append(f'<figure class="shot"><div class="pic shot-{n}"><img src="/img/shots/{n}.png" alt="{esc(cap2)}" loading="lazy">{"".join(badges)}</div><figcaption>{esc(cap2)}</figcaption></figure>')
+    return "".join(out)
+
+
 def inject_shots(track, fname, body):
     """shots_map.py 의 캡처를 해당 단계 <li> 의 설명 뒤(이유 상자 앞)에 <figure class="shot">로 넣는다."""
     try:
@@ -107,7 +130,7 @@ def inject_shots(track, fname, body):
     out = []
     for i, li in enumerate(items, 1):
         if i in sh and "<figure" not in li:
-            figs = "".join(f'<figure class="shot"><img src="/img/shots/{n}.png" alt="{esc(cap)}" loading="lazy"><figcaption>{esc(cap)}</figcaption></figure>' for n, cap in sh[i])
+            figs = shot_figures(sh[i])
             li = li.replace("<details", figs + "<details", 1) if "<details" in li else li[:-5] + figs + "</li>"
         out.append(li)
     return body[:m.start(1)] + "".join(out) + body[m.end(1):]

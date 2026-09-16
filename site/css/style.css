@@ -496,7 +496,9 @@ ul.hix-list .meta { grid-area:m; color:var(--ink-soft); font-size:.78rem; white-
 .hix p.small { margin-top:28px; }
 /* 화면 캡처 */
 main.howto figure.shot { margin:12px 0 6px; max-width:640px; }
+main.howto figure.shot .pic { position:relative; }
 main.howto figure.shot img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; }
+main.howto figure.shot .n { position:absolute; transform:translate(-60%,-60%); min-width:22px; height:22px; padding:0 6px; border-radius:11px; background:#e52626; color:#fff; font-size:.8rem; font-weight:800; line-height:22px; text-align:center; box-shadow:0 0 0 2px #fff; }
 main.howto figure.shot figcaption { margin-top:6px; font-size:.82rem; color:var(--ink-soft); }
 main.howto figure.shot + figure.shot { margin-top:14px; }
 /* 용어·업데이트 */

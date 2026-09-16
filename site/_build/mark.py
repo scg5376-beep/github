@@ -44,22 +44,15 @@ def main():
         for b in boxes:
             b["x"] -= crop[0]; b["y"] -= crop[1]
     d = ImageDraw.Draw(im)
-    f = font(22)
-    for k, b in enumerate(boxes):
+    W2, H2 = im.size
+    pos = []
+    for b in boxes:
         pad = 6
         x, y, w, h = b["x"] - pad, b["y"] - pad, b["w"] + 2 * pad, b["h"] + 2 * pad
         d.rounded_rectangle([x, y, x + w, y + h], radius=6, outline=RED, width=4)
-        lab = (labels[k] if labels and k < len(labels) else str(k + 1))
-        # 번호 동그라미: 상자 왼쪽 위 바깥. 자리가 없으면 안쪽
-        r = 17
-        cx, cy = x - r - 6, y - r - 6
-        if cx < r or cy < r:
-            cx, cy = x + w + r + 6, y + h / 2
-            if cx > im.size[0] - r:
-                cx, cy = x + r + 4, y + r + 4
-        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=RED)
-        tw = d.textlength(lab, font=f)
-        d.text((cx - tw / 2, cy - 14), lab, fill="white", font=f)
+        pos.append({"x": round(x / W2 * 100, 2), "y": round(y / H2 * 100, 2), "w": round(w / W2 * 100, 2), "h": round(h / H2 * 100, 2)})
+    # 번호는 그림에 굽지 않는다 — 글마다 순번이 달라서 HTML 이 상자 위치(%)에 배지를 얹는다 (운영자 2026-09-17)
+    pathlib.Path(out).with_suffix(".boxes.json").write_text(json.dumps({"w": W2, "h": H2, "boxes": pos}, ensure_ascii=False), encoding="utf-8")
     im.save(out, optimize=True)
     print(out, im.size)
 

@@ -563,6 +563,7 @@ def head_html(page, verify):
         f'<link rel="stylesheet" href="/fonts/pretendard/pretendard.css">',
         f'<link rel="stylesheet" href="/css/style.css">',
         *(['<link rel="stylesheet" href="/css/diag.css">'] if page.get("kind") == "diag" else []),
+        *(['<link rel="stylesheet" href="/css/shots.css">'] if page.get("kind") == "howto" else []),
         '<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">',
         f'<link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)}" href="{SITE_URL}/feed.xml">',
         # 오픈그래프 — 네이버 검색로봇도 본다 (NS-01)
@@ -990,6 +991,16 @@ def diag_html(pages, lang):
     return "".join(out)
 
 
+def shots_css():
+    out = []
+    for f in sorted((ROOT / "img/shots").glob("*.boxes.json")):
+        name = f.name[:-len(".boxes.json")]
+        meta = json.loads(f.read_text(encoding="utf-8"))
+        for i, bx in enumerate(meta["boxes"], 1):
+            out.append(f".shot-{name} .n.b{i}{{left:{bx['x']}%;top:{bx['y']}%}}")
+    return chr(10).join(out) + chr(10)
+
+
 def diag_css():
     """상태 규칙은 데이터에서 만든다. style.css 의 고정 규칙 뒤에 붙인다."""
     n = len(DIAG_Q)
@@ -1228,6 +1239,7 @@ def build():
     # robots.txt — Yeti(네이버)·Googlebot 포함 전부 허용. IP 차단 안 함.
     for u, ms in emphasis.MISSING:
         print("결론 문장 못 찾음", u, ms)
+    write(ROOT / "css/shots.css", "/* 캡처 번호 배지 위치 — build.py 가 img/shots/*.boxes.json 에서 만든다. 손으로 고치지 말 것 */" + chr(10) + shots_css())
     write(ROOT / "css/diag.css", "/* 자가진단 상태 규칙 — build.py diag_css() 가 만든다. 손으로 고치지 말 것 */" + chr(10) + diag_css())
     write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /_build/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
 
