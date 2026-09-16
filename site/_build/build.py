@@ -477,7 +477,7 @@ def nav_html(page, pages):
         cur = ' aria-current="page"' if cur_top == t else ""
         tabs.append(f'<a class="{plat_class(t)}" href="{plat_url(lang, t)}"{cur}>{esc(t)}</a>')
     sub_row = ""
-    if cur_top:
+    if cur_top and not (lang == "ko" and area == "how" and cur_top not in TRACKS):   # 코스 밖 방법 글(카카오 채널)은 탭 줄에 채널 줄을 안 붙인다
         def sub_href(c):
             if cur_top in TRACKS:
                 ps = posts(pages, lang, f"{cur_top}/{c}")
@@ -784,6 +784,7 @@ TAXO = {
         ("유튜브", ["채널", "쇼츠"]),
         ("AI", ["AI 답변", "용어"]),
         ("판매", ["관련법", "스마트스토어", "쿠팡", "자사몰"]),
+        ("카카오", ["채널"]),
         ("기록", ["12주 기록"]),
     ],
     "en": [
@@ -797,7 +798,7 @@ EMPTY = {"ko": "아직 글이 없어요. 준비 중이에요.", "en": "No posts 
 
 
 TRACKS = ("동네 매장", "온라인 판매", "예약·상담", "외국 손님")
-PLAT_SLUG = {"동네 매장": "local", "온라인 판매": "online", "예약·상담": "service", "외국 손님": "foreign", "시작 전": "start", "네이버": "naver", "구글": "google", "인스타그램": "instagram", "유튜브": "youtube", "AI": "ai", "판매": "sell", "기록": "record",
+PLAT_SLUG = {"동네 매장": "local", "온라인 판매": "online", "예약·상담": "service", "외국 손님": "foreign", "시작 전": "start", "네이버": "naver", "구글": "google", "인스타그램": "instagram", "유튜브": "youtube", "AI": "ai", "판매": "sell", "카카오": "kakao", "기록": "record",
              "Before you start": "start", "Naver": "naver", "Google": "google", "Selling": "sell"}
 
 
@@ -1064,6 +1065,9 @@ HOWTO_INDEX = [
     ("instagram", "인스타그램·메타", [
         ("인스타그램 계정", "/online/7-instagram.html", "비즈니스 계정, 프로필 링크"),
         ("메타 광고", "/online/8-ads.html", "광고 관리자, 학습 단계, 소재 규정"),
+    ]),
+    ("kakao", "카카오", [
+        ("카카오톡 채널 만들기", "/kakao/1-channel.html", "가게 이름으로 채널 열고 비즈니스 채널로"),
     ]),
     ("ai", "AI·법·기록", [
         ("AI 답변에 나오기", "/service/7-ai.html", "AI 브리핑, 재료는 리뷰"),

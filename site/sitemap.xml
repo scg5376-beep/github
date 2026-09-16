@@ -195,6 +195,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/kakao/1-channel.html</loc>
+    <lastmod>2026-09-17</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/local/1-start.html</loc>
     <lastmod>2026-09-14</lastmod>
   </url>
@@ -369,6 +373,10 @@
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/sell/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/sell/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/kakao/</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/p/record/</loc>

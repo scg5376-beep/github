@@ -47,7 +47,7 @@ def kv(prep, minutes, cost, result="", who=""):
 
 def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, blocked, why, nxt, sources, order, date="2026-09-14", note="", result="", who=""):
     """track: 'local'|'online'|'service'|'foreign'; sub: 채널 이름(TAXO); cat = '동네 매장/플레이스 등록' 등"""
-    TOP = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님"}[track]
+    TOP = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님", "kakao": "카카오"}[track]
     meta = {"title": title, "description": desc, "lang": "ko", "section": "guide", "nav": sub, "date": "2026-09-13", "updated": date,
             "order": order, "grade": "A 공식 도움말", "cat": f"{TOP}/{sub}", "kind": "howto"}
     src = "".join(f"<li>{s}</li>" for s in sources)
