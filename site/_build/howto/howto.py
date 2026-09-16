@@ -39,11 +39,13 @@ def _items(s):
     return "<ul>" + "".join(lis) + "</ul>" if len(lis) > 1 else re.sub(r"^<li>|</li>$", "", lis[0])
 
 
-def kv(prep, minutes, cost):
+def kv(prep, minutes, cost, result="", who=""):
+    """정부24 민원 안내처럼 「누가·얼마나·결과까지·돈」을 맨 위 상자 하나에 (발전 루프 2바퀴 2026-09-17). result·who 는 공식 문서에 있을 때만."""
     minutes = re.sub(r"\s*\(([^)]*)\)", r' <span class="pn">(\1)</span>', minutes)
-    return f'<dl class="kv prep"><dt>준비물</dt><dd>{_items(prep)}</dd><dt>걸리는 시간</dt><dd>{minutes}</dd><dt>돈</dt><dd>{cost}</dd></dl>\n'
+    extra = (f"<dt>누가</dt><dd>{who}</dd>" if who else "") + (f"<dt>결과까지</dt><dd>{result}</dd>" if result else "")
+    return f'<dl class="kv prep"><dt>준비물</dt><dd>{_items(prep)}</dd>{extra}<dt>걸리는 시간</dt><dd>{minutes}</dd><dt>돈</dt><dd>{cost}</dd></dl>\n'
 
-def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, blocked, why, nxt, sources, order, date="2026-09-14", note=""):
+def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, blocked, why, nxt, sources, order, date="2026-09-14", note="", result="", who=""):
     """track: 'local'|'online'|'service'|'foreign'; sub: 채널 이름(TAXO); cat = '동네 매장/플레이스 등록' 등"""
     TOP = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님"}[track]
     meta = {"title": title, "description": desc, "lang": "ko", "section": "guide", "nav": sub, "date": "2026-09-13", "updated": date,
@@ -53,7 +55,7 @@ def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, 
 <p class="kicker">{TOP}</p>
 <h1>{esc(sub)}</h1>
 <p class="lead">{lead}</p>
-{kv(prep, minutes, cost)}
+{kv(prep, minutes, cost, result, who)}
 <h2>따라 하기</h2>
 {steps(do)}{note}<h2>다 됐는지 확인</h2>
 {check(done)}<h2>막히면</h2>
