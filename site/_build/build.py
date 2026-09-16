@@ -23,6 +23,7 @@ _src/pages/**/*.html  →  site/**/*.html  (레이아웃·메타·JSON-LD 를 �
   noindex      true 면 검색 제외 (404 등)
 """
 import json, os, re, sys, pathlib, html, datetime
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent)); import emphasis
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]          # site/
 SRC  = ROOT / "_src" / "pages"
@@ -1158,6 +1159,8 @@ def render(page, pages, verify):
     page = fill_boards(page, pages)
     page = add_toc(lift_todo(dict(page, body=meta_line(page))))
     page = place_ads(page)
+    if lang == "ko" and page.get("cat") and "order" in page and not page.get("plat") and not page.get("course"):   # 강조 장치 (D44)
+        page = dict(page, body=emphasis.apply(page["body"], "howto" if page.get("kind") == "howto" else "guide", page["url"]))
     ab = prev_next(page, pages) + author_block(page)
     if ab and '<footer class="sources">' in page["body"]:
         i = page["body"].index('<footer class="sources">')
@@ -1223,6 +1226,8 @@ def build():
     write(ROOT / "sitemap.xml", "\n".join(sm) + "\n")
 
     # robots.txt — Yeti(네이버)·Googlebot 포함 전부 허용. IP 차단 안 함.
+    for u, ms in emphasis.MISSING:
+        print("결론 문장 못 찾음", u, ms)
     write(ROOT / "css/diag.css", "/* 자가진단 상태 규칙 — build.py diag_css() 가 만든다. 손으로 고치지 말 것 */" + chr(10) + diag_css())
     write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /_build/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
 

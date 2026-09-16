@@ -507,3 +507,11 @@ dl.updates dt { color:var(--accent); font-variant-numeric:tabular-nums; }
 main.terms h2 { margin-top:36px; }
 @media (max-width:900px) { nav.doors { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media (max-width:560px) { nav.doors { grid-template-columns:repeat(2,minmax(0,1fr)); } ul.hix-list { grid-template-columns:1fr; } .diag-btn { width:100%; text-align:center; } }
+
+/* 강조 장치 넷 (D44, 조사 2026-09-16: NN/g 30%·GOV.UK bold 최소·WCAG 1.4.1 색만으로 금지). 이탤릭·밑줄 강조·이모지 없음 */
+.ui { display:inline-block; max-width:100%; white-space:normal; padding:0 6px; border:1px solid var(--line); border-radius:5px; background:var(--paper-2); font-size:.92em; font-weight:600; line-height:1.7; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+mark { padding:0 3px; background:#fbf3d5; color:var(--ink); font-weight:600; border-radius:2px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+strong.key { font-weight:700; color:var(--accent); }
+cite { font-style:normal; color:var(--ink-soft); }
+em, i { font-style:normal; }
+main.howto ol.steps b .ui { font-weight:700; }

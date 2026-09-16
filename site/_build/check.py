@@ -8,6 +8,7 @@
 규칙 번호는 docs/설계기준.md 의 번호와 같다. 수치·금지 목록은 _build/spec.json 한 곳에만 둔다.
 """
 import json, re, sys, pathlib, struct, html as htmlmod
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent)); import emphasis
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]          # site/
 REPO = ROOT.parent
@@ -354,6 +355,15 @@ def check_page(p, all_titles):
         nb = len(re.findall(r"<(b|strong)\b", para))
         if nb > SPEC["text"]["bold_per_para_max"]:
             err(rel, "T5", f"한 문단에 굵은 글씨 {nb}곳: {strip(para)[:30]}…")
+    if lang == "ko":                                                             # T7 강조 장치 (D44): 이탤릭·밑줄 금지, 강조 글자 30% 이내(NN/g), 문단당 mark 1
+        if re.search(r"<(em|i|u)", main):
+            err(rel, "T7", "이탤릭·밑줄 강조(em/i/u)는 쓰지 않는다")
+        e_chars, all_chars = emphasis.stats(main)
+        if all_chars and e_chars / all_chars > 0.30:
+            err(rel, "T7", f"강조 글자 {e_chars / all_chars:.0%} > 30%")
+        for para in re.findall(r"<(?:p|li)>(.*?)</(?:p|li)>", main, re.S):
+            if para.count("<mark>") > 1:
+                err(rel, "T7", f"한 문단에 형광펜 {para.count('<mark>')}곳: {strip(para)[:30]}…")
     n_boxes = len(re.findall(r'class="(oneline|tomorrow|warn|yesno|note)"', main))
     if n_boxes > SPEC["layout"]["callout_max_per_page"]:
         err(rel, "T6", f"강조 상자 {n_boxes}개 > {SPEC['layout']['callout_max_per_page']}개")
