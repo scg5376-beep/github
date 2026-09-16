@@ -495,7 +495,7 @@ def nav_html(page, pages):
 </header>'''
 
 
-WHY_URLS = ["/guide/numbers.html", "/guide/seo.html", "/guide/reviews.html", "/guide/ads.html", "/guide/record.html", "/guide/geo.html", "/guide/aeo.html"]
+WHY_URLS = ["/why/cases.html", "/guide/numbers.html", "/guide/seo.html", "/guide/reviews.html", "/guide/ads.html", "/guide/record.html", "/guide/geo.html", "/guide/aeo.html"]
 
 
 def page_area(page):
@@ -1132,6 +1132,25 @@ def do_box(page, pages):
     return '<div class="do"><b>바로 하려면</b>' + "".join(links) + "</div>" if links else ""
 
 
+def cases_html(pages):
+    """설명 글에 흩어진 실제 사례(p.case)를 한 장에 모은다 (발전 루프 6바퀴 2026-09-17, 당근비즈니스 「성공사례」 관찰). 중복은 하나만, 「효과」와 「피해」로 나눈다."""
+    seen, good, bad = set(), [], []
+    for p in pages:
+        if p["lang"] != "ko" or not p["url"].startswith("/guide/"):
+            continue
+        for m in re.finditer(r'<p class="case">(.*?)</p>', p["body"], re.S):
+            inner = m.group(1)
+            key = re.sub(r"<[^>]+>", "", inner)[:40]
+            if key in seen:
+                continue
+            seen.add(key)
+            plain = re.sub(r"<[^>]+>", "", inner)
+            item = f'<li><p class="case">{inner}</p><a class="from" href="{p["url"]}">{esc(p.get("nav", p["title"]))} 설명에서</a></li>'
+            (bad if re.search(r"피해|거부|위약금|적발|환급|수사|도용|분쟁|대가성|허위|제안을 받았", plain) else good).append(item)
+    return (f'<h2 id="good">효과가 있었던 것</h2><ul class="cases">{"".join(good)}</ul>'
+            f'<h2 id="bad">조심할 것</h2><ul class="cases">{"".join(bad)}</ul>')
+
+
 def fill_boards(page, pages):
     """본문 자리표: <!--board--> 전체 최신 · <!--boards--> 게시판별 · <!--picks:/a,/b--> 지정 글."""
     body = page["body"]
@@ -1151,6 +1170,7 @@ def fill_boards(page, pages):
     body = body.replace("<!--chooser-->", chooser_html(pages, page["lang"]))
     body = body.replace("<!--diag-->", diag_html(pages, page["lang"]))
     body = body.replace("<!--doors-->", doors_html(page))
+    body = body.replace("<!--cases-->", cases_html(pages))
     body = body.replace("<!--howto-->", howto_index_html(pages, page["lang"]))
     body = body.replace("<!--today-->", today_html(pages, page["lang"]))
     sn = step_nav(page, pages)
