@@ -1,43 +1,75 @@
-# 발전 루프 예산 — 클로드 Max 5시간 창 사용률의 25%p (운영자 2026-09-17 "5시간 한도 기준으로 25%만").
-# 상태줄(~/.claude/statusline.py)이 ~/.claude/statusline-rate.json 에 남기는 five_hour.used_percentage 를 읽는다.
-# 사용: python budget.py --start   (「시작해」 때 기준점 저장)
-#       python budget.py --check   (매 바퀴. 25%p 넘으면 종료코드 2, 주간 95% 넘어도 2)
-import json, os, sys, time, datetime, pathlib
+# 발전 루프 예산 — 이 프로젝트가 쓴 토큰 수로 잰다 (운영자 2026-09-17: 5시간 %는 다른 레포와 공유되니 토큰 수를 정해 두자).
+# 상한 = 5시간 창의 25% 에 해당하는 환산 토큰. 앤스로픽이 창의 토큰 수를 공개하지 않아 첫 실행 때 캘리브레이션한다:
+#   이 프로젝트만 돌아가는 동안 Δ토큰 / Δ(5시간 %) 를 재서 25%p 에 해당하는 토큰을 구한다 → docs/발전/예산.json 의 cap.
+# 사용: python budget.py --start        「시작해」 때 기준점(토큰·5시간 %) 저장
+#       python budget.py --check        매 바퀴. 기준점부터 쓴 토큰이 cap 을 넘으면 종료코드 2
+#       python budget.py --calibrate    Δ5시간% 가 3 이상일 때 cap = 25 × (Δ토큰/Δ%) 로 갱신
+#       python budget.py --cap N        cap 을 손으로 정한다
+import json, os, sys, time, glob, datetime, pathlib
 
-RATE = pathlib.Path(os.path.expanduser("~/.claude/statusline-rate.json"))
+HOME = os.path.expanduser("~")
+PROJ = "C--Users-USER-Desktop------"
+RATE = pathlib.Path(HOME) / ".claude" / "statusline-rate.json"
 STATE = pathlib.Path(__file__).resolve().parents[2] / "docs/발전/예산.json"
-CAP = 25.0
+DEFAULT_CAP = 5_000_000                                                          # 잠정 — 캘리브레이션 전 기본값(환산 토큰)
 
 
-def read():
-    d = json.loads(RATE.read_text(encoding="utf-8"))
-    age = time.time() - d["at"]
-    rl = d["rate_limits"]
-    return rl.get("five_hour", {}), rl.get("seven_day", {}), age
+def tokens_all():
+    """이 프로젝트 모든 세션의 누적 환산 토큰(캐시 읽기 1/10). 기준점과의 차이만 쓴다."""
+    tot = 0; seen = set()
+    for f in glob.glob(os.path.join(HOME, ".claude", "projects", PROJ, "*.jsonl")):
+        try:
+            with open(f, encoding="utf-8", errors="replace") as fh:
+                for line in fh:
+                    if '"usage"' not in line:
+                        continue
+                    try:
+                        d = json.loads(line)
+                    except ValueError:
+                        continue
+                    msg = d.get("message") or {}; u = msg.get("usage")
+                    if not u:
+                        continue
+                    key = msg.get("id") or d.get("uuid")
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    tot += u.get("input_tokens", 0) + u.get("output_tokens", 0) + u.get("cache_creation_input_tokens", 0) + u.get("cache_read_input_tokens", 0) // 10
+        except OSError:
+            pass
+    return tot
 
 
-def fmt(ts):
-    return datetime.datetime.fromtimestamp(ts).strftime("%m-%d %H:%M") if ts else "?"
+def five_pct():
+    try:
+        d = json.loads(RATE.read_text(encoding="utf-8"))
+        return d["rate_limits"].get("five_hour", {}).get("used_percentage"), d["rate_limits"].get("five_hour", {}).get("resets_at"), d["rate_limits"].get("seven_day", {}).get("used_percentage")
+    except (OSError, ValueError, KeyError):
+        return None, None, None
 
 
-five, week, age = read()
-if age > 600:
-    print(f"주의: 상태줄 기록이 {age / 60:.0f}분 전 것 (상태줄이 갱신돼야 정확)")
-if five.get("used_percentage") is None:
-    print("5시간 값이 아직 없음 — 상태줄이 한 번 갱신된 뒤 다시"); sys.exit(1)
+st = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
+cap = st.get("cap", DEFAULT_CAP)
+now_tok = tokens_all(); pct, reset, week = five_pct()
+
+if "--cap" in sys.argv:
+    st["cap"] = int(sys.argv[sys.argv.index("--cap") + 1]); STATE.write_text(json.dumps(st, ensure_ascii=False), encoding="utf-8")
+    print(f"cap = {st['cap']:,}"); sys.exit(0)
 if "--start" in sys.argv:
-    STATE.write_text(json.dumps({"start_pct": five.get("used_percentage"), "start_reset": five.get("resets_at"), "started": time.time()}, ensure_ascii=False), encoding="utf-8")
-    print(f"기준점 저장: 5시간 {five.get('used_percentage')}% (창 초기화 {fmt(five.get('resets_at'))}) · 주간 {week.get('used_percentage')}% (초기화 {fmt(week.get('resets_at'))})")
-    sys.exit(0)
-st = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else None
-if not st:
+    st.update({"start_tok": now_tok, "start_pct": pct, "start_reset": reset, "started": time.time(), "cap": cap})
+    STATE.write_text(json.dumps(st, ensure_ascii=False), encoding="utf-8")
+    print(f"기준점: 토큰 {now_tok:,} · 5시간 {pct}% · 주간 {week}% · cap {cap:,}{' (잠정)' if 'calibrated' not in st else ''}"); sys.exit(0)
+if "start_tok" not in st:
     print("기준점 없음 — 먼저 --start"); sys.exit(1)
-now = five.get("used_percentage") or 0
-if five.get("resets_at") != st["start_reset"]:                                    # 창이 바뀌었으면 0부터 다시 센다
-    used = now
-else:
-    used = now - (st["start_pct"] or 0)
-print(f"5시간 창 사용 {used:.0f}%p / 상한 {CAP:.0f}%p (지금 {now}%, 창 초기화 {fmt(five.get('resets_at'))}) · 주간 {week.get('used_percentage')}%")
-if week.get("used_percentage", 0) >= 95:
+used = now_tok - st["start_tok"]
+dpct = (pct - st["start_pct"]) if (pct is not None and st.get("start_pct") is not None and reset == st.get("start_reset")) else None
+if "--calibrate" in sys.argv:
+    if dpct is None or dpct < 3:
+        print(f"아직 못 잰다: Δ5시간% = {dpct} (3 이상 필요, 창이 바뀌면 다시 --start)"); sys.exit(1)
+    st["cap"] = int(used / dpct * 25); st["calibrated"] = datetime.date.today().isoformat(); st["per_pct"] = int(used / dpct)
+    STATE.write_text(json.dumps(st, ensure_ascii=False), encoding="utf-8")
+    print(f"캘리브레이션: {used:,} 토큰 = {dpct}%p → 1%p ≈ {st['per_pct']:,} → cap(25%p) = {st['cap']:,}"); sys.exit(0)
+print(f"쓴 토큰 {used:,} / cap {cap:,} ({used / cap:.0%}) · 5시간 {pct}%(Δ{dpct}) · 주간 {week}%")
+if week is not None and week >= 95:
     print("주간 한도 임박 — 멈춤"); sys.exit(2)
-sys.exit(2 if used >= CAP else 0)
+sys.exit(2 if used >= cap else 0)
