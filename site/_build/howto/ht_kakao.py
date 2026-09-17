@@ -25,7 +25,7 @@ body = page("kakao", 1, "채널 만들기",
         ("예전에 만든 채널이 있는데 권한이 없어요", "같은 사업자등록번호로 운영 중인 채널 목록에서 「권한 요청」을 현재 마스터에게 보내세요."),
     ],
     why='<a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>',
-    nxt='  <a href="/local/4-reviews.html">이어서. 리뷰 답글</a>\n  <a href="/guide/numbers.html">설명. 손님은 지금 어디서 찾나</a>',
+    nxt='  <a href="/kakao/2-message.html">다음. 소식과 메시지</a>\n  <a href="/guide/numbers.html">설명. 손님은 지금 어디서 찾나</a>',
     sources=[A(K, "카카오비즈니스 가이드 「채널 만들기」", "2026-09-17"), A("https://kakaobusiness.gitbook.io/main/partner/smb/channel/step1/channel_start", "「카카오톡 채널 생성」", "2026-09-17")],
     order=1, date="2026-09-17")
 save("kakao", "1-channel.html", body)
