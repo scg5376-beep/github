@@ -40,7 +40,7 @@
 <ul class="check"><li>채널 홈에 소식이 보인다</li><li>메시지를 보냈다면 비즈월렛 캐시가 보낸 건수만큼 빠졌다</li><li>광고성 메시지에 광고 표시가 붙어 있다</li></ul>
 <h2>막히면</h2>
 <dl class="kv stuck"><dt>메시지를 보냈는데 캐시가 그대로예요</dt><dd>비즈월렛이 없거나 캐시가 없으면 발송이 안 돼요. 비즈월렛 만들기와 캐시 충전은 비즈월렛 메뉴에서 합니다.</dd><dt>소식에 사진과 링크를 같이 붙이고 싶어요</dt><dd>소식 첨부는 사진·동영상·링크·쿠폰·카드뷰 가운데 하나만 돼요. 링크가 중요하면 링크를 붙이고 사진은 본문 설명으로 대신하세요.</dd><dt>메시지 단추에 예약 링크를 넣었더니 안 돼요</dt><dd>예약하기·톡딜·쇼핑라이브·선물하기·채널 홈·소식·쿠폰으로 가는 링크는 못 쓴다고 가이드에 적혀 있어요. 홈페이지 주소를 넣으세요.</dd></dl>
-<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/ads.html">광고비는 어디서 새나</a>에 있어요.</p>
+<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/kakao-channel.html">카카오톡 채널, 무료인 것과 돈 드는 것</a>에 있어요.</p>
 
 <div class="next">
   <a href="/local/9-record.html">이어서. 12주 기록</a>
@@ -70,7 +70,7 @@
 <ul class="check"><li>카카오톡에서 검색용 아이디로 내 채널이 검색된다</li><li>채널 홈에 가게 이름·프로필 사진·소개가 보인다</li><li>「사업자 정보가 확인되지 않은 채널」 문구가 없다(비즈니스 채널 전환 완료)</li></ul>
 <h2>막히면</h2>
 <dl class="kv stuck"><dt>사업자등록번호가 아직 없어요</dt><dd>「아니오, 나중에 할게요」로 일반 채널을 먼저 열 수 있어요. 다만 「사업자 정보가 확인되지 않은 채널」 문구가 보이니 서류를 갖춰 비즈니스 채널로 전환하세요.</dd><dt>서류가 반려됐어요</dt><dd>해상도가 낮거나 이미지가 잘리면 반려될 수 있어요. 서류의 사업자등록번호가 입력한 번호와 같은지도 확인하세요.</dd><dt>예전에 만든 채널이 있는데 권한이 없어요</dt><dd>같은 사업자등록번호로 운영 중인 채널 목록에서 「권한 요청」을 현재 마스터에게 보내세요.</dd></dl>
-<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>에 있어요.</p>
+<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/kakao-channel.html">카카오톡 채널, 무료인 것과 돈 드는 것</a>에 있어요.</p>
 
 <div class="next">
   <a href="/kakao/2-message.html">다음. 소식과 메시지</a>
@@ -81,6 +81,71 @@
   <h2>근거</h2>
   <ul><li><span class="grade a">A</span> <a href="https://kakaobusiness.gitbook.io/main/channel/start" rel="noopener">카카오비즈니스 가이드 「채널 만들기」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://kakaobusiness.gitbook.io/main/partner/smb/channel/step1/channel_start" rel="noopener">「카카오톡 채널 생성」</a> (2026-09-17 확인)</li></ul>
   <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-17 기준이에요.</p>
+</footer>]]></content:encoded>
+  </item>
+  <item>
+    <title>카카오톡 채널, 무료인 것과 돈 드는 것</title>
+    <link>https://sajangmarketing.com/guide/kakao-channel.html</link>
+    <guid isPermaLink="true">https://sajangmarketing.com/guide/kakao-channel.html</guid>
+    <pubDate>Thu, 17 Sep 2026 09:00:00 +0900</pubDate>
+    <description>카카오톡 채널이 무엇이고 소식·메시지·채팅 가운데 무엇이 무료이고 무엇이 건당 과금인지, 일반 채널과 비즈니스 채널이 어떻게 다른지 카카오비즈니스 가이드 원문으로 설명해요.</description>
+    <content:encoded><![CDATA[<p class="kicker">카카오 · 채널</p>
+<h1>카카오톡 채널, 무료인 것과 돈 드는 것</h1>
+<p class="lead">손님 휴대폰에 다 깔려 있는 카카오톡 안에 가게 자리를 하나 만드는 게 채널이에요. 만드는 것도, 소식을 올리는 것도 무료인데 손님 채팅방으로 보내는 메시지는 보낸 수만큼 돈이 나가요. 어디까지가 공짜인지 카카오 가이드 원문으로 그어요.</p>
+
+<div class="note todo"><b>바로 할 일</b>카카오비즈니스에 로그인해 사장님 사업자등록번호로 이미 만들어진 채널이 있는지만 확인하세요. 있으면 권한 요청, 없으면 새로 만들면 됩니다.</div>
+
+<h2>채널이 뭔가요?</h2>
+<blockquote class="official">
+  <span class="who">카카오비즈니스 가이드, 「채널 만들기」</span>
+  <q>누구나 무료로 만들 수 있는 카카오톡 안의 비즈니스 홈!</q>
+</blockquote>
+<p>카카오가 스스로 「비즈니스 홈」이라고 불러요. 네이버 플레이스가 검색과 지도에 나오는 가게 정보라면, 채널은 카카오톡 친구 목록과 채팅방에 나오는 가게 정보예요. 그러면 손님은 언제 이걸 보게 될까요? 친구 추가를 한 뒤부터 소식이 보이고, 채팅으로 물어볼 수 있습니다.</p>
+<p>사장님 가게에 「카카오톡으로 문의 주세요」라는 말이 붙어 있다면 그 문의가 들어오는 자리가 여기예요.</p>
+
+<h2>일반 채널과 비즈니스 채널은 뭐가 다른가요?</h2>
+<p>사업자등록번호 없이도 채널은 열 수 있어요. 다만 카카오가 이렇게 적어 뒀습니다.</p>
+<blockquote class="official">
+  <span class="who">같은 문서</span>
+  <q>일반 채널에서는 ‘사업자 정보가 확인되지 않은 채널’에 대한 주의 문구가 노출되오니</q>
+</blockquote>
+<p>손님 눈에 「사업자 정보가 확인되지 않은 채널」이라고 보이는 거예요. 가게 채널은 사업자등록증으로 비즈니스 채널 전환까지 하셔야 그 문구가 사라집니다. 개인사업자 대표는 본인 명의 카카오톡 전자증명으로 되고 서류는 개인정보를 가리고 올리라고 돼 있어요.</p>
+
+<h2>무엇이 무료인가요?</h2>
+<blockquote class="official">
+  <span class="who">카카오비즈니스 가이드, 「소식」</span>
+  <q>글을 발행하면 채널 홈에 노출되어 카카오톡 사용자에게 내 채널의 소식을 알릴 수 있습니다.</q>
+</blockquote>
+<p>소식은 무료예요. 채널 홈에 올라가고 친구 추가한 손님이 들어와 보는 글인데, 예를 들어 이번 주 휴무나 새 메뉴 사진이 여기 어울려요. 사진·동영상·링크·쿠폰·카드뷰 가운데 하나를 붙일 수 있고, 30분 뒤부터 30일 안으로 예약 발행도 됩니다.</p>
+<p>채팅 답장도 무료예요.</p>
+
+<h2>무엇이 돈 드나요?</h2>
+<blockquote class="official">
+  <span class="who">카카오비즈니스 가이드, 「메시지」</span>
+  <q>메시지는 발송 수에 따라 캐시가 차감되는 유료 서비스입니다.</q>
+</blockquote>
+<blockquote class="official">
+  <span class="who">같은 문서</span>
+  <q>일반메시지 : 국가/OS 타겟 또는 전체 친구에게 발송하는 메시지로, 발송 건당 15원(VAT 별도)의 비용이 발생합니다.</q>
+</blockquote>
+<p>손님 채팅방으로 직접 보내는 메시지가 유료예요. 얼마나 나갈까요? 전체 친구에게 보내면 건당 15원, 성별이나 연령으로 골라 보내면 건당 20원이고 부가세는 따로예요. 친구가 1,000명이면 한 번 보낼 때 1만 5천 원이 나가는 셈이라 소식으로 될 일을 메시지로 보내지 않는 게 요령입니다.</p>
+<p>할인이나 상품 홍보가 들어간 메시지는 광고성으로 표시해야 하고 KISA 가이드를 지켜야 한다고 적혀 있어요. 예약하기·톡딜·쇼핑라이브·선물하기·채널 홈·소식·쿠폰으로 가는 링크는 메시지 단추에 못 씁니다.</p>
+
+<h2>정리</h2>
+<p>사장님, 채널은 무료로 만들고 소식으로 운영하세요. 메시지는 건당 돈이 나가니 12주 기록에 한 줄 적고 보내는 겁니다. 만드는 순서는 <a href="/kakao/1-channel.html">채널 만들기</a>, 올리고 보내는 순서는 <a href="/kakao/2-message.html">소식과 메시지</a>에 있어요.</p>
+
+<div class="next">
+<a href="/kakao/1-channel.html">따라 하기. 채널 만들기</a>
+<a href="/guide/ads.html">설명. 광고비는 어디서 새나</a>
+</div>
+
+<footer class="sources">
+  <h2>근거</h2>
+  <ul>
+    <li><span class="grade a">A</span> <a href="https://kakaobusiness.gitbook.io/main/channel/start" rel="noopener">카카오비즈니스 가이드 「채널 만들기」</a> (2026-09-17 확인)</li>
+    <li><span class="grade a">A</span> <a href="https://kakaobusiness.gitbook.io/main/channel/run/post" rel="noopener">「소식」</a> · <a href="https://kakaobusiness.gitbook.io/main/channel/run/message" rel="noopener">「메시지」</a> (2026-09-17 확인)</li>
+  </ul>
+  <p>요금과 규정은 카카오가 바꿀 수 있어요. 이 글은 2026-09-17 기준이에요.</p>
 </footer>]]></content:encoded>
   </item>
   <item>
@@ -880,36 +945,6 @@
 <footer class="sources">
   <h2>근거</h2>
   <ul><li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/20366" rel="noopener">네이버 스마트플레이스 사업주 고객센터 「업체 신규등록 방법」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/20379" rel="noopener">「업체 정보 수정 방법」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/20380" rel="noopener">「업체 휴무일, 영업시간 수정 방법」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/20521" rel="noopener">「플레이스 주인 변경/신청 방법」</a> (2026-09-14 확인)</li></ul>
-  <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-14 기준이에요.</p>
-</footer>]]></content:encoded>
-  </item>
-  <item>
-    <title>동네 가게 마케팅 시작 순서, 첫 주에 할 일 (동네 매장 코스 1단계)</title>
-    <link>https://sajangmarketing.com/local/1-start.html</link>
-    <guid isPermaLink="true">https://sajangmarketing.com/local/1-start.html</guid>
-    <pubDate>Mon, 14 Sep 2026 09:00:00 +0900</pubDate>
-    <description>식당·카페·미용실·병원·학원처럼 손님이 직접 찾아오는 가게의 마케팅 코스를 시작하는 순서예요. 준비물을 모으고 우리 가게가 지금 어디까지 돼 있는지 확인하고 오늘 할 일 하나를 정합니다.</description>
-    <content:encoded><![CDATA[<p class="kicker">동네 매장</p>
-<h1>시작 가이드</h1>
-<p class="lead">손님이 직접 찾아오는 가게의 코스예요. 아홉 단계 가운데 여섯 단계는 돈이 안 들고 광고는 8단계에 가서야 나옵니다. 오늘은 준비물을 모으고 지금 상태만 확인하면 돼요.</p>
-<dl class="kv prep"><dt>준비물</dt><dd><ul><li>사업자등록증 사진</li><li>네이버 아이디</li><li>가게 전화번호</li><li>간판이 보이는 가게 사진 1장</li></ul></dd><dt>걸리는 시간</dt><dd>15분</dd><dt>돈</dt><dd>무료</dd></dl>
-
-<h2>따라 하기</h2>
-<ol class="steps"><li><b>준비물 네 가지를 휴대폰에 모아 두세요.</b> 사업자등록증은 휴대폰으로 찍은 사진이면 됩니다. 네이버 아이디는 개인 아이디여도 돼요.</li><li><b>네이버에서 「우리 동네 이름 + 업종」으로 검색해 보세요.</b> 이를테면 「중앙동 미용실」처럼요. 우리 가게가 목록에 나오는지, 나온다면 몇 번째인지 적어 둡니다. 안 나오면 2단계에서 등록합니다.<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">오픈서베이 2026 조사에서 열 명 가운데 여덟 명이 아직 네이버로 찾는다고 해요. 그래서 네이버 검색 화면이 출발점이에요. <a href="/guide/numbers.html">손님은 어디서 찾나</a></div></details></li><li><b>스마트플레이스에 로그인해 「내 업체」가 있는지 보세요.</b> 네이버에서 「스마트플레이스」를 검색해 들어갑니다. 내 업체가 있으면 영업시간·가격·찾아오는 길·사진 가운데 빈칸이 몇 개인지 세어 적으세요. 없으면 2단계로 갑니다.</li><li><b>우리 가게 리뷰를 열어 답글이 안 달린 리뷰가 몇 개인지 세어 두세요.</b> 4단계에서 답글을 답니다.</li><li><b>상호·주소·전화번호를 한 가지 표기로 정해 메모하세요.</b> 사업자등록증에 적힌 대로 정하고 앞으로 모든 곳에 똑같이 씁니다. 띄어쓰기와 전화번호 형식까지요.<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">상호·주소·전화가 한 글자라도 다르면 검색이 다른 가게로 여길 수 있어요. 처음에 표기를 정해 두면 뒤 단계가 전부 편해집니다. <a href="/guide/place.html">네이버 플레이스 설명</a></div></details></li><li><b>아래 단계 순서를 보고 다음 단계로 가세요.</b> 2단계부터 6단계까지는 무료이고 7단계는 법 확인, 8단계가 광고입니다. 순서를 건너뛰지 마세요. 앞 단계가 비어 있으면 광고를 켜도 손님이 그냥 나갑니다.<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">가게 정보가 비어 있으면 광고를 눌러 들어온 손님이 그냥 나가요. 무료 단계를 먼저 채워야 광고비가 안 샙니다. <a href="/guide/ads.html">광고비 설명</a></div></details></li></ol>
-<h2>다 됐는지 확인</h2>
-<ul class="check"><li>준비물 네 가지가 휴대폰에 있다</li><li>검색 결과에서 우리 가게 순위(또는 없음)를 적어 두었다</li><li>플레이스 빈칸 수와 답글 없는 리뷰 수를 적어 두었다</li><li>상호·주소·전화번호 표기를 메모했다</li></ul>
-<h2>막히면</h2>
-<dl class="kv stuck"><dt>사업자등록증이 아직 없어요</dt><dd>사업자등록부터 해야 해요. 사업 시작 전이나 시작한 날부터 20일 안에 홈택스(신청/제출 > 사업자등록신청)나 세무서에서 신청합니다.</dd><dt>손님이 대부분 20대예요</dt><dd>이 코스 그대로 하되, 6단계 블로그 대신 인스타그램 코스(온라인 판매 7단계)를 먼저 보셔도 됩니다.</dd><dt>우리 업종이 여기 없어요</dt><dd>손님이 찾아와서 결제하면 이 코스가 맞아요. 문의하고 예약해서 오면 「예약·상담」 코스, 택배로 보내면 「온라인 판매」 코스입니다.</dd></dl>
-<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>와 <a href="/guide/place.html">네이버 플레이스, 등록부터 순위까지</a>에 있어요.</p>
-
-<div class="next">
-  <a href="/local/2-place.html">다음 단계. 플레이스 등록</a>
-  <a href="/guide/numbers.html">설명. 손님은 지금 어디서 찾나</a>
-</div>
-
-<footer class="sources">
-  <h2>근거</h2>
-  <ul><li><span class="grade">설명</span> 이 사이트의 설명 글 <a href="/guide/numbers.html">손님은 지금 어디서 찾나</a></li><li><span class="grade a">A</span> <a href="https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2226&nttSn=7777" rel="noopener">국세청 「사업자등록 신청」 절차 안내</a> (2026-09-14 확인)</li></ul>
   <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-14 기준이에요.</p>
 </footer>]]></content:encoded>
   </item>

@@ -24,7 +24,7 @@ body = page("kakao", 1, "채널 만들기",
         ("서류가 반려됐어요", "해상도가 낮거나 이미지가 잘리면 반려될 수 있어요. 서류의 사업자등록번호가 입력한 번호와 같은지도 확인하세요."),
         ("예전에 만든 채널이 있는데 권한이 없어요", "같은 사업자등록번호로 운영 중인 채널 목록에서 「권한 요청」을 현재 마스터에게 보내세요."),
     ],
-    why='<a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>',
+    why='<a href="/guide/kakao-channel.html">카카오톡 채널, 무료인 것과 돈 드는 것</a>',
     nxt='  <a href="/kakao/2-message.html">다음. 소식과 메시지</a>\n  <a href="/guide/numbers.html">설명. 손님은 지금 어디서 찾나</a>',
     sources=[A(K, "카카오비즈니스 가이드 「채널 만들기」", "2026-09-17"), A("https://kakaobusiness.gitbook.io/main/partner/smb/channel/step1/channel_start", "「카카오톡 채널 생성」", "2026-09-17")],
     order=1, date="2026-09-17")
