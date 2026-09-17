@@ -92,6 +92,10 @@ blockquote.official q { font-weight:500; }
 .note b { display:block; margin-bottom:5px; font-size:.9rem; }
 .note.todo { margin:20px 0 10px; border-left-width:4px; background:var(--accent-soft); }
 .note.todo b { color:var(--accent); letter-spacing:.04em; }
+.note.course ul { margin:4px 0 0; padding-left:18px; }
+.note.course li { margin:3px 0; }
+.note.course.end { border-left-color:var(--pa); background:var(--pt); }
+.note.course.end p { margin:10px 0 0; }
 
 /* 표 — 가는 선만 */
 table { width:100%; margin:18px 0 25px; border-collapse:collapse; font-size:.94rem; }

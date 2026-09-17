@@ -45,6 +45,25 @@ def kv(prep, minutes, cost, result="", who=""):
     extra = (f"<dt>누가</dt><dd>{who}</dd>" if who else "") + (f"<dt>결과까지</dt><dd>{result}</dd>" if result else "")
     return f'<dl class="kv prep"><dt>준비물</dt><dd>{_items(prep)}</dd>{extra}<dt>걸리는 시간</dt><dd>{minutes}</dd><dt>돈</dt><dd>{cost}</dd></dl>\n'
 
+
+# 발전 루프 17바퀴 2026-09-17: 메타 블루프린트 관찰 — 과정 첫머리에 「이 과정을 통해 … 할 수 있습니다」 결과 문장이 있다. 정적으로 흉내: 1단계에 「마치면 생기는 것」, 마지막 단계에 「코스 끝」 상자.
+COURSE = {
+    "local":   (9, ["네이버 검색과 지도에 나오는 플레이스", "답글이 달린 리뷰", "가게 이야기가 쌓이는 블로그", "관련법을 확인한 표시와 안내", "돈이 어디로 가는지 아는 파워링크 설정", "12주 기록표"], '<a href="/kakao/1-channel.html">카카오톡 채널 만들기</a>'),
+    "online":  (9, ["수수료를 알고 정한 가격", "통신판매업 신고와 서면 준비", "내 도메인과 검색에 나오는 홈페이지", "블로그와 인스타그램으로 데려오는 손님", "광고를 켜고 끄는 기준", "12주 기록표"], '<a href="/kakao/1-channel.html">카카오톡 채널 만들기</a>'),
+    "service": (8, ["예약 단추가 붙은 플레이스", "검색에 나오는 홈페이지와 구글 글", "답글이 달린 리뷰", "관련법을 확인한 상담 안내", "AI 답변에 나올 재료", "12주 기록표"], '<a href="/kakao/1-channel.html">카카오톡 채널 만들기</a>'),
+    "foreign": (7, ["네이버 플레이스와 구글 비즈니스 프로필", "영어로도 나오는 홈페이지", "사진으로 말하는 인스타그램", "12주 기록표"], '<a href="/online/7-instagram.html">인스타그램 제품 태그</a>'),
+    "kakao":   (2, ["카카오톡 안의 가게 채널", "무료 소식과 유료 메시지의 구분"], '<a href="/local/9-record.html">12주 기록</a>'),
+}
+
+def course_box(track, step_no):
+    n, outs, nxt = COURSE[track]
+    li = "".join(f"<li>{o}</li>" for o in outs)
+    if step_no == 1:
+        return f'<div class="note course"><b>{n}단계를 마치면 가게에 생기는 것</b><ul>{li}</ul></div>'
+    if step_no == n:
+        return f'<div class="note course end"><b>코스 끝. 지금 가게에 있어야 하는 것</b><ul>{li}</ul><p>빠진 게 있으면 그 단계로 돌아가세요. 다 있으면 다음은 {nxt}예요.</p></div>'
+    return ""
+
 def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, blocked, why, nxt, sources, order, date="2026-09-14", note="", result="", who=""):
     """track: 'local'|'online'|'service'|'foreign'; sub: 채널 이름(TAXO); cat = '동네 매장/플레이스 등록' 등"""
     TOP = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님", "kakao": "카카오"}[track]
@@ -56,9 +75,9 @@ def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, 
 <h1>{esc(sub)}</h1>
 <p class="lead">{lead}</p>
 {kv(prep, minutes, cost, result, who)}
-<h2>따라 하기</h2>
+{course_box(track, step_no) if step_no == 1 else ''}<h2>따라 하기</h2>
 {steps(do)}{note}<h2>다 됐는지 확인</h2>
-{check(done)}<h2>막히면</h2>
+{check(done)}{course_box(track, step_no) if step_no != 1 else ''}<h2>막히면</h2>
 {stuck(blocked)}<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 {why}에 있어요.</p>
 
 <div class="next">
