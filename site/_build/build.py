@@ -931,6 +931,8 @@ DIAG_Q = [
         ("no", "안 내요", ""), ("self", "직접 돌려요", ""), ("agency", "대행사에 맡겼어요", ""), ("quit", "냈다가 끊었어요", "")]),
     ("d7", "문의 수와 매출을 매주 적어 두나요?", [
         ("yes", "적어요", ""), ("sometimes", "가끔 적어요", ""), ("no", "안 적어요", "")]),
+    ("d8", "카카오톡 채널이 있나요?", [
+        ("yes", "있어요", ""), ("no", "없어요", ""), ("unknown", "모르겠어요", "")]),
 ]
 DIAG_TRACK = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님"}
 # 결과 카드: (코스, 조건{질문: 답 목록} 또는 None=항상, 채널 이름 또는 "/주소", 한 줄)
@@ -967,6 +969,10 @@ DIAG_REC = [
     ("foreign", {"d5": ["yes"]}, "홈페이지 노출", "구글 서치콘솔 등록."),
     ("foreign", {"d6": ["self", "agency"]}, "/guide/ads.html", "광고비는 어디서 새나."),
     ("foreign", {"d7": ["sometimes", "no"]}, "12주 기록", "외국 손님 수를 따로 세세요."),
+    ("local", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "손님이 카카오톡으로 문의하게. 무료."),
+    ("online", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "손님이 카카오톡으로 문의하게. 무료."),
+    ("service", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "예약 문의를 카카오톡으로. 무료."),
+    ("foreign", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "손님이 카카오톡으로 문의하게. 무료."),
 ]
 
 
@@ -989,6 +995,8 @@ def diag_html(pages, lang):
                 continue
             if target.startswith("/"):
                 url, label = target, next((p.get("nav", p["title"]) for p in pages if p["url"] == target), target)
+                if target.startswith("/kakao/"):
+                    label = "카카오톡 " + label
             else:
                 pp = posts(pages, lang, f"{top}/{target}")
                 url, label = (pp[0]["url"], target) if pp else (plat_url(lang, top), target)

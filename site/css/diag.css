@@ -9,7 +9,7 @@
 .diag:has([name=d1]:checked) .q1 .opts{display:block}
 .diag:has([name=d1]:checked) .q1 label{display:inline-flex;flex-direction:row;max-width:100%}
 .diag:has([name=d1]:checked) .prog b::before{content:"2"}
-.diag:has([name=d1]:checked) .prog i{width:29%}
+.diag:has([name=d1]:checked) .prog i{width:25%}
 .diag:has([name=d2]:checked) .q3{display:block}
 .diag:has([name=d2]:checked) .q2{padding:8px 0;border-bottom:1px dashed var(--line)}
 .diag:has([name=d2]:checked) .q2 legend{font-size:.9rem;color:var(--ink-soft);margin:0 0 4px}
@@ -20,7 +20,7 @@
 .diag:has([name=d2]:checked) .q2 .opts{display:block}
 .diag:has([name=d2]:checked) .q2 label{display:inline-flex;flex-direction:row;max-width:100%}
 .diag:has([name=d2]:checked) .prog b::before{content:"3"}
-.diag:has([name=d2]:checked) .prog i{width:43%}
+.diag:has([name=d2]:checked) .prog i{width:38%}
 .diag:has([name=d3]:checked) .q4{display:block}
 .diag:has([name=d3]:checked) .q3{padding:8px 0;border-bottom:1px dashed var(--line)}
 .diag:has([name=d3]:checked) .q3 legend{font-size:.9rem;color:var(--ink-soft);margin:0 0 4px}
@@ -31,7 +31,7 @@
 .diag:has([name=d3]:checked) .q3 .opts{display:block}
 .diag:has([name=d3]:checked) .q3 label{display:inline-flex;flex-direction:row;max-width:100%}
 .diag:has([name=d3]:checked) .prog b::before{content:"4"}
-.diag:has([name=d3]:checked) .prog i{width:57%}
+.diag:has([name=d3]:checked) .prog i{width:50%}
 .diag:has([name=d4]:checked) .q5{display:block}
 .diag:has([name=d4]:checked) .q4{padding:8px 0;border-bottom:1px dashed var(--line)}
 .diag:has([name=d4]:checked) .q4 legend{font-size:.9rem;color:var(--ink-soft);margin:0 0 4px}
@@ -42,7 +42,7 @@
 .diag:has([name=d4]:checked) .q4 .opts{display:block}
 .diag:has([name=d4]:checked) .q4 label{display:inline-flex;flex-direction:row;max-width:100%}
 .diag:has([name=d4]:checked) .prog b::before{content:"5"}
-.diag:has([name=d4]:checked) .prog i{width:71%}
+.diag:has([name=d4]:checked) .prog i{width:62%}
 .diag:has([name=d5]:checked) .q6{display:block}
 .diag:has([name=d5]:checked) .q5{padding:8px 0;border-bottom:1px dashed var(--line)}
 .diag:has([name=d5]:checked) .q5 legend{font-size:.9rem;color:var(--ink-soft);margin:0 0 4px}
@@ -53,7 +53,7 @@
 .diag:has([name=d5]:checked) .q5 .opts{display:block}
 .diag:has([name=d5]:checked) .q5 label{display:inline-flex;flex-direction:row;max-width:100%}
 .diag:has([name=d5]:checked) .prog b::before{content:"6"}
-.diag:has([name=d5]:checked) .prog i{width:86%}
+.diag:has([name=d5]:checked) .prog i{width:75%}
 .diag:has([name=d6]:checked) .q7{display:block}
 .diag:has([name=d6]:checked) .q6{padding:8px 0;border-bottom:1px dashed var(--line)}
 .diag:has([name=d6]:checked) .q6 legend{font-size:.9rem;color:var(--ink-soft);margin:0 0 4px}
@@ -64,7 +64,8 @@
 .diag:has([name=d6]:checked) .q6 .opts{display:block}
 .diag:has([name=d6]:checked) .q6 label{display:inline-flex;flex-direction:row;max-width:100%}
 .diag:has([name=d6]:checked) .prog b::before{content:"7"}
-.diag:has([name=d6]:checked) .prog i{width:100%}
+.diag:has([name=d6]:checked) .prog i{width:88%}
+.diag:has([name=d7]:checked) .q8{display:block}
 .diag:has([name=d7]:checked) .q7{padding:8px 0;border-bottom:1px dashed var(--line)}
 .diag:has([name=d7]:checked) .q7 legend{font-size:.9rem;color:var(--ink-soft);margin:0 0 4px}
 .diag:has([name=d7]:checked) .q7 .req{display:none}
@@ -73,10 +74,20 @@
 .diag:has([name=d7]:checked) .q7 .s{display:none}
 .diag:has([name=d7]:checked) .q7 .opts{display:block}
 .diag:has([name=d7]:checked) .q7 label{display:inline-flex;flex-direction:row;max-width:100%}
-.diag:has([name=d7]:checked) .prog b::before{content:"7"}
+.diag:has([name=d7]:checked) .prog b::before{content:"8"}
 .diag:has([name=d7]:checked) .prog i{width:100%}
-.diag:has([name=d7]:checked) .result{display:block}
-.diag:has([name=d7]:checked) .prog{display:none}
+.diag:has([name=d8]:checked) .q8{padding:8px 0;border-bottom:1px dashed var(--line)}
+.diag:has([name=d8]:checked) .q8 legend{font-size:.9rem;color:var(--ink-soft);margin:0 0 4px}
+.diag:has([name=d8]:checked) .q8 .req{display:none}
+.diag:has([name=d8]:checked) .q8 label:not(:has(:checked)){display:none}
+.diag:has([name=d8]:checked) .q8 label{padding:6px 12px;min-height:0;border-color:var(--accent);background:var(--paper-2)}
+.diag:has([name=d8]:checked) .q8 .s{display:none}
+.diag:has([name=d8]:checked) .q8 .opts{display:block}
+.diag:has([name=d8]:checked) .q8 label{display:inline-flex;flex-direction:row;max-width:100%}
+.diag:has([name=d8]:checked) .prog b::before{content:"8"}
+.diag:has([name=d8]:checked) .prog i{width:100%}
+.diag:has([name=d8]:checked) .result{display:block}
+.diag:has([name=d8]:checked) .prog{display:none}
 .diag:has([name=d1][value=local]:checked) .r-local{display:block}
 .diag:has([name=d1][value=online]:checked) .r-online{display:block}
 .diag:has([name=d1][value=service]:checked) .r-service{display:block}
@@ -113,3 +124,7 @@
 .diag:has([name=d5][value=yes]:checked) #rec29{display:flex}
 .diag:has([name=d6][value=self]:checked, [name=d6][value=agency]:checked) #rec30{display:flex}
 .diag:has([name=d7][value=sometimes]:checked, [name=d7][value=no]:checked) #rec31{display:flex}
+.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec32{display:flex}
+.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec33{display:flex}
+.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec34{display:flex}
+.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec35{display:flex}
