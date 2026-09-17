@@ -571,3 +571,6 @@ nav.intoc li { padding:3px 0; }
   nav.tabs .subs .wrap::-webkit-scrollbar { display:none; }
   nav.tabs .subs a { flex:0 0 auto; }
 }
+
+.diag .rec em { margin-left:auto; padding:2px 8px; border-radius:10px; background:var(--paper-2); color:var(--ink-soft); font-style:normal; font-size:.76rem; white-space:nowrap; }
+@media (max-width:560px) { .diag .rec em { margin-left:0; } }

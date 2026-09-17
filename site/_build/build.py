@@ -992,7 +992,9 @@ def diag_html(pages, lang):
             else:
                 pp = posts(pages, lang, f"{top}/{target}")
                 url, label = (pp[0]["url"], target) if pp else (plat_url(lang, top), target)
-            recs.append(f'<a class="rec" id="rec{k}" href="{url}"><b>{esc(label)}</b><span>{esc(line)}</span></a>')
+            pp2 = next((p for p in pages if p["url"] == url), None)
+            meta = f'<em>{read_minutes(pp2)}분 · {step_cost(split_cat(pp2["cat"])[1])[1]}</em>' if pp2 and pp2.get("cat") and pp2.get("kind") == "howto" else ""
+            recs.append(f'<a class="rec" id="rec{k}" href="{url}"><b>{esc(label)}</b><span>{esc(line)}</span>{meta}</a>')
         out.append(f'<div class="r r-{code}"><p class="r-head"><span class="who">{esc(TRACK_INFO[top]["who"])}</span><b class="{plat_class(top)}">{esc(top)} 코스</b>'
                    f'<a class="btn" href="{start}">1단계부터 시작하기</a></p><div class="recs">{"".join(recs)}</div>'
                    f'<p class="r-note">표시된 단계만 먼저 보세요. 답을 바꾸려면 「처음부터」를 누르세요.</p></div>')
