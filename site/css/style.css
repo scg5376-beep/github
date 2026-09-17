@@ -507,6 +507,10 @@ main.howto figure.shot figcaption { margin-top:6px; font-size:.82rem; color:var(
 main.howto figure.shot + figure.shot { margin-top:14px; }
 /* 용어·업데이트 */
 dl.terms, dl.updates { margin:0 0 28px; }
+nav.termjump { display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 6px; }
+nav.termjump a { padding:4px 10px; border:1px solid var(--line); border-radius:999px; font-size:.86rem; text-decoration:none; color:var(--ink); background:var(--paper-2); }
+nav.termjump a:hover { border-color:var(--accent); color:var(--accent); }
+dl.terms dt { scroll-margin-top:90px; }
 section.recent { margin:26px 0 8px; padding:14px 18px 12px; border:1px solid var(--line); border-radius:10px; background:var(--paper-2); }
 section.recent h2 { margin:0 0 4px; font-size:1rem; }
 dl.updates.mini { margin:0; }

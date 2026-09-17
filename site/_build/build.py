@@ -733,6 +733,8 @@ def add_toc(page):
     if page.get("kind") == "howto":                                              # 따라 하기 글은 목차 없이 바로 절차
         return page
     body = page["body"]
+    if page["url"] == "/terms/":
+        body = term_ids(body)
     heads = []
     def rep(m):
         text = re.sub(r"^\d+\.\s*", "", re.sub(r"<[^>]+>", "", m.group(2)).strip())   # 「1. 」 머리 번호는 목차에서 뺀다
@@ -745,12 +747,27 @@ def add_toc(page):
     cut = body.find('<footer class="sources">')          # 근거 footer 의 h2 는 목차에 넣지 않는다
     head_part, tail_part = (body, "") if cut < 0 else (body[:cut], body[cut:])
     body = re.sub(r"<h2([^>]*)>(.*?)</h2>", rep, head_part, flags=re.S) + tail_part
-    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/", "/why/", "/check/", "/updates/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
+    if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/", "/why/", "/check/", "/updates/", "/terms/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
         label = "In this article" if page["lang"] == "en" else "목차"
         toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
         m = re.search(r'<div class="note todo">.*?</div>', body, re.S) or re.search(r'<p class="meta-line">.*?</p>', body, re.S)   # 「바로 할 일」 뒤, 없으면 메타 줄 뒤
         body = body[:m.end()] + chr(10) + toc + body[m.end():] if m else toc + body
     return dict(page, body=body)
+
+
+def term_ids(body):
+    """용어 페이지: dt 에 id(용어 그대로) 를 붙이고 맨 위에 전체 용어 칩(점프 링크)을 둔다 — 토스 피드 「용어 링크」 관찰 마무리(2026-09-17). /terms/#알림톡 처럼 바로 갈 수 있다."""
+    names = []
+    def rep(m):
+        text = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+        tid = re.sub(r"\s*·\s*", "-", text).replace(" ", "-")
+        names.append((tid, text))
+        return f'<dt id="{tid}">{m.group(1)}</dt>'
+    body = re.sub(r"<dt>(.*?)</dt>", rep, body, flags=re.S)
+    if names:
+        chips = "".join(f'<a href="#{i}">{esc(n)}</a>' for i, n in names)
+        body = re.sub(r'(<p class="lead">.*?</p>)', lambda m: m.group(1) + chr(10) + f'<nav class="termjump" aria-label="용어 바로 가기">{chips}</nav>', body, count=1, flags=re.S)
+    return body
 
 
 def ad(slot, label):
