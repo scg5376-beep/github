@@ -87,8 +87,8 @@
 **유료 학술지 판본 말고, 저자·기관이 무료로 올려둔 것만 골랐다.**
 
 ```
-□ AD-01  nber.org/papers/w30925        광고 실험 (NBER 워킹페이퍼는 무료)
-□ AD-02  nber.org/papers/w20171        eBay 광고 실험
+■ AD-01  nber.org/papers/w30925        광고 실험 (2026-09-17 초록 받음 → 원문/학술/AD-01)
+■ AD-02  nber.org/papers/w20171        eBay 광고 실험 (2026-09-17 초록 받음 → 원문/학술/AD-02)
 □ FR-01  web.mit.edu/ariely/www/MIT/Papers/zero.pdf     공짜의 값
 □ VR-01  jonahberger.com → Papers      무엇이 퍼지나
 □ SI-01  sigir.org/files/forum/F2002/broder.pdf         검색 의도 3분류

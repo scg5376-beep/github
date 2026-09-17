@@ -1,0 +1,5 @@
+# NBER Working Paper w30925 — Which Firms Gain from Digital Advertising? Evidence from a Field Experiment | NBER
+# https://www.nber.org/papers/w30925
+# 받은 날 2026-09-17 · curl · 공개 초록(abstract) 원문. 본문 PDF는 미수집
+
+Measuring the returns of advertising opportunities continues to be a challenge for many businesses. We design and run a field experiment in collaboration with Yelp across 18,294 firms in the restaurant industry to understand which types of businesses gain more from digital advertising. We randomly assign 7,209 restaurants to freely receive Yelp’s standard ads package for three months. The scale of the experiment gives us a unique opportunity to assess the heterogeneity in advertising effectiveness across a variety of business attributes. We find that restaurants that receive advertising on Yelp observe on average a 7-19% increase in a wide range of purchase intention outcomes, as well as a 5% increase in customer reviews. We find that gains are heterogeneous across firms, with independent and higher-rated businesses observing larger gains, as well as those with more reviews and higher pre-experiment organic traffic.

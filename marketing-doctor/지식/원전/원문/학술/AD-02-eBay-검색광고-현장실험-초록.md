@@ -1,0 +1,5 @@
+# NBER Working Paper w20171 — Consumer Heterogeneity and Paid Search Effectiveness: A Large Scale Field Experiment | NBER
+# https://www.nber.org/papers/w20171
+# 받은 날 2026-09-17 · curl · 공개 초록(abstract) 원문. 본문 PDF는 미수집
+
+Internet advertising has been the fastest growing advertising channel in recent years with paid search ads comprising the bulk of this revenue. We present results from a series of large scale field experiments done at eBay that were designed to measure the causal effectiveness of paid search ads. Because search clicks and purchase behavior are correlated, we show that returns from paid search are a fraction of conventional non-experimental estimates. As an extreme case, we show that brand-keyword ads have no measurable short-term benefits. For non-brand keywords we find that new and infrequent users are positively influenced by ads but that more frequent users whose purchasing behavior is not influenced by ads account for most of the advertising expenses, resulting in average returns that are negative.
