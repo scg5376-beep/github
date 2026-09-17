@@ -17,4 +17,4 @@ await send("Runtime.evaluate",{expression:"window.scrollTo(0,"+(process.argv[5]|
 const shot = await send("Page.captureScreenshot",{format:"png",});
 await import("node:fs").then(fs=>fs.writeFileSync(process.argv[4]||"shot.png",Buffer.from(shot.data,"base64")));
 const res = await send("Runtime.evaluate",{expression:expr,returnByValue:true});
-console.log(JSON.stringify(res)); ws.close(); p.kill();
+console.log(JSON.stringify(res)); ws.close(); try{(await import("node:child_process")).spawnSync("taskkill",["/PID",String(p.pid),"/T","/F"],{stdio:"ignore"});}catch(e){} p.kill();
