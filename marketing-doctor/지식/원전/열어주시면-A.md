@@ -51,7 +51,7 @@
 □ LW-06  같은 법 시행규칙(행정안전부령)
 □ NS-01  같은 가이드 선호 URL·로봇 메타 태그  markup-structure
 □ NS-01  robots.txt 설정하기 · RSS 및 사이트맵 제출
-□ EC-03  쿠팡 FAQ 본문                    marketplace.coupang.com/faq
+■ EC-03  쿠팡 FAQ 본문                    marketplace.coupang.com/faq  (2026-09-17 「매출 정산하기」 받음. FAQ 본문은 목록만 열림)
 □ KA-01  KRNIC 도메인이름 등록               nic.or.kr/jsp/business/management/domain/registrationInfo.jsp
 ```
 
