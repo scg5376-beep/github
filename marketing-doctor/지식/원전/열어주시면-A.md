@@ -52,7 +52,7 @@
 □ NS-01  같은 가이드 선호 URL·로봇 메타 태그  markup-structure
 ■ NS-01  robots.txt 설정하기 (2026-09-17 받음 → 원문/네이버-사이트/) · □ RSS 및 사이트맵 제출
 ■ EC-03  쿠팡 FAQ 본문                    marketplace.coupang.com/faq  (2026-09-17 「매출 정산하기」 받음. FAQ 본문은 목록만 열림)
-□ KA-01  KRNIC 도메인이름 등록               nic.or.kr/jsp/business/management/domain/registrationInfo.jsp
+■ KA-01  KRNIC 도메인이름 등록               nic.or.kr/… (2026-09-17 받음 → 원문/절차/공공/)
 ```
 
 ### 1순위-e · 토스 광고 (한국어 · 무료 · 바로 열림) — 2026-09-04 추가
