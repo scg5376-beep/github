@@ -130,7 +130,8 @@
 .diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec35{display:flex}
 .diag:has([name=d2][value=mine]:checked) #rec36{display:flex}
 .diag:has([name=d2][value=mine]:checked) #rec37{display:flex}
-.diag:has([name=d2][value=mine]:checked) #rec38{display:flex}
-.diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec39{display:flex}
+#rec38{display:flex}
+.diag:has([name=d2][value=mine]:checked) #rec39{display:flex}
 .diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec40{display:flex}
 .diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec41{display:flex}
+.diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec42{display:flex}

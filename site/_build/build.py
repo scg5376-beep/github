@@ -1008,6 +1008,7 @@ DIAG_REC = [
     ("foreign", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "손님이 카카오톡으로 문의하게. 무료."),
     ("local", {"d2": ["mine"]}, "/daangn/1-profile.html", "플레이스가 돼 있으면 당근에도. 무료."),
     ("local", {"d2": ["mine"]}, "/kakao/3-map.html", "카카오맵에도 같은 정보로. 무료."),
+    ("local", None, "/guide/delivery-fees.html", "배달앱을 쓰면 정산서의 수수료 구간부터 보세요."),
     ("service", {"d2": ["mine"]}, "/kakao/3-map.html", "카카오맵에도 같은 정보로. 무료."),
     ("local", {"d6": ["no", "quit"]}, "/guide/support-money.html", "광고를 켤 거면 지원금부터 확인."),
     ("online", {"d6": ["no", "quit"]}, "/guide/support-money.html", "광고를 켤 거면 지원금부터 확인."),
