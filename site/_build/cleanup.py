@@ -1,9 +1,9 @@
 # 작업 뒤 사후 정리: 이 저장소의 도구가 띄운 프로세스만 찾아 끝낸다 (docs/규칙/공통_마무리.md).
-# 대상: 헤드리스 Edge(edge-shot·edge-ovf·edge-audit 프로필), 캡처·검사용 node(shot.mjs·scroll.mjs·audit.mjs·diag_shot.mjs), 8765 로컬 서버(--server 줄 때만).
+# 대상: 헤드리스 Edge(edge-shot·edge-ovf·edge-audit·edge-ft 원문받기 프로필), 캡처·검사용 node(shot.mjs·scroll.mjs·audit.mjs·diag_shot.mjs), 8765 로컬 서버(--server 줄 때만).
 # 다른 프로젝트의 node·python·코덱스는 건드리지 않는다. 사용: python cleanup.py [--server] [--dry]
 import subprocess, sys, json
 
-MINE = ["edge-shot", "edge-ovf", "edge-audit", "shot.mjs", "scroll.mjs", "scroll_open.mjs", "diag_shot.mjs", "audit.mjs", "shot_dbg.mjs"]
+MINE = ["edge-shot", "edge-ovf", "edge-audit", "edge-ft", "fetch_text.mjs", "fetch_links.mjs", "shot.mjs", "scroll.mjs", "scroll_open.mjs", "diag_shot.mjs", "audit.mjs", "shot_dbg.mjs"]
 if "--server" in sys.argv:
     MINE.append("http.server 8765")
 PS = r'''[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(msedge|node|python)\.exe$' } | Select-Object ProcessId, Name, CommandLine | ConvertTo-Json -Compress'''

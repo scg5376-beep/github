@@ -9,7 +9,7 @@ const get = (u)=>new Promise(r=>http.get(u,res=>{let d="";res.on("data",c=>d+=c)
 await new Promise(r=>setTimeout(r,waitMs));
 try{
  const tabs = await get(`http://127.0.0.1:${port}/json`);
- const t = tabs.find(x=>x.type==="page" && x.url.startsWith(url)) || tabs.find(x=>x.type==="page" && !x.url.startsWith("edge://")) || tabs[0];
+ const host = new URL(url).host; const t = tabs.find(x=>x.type==="page" && x.url.startsWith(url)) || tabs.find(x=>x.type==="page" && x.url.includes(host)) || tabs.find(x=>x.type==="page" && !x.url.startsWith("edge://")) || tabs[0];
  const ws = new WebSocket(t.webSocketDebuggerUrl); await new Promise(r=>ws.onopen=r);
  let id=0; const send=(m,params)=>new Promise(r=>{const i=++id; ws.addEventListener("message",function h(e){const d=JSON.parse(e.data); if(d.id===i){ws.removeEventListener("message",h); r(d.result);}}); ws.send(JSON.stringify({id:i,method:m,params}));});
  const expr = fs.readFileSync(new URL("./fetch_expr.js", import.meta.url), "utf8");

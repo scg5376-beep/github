@@ -53,6 +53,7 @@ COURSE = {
     "service": (8, ["예약 단추가 붙은 플레이스", "검색에 나오는 홈페이지와 구글 글", "답글이 달린 리뷰", "관련법을 확인한 상담 안내", "AI 답변에 나올 재료", "12주 기록표"], '<a href="/kakao/1-channel.html">카카오톡 채널 만들기</a>'),
     "foreign": (7, ["네이버 플레이스와 구글 비즈니스 프로필", "영어로도 나오는 홈페이지", "사진으로 말하는 인스타그램", "12주 기록표"], '<a href="/online/7-instagram.html">인스타그램 제품 태그</a>'),
     "kakao":   (2, ["카카오톡 안의 가게 채널", "무료 소식과 유료 메시지의 구분"], '<a href="/local/9-record.html">12주 기록</a>'),
+    "daangn":  (1, ["당근 동네지도와 검색에 나오는 비즈프로필", "인증 표시", "무료로 나가는 소식"], '<a href="/kakao/1-channel.html">카카오톡 채널 만들기</a>'),
 }
 
 def course_box(track, step_no):
@@ -66,7 +67,7 @@ def course_box(track, step_no):
 
 def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, blocked, why, nxt, sources, order, date="2026-09-14", note="", result="", who="", cat_sub=None):
     """track: 'local'|'online'|'service'|'foreign'; sub: 채널 이름(TAXO); cat = '동네 매장/플레이스 등록' 등"""
-    TOP = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님", "kakao": "카카오"}[track]
+    TOP = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님", "kakao": "카카오", "daangn": "당근"}[track]
     meta = {"title": title, "description": desc, "lang": "ko", "section": "guide", "nav": sub, "date": "2026-09-13", "updated": date,
             "order": order, "grade": "A 공식 도움말", "cat": f"{TOP}/{cat_sub or sub}", "kind": "howto"}
     src = "".join(f"<li>{s}</li>" for s in sources)
