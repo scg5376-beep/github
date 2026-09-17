@@ -588,3 +588,128 @@ nav.intoc li { padding:3px 0; }
 
 .diag .rec em { margin-left:auto; padding:2px 8px; border-radius:10px; background:var(--paper-2); color:var(--ink-soft); font-style:normal; font-size:.76rem; white-space:nowrap; }
 @media (max-width:560px) { .diag .rec em { margin-left:0; } }
+
+/* ── 디자인 4차 (D59, 운영자 2026-09-18 "색감이나 형태가 정성이 없어 보여") ─────────────────────────
+   따뜻한 종이색 바탕 + 흰 카드, 남색 하나에 살구색 강조 하나, 둥근 모서리 14px, 얕은 그림자. 움직임은 그대로 없음.
+   토스 피드·당근비즈니스·네이버 비즈니스 스쿨 첫 화면에서 공통으로 본 것: 옅은 바탕 위 흰 카드, 큰 제목, 한 가지 강조색 단추. */
+:root {
+  --paper:#f8f6f1;
+  --paper-2:#f1eee7;
+  --card:#ffffff;
+  --ink:#1b1e22;
+  --ink-soft:#585e66;
+  --line:#e4e0d7;
+  --accent:#164a9a;
+  --accent-deep:#0f3b7d;
+  --accent-soft:#e9f0fb;
+  --warm:#c6521c;             /* 강조 단추·중요 표시. 흰 글자 대비 5.4:1 */
+  --warm-soft:#fbeee6;
+  --shadow:0 1px 2px rgba(27,30,34,.06), 0 6px 18px rgba(27,30,34,.05);
+  --radius:14px;
+}
+body { background:var(--paper); }
+
+/* 머리: 흰 띠, 아래 옅은 그림자, 제호 크게 */
+header.top { position:relative; z-index:2; background:var(--card); border-bottom:1px solid var(--line); box-shadow:0 1px 0 rgba(27,30,34,.03), 0 4px 14px rgba(27,30,34,.04); }
+header.top a.brand, header.top span.brand { font-size:1.12rem; font-weight:800; letter-spacing:-.03em; }
+header.top a.brand img, header.top span.brand img { width:30px; height:30px; }
+header.top nav a { font-size:.86rem; padding:4px 2px; }
+header.top nav a[aria-current="page"] { border-bottom-width:2px; }
+header.top nav a.lang { border-radius:999px; padding:3px 11px; }
+form.search input[type="search"] { border-radius:999px 0 0 999px; }
+form.search button { border-radius:0 999px 999px 0; }
+
+/* 첫 화면 왼쪽: 남색 패널 위의 제호 */
+aside.hs { padding:26px 24px 22px; border-radius:var(--radius); background:linear-gradient(165deg,#173f86 0%, var(--accent) 55%, #2a6bc9 100%); color:#fff; box-shadow:var(--shadow); }
+aside.hs h1 { color:#fff; font-size:2.05rem; line-height:1.18; letter-spacing:-.04em; margin:0 0 14px; }
+aside.hs p { color:rgba(255,255,255,.86); }
+aside.hs p.trust span { color:rgba(255,255,255,.72); }
+aside.hs ul.hs-list { border-top:1px solid rgba(255,255,255,.22); }
+aside.hs ul.hs-list li { border-bottom:1px solid rgba(255,255,255,.16); }
+aside.hs ul.hs-list li.head { color:rgba(255,255,255,.7); }
+aside.hs ul.hs-list li a { color:#fff; }
+aside.hs ul.hs-list li a:hover { color:#ffd9a8; }
+aside.hs ul.hs-list li span { color:rgba(255,255,255,.7); }
+aside.hs ul.hs-list li[class^="plat-"] a::before { background:#fff; opacity:.8; }
+
+/* 문 다섯: 흰 카드, 위에 색 띠, 선택된 문은 남색 */
+nav.doors { gap:12px; margin-bottom:34px; }
+nav.doors .door { position:relative; overflow:hidden; padding:20px 16px 16px; border:1px solid var(--line); border-radius:var(--radius); background:var(--card); box-shadow:var(--shadow); }
+nav.doors .door::before { content:""; position:absolute; left:0; top:0; right:0; height:5px; background:var(--accent-soft); }
+nav.doors .door:nth-child(1)::before { background:var(--accent); }
+nav.doors .door:nth-child(2)::before { background:#3e8e5a; }
+nav.doors .door:nth-child(3)::before { background:#7a5cc6; }
+nav.doors .door:nth-child(4)::before { background:var(--warm); }
+nav.doors .door:nth-child(5)::before { background:#c99a12; }
+nav.doors .door b { font-size:1.14rem; letter-spacing:-.015em; }
+nav.doors .door span { font-size:.8rem; }
+nav.doors .door:hover { background:var(--card); border-color:var(--accent); box-shadow:0 2px 4px rgba(27,30,34,.08), 0 10px 26px rgba(22,74,154,.12); }
+nav.doors .door[aria-current="page"] { background:var(--accent-deep); border-color:var(--accent-deep); color:#fff; }
+nav.doors .door[aria-current="page"]::before { background:#ffd9a8; }
+nav.doors .door[aria-current="page"] span { color:rgba(255,255,255,.82); }
+
+/* 자가진단 단추: 살구색, 알약 모양 */
+.diag-btn { padding:12px 20px; border-radius:999px; background:var(--warm); box-shadow:0 2px 8px rgba(198,82,28,.28); font-size:.95rem; }
+.diag-btn:hover { background:#ad4515; }
+
+/* 길라잡이 카드: 흰 카드 + 얕은 그림자, 시간·돈 표시는 색 알약 */
+ul.hix-list { gap:12px; }
+ul.hix-list a { padding:16px 18px; border:1px solid var(--line); border-radius:var(--radius); background:var(--card); box-shadow:var(--shadow); }
+ul.hix-list a:hover { border-color:var(--accent); background:var(--card); box-shadow:0 2px 4px rgba(27,30,34,.08), 0 10px 26px rgba(22,74,154,.12); }
+ul.hix-list b { font-size:1.06rem; letter-spacing:-.01em; }
+ul.hix-list .meta { padding:3px 10px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-weight:600; }
+.hix h3 { margin:34px 0 12px; padding:6px 14px 6px 12px; border-radius:999px; font-size:.98rem; font-weight:800; }
+.hix h3::before { content:""; display:inline-block; width:9px; height:9px; margin:0 8px 1px 0; border-radius:50%; background:var(--pa); }
+.hix p.small { padding:14px 18px; border-radius:var(--radius); background:var(--paper-2); }
+section.recent { border:1px solid var(--line); border-radius:var(--radius); background:var(--card); box-shadow:var(--shadow); padding:18px 20px 16px; }
+section.recent h2 { font-size:1.05rem; font-weight:800; }
+
+/* 글 본문: 흰 종이 위에 올려 바탕과 구분 */
+.cols > main.wrap, main.wrap.diag { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:34px 40px 60px; }
+.cols.wide > main.wrap { background:transparent; border:0; box-shadow:none; padding:0 22px 76px; }
+.cols.wide > main.wrap .hm { padding:0; }
+aside.rail > * { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:14px 16px; }
+aside.rail > * + * { margin-top:14px; }
+h1 { font-size:2rem; letter-spacing:-.04em; line-height:1.22; }
+h2 { border-top:0; margin-top:52px; padding-top:0; font-size:1.34rem; font-weight:800; }
+h2::before { content:""; display:block; width:36px; height:4px; margin-bottom:14px; border-radius:2px; background:var(--warm); }
+footer.sources h2::before, section.recent h2::before, section.about-post h2::before, .hix-top h2::before, h2.hm-head::before { display:none; }
+p.kicker { color:var(--accent); font-weight:700; }
+.note { border-left:0; border-radius:12px; background:var(--paper-2); }
+.note.todo { background:var(--warm-soft); border-left:0; }
+.note.todo b { color:var(--warm); }
+.note.course { background:var(--accent-soft); }
+.note.course.end { background:#e9f3ec; }
+blockquote.official { border-left:3px solid var(--accent); background:var(--accent-soft); border-radius:0 12px 12px 0; padding:12px 16px; }
+.do { border-radius:12px; }
+main.howto dl.kv.prep { border-left:0; border-radius:12px; }
+main.howto ol.steps li::before, nav.steps .n { box-shadow:0 1px 3px rgba(27,30,34,.15); }
+nav.prevnext a { border-radius:12px; background:var(--card); box-shadow:var(--shadow); }
+nav.intoc { background:var(--paper-2); }
+table.fee th, table.profile th, table.kinds th { background:var(--paper-2); }
+footer.site { margin-top:56px; padding:34px 22px 56px; border-top:0; background:#1b1e22; color:#b9bfc7; }
+footer.site a { color:#e6e9ee; }
+footer.site img { filter:brightness(0) invert(1); opacity:.9; }
+/* 게시판·목록 카드 */
+.board a { border-radius:12px; }
+ul.cases li, dl.terms, dl.updates { background:transparent; }
+nav.termjump a { background:var(--card); box-shadow:0 1px 2px rgba(27,30,34,.05); }
+/* 자가진단 */
+.diag fieldset { border-radius:12px; background:var(--card); }
+.diag .rec { border-radius:12px; box-shadow:var(--shadow); background:var(--card); }
+@media (max-width:900px) {
+  aside.hs { padding:22px 18px 18px; }
+  .cols > main.wrap { padding:24px 20px 48px; }
+}
+@media (max-width:720px) {
+  .cols > main.wrap, main.wrap.diag { border-radius:10px; padding:20px 16px 44px; }
+  .cols { padding-right:10px; padding-left:10px; }
+}
+a.rail-btn { border-radius:999px; }
+@media (max-width:720px) {
+  nav.doors { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  nav.doors .door:nth-child(5) { grid-column:1 / -1; }
+}
+.cols > main.wrap { padding-left:34px; padding-right:34px; }
+nav.steps .s { letter-spacing:-.02em; }
+@media (max-width:420px) { mark { padding:0 1px; } }
