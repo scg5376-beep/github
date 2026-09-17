@@ -64,11 +64,11 @@ def course_box(track, step_no):
         return f'<div class="note course end"><b>코스 끝. 지금 가게에 있어야 하는 것</b><ul>{li}</ul><p>빠진 게 있으면 그 단계로 돌아가세요. 다 있으면 다음은 {nxt}예요.</p></div>'
     return ""
 
-def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, blocked, why, nxt, sources, order, date="2026-09-14", note="", result="", who=""):
+def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, blocked, why, nxt, sources, order, date="2026-09-14", note="", result="", who="", cat_sub=None):
     """track: 'local'|'online'|'service'|'foreign'; sub: 채널 이름(TAXO); cat = '동네 매장/플레이스 등록' 등"""
     TOP = {"local": "동네 매장", "online": "온라인 판매", "service": "예약·상담", "foreign": "외국 손님", "kakao": "카카오"}[track]
     meta = {"title": title, "description": desc, "lang": "ko", "section": "guide", "nav": sub, "date": "2026-09-13", "updated": date,
-            "order": order, "grade": "A 공식 도움말", "cat": f"{TOP}/{sub}", "kind": "howto"}
+            "order": order, "grade": "A 공식 도움말", "cat": f"{TOP}/{cat_sub or sub}", "kind": "howto"}
     src = "".join(f"<li>{s}</li>" for s in sources)
     body = f'''<!--meta {json.dumps(meta, ensure_ascii=False)} -->
 <p class="kicker">{TOP}</p>
