@@ -565,3 +565,9 @@ nav.intoc ol { margin:0; padding-left:20px; }
 nav.intoc li { padding:3px 0; }
 .grade { padding:0 6px; border:0; border-radius:4px; background:var(--paper-2); color:var(--ink-soft); font-size:.7rem; font-weight:600; vertical-align:baseline; }
 .grade.a { background:#e8eef6; color:var(--accent); }
+/* 레이아웃 3차: 휴대폰에서 채널 줄이 세 줄까지 쌓이던 것 → 한 줄, 옆으로 넘겨 보기 */
+@media (max-width:720px) {
+  nav.tabs .subs .wrap { flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:0; }
+  nav.tabs .subs .wrap::-webkit-scrollbar { display:none; }
+  nav.tabs .subs a { flex:0 0 auto; }
+}

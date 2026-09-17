@@ -21,7 +21,7 @@ const expr = `(()=>{
   for(const el of document.querySelectorAll('body *')){
     const r=el.getBoundingClientRect(); if(r.width===0) continue;
     const cs=getComputedStyle(el);
-    if(r.right>vw+1 && cs.position!=='fixed' && !el.closest('figure,table')) out.push('OVER '+path(el)+' right='+Math.round(r.right)+' vw='+vw+' text='+(el.textContent||'').trim().slice(0,30));
+    if(r.right>vw+1 && cs.position!=='fixed' && !el.closest('figure,table') && !el.closest('nav.tabs .subs .wrap')) out.push('OVER '+path(el)+' right='+Math.round(r.right)+' vw='+vw+' text='+(el.textContent||'').trim().slice(0,30));
     if(cs.overflow==='hidden' || cs.overflowX==='hidden' || cs.textOverflow==='ellipsis'){
       if(el.scrollWidth>el.clientWidth+1 && !['TABLE','PRE','FIGURE','svg','NAV'].includes(el.tagName) && !el.closest('table,pre,figure,nav.tabs')) out.push('CLIP '+path(el)+' sw='+el.scrollWidth+' cw='+el.clientWidth+' text='+(el.textContent||'').trim().slice(0,30));
     }
