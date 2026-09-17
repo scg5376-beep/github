@@ -123,10 +123,11 @@ save("online", "5-homepage.html", page("online", 5, "홈페이지 노출",
         ("소유확인이 계속 실패해요", "태그가 head 안에 있는지 view-source로 확인하세요. 첫 화면이 자바스크립트로 다른 주소로 넘어가면 확인이 안 되니 서버 리다이렉트(301·302)로 바꿔야 합니다."),
         ("스마트스토어만 있는데요", "스마트스토어 주소는 호스트 단위가 아니라 등록이 안 됩니다. 장터 검색은 장터 안에서 잡히니 이 단계는 건너뛰세요."),
         ("등록했는데 검색에 안 나와요", "등록은 노출 조건이 아니에요. 제목이 다 다른지, robots.txt가 로봇을 막고 있지 않은지, noindex가 붙어 있지 않은지 순서로 봅니다."),
+        ("robots.txt가 뭔지 모르겠어요", "검색로봇에게 들어와도 되는지 알려 주는 텍스트 파일이에요. 없어도 되는데, 네이버는 파일이 없으면(4xx) 「모두 허용」으로 봅니다. 제작업체가 넣어 둔 파일에 「Disallow: /」가 있으면 네이버 로봇(Yeti)도 못 들어오니 그 줄이 없는지만 확인하세요. 파일이 텍스트가 아니고 HTML로 열리면 없는 것으로 취급돼요."),
     ],
     why='<a href="/guide/homepage.html">내 홈페이지가 검색에 보이려면</a>',
     nxt='  <a href="/online/6-blog.html">다음 단계. 블로그</a>\n  <a href="/guide/homepage.html">설명. 내 홈페이지가 검색에 보이려면</a>',
-    sources=[A("https://searchadvisor.naver.com/guide/faq-start-register", "네이버 서치어드바이저 「사이트 등록 및 소유확인」"), A("https://searchadvisor.naver.com/guide/request-feed", "「RSS 및 사이트맵 제출」"), A(GS + "34592?hl=ko", "구글 서치 콘솔 「웹사이트 또는 플랫폼 속성 추가하기」"), A(GS + "9008080?hl=ko", "「사이트 소유권 확인」"), A(GS + "7451001?hl=ko", "「사이트맵 보고서」")],
+    sources=[A("https://searchadvisor.naver.com/guide/faq-start-register", "네이버 서치어드바이저 「사이트 등록 및 소유확인」"), A("https://searchadvisor.naver.com/guide/request-feed", "「RSS 및 사이트맵 제출」"), A(GS + "34592?hl=ko", "구글 서치 콘솔 「웹사이트 또는 플랫폼 속성 추가하기」"), A(GS + "9008080?hl=ko", "「사이트 소유권 확인」"), A(GS + "7451001?hl=ko", "「사이트맵 보고서」"), A("https://searchadvisor.naver.com/guide/seo-basic-robots", "네이버 서치어드바이저 「robots.txt 설정하기」", "2026-09-17")],
     order=5))
 
 save("online", "6-blog.html", page("online", 6, "블로그",

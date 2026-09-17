@@ -41,7 +41,7 @@
 <h1>내 홈페이지가 검색에 보이려면</h1>
 <p class="lead">홈페이지를 만들었는데 검색에 안 나온다는 말을 자주 들어요. 네이버와 구글이 그 이유를 공식 가이드에 적어 뒀는데 그 가운데 가게 홈페이지에 해당하는 것만 골라 점검표로 만들었습니다.</p>
 <p class="lead">이 사이트 자체도 이 점검표대로 만들었고요.</p>
-<p class="meta-line"><span>발행 2026-09-11</span><span>수정 2026-09-14</span><span>읽는 시간 약 6분</span></p><div class="do"><b>바로 하려면</b><a href="/online/5-homepage.html">홈페이지 노출 따라 하기<span>4분 · 무료</span></a></div>
+<p class="meta-line"><span>발행 2026-09-11</span><span>수정 2026-09-14</span><span>읽는 시간 약 7분</span></p><div class="do"><b>바로 하려면</b><a href="/online/5-homepage.html">홈페이지 노출 따라 하기<span>5분 · 무료</span></a></div>
 <div class="note todo"><b>바로 할 일</b>
   홈페이지의 페이지 세 개를 열어 브라우저 탭에 뜨는 제목을 비교해 보세요. 셋이 같으면 그것부터 고치시면 돼요.
 </div>
@@ -104,12 +104,17 @@
   <span class="who">구글 검색센터, 「검색 기술 요구사항」</span>
   <q>robots.txt 파일로 Googlebot을 차단하면 크롤링은 차단되지만, 페이지의 URL이 검색결과에 계속 표시될 수 있습니다. Google에서 페이지의 색인을 생성하지 않도록 하려면 noindex를 사용하여 Google이 URL을 크롤링하도록 허용합니다.</q>
 </blockquote>
+<blockquote class="official">
+  <span class="who">네이버 서치어드바이저, 「robots.txt 설정하기」 (2026-09-17 확인)</span>
+  <q>만약, robots.txt가 HTML 문서로 반환된다면 그 안에 유효한 규칙이 있더라도 robots.txt가 없음 (모두 허용)으로 해석될 수도 있습니다.</q>
+</blockquote>
+<p>네이버 쪽도 같은 방향이라 파일이 없으면 모두 허용으로 보고, 파일이 있어도 텍스트가 아니면 없는 셈 치니, 사장님이 할 일은 제작업체가 넣어 둔 파일에 「Disallow: /」 한 줄이 없는지 보는 것뿐입니다.</p>
 <p>"검색에서 빼려면 robots.txt로 막으면 된다"는 흔한 오해를 구글이 직접 부정한 대목이에요. <strong class="key">빼고 싶으면 noindex를 쓰고 로봇은 들어오게 두셔야 합니다.</strong></p>
 
 <h2 id="s7">정리</h2>
 <p>사장님, 홈페이지가 검색에 안 나올 때 돈으로 해결되는 건 없어요. 위 아홉 가지 가운데 하나가 막고 있는 것이고 대개는 페이지 제목과 자바스크립트예요.</p>
 
-<div class="do"><b>바로 하려면</b><a href="/online/5-homepage.html">홈페이지 노출 따라 하기<span>4분 · 무료</span></a></div><div class="next">
+<div class="do"><b>바로 하려면</b><a href="/online/5-homepage.html">홈페이지 노출 따라 하기<span>5분 · 무료</span></a></div><div class="next">
   <a href="/guide/selling.html">다음 글. 온라인으로 팔면 수수료가 어떻게 되나</a>
   <a href="/guide/seo.html">같이 볼 글. 검색에 걸린다는 것</a>
 </div>
