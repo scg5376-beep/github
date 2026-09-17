@@ -907,7 +907,7 @@ def cat_box(page, pages):
         lis.append(f'<li class="top {plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
         lis.append('<li class="subs">' + " ".join((f'<a href="{cu(c)}"{" aria-current=\"page\"" if c == cur_sub else ""}>{esc(c)}</a>') for c in chans) + "</li>")
     if others:
-        lis.append('<li class="head">다른 곳</li><li class="others">' + "".join(others) + "</li>")
+        lis.append(f'<li class="head">{"Elsewhere" if lang == "en" else "다른 곳"}</li><li class="others">' + "".join(others) + "</li>")
     return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
 
@@ -1259,7 +1259,7 @@ def render(page, pages, verify):
     page = dict(page, body=re.sub(r'<footer class="sources">.*?</footer>', "", page["body"], flags=re.S))
     # 「이어서 읽을 글」 자동 목록은 뺐다 (2026-09-11 재개편: 글마다 손으로 고른 「다음 글」이 있어 중복. 게시판 상자가 같은 플랫폼 글을 이미 보여 준다)
     side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
-    cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] in ("/", "/en/") else '<div class="cols one">')   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
+    cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] == "/" else '<div class="cols one">')   # 영어 첫 화면은 기둥이 없으니 한 칸   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
     return f'''<!DOCTYPE html>
 <html lang="{lang}">
 <head>
