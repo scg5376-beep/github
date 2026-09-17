@@ -1006,6 +1006,7 @@ DIAG_REC = [
     ("online", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "손님이 카카오톡으로 문의하게. 무료."),
     ("service", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "예약 문의를 카카오톡으로. 무료."),
     ("foreign", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "손님이 카카오톡으로 문의하게. 무료."),
+    ("local", {"d2": ["mine"]}, "/daangn/1-profile.html", "플레이스가 돼 있으면 당근에도. 무료."),
     ("local", {"d6": ["no", "quit"]}, "/guide/support-money.html", "광고를 켤 거면 지원금부터 확인."),
     ("online", {"d6": ["no", "quit"]}, "/guide/support-money.html", "광고를 켤 거면 지원금부터 확인."),
     ("service", {"d6": ["no", "quit"]}, "/guide/support-money.html", "광고를 켤 거면 지원금부터 확인."),
@@ -1033,6 +1034,8 @@ def diag_html(pages, lang):
                 url, label = target, next((p.get("nav", p["title"]) for p in pages if p["url"] == target), target)
                 if target.startswith("/kakao/"):
                     label = "카카오톡 " + label
+                if target.startswith("/daangn/"):
+                    label = "당근 " + label
             else:
                 pp = posts(pages, lang, f"{top}/{target}")
                 url, label = (pp[0]["url"], target) if pp else (plat_url(lang, top), target)
