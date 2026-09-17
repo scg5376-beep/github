@@ -1117,6 +1117,16 @@ def doors_html(page):
     return '<nav class="doors" aria-label="무엇을 알고 싶으세요?">' + "".join(out) + "</nav>"
 
 
+def recent_updates_html(n=3):
+    """첫 화면 「최근 바뀐 것」 — 업데이트 페이지 맨 위 n개(메타 블루프린트 「새로운 소식」·토스 「이 주의 콘텐츠」 관찰, 2026-09-17)."""
+    src = (SRC / "updates/index.html").read_text(encoding="utf-8")
+    pairs = re.findall(r"<dt>(.*?)</dt><dd>(.*?)</dd>", src, re.S)[:n]
+    if not pairs:
+        return ""
+    lis = "".join(f"<dt>{d}</dt><dd>{b}</dd>" for d, b in pairs)
+    return f'<section class="recent"><h2>최근 바뀐 것</h2><dl class="updates mini">{lis}</dl><p class="more"><a href="/updates/">바뀐 것 전부 보기</a></p></section>'
+
+
 def howto_index_html(pages, lang):
     if lang != "ko":
         return ""
@@ -1206,7 +1216,7 @@ def fill_boards(page, pages):
     body = body.replace("<!--diag-->", diag_html(pages, page["lang"]))
     body = body.replace("<!--doors-->", doors_html(page))
     body = body.replace("<!--cases-->", cases_html(pages))
-    body = body.replace("<!--howto-->", howto_index_html(pages, page["lang"]))
+    body = body.replace("<!--howto-->", howto_index_html(pages, page["lang"]) + (recent_updates_html() if page["lang"] == "ko" and page.get("section") == "home" else ""))
     body = body.replace("<!--today-->", today_html(pages, page["lang"]))
     sn = step_nav(page, pages)
     if sn:
