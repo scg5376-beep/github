@@ -713,3 +713,9 @@ a.rail-btn { border-radius:999px; }
 .cols > main.wrap { padding-left:34px; padding-right:34px; }
 nav.steps .s { letter-spacing:-.02em; }
 @media (max-width:420px) { mark { padding:0 1px; } }
+.cols > main.wrap { align-self:start; }
+.board li { border-bottom:0; margin-bottom:8px; }
+.board a { padding:13px 16px; border:1px solid var(--line); background:var(--paper); }
+.board a:hover { border-color:var(--accent); background:var(--accent-soft); }
+.board .cat { padding:2px 8px; border-radius:999px; background:var(--pt, var(--paper-2)); font-weight:600; }
+section.plat .board a { background:rgba(255,255,255,.7); }
