@@ -65,7 +65,7 @@
 □ TS-02  토스애즈 배너 광고 상품 안내   tossads.toss.im/category/banner
                                      (우리가 가진 2024년 표의 출처로 문서에 박혀 있다)
 □ TS-01  토스애즈 상품 전체 안내        tossads.toss.im/category/intro
-□ TS-03  토스애즈 광고주 가이드          toss-ads.gitbook.io/guide
+■ TS-03  토스애즈 광고주 가이드          toss-ads.gitbook.io/guide  (2026-09-17 .md 판 curl 로 4건 받음 → 원문/토스/TS-토스애즈-*)
                                      (셀프서브 최소 금액·입찰·타겟 항목. 지금 C 다)
 □ TS-05  ★ 토스 앱에서 직접 확인        '토스 사장님' 앱 또는 토스 비즈니스에서
                                      오프라인 매장이 쓸 수 있는 게 있는지.
