@@ -30,7 +30,7 @@
 □ MT-02  카테고리별 세부 규정  금지·제한 콘텐츠 각 항목 페이지
                              transparency.meta.com/ko-kr/policies/ad-standards/
                              안에서 항목을 눌러 들어가면 나온다
-□ MT-02  비즈니스 자산 광고 제한 facebook.com/business/help/975570072950669
+■ MT-02  비즈니스 자산 광고 제한 facebook.com/business/help/975570072950669  (2026-09-17 받음 → 원문/절차/메타/)
 ```
 
 ### 1순위-c · 구글 (무료 · 바로 열림) — **지금 창고에서 가장 약한 곳**
