@@ -38,8 +38,8 @@
 다섯 건을 받아 A 가 됐다. **비즈니스 프로필 둘만 남았다.**
 
 ```
-□ GG-03  비즈니스 정보 표시  support.google.com/business/answer/3038177
-□ GG-03  금지·제한 콘텐츠   support.google.com/business/answer/7400114
+■ GG-03  비즈니스 정보 표시  support.google.com/business/answer/3038177  (2026-09-17 받음 → 원문/절차/구글/)
+■ GG-03  금지·제한 콘텐츠   support.google.com/business/answer/7400114  (2026-09-17 받음)
 ```
 
 ### 1순위-d · 홈페이지 트랙 (한국어 · 무료 · 바로 열림) — 2026-09-02 추가
