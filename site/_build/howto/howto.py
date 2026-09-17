@@ -54,7 +54,7 @@ COURSE = {
     "foreign": (7, ["네이버 플레이스와 구글 비즈니스 프로필", "영어로도 나오는 홈페이지", "사진으로 말하는 인스타그램", "12주 기록표"], '<a href="/online/7-instagram.html">인스타그램 제품 태그</a>'),
     "kakao":   (2, ["카카오톡 안의 가게 채널", "무료 소식과 유료 메시지의 구분"], '<a href="/local/9-record.html">12주 기록</a>'),
     "daangn":  (2, ["당근 동네지도와 검색에 나오는 비즈프로필", "인증 표시", "무료로 나가는 소식", "단골과 쿠폰"], '<a href="/kakao/1-channel.html">카카오톡 채널 만들기</a>'),
-    "youtube": (1, ["가게 이름으로 된 유튜브 채널(브랜드 계정)", "쇼츠 한 편"], '<a href="/local/9-record.html">12주 기록</a>'),
+    "youtube": (2, ["가게 이름으로 된 유튜브 채널(브랜드 계정)", "쇼츠 한 편", "설명·링크·연락처가 채워진 채널 홈"], '<a href="/local/9-record.html">12주 기록</a>'),
 }
 
 def course_box(track, step_no):

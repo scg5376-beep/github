@@ -84,7 +84,7 @@ PLAT_ORDER = {
     "네이버": [("/guide/place.html", "플레이스 등록", "무료이고, 네이버가 사업주의 의무로 적은 유일한 일이에요."), ("/guide/reviews.html", "리뷰 답글", "돈 안 드는 것 가운데 효과가 측정된 일. 리뷰의 말이 검색어가 돼요."), ("/guide/seo.html", "검색 화면", "광고 칸과 무료 칸을 알아야 「상위 노출 보장」을 가려요."), ("/guide/blog.html", "블로그", "한 주제로 꾸준히. 언급수가 플레이스 인기도로 돌아와요."), ("/guide/powerlink.html", "파워링크", "앞 단계가 돼 있어야 클릭이 손님이 돼요. 여기서 처음 돈이 들어요.")],
     "구글": [("/guide/google-profile.html", "구글 프로필", "네이버 플레이스와 같은 재료로 채워요. 프로필은 하나만."), ("/guide/domain.html", "도메인", "홈페이지와 인스타그램 판매 자격이 도메인을 요구해요."), ("/guide/homepage.html", "홈페이지 노출", "기술 요건만 맞으면 색인이 무료예요."), ("/guide/google-content.html", "구글 글쓰기", "구글이 밝힌 좋은 글의 기준. 단어 수는 없어요."), ("/guide/blogger.html", "블로거", "무료로 시작하고 내 도메인을 붙이는 길.")],
     "인스타그램": [("/guide/instagram.html", "계정", "돈 안 드는 것부터. 제품 태그는 무료예요."), ("/guide/threads.html", "스레드", "계정 하나로 글부터 시작할 수 있어요."), ("/guide/meta-review.html", "광고", "거부 사유를 먼저 알고 켜요.")],
-    "유튜브": [("/youtube/1-channel.html", "채널과 첫 쇼츠", "가게 이름 채널 만들고 쇼츠 한 편부터."), ("/guide/youtube-search.html", "채널", "검색과 추천이 무엇을 보는지부터."), ("/guide/youtube-shorts.html", "쇼츠", "가게 영상은 대부분 쇼츠로 잡혀요. 1분 넘는 쇼츠의 저작권 규정을 알고 올려요.")],
+    "유튜브": [("/youtube/1-channel.html", "채널과 첫 쇼츠", "가게 이름 채널 만들고 쇼츠 한 편부터."), ("/youtube/2-profile.html", "채널 정보 채우기", "설명·링크·연락처·배너. 첫 링크는 플레이스로."), ("/guide/youtube-search.html", "채널", "검색과 추천이 무엇을 보는지부터."), ("/guide/youtube-shorts.html", "쇼츠", "가게 영상은 대부분 쇼츠로 잡혀요. 1분 넘는 쇼츠의 저작권 규정을 알고 올려요.")],
     "AI": [("/guide/aeo.html", "용어", "제안서의 말을 먼저 가려요."), ("/guide/geo.html", "AI 답변", "AI가 옮겨 쓸 수 있는 글과 리뷰를 쌓는 구조.")],
     "판매": [("/guide/before-selling.html", "관련법", "신고와 표시가 먼저예요. 반나절이면 돼요."), ("/guide/selling.html", "수수료", "어디에 얼마나 붙는지 알고 장터를 골라요.")],
     "카카오": [("/guide/kakao-channel.html", "채널", "무료로 만들고 소식으로 운영해요."), ("/kakao/2-message.html", "소식과 메시지", "메시지는 건당 돈이 나가니 소식으로 될 일부터.")],
@@ -1130,6 +1130,7 @@ HOWTO_INDEX = [
     ]),
     ("youtube", "유튜브", [
         ("유튜브 채널과 첫 쇼츠", "/youtube/1-channel.html", "브랜드 계정으로 가게 채널, 쇼츠 한 편"),
+        ("유튜브 채널 정보 채우기", "/youtube/2-profile.html", "설명·링크·연락처·배너"),
     ]),
     ("ai", "AI·법·기록", [
         ("AI 답변에 나오기", "/service/7-ai.html", "AI 브리핑, 재료는 리뷰"),
