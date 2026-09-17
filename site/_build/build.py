@@ -1006,6 +1006,9 @@ DIAG_REC = [
     ("online", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "손님이 카카오톡으로 문의하게. 무료."),
     ("service", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "예약 문의를 카카오톡으로. 무료."),
     ("foreign", {"d8": ["no", "unknown"]}, "/kakao/1-channel.html", "손님이 카카오톡으로 문의하게. 무료."),
+    ("local", {"d6": ["no", "quit"]}, "/guide/support-money.html", "광고를 켤 거면 지원금부터 확인."),
+    ("online", {"d6": ["no", "quit"]}, "/guide/support-money.html", "광고를 켤 거면 지원금부터 확인."),
+    ("service", {"d6": ["no", "quit"]}, "/guide/support-money.html", "광고를 켤 거면 지원금부터 확인."),
 ]
 
 
