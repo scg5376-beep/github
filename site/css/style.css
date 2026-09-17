@@ -719,3 +719,15 @@ nav.steps .s { letter-spacing:-.02em; }
 .board a:hover { border-color:var(--accent); background:var(--accent-soft); }
 .board .cat { padding:2px 8px; border-radius:999px; background:var(--pt, var(--paper-2)); font-weight:600; }
 section.plat .board a { background:rgba(255,255,255,.7); }
+/* 업데이트·용어: 날짜/용어를 알약으로, 항목마다 카드 */
+dl.updates { display:grid; gap:12px; }
+dl.updates dt { margin:0; padding:14px 18px 0; border:1px solid var(--line); border-radius:var(--radius) var(--radius) 0 0; background:var(--card); font-size:.92rem; color:var(--accent); }
+dl.updates dd { margin:0; padding:6px 18px 14px; border:1px solid var(--line); border-top:0; border-radius:0 0 var(--radius) var(--radius); background:var(--card); box-shadow:var(--shadow); }
+dl.updates.mini dt, dl.updates.mini dd { border:0; box-shadow:none; background:transparent; padding-left:0; padding-right:0; }
+dl.updates.mini { gap:0; }
+dl.terms { display:grid; gap:10px; }
+dl.terms dt { margin:0; padding:12px 16px 0; border:1px solid var(--line); border-radius:12px 12px 0 0; background:var(--card); }
+dl.terms dd { margin:0; padding:4px 16px 12px; border:1px solid var(--line); border-top:0; border-radius:0 0 12px 12px; background:var(--card); }
+dl.terms dt, dl.updates dt { border-bottom:0; background:var(--paper); }
+dl.terms dd, dl.updates dd { background:var(--paper); }
+dl.terms dt { scroll-margin-top:90px; }
