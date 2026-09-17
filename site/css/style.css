@@ -558,3 +558,10 @@ ul.cats li.head { padding:14px 0 4px; color:var(--ink-soft); font-size:.72rem; f
 ul.cats li.others { display:flex; flex-wrap:wrap; gap:6px; }
 ul.cats li.others a { padding:3px 9px; border:1px solid var(--line); border-radius:12px; font-size:.78rem; color:var(--pa, var(--ink-soft)); text-decoration:none; background:#fff; }
 ul.cats li.others a:hover { border-color:var(--pa, var(--accent)); }
+/* 디자인 2차 (D54): 목차와 첫 절 사이 겹선·빈 공간, 근거 등급 표시가 문장 가운데서 튀는 것 */
+nav.intoc { margin-bottom:8px; padding:14px 18px; border:0; border-radius:10px; background:var(--paper-2); }
+nav.intoc + h2, nav.intoc + * h2:first-child { border-top:0; margin-top:34px; }
+nav.intoc ol { margin:0; padding-left:20px; }
+nav.intoc li { padding:3px 0; }
+.grade { padding:0 6px; border:0; border-radius:4px; background:var(--paper-2); color:var(--ink-soft); font-size:.7rem; font-weight:600; vertical-align:baseline; }
+.grade.a { background:#e8eef6; color:var(--accent); }

@@ -10,7 +10,7 @@ def steps(items):
     for it in items:
         h, d = it[0], it[1]
         why = it[2] if len(it) > 2 and it[2] else ""
-        det = f'<details class="why"><summary>이유</summary><div class="box">{why}</div></details>' if why else ""
+        det = f'<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">{why}</div></details>' if why else ""
         out.append(f"<li><b>{h}</b>{d}{det}</li>")
     return '<ol class="steps">' + "".join(out) + "</ol>\n"
 
@@ -89,7 +89,7 @@ def inject_reasons(track, fname, body):
     out = []
     for i, li in enumerate(items, 1):
         if i in rs and "<details" not in li:
-            li = li[:-5] + f'<details class="why"><summary>이유</summary><div class="box">{rs[i]}</div></details></li>'
+            li = li[:-5] + f'<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">{rs[i]}</div></details></li>'
         out.append(li)
     return body[:m.start(1)] + "".join(out) + body[m.end(1):]
 
