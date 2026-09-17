@@ -489,7 +489,7 @@ def nav_html(page, pages):
   <div class="wrap">
     {'<span class="brand">' if page["url"] in ("/", "/en/") else '<a class="brand" href="' + ('/en/' if lang == 'en' else '/') + '">'}<img src="/img/mark.svg" alt="" width="28" height="28">{brand}{'</span>' if page["url"] in ("/", "/en/") else '</a>'}
     <nav>{"".join(out)}{toggle}</nav>
-    <form class="search" action="https://www.google.com/search" method="get" role="search"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="{'Search' if lang == 'en' else '글 찾기'}" aria-label="{'Search this site' if lang == 'en' else '이 사이트 안에서 찾기'}"><button type="submit">{'Search' if lang == 'en' else '찾기'}</button></form>
+    <form class="search" action="https://www.google.com/search" method="get" role="search"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="{'Search' if lang == 'en' else '예: 리뷰 답글, 수수료'}" aria-label="{'Search this site' if lang == 'en' else '이 사이트 안에서 찾기'}"><button type="submit">{'Search' if lang == 'en' else '찾기'}</button></form>
   </div>
   {('<nav class="tabs" aria-label="' + ("Boards" if lang == "en" else "게시판") + '"><div class="wrap">' + "".join(tabs) + '</div>' + sub_row + '</nav>') if tabs else ''}
 </header>'''
@@ -892,14 +892,22 @@ def cat_box(page, pages):
     base = "/en/" if lang == "en" else "/guide/"
     head = "Boards" if lang == "en" else "게시판"
     lis = []
+    cur_top = split_cat(page["cat"])[0] if page.get("cat") else None
+    cur_sub = split_cat(page["cat"])[1] if page.get("cat") else None
+    others = []
     for top, chans in TAXO[lang]:
-        lis.append(f'<li class="top {plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
-        def cu(c):
+        def cu(c, top=top):
             if top in TRACKS:
                 ps = posts(pages, lang, f"{top}/{c}")
                 return ps[0]["url"] if ps else plat_url(lang, top)
             return plat_url(lang, top, c)
-        lis.append('<li class="subs">' + " ".join(f'<a href="{cu(c)}">{esc(c)}</a>' for c in chans) + "</li>")
+        if cur_top and top != cur_top:                                            # 글 페이지: 지금 플랫폼만 펼치고 나머지는 이름만 (레이아웃 손질 2026-09-17, D54)
+            others.append(f'<a class="{plat_class(top)}" href="{plat_url(lang, top)}">{esc(top)}</a>')
+            continue
+        lis.append(f'<li class="top {plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
+        lis.append('<li class="subs">' + " ".join((f'<a href="{cu(c)}"{" aria-current=\"page\"" if c == cur_sub else ""}>{esc(c)}</a>') for c in chans) + "</li>")
+    if others:
+        lis.append('<li class="head">다른 곳</li><li class="others">' + "".join(others) + "</li>")
     return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
 
@@ -1243,6 +1251,8 @@ def render(page, pages, verify):
     if ab and '<footer class="sources">' in page["body"]:
         i = page["body"].index('<footer class="sources">')
         page = dict(page, body=page["body"][:i] + ab + page["body"][i:])
+    if page.get("kind") == "howto":                                              # 방법 글의 글 끝 「다음 단계·설명」 글자 링크는 이전/다음 상자와 겹쳐 뺀다 (편의성 2026-09-17, D54)
+        page = dict(page, body=re.sub(r'<div class="next">.*?</div>\s*', "", page["body"], count=1, flags=re.S))
     # 「근거」 footer 는 화면에 안 보인다 (운영자 2026-09-16 "굳이 근거까지 말해줄 필요없어 빼", D43). 원본(_src)에는 남겨 두고 인용 대조(Q1)에만 쓴다
     page = dict(page, body=re.sub(r'<footer class="sources">.*?</footer>', "", page["body"], flags=re.S))
     # 「이어서 읽을 글」 자동 목록은 뺐다 (2026-09-11 재개편: 글마다 손으로 고른 「다음 글」이 있어 중복. 게시판 상자가 같은 플랫폼 글을 이미 보여 준다)

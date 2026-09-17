@@ -536,3 +536,25 @@ ul.cases { list-style:none; margin:0 0 30px; padding:0; }
 ul.cases li { margin:0 0 6px; }
 ul.cases p.case { margin:0; }
 ul.cases a.from { display:inline-block; margin:4px 0 14px 16px; font-size:.82rem; color:var(--ink-soft); }
+
+/* 디자인 손질 (운영자 2026-09-17 "작업해 디자인, 레이아웃, 편의성, 글에 AI티 제거 순서대로") — D54 */
+header.top nav.tabs { display:block; gap:0; }                                   /* header.top nav 의 flex 가 탭 줄에 새어 채널 줄이 옆으로 붙던 것 */
+nav.tabs .subs .wrap { justify-content:flex-start; }
+nav.doors { gap:12px; }
+nav.doors .door { background:var(--paper-2); border-color:transparent; padding:16px 16px 14px; }
+nav.doors .door b { font-size:1.12rem; letter-spacing:-.01em; }
+nav.doors .door:hover { background:#fff; border-color:var(--accent); }
+nav.doors .door[aria-current="page"] { background:var(--accent); border-color:var(--accent); box-shadow:none; color:#fff; }
+nav.doors .door[aria-current="page"] span { color:rgba(255,255,255,.85); }
+.hix h3 { display:inline-block; margin:30px 0 10px; padding:5px 12px; border:0; border-radius:8px; background:var(--pt); color:var(--pa); font-size:.95rem; }
+.hix h3.plat-naver { --pt:#e8f6ea; --pa:#0b6b34; } .hix h3.plat-sell { --pt:#fbf4d9; --pa:#7a5c00; } .hix h3.plat-google { --pt:#fff0e0; --pa:#a5460b; } .hix h3.plat-instagram { --pt:#fde8f0; --pa:#a8235e; } .hix h3.plat-kakao { --pt:#fdf6d8; --pa:#6b5300; } .hix h3.plat-ai { --pt:#e6f4f5; --pa:#0b6a75; }
+ul.hix-list a { border-radius:12px; padding:14px 16px; transition:none; }
+ul.hix-list a:hover { border-color:var(--accent); background:var(--accent-soft, #eef3fa); }
+ul.hix-list .meta { padding:2px 8px; border-radius:10px; background:var(--paper-2); }
+.hs h1 { font-size:1.9rem; line-height:1.2; }
+.hs p.trust { color:var(--ink-soft); }
+ul.cats li.subs a[aria-current="page"] { color:var(--pa, var(--accent)); font-weight:700; }
+ul.cats li.head { padding:14px 0 4px; color:var(--ink-soft); font-size:.72rem; font-weight:700; letter-spacing:.08em; }
+ul.cats li.others { display:flex; flex-wrap:wrap; gap:6px; }
+ul.cats li.others a { padding:3px 9px; border:1px solid var(--line); border-radius:12px; font-size:.78rem; color:var(--pa, var(--ink-soft)); text-decoration:none; background:#fff; }
+ul.cats li.others a:hover { border-color:var(--pa, var(--accent)); }
