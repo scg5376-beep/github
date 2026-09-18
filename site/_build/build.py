@@ -562,6 +562,30 @@ def jsonld(page):
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + '</script>'
 
 
+
+# ── 구글 애널리틱스 4 (운영자 2026-09-18) ──
+# JS 를 쓰지 않는 사이트라 GA4 는 유일한 예외다. site.json analytics.ga4_id 가 비어 있으면 아무것도 넣지 않고 CSP 도 script-src 'none' 그대로.
+# 넣을 때는 인라인 스니펫의 SHA-256 을 CSP 에 박아 그 한 조각만 허용한다(unsafe-inline 금지). IP 익명화·광고 신호 끔.
+GA_ID = (SITECFG.get("analytics") or {}).get("ga4_id", "").strip()
+GA_INLINE = ("window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());"
+             + f"gtag('config','{GA_ID}',{{'anonymize_ip':true,'allow_google_signals':false,'allow_ad_personalization_signals':false}});") if GA_ID else ""
+
+def ga_hash():
+    import hashlib, base64
+    return "sha256-" + base64.b64encode(hashlib.sha256(GA_INLINE.encode("utf-8")).digest()).decode()
+
+def csp_meta():
+    if not GA_ID:
+        return '<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; img-src \'self\' data:; style-src \'self\'; script-src \'none\'; object-src \'none\'; base-uri \'self\'; form-action https://www.google.com">'
+    return ('<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; img-src \'self\' data: https://*.google-analytics.com https://*.googletagmanager.com; style-src \'self\'; '
+            + f'script-src https://www.googletagmanager.com \'{ga_hash()}\'; connect-src \'self\' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; '
+            + 'object-src \'none\'; base-uri \'self\'; form-action https://www.google.com">')
+
+def ga_html():
+    if not GA_ID:
+        return []
+    return [f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>', f'<script>{GA_INLINE}</script>']
+
 def head_html(page, verify):
     url = SITE_URL + page["url"]
     og = SITE_URL + page.get("og", DEFAULT_OG[page["section"]])
@@ -570,7 +594,8 @@ def head_html(page, verify):
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
         # 보안: 외부 스크립트·인라인 스크립트 전부 차단. 이 사이트는 JS 를 쓰지 않는다.
         # 광고를 켜면 CSP 메타를 넣지 않는다 (애드센스 공식 안내는 nonce+strict-dynamic 인데 정적 사이트는 nonce 를 못 만든다)
-        *([] if SITECFG["ads"]["enabled"] else ['<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; img-src \'self\' data:; style-src \'self\'; script-src \'none\'; object-src \'none\'; base-uri \'self\'; form-action https://www.google.com">']),
+        *([] if SITECFG["ads"]["enabled"] else [csp_meta()]),
+        *ga_html(),
         '<meta name="referrer" content="strict-origin-when-cross-origin">',
         f'<title>{esc(page["title"])}</title>',
         f'<meta name="description" content="{esc(page["description"])}">',
@@ -1249,6 +1274,10 @@ def cases_html(pages):
 def fill_boards(page, pages):
     """본문 자리표: <!--board--> 전체 최신 · <!--boards--> 게시판별 · <!--picks:/a,/b--> 지정 글."""
     body = page["body"]
+    if "<!--analytics-->" in body:                                                  # 개인정보 처리방침: GA4 를 켰을 때만 분석 도구 문단이 들어간다 (운영자 2026-09-18)
+        on = GA_ID != ""
+        body = body.replace("<!--analytics-->", ('<p>저희가 붙인 방문자 분석 도구는 구글 애널리틱스 하나예요. 어느 글을 몇 명이 봤는지 세는 용도이고, IP 주소는 익명으로 처리하며 광고 맞춤 신호는 꺼 두었어요. 구글이 이 자료를 어떻게 다루는지는 구글의 개인정보 방침에 있어요. 브라우저에서 구글 애널리틱스 차단 확장을 쓰면 세지 않습니다.</p>' if on else '<p>저희 쪽에서 붙인 방문자 분석 도구는 없어요.</p>'))
+        body = body.replace("<!--analytics-row-->", ('  <tr><td>분석 쿠키(_ga)</td><td>구글 애널리틱스</td><td>방문 수를 세려고. 이름·전화는 담기지 않아요</td></tr>' if on else ''))
     if page.get("cat"):                                                            # 글머리 작은 제목은 게시판 이름으로 통일
         body = re.sub(r'<p class="kicker">.*?</p>', '<p class="kicker">' + esc(cat_label(page["cat"])) + '</p>', body, count=1, flags=re.S)
     if page.get("plat"):

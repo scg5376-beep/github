@@ -230,6 +230,9 @@ def check_page(p, all_titles):
     for m in re.finditer(r"<script\b([^>]*)>(.*?)</script>", raw, re.S):
         if 'type="application/ld+json"' in m.group(1) or (SITECFG["ads"]["enabled"] and ("googlesyndication" in m.group(1) or "adsbygoogle" in m.group(2))):
             continue
+        ga = (SITECFG.get("analytics") or {}).get("ga4_id", "")
+        if ga and ("googletagmanager.com/gtag/js?id=" + ga in m.group(1) or m.group(2).startswith("window.dataLayer=window.dataLayer||[]")):   # GA4 (운영자 2026-09-18)
+            continue
         if True:
             err(rel, "S2", "허용되지 않은 스크립트가 있다")
     stripped = re.sub(r'<form class="search" action="https://www\.google\.com/search" method="get"[^>]*>.*?</form>', "", raw, flags=re.S)   # 검색창만 예외: 구글로 보내고 저장 안 함 (설계기준 S3)
