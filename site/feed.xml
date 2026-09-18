@@ -198,6 +198,13 @@
 </blockquote>
 <p>정부가 입점업체 808곳을 직접 조사한 숫자예요. 월 매출의 36%가 배달앱에서 나오며 앱은 평균 2.3개를 쓰는데 실제 내는 중개수수료는 평균 8.2%였어요. 위 표의 2% 구간을 받았다는 가게는 조사에서 한 곳도 없었어요. 사장님들이 생각하는 적정 수수료는 평균 4.5%, 적정 배달비는 최대 2,300원이었습니다. 배달앱 라이더를 쓰면 주문당 평균 3,333원을 가게가 부담한다고도 적혀 있어요. 이 조사는 통계법상 승인통계에 들지 않는다고 문서 끝에 밝혀 두었습니다.</p>
 
+<h2>배달앱 말고 포장 주문을 받을 데가 있나요?</h2>
+<blockquote class="official">
+  <span class="who">당근비즈니스 가이드, 「포장 주문」 수수료 안내 (2026-09-18 원문 확인)</span>
+  <q>포장 주문은 중개 수수료가 0%이에요. 결제 수수료만 부과되며, 배달 앱 대비 사장님이 가져가는 정산금이 높아요.</q>
+</blockquote>
+<p>당근 비즈프로필의 포장 주문은 중개수수료가 없고 결제수수료만 붙어요. 당근이 든 예시는 2만 8천 원 주문에서 배달앱은 중개수수료 2,184원과 배달비 2,900원이 빠져 22,916원, 당근 포장 주문은 28,000원(결제수수료 미반영)이에요. 포장이니 손님이 가게까지 와야 해요. 그래도 동네 단골이 많은 가게면 위 표의 수수료를 통째로 아끼는 길이에요. 입점 순서는 <a href="/daangn/1-profile.html">당근 1단계</a> 막히면에 있어요.</p>
+
 <h2>이 숫자로 뭘 하나요?</h2>
 <p>사장님, 이 표는 「지금 우리 가게 수수료」가 아니고 「정부 앞에서 약속한 구간」이에요. 실제 적용 요율은 앱마다 사장님 사이트에 있고 앱이 바꿀 수 있으니, 정산서의 중개수수료·결제수수료·배달비 세 줄을 <a href="/guide/record.html">12주 기록</a>에 달마다 적어 두면 바뀐 걸 바로 잡을 수 있어요. 배달앱에 내는 돈과 <a href="/guide/selling.html">스마트스토어 수수료</a>, <a href="/guide/ads.html">광고비</a>를 한 표에 놓고 보는 게 이 사이트가 권하는 방식입니다.</p>
 
@@ -209,6 +216,7 @@
 <footer class="sources">
   <h2>근거</h2>
   <ul>
+    <li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/tools/pickup" rel="noopener">당근비즈니스 가이드 「포장 주문」</a> (2026-09-18 원문 확인. 예시 표의 배달앱 7.8%는 당근이 든 가정)</li>
     <li><span class="grade a">A</span> <a href="https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&amp;bcIdx=1065374" rel="noopener">중소벤처기업부 보도자료 「배달3사 체감도 조사·입점업체 인식 조사 결과 발표」</a> (2026-02-05, 2026-09-18 원문 확인)</li>
     <li><span class="grade a">A</span> <a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156660502" rel="noopener">공정거래위원회 외 3개 부처 보도참고자료 「배달플랫폼-입점업체 상생협의체, 중개수수료 인하 상생방안 마련」</a> (2024-11-14, PDF 전문 2026-09-18 확인). 큰따옴표 안은 원문 그대로예요.</li>
     <li><span class="grade">B</span> 배달의민족·쿠팡이츠 사장님 사이트의 현재 요율표는 로그인 뒤라 이 환경에서 못 열었어요. 확인되면 A로 올릴게요.</li>
@@ -695,7 +703,7 @@
 <h2>다 됐는지 확인</h2>
 <ul class="check"><li>당근에서 가게 이름을 검색하면 비즈프로필이 나온다</li><li>홈에 인증 표시가 보인다(사업자 인증 완료)</li><li>소식 하나가 올라가 있다</li></ul>
 <h2>막히면</h2>
-<dl class="kv stuck"><dt>인증 없이 그냥 써도 되나요</dt><dd>통신판매업·휴대폰 판매업·부동산중개업은 인증 없이는 이용이 막히고, 예약·견적·상품판매·포장주문 도구도 인증이 있어야 써요. 인증 업체가 위에 나올 수 있다고도 적혀 있어요.</dd><dt>사업자등록이 아직 없어요</dt><dd>비즈프로필은 만들 수 있지만 사업자 인증을 못 받으니 인증 표시와 예약·견적·상품판매·포장주문 도구는 못 써요. 물건을 팔 거면 사업자등록과 통신판매업 신고부터 하세요. 가이드는 통신판매업은 인증 없이는 이용이 제한된다고 적어 뒀어요.</dd><dt>인증이 반려됐어요</dt><dd>비즈프로필 이름·주소·업종과 사업자등록증이 다르면 관계 증빙과 소명 자료를 내야 해요. 직원 명의면 대표자 위임장과 인감증명서가 필요합니다.</dd><dt>당근 광고도 해야 하나요</dt><dd>비즈프로필과 소식은 무료예요. 광고(간편모드)는 동네·성별·연령을 골라 내보내고 이웃이 클릭할 때만 돈이 나가요. 소식을 먼저 몇 주 올리고 12주 기록에 적은 뒤 정하세요.</dd><dt>광고비를 지원해 준다는 게 뭔가요</dt><dd>「당근사장님 지원 프로그램」이에요. 첫 광고 계정을 만들면 1만 원, 유료 캐시를 처음 쓴 날부터 7일간 쓴 돈의 50%(최대 5만 원) 환급, 이번 달 쓴 금액에 따라 다음 달 2~5%(최대 20만 원) 추가 충전이에요. 「최대 26만 원」은 셋을 다 더한 수이고 광고에만 쓰는 캐시라 현금으로는 못 받아요.</dd></dl>
+<dl class="kv stuck"><dt>인증 없이 그냥 써도 되나요</dt><dd>통신판매업·휴대폰 판매업·부동산중개업은 인증 없이는 이용이 막히고, 예약·견적·상품판매·포장주문 도구도 인증이 있어야 써요. 인증 업체가 위에 나올 수 있다고도 적혀 있어요.</dd><dt>사업자등록이 아직 없어요</dt><dd>비즈프로필은 만들 수 있지만 사업자 인증을 못 받으니 인증 표시와 예약·견적·상품판매·포장주문 도구는 못 써요. 물건을 팔 거면 사업자등록과 통신판매업 신고부터 하세요. 가이드는 통신판매업은 인증 없이는 이용이 제한된다고 적어 뒀어요.</dd><dt>인증이 반려됐어요</dt><dd>비즈프로필 이름·주소·업종과 사업자등록증이 다르면 관계 증빙과 소명 자료를 내야 해요. 직원 명의면 대표자 위임장과 인감증명서가 필요합니다.</dd><dt>포장 주문·예약·견적 도구는 돈이 드나요</dt><dd>당근 가이드 기준으로 포장 주문은 중개수수료 0%이고 결제수수료만 붙어요(배달앱 7.8% 예시와 비교표가 가이드에 있어요). 예약 관리는 사업자 인증이 있어야 예약 요청을 받을 수 있고, 견적 받기(전문가 서비스)는 일부 지역 시범 운영이라 지금은 수수료가 없다고 적혀 있어요. 포장 주문 입점은 사업자등록증·영업신고증·메뉴판 사진이면 되고 첫 입점에 3,000원 쿠폰 3장을 당근이 대신 줍니다.</dd><dt>당근 광고도 해야 하나요</dt><dd>비즈프로필과 소식은 무료예요. 광고(간편모드)는 동네·성별·연령을 골라 내보내고 이웃이 클릭할 때만 돈이 나가요. 소식을 먼저 몇 주 올리고 12주 기록에 적은 뒤 정하세요.</dd><dt>광고비를 지원해 준다는 게 뭔가요</dt><dd>「당근사장님 지원 프로그램」이에요. 첫 광고 계정을 만들면 1만 원, 유료 캐시를 처음 쓴 날부터 7일간 쓴 돈의 50%(최대 5만 원) 환급, 이번 달 쓴 금액에 따라 다음 달 2~5%(최대 20만 원) 추가 충전이에요. 「최대 26만 원」은 셋을 다 더한 수이고 광고에만 쓰는 캐시라 현금으로는 못 받아요.</dd></dl>
 <p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>에 있어요.</p>
 
 <div class="next">
@@ -705,7 +713,7 @@
 
 <footer class="sources">
   <h2>근거</h2>
-  <ul><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/create" rel="noopener">당근비즈니스 가이드 「비즈프로필 만들기」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/inspection" rel="noopener">「사업자 인증」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/post" rel="noopener">「비즈프로필 소식」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/ads-lite/start" rel="noopener">「당근 광고 시작하기」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://business.daangn.com/event/support-program" rel="noopener">「당근사장님 지원 프로그램」</a> (2026-09-17 확인)</li></ul>
+  <ul><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/create" rel="noopener">당근비즈니스 가이드 「비즈프로필 만들기」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/inspection" rel="noopener">「사업자 인증」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/post" rel="noopener">「비즈프로필 소식」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/ads-lite/start" rel="noopener">「당근 광고 시작하기」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://business.daangn.com/event/support-program" rel="noopener">「당근사장님 지원 프로그램」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/tools/pickup" rel="noopener">「포장 주문」(수수료 안내)</a> (2026-09-18 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/tools/reservation" rel="noopener">「예약 관리」</a> (2026-09-18 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/tools/estimate" rel="noopener">「견적 받기」</a> (2026-09-18 확인)</li></ul>
   <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-17 기준이에요.</p>
 </footer>]]></content:encoded>
   </item>
