@@ -615,7 +615,8 @@ def ga_html():
 def css_ver():
     """style.css 내용 해시 8자 — 고치면 주소가 바뀌어 브라우저·헤들리스 캐시가 옛 CSS 를 안 쓴다 (2026-09-19)."""
     import hashlib
-    return hashlib.sha256((ROOT / "css" / "style.css").read_bytes()).hexdigest()[:8]
+    # CRLF 는 LF 로 맞춰 잰다. 윈도우 편집기가 CRLF 로 저장해도 git(eol=lf)·CI 와 같은 값이 나오게 (2026-09-19 CI 불일치)
+    return hashlib.sha256((ROOT / "css" / "style.css").read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:8]
 
 def head_html(page, verify):
     url = SITE_URL + page["url"]
