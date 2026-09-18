@@ -737,7 +737,7 @@ table.sheet { width:100%; border-collapse:collapse; font-size:.85rem; }
 table.sheet th, table.sheet td { border:1px solid var(--line); padding:8px 6px; height:38px; }
 table.sheet thead th { background:var(--paper-2); font-size:.8rem; }
 table.sheet tbody th { width:44px; text-align:center; background:var(--paper-2); }
-@media (max-width:620px) { table.sheet { display:table; } }
+/* 620px 이하에서 table.sheet 를 display:table 로 되돌리던 규칙은 페이지 가로 넘침을 만들어 뺐다(2026-09-19 전수 검사 8쪽). 좁은 화면은 다른 표처럼 옆으로 민다 */
 @media print {
   header.top, nav.tabs, aside.rail, footer.site, .note.todo, .next, a.totop, .do, nav.doors, p.kicker, .meta-line, nav.intoc { display:none !important; }
   body { background:#fff; }
@@ -760,7 +760,8 @@ main table:not(.sheet) th:last-child, main table:not(.sheet) td:last-child { bor
 main table:not(.sheet) tr:last-child td, main table:not(.sheet) tr:last-child th { border-bottom:0; }
 main table:not(.sheet) thead th, main table:not(.sheet) tr:first-child th { background:var(--paper-2); color:var(--ink); }
 main table:not(.sheet) tbody tr:nth-child(even) td { background:#fbfaf7; }
-main table:not(.sheet) tbody th { background:var(--paper-2); font-weight:700; white-space:nowrap; }
+main table:not(.sheet) tbody th { background:var(--paper-2); font-weight:700; }
+main table:not(.sheet) tbody tr:not(:first-child) th:first-child { white-space:nowrap; } /* 줄 머리글만. 첫 줄 머리글은 길어서 줄바꿈 허용(en 표 넘침 2026-09-19) */
 main table.fee td:not(:first-child) { text-align:right; font-variant-numeric:tabular-nums; }
 main table.fee th:not(:first-child) { text-align:right; }
 main table caption { caption-side:bottom; text-align:left; font-size:.85rem; color:var(--ink-soft); padding:8px 2px 0; }
@@ -768,3 +769,8 @@ main table.sheet { border-radius:0; }
 /* 기둥 「다른 곳」: 들쭉날쭉한 알약 대신 두 칸 정렬 목록 */
 aside.rail ul.cats li.others { display:grid; grid-template-columns:1fr 1fr; gap:6px 8px; justify-content:stretch; }
 aside.rail ul.cats li.others a { display:block; text-align:center; padding:6px 8px; border-radius:8px; font-size:.82rem; }
+/* 좁은 화면: 격자 표도 옆으로 밀어 보게(overflow:hidden 이 620px 규칙을 덮어 페이지가 넘치던 것 고침 2026-09-19) */
+@media (max-width:820px) {
+  main table:not(.sheet) { display:block; overflow-x:auto; border-radius:6px; }
+  main table:not(.sheet) tbody th { white-space:normal; }
+}

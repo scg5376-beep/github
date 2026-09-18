@@ -21,3 +21,4 @@ outputs/_inbox/*
 !outputs/_inbox/.gitkeep
 *.tmp
 docs/발전/예산.json
+참고/
