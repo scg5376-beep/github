@@ -1,5 +1,5 @@
 # 따라 하기(방법) 글 조립 도우미. 설명·근거는 넣지 않는다. 절차는 marketing-doctor/지식/원전/원문/절차/ 의 공식 도움말에서만 옮긴다.
-import json, pathlib, re, html
+import json, re, pathlib, html
 P = pathlib.Path(__file__).resolve().parents[2] / "_src/pages"
 
 def esc(s): return html.escape(s, quote=False)
@@ -74,7 +74,7 @@ def page(track, step_no, sub, title, desc, lead, prep, minutes, cost, do, done, 
     src = "".join(f"<li>{s}</li>" for s in sources)
     body = f'''<!--meta {json.dumps(meta, ensure_ascii=False)} -->
 <p class="kicker">{TOP}</p>
-<h1>{esc(sub)}</h1>
+<h1>{esc(re.sub(r'\s*\([^)]*코스 \d+단계\)\s*$', '', title))}</h1>
 <p class="lead">{lead}</p>
 {kv(prep, minutes, cost, result, who)}
 {course_box(track, step_no) if step_no == 1 else ''}<h2>따라 하기</h2>
