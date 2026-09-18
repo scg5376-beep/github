@@ -1166,16 +1166,16 @@ DOORS = [
 # (id, 묶음 이름, [(이름, 글 url, 한 줄)]) — 글은 코스 안의 따라 하기 글을 그대로 가리킨다(주소 안 바꿈)
 HOWTO_INDEX = [
     ("naver", "네이버", [
-        ("가게 정보 한 장", "/guide/store-sheet.html", "상호·주소·전화 어디에나 똑같이, 인쇄용 표"),
-        ("대행사 전화 한 장", "/guide/agency-call.html", "「상위 노출 보장」 전화에 되물을 열 가지"),
-        ("업종별 광고 규제 표", "/guide/industry-ad-rules.html", "학원·미용실·음식점·술집·공인중개사가 적을 것과 못 쓰는 말"),
-        ("예약 노쇼·환불 기준", "/guide/reservation-noshow.html", "예약금·취소 수수료·Npay 매장결제, 네이버 규칙"),
         ("플레이스 등록", "/local/2-place.html", "지도에 가게 올리기, 주인 권한 받기"),
         ("플레이스 순위", "/local/3-rank.html", "빈칸·사진 채우기"),
         ("리뷰 답글", "/local/4-reviews.html", "답글 달기, 리뷰 부탁하는 법"),
         ("네이버 블로그", "/local/6-blog.html", "가게 블로그 만들고 검색되게"),
         ("파워링크", "/local/8-powerlink.html", "내 계정으로 광고 켜기, 하루예산"),
         ("홈페이지 검색 등록", "/online/5-homepage.html", "서치어드바이저·서치콘솔"),
+        ("가게 정보 한 장", "/guide/store-sheet.html", "상호·주소·전화 어디에나 똑같이, 인쇄용 표"),
+        ("대행사 전화 한 장", "/guide/agency-call.html", "「상위 노출 보장」 전화에 되물을 열 가지"),
+        ("업종별 광고 규제 표", "/guide/industry-ad-rules.html", "학원·미용실·음식점·술집·공인중개사가 적을 것과 못 쓰는 말"),
+        ("예약 노쇼·환불 기준", "/guide/reservation-noshow.html", "예약금·취소 수수료·Npay 매장결제, 네이버 규칙"),
     ]),
     ("sell", "판매", [
         ("스마트스토어·쿠팡 수수료", "/online/2-fees.html", "수수료 계산, 카테고리"),
