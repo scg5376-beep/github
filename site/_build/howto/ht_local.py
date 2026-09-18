@@ -26,7 +26,7 @@ save("local", "1-start.html", page("local", 1, "시작 가이드",
         ("손님이 대부분 20대예요", "이 코스 그대로 하되, 6단계 블로그 대신 인스타그램 코스(온라인 판매 7단계)를 먼저 보셔도 됩니다."),
         ("우리 업종이 여기 없어요", "손님이 찾아와서 결제하면 이 코스가 맞아요. 문의하고 예약해서 오면 「예약·상담」 코스, 택배로 보내면 「온라인 판매」 코스입니다."),
     ],
-    why='<a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>와 <a href="/guide/place.html">네이버 플레이스, 등록부터 순위까지</a>',
+    why='<a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>와 <a href="/guide/place.html">네이버 플레이스, 등록부터 순위까지</a>. 켤 수 있는 무료 도구 전체는 <a href="/guide/free-tools.html">무료 도구 한 장</a>',
     nxt='  <a href="/local/2-place.html">다음 단계. 플레이스 등록</a>\n  <a href="/guide/numbers.html">설명. 손님은 지금 어디서 찾나</a>',
     sources=[SITE + ' <a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>', A("https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2226&nttSn=7777", "국세청 「사업자등록 신청」 절차 안내")],
     order=1))
