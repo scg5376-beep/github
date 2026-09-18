@@ -991,7 +991,7 @@
 <h2>다 됐는지 확인</h2>
 <ul class="check"><li>신고 대상인지 면제인지 확인했고 대상이면 접수했다</li><li>첫 화면 여섯 가지가 있다</li><li>청약철회 안내와 처리방침 링크가 있다</li></ul>
 <h2>막히면</h2>
-<dl class="kv stuck"><dt>구매안전서비스 이용 확인증이 뭐예요?</dt><dd>선지급식(먼저 결제받고 나중에 보내는) 판매를 할 때 필요한 서류예요. 스마트스토어센터 판매자 정보 화면에서 내려받을 수 있습니다.</dd><dt>정부24 대리 신청이 돼요?</dt><dd>온라인은 대리인 신청이 안 됩니다. 사장님 본인 로그인으로 하세요.</dd></dl>
+<dl class="kv stuck"><dt>구매안전서비스 이용 확인증이 뭐예요?</dt><dd>선지급식(먼저 결제받고 나중에 보내는) 판매를 할 때 필요한 서류예요. 스마트스토어센터 판매자 정보 화면에서 내려받을 수 있습니다.</dd><dt>호스트서버 소재지에 뭘 적어요?</dt><dd>신고서 서식에 「웹호스팅업체에 확인하여 적습니다」라고 돼 있어요. 자사몰이면 호스팅 업체 고객센터에 서버 위치를 물어 적고, 스마트스토어만 쓰면 장터의 판매자 안내에 적힌 주소를 씁니다. 도메인 이름 칸은 가게 주소(우리가게.kr)예요.</dd><dt>정부24 대리 신청이 돼요?</dt><dd>온라인은 대리인 신청이 안 됩니다. 사장님 본인 로그인으로 하세요.</dd></dl>
 <p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/before-selling.html">온라인으로 팔기 전에 법이 요구하는 것</a>에 있어요.</p>
 
 <div class="next">
@@ -1001,7 +1001,7 @@
 
 <footer class="sources">
   <h2>근거</h2>
-  <ul><li><span class="grade a">A</span> <a href="https://www.gov.kr/portal/service/serviceInfo/460000000089" rel="noopener">정부24 「통신판매업 신고」 민원 안내</a> (2026-09-14 확인)</li><li><span class="grade">설명</span> 이 사이트의 설명 글 <a href="/guide/before-selling.html">온라인으로 팔기 전에 법이 요구하는 것</a>(전자상거래법·개인정보 보호법 원문은 그 글에)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3668" rel="noopener">네이버 스마트스토어 고객센터 가입 서류 안내(구매안전서비스 이용확인증)</a> (2026-09-14 확인)</li></ul>
+  <ul><li><span class="grade a">A</span> <a href="https://www.gov.kr/portal/service/serviceInfo/460000000089" rel="noopener">정부24 「통신판매업 신고」 민원 안내</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://law.go.kr/LSW/flDownload.do?flSeq=148998367" rel="noopener">전자상거래법 시행규칙 [별지 제1호서식] 통신판매업 신고서</a> (2026-09-18 확인)</li><li><span class="grade">설명</span> 이 사이트의 설명 글 <a href="/guide/before-selling.html">온라인으로 팔기 전에 법이 요구하는 것</a>(전자상거래법·개인정보 보호법 원문은 그 글에)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3668" rel="noopener">네이버 스마트스토어 고객센터 가입 서류 안내(구매안전서비스 이용확인증)</a> (2026-09-14 확인)</li></ul>
   <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-14 기준이에요.</p>
 </footer>]]></content:encoded>
   </item>
