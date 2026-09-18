@@ -611,6 +611,12 @@ def ga_html():
         return []
     return [f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>', f'<script>{GA_INLINE}</script>']
 
+
+def css_ver():
+    """style.css 내용 해시 8자 — 고치면 주소가 바뀌어 브라우저·헤들리스 캐시가 옛 CSS 를 안 쓴다 (2026-09-19)."""
+    import hashlib
+    return hashlib.sha256((ROOT / "css" / "style.css").read_bytes()).hexdigest()[:8]
+
 def head_html(page, verify):
     url = SITE_URL + page["url"]
     og = SITE_URL + page.get("og", DEFAULT_OG[page["section"]])
@@ -626,7 +632,7 @@ def head_html(page, verify):
         f'<meta name="description" content="{esc(page["description"])}">',
         f'<link rel="canonical" href="{url}">',
         f'<link rel="stylesheet" href="/fonts/pretendard/pretendard.css">',
-        f'<link rel="stylesheet" href="/css/style.css">',
+        f'<link rel="stylesheet" href="/css/style.css?v={css_ver()}">',
         *(['<link rel="stylesheet" href="/css/diag.css">'] if page.get("kind") == "diag" else []),
         *(['<link rel="stylesheet" href="/css/shots.css">'] if page.get("kind") == "howto" else []),
         '<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">',

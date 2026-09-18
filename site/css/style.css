@@ -751,3 +751,20 @@ table.sheet tbody th { width:44px; text-align:center; background:var(--paper-2);
 
 /* 인용 줄 (2026-09-19) */
 .cite{margin-top:28px;padding:12px 14px;border-top:1px solid var(--line, #e3e0d8);color:var(--ink-soft);font-size:.9rem;word-break:break-all}
+
+/* ── 표·격자 마감 (운영자 2026-09-19 "표같은것도 줄같은걸로 나는것도없고 리모컨형식의 레이아웃정렬도 제대로 안되어있는데") ── */
+/* 표: 세로줄까지 있는 격자, 머리글 배경, 줄무늬, 숫자 칸 오른쪽 정렬 */
+main table:not(.sheet) { border:1px solid var(--line); border-radius:10px; border-spacing:0; overflow:hidden; font-size:.94rem; }
+main table:not(.sheet) th, main table:not(.sheet) td { border-bottom:1px solid var(--line); border-right:1px solid var(--line); padding:11px 12px; }
+main table:not(.sheet) th:last-child, main table:not(.sheet) td:last-child { border-right:0; }
+main table:not(.sheet) tr:last-child td, main table:not(.sheet) tr:last-child th { border-bottom:0; }
+main table:not(.sheet) thead th, main table:not(.sheet) tr:first-child th { background:var(--paper-2); color:var(--ink); }
+main table:not(.sheet) tbody tr:nth-child(even) td { background:#fbfaf7; }
+main table:not(.sheet) tbody th { background:var(--paper-2); font-weight:700; white-space:nowrap; }
+main table.fee td:not(:first-child) { text-align:right; font-variant-numeric:tabular-nums; }
+main table.fee th:not(:first-child) { text-align:right; }
+main table caption { caption-side:bottom; text-align:left; font-size:.85rem; color:var(--ink-soft); padding:8px 2px 0; }
+main table.sheet { border-radius:0; }
+/* 기둥 「다른 곳」: 들쭉날쭉한 알약 대신 두 칸 정렬 목록 */
+aside.rail ul.cats li.others { display:grid; grid-template-columns:1fr 1fr; gap:6px 8px; justify-content:stretch; }
+aside.rail ul.cats li.others a { display:block; text-align:center; padding:6px 8px; border-radius:8px; font-size:.82rem; }
