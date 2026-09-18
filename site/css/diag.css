@@ -105,37 +105,44 @@
 .diag:has([name=d6][value=agency]:checked) #rec10{display:flex}
 .diag:has([name=d6][value=self]:checked) #rec11{display:flex}
 .diag:has([name=d7][value=sometimes]:checked, [name=d7][value=no]:checked) #rec12{display:flex}
-#rec13{display:flex}
-.diag:has([name=d5][value=yes]:checked, [name=d5][value=making]:checked) #rec14{display:flex}
-.diag:has([name=d5][value=no]:checked, [name=d5][value=making]:checked) #rec15{display:flex}
-.diag:has([name=d5][value=yes]:checked) #rec16{display:flex}
-.diag:has([name=d4][value=sometimes]:checked, [name=d4][value=acct]:checked, [name=d4][value=none]:checked) #rec17{display:flex}
-.diag:has([name=d4][value=acct]:checked, [name=d4][value=none]:checked) #rec18{display:flex}
-.diag:has([name=d6][value=self]:checked, [name=d6][value=agency]:checked) #rec19{display:flex}
-.diag:has([name=d7][value=sometimes]:checked, [name=d7][value=no]:checked) #rec20{display:flex}
-.diag:has([name=d2][value=none]:checked, [name=d2][value=unknown]:checked, [name=d2][value=noauth]:checked) #rec21{display:flex}
-.diag:has([name=d3][value=some]:checked, [name=d3][value=no]:checked, [name=d3][value=noreview]:checked) #rec22{display:flex}
-.diag:has([name=d4][value=sometimes]:checked, [name=d4][value=acct]:checked, [name=d4][value=none]:checked) #rec23{display:flex}
-.diag:has([name=d5][value=yes]:checked, [name=d5][value=making]:checked) #rec24{display:flex}
-.diag:has([name=d5][value=yes]:checked) #rec25{display:flex}
+.diag:has([name=d7][value=no]:checked) #rec13{display:flex}
+.diag:has([name=d7][value=no]:checked) #rec14{display:flex}
+.diag:has([name=d7][value=no]:checked) #rec15{display:flex}
+.diag:has([name=d7][value=no]:checked) #rec16{display:flex}
+.diag:has([name=d2][value=none]:checked, [name=d2][value=unknown]:checked) #rec17{display:flex}
+.diag:has([name=d6][value=no]:checked) #rec18{display:flex}
+.diag:has([name=d6][value=no]:checked) #rec19{display:flex}
+#rec20{display:flex}
+.diag:has([name=d5][value=yes]:checked, [name=d5][value=making]:checked) #rec21{display:flex}
+.diag:has([name=d5][value=no]:checked, [name=d5][value=making]:checked) #rec22{display:flex}
+.diag:has([name=d5][value=yes]:checked) #rec23{display:flex}
+.diag:has([name=d4][value=sometimes]:checked, [name=d4][value=acct]:checked, [name=d4][value=none]:checked) #rec24{display:flex}
+.diag:has([name=d4][value=acct]:checked, [name=d4][value=none]:checked) #rec25{display:flex}
 .diag:has([name=d6][value=self]:checked, [name=d6][value=agency]:checked) #rec26{display:flex}
 .diag:has([name=d7][value=sometimes]:checked, [name=d7][value=no]:checked) #rec27{display:flex}
 .diag:has([name=d2][value=none]:checked, [name=d2][value=unknown]:checked, [name=d2][value=noauth]:checked) #rec28{display:flex}
-.diag:has([name=d2][value=mine]:checked) #rec29{display:flex}
-.diag:has([name=d3][value=some]:checked, [name=d3][value=no]:checked, [name=d3][value=noreview]:checked) #rec30{display:flex}
-.diag:has([name=d4][value=sometimes]:checked, [name=d4][value=acct]:checked, [name=d4][value=none]:checked) #rec31{display:flex}
-.diag:has([name=d5][value=no]:checked, [name=d5][value=making]:checked) #rec32{display:flex}
-.diag:has([name=d5][value=yes]:checked) #rec33{display:flex}
-.diag:has([name=d6][value=self]:checked, [name=d6][value=agency]:checked) #rec34{display:flex}
-.diag:has([name=d7][value=sometimes]:checked, [name=d7][value=no]:checked) #rec35{display:flex}
-.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec36{display:flex}
-.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec37{display:flex}
-.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec38{display:flex}
-.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec39{display:flex}
-.diag:has([name=d2][value=mine]:checked) #rec40{display:flex}
-.diag:has([name=d2][value=mine]:checked) #rec41{display:flex}
-#rec42{display:flex}
-.diag:has([name=d2][value=mine]:checked) #rec43{display:flex}
-.diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec44{display:flex}
-.diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec45{display:flex}
-.diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec46{display:flex}
+.diag:has([name=d3][value=some]:checked, [name=d3][value=no]:checked, [name=d3][value=noreview]:checked) #rec29{display:flex}
+.diag:has([name=d4][value=sometimes]:checked, [name=d4][value=acct]:checked, [name=d4][value=none]:checked) #rec30{display:flex}
+.diag:has([name=d5][value=yes]:checked, [name=d5][value=making]:checked) #rec31{display:flex}
+.diag:has([name=d5][value=yes]:checked) #rec32{display:flex}
+.diag:has([name=d6][value=self]:checked, [name=d6][value=agency]:checked) #rec33{display:flex}
+.diag:has([name=d7][value=sometimes]:checked, [name=d7][value=no]:checked) #rec34{display:flex}
+.diag:has([name=d2][value=none]:checked, [name=d2][value=unknown]:checked, [name=d2][value=noauth]:checked) #rec35{display:flex}
+.diag:has([name=d2][value=mine]:checked) #rec36{display:flex}
+.diag:has([name=d3][value=some]:checked, [name=d3][value=no]:checked, [name=d3][value=noreview]:checked) #rec37{display:flex}
+.diag:has([name=d4][value=sometimes]:checked, [name=d4][value=acct]:checked, [name=d4][value=none]:checked) #rec38{display:flex}
+.diag:has([name=d5][value=no]:checked, [name=d5][value=making]:checked) #rec39{display:flex}
+.diag:has([name=d5][value=yes]:checked) #rec40{display:flex}
+.diag:has([name=d6][value=self]:checked, [name=d6][value=agency]:checked) #rec41{display:flex}
+.diag:has([name=d7][value=sometimes]:checked, [name=d7][value=no]:checked) #rec42{display:flex}
+.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec43{display:flex}
+.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec44{display:flex}
+.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec45{display:flex}
+.diag:has([name=d8][value=no]:checked, [name=d8][value=unknown]:checked) #rec46{display:flex}
+.diag:has([name=d2][value=mine]:checked) #rec47{display:flex}
+.diag:has([name=d2][value=mine]:checked) #rec48{display:flex}
+#rec49{display:flex}
+.diag:has([name=d2][value=mine]:checked) #rec50{display:flex}
+.diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec51{display:flex}
+.diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec52{display:flex}
+.diag:has([name=d6][value=no]:checked, [name=d6][value=quit]:checked) #rec53{display:flex}
