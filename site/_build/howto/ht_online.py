@@ -127,11 +127,12 @@ save("online", "5-homepage.html", page("online", 5, "홈페이지 노출",
         ("스마트스토어만 있는데요", "스마트스토어 주소는 호스트 단위가 아니라 등록이 안 됩니다. 장터 검색은 장터 안에서 잡히니 이 단계는 건너뛰세요."),
         ("등록했는데 검색에 안 나와요", "등록은 노출 조건이 아니에요. 제목이 다 다른지, robots.txt가 로봇을 막고 있지 않은지, noindex가 붙어 있지 않은지 순서로 봅니다."),
         ("www 붙은 주소와 안 붙은 주소가 둘 다 열려요", "네이버는 같은 내용이 여러 주소로 열리면 중복으로 본다고 적어 뒀어요. 대표 주소 하나를 정해 나머지는 301로 넘기거나, 어려우면 rel=\"canonical\"로 대표 주소를 적으세요. 제작업체에 한 줄 부탁하면 됩니다."),
+        ("「수집요청」을 눌렀는데 아직 안 나와요", "수집요청은 로봇에게 주소를 건네는 것뿐이라 최소 하루에서 몇 주가 걸리고, 같은 주소를 매일 다시 넣을 필요는 없다고 적혀 있어요. 수집이 돼도 검색 노출을 보장하지는 않는다고도요. 기다리는 동안 제목·robots.txt·noindex를 다시 보세요."),
         ("robots.txt가 뭔지 모르겠어요", "검색로봇에게 들어와도 되는지 알려 주는 텍스트 파일이에요. 없어도 되는데, 네이버는 파일이 없으면(4xx) 「모두 허용」으로 봅니다. 제작업체가 넣어 둔 파일에 「Disallow: /」가 있으면 네이버 로봇(Yeti)도 못 들어오니 그 줄이 없는지만 확인하세요. 파일이 텍스트가 아니고 HTML로 열리면 없는 것으로 취급돼요."),
     ],
     why='<a href="/guide/homepage.html">내 홈페이지가 검색에 보이려면</a>',
     nxt='  <a href="/online/6-blog.html">다음 단계. 블로그</a>\n  <a href="/guide/homepage.html">설명. 내 홈페이지가 검색에 보이려면</a>',
-    sources=[A("https://searchadvisor.naver.com/guide/faq-start-register", "네이버 서치어드바이저 「사이트 등록 및 소유확인」"), A("https://searchadvisor.naver.com/guide/request-feed", "「RSS 및 사이트맵 제출」"), A(GS + "34592?hl=ko", "구글 서치 콘솔 「웹사이트 또는 플랫폼 속성 추가하기」"), A(GS + "9008080?hl=ko", "「사이트 소유권 확인」"), A(GS + "7451001?hl=ko", "「사이트맵 보고서」"), A("https://searchadvisor.naver.com/guide/seo-basic-robots", "네이버 서치어드바이저 「robots.txt 설정하기」", "2026-09-17"), A("https://searchadvisor.naver.com/guide/seo-basic-create", "「웹 사이트를 만들 때」", "2026-09-18")],
+    sources=[A("https://searchadvisor.naver.com/guide/faq-start-register", "네이버 서치어드바이저 「사이트 등록 및 소유확인」"), A("https://searchadvisor.naver.com/guide/request-feed", "「RSS 및 사이트맵 제출」"), A("https://searchadvisor.naver.com/guide/request-crawl", "「수집요청 및 검색제외」", "2026-09-18"), A(GS + "34592?hl=ko", "구글 서치 콘솔 「웹사이트 또는 플랫폼 속성 추가하기」"), A(GS + "9008080?hl=ko", "「사이트 소유권 확인」"), A(GS + "7451001?hl=ko", "「사이트맵 보고서」"), A("https://searchadvisor.naver.com/guide/seo-basic-robots", "네이버 서치어드바이저 「robots.txt 설정하기」", "2026-09-17"), A("https://searchadvisor.naver.com/guide/seo-basic-create", "「웹 사이트를 만들 때」", "2026-09-18")],
     order=5))
 
 save("online", "6-blog.html", page("online", 6, "블로그",
