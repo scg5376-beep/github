@@ -370,6 +370,8 @@ def check_page(p, all_titles):
         err(rel, "T6", f"강조 상자 {n_boxes}개 > {SPEC['layout']['callout_max_per_page']}개")
     # 표 열 수
     for tbl in re.findall(r"<table\b.*?</table>", main, re.S):
+        if 'class="sheet"' in tbl:  # 인쇄용 빈 기록표(D60)는 열 제한 예외
+            continue
         first = re.search(r"<tr\b.*?</tr>", tbl, re.S).group(0)
         cols = len(re.findall(r"<t[hd]\b", first))
         if cols > SPEC["layout"]["table_cols_max"]:

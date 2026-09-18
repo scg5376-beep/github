@@ -731,3 +731,17 @@ dl.terms dd { margin:0; padding:4px 16px 12px; border:1px solid var(--line); bor
 dl.terms dt, dl.updates dt { border-bottom:0; background:var(--paper); }
 dl.terms dd, dl.updates dd { background:var(--paper); }
 dl.terms dt { scroll-margin-top:90px; }
+
+/* 12주 기록표 (인쇄용) */
+table.sheet { width:100%; border-collapse:collapse; font-size:.85rem; }
+table.sheet th, table.sheet td { border:1px solid var(--line); padding:8px 6px; height:38px; }
+table.sheet thead th { background:var(--paper-2); font-size:.8rem; }
+table.sheet tbody th { width:44px; text-align:center; background:var(--paper-2); }
+@media (max-width:620px) { table.sheet { display:table; } }
+@media print {
+  header.top, nav.tabs, aside.rail, footer.site, .note.todo, .next, a.totop, .do, nav.doors, p.kicker, .meta-line, nav.intoc { display:none !important; }
+  body { background:#fff; }
+  .cols > main.wrap { border:0; box-shadow:none; padding:0; max-width:none; }
+  table.sheet th, table.sheet td { height:46px; border-color:#888; }
+  h1 { font-size:1.4rem; }
+}
