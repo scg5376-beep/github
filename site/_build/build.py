@@ -757,7 +757,7 @@ def meta_line(page):
                  f"읽는 시간 약 {mins}분"]
     line = '<p class="meta-line">' + "".join(f"<span>{esc(x)}</span>" for x in parts) + "</p>"
     body = page["body"]
-    ms = list(re.finditer(r'<p class="lead">.*?</p>', body, re.S))
+    ms = list(re.finditer(r'<p class="lead(?: answer)?">.*?</p>', body, re.S))
     if ms:
         m = ms[-1]                                          # 요약 문단이 둘로 나뉘어 있어도 마지막 것 뒤에
         return body[:m.end()] + chr(10) + line + body[m.end():]
