@@ -37,6 +37,36 @@
 </footer>]]></content:encoded>
   </item>
   <item>
+    <title>가게 정보 한 장, 어디에 적든 똑같이 쓰는 표</title>
+    <link>https://sajangmarketing.com/guide/store-sheet.html</link>
+    <guid isPermaLink="true">https://sajangmarketing.com/guide/store-sheet.html</guid>
+    <pubDate>Fri, 18 Sep 2026 09:00:00 +0900</pubDate>
+    <description>상호·주소·전화·영업시간·한 줄 소개·대표 키워드·사진 파일명을 한 장에 적어 두고 네이버 플레이스, 구글 비즈니스 프로필, 카카오맵, 당근, 인스타그램에 글자까지 똑같이 옮기는 빈 표예요. 인쇄하거나 CSV로 내려받아요.</description>
+    <content:encoded><![CDATA[<p class="kicker">네이버 · 가게 정보 한 장</p>
+<h1>가게 정보 한 장, 어디에 적든 똑같이 쓰는 표</h1>
+<p class="lead">플레이스, 구글, 카카오맵, 당근, 인스타그램에 가게 정보를 넣을 때 띄어쓰기 하나만 달라도 검색은 다른 가게로 볼 수 있어요. 그래서 한 번 정해 두고 그대로 베끼는 표를 만들었어요. 동네 매장 코스 1단계에서 「메모하세요」라고 한 게 이 표예요.</p>
+<div class="note todo"><b>바로 할 일</b>사업자등록증을 옆에 두고 왼쪽 칸을 먼저 채우세요. 그다음 각 플랫폼에 넣을 때마다 오른쪽 칸에 넣은 날짜를 적으면, 어디가 아직 비었는지 한눈에 보여요.</div>
+<p><a href="/files/가게-정보-한-장.csv" download>CSV 내려받기 (엑셀·구글 시트용)</a></p>
+<table class="sheet"><thead><tr><th>항목</th><th>우리 가게 (한 번만 정한다)</th><th>플레이스</th><th>구글</th><th>카카오맵</th><th>당근</th><th>인스타그램</th></tr></thead><tbody>
+<tr><th>상호 (사업자등록증 그대로)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>주소 (도로명, 층·호까지)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>전화번호 (하이픈 형식 고정)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>영업시간 (요일별)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>휴무일·휴게시간</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>업종 (사업자등록증 종목)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>한 줄 소개 (50자 안)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>대표 키워드 5개</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>대표 사진 파일명 (바깥·안·메뉴)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>홈페이지·예약 주소</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>문의 창구 (톡톡·채널·전화)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<p class="small">오른쪽 칸에는 그 플랫폼에 넣은 날짜를 적어요. 영업시간을 바꾸면 이 표부터 고치고 다섯 곳을 같은 날 고치세요. 카카오맵 한 줄 소개는 50자, 당근 이름은 30자, 태그는 카카오맵 5개·8글자가 한도예요.</p>
+<div class="next">
+<a href="/local/1-start.html">따라 하기. 시작 가이드</a>
+<a href="/local/2-place.html">따라 하기. 플레이스 등록</a>
+</div>]]></content:encoded>
+  </item>
+  <item>
     <title>12주 기록표, 인쇄해서 쓰는 빈 표</title>
     <link>https://sajangmarketing.com/guide/record-sheet.html</link>
     <guid isPermaLink="true">https://sajangmarketing.com/guide/record-sheet.html</guid>
@@ -1002,36 +1032,6 @@
 <footer class="sources">
   <h2>근거</h2>
   <ul><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3558" rel="noopener">네이버 스마트스토어 고객센터 「정산 기준 수수료율」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3672" rel="noopener">「지급보류 사유 및 상세 내역 확인 방법」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3668" rel="noopener">「가입 심사 결과 확인」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3630" rel="noopener">「정산은 언제 되나요?」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3765" rel="noopener">「자동 구매확정은 언제 되나요?」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=15759" rel="noopener">「판매수수료의 정산 기준 수수료율」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://marketplace.coupang.com/register?tab=5" rel="noopener">쿠팡 마켓플레이스 「매출 정산하기」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://ads.naver.com/help/faq/801" rel="noopener">네이버 검색광고 도움말 「쇼핑검색광고는 무엇인가요」</a> (2026-09-18 확인)</li><li><span class="grade a">A</span> <a href="https://ads.naver.com/help/faq/1254" rel="noopener">「네이버 가격비교의 입점 방식과 수수료」</a> (2026-09-18 확인)</li></ul>
-  <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-14 기준이에요.</p>
-</footer>]]></content:encoded>
-  </item>
-  <item>
-    <title>온라인 판매 마케팅 시작 순서, 첫 주에 할 일 (온라인 판매 코스 1단계)</title>
-    <link>https://sajangmarketing.com/online/1-start.html</link>
-    <guid isPermaLink="true">https://sajangmarketing.com/online/1-start.html</guid>
-    <pubDate>Mon, 14 Sep 2026 09:00:00 +0900</pubDate>
-    <description>스마트스토어·쿠팡·자사몰로 물건을 파는 가게의 코스를 시작하는 순서예요. 파는 곳을 적고 준비물을 모으고 지난달 수수료를 한 줄 적습니다.</description>
-    <content:encoded><![CDATA[<p class="kicker">온라인 판매</p>
-<h1>시작 가이드</h1>
-<p class="lead">택배로 물건을 보내는 가게의 코스예요. 법에서 요구하는 것이 전부 적용되고 팔 때마다 수수료가 나가니, 수수료와 법을 앞에 두었습니다.</p>
-<dl class="kv prep"><dt>준비물</dt><dd><ul><li>사업자등록증</li><li>네이버 아이디</li><li>통장 사본</li><li>팔 상품 사진과 가격</li></ul></dd><dt>걸리는 시간</dt><dd>20분</dd><dt>돈</dt><dd>무료</dd></dl>
-
-<div class="note course"><b>9단계를 마치면 가게에 생기는 것</b><ul><li>수수료를 알고 정한 가격</li><li>통신판매업 신고와 서면 준비</li><li>내 도메인과 검색에 나오는 홈페이지</li><li>블로그와 인스타그램으로 데려오는 손님</li><li>광고를 켜고 끄는 기준</li><li>12주 기록표</li></ul></div><h2>따라 하기</h2>
-<ol class="steps"><li><b>파는 곳을 적어 두세요.</b> 스마트스토어(네이버), 쿠팡, 내 도메인 자사몰 가운데 지금 파는 곳과 앞으로 팔 곳을 적습니다. 여러 곳이어도 됩니다. 장터마다 정산 내역이 따로 나오니 기록도 장터별로 합니다.<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">장터마다 정산 내역이 따로 나와요. 어느 장터가 효과였는지는 장터별 정산액으로 가르고 한 주에 바꾸는 건 하나만 둡니다. <a href="/guide/record.html">12주 기록 설명</a></div></details></li><li><b>준비물을 휴대폰에 모아 두세요.</b> 사업자등록증 사진, 통장 사본, 상품 사진, 가격표입니다. 간이과세자인지 일반과세자인지도 사업자등록증에서 확인해 적어 두세요.</li><li><b>이미 팔고 있으면 지난달 정산 내역에서 수수료로 나간 돈을 한 줄 적으세요.</b> 스마트스토어는 「스마트스토어센터 > 정산관리 > 정산 내역(일별/건별)」에서 봅니다.<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">스마트스토어는 내가 직접 데려온 손님의 주문이면 판매수수료가 3%에서 1%로 내려가요. 수수료를 알아야 가격을 정할 수 있습니다. <a href="/guide/selling.html">수수료 설명</a></div></details></li><li><b>상호·주소·전화번호·이메일 표기를 한 가지로 정해 메모하세요.</b> 장터 판매자 정보, 블로그, 인스타그램에 똑같이 씁니다.</li><li><b>아래 단계 순서를 보고 2단계로 가세요.</b> 3단계 관련법은 첫 주문이 들어오기 전에 끝내야 해요.</li></ol>
-<h2>다 됐는지 확인</h2>
-<ul class="check"><li>장터 하나를 정했다</li><li>준비물이 휴대폰에 있다</li><li>지난달 수수료(또는 아직 없음)를 적었다</li></ul>
-<h2>막히면</h2>
-<dl class="kv stuck"><dt>쿠팡과 스마트스토어를 같이 하고 싶어요</dt><dd>한 곳에서 12주를 먼저 돌리세요. 둘을 같이 시작하면 어느 쪽이 효과였는지 알 수 없습니다.</dd><dt>상품을 올렸는데 네이버쇼핑 검색에 안 나와요</dt><dd>세 가지를 보세요. 첫째, 「스토어관리 > 서비스 연결 > 네이버 서비스 연결」에서 네이버쇼핑 입점을 ON으로 했는지(연동에 최대 3시간). 둘째, 상품 등록 화면 아래 「가격비교 사이트 등록」에서 「네이버쇼핑」을 체크했는지. 셋째, 처음 등록한 상품은 반영에 2~8시간, 늦으면 1~2일 걸린다고 적혀 있어요. 판매중지·품절·전시중지 상품은 안 나옵니다.</dd><dt>손님 문의는 어디로 받나요</dt><dd>스마트스토어는 네이버 톡톡을 켜면 상품 화면에 채팅 문의 단추가 붙어요. 톡톡 파트너센터 > 계정관리 > 설정 > 서비스 연결에서 스마트스토어를 연결한 뒤, 스마트스토어센터 「스토어관리 > 서비스 연결 > 네이버 서비스 연결」에서 톡톡을 ON으로 바꿉니다. 톡톡 계정의 상담 기능이 꺼져 있으면 연결이 안 돼요.</dd><dt>사업자등록이 없어요</dt><dd>온라인 판매도 사업자등록이 먼저예요. 홈택스(신청/제출 > 사업자등록신청)에서 신청합니다.</dd></dl>
-<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/selling.html">온라인으로 팔면 수수료가 어떻게 되나</a>에 있어요.</p>
-
-<div class="next">
-  <a href="/online/2-fees.html">다음 단계. 수수료</a>
-  <a href="/guide/selling.html">설명. 온라인으로 팔면 수수료가 어떻게 되나</a>
-</div>
-
-<footer class="sources">
-  <h2>근거</h2>
-  <ul><li><span class="grade">설명</span> 이 사이트의 설명 글 <a href="/guide/selling.html">온라인으로 팔면 수수료가 어떻게 되나</a></li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3558" rel="noopener">네이버 스마트스토어 고객센터 「정산 기준 수수료율」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3656" rel="noopener">「네이버 톡톡 연동설정은 어떻게 하나요?」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3372" rel="noopener">「'네이버쇼핑'에 상품 노출은 어떻게하나요?」</a> (2026-09-18 확인)</li></ul>
   <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-14 기준이에요.</p>
 </footer>]]></content:encoded>
   </item>

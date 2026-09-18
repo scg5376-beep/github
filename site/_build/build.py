@@ -1105,6 +1105,7 @@ DOORS = [
 # (id, 묶음 이름, [(이름, 글 url, 한 줄)]) — 글은 코스 안의 따라 하기 글을 그대로 가리킨다(주소 안 바꿈)
 HOWTO_INDEX = [
     ("naver", "네이버", [
+        ("가게 정보 한 장", "/guide/store-sheet.html", "상호·주소·전화 어디에나 똑같이, 인쇄용 표"),
         ("플레이스 등록", "/local/2-place.html", "지도에 가게 올리기, 주인 권한 받기"),
         ("플레이스 순위", "/local/3-rank.html", "빈칸·사진 채우기"),
         ("리뷰 답글", "/local/4-reviews.html", "답글 달기, 리뷰 부탁하는 법"),
@@ -1192,7 +1193,7 @@ GUIDE_TO_HOWTO = {
     "/guide/seo.html": ["/local/5-search.html"], "/guide/blog.html": ["/local/6-blog.html"], "/guide/blog-removed.html": ["/local/6-blog.html"],
     "/guide/powerlink.html": ["/local/8-powerlink.html"], "/guide/ads.html": ["/local/8-powerlink.html", "/online/8-ads.html"],
     "/guide/record.html": ["/local/9-record.html"], "/guide/before-selling.html": ["/online/3-law.html", "/service/6-law.html"],
-    "/guide/selling.html": ["/online/2-fees.html", "/guide/fee-table.html"], "/guide/fee-table.html": ["/online/2-fees.html"], "/guide/delivery-fees.html": ["/local/9-record.html"], "/guide/support-money.html": ["/local/8-powerlink.html", "/kakao/1-channel.html", "/daangn/1-profile.html"], "/guide/record-sheet.html": ["/local/9-record.html"], "/guide/youtube-search.html": ["/youtube/1-channel.html"], "/guide/youtube-shorts.html": ["/youtube/1-channel.html"], "/guide/domain.html": ["/online/4-domain.html"], "/guide/homepage.html": ["/online/5-homepage.html"],
+    "/guide/selling.html": ["/online/2-fees.html", "/guide/fee-table.html"], "/guide/fee-table.html": ["/online/2-fees.html"], "/guide/delivery-fees.html": ["/local/9-record.html"], "/guide/support-money.html": ["/local/8-powerlink.html", "/kakao/1-channel.html", "/daangn/1-profile.html"], "/guide/record-sheet.html": ["/local/9-record.html"], "/guide/store-sheet.html": ["/local/1-start.html", "/local/2-place.html"], "/guide/youtube-search.html": ["/youtube/1-channel.html"], "/guide/youtube-shorts.html": ["/youtube/1-channel.html"], "/guide/domain.html": ["/online/4-domain.html"], "/guide/homepage.html": ["/online/5-homepage.html"],
     "/guide/instagram.html": ["/online/7-instagram.html"], "/guide/threads.html": ["/online/7-instagram.html"], "/guide/meta-review.html": ["/online/8-ads.html"],
     "/guide/google-profile.html": ["/foreign/3-google.html"], "/guide/google-content.html": ["/service/4-content.html"],
     "/guide/geo.html": ["/service/7-ai.html"], "/guide/kakao-channel.html": ["/kakao/1-channel.html", "/kakao/2-message.html"], "/guide/aeo.html": ["/service/7-ai.html"], "/guide/numbers.html": ["/check/"],
