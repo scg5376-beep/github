@@ -38,6 +38,28 @@ VERIFY = ROOT / "_build" / "verify.json"   # {"naver": "...", "google": "..."} �
 META_RE = re.compile(r"^\s*<!--meta\s*(\{.*?\})\s*-->\s*", re.S)
 
 
+
+_GIT_DATES = None
+def git_dates():
+    """_src 파일별 마지막 커밋 날짜(YYYY-MM-DD). 한 번만 git log 를 돈다. git 이 없으면 빈 dict."""
+    global _GIT_DATES
+    if _GIT_DATES is None:
+        _GIT_DATES = {}
+        try:
+            import subprocess
+            out = subprocess.run(["git", "log", "--format=%cs", "--name-only", "--", "site/_src/pages"], capture_output=True, text=True, encoding="utf-8", cwd=str(ROOT.parent)).stdout
+            cur = None
+            for line in out.splitlines():
+                if not line.strip():
+                    continue
+                if len(line) == 10 and line[4] == "-" and line[7] == "-":
+                    cur = line; continue
+                key = (ROOT.parent / line).resolve().as_posix()
+                _GIT_DATES.setdefault(key, cur)
+        except Exception:
+            pass
+    return _GIT_DATES
+
 def read_pages():
     pages = []
     for p in sorted(SRC.rglob("*.html")):
@@ -52,6 +74,9 @@ def read_pages():
         if url.endswith("/index.html"):
             url = url[:-len("index.html")]
         meta.setdefault("updated", meta.get("date"))
+        g = git_dates().get(p.resolve().as_posix())                    # 마지막 커밋 날짜가 더 늦으면 그날이 수정일 (D68: lastmod 가 검색로봇 재방문 신호)
+        if g and g > meta["updated"]:
+            meta["updated"] = g
         meta["rel"], meta["url"], meta["body"] = rel, url, body
         pages.append(meta)
     pages += platform_pages(pages)

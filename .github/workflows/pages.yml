@@ -26,6 +26,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # 사이트맵 lastmod 를 파일별 마지막 커밋 날짜로 쓴다 (D68)
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
