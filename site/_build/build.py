@@ -1150,6 +1150,7 @@ HOWTO_INDEX = [
     ("ai", "AI·법·기록", [
         ("AI 답변에 나오기", "/service/7-ai.html", "AI 브리핑, 재료는 리뷰"),
         ("지원금 표", "/guide/support-money.html", "네이버·카카오·당근이 주는 광고비, 조건 한 표"),
+        ("무료 도구 한 장", "/guide/free-tools.html", "플랫폼이 공짜로 주는 도구 전부, 켜는 순서"),
         ("12주 기록표", "/guide/record-sheet.html", "인쇄용 빈 표, CSV 내려받기"),
         ("개인정보 처리방침", "/service/6-law.html", "이름·전화 받으면 필수"),
         ("12주 기록", "/local/9-record.html", "한 주에 하나만 바꾸고 정산액으로"),
@@ -1199,7 +1200,7 @@ GUIDE_TO_HOWTO = {
     "/guide/seo.html": ["/local/5-search.html"], "/guide/blog.html": ["/local/6-blog.html"], "/guide/blog-removed.html": ["/local/6-blog.html"],
     "/guide/powerlink.html": ["/local/8-powerlink.html"], "/guide/ads.html": ["/local/8-powerlink.html", "/online/8-ads.html"],
     "/guide/record.html": ["/local/9-record.html"], "/guide/before-selling.html": ["/online/3-law.html", "/service/6-law.html"],
-    "/guide/selling.html": ["/online/2-fees.html", "/guide/fee-table.html"], "/guide/fee-table.html": ["/online/2-fees.html"], "/guide/delivery-fees.html": ["/local/9-record.html"], "/guide/support-money.html": ["/local/8-powerlink.html", "/kakao/1-channel.html", "/daangn/1-profile.html"], "/guide/record-sheet.html": ["/local/9-record.html"], "/guide/store-sheet.html": ["/local/1-start.html", "/local/2-place.html"], "/guide/agency-call.html": ["/local/3-rank.html", "/local/8-powerlink.html"], "/guide/youtube-search.html": ["/youtube/1-channel.html"], "/guide/youtube-shorts.html": ["/youtube/1-channel.html"], "/guide/domain.html": ["/online/4-domain.html"], "/guide/homepage.html": ["/online/5-homepage.html"],
+    "/guide/selling.html": ["/online/2-fees.html", "/guide/fee-table.html"], "/guide/fee-table.html": ["/online/2-fees.html"], "/guide/delivery-fees.html": ["/local/9-record.html"], "/guide/support-money.html": ["/local/8-powerlink.html", "/kakao/1-channel.html", "/daangn/1-profile.html"], "/guide/record-sheet.html": ["/local/9-record.html"], "/guide/store-sheet.html": ["/local/1-start.html", "/local/2-place.html"], "/guide/agency-call.html": ["/local/3-rank.html", "/local/8-powerlink.html"], "/guide/free-tools.html": ["/local/1-start.html"], "/guide/youtube-search.html": ["/youtube/1-channel.html"], "/guide/youtube-shorts.html": ["/youtube/1-channel.html"], "/guide/domain.html": ["/online/4-domain.html"], "/guide/homepage.html": ["/online/5-homepage.html"],
     "/guide/instagram.html": ["/online/7-instagram.html"], "/guide/threads.html": ["/online/7-instagram.html"], "/guide/meta-review.html": ["/online/8-ads.html"],
     "/guide/google-profile.html": ["/foreign/3-google.html"], "/guide/google-content.html": ["/service/4-content.html"],
     "/guide/geo.html": ["/service/7-ai.html"], "/guide/kakao-channel.html": ["/kakao/1-channel.html", "/kakao/2-message.html"], "/guide/aeo.html": ["/service/7-ai.html"], "/guide/numbers.html": ["/check/"],
