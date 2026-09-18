@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action https://www.google.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; style-src 'self'; script-src https://www.googletagmanager.com 'sha256-b/GWTFguolwkBXlgSGY+wIIYklfv5tLOkUIH0DH39xU='; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action https://www.google.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DKB1RF32V"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0DKB1RF32V',{'anonymize_ip':true,'allow_google_signals':false,'allow_ad_personalization_signals':false});</script>
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>내 홈페이지가 검색에 보이려면</title>
 <meta name="description" content="홈페이지를 만들었는데 검색에 안 나온다면 네이버와 구글이 공식 가이드에 적어 둔 이유부터 보세요. 검색 등록 절차는 없고, 페이지 제목은 다 달라야 하고, 사이트를 여러 개 만들면 불이익이 있어요. 안 보일 때 확인하는 아홉 가지 점검표예요.">
