@@ -748,3 +748,6 @@ table.sheet tbody th { width:44px; text-align:center; background:var(--paper-2);
 
 /* 한 줄 답부터 (2026-09-19): 요약 아래, 메타 줄 위. 본문색으로 또렷하게 */
 .lead.answer{color:var(--ink);font-size:1.02rem;border-left:4px solid var(--warm);padding-left:14px}
+
+/* 인용 줄 (2026-09-19) */
+.cite{margin-top:28px;padding:12px 14px;border-top:1px solid var(--line, #e3e0d8);color:var(--ink-soft);font-size:.9rem;word-break:break-all}

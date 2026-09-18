@@ -24,6 +24,7 @@ def warn(page, rule, msg): warns.append((page, rule, msg))
 # ── 도우미 ──────────────────────────────────────────────
 def strip(s):
     s = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", s, flags=re.S)
+    s = re.sub(r'<p class="cite">.*?</p>', " ", s, flags=re.S)                    # 인용 줄은 서식이라 말투 검사에서 뺀다 (2026-09-19)
     s = re.sub(r"<[^>]+>", " ", s)
     return htmlmod.unescape(re.sub(r"\s+", " ", s)).strip()
 
@@ -93,7 +94,7 @@ def check_tone(rel, prose_html, stats=True):
     body = re.sub(r"<details\b.*?</details>", " ", body, flags=re.S)                     # 접힌 이유 상자는 통계에서 뺀다(설명 글의 요약)   # 다음 글 링크·제목·내비는 문장 통계에서 뺀다
     body = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", " ", body, flags=re.S)          # 등급 표시(A · 공식 문서)는 문장이 아니다
     body = re.sub(r"<(ol|ul) class=\"(legend|check)\">.*?</>", " ", body, flags=re.S)    # 그림 범례·점검표는 조각이어도 된다
-    paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
+    paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|cite)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
     paras = [x for x in paras if len(x) > 8]
     plain = " ".join(paras)
     L = TONE["limit"]
@@ -104,7 +105,7 @@ def check_tone(rel, prose_html, stats=True):
         err(rel, "S2-17", f"연결어미 뒤 쉼표 {len(cec)}회 > {L['conj_ending_comma_max']}회 … {', '.join(cec[:4])}")
     # 범례의 표제어(「파워링크.」)는 문장 통계에서 뺀다
     body_nolabel = re.sub(r"<li>\s*<span class=\"num\">\d+</span>\s*<div>\s*<b>[^<]*</b>", "<li><div>", body)
-    paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
+    paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|cite)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
     paras_stat = [x for x in paras_stat if len(x) > 8]
     L = TONE["limit"]
     # S1 금지
@@ -168,7 +169,7 @@ def check_tone(rel, prose_html, stats=True):
             warn(rel, "S2-14", f"문장 {len(s)}자: {s[:36]}…")
     # S2-16 조각문: 본문 p 의 문장이 서술어 없이 끝나면(「사진은 오늘, 언급은 6단계에서.」) 말이 안 된다 (조사 자연스러운-구어체 2026-09-13: 유시민 주어+서술어, 개조식 비판)
     body_ng = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", "", body, flags=re.S)
-    p_only = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|empty|banner|trust)\")[^>]*>(.*?)</p>", body_ng, re.S)]
+    p_only = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|empty|banner|trust|cite)\")[^>]*>(.*?)</p>", body_ng, re.S)]
     frags = [x for para in p_only for x in sentences_ko(para) if not re.search(r"(요|죠|다|까|네|게|고요|는데요|거든요)[.?!]$", x) and not re.search(r"[)\]」]$", x.rstrip(".")) and len(x) > 8]
     if len(frags) > L["fragment_max"]:
         err(rel, "S2-16", f"서술어 없이 끝나는 조각 문장 {len(frags)}개 > {L['fragment_max']}개: {frags[0][:30]}…")
@@ -342,7 +343,7 @@ def check_page(p, all_titles):
         if n:
             err(rel, "T2", f"금지 표현 '{ph}' {n}회")
     # 문단 길이·문장 길이 (본문 p 만 — 표·인용·그림 설명은 제외)
-    paras = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|empty)\")[^>]*>(.*?)</p>", main, re.S)]
+    paras = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|empty|cite)\")[^>]*>(.*?)</p>", main, re.S)]
     for para in paras:
         sents = [s for s in re.split(r"(?<=[.다요까!?])\s+", para) if len(s) > 1]
         if ko and len(para) > SPEC["text"]["para_max_chars"]:

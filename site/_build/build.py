@@ -1401,6 +1401,11 @@ def render(page, pages, verify):
         page = dict(page, body=re.sub(r'<div class="next">.*?</div>\s*', "", page["body"], count=1, flags=re.S))
     # 「근거」 footer 는 화면에 안 보인다 (운영자 2026-09-16 "굳이 근거까지 말해줄 필요없어 빼", D43). 원본(_src)에는 남겨 두고 인용 대조(Q1)에만 쓴다
     page = dict(page, body=re.sub(r'<footer class="sources">.*?</footer>', "", page["body"], flags=re.S))
+    # 인용 줄 (2026-09-19, 실험 목표 「사람이 인용하는 사이트」): 설명·방법 글 끝에 그대로 복사할 수 있는 한 줄
+    if lang == "ko" and page.get("section") in ("guide",) or page.get("kind") == "howto":
+        cite = (f'<p class="cite">이 글을 인용할 때. 사장님 마케팅 교실, 「{esc(page["title"])}」, {page.get("updated") or page.get("date")} 수정, {SITE_URL}{page["url"]}. '
+                f'글 안의 큰따옴표 문장은 각 기관 원문이니 그 기관을 출처로 적어 주세요.</p>')
+        page = dict(page, body=page["body"] + chr(10) + cite)
     # 「이어서 읽을 글」 자동 목록은 뺐다 (2026-09-11 재개편: 글마다 손으로 고른 「다음 글」이 있어 중복. 게시판 상자가 같은 플랫폼 글을 이미 보여 준다)
     side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
     cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] == "/" else '<div class="cols one">')   # 영어 첫 화면은 기둥이 없으니 한 칸   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
