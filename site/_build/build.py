@@ -119,7 +119,7 @@ PLAT_ORDER = {
     "유튜브": [("/youtube/1-channel.html", "채널과 첫 쇼츠", "가게 이름 채널 만들고 쇼츠 한 편부터."), ("/youtube/2-profile.html", "채널 정보 채우기", "설명·링크·연락처·배너. 첫 링크는 플레이스로."), ("/guide/youtube-search.html", "채널", "검색과 추천이 무엇을 보는지부터."), ("/guide/youtube-shorts.html", "쇼츠", "가게 영상은 대부분 쇼츠로 잡혀요. 1분 넘는 쇼츠의 저작권 규정을 알고 올려요.")],
     "AI": [("/guide/aeo.html", "용어", "제안서의 말을 먼저 가려요."), ("/guide/geo.html", "AI 답변", "AI가 옮겨 쓸 수 있는 글과 리뷰를 쌓는 구조.")],
     "판매": [("/guide/before-selling.html", "관련법", "신고와 표시가 먼저예요. 반나절이면 돼요."), ("/guide/store-scam.html", "입점 사기", "「네이버 입점 담당」 전화는 네이버가 아니에요. 입점은 직접 가입."), ("/guide/smartstore-faq-start.html", "스토어 FAQ 색인(가입·정산)", "고객센터 질문 번호를 분류별로. 가입·입점·정산·수수료."), ("/guide/smartstore-faq-run.html", "스토어 FAQ 색인(리뷰·광고)", "리뷰·혜택·광고·문의 분류의 질문 번호."), ("/guide/selling.html", "수수료", "어디에 얼마나 붙는지 알고 장터를 골라요."), ("/guide/delivery-fees.html", "배달앱", "식당이면 배달앱 수수료 구간부터 확인.")],
-    "카카오": [("/guide/kakao-channel.html", "채널", "무료로 만들고 소식으로 운영해요."), ("/kakao/2-message.html", "소식과 메시지", "메시지는 건당 돈이 나가니 소식으로 될 일부터."), ("/kakao/3-map.html", "카카오맵 매장", "플레이스 정보를 그대로 옮기고 무료 전용번호까지.")],
+    "카카오": [("/guide/kakao-channel.html", "채널", "무료로 만들고 소식으로 운영해요."), ("/guide/kakao-guide-index.html", "가이드 색인", "카카오 비즈니스 가이드 165쪽 제목을 절별로."), ("/kakao/2-message.html", "소식과 메시지", "메시지는 건당 돈이 나가니 소식으로 될 일부터."), ("/kakao/3-map.html", "카카오맵 매장", "플레이스 정보를 그대로 옮기고 무료 전용번호까지.")],
     "당근": [("/daangn/1-profile.html", "비즈프로필", "무료로 만들고 사업자 인증까지. 소식은 홈 피드에 무료로 나가요."), ("/daangn/2-coupon.html", "단골과 쿠폰", "단골 알림·단골 전용 쿠폰·후기 답글. 전부 무료.")],
     "기록": [("/guide/record.html", "12주 기록", "광고를 켜기 전 주부터 적어요."), ("/guide/voucher-2026.html", "경영안정 바우처 25만 원", "2026 정부 바우처. 매출 1억 400만 미만, 공과금·보험료에."), ("/guide/support-money.html", "지원금 한눈에", "네이버·카카오·당근·스토어가 주는 광고비.")],
 }
@@ -1231,6 +1231,7 @@ HOWTO_INDEX = [
         ("카카오톡 채널 만들기", "/kakao/1-channel.html", "가게 이름으로 채널 열고 비즈니스 채널로"),
         ("소식 올리기·메시지 보내기", "/kakao/2-message.html", "소식은 무료, 메시지는 건당 15원"),
         ("카카오맵에 가게 등록", "/kakao/3-map.html", "매장관리, 영업시간·가격·후기 답글"),
+        ("카카오 가이드 색인", "/guide/kakao-guide-index.html", "비즈니스 가이드 165쪽 제목을 절별로"),
     ]),
     ("daangn", "당근", [
         ("당근 비즈프로필 만들기", "/daangn/1-profile.html", "동네 이웃에게 무료로, 사업자 인증까지"),
@@ -1290,7 +1291,7 @@ def howto_index_html(pages, lang):
 
 # ── 설명 글 → 방법 글 문 (발전 루프 1바퀴, 2026-09-17: 네이버 비즈니스 스쿨은 강의마다 「왜」와 「어떻게」를 짝지어 둔다. 우리 설명 글 본문에는 방법 글 링크가 0개였다) ──
 GUIDE_TO_HOWTO = {
-    "/guide/place.html": ["/local/2-place.html", "/local/3-rank.html"], "/guide/place-owner.html": ["/local/2-place.html"], "/guide/agency-contract.html": ["/local/8-powerlink.html"], "/guide/followers.html": ["/foreign/6-instagram.html"], "/guide/rank-drop.html": ["/local/3-rank.html"], "/guide/disclosure.html": ["/local/4-reviews.html"], "/guide/store-scam.html": ["/online/1-start.html"], "/guide/map-missing.html": ["/local/2-place.html"], "/guide/star-rating.html": ["/local/4-reviews.html"], "/guide/smartplace-help-index.html": ["/local/2-place.html"], "/guide/smartstore-faq-start.html": ["/online/1-start.html"], "/guide/smartstore-faq-run.html": ["/online/2-fees.html"], "/guide/naver-ads-help-index.html": ["/local/8-powerlink.html"], "/guide/voucher-2026.html": ["/local/9-record.html"], "/guide/reviews.html": ["/local/4-reviews.html"], "/guide/reply-examples.html": ["/local/4-reviews.html"], "/guide/hair-salon.html": ["/service/2-place.html"], "/guide/academy.html": ["/service/2-place.html"],
+    "/guide/place.html": ["/local/2-place.html", "/local/3-rank.html"], "/guide/place-owner.html": ["/local/2-place.html"], "/guide/agency-contract.html": ["/local/8-powerlink.html"], "/guide/followers.html": ["/foreign/6-instagram.html"], "/guide/rank-drop.html": ["/local/3-rank.html"], "/guide/disclosure.html": ["/local/4-reviews.html"], "/guide/store-scam.html": ["/online/1-start.html"], "/guide/map-missing.html": ["/local/2-place.html"], "/guide/star-rating.html": ["/local/4-reviews.html"], "/guide/smartplace-help-index.html": ["/local/2-place.html"], "/guide/smartstore-faq-start.html": ["/online/1-start.html"], "/guide/smartstore-faq-run.html": ["/online/2-fees.html"], "/guide/naver-ads-help-index.html": ["/local/8-powerlink.html"], "/guide/voucher-2026.html": ["/local/9-record.html"], "/guide/kakao-guide-index.html": ["/kakao/1-channel.html"], "/guide/reviews.html": ["/local/4-reviews.html"], "/guide/reply-examples.html": ["/local/4-reviews.html"], "/guide/hair-salon.html": ["/service/2-place.html"], "/guide/academy.html": ["/service/2-place.html"],
     "/guide/seo.html": ["/local/5-search.html"], "/guide/blog.html": ["/local/6-blog.html"], "/guide/blog-removed.html": ["/local/6-blog.html"],
     "/guide/powerlink.html": ["/local/8-powerlink.html"], "/guide/ads.html": ["/local/8-powerlink.html", "/online/8-ads.html"],
     "/guide/record.html": ["/local/9-record.html"], "/guide/before-selling.html": ["/online/3-law.html", "/service/6-law.html"],
