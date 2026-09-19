@@ -657,7 +657,7 @@ ul.hix-list { gap:12px; }
 ul.hix-list a { padding:16px 18px; border:1px solid var(--line); border-radius:var(--radius); background:var(--card); box-shadow:var(--shadow); }
 ul.hix-list a:hover { border-color:var(--accent); background:var(--card); box-shadow:0 2px 4px rgba(27,30,34,.08), 0 10px 26px rgba(22,74,154,.12); }
 ul.hix-list b { font-size:1.06rem; letter-spacing:-.01em; }
-ul.hix-list .meta { padding:3px 10px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-weight:600; }
+ul.hix-list .meta { padding:3px 10px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-weight:600; align-self:start; white-space:nowrap; }   /* 제목이 두 줄이면 알약이 늘어나며 글자가 갈라지던 것(2026-09-20) */
 .hix h3 { margin:34px 0 12px; padding:6px 14px 6px 12px; border-radius:999px; font-size:.98rem; font-weight:800; }
 .hix h3::before { content:""; display:inline-block; width:9px; height:9px; margin:0 8px 1px 0; border-radius:50%; background:var(--pa); }
 .hix p.small { padding:14px 18px; border-radius:var(--radius); background:var(--paper-2); }

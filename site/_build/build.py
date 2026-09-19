@@ -1214,14 +1214,14 @@ HOWTO_INDEX = [
     ]),
     ("sell", "판매", [
         ("스마트스토어·쿠팡 수수료", "/online/2-fees.html", "수수료 계산, 카테고리"),
+        ("도메인", "/online/4-domain.html", "내 명의로 주소 잡기"),
+        ("통신판매업 신고·표시", "/online/3-law.html", "신고, 첫 화면 표시 사항"),
+        ("수수료 계산표", "/guide/fee-table.html", "1만 원 팔면 얼마 남나, 등급별로 미리 계산"),
+        ("배달앱 수수료", "/guide/delivery-fees.html", "배민·쿠팡이츠 구간별 2.0~7.8%, 배달비"),
         ("빠른정산", "/guide/quick-settlement.html", "집화 다음 날 먼저 받기, 무료, 신청 조건과 중단 사유"),
         ("판매관리 페널티", "/guide/store-penalty.html", "발송지연·품절·허위송장 점수표, 주의·경고·이용제한 조건"),
         ("상품 등록 금지 규칙", "/guide/store-listing-rules.html", "상품명 키워드·중복 등록·직거래·취급불가상품, 이용규칙 원문"),
-        ("수수료 계산표", "/guide/fee-table.html", "1만 원 팔면 얼마 남나, 등급별로 미리 계산"),
-        ("배달앱 수수료", "/guide/delivery-fees.html", "배민·쿠팡이츠 구간별 2.0~7.8%, 배달비"),
         ("스토어 고객센터 FAQ 색인", "/guide/smartstore-faq-start.html", "가입·입점·정산·수수료 질문 179개. 리뷰·광고, 주문·반품은 따로"),
-        ("도메인", "/online/4-domain.html", "내 명의로 주소 잡기"),
-        ("통신판매업 신고·표시", "/online/3-law.html", "신고, 첫 화면 표시 사항"),
     ]),
     ("google", "구글", [
         ("구글 비즈니스 프로필", "/foreign/3-google.html", "구글 지도에 가게 올리기"),
