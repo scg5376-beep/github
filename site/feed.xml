@@ -617,6 +617,92 @@
 </footer>]]></content:encoded>
   </item>
   <item>
+    <title>스마트스토어 빠른정산 조건과 수수료, 갑자기 중단되는 이유 (고객센터 원문)</title>
+    <link>https://sajangmarketing.com/guide/quick-settlement.html</link>
+    <guid isPermaLink="true">https://sajangmarketing.com/guide/quick-settlement.html</guid>
+    <pubDate>Sun, 20 Sep 2026 09:00:00 +0900</pubDate>
+    <description>빠른정산은 구매확정을 기다리지 않고 택배 집화 다음 영업일에 상품값과 배송비를 먼저 받는 제도예요. 서비스는 무료, 수수료도 따로 없고 Npay 수수료와 판매수수료만 평소대로 빠져요. 국내 사업자가 매월 2일~말일에 PC로 신청하고 대표자 휴대폰 인증이 필요해요. 거래 건수·반품률은 매월 1일, 내부 조건은 매일 다시 따져서 못 미치면 자동 중단되고 조건이 맞으면 자동 재적용. 예약구매·예약발송 상품은 제외. 스마트스토어 고객센터 FAQ 원문으로 정리했어요.</description>
+    <content:encoded><![CDATA[<p class="kicker">네이버 · 스마트스토어</p>
+<h1>스마트스토어 빠른정산 조건과 수수료, 갑자기 중단되는 이유</h1>
+<p class="lead">사장님, 물건은 나갔는데 손님이 구매확정을 안 눌러 돈이 열흘씩 묶이는 게 스토어의 가장 답답한 점이죠. 네이버에는 집화 다음 날 먼저 정산해 주는 「빠른정산」이 있어요. 고객센터 FAQ에 조건과 수수료, 멈추는 이유가 조각조각 흩어져 있어서 한 장으로 모았어요.</p>
+<p class="lead answer">한 줄 답부터. 빠른정산은 택배 집화(CJ 직배송은 배송시작) 다음 영업일에 상품값과 배송비를 먼저 받는 제도이고 무료예요. 따로 수수료가 없고 Npay 수수료와 판매수수료만 평소대로 빠져요. 국내 사업자가 매월 2일부터 말일 사이에 PC로 신청하고 대표자 휴대폰 인증을 해요. 거래 건수와 반품률 기준에 못 미치면 자동으로 멈추고 다시 맞으면 자동으로 켜져요.</p>
+<div class="note todo"><b>바로 할 일</b>스마트스토어센터 「정산관리 &gt; 빠른정산 &gt; 신청관리」를 PC로 열어 신청 가능 상태인지 보세요. 대표자 본인 명의 휴대폰이 있어야 하고 최근 3개월 안에 대표자 변경이 있었으면 안 돼요.</div>
+
+<h2>언제 얼마가 먼저 들어오나요?</h2>
+<blockquote class="official">
+  <span class="who">네이버 스마트스토어 고객센터, 「빠른정산 '정산' 기준」 (2026-09-20 원문 확인)</span>
+  <q>빠른정산 선정산 후 상품의 기타비용, 리뷰적립, 공제/환급 등은 일반정산(구매확정 +1영업일째) 정산 적용됩니다.</q>
+</blockquote>
+<table>
+  <tr><th>구분</th><th>일반정산</th><th>빠른정산</th></tr>
+  <tr><th>기준 시점</th><td>구매확정·반품완료·교환완료</td><td>택배 집화(CJ 직배송은 배송시작)</td></tr>
+  <tr><th>들어오는 날</th><td>기준일 +1영업일</td><td>집화일 +1영업일</td></tr>
+  <tr><th>먼저 오는 돈</th><td>전부</td><td>상품 결제금액과 배송비의 정산예정금액(수수료·혜택 반영 뒤)</td></tr>
+  <tr><th>나중에 오는 돈</th><td>없음</td><td>리뷰적립·공제·환급 같은 나머지는 구매확정 뒤 일반정산으로</td></tr>
+</table>
+<p>도움말에 있는 예시로 보면 이래요. 상품 1만 원에 배송비 100원, Npay 수수료 303원인 주문이 목요일에 집화되면 금요일에 9,797원이 먼저 들어와요. 그 뒤 일요일에 구매확정되면 월요일에 리뷰적립 같은 나머지만 일반정산으로 와요.</p>
+<p>집화 시점은 스마트스토어가 연동업체에서 받은 집화 정보를 인식한 날이고 택배사 조회 화면과 다를 수 있어요. 배송 추적이 안 돼서 집화 상태가 안 잡히면 그 건은 일반정산으로 넘어가요. 하루에 받을 수 있는 상한은 따로 없어요.</p>
+
+<h2>수수료가 붙나요?</h2>
+<blockquote class="official">
+  <span class="who">「빠른정산 '수수료' 기준」 (2026-09-20 원문 확인)</span>
+  <q>빠른정산 서비스는 무료이며, 별도의 수수료 또한 없습니다.</q>
+</blockquote>
+<p>다만 같은 문서가 바로 이어서 Npay 수수료와 네이버쇼핑 판매수수료는 그대로 붙는다고 못 박아요. 빠른정산을 써도 수수료는 줄지도 늘지도 않아요. 등급별 수수료율은 <a href="/guide/selling.html">수수료 글</a>에 있어요. 정산금을 Npay 비즈월렛으로 받는 계정도 빠른정산을 그대로 쓸 수 있어요.</p>
+
+<h2>누가 어떻게 신청하나요?</h2>
+<blockquote class="official">
+  <span class="who">「빠른정산 신청 방법」 (2026-09-20 원문 확인)</span>
+  <q>빠른정산은 국내사업자를 대상으로 하며, 빠른정산 신청은 [정산관리 &gt; 빠른정산] "신청관리" 메뉴에서  매월 2일~말일 중 신청 가능합니다.</q>
+</blockquote>
+<table>
+  <tr><th>항목</th><th>기준</th></tr>
+  <tr><td>대상</td><td>국내 사업자</td></tr>
+  <tr><td>신청 기간</td><td>매월 2일부터 말일까지, PC(또는 PC 버전)에서만</td></tr>
+  <tr><td>단위</td><td>스토어 계정 단위(사업자 단위 아님). 스토어가 여럿이면 계정마다 따로</td></tr>
+  <tr><td>본인 인증</td><td>스마트스토어에 등록된 대표자 개인 명의 휴대폰. 공동 대표면 한 명, 법인 명의 휴대폰은 안 됨</td></tr>
+  <tr><td>안 되는 경우</td><td>최근 3개월 안에 양도양수(대표자 변경 포함) 승인 이력이 있을 때. 조건이 맞아도 내부 심사에서 안 될 수 있음</td></tr>
+  <tr><td>적용 시작</td><td>신청 완료일 다음 날 집화되는 주문부터</td></tr>
+</table>
+<p>신청이 되면 이후 집화되는 주문은 자동으로 전부 빠른정산 대상이 되고 특정 주문만 빼거나 넣을 수는 없어요. 예약구매 상품은 빠른정산이 안 되고, 예약구매가 아니어도 상품명·옵션명·상세설명에 예약발송이라고 적어 두면 제외돼요.</p>
+
+<h2>왜 갑자기 중단됐나요?</h2>
+<blockquote class="official">
+  <span class="who">「빠른정산 이용중에 자격조건 미달로 이용중지된 경우」 (2026-09-20 원문 확인)</span>
+  <q>판매자님의 '거래건수 &amp; 반품률 - 매월1회(1일) ' , ' 내부조건 - 매일' 기준으로 충족 여부가 산정되어 해당 기준에 충족하지 않는 경우 빠른정산 서비스는 중단됩니다.</q>
+</blockquote>
+<table>
+  <tr><th>중단 사유</th><th>기준</th></tr>
+  <tr><td>거래 건수 미달</td><td>최근 3개월 주문 가운데 그달 구매확정 건수(교환완료 제외)에서 구매확정 뒤 취소를 뺀 것. 매월 1일 산정</td></tr>
+  <tr><td>반품률 초과</td><td>그달 구매확정 건수 대비 반품완료 건(귀책 무관)에 구매확정 뒤 취소를 더한 것. 매월 1일 산정</td></tr>
+  <tr><td>내부 조건</td><td>매일 산정. 부정거래·비정상 거래로 보이면 일부 주문이 일반정산으로 넘어가기도 함. 상세 기준은 어뷰징 방지로 비공개</td></tr>
+  <tr><td>대표자 변경·양도양수</td><td>양도양수든 단순 대표자 변경이든 중단</td></tr>
+  <tr><td>계정 이용정지</td><td>중단</td></tr>
+</table>
+<p>거래 건수가 몇 건 이상, 반품률이 몇 퍼센트 이하인지 숫자는 어느 도움말에도 없어요. 계산 방식만 있고 반품률 산정 방법은 상세 안내가 어렵다고 적혀 있어요.</p>
+<p>중단됐다고 다시 신청할 필요는 없어요. 매월 1일 자동 재심사에서 조건이 맞으면 알아서 다시 켜지고 담당자 메일로 재적용 안내가 와요.</p>
+
+<h2>정산중지·지급보류와는 다른가요?</h2>
+<p>달라요. 빠른정산 중단은 「먼저 주는 것」만 멈추고 일반정산은 그대로 와요. 정산중지는 채권압류나 해외 판매자의 계좌 정보 미갱신, 고객확인제도(AML) 미이행 때 정산 전체가 멈추는 것이고 풀릴 때까지 스토어 탈퇴도 안 돼요. 지급보류는 민원이나 가품 의심 같은 사유로 일부 금액만 잡아 두는 거예요. 셋의 확인 위치는 <a href="/online/2-fees.html">수수료·정산 따라 하기</a>의 막히면에 있어요.</p>
+
+<h2>정리</h2>
+<p>사장님, 빠른정산은 공짜이고 손해 볼 게 없어요. 집화 다음 날 상품값이 먼저 오고 나머지는 구매확정 뒤에 와요. 신청은 매월 2일부터 PC로, 대표자 휴대폰만 있으면 돼요. 멈추면 반품률과 거래 건수를 의심하고 다음 달 1일을 기다리세요. 정산이 아예 안 오면 정산중지나 지급보류 쪽을 봐야 해요.</p>
+<div class="next">
+<a href="/online/2-fees.html">따라 하기. 스마트스토어·쿠팡 수수료·정산</a>
+<a href="/guide/selling.html">설명. 온라인으로 팔면 수수료가 어떻게 되나</a>
+</div>
+
+<footer class="sources">
+  <h2>근거</h2>
+  <ul>
+    <li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5882" rel="noopener">네이버 스마트스토어 고객센터 「빠른정산 '정산' 기준」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5858" rel="noopener">「빠른정산 '수수료' 기준」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5863" rel="noopener">「빠른정산 신청 방법」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=6024" rel="noopener">「빠른정산 신청 완료 후 적용 시점」</a> (2026-09-20 원문 확인). 큰따옴표 안은 원문 그대로예요. 예시 금액은 원문 예시를 옮겼어요.</li>
+    <li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5873" rel="noopener">「빠른정산 이용중에 자격조건 미달로 이용중지된 경우」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=6023" rel="noopener">「빠른정산 거래 건수 및 반품률 기준」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=6025" rel="noopener">「빠른정산 '중단'된 이유」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5888" rel="noopener">「일부 주문 건만 일반정산된 이유」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5887" rel="noopener">「빠른정산 '집화' 기준」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5860" rel="noopener">「일별 정산 한도 기준」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5856" rel="noopener">「Npay 비즈월렛으로 정산받는 경우」</a> · <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=5040" rel="noopener">「정산중지 사유 및 해제방법」</a> (2026-09-20 원문 확인)</li>
+    <li><span class="grade">미확인</span> 거래 건수와 반품률의 숫자 기준은 도움말에 없어요. 해외 구매대행 상품이 빠른정산에서 제외되는지는 지식iN 답변에만 있고 고객센터 원문에서는 못 찾았어요.</li>
+  </ul>
+  <p>이 글은 2026년 9월 기준이에요.</p>
+</footer>]]></content:encoded>
+  </item>
+  <item>
     <title>플레이스 사진 규칙, 검색에 몇 장이 나가고 어떤 사진이 지워지나 (도움말 원문)</title>
     <link>https://sajangmarketing.com/guide/place-photos.html</link>
     <guid isPermaLink="true">https://sajangmarketing.com/guide/place-photos.html</guid>
@@ -1841,36 +1927,6 @@
 <footer class="sources">
   <h2>근거</h2>
   <ul><li><span class="grade a">A</span> <a href="https://www.facebook.com/business/help/502981923235522" rel="noopener">Meta 비즈니스 고객센터 「Instagram 프로페셔널 계정 설정하기」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://www.facebook.com/business/help/373467539912975" rel="noopener">「Instagram 게시물에 쇼핑 태그 추가하기」</a> (2026-09-14 확인)</li></ul>
-  <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-14 기준이에요.</p>
-</footer>]]></content:encoded>
-  </item>
-  <item>
-    <title>쇼핑몰 네이버 블로그 운영 방법, 직접 데려온 주문 (온라인 판매 코스 6단계)</title>
-    <link>https://sajangmarketing.com/online/6-blog.html</link>
-    <guid isPermaLink="true">https://sajangmarketing.com/online/6-blog.html</guid>
-    <pubDate>Sat, 19 Sep 2026 09:00:00 +0900</pubDate>
-    <description>네이버 블로그를 상품 주제로 세팅하고 상품 페이지 링크가 붙은 첫 글을 발행하는 순서예요. 그 링크로 들어와 산 주문이 판매자 마케팅 수수료로 잡힙니다.</description>
-    <content:encoded><![CDATA[<p class="kicker">온라인 판매</p>
-<h1>쇼핑몰 네이버 블로그 운영 방법, 직접 데려온 주문</h1>
-<p class="lead">블로그명·소개글을 채우고 손님이 문의로 자주 묻는 질문에 답하는 글에 상품 링크를 붙여 발행합니다. 매주 한 편이면 돼요.</p>
-<dl class="kv prep"><dt>준비물</dt><dd><ul><li>네이버 아이디</li><li>상품 사진 3장</li><li>상품 페이지 주소</li><li>손님이 문의로 자주 묻는 질문 하나</li></ul></dd><dt>걸리는 시간</dt><dd>첫날 40분, 매주 30분</dd><dt>돈</dt><dd>무료</dd></dl>
-
-<h2>따라 하기</h2>
-<ol class="steps"><li><b>PC에서 내 블로그의 「관리 > 기본 설정 > 블로그 정보」를 여세요.</b> 블로그명은 무엇을 파는 가게인지 알 수 있게, 별명은 사장님 호칭, 소개글에는 무엇을 어디서 파는지 적습니다. 상호·전화·이메일은 1단계에서 정한 표기로요.<figure class="shot"><div class="pic shot-blog"><img src="/img/shots/blog.png" alt="네이버 블로그 첫 화면. ① 오른쪽 위 「로그인」 뒤 내 블로그로" loading="lazy"><span class="n b1">1</span></div><figcaption>네이버 블로그 첫 화면. ① 오른쪽 위 「로그인」 뒤 내 블로그로</figcaption></figure></li><li><b>카테고리를 상품 주제로만 만드세요.</b> 「자주 묻는 질문」 「고르는 법」 「쓰는 법」 셋이면 충분합니다. 일상 카테고리는 만들지 않아요.</li><li><b>첫 글감은 문의로 가장 많이 받는 질문으로 정하세요.</b> 「이 사이즈가 맞을까요?」 「세탁은 어떻게 해요?」 같은 것이요. 상품을 직접 써 본 대로 답을 씁니다.<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">「본인이 직접 체험한 내용을 진정성 있게 작성」이 네이버 권장 사항의 첫 문장이고 비체험 원고는 미노출 사유예요. <a href="/guide/blog-removed.html">검색에서 빠지는 이유</a></div></details></li><li><b>글쓰기 화면에서 제목에 상품 이름과 질문을 그대로 쓰세요.</b> 검색어를 제목에 반복해 넣지 않습니다. 본문에 사진과 답을 넣고 마지막에 상품 페이지 링크를 붙입니다.</li><li><b>「발행」을 누르고 공개 설정은 「전체 공개」, 발행 설정에서 「검색 허용」을 켜세요.</b> 카테고리와 주제를 고르고 창 아래 「발행」을 누릅니다.</li><li><b>다음 주 글감을 지금 적어 두세요.</b> 리뷰에 자주 나오는 말, 이 상품을 쓰는 상황이 글감이 됩니다.</li><li><b>정산 화면에서 판매자 마케팅 수수료로 잡힌 주문이 늘어나는지 매주 보세요.</b> 블로그 링크로 들어와 산 주문이 여기에 잡혀요.<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">블로그 링크로 들어와 산 주문은 판매자 마케팅 수수료(1%)로 잡혀요. 이 비율이 블로그 효과를 보여 주는 숫자입니다. <a href="/guide/selling.html">수수료 설명</a></div></details></li></ol>
-<h2>다 됐는지 확인</h2>
-<ul class="check"><li>블로그 정보와 카테고리가 상품 주제로 채워졌다</li><li>상품 링크가 붙은 첫 글이 전체 공개·검색 허용으로 발행됐다</li><li>다음 주 글감이 적혀 있다</li></ul>
-<h2>막히면</h2>
-<dl class="stuck"><dt>검색에 안 나와요</dt><dd>24시간을 기다리고 「검색 허용」이 켜져 있는지, 제목 문장을 그대로 검색하면 나오는지 봅니다.</dd><dt>대행사가 상품 글을 써 준대요</dt><dd>상품을 써 보지 않은 사람의 글은 검색에서 빠지는 사유예요. 사장님이 쓰세요.</dd></dl>
-<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/blog.html">네이버 블로그, 검색이 글을 고르는 기준</a>에 있어요.</p>
-
-<div class="next">
-  <a href="/online/7-instagram.html">다음 단계. 인스타그램</a>
-  <a href="/guide/blog.html">설명. 네이버 블로그, 검색이 글을 고르는 기준</a>
-</div>
-
-<footer class="sources">
-  <h2>근거</h2>
-  <ul><li><span class="grade a">A</span> <a href="https://help.naver.com/service/5593/contents/15208" rel="noopener">네이버 블로그 고객센터 「프로필 정보 수정 방법」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.naver.com/service/5593/contents/15541" rel="noopener">「글 발행 방법」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.naver.com/service/5593/contents/15420" rel="noopener">「블로그 글 발행 설정 상세 안내」</a> (2026-09-14 확인)</li><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3558" rel="noopener">네이버 스마트스토어 고객센터 「정산 기준 수수료율」</a> (2026-09-14 확인)</li></ul>
   <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-14 기준이에요.</p>
 </footer>]]></content:encoded>
   </item>
