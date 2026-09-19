@@ -20,3 +20,12 @@ python ss_faq.py list <categoryId> ...   # 분류의 항목 번호·제목
 python ss_faq.py get <faqId> ...         # 본문을 지식/원전/원문/절차/네이버기타/ 에 저장
 ```
 분류 번호는 페이지 왼쪽 메뉴 `list.help?categoryId=`. 자주 쓰는 것은 파일 머리말에 적어 뒀다.
+
+## 네이버 광고주센터 도움말도 curl 로 된다 (2026-09-19)
+
+```
+python ads_faq.py cats                   # 상위 분류
+python ads_faq.py list <categorySeq> ... # 항목 번호·제목(쪽 넘김 포함)
+python ads_faq.py get <번호> ...          # 본문을 지식/원전/원문/절차/네이버광고/ 에 저장
+```
+하위 분류 번호는 `절차/네이버광고/_광고주센터-도움말-목록.md` 머리에 있다.
