@@ -1208,11 +1208,14 @@ HOWTO_INDEX = [
         ("대행사 위약금·해지", "/guide/agency-contract.html", "공정위 분쟁 통계, 조정 창구, 계약 전에 볼 넷"),
         ("업종별 광고 규제 표", "/guide/industry-ad-rules.html", "학원·미용실·음식점·술집·공인중개사가 적을 것과 못 쓰는 말"),
         ("예약 노쇼·환불 기준", "/guide/reservation-noshow.html", "예약금·취소 수수료·Npay 매장결제, 네이버 규칙"),
+        ("스마트플레이스 도움말 색인", "/guide/smartplace-help-index.html", "도움말 132개 번호·제목을 주제별로. 화면에 뜬 말로 찾기"),
+        ("광고주센터 도움말 색인", "/guide/naver-ads-help-index.html", "파워링크·플레이스광고·결제·검토 질문 309개"),
     ]),
     ("sell", "판매", [
         ("스마트스토어·쿠팡 수수료", "/online/2-fees.html", "수수료 계산, 카테고리"),
         ("수수료 계산표", "/guide/fee-table.html", "1만 원 팔면 얼마 남나, 등급별로 미리 계산"),
         ("배달앱 수수료", "/guide/delivery-fees.html", "배민·쿠팡이츠 구간별 2.0~7.8%, 배달비"),
+        ("스토어 고객센터 FAQ 색인", "/guide/smartstore-faq-start.html", "가입·입점·정산·수수료 질문 179개. 리뷰·광고는 따로"),
         ("도메인", "/online/4-domain.html", "내 명의로 주소 잡기"),
         ("통신판매업 신고·표시", "/online/3-law.html", "신고, 첫 화면 표시 사항"),
     ]),
@@ -1278,7 +1281,7 @@ def howto_index_html(pages, lang):
         lis = []
         for name, url, line in items:
             pg = by.get(url)
-            meta = f'<span class="meta">{read_minutes(pg)}분 · {step_cost(split_cat(pg["cat"])[1])[1]}</span>' if pg else ""
+            meta = f'<span class="meta">{read_minutes(pg)}분 · {"참고" if ("help-index" in url or "faq-" in url) else step_cost(split_cat(pg["cat"])[1])[1]}</span>' if pg else ""   # 색인 글은 돈이 드는 단계가 아니다 (2026-09-19)
             lis.append(f'<li><a href="{url}"><b>{esc(name)}</b><span class="line">{esc(line)}</span>{meta}</a></li>')
         out.append(f'<h3 id="{gid}" class="plat-{gid}">{esc(gname)}</h3><ul class="hix-list">{"".join(lis)}</ul>')
     out.append('<p class="small">업종별로 순서대로 가고 싶으면 <a href="/p/local/">동네 매장</a> · <a href="/p/online/">온라인 판매</a> · <a href="/p/service/">예약·상담</a> · <a href="/p/foreign/">외국 손님</a> 코스가 있어요.</p></section>')
