@@ -818,16 +818,26 @@ def add_toc(page):
 
 def term_ids(body):
     """용어 페이지: dt 에 id(용어 그대로) 를 붙이고 맨 위에 전체 용어 칩(점프 링크)을 둔다 — 토스 피드 「용어 링크」 관찰 마무리(2026-09-17). /terms/#알림톡 처럼 바로 갈 수 있다."""
-    names = []
+    groups = []                                                                    # [(장 이름, [(id, 용어)])] — 장별로 묶어 격자로 (D78, 2026-09-19)
     def rep(m):
         text = re.sub(r"<[^>]+>", "", m.group(1)).strip()
         tid = re.sub(r"\s*·\s*", "-", text).replace(" ", "-")
-        names.append((tid, text))
+        if not groups:
+            groups.append(("", []))
+        groups[-1][1].append((tid, text))
         return f'<dt id="{tid}">{m.group(1)}</dt>'
-    body = re.sub(r"<dt>(.*?)</dt>", rep, body, flags=re.S)
-    if names:
-        chips = "".join(f'<a href="#{i}">{esc(n)}</a>' for i, n in names)
-        body = re.sub(r'(<p class="lead">.*?</p>)', lambda m: m.group(1) + chr(10) + f'<nav class="termjump" aria-label="용어 바로 가기">{chips}</nav>', body, count=1, flags=re.S)
+    def h2rep(m):
+        groups.append((re.sub(r"<[^>]+>", "", m.group(1)).strip(), []))
+        return m.group(0)
+    body = re.sub(r"<h2 [^>]*>(.*?)</h2>|<dt>(.*?)</dt>", lambda m: h2rep(m) if m.group(1) is not None else rep(type("M", (), {"group": lambda self, i: m.group(2)})()), body, flags=re.S)
+    if groups:
+        parts = []
+        for name, names in groups:
+            if not names:
+                continue
+            chips = "".join(f'<a href="#{i}">{esc(n)}</a>' for i, n in names)
+            parts.append(f'<div class="grp">{"<b>" + esc(name) + "</b>" if name else ""}<div class="chips">{chips}</div></div>')
+        body = re.sub(r'(<p class="lead">.*?</p>)', lambda m: m.group(1) + chr(10) + f'<nav class="termjump" aria-label="용어 바로 가기">{"".join(parts)}</nav>', body, count=1, flags=re.S)
     return body
 
 
