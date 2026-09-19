@@ -1321,7 +1321,7 @@ def do_box(page, pages):
             links.append(f'<a href="{u}">{esc(p.get("nav", p["title"]))} 보기<span>{read_minutes(p)}분</span></a>')
         else:
             sub = split_cat(p["cat"])[1]
-            links.append(f'<a href="{u}">{esc(sub)} 따라 하기<span>{read_minutes(p)}분 · {step_cost(sub)[1]}</span></a>')
+            links.append(f'<a href="{u}">{esc(p.get("nav") or sub)} 따라 하기<span>{read_minutes(p)}분 · {step_cost(sub)[1]}</span></a>')   # 글 이름(nav)으로. 「비즈프로필 따라 하기」가 단골·쿠폰 글을 가리키던 것(2026-09-20)
     return '<div class="do"><b>바로 하려면</b>' + "".join(links) + "</div>" if links else ""
 
 
