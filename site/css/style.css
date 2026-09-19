@@ -810,6 +810,8 @@ main.howto dl.stuck dt::before { content:"Q. "; color:var(--accent); }
 main.howto dl.stuck dd { margin:0 0 18px; padding:0 0 0 24px; }
 main.howto dl.stuck dd p { margin:0 0 10px; }
 main.howto dl.stuck dd p:last-child { margin-bottom:0; }
+main.howto h3.stuck-grp { margin:26px 0 0; padding:6px 10px; font-size:.92rem; font-weight:800; color:var(--accent); background:var(--paper-2); border-radius:6px; }   /* 막히면 묶음 제목 (D80, 2026-09-20) */
+main.howto h3.stuck-grp + dl.stuck { margin-top:6px; }
 main.howto dl.stuck dd .path { display:inline; }
 @media (max-width:720px) { main.howto dl.stuck dd { padding-left:0; } }
 

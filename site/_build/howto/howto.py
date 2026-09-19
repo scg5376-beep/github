@@ -30,8 +30,19 @@ def _paras(a, per=2, min_len=110):
     return "".join(f"<p>{c}</p>" for c in chunks)
 
 def stuck(items):
-    """items: [(막히는 상황, 이렇게), ...]. 질문 한 줄, 답은 그 아래 문단으로(D76)."""
-    return '<dl class="stuck">' + "".join(f"<dt>{q}</dt><dd>{_paras(a)}</dd>" for q, a in items) + "</dl>\n"
+    """items: [(막히는 상황, 이렇게), ...]. 질문 한 줄, 답은 그 아래 문단으로(D76).
+    문자열 하나가 끼어 있으면 묶음 제목이다. 항목이 20개를 넘는 글은 묶어서 훑게 한다(D80, 2026-09-20)."""
+    out, open_ = [], False
+    for it in items:
+        if isinstance(it, str):
+            if open_: out.append("</dl>")
+            out.append(f'<h3 class="stuck-grp">{it}</h3><dl class="stuck">'); open_ = True
+            continue
+        if not open_: out.append('<dl class="stuck">'); open_ = True
+        q, a = it
+        out.append(f"<dt>{q}</dt><dd>{_paras(a)}</dd>")
+    if open_: out.append("</dl>")
+    return "".join(out) + "\n"
 
 def _items(s):
     """쉼표로 나열된 준비물을 괄호 밖 쉼표에서만 갈라 목록으로. 괄호 설명은 한 덩어리(span.note)로 묶어 줄이 어색하게 안 갈리게."""
