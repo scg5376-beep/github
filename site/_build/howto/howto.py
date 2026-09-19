@@ -17,9 +17,21 @@ def steps(items):
 def check(items):
     return '<ul class="check">' + "".join(f"<li>{x}</li>" for x in items) + "</ul>\n"
 
+def _paras(a, per=2, min_len=110):
+    """긴 답은 문장 두 개씩 문단으로 나눈다(운영자 2026-09-19 "문단나눔이 제대로 안되어있다"). 짧은 답과 목록이 든 답은 그대로."""
+    if len(a) < min_len or "<ul" in a or "<ol" in a:
+        return a
+    a = re.sub(r"\s+(?=[②③④⑤⑥])", "<br>", a)                                      # 동그라미 번호 나열은 줄을 바꿔 보여 준다
+    parts = re.split(r"(?<=[다요죠])\.\s+(?=[^<]*(?:<[^>]*>[^<]*)*$)", a)   # 태그 안이 아닌 자리의 문장 끝
+    if len(parts) < 3:
+        return a
+    sents = [s if s.endswith(".") else s + "." for s in parts]
+    chunks = [" ".join(sents[i:i+per]) for i in range(0, len(sents), per)]
+    return "".join(f"<p>{c}</p>" for c in chunks)
+
 def stuck(items):
-    """items: [(막히는 상황, 이렇게), ...]"""
-    return '<dl class="kv stuck">' + "".join(f"<dt>{q}</dt><dd>{a}</dd>" for q, a in items) + "</dl>\n"
+    """items: [(막히는 상황, 이렇게), ...]. 질문 한 줄, 답은 그 아래 문단으로(D76)."""
+    return '<dl class="stuck">' + "".join(f"<dt>{q}</dt><dd>{_paras(a)}</dd>" for q, a in items) + "</dl>\n"
 
 def _items(s):
     """쉼표로 나열된 준비물을 괄호 밖 쉼표에서만 갈라 목록으로. 괄호 설명은 한 덩어리(span.note)로 묶어 줄이 어색하게 안 갈리게."""

@@ -800,3 +800,15 @@ aside.rail ul.cats li.subs a[aria-current="page"] { background:var(--pt); border
 aside.rail ul.cats li.subs a:hover, aside.rail ul.cats li.others a:hover { border-color:var(--ink-soft); }
 aside.rail ul.cats li.head { padding:8px 0 6px; }
 aside.rail ul.cats li.others a { --pt:var(--paper-2); --pa:var(--ink); }
+
+/* ── 막히면 Q&A 문단 (운영자 2026-09-19 "문단나눔이 제대로 안되어있다 구분이 잘 안가잖아") ──
+   이름–값 격자(D41)로 묶여 질문과 답이 옆으로 붙고 항목 사이 구분이 없었다. 질문 한 줄, 답은 아래 문단, 항목 사이 줄 */
+main.howto dl.stuck { margin:18px 0 8px; }
+main.howto dl.stuck dt { margin:0; padding:18px 0 6px; border-top:1px solid var(--line); font-weight:800; font-size:1rem; color:var(--ink); }
+main.howto dl.stuck dt:first-child { border-top:0; padding-top:4px; }
+main.howto dl.stuck dt::before { content:"Q. "; color:var(--accent); }
+main.howto dl.stuck dd { margin:0 0 18px; padding:0 0 0 24px; }
+main.howto dl.stuck dd p { margin:0 0 10px; }
+main.howto dl.stuck dd p:last-child { margin-bottom:0; }
+main.howto dl.stuck dd .path { display:inline; }
+@media (max-width:720px) { main.howto dl.stuck dd { padding-left:0; } }
