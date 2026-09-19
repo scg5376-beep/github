@@ -114,7 +114,7 @@ PLAT_KINDS = {
 }
 PLAT_ORDER = {
     "네이버": [("/guide/place.html", "플레이스 등록", "무료이고, 네이버가 사업주의 의무로 적은 유일한 일이에요."), ("/guide/place-owner.html", "주인 변경", "「이미 등록된 업체」면 새로 만들지 말고 권한을 옮겨요. ARS·서류."), ("/guide/rank-drop.html", "순위 떨어짐", "하루 변동·정보 변경·리뷰 감소·대행사 작업·필터·거리, 여섯 가지 순서."), ("/guide/map-missing.html", "지도에 안 떠요", "이름 검색에 나오면 등록은 된 것. 마커는 자동이라 요청으로 못 넣어요."), ("/guide/place-photos.html", "사진 규칙", "사장님 사진이 먼저, 수집 사진은 못 지워요. 1장이면 거리뷰가 붙어요."), ("/guide/smartplace-help-index.html", "도움말 색인 132", "스마트플레이스 도움말 번호·제목을 주제별로. 화면에 뜬 말로 찾기."), ("/guide/reviews.html", "리뷰 답글", "돈 안 드는 것 가운데 효과가 측정된 일. 리뷰의 말이 검색어가 돼요."), ("/guide/reply-examples.html", "답글 예시 24개", "상황 12가지, 복사해 괄호만 바꿔 쓰는 문장."), ("/guide/disclosure.html", "체험단 표시", "자리·모양·말·언어 넷. 「체험단」「AD」는 부적절한 예."), ("/guide/star-rating.html", "별점 부활", "2026년 4월부터 입력, 7월부터 표시. 평균은 10명부터, 사장님 ON/OFF."), ("/guide/hair-salon.html", "미용실 홍보 순서", "인기 미용실은 예약·Npay 결제 기록으로 정해요. 돈 안 드는 5단계."), ("/guide/academy.html", "학원 홍보 순서", "광고에 적을 네 가지부터. 과정별 수강료·예약 상담·한 과목 블로그."), ("/guide/reservation-settlement.html", "예약금 정산·수수료", "이용 완료 뒤 1영업일, 매장방문 결제는 2영업일. 영세 1.80%·0.80%."), ("/guide/seo.html", "검색 화면", "광고 칸과 무료 칸을 알아야 「상위 노출 보장」을 가려요."), ("/guide/blog.html", "블로그", "한 주제로 꾸준히. 언급수가 플레이스 인기도로 돌아와요."), ("/guide/powerlink.html", "파워링크", "앞 단계가 돼 있어야 클릭이 손님이 돼요. 여기서 처음 돈이 들어요."), ("/guide/agency-contract.html", "대행사 위약금·해지", "위약금 과다 청구가 분쟁의 67%. 조정원 창구와 계약 전 넷."), ("/guide/naver-ads-help-index.html", "광고주센터 도움말 색인", "파워링크·플레이스광고·결제·검토 질문 번호를 분류별로.")],
-    "구글": [("/guide/google-profile.html", "구글 프로필", "네이버 플레이스와 같은 재료로 채워요. 프로필은 하나만."), ("/guide/domain.html", "도메인", "홈페이지와 인스타그램 판매 자격이 도메인을 요구해요."), ("/guide/homepage.html", "홈페이지 노출", "기술 요건만 맞으면 색인이 무료예요."), ("/guide/google-content.html", "구글 글쓰기", "구글이 밝힌 좋은 글의 기준. 단어 수는 없어요."), ("/guide/blogger.html", "블로거", "무료로 시작하고 내 도메인을 붙이는 길.")],
+    "구글": [("/guide/google-profile.html", "구글 프로필", "네이버 플레이스와 같은 재료로 채워요. 프로필은 하나만."), ("/guide/google-suspended.html", "프로필 정지·복구", "이름에 동네·업종을 붙이면 정지. 이의신청과 증빙 60분 규칙."), ("/guide/domain.html", "도메인", "홈페이지와 인스타그램 판매 자격이 도메인을 요구해요."), ("/guide/homepage.html", "홈페이지 노출", "기술 요건만 맞으면 색인이 무료예요."), ("/guide/google-content.html", "구글 글쓰기", "구글이 밝힌 좋은 글의 기준. 단어 수는 없어요."), ("/guide/blogger.html", "블로거", "무료로 시작하고 내 도메인을 붙이는 길.")],
     "인스타그램": [("/guide/instagram.html", "계정", "돈 안 드는 것부터. 제품 태그는 무료예요."), ("/guide/followers.html", "팔로워 업체", "사는 쪽도 규정 위반. 도달 신호에 팔로워 수는 없어요."), ("/guide/threads.html", "스레드", "계정 하나로 글부터 시작할 수 있어요."), ("/guide/meta-review.html", "광고", "거부 사유를 먼저 알고 켜요.")],
     "유튜브": [("/youtube/1-channel.html", "채널과 첫 쇼츠", "가게 이름 채널 만들고 쇼츠 한 편부터."), ("/youtube/2-profile.html", "채널 정보 채우기", "설명·링크·연락처·배너. 첫 링크는 플레이스로."), ("/guide/youtube-search.html", "채널", "검색과 추천이 무엇을 보는지부터."), ("/guide/youtube-shorts.html", "쇼츠", "가게 영상은 대부분 쇼츠로 잡혀요. 1분 넘는 쇼츠의 저작권 규정을 알고 올려요.")],
     "AI": [("/guide/aeo.html", "용어", "제안서의 말을 먼저 가려요."), ("/guide/geo.html", "AI 답변", "AI가 옮겨 쓸 수 있는 글과 리뷰를 쌓는 구조.")],
@@ -1226,6 +1226,7 @@ HOWTO_INDEX = [
     ("google", "구글", [
         ("구글 비즈니스 프로필", "/foreign/3-google.html", "구글 지도에 가게 올리기"),
         ("구글에 걸리는 글쓰기", "/service/4-content.html", "구글이 보는 글 기준"),
+        ("구글 프로필 정지·복구", "/guide/google-suspended.html", "업체 이름·주소·카테고리 가이드라인, 이의신청 순서"),
     ]),
     ("instagram", "인스타그램·메타", [
         ("인스타그램 계정", "/online/7-instagram.html", "비즈니스 계정, 프로필 링크"),
@@ -1302,7 +1303,7 @@ GUIDE_TO_HOWTO = {
     "/guide/record.html": ["/local/9-record.html"], "/guide/before-selling.html": ["/online/3-law.html", "/service/6-law.html"],
     "/guide/selling.html": ["/online/2-fees.html", "/guide/fee-table.html"], "/guide/fee-table.html": ["/online/2-fees.html"], "/guide/delivery-fees.html": ["/local/9-record.html"], "/guide/support-money.html": ["/local/8-powerlink.html", "/kakao/1-channel.html", "/daangn/1-profile.html"], "/guide/record-sheet.html": ["/local/9-record.html"], "/guide/store-sheet.html": ["/local/1-start.html", "/local/2-place.html"], "/guide/agency-call.html": ["/local/3-rank.html", "/local/8-powerlink.html"], "/guide/free-tools.html": ["/local/1-start.html"], "/guide/reservation-noshow.html": ["/service/2-place.html"], "/guide/industry-ad-rules.html": ["/local/7-law.html", "/service/6-law.html"], "/guide/youtube-search.html": ["/youtube/1-channel.html"], "/guide/youtube-shorts.html": ["/youtube/1-channel.html"], "/guide/domain.html": ["/online/4-domain.html"], "/guide/homepage.html": ["/online/5-homepage.html"],
     "/guide/instagram.html": ["/online/7-instagram.html"], "/guide/threads.html": ["/online/7-instagram.html"], "/guide/meta-review.html": ["/online/8-ads.html"],
-    "/guide/google-profile.html": ["/foreign/3-google.html"], "/guide/google-content.html": ["/service/4-content.html"],
+    "/guide/google-profile.html": ["/foreign/3-google.html"], "/guide/google-suspended.html": ["/foreign/3-google.html"], "/guide/google-content.html": ["/service/4-content.html"],
     "/guide/geo.html": ["/service/7-ai.html"], "/guide/kakao-channel.html": ["/kakao/1-channel.html", "/kakao/2-message.html"], "/guide/aeo.html": ["/service/7-ai.html"], "/guide/numbers.html": ["/check/"],
 }
 
