@@ -980,7 +980,8 @@ def plat_url(lang, top, sub=None):
 def boards_by_cat(pages, lang, only=None):
     """전체 글 페이지: 플랫폼 h2(플랫폼 페이지로 링크) → 채널 h3 → 목록. only 를 주면 그 플랫폼만(플랫폼 페이지)."""
     out = []
-    for top, chans in TAXO[lang]:
+    order = TAXO[lang] if only else sorted(TAXO[lang], key=lambda tc: tc[0] in TRACKS)   # 전체 글(개념) 페이지는 플랫폼 설명을 먼저, 코스(방법 글)는 뒤에 (D79, 2026-09-19 400폭 눈검사)
+    for top, chans in order:
         if only and top != only:
             continue
         if only:
