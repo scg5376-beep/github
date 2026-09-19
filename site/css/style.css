@@ -821,3 +821,9 @@ nav.termjump .chips { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)
 nav.termjump .chips a { display:block; min-height:34px; padding:6px 8px; border:1px solid var(--line); border-radius:8px; background:var(--paper-2); box-shadow:none; color:var(--ink); text-align:center; font-size:.82rem; line-height:1.4; text-decoration:none; word-break:keep-all; }
 nav.termjump .chips a:hover { border-color:var(--ink-soft); color:var(--ink); }
 @media (max-width:520px) { nav.termjump .chips { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+/* ── 좁은 화면 머리: English 알약이 혼자 한 줄 차지하던 것을 브랜드 줄 오른쪽으로 (2026-09-19 400폭 눈검사) ── */
+@media (max-width:720px) {
+  header.top .wrap { position:relative; }
+  header.top nav a.lang { position:absolute; right:16px; top:18px; margin:0; }
+}

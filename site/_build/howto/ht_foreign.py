@@ -95,9 +95,9 @@ save("foreign", "4-domain.html", page("foreign", 4, "도메인",
     ],
     done=["도메인 등록자와 이메일이 사장님 것이다", "자동 갱신이 켜져 있다"],
     blocked=[("홈페이지가 꼭 있어야 해요?", "아니요. 구글 프로필만으로 외국 손님이 지도로 찾아오는 길은 열렸어요. 인스타그램 판매 기능을 쓰려면 도메인이 필요하고 그 밖에는 선택입니다.")],
-    why='<a href="/guide/domain.html">도메인은 사는 게 아니고 빌리는 거예요</a>',
-    nxt='  <a href="/foreign/5-homepage.html">다음 단계. 홈페이지 노출</a>\n  <a href="/guide/domain.html">설명. 도메인은 사는 게 아니고 빌리는 거예요</a>',
-    sources=['<span class="grade">B</span> 한국인터넷정보센터 도메인 등록 안내, ICANN 이전 정책(이 환경에서 원문을 못 열어 발췌로 확인)', SITE + ' <a href="/guide/domain.html">도메인은 사는 게 아니고 빌리는 거예요</a>'],
+    why='<a href="/guide/domain.html">도메인은 기간을 정해 빌리는 거예요</a>',
+    nxt='  <a href="/foreign/5-homepage.html">다음 단계. 홈페이지 노출</a>\n  <a href="/guide/domain.html">설명. 도메인은 기간을 정해 빌리는 거예요</a>',
+    sources=['<span class="grade">B</span> 한국인터넷정보센터 도메인 등록 안내, ICANN 이전 정책(이 환경에서 원문을 못 열어 발췌로 확인)', SITE + ' <a href="/guide/domain.html">도메인은 기간을 정해 빌리는 거예요</a>'],
     order=4))
 
 save("foreign", "5-homepage.html", page("foreign", 5, "홈페이지 노출",
