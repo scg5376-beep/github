@@ -429,7 +429,9 @@ def order_html(pages, top):
     if not rows:
         return ""
     by = {p["url"]: p for p in pages}
-    lis = "".join(f'<li class="{step_cost(t)[0]}"><a href="{u}"><b>{esc(t)}</b><span class="time"><span class="badge">{step_cost(t)[1]}</span>{read_minutes(by[u])}분</span></a></li>' for u, t, w in rows if u in by)
+    def _cost(u, t):                                                          # 색인 글은 「참고」(첫 화면 카드와 같은 기준, B18)
+        return ("free", "참고") if ("help-index" in u or "faq-" in u) else step_cost(t)
+    lis = "".join(f'<li class="{_cost(u, t)[0]}"><a href="{u}"><b>{esc(t)}</b><span class="time"><span class="badge">{_cost(u, t)[1]}</span>{read_minutes(by[u])}분</span></a></li>' for u, t, w in rows if u in by)
     return '<h2>추천 순서</h2><ol class="course roadmap">' + lis + "</ol>"
 
 
