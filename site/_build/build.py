@@ -385,7 +385,8 @@ def course_rail(page, pages):
         ps = posts(pages, "ko", f"{top}/{s}")
         cls = "done" if i < cur else ("now" if i == cur else "todo")
         inner = f'<a href="{ps[0]["url"]}">{esc(s)}</a>' if ps else esc(s)
-        lis.append(f'<li class="{cls}"><span class="n">{i+1}</span>{inner}<span class="badge">{step_cost(s)[1]}</span></li>')
+        kind, label = step_cost(s)
+        lis.append(f'<li class="{cls}"><span class="n">{i+1}</span>{inner}<span class="badge {kind}">{label}</span></li>')
     nxt = next((posts(pages, "ko", f"{top}/{s}") for s in ss[cur+1:] if posts(pages, "ko", f"{top}/{s}")), None)
     tail = f'<a class="rail-btn" href="{nxt[0]["url"]}">다음 단계로</a>' if nxt else f'<a class="rail-btn" href="{plat_url("ko", top)}">코스 처음으로</a>'
     return f'<div class="rail-box course-rail"><span class="rail-head">{esc(top)} 코스 · {cur+1}/{len(ss)}</span><ol class="course-mini">{"".join(lis)}</ol>{tail}</div>'
@@ -985,19 +986,24 @@ def cat_box(page, pages):
     cur_top = split_cat(page["cat"])[0] if page.get("cat") else None
     cur_sub = split_cat(page["cat"])[1] if page.get("cat") else None
     others = []
+    on_course = bool(_course_pos(page))                                           # 코스 글: 위 카드가 이미 이 코스 단계를 다 보여 주므로 여기선 다른 곳만 (D75)
+    if on_course:
+        head = "Other courses" if lang == "en" else "다른 코스·플랫폼"
     for top, chans in TAXO[lang]:
         def cu(c, top=top):
             if top in TRACKS:
                 ps = posts(pages, lang, f"{top}/{c}")
                 return ps[0]["url"] if ps else plat_url(lang, top)
             return plat_url(lang, top, c)
-        if cur_top and top != cur_top:                                            # 글 페이지: 지금 플랫폼만 펼치고 나머지는 이름만 (레이아웃 손질 2026-09-17, D54)
+        if cur_top and (top != cur_top or on_course):                             # 글 페이지: 지금 플랫폼만 펼치고 나머지는 이름만 (레이아웃 손질 2026-09-17, D54)
+            if top == cur_top:
+                continue
             others.append(f'<a class="{plat_class(top)}" href="{plat_url(lang, top)}">{esc(top)}</a>')
             continue
         lis.append(f'<li class="top {plat_class(top)}"><a href="{plat_url(lang, top)}">{esc(top)}</a><span>{len(posts(pages, lang, top))}</span></li>')
         lis.append('<li class="subs">' + " ".join((f'<a href="{cu(c)}"{" aria-current=\"page\"" if c == cur_sub else ""}>{esc(c)}</a>') for c in chans) + "</li>")
     if others:
-        lis.append(f'<li class="head">{"Elsewhere" if lang == "en" else "다른 곳"}</li><li class="others">' + "".join(others) + "</li>")
+        lis.append(("" if on_course else f'<li class="head">{"Elsewhere" if lang == "en" else "다른 곳"}</li>') + '<li class="others">' + "".join(others) + "</li>")
     return f'<div class="rail-box"><span class="rail-head">{head}</span><ul class="cats">{"".join(lis)}</ul></div>'
 
 

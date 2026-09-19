@@ -774,3 +774,29 @@ aside.rail ul.cats li.others a { display:block; text-align:center; padding:6px 8
   main table:not(.sheet) { display:block; overflow-x:auto; border-radius:6px; }
   main table:not(.sheet) tbody th { white-space:normal; }
 }
+
+/* ── 오른쪽 기둥 리모컨 정렬 (운영자 2026-09-19 "이거 부터좀 제대로해") ──
+   카드 안 여백이 왼쪽 18·오른쪽 0 이라 단추·꼬리표가 오른쪽 테두리에 붙어 있었다. 카드 여백을 한 값으로, 줄 높이·꼬리표 폭·칩 모양을 한 벌로 */
+aside.rail > .rail-box, aside.rail > .course-rail { padding:14px 16px 16px; border-left:1px solid var(--line); }
+aside.rail .rail-head { margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:.78rem; color:var(--ink); }
+aside.rail .course-rail .rail-head { color:var(--pa); }
+/* 코스 줄: 번호·이름·꼬리표 세 칸 격자, 줄 높이 같게, 꼬리표는 같은 폭·오른쪽 끝 맞춤 */
+ol.course-mini li { display:grid; grid-template-columns:22px minmax(0,1fr) auto; align-items:center; gap:8px; padding:0; min-height:40px; border-bottom:1px solid var(--line); }
+ol.course-mini li:last-child { border-bottom:0; }
+ol.course-mini .n { position:static; top:auto; left:auto; }
+ol.course-mini li.done .n { position:relative; }
+ol.course-mini li a { padding:0; }
+ol.course-mini .badge, ol.course-mini li .badge { display:inline-block; min-width:52px; margin:0; padding:2px 0; text-align:center; border-radius:6px; font-size:.7rem; line-height:1.5; }
+ol.course-mini li .badge.law { border-color:#7a8899; color:#3f4a5c; background:#eef1f5; }
+ol.course-mini li .badge.free { border-color:var(--line); color:var(--ink-soft); background:var(--paper-2); }
+aside.rail .rail-btn { margin-top:14px; padding:11px 12px; }
+/* 게시판 카드: 펼친 플랫폼의 갈래도 「다른 곳」과 같은 두 칸 칩으로. 낱말 사이 점 구분과 어중간한 줄바꿈 없앰 */
+aside.rail ul.cats li { border-bottom:0; padding:0; }
+aside.rail ul.cats li.top { display:flex; align-items:center; min-height:34px; margin-top:0; padding:0 0 4px; }
+aside.rail ul.cats li.subs, aside.rail ul.cats li.others { display:grid; grid-template-columns:1fr 1fr; gap:6px 8px; padding:0 0 8px; font-size:.82rem; }
+aside.rail ul.cats li.subs a, aside.rail ul.cats li.others a { display:block; min-height:34px; padding:6px 8px; border:1px solid var(--line); border-radius:8px; background:var(--paper-2); color:var(--ink); text-align:center; white-space:normal; line-height:1.4; font-size:.82rem; }
+aside.rail ul.cats li.subs a::after { content:""; }
+aside.rail ul.cats li.subs a[aria-current="page"] { background:var(--pt); border-color:var(--pa); color:var(--pa); font-weight:700; }
+aside.rail ul.cats li.subs a:hover, aside.rail ul.cats li.others a:hover { border-color:var(--ink-soft); }
+aside.rail ul.cats li.head { padding:8px 0 6px; }
+aside.rail ul.cats li.others a { --pt:var(--paper-2); --pa:var(--ink); }
