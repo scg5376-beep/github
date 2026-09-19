@@ -992,7 +992,7 @@
     <content:encoded><![CDATA[<p class="kicker">네이버 · 플레이스</p>
 <h1>네이버 스마트플레이스 도움말 번호 색인 132개</h1>
 <p class="lead">사장님, 네이버 고객센터는 항목을 눌러야 열려서 검색으로는 잘 안 잡혀요. 그래서 도움말을 번호로 훑어 제목을 모았어요. 번호를 누르면 네이버 원문이 열리고 오른쪽 칸은 이 사이트에서 그 내용을 풀어 쓴 글이에요.</p>
-<p class="lead answer">한 줄 답부터. 도움말 주소는 help.naver.com/service/30026/contents/번호 꼴이에요. 아래 표에서 제목을 찾아 번호를 누르세요. 표의 92개는 이 사이트 글과 이어져 있고 나머지는 원문만 있어요.</p>
+<p class="lead answer">한 줄 답부터. 도움말 주소는 help.naver.com/service/30026/contents/번호 꼴이에요. 아래 표에서 제목을 찾아 번호를 누르세요. 표의 95개는 이 사이트 글과 이어져 있고 나머지는 원문만 있어요.</p>
 <div class="note todo"><b>바로 할 일</b>브라우저에서 이 페이지를 즐겨찾기 해 두고 「이미 등록된 업체」「보류」「주인 변경」처럼 화면에 뜬 말로 표를 찾으세요.</div>
 <h2>업체 등록</h2>
 <table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody>
@@ -1152,9 +1152,9 @@
 <tr><th><a href="https://help.naver.com/service/30026/contents/20466" rel="noopener">20466</a></th><td>스마트플레이스 앱 원하는 알림만 받는 방법</td><td></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/20533" rel="noopener">20533</a></th><td>스마트플레이스 장애/오류가 발생할 경우</td><td></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/21418" rel="noopener">21418</a></th><td>일회용 컵 보증금 설정</td><td></td></tr>
-<tr><th><a href="https://help.naver.com/service/30026/contents/24284" rel="noopener">24284</a></th><td>플레이스 플러스(beta) 소개</td><td></td></tr>
-<tr><th><a href="https://help.naver.com/service/30026/contents/24285" rel="noopener">24285</a></th><td>플레이스 플러스(beta) 기능 안내</td><td></td></tr>
-<tr><th><a href="https://help.naver.com/service/30026/contents/24286" rel="noopener">24286</a></th><td>플레이스 플러스(beta) 신청 방법</td><td></td></tr>
+<tr><th><a href="https://help.naver.com/service/30026/contents/24284" rel="noopener">24284</a></th><td>플레이스 플러스(beta) 소개</td><td><a href="/guide/place-plus.html">플레이스 플러스</a></td></tr>
+<tr><th><a href="https://help.naver.com/service/30026/contents/24285" rel="noopener">24285</a></th><td>플레이스 플러스(beta) 기능 안내</td><td><a href="/guide/place-plus.html">플레이스 플러스</a></td></tr>
+<tr><th><a href="https://help.naver.com/service/30026/contents/24286" rel="noopener">24286</a></th><td>플레이스 플러스(beta) 신청 방법</td><td><a href="/guide/place-plus.html">플레이스 플러스</a></td></tr>
 </tbody></table>
 <h2>정리</h2>
 <p>사장님, 스마트플레이스에서 막히면 화면에 뜬 문구를 이 표에서 찾으시면 됩니다. 번호는 2026년 9월 19일에 확인한 것이라 네이버가 항목을 바꾸면 빈 번호가 생길 수 있어요. 순서대로 따라 하려면 <a href="/local/2-place.html">플레이스 등록</a>부터예요.</p>
@@ -1825,6 +1825,67 @@
 </footer>]]></content:encoded>
   </item>
   <item>
+    <title>네이버 플레이스 플러스(beta)란, 포스 연동으로 영수증 없이 리뷰 받고 인기 메뉴가 붙는 것 (도움말 원문)</title>
+    <link>https://sajangmarketing.com/guide/place-plus.html</link>
+    <guid isPermaLink="true">https://sajangmarketing.com/guide/place-plus.html</guid>
+    <pubDate>Sun, 20 Sep 2026 09:00:00 +0900</pubDate>
+    <description>플레이스 플러스는 음식점 포스나 동물병원 프로그램을 스마트플레이스에 연결해 결제 뒤 문자로 리뷰 링크를 보내고, 검색 결과에 배지·평균 결제 금액·결제 기반 인기 메뉴·혼잡도가 붙는 무료 베타 서비스예요. 대상은 오케이포스·이지포스·유니온포스·매직포스·UP포스·페이히어·페이앤스토어·KPN 포스를 쓰는 음식점과 인투씨엔에스를 쓰는 동물병원. 신청 경로와 수집되는 데이터를 원문으로 정리했어요.</description>
+    <content:encoded><![CDATA[<p class="kicker">네이버 · 플레이스</p>
+<h1>네이버 플레이스 플러스(beta)란, 포스 연동으로 영수증 없이 리뷰 받고 인기 메뉴가 붙는 것</h1>
+<p class="lead">사장님, 검색 결과에서 어떤 식당 옆에는 「플레이스 플러스」 배지와 평균 결제 금액, 인기 메뉴가 붙어 있죠. 포스를 네이버에 연결한 가게예요. 무엇이 붙고 어떤 포스여야 되고 무엇을 네이버가 가져가는지 스마트플레이스 고객센터 도움말 세 개에서 그대로 옮겼어요.</p>
+<p class="lead answer">한 줄 답부터. 플레이스 플러스는 음식점 포스(또는 동물병원 프로그램)를 스마트플레이스에 연결하는 무료 베타 서비스예요. 연결하면 결제 뒤 손님에게 문자·알림톡으로 리뷰 링크를 보내 영수증 인증 없이 리뷰를 받고, 검색 결과에 배지와 평균 결제 금액, 결제 기반 인기 메뉴, 혼잡도가 붙어요. 지금은 여덟 개 포스사를 쓰는 음식점과 인투씨엔에스를 쓰는 동물병원만 돼요. 지금은 무료이고 유료가 되면 미리 알린다고 적혀 있어요.</p>
+<div class="note todo"><b>바로 할 일</b>우리 포스가 오케이포스·이지포스·유니온포스·매직포스·UP포스·페이히어·페이앤스토어·KPN 가운데 하나면 스마트플레이스 「솔루션 &gt; Place+ &gt; place+ 사용하기」를 누르세요. 아니면 포스 회사에 연동 예정을 물어보세요.</div>
+
+<h2>무엇이 달라지나요?</h2>
+<blockquote class="official">
+  <span class="who">네이버 스마트플레이스 사업주 고객센터, 「플레이스 플러스(beta) 기능 안내」 (2026-09-20 원문 확인)</span>
+  <q>1) 영수증 등 방문 인증 없이 리뷰 작성이 가능해져 양질의 리뷰가 빠르게 쌓여 마케팅에 효과적일 수 있습니다.</q>
+</blockquote>
+<table>
+  <tr><th>기능</th><th>내용</th></tr>
+  <tr><td>리뷰 요청</td><td>매장에서 결제한 뒤 포스에서 바로 「결제 요청」 문자·알림톡 발송. 링크가 리뷰 작성 페이지로 이어지고 플레이스에 실시간 반영</td></tr>
+  <tr><td>검색 결과</td><td>「플레이스 플러스(beta)」 배지, 평균 결제 금액, 결제 기반 인기 메뉴, 평균 혼잡도 같은 요약 정보</td></tr>
+  <tr><td>관리</td><td>포스 화면에서 플레이스 메뉴 등록·정보 수정이 되고 자동 반영. 매장 운영 심층 리포트</td></tr>
+  <tr><td>동물병원</td><td>「방문 많은 진료」「인기 시간대」「진료과목 비중」이 붙고 「강아지 슬개골탈구」처럼 종+질병 검색에 더 정확히 노출</td></tr>
+</table>
+<p>포스 회사마다 되는 기능과 시기가 다르다고 원문이 두 번 적었어요. 리뷰 링크 발송이 아직 안 되는 포스도 있을 수 있으니 연동 뒤 포스 회사에 확인하세요. 이 리뷰는 영수증 인증 리뷰와 같은 방문자 리뷰라 어뷰징 기준도 같아요. 그 기준은 <a href="/guide/review-penalty.html">리뷰 어뷰징 페널티 글</a>에 있어요.</p>
+
+<h2>누가 신청할 수 있나요?</h2>
+<blockquote class="official">
+  <span class="who">「플레이스 플러스(beta) 소개」 (2026-09-20 원문 확인)</span>
+  <q>- 연동 POS사: 오케이포스, 이지포스, 유니온포스, 매직포스, UP포스, 페이히어, 페이앤스토어, KPN (2025.12 기준)</q>
+</blockquote>
+<table>
+  <tr><th>업종</th><th>조건</th><th>신청 경로</th></tr>
+  <tr><td>음식점</td><td>스마트플레이스 「음식점」 업종이고 위 포스사 가운데 하나를 씀. 포스에서 서비스 사용에 동의</td><td>스마트플레이스 「솔루션 &gt; Place+」 또는 포스 앱·화면의 「네이버 스마트플레이스 연동」</td></tr>
+  <tr><td>동물병원</td><td>「동물병원」 업종이고 인투씨엔에스를 씀(2026.06 기준)</td><td>인투링크 「네이버 플레이스 연동 관리」에서 동의. 노출할 진료 정보는 인투링크에서 ON/OFF</td></tr>
+</table>
+<p>포스별 경로는 원문 「신청 방법」에 여덟 개가 적혀 있어요. 페이히어는 앱 「나의 매장 &gt; 플레이스 연동」, OKPOS는 오늘얼마 앱 「설정 &gt; 연동 관리」, 이지포스는 「영업정보관리 &gt; 기초정보 &gt; 기타관리 &gt; 네이버플레이스 연동」이에요. 신청과 해제가 검색 결과에 반영되기까지는 업데이트 시간이 걸려요.</p>
+
+<h2>네이버가 무엇을 가져가나요?</h2>
+<blockquote class="official">
+  <span class="who">같은 문서, 「활용 데이터」</span>
+  <q>해당 데이터는 플레이스 서비스(beta) 반영 및 통계 데이터 제공을 위해 활용되며, 고객의 개인 정보는 수집되지 않습니다.</q>
+</blockquote>
+<p>음식점은 메뉴·결제 정보와 테이블 정보처럼 매장 정보를 보여 줄 데이터가 연동되고 항목은 포스 연동 신청 때 보여 줘요. 동물병원은 진료가능종·진료과목·질병명과 진료 통계가 연동되고 보호자·반려동물 식별 정보는 수집하지 않아요. 지금은 이용요금이 없고 포스사나 네이버 정책으로 요금이 생기면 충분한 기간을 두고 공지한다고 적혀 있어요.</p>
+
+<h2>정리</h2>
+<p>사장님, 플레이스 플러스는 포스를 네이버에 연결해 리뷰 받기와 검색 노출 정보를 한 번에 얻는 무료 베타예요. 우리 포스가 목록에 있으면 손해 볼 것이 없고, 없으면 기다리는 수밖에 없어요. 평균 결제 금액이 검색 결과에 그대로 보인다는 점만 미리 생각해 두세요. 리뷰 답글과 부탁 방법은 <a href="/local/4-reviews.html">리뷰 답글 따라 하기</a>에 있어요.</p>
+<div class="next">
+<a href="/local/4-reviews.html">따라 하기. 리뷰 답글, 리뷰 부탁하는 법</a>
+<a href="/local/3-rank.html">따라 하기. 플레이스 순위, 정보 채우기</a>
+</div>
+
+<footer class="sources">
+  <h2>근거</h2>
+  <ul>
+    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/24284" rel="noopener">네이버 스마트플레이스 사업주 고객센터 「플레이스 플러스(beta) 소개」</a> · <a href="https://help.naver.com/service/30026/contents/24285" rel="noopener">「플레이스 플러스(beta) 기능 안내」</a> · <a href="https://help.naver.com/service/30026/contents/24286" rel="noopener">「플레이스 플러스(beta) 신청 방법」</a> (2026-09-20 원문 확인). 큰따옴표 안은 원문 그대로예요.</li>
+    <li><span class="grade">미확인</span> 연동한 가게의 검색 순위가 실제로 오르는지는 네이버가 밝힌 것이 없어요. 포스사별로 어떤 기능이 언제 되는지도 원문에 없어요.</li>
+  </ul>
+  <p>이 글은 2026년 9월 기준이에요.</p>
+</footer>]]></content:encoded>
+  </item>
+  <item>
     <title>플레이스 사진 규칙, 검색에 몇 장이 나가고 어떤 사진이 지워지나 (도움말 원문)</title>
     <link>https://sajangmarketing.com/guide/place-photos.html</link>
     <guid isPermaLink="true">https://sajangmarketing.com/guide/place-photos.html</guid>
@@ -1901,92 +1962,6 @@
     <li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/20429" rel="noopener">네이버 스마트플레이스 사업주 고객센터 「업체 플레이스 이미지 노출 기준 안내」</a> · <a href="https://help.naver.com/service/30026/contents/21425" rel="noopener">「지도위 마커(사진/핀/점) 노출 안내」</a> (2026-09-19 원문 확인). 큰따옴표 안은 원문 그대로예요.</li>
     <li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/20426" rel="noopener">같은 고객센터 「미용실 플레이스 시술사진 등록 기준 안내」</a> (2026-09-01 확인)</li>
     <li><span class="grade">미확인</span> 음식점·다른 업종의 사진 삭제 기준은 따로 된 도움말을 못 찾았어요. 수집 사진이 어느 블로그에서 오는지의 기준도 공개돼 있지 않아요.</li>
-  </ul>
-  <p>이 글은 2026년 9월 기준이에요.</p>
-</footer>]]></content:encoded>
-  </item>
-  <item>
-    <title>네이버 클립에 우리 가게 붙이기, 장소 태그·방문 인증·플레이스 노출 기준 (도움말 원문)</title>
-    <link>https://sajangmarketing.com/guide/naver-clip.html</link>
-    <guid isPermaLink="true">https://sajangmarketing.com/guide/naver-clip.html</guid>
-    <pubDate>Sun, 20 Sep 2026 09:00:00 +0900</pubDate>
-    <description>네이버 클립이 플레이스에 붙으려면 영상에 장소 스티커나 장소 태그가 있어야 하고 품질·연관도 기준을 넘어야 해요. 사장님이 올린 것이든 손님이 올린 것이든 같고 순서 조정이나 노출 제어 기능은 없어요. 방문 인증 태그는 영수증·결제 내역이 있어야 붙고 1년 안 내역만, 콘텐츠당 1개. 맛집 크리에이터 모아보기는 음식점만. 스마트플레이스·클립 고객센터 원문으로 정리했어요.</description>
-    <content:encoded><![CDATA[<p class="kicker">네이버 · 클립</p>
-<h1>네이버 클립에 우리 가게 붙이기, 장소 태그·방문 인증·플레이스 노출 기준</h1>
-<p class="lead">사장님, 손님이 찍어 올린 짧은 영상이 우리 가게 플레이스에 붙는 걸 보셨죠. 그게 클립이에요. 어떤 영상이 붙고 어떤 영상은 안 붙는지, 사장님이 직접 올릴 때 무엇을 눌러야 하는지를 스마트플레이스 고객센터와 클립 고객센터 도움말에서 그대로 옮겼어요.</p>
-<p class="lead answer">한 줄 답부터. 클립이 플레이스에 붙으려면 영상에 우리 가게 장소 스티커나 장소 태그가 들어 있어야 하고 네이버 안의 품질·연관도 기준도 넘어야 해요. 해시태그에 가게 이름을 아무리 적어도 장소 태그가 없으면 안 붙어요. 붙은 클립의 순서를 바꾸거나 빼는 기능은 사장님에게 없고 관련도 순으로 자동이에요. 손님 영상에 「방문인증」이 붙으려면 손님 쪽에 영수증이나 결제 내역이 있어야 해요.</p>
-<div class="note todo"><b>바로 할 일</b>네이버 앱 클립 탭에서 「만들기」를 눌러 가게 영상을 하나 올리되 「정보 태그」 단계에서 장소 태그로 우리 가게를 꼭 고르세요. 광고·협찬이 아니면 그 설정은 끄고, 사람 얼굴이 나오면 얼굴블러를 쓰세요.</div>
-
-<h2>어떤 클립이 플레이스에 붙나요?</h2>
-<blockquote class="official">
-  <span class="who">네이버 스마트플레이스 사업주 고객센터, 「플레이스 클립 수집/노출 안내」 (2026-09-19 원문 확인)</span>
-  <q>클립이 플레이스에 노출되기 위해서는 클립에 장소 스티커 또는 장소 태그가 포함되고, 내부 품질, 연관도 기준을 통과해야 합니다.</q>
-</blockquote>
-<blockquote class="official">
-  <span class="who">같은 문서</span>
-  <q>클립은 시스템에 의해 플레이스에 자동 수집되는 부분이므로 사업주에게 별도의 기능(순서 조정, 노출 제어)을 제공하지 않습니다.</q>
-</blockquote>
-<table>
-  <tr><th>물음</th><th>도움말의 답</th></tr>
-  <tr><td>어디에 보이나</td><td>플레이스 상세 페이지의 홈 탭과 사진 탭</td></tr>
-  <tr><td>무엇이 붙나</td><td>블로그 클립, 네이버 TV 클립 등 우리 장소를 태그한 것. 관련도 순</td></tr>
-  <tr><td>언제 붙나</td><td>장소 스티커가 붙으면 일정 업데이트 시간 뒤 자동 수집</td></tr>
-  <tr><td>못 하는 것</td><td>순서 조정, 노출 제어. 무관한 클립이 붙었을 때만 문의 접수</td></tr>
-  <tr><td>제외 업종</td><td>병원 업종은 클립 제공 없음</td></tr>
-</table>
-<p>사장님이 올린 클립과 손님이 올린 클립을 네이버는 구분하지 않아요. 둘 다 장소 태그와 품질 기준으로 걸러요. 그래서 사장님이 할 수 있는 일은 태그를 정확히 달아 올리는 것과 손님이 올릴 때 장소 태그를 부탁하는 것 두 가지예요.</p>
-
-<h2>장소 태그와 방문 인증은 어떻게 다른가요?</h2>
-<blockquote class="official">
-  <span class="who">네이버 클립 고객센터, 「인증태그 이용 방법」 (2026-09-20 원문 확인)</span>
-  <q>인증태그는 실제 방문/구매 인증이 완료된 장소/상품/공연·전시·축제에 대한 정보태그를 의미합니다.</q>
-</blockquote>
-<table>
-  <tr><th>태그</th><th>조건</th><th>규칙</th></tr>
-  <tr><td>장소 태그</td><td>정보 태그 단계에서 추천 목록이나 검색으로 우리 가게 선택</td><td>동영상은 카테고리별 1개, 게시물은 장소 태그 1개</td></tr>
-  <tr><td>방문 인증 태그</td><td>손님의 MY플레이스·Npay에 영수증·결제 내역이 있어야 자동 표기</td><td>방문일 기준 1년 안 내역만. 콘텐츠당 1개. 관람 인증과 같이 못 씀</td></tr>
-  <tr><td>쇼핑 구매 인증</td><td>스토어 주문이 구매확정된 건</td><td>주문일 기준 1년 안</td></tr>
-</table>
-<p>손님이 MY플레이스에서 영수증 리뷰를 사진·영상과 같이 쓰면 그 리뷰가 클립 프로필의 게시물로도 나가고 장소가 인증 태그로 바뀌어요. 영수증 없이 장소 검색만으로 쓴 리뷰는 일반 태그예요. 정보 태그는 AI가 영상을 보고 추천하기도 하는데 틀릴 수 있으니 우리 가게가 맞는지 확인하고 고르세요.</p>
-
-<h2>사장님이 직접 올릴 때 규칙</h2>
-<blockquote class="official">
-  <span class="who">「클립 게시물 제작 방법」 (2026-09-20 원문 확인)</span>
-  <q>※ 클립의 노출과 추천은 해시태그 개수와 상관없이 콘텐츠 자체를 기준으로 이루어집니다.</q>
-</blockquote>
-<table>
-  <tr><th>항목</th><th>기준</th></tr>
-  <tr><td>만드는 곳</td><td>네이버앱 클립 탭 「만들기」 또는 클립 크리에이터 앱. 게시물은 모바일에서만</td></tr>
-  <tr><td>게시물</td><td>사진·영상 최대 10개. 본문 3,000자. 해시태그 5개까지. 링크 불가</td></tr>
-  <tr><td>음원</td><td>음원을 넣으면 원본 소리는 자동 음소거</td></tr>
-  <tr><td>얼굴</td><td>얼굴블러 기능으로 자동·수동 가림</td></tr>
-  <tr><td>AI·광고 표시</td><td>AI로 만든 콘텐츠면 AI 활용 ON, 광고·협찬이면 광고·협찬 설정 ON</td></tr>
-  <tr><td>클립 프로필</td><td>누구나 만들 수 있고 만들면 클립 크리에이터(통계·수익 프로그램)를 쓸 수 있음</td></tr>
-</table>
-<p>체험단이나 손님에게 대가를 주고 올리게 한 영상은 손님 쪽에서 광고·협찬 설정을 켜야 해요. 표시 규칙은 <a href="/guide/disclosure.html">체험단 표시 글</a>에 있어요. 직원 얼굴이 나오는 영상은 얼굴블러가 있어도 본인 동의를 먼저 받으세요.</p>
-
-<h2>맛집 크리에이터 모아보기에 우리 가게가 뜨려면요?</h2>
-<blockquote class="official">
-  <span class="who">「맛집 크리에이터 모아보기 소개 및 FAQ」 (2026-09-20 원문 확인)</span>
-  <q>장소 정보태그를 입력한 클립 중, 음식점으로 등록된 장소의 리뷰 클립이 노출됩니다.</q>
-</blockquote>
-<p>지역별 우수 크리에이터의 음식점 리뷰 클립을 지도에서 모아 보는 기능이고 지금은 강남구·마포구·송파구 음식점만이에요. 카페와 디저트 전문점은 아직 안 돼요.</p>
-<p>크리에이터는 그 지역 활동과 콘텐츠 품질로 자동 선정되고 신청 절차가 없어요. 가게가 할 수 있는 건 플레이스 업종이 음식점으로 맞게 등록돼 있는지 확인하는 것뿐이에요.</p>
-
-<h2>정리</h2>
-<p>사장님, 클립은 장소 태그가 전부예요. 사장님 영상이든 손님 영상이든 우리 가게를 태그해야 플레이스에 붙고 붙은 뒤 순서는 네이버가 정해요. 손님에게 부탁할 때는 「우리 가게 영수증으로 클립 올려 주세요」가 정확한 말이에요.</p>
-<p>그러면 방문 인증까지 붙어요. 사진 노출 규칙은 <a href="/guide/place-photos.html">플레이스 사진 규칙</a>에, 짧은 영상을 어디에 먼저 올릴지는 <a href="/guide/youtube-shorts.html">쇼츠 글</a>에 있어요.</p>
-<div class="next">
-<a href="/local/3-rank.html">따라 하기. 플레이스 순위, 사진·정보 채우기</a>
-<a href="/guide/place-photos.html">설명. 플레이스 사진 규칙</a>
-</div>
-
-<footer class="sources">
-  <h2>근거</h2>
-  <ul>
-    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/23611" rel="noopener">네이버 스마트플레이스 사업주 고객센터 「플레이스 클립 수집/노출 안내」</a> (2026-09-19 원문 확인). 큰따옴표 안은 원문 그대로예요.</li>
-    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/30048/contents/24429" rel="noopener">네이버 클립 고객센터 「정보 태그 이용 방법」</a> · <a href="https://help.naver.com/service/30048/contents/25159" rel="noopener">「인증태그 이용 방법」</a> · <a href="https://help.naver.com/service/30048/contents/24423" rel="noopener">「클립 게시물 제작 방법」</a> · <a href="https://help.naver.com/service/30048/contents/25426" rel="noopener">「맛집 크리에이터 모아보기 소개 및 FAQ」</a> · <a href="https://help.naver.com/service/30048/contents/24471" rel="noopener">「클립 크리에이터 소개」</a> (2026-09-20 원문 확인)</li>
-    <li><span class="grade">미확인</span> 「내부 품질, 연관도 기준」이 무엇인지는 공개돼 있지 않아요. 클립이 플레이스 순위에 영향을 주는지도 도움말에 없어요.</li>
   </ul>
   <p>이 글은 2026년 9월 기준이에요.</p>
 </footer>]]></content:encoded>
