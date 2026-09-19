@@ -106,7 +106,7 @@ PLAT_KINDS = {
     "기록": [("12주 기록", "한 주에 하나만 바꾸고 적는 틀.")],
 }
 PLAT_ORDER = {
-    "네이버": [("/guide/place.html", "플레이스 등록", "무료이고, 네이버가 사업주의 의무로 적은 유일한 일이에요."), ("/guide/place-owner.html", "주인 변경", "「이미 등록된 업체」면 새로 만들지 말고 권한을 옮겨요. ARS·서류."), ("/guide/reviews.html", "리뷰 답글", "돈 안 드는 것 가운데 효과가 측정된 일. 리뷰의 말이 검색어가 돼요."), ("/guide/reply-examples.html", "답글 예시 24개", "상황 12가지, 복사해 괄호만 바꿔 쓰는 문장."), ("/guide/hair-salon.html", "미용실 홍보 순서", "인기 미용실은 예약·Npay 결제 기록으로 정해요. 돈 안 드는 5단계."), ("/guide/academy.html", "학원 홍보 순서", "광고에 적을 네 가지부터. 과정별 수강료·예약 상담·한 과목 블로그."), ("/guide/seo.html", "검색 화면", "광고 칸과 무료 칸을 알아야 「상위 노출 보장」을 가려요."), ("/guide/blog.html", "블로그", "한 주제로 꾸준히. 언급수가 플레이스 인기도로 돌아와요."), ("/guide/powerlink.html", "파워링크", "앞 단계가 돼 있어야 클릭이 손님이 돼요. 여기서 처음 돈이 들어요.")],
+    "네이버": [("/guide/place.html", "플레이스 등록", "무료이고, 네이버가 사업주의 의무로 적은 유일한 일이에요."), ("/guide/place-owner.html", "주인 변경", "「이미 등록된 업체」면 새로 만들지 말고 권한을 옮겨요. ARS·서류."), ("/guide/reviews.html", "리뷰 답글", "돈 안 드는 것 가운데 효과가 측정된 일. 리뷰의 말이 검색어가 돼요."), ("/guide/reply-examples.html", "답글 예시 24개", "상황 12가지, 복사해 괄호만 바꿔 쓰는 문장."), ("/guide/hair-salon.html", "미용실 홍보 순서", "인기 미용실은 예약·Npay 결제 기록으로 정해요. 돈 안 드는 5단계."), ("/guide/academy.html", "학원 홍보 순서", "광고에 적을 네 가지부터. 과정별 수강료·예약 상담·한 과목 블로그."), ("/guide/seo.html", "검색 화면", "광고 칸과 무료 칸을 알아야 「상위 노출 보장」을 가려요."), ("/guide/blog.html", "블로그", "한 주제로 꾸준히. 언급수가 플레이스 인기도로 돌아와요."), ("/guide/powerlink.html", "파워링크", "앞 단계가 돼 있어야 클릭이 손님이 돼요. 여기서 처음 돈이 들어요."), ("/guide/agency-contract.html", "대행사 위약금·해지", "위약금 과다 청구가 분쟁의 67%. 조정원 창구와 계약 전 넷.")],
     "구글": [("/guide/google-profile.html", "구글 프로필", "네이버 플레이스와 같은 재료로 채워요. 프로필은 하나만."), ("/guide/domain.html", "도메인", "홈페이지와 인스타그램 판매 자격이 도메인을 요구해요."), ("/guide/homepage.html", "홈페이지 노출", "기술 요건만 맞으면 색인이 무료예요."), ("/guide/google-content.html", "구글 글쓰기", "구글이 밝힌 좋은 글의 기준. 단어 수는 없어요."), ("/guide/blogger.html", "블로거", "무료로 시작하고 내 도메인을 붙이는 길.")],
     "인스타그램": [("/guide/instagram.html", "계정", "돈 안 드는 것부터. 제품 태그는 무료예요."), ("/guide/threads.html", "스레드", "계정 하나로 글부터 시작할 수 있어요."), ("/guide/meta-review.html", "광고", "거부 사유를 먼저 알고 켜요.")],
     "유튜브": [("/youtube/1-channel.html", "채널과 첫 쇼츠", "가게 이름 채널 만들고 쇼츠 한 편부터."), ("/youtube/2-profile.html", "채널 정보 채우기", "설명·링크·연락처·배너. 첫 링크는 플레이스로."), ("/guide/youtube-search.html", "채널", "검색과 추천이 무엇을 보는지부터."), ("/guide/youtube-shorts.html", "쇼츠", "가게 영상은 대부분 쇼츠로 잡혀요. 1분 넘는 쇼츠의 저작권 규정을 알고 올려요.")],
@@ -1197,6 +1197,7 @@ HOWTO_INDEX = [
         ("홈페이지 검색 등록", "/online/5-homepage.html", "서치어드바이저·서치콘솔"),
         ("가게 정보 한 장", "/guide/store-sheet.html", "상호·주소·전화 어디에나 똑같이, 인쇄용 표"),
         ("대행사 전화 한 장", "/guide/agency-call.html", "「상위 노출 보장」 전화에 되물을 열 가지"),
+        ("대행사 위약금·해지", "/guide/agency-contract.html", "공정위 분쟁 통계, 조정 창구, 계약 전에 볼 넷"),
         ("업종별 광고 규제 표", "/guide/industry-ad-rules.html", "학원·미용실·음식점·술집·공인중개사가 적을 것과 못 쓰는 말"),
         ("예약 노쇼·환불 기준", "/guide/reservation-noshow.html", "예약금·취소 수수료·Npay 매장결제, 네이버 규칙"),
     ]),
@@ -1278,7 +1279,7 @@ def howto_index_html(pages, lang):
 
 # ── 설명 글 → 방법 글 문 (발전 루프 1바퀴, 2026-09-17: 네이버 비즈니스 스쿨은 강의마다 「왜」와 「어떻게」를 짝지어 둔다. 우리 설명 글 본문에는 방법 글 링크가 0개였다) ──
 GUIDE_TO_HOWTO = {
-    "/guide/place.html": ["/local/2-place.html", "/local/3-rank.html"], "/guide/place-owner.html": ["/local/2-place.html"], "/guide/reviews.html": ["/local/4-reviews.html"], "/guide/reply-examples.html": ["/local/4-reviews.html"], "/guide/hair-salon.html": ["/service/2-place.html"], "/guide/academy.html": ["/service/2-place.html"],
+    "/guide/place.html": ["/local/2-place.html", "/local/3-rank.html"], "/guide/place-owner.html": ["/local/2-place.html"], "/guide/agency-contract.html": ["/local/8-powerlink.html"], "/guide/reviews.html": ["/local/4-reviews.html"], "/guide/reply-examples.html": ["/local/4-reviews.html"], "/guide/hair-salon.html": ["/service/2-place.html"], "/guide/academy.html": ["/service/2-place.html"],
     "/guide/seo.html": ["/local/5-search.html"], "/guide/blog.html": ["/local/6-blog.html"], "/guide/blog-removed.html": ["/local/6-blog.html"],
     "/guide/powerlink.html": ["/local/8-powerlink.html"], "/guide/ads.html": ["/local/8-powerlink.html", "/online/8-ads.html"],
     "/guide/record.html": ["/local/9-record.html"], "/guide/before-selling.html": ["/online/3-law.html", "/service/6-law.html"],
