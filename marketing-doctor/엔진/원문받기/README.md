@@ -12,3 +12,11 @@ node fetch_links.mjs <URL> <저장파일.txt> [대기ms]   # 페이지의 링크
 - **접힌 FAQ(클릭해야 열리는 항목)는 못 받는다.** 그런 페이지는 항목별 URL 을 찾아 따로 받는다.
 - 네이버 고객센터(help.naver.com)는 `contents/<번호>?osType=COMMONOS` 로 열고 대기 15000ms 를 주면 본문이 온다(2026-09-19, 5000ms 면 메뉴만 온다). 항목 번호를 모르면 운영자가 브라우저에서 항목을 열고 주소를 복사해 주면 된다.
 - 카페24 도움말은 보안 대기 화면에 막힌다.
+
+## 스마트스토어 고객센터 FAQ 는 curl 로 된다 (2026-09-19)
+
+```
+python ss_faq.py list <categoryId> ...   # 분류의 항목 번호·제목
+python ss_faq.py get <faqId> ...         # 본문을 지식/원전/원문/절차/네이버기타/ 에 저장
+```
+분류 번호는 페이지 왼쪽 메뉴 `list.help?categoryId=`. 자주 쓰는 것은 파일 머리말에 적어 뒀다.
