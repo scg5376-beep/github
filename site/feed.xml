@@ -992,7 +992,7 @@
     <content:encoded><![CDATA[<p class="kicker">네이버 · 플레이스</p>
 <h1>네이버 스마트플레이스 도움말 번호 색인 132개</h1>
 <p class="lead">사장님, 네이버 고객센터는 항목을 눌러야 열려서 검색으로는 잘 안 잡혀요. 그래서 도움말을 번호로 훑어 제목을 모았어요. 번호를 누르면 네이버 원문이 열리고 오른쪽 칸은 이 사이트에서 그 내용을 풀어 쓴 글이에요.</p>
-<p class="lead answer">한 줄 답부터. 도움말 주소는 help.naver.com/service/30026/contents/번호 꼴이에요. 아래 표에서 제목을 찾아 번호를 누르세요. 표의 95개는 이 사이트 글과 이어져 있고 나머지는 원문만 있어요.</p>
+<p class="lead answer">한 줄 답부터. 도움말 주소는 help.naver.com/service/30026/contents/번호 꼴이에요. 아래 표에서 제목을 찾아 번호를 누르세요. 표의 100개는 이 사이트 글과 이어져 있고 나머지는 원문만 있어요.</p>
 <div class="note todo"><b>바로 할 일</b>브라우저에서 이 페이지를 즐겨찾기 해 두고 「이미 등록된 업체」「보류」「주인 변경」처럼 화면에 뜬 말로 표를 찾으세요.</div>
 <h2>업체 등록</h2>
 <table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody>
@@ -1048,7 +1048,7 @@
 <tr><th><a href="https://help.naver.com/service/30026/contents/20456" rel="noopener">20456</a></th><td>업체 일시정지 해제 요청 방법</td><td><a href="/guide/map-missing.html">지도에 안 떠요</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/20460" rel="noopener">20460</a></th><td>업체 등록/수정/삭제</td><td><a href="/local/2-place.html">플레이스 등록 막히면</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/20465" rel="noopener">20465</a></th><td>플레이스에 등록된 내번호 삭제 요청</td><td><a href="/local/2-place.html">플레이스 등록 막히면</a></td></tr>
-<tr><th><a href="https://help.naver.com/service/30026/contents/20542" rel="noopener">20542</a></th><td>[업주] 배달의민족 메뉴 수정/삭제 방법</td><td></td></tr>
+<tr><th><a href="https://help.naver.com/service/30026/contents/20542" rel="noopener">20542</a></th><td>[업주] 배달의민족 메뉴 수정/삭제 방법</td><td><a href="/local/2-place.html">플레이스 등록 막히면</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/20545" rel="noopener">20545</a></th><td>영수증 리뷰 답글 등록⋅수정⋅삭제 방법</td><td><a href="/local/4-reviews.html">리뷰 답글</a></td></tr>
 </tbody></table>
 <h2>주인 권한</h2>
@@ -1096,8 +1096,8 @@
 <tr><th><a href="https://help.naver.com/service/30026/contents/20512" rel="noopener">20512</a></th><td>새로 오픈했어요 노출 방법</td><td><a href="/guide/rank-drop.html">순위 떨어짐</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/20519" rel="noopener">20519</a></th><td>지역소상공인 광고 노출소재 설정 안내</td><td><a href="/guide/ads.html">광고비</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/20536" rel="noopener">20536</a></th><td>[업주] 배달의민족 주문 버튼이 노출되지 않는 경우</td><td><a href="/local/2-place.html">플레이스 등록</a></td></tr>
-<tr><th><a href="https://help.naver.com/service/30026/contents/20540" rel="noopener">20540</a></th><td>[업주] 배달의민족 메뉴 노출 방법</td><td></td></tr>
-<tr><th><a href="https://help.naver.com/service/30026/contents/20541" rel="noopener">20541</a></th><td>[업주] 플레이스 메뉴 정보가 다르게 노출되는 경우</td><td></td></tr>
+<tr><th><a href="https://help.naver.com/service/30026/contents/20540" rel="noopener">20540</a></th><td>[업주] 배달의민족 메뉴 노출 방법</td><td><a href="/local/2-place.html">플레이스 등록 막히면</a></td></tr>
+<tr><th><a href="https://help.naver.com/service/30026/contents/20541" rel="noopener">20541</a></th><td>[업주] 플레이스 메뉴 정보가 다르게 노출되는 경우</td><td><a href="/local/2-place.html">플레이스 등록 막히면</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/21425" rel="noopener">21425</a></th><td>지도위 마커(사진/핀/점) 노출 안내</td><td><a href="/guide/place-photos.html">사진 규칙</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/23472" rel="noopener">23472</a></th><td>플레이스 업체 검색 순위 알고리즘 안내</td><td><a href="/guide/rank-drop.html">순위 떨어짐</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/23473" rel="noopener">23473</a></th><td>플레이스 업체 검색 순위를 높이는 방법 안내</td><td><a href="/guide/rank-drop.html">순위 떨어짐</a></td></tr>
@@ -1137,8 +1137,8 @@
 <table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody>
 <tr><th><a href="https://help.naver.com/service/30026/contents/20534" rel="noopener">20534</a></th><td>[주문자] 배달의민족 주문 취소/변경 방법</td><td></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/20535" rel="noopener">20535</a></th><td>[주문자] 간편주문 Npay 포인트 적립일 안내</td><td></td></tr>
-<tr><th><a href="https://help.naver.com/service/30026/contents/20539" rel="noopener">20539</a></th><td>[업주] 배달의민족 '배달 권역 정보' 반영 시간 안내</td><td></td></tr>
-<tr><th><a href="https://help.naver.com/service/30026/contents/20544" rel="noopener">20544</a></th><td>[업주] 간편주문 운영 방법</td><td></td></tr>
+<tr><th><a href="https://help.naver.com/service/30026/contents/20539" rel="noopener">20539</a></th><td>[업주] 배달의민족 '배달 권역 정보' 반영 시간 안내</td><td><a href="/local/2-place.html">플레이스 등록 막히면</a></td></tr>
+<tr><th><a href="https://help.naver.com/service/30026/contents/20544" rel="noopener">20544</a></th><td>[업주] 간편주문 운영 방법</td><td><a href="/local/2-place.html">플레이스 등록 막히면</a></td></tr>
 <tr><th><a href="https://help.naver.com/service/30026/contents/24282" rel="noopener">24282</a></th><td>외국인 예약·주문받기 기능 안내</td><td><a href="/foreign/2-place.html">외국 손님 플레이스 2단계</a></td></tr>
 </tbody></table>
 <h2>앱·알림·제보·기타</h2>
