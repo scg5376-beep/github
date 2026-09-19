@@ -1210,7 +1210,7 @@ HOWTO_INDEX = [
         ("예약 노쇼·환불 기준", "/guide/reservation-noshow.html", "예약금·취소 수수료·Npay 매장결제, 네이버 규칙"),
         ("예약금 정산·수수료", "/guide/reservation-settlement.html", "언제 들어오나, Npay 수수료율 표, 완료 예약 환불"),
         ("스마트플레이스 도움말 색인", "/guide/smartplace-help-index.html", "도움말 132개 번호·제목을 주제별로. 화면에 뜬 말로 찾기"),
-        ("광고주센터 도움말 색인", "/guide/naver-ads-help-index.html", "파워링크·플레이스광고·결제·검토 질문 309개"),
+        ("광고주센터 도움말 색인", "/guide/naver-ads-help-index.html", "파워링크·플레이스광고·키워드·소재·결제·검토 질문 442개"),
     ]),
     ("sell", "판매", [
         ("스마트스토어·쿠팡 수수료", "/online/2-fees.html", "수수료 계산, 카테고리"),
