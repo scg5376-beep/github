@@ -56,6 +56,13 @@ def git_dates():
                     cur = line; continue
                 key = (ROOT.parent / line).resolve().as_posix()
                 _GIT_DATES.setdefault(key, cur)
+            # 아직 커밋 안 한 수정본은 오늘 날짜로. 커밋 전 로컬 빌드와 커밋 뒤 CI 빌드가 같은 값을 내도록 (B13, 2026-09-19)
+            import datetime
+            st = subprocess.run(["git", "status", "--porcelain", "--", "site/_src/pages"], capture_output=True, text=True, encoding="utf-8", cwd=str(ROOT.parent))
+            today = datetime.date.today().isoformat()
+            for line in st.stdout.splitlines():
+                if len(line) > 3:
+                    _GIT_DATES[(ROOT.parent / line[3:].strip().strip('"')).resolve().as_posix()] = today
         except Exception:
             pass
     return _GIT_DATES
