@@ -1,6 +1,6 @@
 # 스마트스토어 고객센터 FAQ 「네이버 가격비교 스토어 상품정보 검색품질(SEO)이란 무엇인가요?」
 - 출처: https://help.sell.smartstore.naver.com/faq/content.help?faqId=4814
-- 확인: 2026-09-19 (curl, ss_faq.py)
+- 확인: 2026-09-20 (curl, ss_faq.py)
 - 등급: A 공식 도움말
 
 ! 주의. 상품 등록/수정 시 [검색설정] 영역이 확인되지 않는다면 좌측 하단 '노출설정'메뉴에서 선택항목을 확인해 주세요.  

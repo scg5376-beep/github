@@ -1,6 +1,6 @@
 # 스마트스토어 고객센터 FAQ 「네이버 가격비교 상품정보 검색품질(SEO) 요소 중 '신뢰도'란 무엇인가요?」
 - 출처: https://help.sell.smartstore.naver.com/faq/content.help?faqId=4817
-- 확인: 2026-09-19 (curl, ss_faq.py)
+- 확인: 2026-09-20 (curl, ss_faq.py)
 - 등급: A 공식 도움말
 
 네이버 가격비교 페널티, 혜택, 상품명 SEO 등의 요소를 통해 해당 상품이 이용자에게 신뢰를 줄 수 있는지를 산출합니다.
