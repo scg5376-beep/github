@@ -892,3 +892,12 @@ main.home .tiles.hc a.tile span { display:block; font-size:.86rem; opacity:.9; m
 main.home .tiles.hc a.tile { flex-direction:column; align-items:flex-start; justify-content:flex-end; }
 
 @media (max-width:760px) { main.home .tiles.hc a.tile span { display:none; } main.home .tiles.hc a.tile:last-child { grid-column:1 / -1; min-height:72px; } }
+
+/* 코스 갈래 페이지 「이어지는 설명 글」 (자가피드백 2, 2026-09-20): 채널별 한 줄, 글 이름은 · 로 */
+ul.related-guides { list-style:none; padding:0; margin:8px 0 24px; }
+ul.related-guides li { display:grid; grid-template-columns:150px 1fr; gap:6px 14px; padding:9px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+ul.related-guides li b { color:var(--ink-soft); font-size:.86rem; font-weight:600; }
+ul.related-guides li span { line-height:1.9; }
+ul.related-guides li a { text-decoration:none; font-weight:600; white-space:nowrap; }
+@media (max-width:760px) { ul.related-guides li { grid-template-columns:1fr; gap:2px; } }
+

@@ -328,6 +328,20 @@ def course_html(pages, lang, top):
     return '<ol class="course roadmap">' + "".join(out) + "</ol>"
 
 
+def related_guides_html(pages, top):
+    """코스 갈래 페이지 아래 「이 코스와 이어지는 설명 글」 (자가피드백 2, 2026-09-20: 첫 화면 타일이 코스로 오는데 설명 글로 가는 길이 없었다). GUIDE_TO_HOWTO 를 거꾸로 읽는다."""
+    by = {p["url"]: p for p in pages}
+    steps = {posts(pages, "ko", f"{top}/{sub}")[0]["url"] for sub in subs("ko", top) if posts(pages, "ko", f"{top}/{sub}")}
+    items = [g for g, hs in GUIDE_TO_HOWTO.items() if g in by and any(h in steps for h in hs)]
+    if not items:
+        return ""
+    groups = {}
+    for g in items:
+        groups.setdefault(cat_label(by[g]["cat"]), []).append(g)
+    rows = "".join(f'<li><b>{esc(c)}</b><span>' + " · ".join(f'<a href="{g}">{esc(by[g].get("nav") or by[g]["title"])}</a>' for g in gs) + "</span></li>" for c, gs in groups.items())
+    return f'<h2>이 코스와 이어지는 설명 글</h2><ul class="related-guides">{rows}</ul>'
+
+
 def step_cost(sub):
     """단계의 비용 표시: 돈이 드는 단계(파워링크·광고), 법 확인 단계, 나머지는 무료."""
     if sub in ("파워링크", "광고"):
@@ -491,7 +505,7 @@ def platform_pages(pages):
             if top in TRACKS:
                 info = TRACK_INFO[top]
                 body = (f'<p class="kicker">따라하기</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(info["lead"])}</p>\n<p class="lead">{esc(info["who"])}. 단계마다 글 하나예요. 순서대로 하시면 돼요.</p>\n'
-                        f'<!--course:{top}-->\n<p class="small">내 업종이 여기 없으면 <a href="/start/">공통 순서</a>를 그대로 쓰시면 돼요.</p>\n')
+                        f'<!--course:{top}-->\n<p class="small">내 업종이 여기 없으면 <a href="/start/">공통 순서</a>를 그대로 쓰시면 돼요.</p>\n<!--related:{top}-->\n')
             else:
                 head = "Boards" if lang == "en" else "게시판"
                 body = (f'<p class="kicker">{esc(head)}</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(PLAT_INTRO[lang].get(top, ""))}</p>\n'
@@ -1432,6 +1446,7 @@ def fill_boards(page, pages):
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
     body = body.replace("<!--tiles-->", tiles_html(pages, page["lang"]))
     body = re.sub(r"<!--course:([^>]+)-->", lambda m: course_html(pages, page["lang"], m.group(1).strip()), body)
+    body = re.sub(r"<!--related:([^>]+)-->", lambda m: related_guides_html(pages, m.group(1).strip()), body)
     body = re.sub(r"<!--kinds:([^>]+)-->", lambda m: kinds_html(m.group(1).strip()), body)
     body = re.sub(r"<!--order:([^>]+)-->", lambda m: order_html(pages, m.group(1).strip()), body)
     body = body.replace("<!--tracks-->", track_sections(pages, page["lang"]))
