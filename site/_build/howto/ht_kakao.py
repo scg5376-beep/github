@@ -25,9 +25,10 @@ body = page("kakao", 1, "채널 만들기",
         ("서류가 반려됐어요", "해상도가 낮거나 이미지가 잘리면 반려될 수 있어요. 서류의 사업자등록번호가 입력한 번호와 같은지도 확인하세요."),
         ("친구가 안 늘어요", "카카오 가이드는 친구 추가 때 사은품이나 혜택을 걸면 망설임이 줄고 쿠폰을 받으려는 손님이 단골이 된다고 적어 뒀어요. 카카오톡 채널은 인스타그램과 달리 친구 추가에 혜택을 거는 걸 플랫폼이 권해요. 가게에 QR 포스터, 문자와 홈페이지에 채널 URL, 이 둘을 먼저 하고 소식을 매주 올리세요."),
         ("예전에 만든 채널이 있는데 권한이 없어요", "같은 사업자등록번호로 운영 중인 채널 목록에서 「권한 요청」을 현재 마스터에게 보내세요."),
+        ("친구를 광고로 늘릴 수 있나요", "2026년 7월에 나온 쉬운광고 「우리채널 알리기」가 그거예요. 카카오톡 채팅탭·친구탭 같은 자리에 광고가 나가고 노출·클릭에는 돈이 안 들며 친구가 추가될 때만 과금돼요. 친구 1명당 단가는 500원에서 1만 원 사이에서 사장님이 정하고 업종별 추천 단가로 자동 설정할 수도 있어요. 추가한 손님에게는 카카오가 쇼핑포인트 100원을 주고(채널당 1회, 하루 5건) 사장님이 채널 쿠폰을 얹을 수도 있어요. 대행사 없이 채널 관리자나 매니저가 직접 켜요. 친구 수는 마케팅 메시지 비용의 기준이 되니 <a href=\"/kakao/2-message.html\">2단계</a>의 건당 요금을 같이 보세요."),
     ],
     why='<a href="/guide/kakao-channel.html">카카오톡 채널, 무료인 것과 돈 드는 것</a>',
     nxt='  <a href="/kakao/2-message.html">다음. 소식과 메시지</a>\n  <a href="/guide/numbers.html">설명. 손님은 지금 어디서 찾나</a>',
-    sources=[A(K, "카카오비즈니스 가이드 「채널 만들기」", "2026-09-17"), A("https://kakaobusiness.gitbook.io/main/partner/smb/channel/friend", "「카카오톡 채널 친구 모으기」(URL 활용·1:1 채팅 인증·온/오프라인 홍보 도구)", "2026-09-18"), A("https://kakaobusiness.gitbook.io/main/partner/smb/channel/step1/channel_start", "「카카오톡 채널 생성」", "2026-09-17")],
+    sources=[A(K, "카카오비즈니스 가이드 「채널 만들기」", "2026-09-17"), A("https://kakaobusiness.gitbook.io/main/ad/ezad/mychannelad", "「쉬운 광고 › 우리채널 알리기」", "2026-09-20"), A("https://kakaobusiness.gitbook.io/main/ad/ezad/mychannelad/benefit", "「우리채널 알리기 › 사용자 혜택」", "2026-09-20"), A("https://kakaobusiness.gitbook.io/main/partner/smb/channel/friend", "「카카오톡 채널 친구 모으기」(URL 활용·1:1 채팅 인증·온/오프라인 홍보 도구)", "2026-09-18"), A("https://kakaobusiness.gitbook.io/main/partner/smb/channel/step1/channel_start", "「카카오톡 채널 생성」", "2026-09-17")],
     order=1, date="2026-09-17", cat_sub="채널")
 save("kakao", "1-channel.html", body)
