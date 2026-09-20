@@ -92,6 +92,7 @@ def check_tone(rel, prose_html, stats=True):
     body = re.sub(r"<div class=\"next\">.*?</div>", " ", body, flags=re.S)
     body = re.sub(r"<div class=\"do\">.*?</div>", " ", body, flags=re.S)                    # 설명→방법 문은 단추라 문장이 아니다
     body = re.sub(r"<details\b.*?</details>", " ", body, flags=re.S)                     # 접힌 이유 상자는 통계에서 뺀다(설명 글의 요약)   # 다음 글 링크·제목·내비는 문장 통계에서 뺀다
+    body = re.sub(r"<aside class=\"keys\".*?</aside>|<section class=\"terms-in\">.*?</section>", " ", body, flags=re.S)             # 핵심 정리 상자(R1)·이 글의 용어(R5)는 자동 생성 요약이라 통계에서 뺀다
     body = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", " ", body, flags=re.S)          # 등급 표시(A · 공식 문서)는 문장이 아니다
     body = re.sub(r"<(ol|ul) class=\"(legend|check)\">.*?</>", " ", body, flags=re.S)    # 그림 범례·점검표는 조각이어도 된다
     paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|cite|ex)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
@@ -116,6 +117,14 @@ def check_tone(rel, prose_html, stats=True):
                 m = re.search(pat, plain); ctx = plain[max(0, m.start()-14): m.end()+14]
                 err(rel, group.split()[0], f"{group}: '{hits[0] if isinstance(hits[0], str) else pat}' {len(hits)}회 … {ctx}")
     sents = [s for para in paras_stat for s in sentences_ko(para)]
+    # ── G 규칙 (GOV.UK 글쓰기 규칙의 한국어판, 2026-09-21 레퍼런스 종합 R7): 문단 5문장 이내, 긴 문장은 쪼갠다 ──
+    for para in paras_stat:
+        ps = sentences_ko(para)
+        if len(ps) >= 6:
+            warn(rel, "G1", f"한 문단에 {len(ps)}문장 (5문장 이내로 나눈다): {para[:30]}…")
+    for s_ in sents:
+        if len(s_) >= 80:
+            warn(rel, "G2", f"문장 {len(s_)}자 (80자 넘으면 쪼갠다): {s_[:36]}…")
     if len(sents) < 8 or not stats:
         return
     n = len(sents)

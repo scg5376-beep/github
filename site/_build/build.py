@@ -1455,6 +1455,96 @@ def setup_pos(url):
     return None
 
 
+# ── 레퍼런스 종합 1단계 (2026-09-21, docs/발전/레퍼런스/종합-2026-09-21.md R1·R4·R5·R6) ──
+def keys_box(body):
+    """R1 「핵심 정리」 상자 (Investopedia Key Takeaways): 「한 줄 답부터」 문단(p.lead.answer)들을 목록 상자 하나로 묶는다."""
+    ms = list(re.finditer(r'<p class="lead answer">(.*?)</p>\s*', body, re.S))
+    if not ms:
+        return body
+    items = []
+    for m in ms:
+        t = re.sub(r"^한 줄 답부터\.\s*", "", m.group(1).strip())
+        items.append(f"<li>{t}</li>")
+    box = '<aside class="keys" aria-label="핵심 정리"><span class="keys-head">핵심 정리</span><ul>' + "".join(items) + "</ul></aside>\n"
+    return body[:ms[0].start()] + box + body[ms[-1].end():]
+
+
+def faq_ld(page):
+    """R4 FAQPage JSON-LD: 「막히면」 절의 dt/dd 쌍(3개 이상일 때만, 12개까지)."""
+    if page["lang"] != "ko" or page.get("noindex") or page.get("plat"):
+        return ""
+    m = re.search(r"<h2[^>]*>막히면</h2>(.*?)(?=<h2|<footer class=\"sources\">|$)", page["body"], re.S)
+    if not m:
+        return ""
+    qa = [(strip_tags(q).strip(), strip_tags(a).strip()) for q, a in re.findall(r"<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>", m.group(1), re.S)]
+    qa = [(q, a) for q, a in qa if q and a][:12]
+    if len(qa) < 3:
+        return ""
+    data = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in qa]}
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
+
+
+TERMS_INDEX = None
+
+def terms_index(pages):
+    """/terms/<kind>/ 의 dt·dd 를 모은다: [(용어, 정의 첫 문장, 주소)]. 긴 용어부터."""
+    global TERMS_INDEX
+    if TERMS_INDEX is not None:
+        return TERMS_INDEX
+    out = []
+    for p in pages:
+        if not re.fullmatch(r"/terms/[a-z]+/", p["url"]):
+            continue
+        for dt, dd in re.findall(r"<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>", p["body"], re.S):
+            name = strip_tags(dt).strip()
+            base = re.sub(r"\s*\(.*?\)\s*$", "", name)                       # 「환불 기준 (네이버 예약)」 → 「환불 기준」 으로 찾는다
+            d = strip_tags(re.sub(r"<a\b.*?</a>", "", dd, flags=re.S)).strip()
+            first = re.split(r"(?<=[.!?])\s", d)[0]
+            tid = re.sub(r"\s*·\s*", "-", name).replace(" ", "-")
+            if len(base) >= 2:
+                out.append((base, name, first, f'{p["url"]}#{tid}'))
+    out.sort(key=lambda x: -len(x[0]))
+    TERMS_INDEX = out
+    return out
+
+
+def terms_in_html(page, pages):
+    """R5 「이 글의 용어」 (Investopedia Related Terms): 본문에 나온 용어 3~5개를 한 줄 정의와 함께. 다른 페이지(용어 페이지의 그 자리)로 간다."""
+    if page["lang"] != "ko" or page["url"].startswith("/terms/") or page.get("plat") or page.get("noindex") or page.get("setup"):
+        return ""
+    if page.get("section") not in ("guide",) and page.get("kind") != "howto":
+        return ""
+    text = strip_tags(re.sub(r"<(aside|nav|footer|blockquote|figure)\b.*?</\1>", " ", page["body"], flags=re.S))
+    found, seen = [], set()
+    for base, name, first, url in terms_index(pages):
+        if base in seen or base in page["title"]:
+            continue
+        if re.search(r"(?<![가-힣])" + re.escape(base) + r"(?![가-힣])", text):
+            seen.add(base)
+            found.append((name, first, url))
+        if len(found) >= 5:
+            break
+    if len(found) < 2:
+        return ""
+    lis = "".join(f'<li><a href="{u}">{esc(n)}</a><span>{esc(f)}</span></li>' for n, f, u in found)
+    return f'<section class="terms-in"><span class="rail-head">이 글의 용어</span><ul>{lis}</ul></section>'
+
+
+def step_subs(p):
+    """R6 (GOV.UK step-by-step): 세팅 단계 아래 「이 단계에서 할 일」 — 그 글의 h2 앞 3개."""
+    if p.get("kind") == "howto":                                                   # 따라 하기 글은 h2 가 「따라 하기·확인·막히면」뿐이라 절차 첫 3개를 쓴다
+        m = re.search(r'<ol class="steps">(.*?)</ol>', p["body"], re.S)
+        hs = [strip_tags(b).strip().rstrip(".") for b in re.findall(r"<li>\s*<b>(.*?)</b>", m.group(1), re.S)][:3] if m else []
+        hs = [h[:38] + "…" if len(h) > 40 else h for h in hs]
+    else:
+        hs = [re.sub(r"^\d+\.\s*", "", strip_tags(h).strip()) for h in re.findall(r"<h2[^>]*>(.*?)</h2>", p["body"], re.S)]
+        hs = [h for h in hs if h not in ("막히면", "정리", "근거", "다음", "이 글에서") and not h.startswith("자주 ")][:3]
+    if not hs:
+        return ""
+    return '<ul class="sub">' + "".join(f"<li>{esc(h)}</li>" for h in hs) + "</ul>"
+
+
 def setup_steps_html(pages, urls):
     by = {p["url"]: p for p in pages}
     lis = []
@@ -1463,8 +1553,8 @@ def setup_steps_html(pages, urls):
         if not p:
             continue
         cost = step_cost(split_cat(p["cat"])[1]) if p.get("kind") == "howto" else ("free", "설명")
-        lis.append(f'<li class="{cost[0]}"><a href="{u}"><b>{esc(p.get("nav") or p["title"])}</b><span class="time"><span class="badge">{cost[1]}</span>{read_minutes(p)}분</span></a></li>')
-    return '<ol class="course roadmap">' + "".join(lis) + "</ol>"
+        lis.append(f'<li class="{cost[0]}"><a href="{u}"><b>{esc(p.get("nav") or p["title"])}</b><span class="time"><span class="badge">{cost[1]}</span>{read_minutes(p)}분</span></a>{step_subs(p)}</li>')
+    return '<ol class="course roadmap setup-steps">' + "".join(lis) + "</ol>"
 
 
 def setup_pages(pages):
@@ -1644,6 +1734,7 @@ def render(page, pages, verify):
     lang = page["lang"]
     page = fill_boards(page, pages)
     page = add_toc(lift_todo(dict(page, body=meta_line(page))))
+    page = dict(page, body=keys_box(page["body"]))                                   # R1 핵심 정리 상자
     page = place_ads(page)
     if lang == "ko" and page_area(page) in ("guide", "why") and page.get("cat") and "order" in page:                # 설명 글 → 방법 글 문
         box = do_box(page, pages)
@@ -1656,7 +1747,7 @@ def render(page, pages, verify):
             page = dict(page, body=bd)
     if lang == "ko" and page.get("cat") and "order" in page and not page.get("plat") and not page.get("course"):   # 강조 장치 (D44)
         page = dict(page, body=emphasis.apply(page["body"], "howto" if page.get("kind") == "howto" else "guide", page["url"]))
-    ab = prev_next(page, pages) + author_block(page)
+    ab = terms_in_html(page, pages) + prev_next(page, pages) + author_block(page)   # R5 이 글의 용어
     if ab and '<footer class="sources">' in page["body"]:
         i = page["body"].index('<footer class="sources">')
         page = dict(page, body=page["body"][:i] + ab + page["body"][i:])
@@ -1676,7 +1767,7 @@ def render(page, pages, verify):
 <html lang="{lang}">
 <head>
 {head_html(page, verify)}
-{breadcrumb_ld(page)}
+{breadcrumb_ld(page)}{faq_ld(page)}
 </head>
 <body class="{plat_class(page.get('cat') or page.get('plat'))}" id="top">
 <a class="skip" href="#main">{'Skip to content' if lang == 'en' else '본문 바로가기'}</a>

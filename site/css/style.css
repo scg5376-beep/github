@@ -349,10 +349,10 @@ ol.today .time { position:absolute; right:0; top:15px; color:var(--ink-soft); fo
 
 /* 코스 로드맵: 연결선 + 비용 표시 + 여기부터 */
 ol.course.roadmap { position:relative; }
-ol.course.roadmap li { padding-left:64px; }
-ol.course.roadmap li::before { left:4px; }
-ol.course.roadmap li::after { content:""; position:absolute; left:23px; top:46px; bottom:-10px; border-left:1px dashed var(--line); }
-ol.course.roadmap li:last-child::after { display:none; }
+ol.course.roadmap > li { padding-left:64px; }
+ol.course.roadmap > li::before { left:4px; }
+ol.course.roadmap > li::after { content:""; position:absolute; left:23px; top:46px; bottom:-10px; border-left:1px dashed var(--line); }
+ol.course.roadmap > li:last-child::after { display:none; }
 ol.course.roadmap .here { display:inline-block; margin:0 8px 0 0; vertical-align:2px; padding:1px 7px; background:var(--accent); color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.06em; }
 ol.course .badge, ol.course-mini .badge { display:inline-block; margin-right:8px; padding:0 6px; border:1px solid var(--line); border-radius:2px; color:var(--ink-soft); font-size:.7rem; font-weight:700; vertical-align:middle; }
 ol.course li.paid .badge, ol.course-mini li .badge.paid { border-color:#c98a1a; color:#8a5a00; background:#fff7e6; }
@@ -406,8 +406,8 @@ nav.prevnext a.next { background:var(--pt); border-color:var(--pa); }
   aside.hs p { margin-bottom:0; }
 }
 @media (max-width:560px) {
-  ol.course.roadmap li { padding-left:54px; }
-  ol.course.roadmap li::after { left:16px; }
+  ol.course.roadmap > li { padding-left:54px; }
+  ol.course.roadmap > li::after { left:16px; }
 }
 @media (max-width:600px) {
   /* 좁은 화면에서 그림 글자가 너무 작아지지 않게: 그림은 최소 폭을 지키고 옆으로 넘겨 본다 */
@@ -988,3 +988,20 @@ ul.hub-setups li a b { display:block; }
 ul.hub-setups li a .k { display:block; color:var(--ink-soft); font-size:.82rem; }
 
 @media (min-width:901px){ main.home section.featured .side.setups ul.setup-groups { columns:2; column-gap:28px; } main.home section.featured .side.setups li.grp { break-inside:avoid; padding-top:4px; } main.home section.featured .side.setups li.grp ul li a b { font-size:.95rem; } main.home section.featured .side.setups li.grp ul li a .m { font-size:.75rem; } }
+
+/* 레퍼런스 종합 1단계 (2026-09-21): 핵심 정리 상자(R1) · 이 글의 용어(R5) · 세팅 단계 하위 목록(R6) */
+aside.keys { margin:6px 0 22px; padding:16px 20px 14px; border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; background:var(--paper-2); }
+aside.keys .keys-head { display:block; font-weight:800; font-size:.86rem; letter-spacing:.02em; color:var(--accent); margin-bottom:6px; }
+aside.keys ul { margin:0; padding-left:20px; }
+aside.keys li { margin:6px 0; font-size:1.04rem; line-height:1.7; }
+section.terms-in { margin:36px 0 8px; padding:16px 18px 12px; border:1px solid var(--line); border-radius:12px; background:var(--card, #fff); }
+section.terms-in .rail-head { display:block; font-weight:800; margin-bottom:6px; }
+section.terms-in ul { list-style:none; margin:0; padding:0; }
+section.terms-in li { padding:8px 0; border-top:1px solid var(--line); font-size:.95rem; line-height:1.6; }
+section.terms-in li a { font-weight:700; text-decoration:none; margin-right:8px; }
+section.terms-in li span { color:var(--ink-soft); }
+ol.setup-steps ul.sub { list-style:none; margin:4px 0 0; padding:0 0 0 2px; font-size:.88rem; color:var(--ink-soft); }
+ol.setup-steps ul.sub li { padding:2px 0 2px 14px; position:relative; counter-increment:none; border:0; margin:0; background:none; }
+ol.setup-steps ul.sub li::after { display:none; }
+ol.setup-steps ul.sub li::before { content:"·"; position:absolute; left:2px; top:2px; font-size:1rem; line-height:inherit; font-weight:800; letter-spacing:0; color:var(--accent); }
+
