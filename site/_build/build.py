@@ -1461,10 +1461,9 @@ def keys_box(body):
     ms = list(re.finditer(r'<p class="lead answer">(.*?)</p>\s*', body, re.S))
     if not ms:
         return body
-    items = []
-    for m in ms:
-        t = re.sub(r"^한 줄 답부터\.\s*", "", m.group(1).strip())
-        items.append(f"<li>{t}</li>")
+    paras = [re.sub(r"^한 줄 답부터\.\s*", "", m.group(1).strip()) for m in ms]
+    sents = [x.strip() for t in paras for x in re.split(r"(?<=[.?!])\s+(?=[^<])", t) if x.strip()]   # 문장마다 한 줄 (Key Takeaways 는 짧은 줄 여러 개). 태그 안에서는 안 가른다
+    items = [f"<li>{t}</li>" for t in (sents if 2 <= len(sents) <= 6 else paras)]
     box = '<aside class="keys" aria-label="핵심 정리"><span class="keys-head">핵심 정리</span><ul>' + "".join(items) + "</ul></aside>\n"
     return body[:ms[0].start()] + box + body[ms[-1].end():]
 

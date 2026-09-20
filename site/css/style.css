@@ -1004,4 +1004,3 @@ ol.setup-steps ul.sub { list-style:none; margin:4px 0 0; padding:0 0 0 2px; font
 ol.setup-steps ul.sub li { padding:2px 0 2px 14px; position:relative; counter-increment:none; border:0; margin:0; background:none; }
 ol.setup-steps ul.sub li::after { display:none; }
 ol.setup-steps ul.sub li::before { content:"·"; position:absolute; left:2px; top:2px; font-size:1rem; line-height:inherit; font-weight:800; letter-spacing:0; color:var(--accent); }
-
