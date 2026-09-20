@@ -200,7 +200,7 @@
   </url>
   <url>
     <loc>https://sajangmarketing.com/guide/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/guide/industry-ad-rules.html</loc>
@@ -529,8 +529,32 @@
     <lastmod>2026-09-20</lastmod>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/terms/google/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/terms/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/terms/instagram/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/terms/kakao/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/terms/naver/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/terms/record/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/terms/sell/</loc>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/updates/</loc>
@@ -575,22 +599,98 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/naver/"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/p/naver/search/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/naver/place/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/naver/booking/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/naver/blog/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/naver/cafe/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/naver/powerlink/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/naver/reviews/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/p/google/</loc>
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/google/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/google/"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/p/google/search/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/google/blogger/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/google/tistory/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/google/domain/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/p/instagram/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/instagram/account/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/instagram/reels/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/instagram/threads/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/instagram/ads/</loc>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/p/youtube/</loc>
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/p/youtube/channel/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/youtube/shorts/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/p/ai/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/ai/answers/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/ai/terms/</loc>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/p/sell/</loc>
@@ -599,20 +699,64 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/sell/"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/p/sell/law/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/sell/smartstore/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/sell/coupang/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/sell/own-site/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/sell/delivery/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/p/kakao/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/kakao/channel/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/kakao/message/</loc>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/p/daangn/</loc>
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/p/daangn/profile/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/p/daangn/ads/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/p/record/</loc>
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/p/record/record/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/en/p/start/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/p/start/law/</loc>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://sajangmarketing.com/en/p/naver/</loc>
@@ -621,15 +765,35 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/naver/"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/en/p/naver/search/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/p/naver/place/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/p/naver/ads/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/en/p/google/</loc>
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/google/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/google/"/>
   </url>
   <url>
+    <loc>https://sajangmarketing.com/en/p/google/domain/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
     <loc>https://sajangmarketing.com/en/p/sell/</loc>
     <lastmod>2026-09-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/p/sell/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/p/sell/"/>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/en/p/sell/smartstore/</loc>
+    <lastmod>2026-09-20</lastmod>
   </url>
 </urlset>

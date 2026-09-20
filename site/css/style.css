@@ -904,3 +904,37 @@ ul.related-guides li a { text-decoration:none; font-weight:600; white-space:nowr
 
 /* 목차 두 칸 (자가피드백 3, 2026-09-20: 항목이 8개를 넘는 설명 글에서 목차가 화면 한 장을 먹었다. Healthline 은 목차를 짧게 둔다) */
 @media (min-width:761px) { nav.intoc ol:has(li:nth-child(7)) { columns:2; column-gap:28px; } nav.intoc ol:has(li:nth-child(7)) li { break-inside:avoid; } }
+
+/* 허브 카드 (D83, 2026-09-20: 개념·용어 첫 화면은 앵커 대신 플랫폼·채널 페이지로) */
+.hub { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:18px 0 28px; }
+.hub-item { background:var(--card, #fff); border:1px solid var(--line); border-radius:14px; padding:14px 16px 12px; }
+.hub-card { display:block; text-decoration:none; color:inherit; }
+.hub-card b { display:block; font-size:1.15rem; color:var(--pa, var(--accent)); }
+.hub-card .k { display:block; color:var(--ink-soft); font-size:.82rem; margin-top:2px; }
+.hub-chans { margin:8px 0 0; line-height:1.9; font-size:.9rem; }
+.hub-chans a { display:inline-block; text-decoration:none; background:var(--paper-2); border-radius:999px; padding:1px 10px; margin:0 4px 4px 0; color:var(--ink); white-space:nowrap; }
+@media (max-width:760px) { .hub { grid-template-columns:1fr; } }
+
+/* 주제 타일 그림 (운영자 2026-09-20 "이미지 같은 거 넣어가면서": 플랫폼 아이콘을 흰색 마스크로) */
+main.home .tiles.hc a.tile { position:relative; }
+main.home .tiles.hc a.tile::before { content:""; position:absolute; top:14px; right:14px; width:44px; height:44px; background:#fff; opacity:.85;
+  -webkit-mask:var(--ic) center / contain no-repeat; mask:var(--ic) center / contain no-repeat; }
+main.home .tiles.hc a.tile.plat-local { --ic:url(/img/icons/local.svg); }
+main.home .tiles.hc a.tile.plat-naver { --ic:url(/img/icons/naver.svg); }
+main.home .tiles.hc a.tile.plat-online { --ic:url(/img/icons/online.svg); }
+main.home .tiles.hc a.tile.plat-service { --ic:url(/img/icons/service.svg); }
+main.home .tiles.hc a.tile.plat-foreign { --ic:url(/img/icons/foreign.svg); }
+main.home .tiles.hc a.tile.plat-kakao { --ic:url(/img/icons/kakao.svg); }
+main.home .tiles.hc a.tile.plat-youtube { --ic:url(/img/icons/youtube.svg); }
+main.home .tiles.hc a.tile.plat-record { --ic:url(/img/icons/record.svg); }
+main.home .tiles.hc a.tile.plat-sell { --ic:url(/img/icons/sell.svg); }
+main.home .tiles.hc a.tile.plat-google { --ic:url(/img/icons/google.svg); }
+/* 허브 카드에도 작은 아이콘 */
+.hub-item { position:relative; }
+.hub-item::before { content:""; position:absolute; top:14px; right:14px; width:34px; height:34px; opacity:.9; background:var(--pa, var(--accent));
+  -webkit-mask:var(--ic, none) center / contain no-repeat; mask:var(--ic, none) center / contain no-repeat; }
+.hub-item:has(.plat-local) { --ic:url(/img/icons/local.svg); } .hub-item:has(.plat-naver) { --ic:url(/img/icons/naver.svg); } .hub-item:has(.plat-online) { --ic:url(/img/icons/online.svg); }
+.hub-item:has(.plat-service) { --ic:url(/img/icons/service.svg); } .hub-item:has(.plat-foreign) { --ic:url(/img/icons/foreign.svg); } .hub-item:has(.plat-kakao) { --ic:url(/img/icons/kakao.svg); }
+.hub-item:has(.plat-youtube) { --ic:url(/img/icons/youtube.svg); } .hub-item:has(.plat-record) { --ic:url(/img/icons/record.svg); } .hub-item:has(.plat-sell) { --ic:url(/img/icons/sell.svg); }
+.hub-item:has(.plat-google) { --ic:url(/img/icons/google.svg); } .hub-item:has(.plat-instagram) { --ic:url(/img/icons/instagram.svg); } .hub-item:has(.plat-ai) { --ic:url(/img/icons/ai.svg); } .hub-item:has(.plat-daangn) { --ic:url(/img/icons/daangn.svg); }
+

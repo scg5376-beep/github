@@ -519,6 +519,17 @@ def platform_pages(pages):
             if alt:
                 meta["alt"] = alt
             out.append(meta)
+            if top in TRACKS:
+                continue
+            kinds = dict(PLAT_KINDS.get(top, []))
+            for sub in chans:                                                   # 채널 페이지 (D83)
+                line = kinds.get(sub) or (f"Posts about {sub} on {top}." if lang == "en" else f"{top}의 {sub}에 관한 설명 글을 모았어요.")
+                curl = url + CHAN_SLUG.get(sub, cat_id(lang, top, sub)) + "/"
+                cbody = (f'<p class="kicker">{esc(top)}</p>\n<h1>{esc(sub)}</h1>\n<p class="lead">{esc(line)}</p>\n<!--chan:{top}/{sub}-->\n'
+                         f'<p class="small"><a href="{url}">{esc(top)} 전체 보기</a></p>\n')
+                out.append({"title": f"{top} · {sub}" if lang == "en" else f"{top} {sub} 글 모음", "description": line, "lang": lang,
+                            "section": "guide" if lang == "ko" else "en", "nav": sub, "date": "2026-09-20", "updated": "2026-09-20",
+                            "plat": top, "chan": sub, "rel": curl.strip("/") + "/index.html", "url": curl, "body": cbody})
     return out
 
 
@@ -836,7 +847,7 @@ def add_toc(page):
     if page.get("kind") == "howto":                                              # 따라 하기 글은 목차 없이 바로 절차
         return page
     body = page["body"]
-    if page["url"] == "/terms/":
+    if page["url"].startswith("/terms/"):
         body = term_ids(body)
     heads = []
     def rep(m):
@@ -872,7 +883,7 @@ def term_ids(body):
         groups.append((re.sub(r"<[^>]+>", "", m.group(1)).strip(), []))
         return m.group(0)
     body = re.sub(r"<h2 [^>]*>(.*?)</h2>|<dt>(.*?)</dt>", lambda m: h2rep(m) if m.group(1) is not None else rep(type("M", (), {"group": lambda self, i: m.group(2)})()), body, flags=re.S)
-    if groups:
+    if False and groups:                                                        # 점프 칩은 뺐다(운영자 2026-09-20: 눌러서 밑으로 내려가는 것 지양, D83). id 는 남긴다
         parts = []
         for name, names in groups:
             if not names:
@@ -1007,9 +1018,25 @@ def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True):
     return '<ol class="board">' + "".join(rows) + "</ol>"
 
 
+# 채널 페이지 주소 (운영자 2026-09-20 "클릭했을 때 밑으로 내려가는 것을 지양" → 채널마다 페이지 하나, # 앵커 없음. D83)
+CHAN_SLUG = {"검색 화면": "search", "플레이스": "place", "예약": "booking", "블로그": "blog", "카페": "cafe", "파워링크": "powerlink", "리뷰": "reviews",
+             "검색": "search", "블로거": "blogger", "티스토리": "tistory", "도메인": "domain", "계정": "account", "릴스": "reels", "스레드": "threads", "광고": "ads",
+             "채널": "channel", "쇼츠": "shorts", "AI 답변": "answers", "용어": "terms", "관련법": "law", "스마트스토어": "smartstore", "쿠팡": "coupang", "자사몰": "own-site",
+             "배달앱": "delivery", "소식과 메시지": "message", "비즈프로필": "profile", "12주 기록": "record",
+             "Law": "law", "Search": "search", "Place": "place", "Ads": "ads", "Domain": "domain", "Smart Store": "smartstore"}
+
+
 def plat_url(lang, top, sub=None):
     u = f"/en/p/{PLAT_SLUG[top]}/" if lang == "en" else f"/p/{PLAT_SLUG[top]}/"
-    return u + (f"#{cat_id(lang, top, sub)}" if sub else "")
+    if not sub:
+        return u
+    if top in TRACKS:                                                          # 코스는 단계 글로 (채널 페이지 없음)
+        ps = posts(PAGES_ALL, lang, f"{top}/{sub}") if PAGES_ALL else []
+        return ps[0]["url"] if ps else u
+    return u + CHAN_SLUG.get(sub, cat_id(lang, top, sub)) + "/"
+
+
+PAGES_ALL = []
 
 
 def boards_by_cat(pages, lang, only=None):
@@ -1031,13 +1058,25 @@ def boards_by_cat(pages, lang, only=None):
     return "".join(out)
 
 
+def guide_hub_html(pages, lang):
+    """/guide/ 첫 화면: 플랫폼 카드 → 플랫폼 페이지, 채널 이름 → 채널 페이지. # 앵커로 한 장을 오르내리지 않는다 (D83)."""
+    out = []
+    order = sorted(TAXO[lang], key=lambda tc: tc[0] in TRACKS)
+    for top, chans in order:
+        n = len(posts(pages, lang, top))
+        links = " ".join(f'<a href="{plat_url(lang, top, c)}">{esc(c)}</a>' for c in chans)
+        kind = ("코스 · 순서대로" if top in TRACKS else "설명 글") if lang == "ko" else ("Course" if top in TRACKS else "Posts")
+        out.append(f'<a class="hub-card {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span class="k">{kind} · {n}</span></a><p class="hub-chans">{links}</p>')
+    return '<div class="hub">' + "".join(f"<div class=\"hub-item\">{x}</div>" for x in out) + "</div>"
+
+
 def cat_box(page, pages):
     lang = page["lang"]
     base = "/en/" if lang == "en" else "/guide/"
     head = "Boards" if lang == "en" else "게시판"
     lis = []
-    cur_top = split_cat(page["cat"])[0] if page.get("cat") else None
-    cur_sub = split_cat(page["cat"])[1] if page.get("cat") else None
+    cur_top = split_cat(page["cat"])[0] if page.get("cat") else page.get("plat")      # 플랫폼·채널 페이지도 지금 플랫폼만 펼친다 (D83)
+    cur_sub = split_cat(page["cat"])[1] if page.get("cat") else page.get("chan")
     others = []
     on_course = bool(_course_pos(page))                                           # 코스 글: 위 카드가 이미 이 코스 단계를 다 보여 주므로 여기선 다른 곳만 (D75)
     if on_course:
@@ -1442,6 +1481,8 @@ def fill_boards(page, pages):
         body = body.replace("<!--profile-->", profile_html(page))
     body = re.sub(r"<!--boards:([^>]+)-->", lambda m: boards_by_cat(pages, page["lang"], only=m.group(1).strip()), body)
     body = body.replace("<!--boards-->", boards_by_cat(pages, page["lang"]))
+    body = re.sub(r"<!--chan:([^/>]+)/([^>]+)-->", lambda m: board(pages, page["lang"], f"{m.group(1).strip()}/{m.group(2).strip()}", show_cat=False) or '<p class="small">아직 글이 없어요.</p>', body)
+    body = body.replace("<!--hub-->", guide_hub_html(pages, page["lang"]))
     body = re.sub(r"<!--board:(\d+)-->", lambda m: board(pages, page["lang"], limit=int(m.group(1))), body)
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
     body = body.replace("<!--tiles-->", tiles_html(pages, page["lang"]))
@@ -1480,6 +1521,8 @@ def rail(page, pages):
     head = "Latest" if page["lang"] == "en" else "최근 글"
     latest = '<div class="rail-box"><span class="rail-head">' + head + '</span><ul>' + "".join(
         f'<li><a href="{p["url"]}">{esc(p.get("nav", p["title"]))}</a></li>' for p in pool[:6]) + "</ul></div>"
+    if page["url"] in ("/guide/", "/terms/") or page["url"].startswith("/terms/"):     # 허브·용어 페이지는 본문이 이미 목록이라 기둥에는 최근 글만 (D83)
+        return '<aside class="rail">' + latest + ad("rail", "광고") + "</aside>"
     return '<aside class="rail">' + course_rail(page, pages) + cat_box(page, pages) + ad("rail", "광고" if page["lang"] == "ko" else "Advertisement") + "</aside>"
 
 
@@ -1570,6 +1613,8 @@ def strip_tags(s):
 def build():
     verify = json.loads(VERIFY.read_text(encoding="utf-8")) if VERIFY.exists() else {}
     pages = read_pages()
+    global PAGES_ALL
+    PAGES_ALL = pages
     for p in pages:
         write(ROOT / p["rel"], render(p, pages, verify))
 
