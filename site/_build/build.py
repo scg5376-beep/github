@@ -260,15 +260,27 @@ def card_grid(pages, lang, items, brief=False):
     return '<div class="cards">' + "".join(out) + "</div>"
 
 
+def hero_answer(m):
+    """대표 글의 그림이 없을 때 색 블록 안에 넣을 한 줄: 「한 줄 답부터.」 문단의 첫 문장 (D82 자가피드백 2026-09-20: 로고보다 답 한 줄이 낫다)."""
+    mm = re.search(r'<p class="lead answer">(.*?)</p>', m["body"], re.S)
+    t = re.sub(r"<[^>]+>", "", mm.group(1)) if mm else m["description"]
+    t = re.sub(r"^\s*(<b>)?한 줄 답부터\.?(</b>)?\s*", "", t).strip()
+    sents = re.split(r"(?<=[.!?요다])\s+", t)
+    out = sents[0]
+    if len(out) < 40 and len(sents) > 1:
+        out += " " + sents[1]
+    return out[:110]
+
+
 def featured_html(pages, lang, main_url, side_urls):
     """블로그 첫 화면 관찰(Healthline·HubSpot·Zapier): 대표 글 하나 크게 + 옆에 네댓 개 목록."""
     by = {p["url"]: p for p in pages}
     m = by[main_url]
     mins = read_minutes(m)
     fig = re.search(r"<figure\b.*?</figure>", m["body"], re.S)
-    art = ("<div class=\"art\">" + re.sub(r"</?figure[^>]*>", "", re.sub(r"<figcaption.*?</figcaption>", "", fig.group(0), flags=re.S)) + "</div>") if fig else f'<div class="ph {plat_class(m["cat"])}"><img src="/img/mark-basic.svg" alt="" width="96" height="96"></div>'
+    art = ("<div class=\"art\">" + re.sub(r"</?figure[^>]*>", "", re.sub(r"<figcaption.*?</figcaption>", "", fig.group(0), flags=re.S)) + "</div>") if fig else f'<div class="ph {plat_class(m["cat"])}"><p class="ans">{esc(hero_answer(m))}</p></div>'
     head = "Start here" if lang == "en" else "먼저 읽을 글"
-    side = "".join(f'<li><a href="{by[u]["url"]}"><span class="cat {plat_class(by[u]["cat"])}">{esc(cat_label(by[u]["cat"]))}</span><b>{esc(by[u]["title"])}</b></a></li>' for u in side_urls if u in by)
+    side = "".join(f'<li><a href="{by[u]["url"]}"><span class="cat {plat_class(by[u]["cat"])}">{esc(cat_label(by[u]["cat"]))}</span><b>{esc(re.sub(r"\s*\([^)]*코스 \d+단계\)", "", by[u]["title"]))}</b></a></li>' for u in side_urls if u in by)
     return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
             f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
             f'<span class="meta">{esc(m.get("date"))} · {"%d min" % mins if lang == "en" else "약 %d분" % mins}</span></a>'
@@ -544,7 +556,7 @@ def nav_html(page, pages):
         sub_row = f'<div class="subs {plat_class(cur_top)}"><div class="wrap"><a class="of" href="{plat_url(lang, cur_top)}">{esc(cur_top)}</a>{chans}</div></div>'
     return f'''<header class="top">
   <div class="wrap">
-    {'<span class="brand">' if page["url"] in ("/", "/en/") else '<a class="brand" href="' + ('/en/' if lang == 'en' else '/') + '">'}<img src="/img/mark.svg" alt="" width="28" height="28">{brand}{'</span>' if page["url"] in ("/", "/en/") else '</a>'}
+    {'<span class="brand">' if page["url"] in ("/", "/en/") else '<a class="brand" href="' + ('/en/' if lang == 'en' else '/') + '">'}<img src="/img/mark-reverse.svg" alt="" width="28" height="28">{brand}{'</span>' if page["url"] in ("/", "/en/") else '</a>'}
     <nav>{"".join(out)}{toggle}</nav>
     <form class="search" action="https://www.google.com/search" method="get" role="search"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="{'Search' if lang == 'en' else '예: 리뷰 답글, 수수료'}" aria-label="{'Search this site' if lang == 'en' else '이 사이트 안에서 찾기'}"><button type="submit">{'Search' if lang == 'en' else '찾기'}</button></form>
   </div>
@@ -1333,9 +1345,9 @@ GUIDE_TO_HOWTO = {
 
 # ── 첫 화면 C (운영자 2026-09-20 "C로 가자 이거 사진 첨부한 거 형식으로": Healthline 구조 — 믿음 띠 · 대표 글 1 + 먼저 볼 글 4 · 주제 타일 · 도구 · 이번 주 바뀐 규칙 표)
 HOME_TOPICS = [
-    ("플레이스 등록·순위", "/p/local/", "동네 매장"), ("리뷰·답글", "/local/4-reviews.html", "네이버"), ("광고·대행사", "/guide/ads.html", "네이버"),
-    ("온라인 판매", "/p/online/", "온라인 판매"), ("예약·톡톡", "/p/service/", "예약·상담"), ("구글·외국 손님", "/p/foreign/", "외국 손님"),
-    ("카카오·당근", "/p/kakao/", "카카오"), ("유튜브·인스타그램", "/p/youtube/", "유튜브"), ("법·규제·기록", "/p/record/", "기록"),
+    ("플레이스 등록·순위", "/p/local/", "동네 매장", "등록 · 주인 권한 · 순위 · 사진 · 지도"), ("리뷰·답글", "/local/4-reviews.html", "네이버", "답글 예시 · 리뷰 부탁 · 페널티 · 별점"), ("광고·대행사", "/guide/ads.html", "네이버", "파워링크 · 플레이스광고 · 지원금 · 대행사 전화"),
+    ("온라인 판매", "/p/online/", "온라인 판매", "스마트스토어 · 수수료 · 빠른정산 · 반품"), ("예약·톡톡", "/p/service/", "예약·상담", "네이버 예약 · 노쇼 · 정산 · 톡톡"), ("구글·외국 손님", "/p/foreign/", "외국 손님", "구글 프로필 · 정지 복구 · 도메인 · 인스타"),
+    ("카카오·당근", "/p/kakao/", "카카오", "카카오톡 채널 · 메시지 · 카카오맵 · 당근 광고"), ("유튜브·인스타그램", "/p/youtube/", "유튜브", "채널 · 쇼츠 · 댓글 · 저작권 · 메타 광고 심사"), ("법·규제·기록", "/p/record/", "기록", "업종별 광고 규제 · 표시 의무 · 12주 기록표"),
 ]
 HOME_TOOLS = [("/check/", "1분 자가진단", "질문 7개, 우리 가게가 지금 할 일 하나"), ("/guide/help-indexes.html", "고객센터 도움말 색인 15개", "어느 고객센터에 물어야 하는지부터"), ("/guide/store-sheet.html", "가게 정보 한 장", "상호·주소·전화 어디에나 똑같이, 인쇄용 표")]
 
@@ -1356,7 +1368,7 @@ def rules_table_html(n=5):
 
 def home_c_html(pages):
     by = {p["url"]: p for p in pages}
-    tiles = "".join(f'<a class="tile {plat_class(pl)}" href="{u}"><b>{esc(name)}</b></a>' for name, u, pl in HOME_TOPICS)
+    tiles = "".join(f'<a class="tile {plat_class(pl)}" href="{u}"><b>{esc(name)}</b><span>{esc(sub)}</span></a>' for name, u, pl, sub in HOME_TOPICS)
     tools = "".join(f'<a href="{u}"><b>{esc(t)}</b><span>{esc(l)}</span></a>' for u, t, l in HOME_TOOLS if u in by or u == "/check/")
     return (f'<section class="hc-topics"><h2>주제로 찾기</h2><div class="tiles hc">{tiles}</div></section>'
             f'<section class="hc-tools"><h2>도구</h2><div class="hc-tools-grid">{tools}</div></section>'

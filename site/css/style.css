@@ -871,3 +871,24 @@ main.home p.hc-all { margin:28px 0 8px; }
   main.home .hc-tools-grid { grid-template-columns:1fr; }
 }
 
+/* 위 메뉴 검은 띠 (운영자 2026-09-20: 시안 C 「이 형식으로」. 탭 줄은 종이색 그대로) */
+header.top { background:#15181c; border-bottom:0; box-shadow:none; }
+header.top > .wrap a.brand, header.top > .wrap span.brand { color:#fff; }
+header.top > .wrap nav a { color:#c9ced4; }
+header.top > .wrap nav a[aria-current="page"] { color:#fff; border-bottom-color:#fff; }
+header.top > .wrap nav a.lang { color:#fff; border-color:#5a6068; }
+header.top > .wrap form.search input[type="search"] { border-color:#3a4048; background:#fff; }
+header.top nav.tabs { background:var(--paper); border-top:1px solid var(--line); }
+/* 대표 글 색 블록 안 한 줄 답 */
+main.home section.featured .hero .ph { align-items:flex-end; justify-content:flex-start; padding:22px 24px; }
+main.home section.featured .hero .ph p.ans { margin:0; font-size:1.25rem; line-height:1.5; font-weight:700; letter-spacing:-.01em; max-width:34em; }
+/* 「먼저 읽을 글」 빈 네모 대신 번호 */
+main.home section.featured .side ul { counter-reset:pick; }
+main.home section.featured .side a { grid-template-columns:38px 1fr; }
+main.home section.featured .side a::before { counter-increment:pick; content:counter(pick); height:34px; width:34px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; }
+/* 주제 타일 밑줄 낱말 */
+main.home .tiles.hc a.tile b { display:block; }
+main.home .tiles.hc a.tile span { display:block; font-size:.86rem; opacity:.9; margin-top:4px; }
+main.home .tiles.hc a.tile { flex-direction:column; align-items:flex-start; justify-content:flex-end; }
+
+@media (max-width:760px) { main.home .tiles.hc a.tile span { display:none; } main.home .tiles.hc a.tile:last-child { grid-column:1 / -1; min-height:72px; } }
