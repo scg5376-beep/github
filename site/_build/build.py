@@ -281,6 +281,10 @@ def featured_html(pages, lang, main_url, side_urls):
     art = ("<div class=\"art\">" + re.sub(r"</?figure[^>]*>", "", re.sub(r"<figcaption.*?</figcaption>", "", fig.group(0), flags=re.S)) + "</div>") if fig else f'<div class="ph {plat_class(m["cat"])}"><p class="ans">{esc(hero_answer(m))}</p></div>'
     head = "Start here" if lang == "en" else "먼저 읽을 글"
     side = "".join(f'<li><a href="{by[u]["url"]}"><span class="cat {plat_class(by[u]["cat"])}">{esc(cat_label(by[u]["cat"]))}</span><b>{esc(re.sub(r"\s*\([^)]*코스 \d+단계\)", "", by[u]["title"]))}</b></a></li>' for u in side_urls if u in by)
+    if side_urls == ["setups"]:
+        return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
+                f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
+                f'<span class="meta">{esc(m.get("date"))} · 약 {mins}분</span></a>' + home_setups_html(pages) + '</section>')
     return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
             f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
             f'<span class="meta">{esc(m.get("date"))} · {"%d min" % mins if lang == "en" else "약 %d분" % mins}</span></a>'
@@ -1397,10 +1401,10 @@ GUIDE_TO_HOWTO = {
 
 
 # ── 첫 화면 C (운영자 2026-09-20 "C로 가자 이거 사진 첨부한 거 형식으로": Healthline 구조 — 믿음 띠 · 대표 글 1 + 먼저 볼 글 4 · 주제 타일 · 도구 · 이번 주 바뀐 규칙 표)
-HOME_TOPICS = [
-    ("플레이스 등록·순위", "/p/local/", "동네 매장", "등록 · 주인 권한 · 순위 · 사진 · 지도"), ("리뷰·답글", "/local/4-reviews.html", "네이버", "답글 예시 · 리뷰 부탁 · 페널티 · 별점"), ("광고·대행사", "/guide/ads.html", "네이버", "파워링크 · 플레이스광고 · 지원금 · 대행사 전화"),
-    ("온라인 판매", "/p/online/", "온라인 판매", "스마트스토어 · 수수료 · 빠른정산 · 반품"), ("예약·톡톡", "/p/service/", "예약·상담", "네이버 예약 · 노쇼 · 정산 · 톡톡"), ("구글·외국 손님", "/p/foreign/", "외국 손님", "구글 프로필 · 정지 복구 · 도메인 · 인스타"),
-    ("카카오·당근", "/p/kakao/", "카카오", "카카오톡 채널 · 메시지 · 카카오맵 · 당근 광고"), ("유튜브·인스타그램", "/p/youtube/", "유튜브", "채널 · 쇼츠 · 댓글 · 저작권 · 메타 광고 심사"), ("법·규제·기록", "/p/record/", "기록", "업종별 광고 규제 · 표시 의무 · 12주 기록표"),
+HOME_TOPICS = [   # (이름, 주소, 플랫폼 색, 낱말 줄, 그림 파일 — site/img/tiles/, 코덱스 렌더 삽화. 운영자 2026-09-20 "실제 로고나… 연상시킬 수 있는 이미지로")
+    ("플레이스 등록·순위", "/p/local/", "동네 매장", "등록 · 주인 권한 · 순위 · 사진 · 지도", "place"), ("리뷰·답글", "/local/4-reviews.html", "네이버", "답글 예시 · 리뷰 부탁 · 페널티 · 별점", "reviews"), ("광고·대행사", "/guide/ads.html", "네이버", "파워링크 · 플레이스광고 · 지원금 · 대행사 전화", "ads"),
+    ("온라인 판매", "/p/online/", "온라인 판매", "스마트스토어 · 수수료 · 빠른정산 · 반품", "online"), ("예약·톡톡", "/p/service/", "예약·상담", "네이버 예약 · 노쇼 · 정산 · 톡톡", "booking"), ("구글·외국 손님", "/p/foreign/", "외국 손님", "구글 프로필 · 정지 복구 · 도메인 · 인스타", "google"),
+    ("카카오·당근", "/p/kakao/", "카카오", "카카오톡 채널 · 메시지 · 카카오맵 · 당근 광고", "kakao"), ("유튜브·인스타그램", "/p/youtube/", "유튜브", "채널 · 쇼츠 · 댓글 · 저작권 · 메타 광고 심사", "youtube"), ("법·규제·기록", "/p/record/", "기록", "업종별 광고 규제 · 표시 의무 · 12주 기록표", "law"),
 ]
 HOME_TOOLS = [("/check/", "1분 자가진단", "질문 7개, 우리 가게가 지금 할 일 하나"), ("/guide/help-indexes.html", "고객센터 도움말 색인 15개", "어느 고객센터에 물어야 하는지부터"), ("/guide/store-sheet.html", "가게 정보 한 장", "상호·주소·전화 어디에나 똑같이, 인쇄용 표")]
 
@@ -1421,12 +1425,83 @@ def rules_table_html(n=5):
 
 def home_c_html(pages):
     by = {p["url"]: p for p in pages}
-    tiles = "".join(f'<a class="tile {plat_class(pl)}" href="{u}"><b>{esc(name)}</b><span>{esc(sub)}</span></a>' for name, u, pl, sub in HOME_TOPICS)
+    tiles = "".join(f'<a class="tile {plat_class(pl)}{" has-img" if (ROOT / "img/tiles" / (img + ".png")).exists() else ""}" href="{u}">' + (f'<img src="/img/tiles/{img}.png" alt="" width="96" height="96" loading="lazy">' if (ROOT / "img/tiles" / (img + ".png")).exists() else "") + f'<b>{esc(name)}</b><span>{esc(sub)}</span></a>' for name, u, pl, sub, img in HOME_TOPICS)
     tools = "".join(f'<a href="{u}"><b>{esc(t)}</b><span>{esc(l)}</span></a>' for u, t, l in HOME_TOOLS if u in by or u == "/check/")
     return (f'<section class="hc-topics"><h2>주제로 찾기</h2><div class="tiles hc">{tiles}</div></section>'
             f'<section class="hc-tools"><h2>도구</h2><div class="hc-tools-grid">{tools}</div></section>'
             + rules_table_html()
             + '<p class="small hc-all">글 전부: <a href="/guide/">설명 글</a> · <a href="/p/local/">동네 매장</a> · <a href="/p/online/">온라인 판매</a> · <a href="/p/service/">예약·상담</a> · <a href="/p/foreign/">외국 손님</a> · <a href="/updates/">업데이트</a> · <a href="/en/">English</a></p>')
+
+
+# ── 세팅 순서(따라만 하면 되는 묶음). 운영자 2026-09-21 "먼저읽을글을 왜 네가 판단해 … 특정단계에 해당되는 사람들이 들어와서 순서대로 따라할 수 있게 '네이버 플레이스 세팅' 이런식으로 항목들을 만들어줘 그거 눌러서 따라만 하면 플레이스 설정할 수 있도록" (D84)
+SETUPS = [
+    ("place", "네이버 플레이스 세팅", "지도에 가게를 올리고 순위 재료를 채우는 것까지", "동네 매장", ["/local/2-place.html", "/local/3-rank.html", "/guide/place-photos.html", "/guide/store-sheet.html"]),
+    ("reviews", "리뷰 받고 답글 달기", "손님에게 리뷰를 부탁하는 규칙과 답글 문장", "네이버", ["/local/4-reviews.html", "/guide/reply-examples.html", "/guide/review-rules-compare.html", "/guide/review-penalty.html"]),
+    ("booking", "네이버 예약·톡톡 켜기", "예약 단추와 채팅 창구를 붙이고 노쇼 기준까지", "예약·상담", ["/service/2-place.html", "/guide/reservation-noshow.html", "/guide/reservation-settlement.html", "/guide/talktalk.html"]),
+    ("store", "스마트스토어 열기", "가입부터 수수료·법·빠른정산까지", "온라인 판매", ["/online/1-start.html", "/online/2-fees.html", "/online/3-law.html", "/guide/quick-settlement.html"]),
+    ("ads", "파워링크 첫 광고", "내 계정으로 켜고 하루 예산 정하기, 대행사 없이", "네이버", ["/local/8-powerlink.html", "/guide/powerlink.html", "/guide/ads.html", "/guide/agency-call.html"]),
+    ("google", "구글 프로필 올리기", "외국 손님과 안드로이드 지도에 가게 올리기", "외국 손님", ["/foreign/3-google.html", "/guide/google-profile.html", "/guide/google-suspended.html"]),
+    ("kakao", "카카오톡 채널 열기", "채널 만들고 메시지 값 알고 카카오맵까지", "카카오", ["/kakao/1-channel.html", "/kakao/2-message.html", "/kakao/3-map.html"]),
+    ("daangn", "당근 비즈프로필 만들기", "무료 프로필·단골·쿠폰, 광고는 마지막에", "당근", ["/daangn/1-profile.html", "/daangn/2-coupon.html", "/daangn/3-ads.html"]),
+    ("youtube", "유튜브 가게 채널", "채널 만들고 정보 채우고 쇼츠 규칙 알기", "유튜브", ["/youtube/1-channel.html", "/youtube/2-profile.html", "/guide/youtube-shorts.html"]),
+    ("homepage", "홈페이지 검색 등록", "서치어드바이저·서치콘솔에 내 홈페이지 올리기", "온라인 판매", ["/online/5-homepage.html", "/guide/homepage.html", "/guide/domain.html"]),
+]
+
+
+def setup_pos(url):
+    for slug, name, lead, pl, urls in SETUPS:
+        if url in urls:
+            return slug, name, urls, urls.index(url)
+    return None
+
+
+def setup_steps_html(pages, urls):
+    by = {p["url"]: p for p in pages}
+    lis = []
+    for u in urls:
+        p = by.get(u)
+        if not p:
+            continue
+        cost = step_cost(split_cat(p["cat"])[1]) if p.get("kind") == "howto" else ("free", "설명")
+        lis.append(f'<li class="{cost[0]}"><a href="{u}"><b>{esc(p.get("nav") or p["title"])}</b><span class="time"><span class="badge">{cost[1]}</span>{read_minutes(p)}분</span></a></li>')
+    return '<ol class="course roadmap">' + "".join(lis) + "</ol>"
+
+
+def setup_pages(pages):
+    out = []
+    for slug, name, lead, pl, urls in SETUPS:
+        by = {p["url"]: p for p in pages}
+        mins = sum(read_minutes(by[u]) for u in urls if u in by)
+        body = (f'<p class="kicker">세팅 순서</p>\n<h1>{esc(name)}</h1>\n<p class="lead">{esc(lead)}. 위에서부터 순서대로 하면 돼요. 한 번에 다 안 해도 되고, 한 단계 끝내고 돌아와도 돼요.</p>\n'
+                f'<div class="hix-top"><span></span><a class="diag-btn" href="{urls[0]}">1번부터 시작</a></div>\n' + setup_steps_html(pages, urls) +
+                f'\n<p class="small">막히면 각 단계 글 아래 「막히면」에 답이 있어요. 다른 세팅은 <a href="/setup/">세팅 순서 전부</a>에 있어요.</p>\n')
+        out.append({"title": f"{name}, 순서대로 {len(urls)}단계 · 약 {mins}분", "description": f"{lead}. {len(urls)}단계를 순서대로 따라 하면 끝나요. " + " → ".join(by[u].get("nav") or by[u]["title"] for u in urls if u in by), "lang": "ko", "section": "guide", "nav": name, "date": "2026-09-21", "updated": "2026-09-21",
+                    "setup": slug, "plat": pl, "rel": f"setup/{slug}/index.html", "url": f"/setup/{slug}/", "body": body})
+    # 세팅 순서 전부
+    cards = "".join(f'<div class="hub-item"><a class="hub-card {plat_class(pl)}" href="/setup/{slug}/"><b>{esc(name)}</b><span class="k">{len(urls)}단계 · {esc(lead)}</span></a></div>' for slug, name, lead, pl, urls in SETUPS)
+    out.append({"title": "세팅 순서 전부, 따라만 하면 되는 묶음 10개", "description": "플레이스·리뷰·예약·스마트스토어·파워링크·구글·카카오·당근·유튜브·홈페이지. 지금 하려는 것 하나를 골라 1번부터 순서대로.", "lang": "ko", "section": "guide", "nav": "세팅 순서",
+                "date": "2026-09-21", "updated": "2026-09-21", "rel": "setup/index.html", "url": "/setup/", "body": '<p class="kicker">세팅 순서</p>\n<h1>지금 하려는 것 하나만 고르세요</h1>\n<p class="lead">묶음마다 3~4단계예요. 누르면 순서가 나오고, 1번부터 따라 하면 끝나요.</p>\n<div class="hub">' + cards + "</div>\n"})
+    return out
+
+
+def setup_box(page):
+    """세팅 묶음에 든 글 맨 위: 「네이버 플레이스 세팅 · 2/4 · 이전 · 다음」."""
+    pos = setup_pos(page["url"])
+    if not pos:
+        return ""
+    slug, name, urls, i = pos
+    prev_ = f'<a href="{urls[i-1]}">이전</a>' if i > 0 else ""
+    next_ = f'<a class="next" href="{urls[i+1]}">다음 단계</a>' if i + 1 < len(urls) else '<a class="next" href="/setup/">다 했어요. 다른 세팅</a>'
+    return f'<div class="setup-nav"><a class="name" href="/setup/{slug}/">{esc(name)}</a><span>{i+1}/{len(urls)}</span>{prev_}{next_}</div>'
+
+
+def home_setups_html(pages):
+    by = {p["url"]: p for p in pages}
+    lis = []
+    for slug, name, lead, pl, urls in SETUPS[:8]:
+        mins = sum(read_minutes(by[u]) for u in urls if u in by)
+        lis.append(f'<li><a href="/setup/{slug}/"><span class="cat {plat_class(pl)}">{len(urls)}단계 · 약 {mins}분</span><b>{esc(name)}</b></a></li>')
+    return f'<div class="side"><span class="rail-head">따라만 하면 되는 세팅</span><ul>{"".join(lis)}</ul><p class="more"><a href="/setup/">세팅 순서 전부</a></p></div>'
 
 
 def do_box(page, pages):
@@ -1499,6 +1574,11 @@ def fill_boards(page, pages):
     body = body.replace("<!--today-->", today_html(pages, page["lang"]))
     body = body.replace("<!--homec-->", home_c_html(pages) if page["lang"] == "ko" else "")
     sn = step_nav(page, pages)
+    sb = setup_box(page)
+    if sb:
+        cut = body.find('<footer class="sources">')
+        body = (body[:cut] + sb + chr(10) + body[cut:]) if cut > 0 else body + chr(10) + sb
+        body = sb + chr(10) + body
     if sn:
         body = sn + "\n" + body
     if "<!--homeside-->" in body:
@@ -1614,6 +1694,8 @@ def build():
     verify = json.loads(VERIFY.read_text(encoding="utf-8")) if VERIFY.exists() else {}
     pages = read_pages()
     global PAGES_ALL
+    PAGES_ALL = pages
+    pages += setup_pages(pages)
     PAGES_ALL = pages
     for p in pages:
         write(ROOT / p["rel"], render(p, pages, verify))

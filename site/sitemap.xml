@@ -398,7 +398,7 @@
   </url>
   <url>
     <loc>https://sajangmarketing.com/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sajangmarketing.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sajangmarketing.com/en/"/>
   </url>
@@ -795,5 +795,49 @@
   <url>
     <loc>https://sajangmarketing.com/en/p/sell/smartstore/</loc>
     <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/place/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/reviews/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/booking/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/store/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/ads/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/google/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/kakao/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/daangn/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/youtube/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/homepage/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sajangmarketing.com/setup/</loc>
+    <lastmod>2026-09-21</lastmod>
   </url>
 </urlset>

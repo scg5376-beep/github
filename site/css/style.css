@@ -938,3 +938,32 @@ main.home .tiles.hc a.tile.plat-google { --ic:url(/img/icons/google.svg); }
 .hub-item:has(.plat-youtube) { --ic:url(/img/icons/youtube.svg); } .hub-item:has(.plat-record) { --ic:url(/img/icons/record.svg); } .hub-item:has(.plat-sell) { --ic:url(/img/icons/sell.svg); }
 .hub-item:has(.plat-google) { --ic:url(/img/icons/google.svg); } .hub-item:has(.plat-instagram) { --ic:url(/img/icons/instagram.svg); } .hub-item:has(.plat-ai) { --ic:url(/img/icons/ai.svg); } .hub-item:has(.plat-daangn) { --ic:url(/img/icons/daangn.svg); }
 
+/* 주제 타일 삽화(PNG)가 있으면 마스크 아이콘 대신 그림 (운영자 2026-09-20) */
+main.home .tiles.hc a.tile.has-img::before { display:none; }
+main.home .tiles.hc a.tile.has-img img { position:absolute; top:12px; right:12px; width:96px; height:96px; object-fit:contain; }
+main.home .tiles.hc a.tile.has-img { min-height:150px; padding-right:120px; }
+@media (max-width:760px) { main.home .tiles.hc a.tile.has-img img { width:56px; height:56px; top:10px; right:10px; } main.home .tiles.hc a.tile.has-img { min-height:96px; padding-right:72px; } }
+
+/* 세팅 순서 (D84, 2026-09-21): 글 맨 위 묶음 줄 + 첫 화면 「따라만 하면 되는 세팅」 */
+.setup-nav { display:flex; align-items:center; gap:14px; margin:22px 0 18px; padding:10px 14px; border:1px solid var(--line); border-left:4px solid var(--accent); background:var(--paper-2); font-size:.92rem; flex-wrap:wrap; }
+.setup-nav .name { font-weight:700; text-decoration:none; }
+.setup-nav span { color:var(--ink-soft); }
+.setup-nav a.next { margin-left:auto; font-weight:700; text-decoration:none; }
+main.home section.featured .side li a::before { content:counter(pick); }
+main.home section.featured .side .more { margin:8px 0 0; font-size:.9rem; }
+
+
+/* 세팅 목록을 먼저(왼쪽), 대표 글은 오른쪽 (운영자 2026-09-21: 따라 하기 우선) */
+main.home section.featured { grid-template-columns:1.05fr 1fr; }
+main.home section.featured .side { order:-1; }
+main.home section.featured .side .more a::before, main.home section.featured .side p.more a::before { content:none; display:none; }
+main.home section.featured .side .more a { display:inline; padding:0; }
+
+@media (max-width:760px) { main.home .tiles.hc a.tile { min-width:0; overflow:hidden; } main.home .tiles.hc a.tile b { overflow-wrap:anywhere; } }
+@media (max-width:420px) { main.home .tiles.hc { grid-template-columns:1fr; } main.home .tiles.hc a.tile:last-child { grid-column:auto; } }
+
+main.home .tiles.hc a.tile { min-width:0; overflow:hidden; }
+main.home section.featured .hero { min-width:0; overflow:hidden; }
+main.home section.featured .hero .art svg { max-width:100%; height:auto; }
+@media (max-width:900px) { main.home .tiles.hc { grid-template-columns:1fr 1fr; } main.home .tiles.hc a.tile:last-child { grid-column:1 / -1; } }
+@media (max-width:420px) { main.home .tiles.hc { grid-template-columns:1fr; } main.home .tiles.hc a.tile:last-child { grid-column:auto; } }
