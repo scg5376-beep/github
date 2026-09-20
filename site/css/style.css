@@ -901,3 +901,6 @@ ul.related-guides li span { line-height:1.9; }
 ul.related-guides li a { text-decoration:none; font-weight:600; white-space:nowrap; }
 @media (max-width:760px) { ul.related-guides li { grid-template-columns:1fr; gap:2px; } }
 
+
+/* 목차 두 칸 (자가피드백 3, 2026-09-20: 항목이 8개를 넘는 설명 글에서 목차가 화면 한 장을 먹었다. Healthline 은 목차를 짧게 둔다) */
+@media (min-width:761px) { nav.intoc ol:has(li:nth-child(7)) { columns:2; column-gap:28px; } nav.intoc ol:has(li:nth-child(7)) li { break-inside:avoid; } }
