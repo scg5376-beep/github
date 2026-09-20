@@ -1,6 +1,6 @@
 # 스마트스토어 고객센터 FAQ 「[정산관리] 매출 규모에 따른 'Npay 수수료' 기준」
 - 출처: https://help.sell.smartstore.naver.com/faq/content.help?faqId=5004
-- 확인: 2026-09-19 (curl, ss_faq.py)
+- 확인: 2026-09-20 (curl, ss_faq.py)
 - 등급: A 공식 도움말
 
 판매자님의 매출 규모에 따라 인하된 수수료율이 상이합니다.
