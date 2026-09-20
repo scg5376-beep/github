@@ -1478,7 +1478,11 @@ def setup_pages(pages):
         out.append({"title": f"{name}, 순서대로 {len(urls)}단계 · 약 {mins}분", "description": f"{lead}. {len(urls)}단계를 순서대로 따라 하면 끝나요. " + " → ".join(by[u].get("nav") or by[u]["title"] for u in urls if u in by), "lang": "ko", "section": "guide", "nav": name, "date": "2026-09-21", "updated": "2026-09-21",
                     "setup": slug, "plat": pl, "rel": f"setup/{slug}/index.html", "url": f"/setup/{slug}/", "body": body})
     # 세팅 순서 전부
-    cards = "".join(f'<div class="hub-item"><a class="hub-card {plat_class(pl)}" href="/setup/{slug}/"><b>{esc(name)}</b><span class="k">{len(urls)}단계 · {esc(lead)}</span></a></div>' for slug, name, lead, pl, urls in SETUPS)
+    info = {slug: (name, lead, pl, urls) for slug, name, lead, pl, urls in SETUPS}
+    cards = ""
+    for gname, gplat, slugs in SETUP_GROUPS:
+        items = "".join(f'<li><a href="/setup/{slug}/"><b>{esc(SETUP_SHORT.get(slug, info[slug][0]))}</b><span class="k">{len(info[slug][3])}단계 · {esc(info[slug][1])}</span></a></li>' for slug in slugs)
+        cards += f'<div class="hub-item"><b class="hub-g {plat_class(gplat)}">{esc(gname)}</b><ul class="hub-setups">{items}</ul></div>'
     out.append({"title": "세팅 순서 전부, 따라만 하면 되는 묶음 10개", "description": "플레이스·리뷰·예약·스마트스토어·파워링크·구글·카카오·당근·유튜브·홈페이지. 지금 하려는 것 하나를 골라 1번부터 순서대로.", "lang": "ko", "section": "guide", "nav": "세팅 순서",
                 "date": "2026-09-21", "updated": "2026-09-21", "rel": "setup/index.html", "url": "/setup/", "body": '<p class="kicker">세팅 순서</p>\n<h1>지금 하려는 것 하나만 고르세요</h1>\n<p class="lead">묶음마다 3~4단계예요. 누르면 순서가 나오고, 1번부터 따라 하면 끝나요.</p>\n<div class="hub">' + cards + "</div>\n"})
     return out
@@ -1495,13 +1499,23 @@ def setup_box(page):
     return f'<div class="setup-nav"><a class="name" href="/setup/{slug}/">{esc(name)}</a><span>{i+1}/{len(urls)}</span>{prev_}{next_}</div>'
 
 
+# 첫 화면 세팅 목록은 플랫폼별로 묶는다 (운영자 2026-09-21 "각 플랫폼 별로 네이버 하고 밑에 ·플레이스 ·스마트 스토어 이런식으로")
+SETUP_GROUPS = [("네이버", "네이버", ["place", "reviews", "booking", "store", "ads"]), ("구글", "구글", ["google", "homepage"]), ("카카오", "카카오", ["kakao"]), ("당근", "당근", ["daangn"]), ("유튜브", "유튜브", ["youtube"])]
+SETUP_SHORT = {"place": "플레이스 세팅", "reviews": "리뷰·답글", "booking": "예약·톡톡", "store": "스마트스토어", "ads": "파워링크 광고", "google": "비즈니스 프로필", "homepage": "홈페이지 검색 등록", "kakao": "카카오톡 채널", "daangn": "비즈프로필", "youtube": "가게 채널"}
+
+
 def home_setups_html(pages):
     by = {p["url"]: p for p in pages}
-    lis = []
-    for slug, name, lead, pl, urls in SETUPS[:8]:
-        mins = sum(read_minutes(by[u]) for u in urls if u in by)
-        lis.append(f'<li><a href="/setup/{slug}/"><span class="cat {plat_class(pl)}">{len(urls)}단계 · 약 {mins}분</span><b>{esc(name)}</b></a></li>')
-    return f'<div class="side"><span class="rail-head">따라만 하면 되는 세팅</span><ul>{"".join(lis)}</ul><p class="more"><a href="/setup/">세팅 순서 전부</a></p></div>'
+    info = {slug: (name, lead, pl, urls) for slug, name, lead, pl, urls in SETUPS}
+    out = []
+    for gname, gplat, slugs in SETUP_GROUPS:
+        lis = []
+        for slug in slugs:
+            name, lead, pl, urls = info[slug]
+            mins = sum(read_minutes(by[u]) for u in urls if u in by)
+            lis.append(f'<li><a href="/setup/{slug}/"><b>{esc(SETUP_SHORT.get(slug, name))}</b><span class="m">{len(urls)}단계 · 약 {mins}분</span></a></li>')
+        out.append(f'<li class="grp {plat_class(gplat)}"><span class="g">{esc(gname)}</span><ul>{"".join(lis)}</ul></li>')
+    return f'<div class="side setups"><span class="rail-head">따라만 하면 되는 세팅</span><ul class="setup-groups">{"".join(out)}</ul><p class="more"><a href="/setup/">세팅 순서 전부</a></p></div>'
 
 
 def do_box(page, pages):
