@@ -1331,6 +1331,39 @@ GUIDE_TO_HOWTO = {
 }
 
 
+# ── 첫 화면 C (운영자 2026-09-20 "C로 가자 이거 사진 첨부한 거 형식으로": Healthline 구조 — 믿음 띠 · 대표 글 1 + 먼저 볼 글 4 · 주제 타일 · 도구 · 이번 주 바뀐 규칙 표)
+HOME_TOPICS = [
+    ("플레이스 등록·순위", "/p/local/", "동네 매장"), ("리뷰·답글", "/local/4-reviews.html", "네이버"), ("광고·대행사", "/guide/ads.html", "네이버"),
+    ("온라인 판매", "/p/online/", "온라인 판매"), ("예약·톡톡", "/p/service/", "예약·상담"), ("구글·외국 손님", "/p/foreign/", "외국 손님"),
+    ("카카오·당근", "/p/kakao/", "카카오"), ("유튜브·인스타그램", "/p/youtube/", "유튜브"), ("법·규제·기록", "/p/record/", "기록"),
+]
+HOME_TOOLS = [("/check/", "1분 자가진단", "질문 7개, 우리 가게가 지금 할 일 하나"), ("/guide/help-indexes.html", "고객센터 도움말 색인 15개", "어느 고객센터에 물어야 하는지부터"), ("/guide/store-sheet.html", "가게 정보 한 장", "상호·주소·전화 어디에나 똑같이, 인쇄용 표")]
+
+
+def rules_table_html(n=5):
+    """첫 화면 「이번 주 바뀐 규칙」 — 업데이트 페이지 맨 위 n개를 날짜·어디·무엇 표로."""
+    src = (SRC / "updates/index.html").read_text(encoding="utf-8")
+    rows = []
+    for d, b in re.findall(r"<dt>(.*?)</dt><dd>(.*?)</dd>", src, re.S)[:n]:
+        d = re.sub(r"<[^>]+>", "", d)
+        date, _, where = d.partition("·")
+        date = date.replace("확인", "").strip()
+        what = re.split(r"(?<=[.요다])\s", re.sub(r"<[^>]+>", "", b).strip())[0]
+        rows.append(f"<tr><td>{esc(date)}</td><td>{esc(where.strip())}</td><td>{what}</td></tr>")
+    return ('<section class="hc-rules"><h2>이번 주 바뀐 규칙</h2><table class="rules"><thead><tr><th>날짜</th><th>어디</th><th>무엇</th></tr></thead><tbody>'
+            + "".join(rows) + '</tbody></table><p class="more"><a href="/updates/">바뀐 것 전부 보기</a></p></section>')
+
+
+def home_c_html(pages):
+    by = {p["url"]: p for p in pages}
+    tiles = "".join(f'<a class="tile {plat_class(pl)}" href="{u}"><b>{esc(name)}</b></a>' for name, u, pl in HOME_TOPICS)
+    tools = "".join(f'<a href="{u}"><b>{esc(t)}</b><span>{esc(l)}</span></a>' for u, t, l in HOME_TOOLS if u in by or u == "/check/")
+    return (f'<section class="hc-topics"><h2>주제로 찾기</h2><div class="tiles hc">{tiles}</div></section>'
+            f'<section class="hc-tools"><h2>도구</h2><div class="hc-tools-grid">{tools}</div></section>'
+            + rules_table_html()
+            + '<p class="small hc-all">글 전부: <a href="/guide/">설명 글</a> · <a href="/p/local/">동네 매장</a> · <a href="/p/online/">온라인 판매</a> · <a href="/p/service/">예약·상담</a> · <a href="/p/foreign/">외국 손님</a> · <a href="/updates/">업데이트</a> · <a href="/en/">English</a></p>')
+
+
 def do_box(page, pages):
     urls = GUIDE_TO_HOWTO.get(page["url"])
     if not urls:
@@ -1396,6 +1429,7 @@ def fill_boards(page, pages):
     body = body.replace("<!--cases-->", cases_html(pages))
     body = body.replace("<!--howto-->", howto_index_html(pages, page["lang"]) + (recent_updates_html() if page["lang"] == "ko" and page.get("section") == "home" else ""))
     body = body.replace("<!--today-->", today_html(pages, page["lang"]))
+    body = body.replace("<!--homec-->", home_c_html(pages) if page["lang"] == "ko" else "")
     sn = step_nav(page, pages)
     if sn:
         body = sn + "\n" + body
@@ -1484,7 +1518,7 @@ def render(page, pages, verify):
 <a class="skip" href="#main">{'Skip to content' if lang == 'en' else '본문 바로가기'}</a>
 {nav_html(page, pages)}
 {cols}
-<main class="wrap{" " + page["kind"] if page.get("kind") else ""}" id="main">
+<main class="wrap{" " + page["kind"] if page.get("kind") else ""}{" home" if page["url"] == "/" else ""}" id="main">
 {crumbs(page)}
 {page["body"].strip()}
 {'' if page["url"] in ("/", "/en/") else ('<a class="totop" href="#top">' + ('Back to top' if lang == 'en' else '맨 위로') + '</a>')}
