@@ -1602,7 +1602,7 @@ def home_setups_html(pages):
         for slug in slugs:
             name, lead, pl, urls = info[slug]
             lis.append(f'<li><a href="/setup/{slug}/">{esc(SETUP_SHORT.get(slug, name))}</a></li>')   # 이름만 (운영자 2026-09-21 "몇분걸리는지 뭐하는건지 부차적인 설명없이")
-        out.append(f'<li class="grp {plat_class(gplat)}"><span class="g">{esc(gname)}</span><ul>{"".join(lis)}</ul></li>')
+        out.append(f'<li class="grp {plat_class(gplat)}"><a class="g" href="{plat_url("ko", gplat)}">{esc(gname)}</a><ul>{"".join(lis)}</ul></li>')   # 플랫폼 이름도 누르면 그 플랫폼 게시판으로 (운영자 2026-09-21)
     return f'<div class="side setups"><span class="rail-head">따라만 하면 되는 세팅</span><ul class="setup-groups">{"".join(out)}</ul><p class="more"><a href="/setup/">세팅 순서 전부</a></p></div>'
 
 

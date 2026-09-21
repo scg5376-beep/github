@@ -970,9 +970,10 @@ main.home section.featured .hero .art svg { max-width:100%; height:auto; }
 
 /* 첫 화면 세팅 목록: 플랫폼 네모칸 안에 하위 항목을 가로로 (운영자 2026-09-21) */
 main.home section.featured .side.setups ul.setup-groups { counter-reset:none; display:flex; flex-direction:column; gap:10px; }
-main.home section.featured .side.setups li.grp { display:block; padding:12px 16px 11px; border:1px solid var(--line); border-left:4px solid var(--pa, var(--accent)); border-radius:0 12px 12px 0; background:var(--card, #fff); }
-main.home section.featured .side.setups li.grp .g { display:block; font-weight:800; font-size:1.05rem; color:var(--pa, var(--ink)); margin-bottom:5px; }
-main.home section.featured .side.setups li.grp ul { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:4px 16px; flex:1 1 auto; }
+main.home section.featured .side.setups li.grp { display:grid; grid-template-columns:84px 1fr; align-items:center; column-gap:14px; padding:12px 16px; border:1px solid var(--line); border-left:4px solid var(--pa, var(--accent)); border-radius:0 12px 12px 0; background:var(--card, #fff); }
+main.home section.featured .side.setups li.grp .g { display:block; font-weight:800; font-size:1.05rem; color:var(--pa, var(--ink)); text-decoration:none; padding:0; grid-template-columns:none; border-right:1px solid var(--line); }
+main.home section.featured .side.setups li.grp .g::before { content:none; display:none; }
+main.home section.featured .side.setups li.grp ul { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px 18px; align-items:center; }
 main.home section.featured .side.setups li.grp ul li { padding:0 0 0 12px; border:0; position:relative; display:block; }
 main.home section.featured .side.setups li.grp ul li::before { content:"·"; position:absolute; left:0; top:0; color:var(--pa, var(--accent)); font-weight:800; }
 main.home section.featured .side.setups li.grp ul li a { display:inline; grid-template-columns:none; font-weight:700; font-size:.98rem; text-decoration:none; padding:0; }
@@ -1001,3 +1002,4 @@ ol.setup-steps ul.sub { list-style:none; margin:4px 0 0; padding:0 0 0 2px; font
 ol.setup-steps ul.sub li { padding:2px 0 2px 14px; position:relative; counter-increment:none; border:0; margin:0; background:none; }
 ol.setup-steps ul.sub li::after { display:none; }
 ol.setup-steps ul.sub li::before { content:"·"; position:absolute; left:2px; top:2px; font-size:1rem; line-height:inherit; font-weight:800; letter-spacing:0; color:var(--accent); }
+@media (max-width:420px){ main.home section.featured .side.setups li.grp { grid-template-columns:1fr; row-gap:6px; } main.home section.featured .side.setups li.grp .g { border-right:0; } }
