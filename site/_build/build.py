@@ -282,9 +282,11 @@ def featured_html(pages, lang, main_url, side_urls):
     head = "Start here" if lang == "en" else "먼저 읽을 글"
     side = "".join(f'<li><a href="{by[u]["url"]}"><span class="cat {plat_class(by[u]["cat"])}">{esc(cat_label(by[u]["cat"]))}</span><b>{esc(re.sub(r"\s*\([^)]*코스 \d+단계\)", "", by[u]["title"]))}</b></a></li>' for u in side_urls if u in by)
     if side_urls == ["setups"]:
+        # 첫 화면 대표 글: 글 안 도표를 줄여 넣으면 글자가 안 보여 「한 줄 답」 판을 쓴다. 날짜 옆 「약 N분」은 뺀다 (운영자 2026-09-21 "크기가 너무 작아서 잘 안보이고 밑에 날짜옆에 10분 이런거 하지말라니까")
+        art = f'<div class="ph {plat_class(m["cat"])}"><p class="ans">{esc(hero_answer(m))}</p></div>'
         return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
                 f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
-                f'<span class="meta">{esc(m.get("date"))} · 약 {mins}분</span></a>' + home_setups_html(pages) + '</section>')
+                f'<span class="meta">{esc(m.get("date"))}</span></a>' + home_setups_html(pages) + '</section>')
     return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
             f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
             f'<span class="meta">{esc(m.get("date"))} · {"%d min" % mins if lang == "en" else "약 %d분" % mins}</span></a>'

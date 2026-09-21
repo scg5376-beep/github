@@ -15,7 +15,7 @@ ACC = "#0f4c9c"
 
 def svg(title, steps, note):
     n = len(steps)
-    bw, gap, x0, y0 = (128, 22, 20, 60) if n >= 6 else (150, 26, 20, 60)
+    bw, gap, x0, y0 = (142, 20, 20, 60) if n >= 6 else (150, 26, 20, 60)
     W = x0 * 2 + bw * n + gap * (n - 1)
     H = 300
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" aria-labelledby="fig1t" font-family="Pretendard, Noto Sans KR, sans-serif"><title id="fig1t">{title}</title>',
