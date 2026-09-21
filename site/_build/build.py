@@ -1601,8 +1601,7 @@ def home_setups_html(pages):
         lis = []
         for slug in slugs:
             name, lead, pl, urls = info[slug]
-            mins = sum(read_minutes(by[u]) for u in urls if u in by)
-            lis.append(f'<li><a href="/setup/{slug}/"><b>{esc(SETUP_SHORT.get(slug, name))}</b><span class="m">{len(urls)}단계 · 약 {mins}분</span></a></li>')
+            lis.append(f'<li><a href="/setup/{slug}/">{esc(SETUP_SHORT.get(slug, name))}</a></li>')   # 이름만 (운영자 2026-09-21 "몇분걸리는지 뭐하는건지 부차적인 설명없이")
         out.append(f'<li class="grp {plat_class(gplat)}"><span class="g">{esc(gname)}</span><ul>{"".join(lis)}</ul></li>')
     return f'<div class="side setups"><span class="rail-head">따라만 하면 되는 세팅</span><ul class="setup-groups">{"".join(out)}</ul><p class="more"><a href="/setup/">세팅 순서 전부</a></p></div>'
 

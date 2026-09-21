@@ -973,9 +973,9 @@ main.home section.featured .side.setups ul.setup-groups { counter-reset:none; }
 main.home section.featured .side.setups li.grp { padding:10px 0 4px; border-bottom:0; display:block; }
 main.home section.featured .side.setups li.grp .g { display:block; font-weight:800; font-size:1.05rem; color:var(--pa, var(--ink)); margin-bottom:2px; }
 main.home section.featured .side.setups li.grp ul { list-style:none; padding:0; margin:0; }
-main.home section.featured .side.setups li.grp ul li { padding:5px 0 5px 14px; border-bottom:1px solid var(--line); position:relative; display:block; }
+main.home section.featured .side.setups li.grp ul li { padding:4px 0 4px 14px; border-bottom:0; position:relative; display:block; }
 main.home section.featured .side.setups li.grp ul li::before { content:"·"; position:absolute; left:2px; top:5px; color:var(--pa, var(--accent)); font-weight:800; }
-main.home section.featured .side.setups li.grp ul li a { display:flex; justify-content:space-between; gap:10px; align-items:baseline; grid-template-columns:none; }
+main.home section.featured .side.setups li.grp ul li a { display:block; grid-template-columns:none; font-weight:700; font-size:1rem; }
 main.home section.featured .side.setups li.grp ul li a::before { content:none; display:none; }
 main.home section.featured .side.setups li.grp ul li a b { font-size:1rem; }
 main.home section.featured .side.setups li.grp ul li a .m { color:var(--ink-soft); font-size:.8rem; white-space:nowrap; }
