@@ -1015,3 +1015,13 @@ section.lv ol li { padding:7px 0; border-top:1px solid var(--line); font-size:1.
 section.lv ol li a { text-decoration:none; }
 ol.course li .badge:empty { display:none; }
 
+/* 플랫폼 페이지 채널 카드, 코스 아래 채널 링크 (운영자 2026-09-22 간결) */
+ul.chan-cards { list-style:none; margin:8px 0 20px; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; }
+ul.chan-cards li a { display:block; padding:16px 18px; border:1px solid var(--line); border-left:4px solid var(--pa, var(--accent)); border-radius:0 12px 12px 0; background:var(--card, #fff); text-decoration:none; color:inherit; min-height:84px; }
+ul.chan-cards li a b { display:block; font-size:1.15rem; margin-bottom:4px; }
+ul.chan-cards li a span { color:var(--ink-soft); font-size:.92rem; line-height:1.5; }
+@media (max-width:520px) { ul.chan-cards { grid-template-columns:1fr; } }
+p.more-chans { margin:28px 0 0; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; }
+p.more-chans span { color:var(--ink-soft); font-size:.9rem; }
+p.more-chans a { font-weight:700; text-decoration:none; }
+

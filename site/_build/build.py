@@ -344,8 +344,12 @@ def related_guides_html(pages, top):
     groups = {}
     for g in items:
         groups.setdefault(cat_label(by[g]["cat"]), []).append(g)
-    rows = "".join(f'<li><b>{esc(c)}</b><span>' + " · ".join(f'<a href="{g}">{esc(by[g].get("nav") or by[g]["title"])}</a>' for g in gs) + "</span></li>" for c, gs in groups.items())
-    return f'<h2>이 코스와 이어지는 설명 글</h2><ul class="related-guides">{rows}</ul>'
+    links = []                                                                    # 글 이름을 다 늘어놓지 않고 채널 페이지로 (운영자 2026-09-22 간결)
+    for c, gs in groups.items():
+        cat = by[gs[0]]["cat"]
+        t, sub = split_cat(cat)
+        links.append(f'<a href="{plat_url("ko", t, sub)}">{esc(c)}</a>')
+    return '<p class="more-chans"><span>더 알아보기</span>' + " ".join(links) + "</p>"
 
 
 def badge(cost):
@@ -458,7 +462,7 @@ def kinds_html(top):
     rows = PLAT_KINDS.get(top)
     if not rows:
         return ""
-    return '<h2>종류</h2><table class="kinds">' + "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in rows) + "</table>"
+    return '<ul class="chan-cards">' + "".join(f'<li><a href="{plat_url("ko", top, k)}"><b>{esc(k)}</b><span>{esc(v)}</span></a></li>' for k, v in rows) + "</ul>"
 
 
 def order_html(pages, top):
@@ -511,6 +515,61 @@ CHAN_LEVELS = {
         ("상위권 유지", "순위 재료를 채우고 떨어지면 원인부터", ["/guide/rank-drop.html", "/local/4-reviews.html", "/guide/star-rating.html", "/guide/review-penalty.html", "/guide/map-missing.html", "/guide/place-plus.html"]),
         ("광고비 효율", "1페이지 위 칸을 가장 적은 돈으로", ["/guide/ads.html", "/local/8-powerlink.html", "/guide/powerlink.html", "/guide/agency-call.html", "/guide/support-money.html"]),
     ],
+    "네이버/예약": [
+        ("처음이라면", "예약 단추와 톡톡 켜기", "setup:booking"),
+        ("잘 굴리기", "노쇼·정산·업종별 순서", ["/guide/reservation-noshow.html", "/guide/reservation-settlement.html", "/guide/hair-salon.html", "/guide/academy.html"]),
+    ],
+    "네이버/리뷰": [
+        ("처음이라면", "리뷰 받고 답글 달기", "setup:reviews"),
+        ("잘 굴리기", "답글 문장·별점·페널티", ["/guide/reply-examples.html", "/guide/star-rating.html", "/guide/review-penalty.html", "/guide/disclosure.html", "/guide/review-rules-compare.html"]),
+    ],
+    "네이버/파워링크": [
+        ("처음이라면", "내 계정으로 첫 광고", "setup:ads"),
+        ("돈 새는 곳 막기", "과금 구조·순위·대행사 계약", ["/guide/ads.html", "/guide/powerlink.html", "/guide/agency-contract.html", "/guide/agency-call.html", "/guide/support-money.html"]),
+    ],
+    "네이버/블로그": [
+        ("처음이라면", "가게 블로그 시작", ["/local/6-blog.html", "/online/6-blog.html"]),
+        ("검색에 걸리게", "네이버가 밝힌 기준과 빠지는 이유", ["/guide/blog.html", "/guide/blog-removed.html", "/guide/google-content.html"]),
+    ],
+    "네이버/검색 화면": [
+        ("처음이라면", "검색 화면 읽는 법", ["/local/5-search.html"]),
+        ("더 알기", "돈 내는 자리와 안 내는 자리, 손님 숫자", ["/guide/seo.html", "/guide/numbers.html"]),
+    ],
+    "판매/스마트스토어": [
+        ("처음이라면", "가입부터 정산까지", "setup:store"),
+        ("잘 굴리기", "정산·상품 규칙·페널티·사기", ["/guide/quick-settlement.html", "/guide/store-listing-rules.html", "/guide/store-penalty.html", "/guide/store-scam.html", "/guide/delivery-fees.html"]),
+        ("광고비 효율", "스토어 광고를 켜기 전에", ["/guide/smartstore-ads.html", "/online/8-ads.html"]),
+    ],
+    "구글/검색": [
+        ("처음이라면", "구글 프로필 올리기", "setup:google"),
+        ("잘 굴리기", "정지·복구와 구글이 말하는 좋은 글", ["/guide/google-suspended.html", "/guide/google-content.html"]),
+    ],
+    "구글/도메인": [
+        ("처음이라면", "홈페이지 검색 등록", "setup:homepage"),
+    ],
+    "카카오/채널": [
+        ("처음이라면", "채널 만들고 카카오맵까지", "setup:kakao"),
+        ("더 알기", "채널이 무엇인지", ["/guide/kakao-channel.html"]),
+    ],
+    "당근/비즈프로필": [
+        ("처음이라면", "무료 프로필·단골·쿠폰", "setup:daangn"),
+        ("잘 굴리기", "후기 규칙", ["/guide/daangn-reviews.html"]),
+    ],
+    "유튜브/채널": [
+        ("처음이라면", "가게 채널 만들기", "setup:youtube"),
+        ("잘 굴리기", "검색·추천 기준과 쇼츠 규칙", ["/guide/youtube-search.html", "/guide/youtube-shorts.html"]),
+    ],
+    "인스타그램/계정": [
+        ("처음이라면", "가게 계정 무료로 시작", ["/online/7-instagram.html", "/guide/instagram.html"]),
+        ("잘 굴리기", "팔로워 업체·스레드·광고 거부", ["/guide/followers.html", "/guide/threads.html", "/guide/meta-review.html"]),
+    ],
+    "기록/12주 기록": [
+        ("처음이라면", "12주 기록 시작", ["/guide/record.html", "/guide/record-sheet.html"]),
+        ("돈 쓰기 전에", "무료 도구·지원금·규제", ["/guide/free-tools.html", "/guide/support-money.html", "/guide/voucher-2026.html", "/guide/industry-ad-rules.html"]),
+    ],
+    "AI/AI 답변": [
+        ("처음이라면", "AI 답변에 우리 가게가 나오려면", ["/guide/geo.html", "/service/7-ai.html", "/guide/aeo.html"]),
+    ],
 }
 
 
@@ -522,14 +581,19 @@ def chan_levels_html(pages, lang, cat):
     by = {p["url"]: p for p in pages}
     used, out = set(), []
     setups = {slug: (name, urls) for slug, name, lead, pl, urls in SETUPS}
-    for i, (label, goal, src) in enumerate(lv, 1):
+    i = 0
+    for label, goal, src in lv:
+        i += 1
         if isinstance(src, str) and src.startswith("setup:"):
             name, urls = setups[src[6:]]
             head = f'<a class="lv-head" href="/setup/{src[6:]}/"><span class="n">{i}</span><b>{esc(label)}</b><span class="goal">{esc(goal)}</span></a>'
         else:
             urls = src
             head = f'<div class="lv-head"><span class="n">{i}</span><b>{esc(label)}</b><span class="goal">{esc(goal)}</span></div>'
-        lis = "".join(f'<li><a href="{u}">{esc(by[u].get("nav") or by[u]["title"])}</a></li>' for u in urls if u in by)
+        urls = [u for u in urls if u in by and u not in used]                     # 앞 묶음에 이미 있는 글은 다시 안 보인다
+        if not urls:
+            continue
+        lis = "".join(f'<li><a href="{u}">{esc(by[u].get("nav") or by[u]["title"])}</a></li>' for u in urls)
         used.update(urls)
         out.append(f'<section class="lv">{head}<ol>{lis}</ol></section>')
     rest = [p for p in posts(pages, lang, cat) if p["url"] not in used]
@@ -554,7 +618,7 @@ def platform_pages(pages):
             else:
                 head = "Boards" if lang == "en" else "게시판"
                 body = (f'<p class="kicker">{esc(head)}</p>\n<h1>{esc(top)}</h1>\n<p class="lead">{esc(PLAT_INTRO[lang].get(top, ""))}</p>\n'
-                        f'<!--kinds:{top}-->\n<!--order:{top}-->\n<!--boards:{top}-->\n')
+                        f'<!--kinds:{top}-->\n')                                 # 추천 순서·게시판 목록은 뺐다 (운영자 2026-09-22: 보자마자 뭘 할지). 채널 카드 → 채널 페이지의 단계별 길
             desc = PLAT_INTRO[lang].get(top, top)
             if top in TRACKS:
                 desc = f"{desc} {TRACK_INFO[top]['lead']}"
@@ -1108,7 +1172,7 @@ def guide_hub_html(pages, lang):
         n = len(posts(pages, lang, top))
         links = " ".join(f'<a href="{plat_url(lang, top, c)}">{esc(c)}</a>' for c in chans)
         kind = ("코스 · 순서대로" if top in TRACKS else "설명 글") if lang == "ko" else ("Course" if top in TRACKS else "Posts")
-        out.append(f'<a class="hub-card {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span class="k">{kind} · {n}</span></a><p class="hub-chans">{links}</p>')
+        out.append(f'<a class="hub-card {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span class="k">{kind}</span></a><p class="hub-chans">{links}</p>')
     return '<div class="hub">' + "".join(f"<div class=\"hub-item\">{x}</div>" for x in out) + "</div>"
 
 
@@ -1781,12 +1845,23 @@ def render(page, pages, verify):
     page = fill_boards(page, pages)
     page = add_toc(lift_todo(dict(page, body=meta_line(page))))
     page = dict(page, body=keys_box(page["body"]))                                   # R1 핵심 정리 상자
+    bd = page["body"]
+    ml = re.search(r'<p class="meta-line">.*?</p>\n?', bd, re.S)
+    if ml:                                                                          # 발행·수정 줄은 목차(없으면 할 일 상자) 뒤로 (운영자 2026-09-22: 위쪽은 뭘 할지만)
+        bd2 = bd[:ml.start()] + bd[ml.end():]
+        anchor = re.search(r'</nav>\n?', bd2[bd2.find('<nav class="intoc"'):], re.S) if '<nav class="intoc"' in bd2 else None
+        if anchor:
+            pos = bd2.find('<nav class="intoc"') + anchor.end()
+        else:
+            m2 = re.search(r'<div class="note todo">.*?</div>\n?', bd2, re.S)
+            pos = m2.end() if m2 else None
+        page = dict(page, body=(bd2[:pos] + ml.group(0) + bd2[pos:]) if pos else bd)
     page = place_ads(page)
     if lang == "ko" and page_area(page) in ("guide", "why") and page.get("cat") and "order" in page:                # 설명 글 → 방법 글 문
         box = do_box(page, pages)
         if box:
             bd = page["body"]
-            ml = re.search(r'<p class="meta-line">.*?</p>', bd, re.S)
+            ml = re.search(r'<div class="note todo">.*?</div>', bd, re.S) or re.search(r'<aside class="keys".*?</aside>', bd, re.S) or re.search(r'<p class="meta-line">.*?</p>', bd, re.S)   # 「바로 할 일」 바로 뒤 (2026-09-22)
             bd = bd[:ml.end()] + box + bd[ml.end():] if ml else box + bd
             nx = bd.rfind('<div class="next">')
             bd = bd[:nx] + box + bd[nx:] if nx > 0 else bd + box
