@@ -968,17 +968,15 @@ main.home section.featured .hero .art svg { max-width:100%; height:auto; }
 @media (max-width:900px) { main.home .tiles.hc { grid-template-columns:1fr 1fr; } main.home .tiles.hc a.tile:last-child { grid-column:1 / -1; } }
 @media (max-width:420px) { main.home .tiles.hc { grid-template-columns:1fr; } main.home .tiles.hc a.tile:last-child { grid-column:auto; } }
 
-/* 첫 화면 세팅 목록: 플랫폼별 묶음 (운영자 2026-09-21) */
-main.home section.featured .side.setups ul.setup-groups { counter-reset:none; }
-main.home section.featured .side.setups li.grp { padding:10px 0 4px; border-bottom:0; display:block; }
-main.home section.featured .side.setups li.grp .g { display:block; font-weight:800; font-size:1.05rem; color:var(--pa, var(--ink)); margin-bottom:2px; }
-main.home section.featured .side.setups li.grp ul { list-style:none; padding:0; margin:0; }
-main.home section.featured .side.setups li.grp ul li { padding:4px 0 4px 14px; border-bottom:0; position:relative; display:block; }
-main.home section.featured .side.setups li.grp ul li::before { content:"·"; position:absolute; left:2px; top:5px; color:var(--pa, var(--accent)); font-weight:800; }
-main.home section.featured .side.setups li.grp ul li a { display:block; grid-template-columns:none; font-weight:700; font-size:1rem; }
+/* 첫 화면 세팅 목록: 플랫폼 네모칸 안에 하위 항목을 가로로 (운영자 2026-09-21) */
+main.home section.featured .side.setups ul.setup-groups { counter-reset:none; display:flex; flex-direction:column; gap:10px; }
+main.home section.featured .side.setups li.grp { display:block; padding:12px 16px 11px; border:1px solid var(--line); border-left:4px solid var(--pa, var(--accent)); border-radius:0 12px 12px 0; background:var(--card, #fff); }
+main.home section.featured .side.setups li.grp .g { display:block; font-weight:800; font-size:1.05rem; color:var(--pa, var(--ink)); margin-bottom:5px; }
+main.home section.featured .side.setups li.grp ul { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:4px 16px; flex:1 1 auto; }
+main.home section.featured .side.setups li.grp ul li { padding:0 0 0 12px; border:0; position:relative; display:block; }
+main.home section.featured .side.setups li.grp ul li::before { content:"·"; position:absolute; left:0; top:0; color:var(--pa, var(--accent)); font-weight:800; }
+main.home section.featured .side.setups li.grp ul li a { display:inline; grid-template-columns:none; font-weight:700; font-size:.98rem; text-decoration:none; padding:0; }
 main.home section.featured .side.setups li.grp ul li a::before { content:none; display:none; }
-main.home section.featured .side.setups li.grp ul li a b { font-size:1rem; }
-main.home section.featured .side.setups li.grp ul li a .m { color:var(--ink-soft); font-size:.8rem; white-space:nowrap; }
 .hub-item .hub-g { display:block; font-size:1.15rem; color:var(--pa, var(--accent)); margin-bottom:6px; }
 ul.hub-setups { list-style:none; padding:0; margin:0; }
 ul.hub-setups li { padding:7px 0 7px 12px; border-top:1px solid var(--line); position:relative; }
@@ -987,7 +985,6 @@ ul.hub-setups li a { text-decoration:none; color:inherit; display:block; }
 ul.hub-setups li a b { display:block; }
 ul.hub-setups li a .k { display:block; color:var(--ink-soft); font-size:.82rem; }
 
-@media (min-width:901px){ main.home section.featured .side.setups ul.setup-groups { columns:2; column-gap:28px; } main.home section.featured .side.setups li.grp { break-inside:avoid; padding-top:4px; } main.home section.featured .side.setups li.grp ul li a b { font-size:.95rem; } main.home section.featured .side.setups li.grp ul li a .m { font-size:.75rem; } }
 
 /* 레퍼런스 종합 1단계 (2026-09-21): 핵심 정리 상자(R1) · 이 글의 용어(R5) · 세팅 단계 하위 목록(R6) */
 aside.keys { margin:6px 0 22px; padding:16px 20px 14px; border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; background:var(--paper-2); }
