@@ -109,15 +109,15 @@ TRACK_INFO = {
 }
 # 플랫폼 게시판: 종류 + 추천 순서 (운영자 2026-09-12 "네이버 마케팅 종류에 대한 이야기와 뭐부터 하면 좋은지 추천 순서"). 순서 이유는 각 글의 공식 문서 근거
 PLAT_KINDS = {
-    "네이버": [("검색 화면", "검색 결과의 칸. 어디가 광고이고 어디가 무료인지."), ("플레이스", "지도와 가게 정보. 전화·길찾기·예약 버튼이 붙는 곳."), ("블로그", "글 검색. 가게 주제로 꾸준히 쓰는 곳."), ("카페", "모임 게시판. 동네 카페의 홍보 규칙은 카페마다 달라요."), ("파워링크", "검색 광고. 클릭마다 과금."), ("리뷰", "플레이스의 리뷰와 답글. 순위이자 검색어.")],
+    "네이버": [("검색 화면", "검색 결과 화면 구조. 광고 자리와 무료 자리."), ("플레이스", "지도와 가게 정보. 전화·길찾기·예약 버튼이 붙는 곳."), ("블로그", "글 검색. 가게 주제 글 발행."), ("카페", "모임 게시판. 동네 카페의 홍보 규칙은 카페마다 달라요."), ("파워링크", "검색 광고. 클릭마다 과금."), ("리뷰", "플레이스의 리뷰와 답글. 순위이자 검색어.")],
     "구글": [("검색", "외국 손님과 안드로이드 지도의 검색. 좋은 글의 기준이 문서로 있어요."), ("블로거", "구글의 무료 블로그. 내 도메인을 붙일 수 있어요."), ("티스토리", "카카오의 블로그. 구글 검색에 잘 걸리는 편이라는 말은 공식 자료가 없어요."), ("도메인", "내 주소. 사는 게 아니라 빌리는 것.")],
     "인스타그램": [("계정", "프로페셔널 계정 전환과 프로필. 돈 안 드는 것."), ("릴스", "짧은 세로 영상."), ("스레드", "글 위주. 인스타그램 계정 하나로 시작."), ("광고", "메타 광고. 거부 사유가 문서에 있어요.")],
     "유튜브": [("채널", "검색과 추천이 무엇을 보는지."), ("쇼츠", "3분 이내 세로 영상. 수익 조건이 따로 있어요.")],
     "AI": [("AI 답변", "손님이 AI에게 물을 때 우리 글이 쓰이는 구조."), ("용어", "AEO·GEO·SEO. 제안서에 나오는 말.")],
     "판매": [("배달앱", "배민·쿠팡이츠 중개수수료 구간. 정부 보도자료 숫자."), ("관련법", "팔기 전에 법이 요구하는 것."), ("스마트스토어", "네이버 장터. 수수료가 두 갈래."), ("쿠팡", "카테고리별 고정 수수료."), ("자사몰", "내 도메인의 가게.")],
-    "카카오": [("채널", "카카오톡 안의 가게 자리. 만들기 무료. 카카오맵 매장 등록도 여기."), ("소식과 메시지", "소식은 무료, 메시지는 건당 과금.")],
-    "당근": [("비즈프로필", "당근 앱 안의 가게 자리. 만들기·소식·쿠폰 무료, 광고만 클릭 과금.")],
-    "기록": [("12주 기록", "한 주에 하나만 바꾸고 적는 틀.")],
+    "카카오": [("채널", "카카오톡 안의 가게 채널. 개설 무료. 카카오맵 매장 등록 포함."), ("소식과 메시지", "소식은 무료, 메시지는 건당 과금.")],
+    "당근": [("비즈프로필", "당근 앱 안의 가게 프로필. 개설·소식·쿠폰 무료, 광고만 클릭 과금.")],
+    "기록": [("12주 기록", "주 1회 기록 양식. 한 주에 하나만 바꾼다.")],
 }
 PLAT_ORDER = {
     "네이버": [("/guide/place.html", "플레이스 등록", "무료이고, 네이버가 사업주의 의무로 적은 유일한 일이에요."), ("/guide/place-owner.html", "주인 변경", "「이미 등록된 업체」면 새로 만들지 말고 권한을 옮겨요. ARS·서류."), ("/guide/rank-drop.html", "순위 떨어짐", "하루 변동·정보 변경·리뷰 감소·대행사 작업·필터·거리, 여섯 가지 순서."), ("/guide/map-missing.html", "지도에 안 떠요", "이름 검색에 나오면 등록은 된 것. 마커는 자동이라 요청으로 못 넣어요."), ("/guide/place-photos.html", "사진 규칙", "사장님 사진이 먼저, 수집 사진은 못 지워요. 1장이면 거리뷰가 붙어요."), ("/guide/talktalk.html", "톡톡 설정", "무료, 상담시간·자동 인사말·응답률 배지·단체 메시지 월 1회."), ("/guide/naver-clip.html", "클립", "장소 태그가 있어야 플레이스에 붙어요. 방문 인증은 영수증이 있어야."), ("/guide/place-plus.html", "플레이스 플러스", "포스 연동으로 영수증 없이 리뷰 받기. 여덟 포스사 음식점만, 무료 베타."), ("/guide/smartplace-help-index.html", "도움말 색인 163", "스마트플레이스 도움말 번호·제목을 주제별로. 화면에 뜬 말로 찾기."), ("/guide/reviews.html", "리뷰 답글", "돈 안 드는 것 가운데 효과가 측정된 일. 리뷰의 말이 검색어가 돼요."), ("/guide/reply-examples.html", "답글 예시 28개", "상황 12가지, 복사해 괄호만 바꿔 쓰는 문장."), ("/guide/review-penalty.html", "리뷰 어뷰징 페널티", "조작 한 건이면 리뷰 전부 미노출. 직원이 대신 찍기·점수 요구도 해당."), ("/guide/review-rules-compare.html", "리뷰 이벤트 플랫폼 비교", "음료 한 잔이 되는 곳은 네이버뿐. 당근·구글은 대가 금지."), ("/guide/disclosure.html", "체험단 표시", "자리·모양·말·언어 넷. 「체험단」「AD」는 부적절한 예."), ("/guide/star-rating.html", "별점 부활", "2026년 4월부터 입력, 7월부터 표시. 평균은 10명부터, 사장님 ON/OFF."), ("/guide/hair-salon.html", "미용실 홍보 순서", "인기 미용실은 예약·Npay 결제 기록으로 정해요. 돈 안 드는 5단계."), ("/guide/academy.html", "학원 홍보 순서", "광고에 적을 네 가지부터. 과정별 수강료·예약 상담·한 과목 블로그."), ("/guide/reservation-settlement.html", "예약금 정산·수수료", "이용 완료 뒤 1영업일, 매장방문 결제는 2영업일. 영세 1.80%·0.80%."), ("/guide/reservation-help-index.html", "예약주문 도움말 색인", "제작·검수·정산·환불·네이버 주문 도움말 147개를 번호로."), ("/guide/seo.html", "검색 화면", "광고 칸과 무료 칸을 알아야 「상위 노출 보장」을 가려요."), ("/guide/blog.html", "블로그", "한 주제로 꾸준히. 언급수가 플레이스 인기도로 돌아와요."), ("/guide/blog-help-index.html", "블로그 도움말 색인", "검색 노출·발행·내돈내산·가게 연결 도움말 140개를 번호로."), ("/guide/search-help-index.html", "검색 고객센터 색인", "홈페이지 노출·순위 기준·AI 브리핑·검색 제외 도움말 83개를 번호로."), ("/guide/myplace-help-index.html", "MY플레이스 색인", "영수증 리뷰 기준·업체 페널티·답글 숨김 도움말 51개를 번호로."), ("/guide/help-indexes.html", "도움말 색인 모음", "고객센터 15곳의 색인을 한 장에. 어디에 물어야 하는지부터."), ("/guide/powerlink.html", "파워링크", "앞 단계가 돼 있어야 클릭이 손님이 돼요. 여기서 처음 돈이 들어요."), ("/guide/agency-contract.html", "대행사 위약금·해지", "위약금 과다 청구가 분쟁의 67%. 조정원 창구와 계약 전 넷."), ("/guide/naver-ads-help-index.html", "광고주센터 도움말 색인", "파워링크·플레이스광고·결제·검토 질문 번호를 분류별로.")],
@@ -136,15 +136,15 @@ PLAT_INTRO = {
         "온라인 판매": "스마트스토어·쿠팡·자사몰. 손님이 장터에서 찾고 장터에서 사는 가게의 순서예요.",
         "예약·상담": "학원·공방·상담·시술. 손님이 검색해서 비교하고 문의하는 가게의 순서예요.",
         "외국 손님": "외국 손님은 구글 지도를 열어요. 플레이스를 먼저 채운 뒤 같은 재료로 구글을 채우는 순서예요.",
-        "네이버": "한국 손님 열에 여덟이 먼저 여는 곳이에요. 검색 화면, 플레이스, 블로그, 카페, 파워링크, 리뷰를 네이버 공식 문서 원문으로 다뤄요.",
+        "네이버": "한국 사람 80%가 이용하는 곳이에요. 검색 화면, 플레이스, 블로그, 카페, 파워링크, 리뷰를 네이버 공식 문서 원문으로 다뤄요.",
         "구글": "외국 손님과 안드로이드 지도, 그리고 내 도메인의 홈페이지가 걸리는 곳이에요. 검색, 블로거, 티스토리, 도메인.",
-        "인스타그램": "계정 정리부터 릴스, 스레드, 광고까지. 메타가 직접 적은 규정과 인스타그램 대표의 발언을 갈라서 적어요.",
-        "유튜브": "채널과 쇼츠. 유튜브 고객센터가 밝힌 검색·추천 방식과 쇼츠 분류 기준, 수익 조건만 옮겨요. 몇 분짜리가 좋은지 같은 요령은 문서에 없어서 여기에도 없어요.",
-        "AI": "손님이 검색창 대신 챗GPT나 AI 검색에 물을 때 우리 가게가 답에 나오는 구조를 봐요. 대행사 제안서에 나오는 AEO·GEO 같은 용어도 여기서 풀어요.",
-        "카카오": "손님 휴대폰에 다 깔린 카카오톡 안에 가게 자리를 만드는 곳이에요. 채널 만들기, 무료인 소식과 건당 돈이 드는 메시지를 카카오비즈니스 가이드 원문으로 다뤄요.",
-        "당근": "동네 이웃이 중고거래 하러 여는 당근 앱 안에 가게 자리를 만드는 곳이에요. 비즈프로필 만들기, 사업자 인증, 무료 소식을 당근비즈니스 가이드 원문으로 다뤄요.",
-        "판매": "스마트스토어, 쿠팡, 자사몰. 수수료가 어디에 얼마나 붙는지, 직접 데려온 주문은 왜 싼지를 공식 문서 원문으로 봐요. 수수료율은 날짜가 붙은 값이라 기준일을 같이 적어요.",
-        "기록": "마케팅이 효과가 있었는지는 느낌 말고 기록으로 정해요. 한 주에 하나만 바꾸고, 주 1회 5분씩 열두 주를 적어요. 성과처럼 보이지만 성과가 아닌 숫자도 가려요.",
+        "인스타그램": "계정 정리부터 릴스, 스레드, 광고까지. 메타 공식 규정 기준으로 다뤄요.",
+        "유튜브": "채널과 쇼츠. 유튜브 고객센터가 밝힌 검색·추천 방식, 쇼츠 분류 기준, 수익 조건을 다뤄요.",
+        "AI": "손님이 AI 검색에 물을 때 우리 가게가 답에 나오는 구조와 AEO·GEO 용어를 다뤄요.",
+        "카카오": "카카오톡 안에 가게 채널을 만드는 곳이에요. 채널 만들기, 무료인 소식과 건당 돈이 드는 메시지를 카카오비즈니스 가이드 원문으로 다뤄요.",
+        "당근": "당근 앱 안에 가게 프로필을 만드는 곳이에요. 비즈프로필 만들기, 사업자 인증, 무료 소식을 당근비즈니스 가이드 원문으로 다뤄요.",
+        "판매": "스마트스토어, 쿠팡, 자사몰. 수수료가 어디에 얼마나 붙는지를 공식 문서 기준으로 다뤄요.",
+        "기록": "마케팅 효과는 기록으로 판단해요. 한 주에 하나만 바꾸고 주 1회 5분씩 12주를 적어요.",
     },
     "en": {
         "Before you start": "What the law asks before you sell in Korea: registration, disclosures, the withdrawal right, and a privacy policy.",
@@ -169,7 +169,7 @@ PLAT_PROFILE = {
         "돈": "통신판매업 신고 면허세 외에는 없어요. 대행사가 파는 「사이트 등록」은 필요 없어요.",
     },
     "네이버": {
-        "무엇": "한국 손님 열에 여덟이 먼저 여는 검색이에요. 화면은 광고(파워링크), 가게 정보(플레이스), 글(블로그·카페), AI 브리핑으로 나뉘어요.",
+        "무엇": "한국 사람 80%가 이용하는 검색이에요. 화면은 광고(파워링크), 가게 정보(플레이스), 글(블로그·카페), AI 브리핑으로 나뉘어요.",
         "어울리는 가게": "동네 손님을 받는 가게 전부. 식당, 미용실, 안경원, 병원, 학원처럼 「○○동 △△」으로 검색되는 업종.",
         "먼저 시작하면 좋은 분": "플레이스는 가게가 있으면 누구나 오늘. 블로그는 한 주제로 꾸준히 쓸 수 있는 분.",
         "난이도": "플레이스 등록은 낮음. 블로그는 중간, 꾸준함이 조건이에요(편집자 주).",
@@ -511,64 +511,64 @@ def profile_html(page):
 # 채널 페이지의 「단계별 길」. 없는 채널은 제목만 있는 글 목록.
 CHAN_LEVELS = {
     "네이버/플레이스": [
-        ("처음이라면", "세팅부터", "setup:place"),
-        ("상위권 유지", "순위 재료를 채우고 떨어지면 원인부터", ["/guide/rank-drop.html", "/local/4-reviews.html", "/guide/star-rating.html", "/guide/review-penalty.html", "/guide/map-missing.html", "/guide/place-plus.html"]),
-        ("광고비 효율", "1페이지 위 칸을 가장 적은 돈으로", ["/guide/ads.html", "/local/8-powerlink.html", "/guide/powerlink.html", "/guide/agency-call.html", "/guide/support-money.html"]),
+        ("초급 · 세팅", "플레이스 등록부터 순서대로", "setup:place"),
+        ("중급 · 상위권 유지", "순위 유지와 하락 시 대응", ["/guide/rank-drop.html", "/local/4-reviews.html", "/guide/star-rating.html", "/guide/review-penalty.html", "/guide/map-missing.html", "/guide/place-plus.html"]),
+        ("고급 · 광고비 효율", "적은 비용으로 상단 노출 유지", ["/guide/ads.html", "/local/8-powerlink.html", "/guide/powerlink.html", "/guide/agency-call.html", "/guide/support-money.html"]),
     ],
     "네이버/예약": [
-        ("처음이라면", "예약 단추와 톡톡 켜기", "setup:booking"),
-        ("잘 굴리기", "노쇼·정산·업종별 순서", ["/guide/reservation-noshow.html", "/guide/reservation-settlement.html", "/guide/hair-salon.html", "/guide/academy.html"]),
+        ("초급 · 세팅", "예약 버튼과 톡톡 설정", "setup:booking"),
+        ("중급 · 운영", "노쇼·정산·업종별 순서", ["/guide/reservation-noshow.html", "/guide/reservation-settlement.html", "/guide/hair-salon.html", "/guide/academy.html"]),
     ],
     "네이버/리뷰": [
-        ("처음이라면", "리뷰 받고 답글 달기", "setup:reviews"),
-        ("잘 굴리기", "답글 문장·별점·페널티", ["/guide/reply-examples.html", "/guide/star-rating.html", "/guide/review-penalty.html", "/guide/disclosure.html", "/guide/review-rules-compare.html"]),
+        ("초급 · 세팅", "리뷰 요청과 답글", "setup:reviews"),
+        ("중급 · 운영", "답글 문장·별점·페널티", ["/guide/reply-examples.html", "/guide/star-rating.html", "/guide/review-penalty.html", "/guide/disclosure.html", "/guide/review-rules-compare.html"]),
     ],
     "네이버/파워링크": [
-        ("처음이라면", "내 계정으로 첫 광고", "setup:ads"),
-        ("돈 새는 곳 막기", "과금 구조·순위·대행사 계약", ["/guide/ads.html", "/guide/powerlink.html", "/guide/agency-contract.html", "/guide/agency-call.html", "/guide/support-money.html"]),
+        ("초급 · 세팅", "내 계정으로 첫 광고", "setup:ads"),
+        ("중급 · 광고비 관리", "과금 구조·순위·대행사 계약", ["/guide/ads.html", "/guide/powerlink.html", "/guide/agency-contract.html", "/guide/agency-call.html", "/guide/support-money.html"]),
     ],
     "네이버/블로그": [
-        ("처음이라면", "가게 블로그 시작", ["/local/6-blog.html", "/online/6-blog.html"]),
-        ("검색에 걸리게", "네이버가 밝힌 기준과 빠지는 이유", ["/guide/blog.html", "/guide/blog-removed.html", "/guide/google-content.html"]),
+        ("초급 · 시작", "가게 블로그 개설", ["/local/6-blog.html", "/online/6-blog.html"]),
+        ("중급 · 검색 노출", "노출 기준과 미노출 사유", ["/guide/blog.html", "/guide/blog-removed.html", "/guide/google-content.html"]),
     ],
     "네이버/검색 화면": [
-        ("처음이라면", "검색 화면 읽는 법", ["/local/5-search.html"]),
-        ("더 알기", "돈 내는 자리와 안 내는 자리, 손님 숫자", ["/guide/seo.html", "/guide/numbers.html"]),
+        ("초급 · 기본", "검색 화면 구조", ["/local/5-search.html"]),
+        ("중급 · 개념", "광고 자리와 무료 자리, 이용률 통계", ["/guide/seo.html", "/guide/numbers.html"]),
     ],
     "판매/스마트스토어": [
-        ("처음이라면", "가입부터 정산까지", "setup:store"),
-        ("잘 굴리기", "정산·상품 규칙·페널티·사기", ["/guide/quick-settlement.html", "/guide/store-listing-rules.html", "/guide/store-penalty.html", "/guide/store-scam.html", "/guide/delivery-fees.html"]),
-        ("광고비 효율", "스토어 광고를 켜기 전에", ["/guide/smartstore-ads.html", "/online/8-ads.html"]),
+        ("초급 · 세팅", "가입부터 정산까지", "setup:store"),
+        ("중급 · 운영", "정산·상품 규칙·페널티·사기", ["/guide/quick-settlement.html", "/guide/store-listing-rules.html", "/guide/store-penalty.html", "/guide/store-scam.html", "/guide/delivery-fees.html"]),
+        ("고급 · 광고비 효율", "스토어 광고 조건", ["/guide/smartstore-ads.html", "/online/8-ads.html"]),
     ],
     "구글/검색": [
-        ("처음이라면", "구글 프로필 올리기", "setup:google"),
-        ("잘 굴리기", "정지·복구와 구글이 말하는 좋은 글", ["/guide/google-suspended.html", "/guide/google-content.html"]),
+        ("초급 · 세팅", "구글 비즈니스 프로필 등록", "setup:google"),
+        ("중급 · 운영", "정지·복구와 콘텐츠 기준", ["/guide/google-suspended.html", "/guide/google-content.html"]),
     ],
     "구글/도메인": [
-        ("처음이라면", "홈페이지 검색 등록", "setup:homepage"),
+        ("초급 · 세팅", "홈페이지 검색 등록", "setup:homepage"),
     ],
     "카카오/채널": [
-        ("처음이라면", "채널 만들고 카카오맵까지", "setup:kakao"),
-        ("더 알기", "채널이 무엇인지", ["/guide/kakao-channel.html"]),
+        ("초급 · 세팅", "채널 개설부터 카카오맵까지", "setup:kakao"),
+        ("중급 · 개념", "채널 개념", ["/guide/kakao-channel.html"]),
     ],
     "당근/비즈프로필": [
-        ("처음이라면", "무료 프로필·단골·쿠폰", "setup:daangn"),
-        ("잘 굴리기", "후기 규칙", ["/guide/daangn-reviews.html"]),
+        ("초급 · 세팅", "무료 프로필·단골·쿠폰", "setup:daangn"),
+        ("중급 · 운영", "후기 규칙", ["/guide/daangn-reviews.html"]),
     ],
     "유튜브/채널": [
-        ("처음이라면", "가게 채널 만들기", "setup:youtube"),
-        ("잘 굴리기", "검색·추천 기준과 쇼츠 규칙", ["/guide/youtube-search.html", "/guide/youtube-shorts.html"]),
+        ("초급 · 세팅", "가게 채널 개설", "setup:youtube"),
+        ("중급 · 운영", "검색·추천 기준과 쇼츠 규칙", ["/guide/youtube-search.html", "/guide/youtube-shorts.html"]),
     ],
     "인스타그램/계정": [
-        ("처음이라면", "가게 계정 무료로 시작", ["/online/7-instagram.html", "/guide/instagram.html"]),
-        ("잘 굴리기", "팔로워 업체·스레드·광고 거부", ["/guide/followers.html", "/guide/threads.html", "/guide/meta-review.html"]),
+        ("초급 · 세팅", "계정 개설", ["/online/7-instagram.html", "/guide/instagram.html"]),
+        ("중급 · 운영", "팔로워 구매 업체·스레드·광고 심사", ["/guide/followers.html", "/guide/threads.html", "/guide/meta-review.html"]),
     ],
     "기록/12주 기록": [
-        ("처음이라면", "12주 기록 시작", ["/guide/record.html", "/guide/record-sheet.html"]),
-        ("돈 쓰기 전에", "무료 도구·지원금·규제", ["/guide/free-tools.html", "/guide/support-money.html", "/guide/voucher-2026.html", "/guide/industry-ad-rules.html"]),
+        ("초급 · 시작", "12주 기록 시작", ["/guide/record.html", "/guide/record-sheet.html"]),
+        ("중급 · 비용 관리", "무료 도구·지원금·규제", ["/guide/free-tools.html", "/guide/support-money.html", "/guide/voucher-2026.html", "/guide/industry-ad-rules.html"]),
     ],
     "AI/AI 답변": [
-        ("처음이라면", "AI 답변에 우리 가게가 나오려면", ["/guide/geo.html", "/service/7-ai.html", "/guide/aeo.html"]),
+        ("초급 · 기본", "AI 답변 노출 구조", ["/guide/geo.html", "/service/7-ai.html", "/guide/aeo.html"]),
     ],
 }
 
@@ -1510,7 +1510,7 @@ HOME_TOPICS = [   # (이름, 주소, 플랫폼 색, 낱말 줄, 그림 파일 �
     ("온라인 판매", "/p/online/", "온라인 판매", "스마트스토어 · 수수료 · 빠른정산 · 반품", "online"), ("예약·톡톡", "/p/service/", "예약·상담", "네이버 예약 · 노쇼 · 정산 · 톡톡", "booking"), ("구글·외국 손님", "/p/foreign/", "외국 손님", "구글 프로필 · 정지 복구 · 도메인 · 인스타", "google"),
     ("카카오·당근", "/p/kakao/", "카카오", "카카오톡 채널 · 메시지 · 카카오맵 · 당근 광고", "kakao"), ("유튜브·인스타그램", "/p/youtube/", "유튜브", "채널 · 쇼츠 · 댓글 · 저작권 · 메타 광고 심사", "youtube"), ("법·규제·기록", "/p/record/", "기록", "업종별 광고 규제 · 표시 의무 · 12주 기록표", "law"),
 ]
-HOME_TOOLS = [("/check/", "1분 자가진단", "질문 7개, 우리 가게가 지금 할 일 하나"), ("/guide/help-indexes.html", "고객센터 도움말 색인 15개", "어느 고객센터에 물어야 하는지부터"), ("/guide/store-sheet.html", "가게 정보 한 장", "상호·주소·전화 어디에나 똑같이, 인쇄용 표")]
+HOME_TOOLS = [("/check/", "1분 자가진단", "질문 7개로 지금 할 일 확인"), ("/guide/help-indexes.html", "고객센터 도움말 색인 15개", "플랫폼별 고객센터 문의처"), ("/guide/store-sheet.html", "가게 정보 표", "상호·주소·전화 통일 표, 인쇄용")]
 
 
 def rules_table_html(n=5):
@@ -1673,7 +1673,7 @@ def setup_pages(pages):
         by = {p["url"]: p for p in pages}
         mins = sum(read_minutes(by[u]) for u in urls if u in by)
         # 부차 설명 없이 제목 + 순서만 (운영자 2026-09-22 "페이지에 들어가서 뭘 해야할지 직관적으로 알수 있을정도로 간결하고 깔끔한 구성")
-        body = (f'<p class="kicker">세팅 순서</p>\n<h1>{esc(name)}</h1>\n<p class="lead">위에서부터 순서대로 하면 돼요.</p>\n' + setup_steps_html(pages, urls) +
+        body = (f'<p class="kicker">세팅 순서</p>\n<h1>{esc(name)}</h1>\n<p class="lead">위에서부터 순서대로 진행하세요.</p>\n' + setup_steps_html(pages, urls) +
                 f'\n<p class="small"><a href="/setup/">다른 세팅</a></p>\n')
         out.append({"title": f"{name}, 순서대로 {len(urls)}단계", "description": f"{lead}. {len(urls)}단계를 순서대로 따라 하면 끝나요. " + " → ".join(by[u].get("nav") or by[u]["title"] for u in urls if u in by), "lang": "ko", "section": "guide", "nav": name, "date": "2026-09-21", "updated": "2026-09-21",
                     "setup": slug, "plat": pl, "rel": f"setup/{slug}/index.html", "url": f"/setup/{slug}/", "body": body})
@@ -1714,7 +1714,7 @@ def home_setups_html(pages):
             name, lead, pl, urls = info[slug]
             lis.append(f'<li><a href="/setup/{slug}/">{esc(SETUP_SHORT.get(slug, name))}</a></li>')   # 이름만 (운영자 2026-09-21 "몇분걸리는지 뭐하는건지 부차적인 설명없이")
         out.append(f'<li class="grp {plat_class(gplat)}"><a class="g" href="{plat_url("ko", gplat)}">{esc(gname)}</a><ul>{"".join(lis)}</ul></li>')   # 플랫폼 이름도 누르면 그 플랫폼 게시판으로 (운영자 2026-09-21)
-    return f'<div class="side setups"><span class="rail-head">따라만 하면 되는 세팅</span><ul class="setup-groups">{"".join(out)}</ul><p class="more"><a href="/setup/">세팅 순서 전부</a></p></div>'
+    return f'<div class="side setups"><span class="rail-head">플랫폼별 세팅</span><ul class="setup-groups">{"".join(out)}</ul><p class="more"><a href="/setup/">세팅 전체 보기</a></p></div>'
 
 
 def do_box(page, pages):
