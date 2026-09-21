@@ -1003,3 +1003,15 @@ ol.setup-steps ul.sub li { padding:2px 0 2px 14px; position:relative; counter-in
 ol.setup-steps ul.sub li::after { display:none; }
 ol.setup-steps ul.sub li::before { content:"·"; position:absolute; left:2px; top:2px; font-size:1rem; line-height:inherit; font-weight:800; letter-spacing:0; color:var(--accent); }
 @media (max-width:420px){ main.home section.featured .side.setups li.grp { grid-template-columns:1fr; row-gap:6px; } main.home section.featured .side.setups li.grp .g { border-right:0; } }
+
+/* 채널 페이지 단계별 길 (초급·중급·고급, 운영자 2026-09-22) */
+section.lv { margin:22px 0 26px; padding:16px 18px 10px; border:1px solid var(--line); border-left:4px solid var(--pa, var(--accent)); border-radius:0 12px 12px 0; background:var(--card, #fff); }
+section.lv .lv-head { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; text-decoration:none; color:inherit; margin-bottom:8px; }
+section.lv .lv-head .n { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:var(--pa, var(--accent)); color:#fff; font-weight:800; font-size:.9rem; align-self:center; }
+section.lv .lv-head b { font-size:1.25rem; }
+section.lv .lv-head .goal { color:var(--ink-soft); font-size:.95rem; }
+section.lv ol { margin:0; padding:0 0 0 40px; }
+section.lv ol li { padding:7px 0; border-top:1px solid var(--line); font-size:1.02rem; font-weight:700; }
+section.lv ol li a { text-decoration:none; }
+ol.course li .badge:empty { display:none; }
+

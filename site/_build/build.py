@@ -253,7 +253,7 @@ def card_grid(pages, lang, items, brief=False):
     out = []
     for p in items:
         mins = read_minutes(p)
-        meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
+        meta = f"{p.get('date')}"
         pc = plat_class(p["cat"])
         icon = "/img/mark-basic.svg" if pc == "plat-none" else f"/img/icons/{pc[5:]}.svg"
         out.append(f'<a class="card {pc}" href="{p["url"]}"><span class="art"><img src="{icon}" alt="" width="120" height="120" loading="lazy"></span><span class="cat">{esc(cat_label(p["cat"]))}</span><b>{esc(p["title"])}</b>{"" if brief else "<small>" + esc(p["description"][:90]) + "…</small>"}<span class="meta">{esc(meta)}</span></a>')
@@ -328,7 +328,7 @@ def course_html(pages, lang, top):
         cost = step_cost(sub)
         if ps:
             p = ps[0]
-            out.append(f'<li class="{cost[0]}"><a href="{p["url"]}"><b>{esc(sub)}</b><span class="time"><span class="badge">{cost[1]}</span>{read_minutes(p)}분</span></a></li>')
+            out.append(f'<li class="{cost[0]}"><a href="{p["url"]}"><b>{esc(sub)}</b>{badge(cost)}</a></li>')
         else:
             out.append(f'<li class="soon"><span class="soon"><b>{esc(sub)}</b><span class="time">준비 중</span></span></li>')
     return '<ol class="course roadmap">' + "".join(out) + "</ol>"
@@ -348,13 +348,18 @@ def related_guides_html(pages, top):
     return f'<h2>이 코스와 이어지는 설명 글</h2><ul class="related-guides">{rows}</ul>'
 
 
+def badge(cost):
+    """돈 듦·법 확인처럼 알려야 할 것만 배지로. 빈 문자열이면 아무것도 안 찍는다."""
+    return f'<span class="badge">{cost[1]}</span>' if cost[1] else ""
+
+
 def step_cost(sub):
     """단계의 비용 표시: 돈이 드는 단계(파워링크·광고), 법 확인 단계, 나머지는 무료."""
     if sub in ("파워링크", "광고"):
         return ("paid", "돈 듦")
     if sub == "관련법":
         return ("law", "법 확인")
-    return ("free", "무료")
+    return ("free", "")                                                          # 「무료」 배지는 뺐다 (운영자 2026-09-22: 무료인가? 10분은 뭐지? 헷갈린다)
 
 
 def chooser_html(pages, lang):
@@ -369,7 +374,7 @@ def chooser_html(pages, lang):
         n = len(subs(lang, top))
         mins = sum(read_minutes(posts(pages, lang, f"{top}/{s}")[0]) for s in subs(lang, top) if posts(pages, lang, f"{top}/{s}"))
         cards.append(f'<a class="pick {plat_class(top)}" href="{url}"><span class="who">{esc(info["who"])}</span><b>{esc(top)}</b>'
-                     f'<span class="btn">1단계부터 시작하기</span><span class="meta">{n}단계 · 읽는 시간 약 {mins}분</span></a>')
+                     f'<span class="btn">1단계부터 시작하기</span><span class="meta">{n}단계</span></a>')
     return ('<section class="chooser"><h2 class="hm-head">우리 가게는 어느 쪽인가요? <a class="hm-link" href="/check/">모르겠으면 자가진단</a></h2>'
             '<div class="picks">' + "".join(cards) + "</div></section>")
 
@@ -462,8 +467,8 @@ def order_html(pages, top):
         return ""
     by = {p["url"]: p for p in pages}
     def _cost(u, t):                                                          # 색인 글은 「참고」(첫 화면 카드와 같은 기준, B18)
-        return ("free", "참고") if ("help-index" in u or "faq-" in u) else step_cost(t)
-    lis = "".join(f'<li class="{_cost(u, t)[0]}"><a href="{u}"><b>{esc(t)}</b><span class="time"><span class="badge">{_cost(u, t)[1]}</span>{read_minutes(by[u])}분</span></a></li>' for u, t, w in rows if u in by)
+        return ("free", "") if ("help-index" in u or "faq-" in u) else step_cost(t)
+    lis = "".join(f'<li class="{_cost(u, t)[0]}"><a href="{u}"><b>{esc(t)}</b>{badge(_cost(u, t))}</a></li>' for u, t, w in rows if u in by)
     return '<h2>추천 순서</h2><ol class="course roadmap">' + lis + "</ol>"
 
 
@@ -498,6 +503,40 @@ def profile_html(page):
     note = ("Items marked (official) come from the platform's own documents; editor's notes are our judgement." if lang == "en"
             else "「공식」은 플랫폼 문서에 적힌 것, 「편집자 주」는 저희 판단이에요. 평균 기간은 공식 자료가 없으면 없다고 적었어요.")
     return f'<h2>{head}</h2><table class="profile">{rows}</table><p class="small">{esc(note)}</p>'
+
+# 채널 페이지의 「단계별 길」. 없는 채널은 제목만 있는 글 목록.
+CHAN_LEVELS = {
+    "네이버/플레이스": [
+        ("처음이라면", "세팅부터", "setup:place"),
+        ("상위권 유지", "순위 재료를 채우고 떨어지면 원인부터", ["/guide/rank-drop.html", "/local/4-reviews.html", "/guide/star-rating.html", "/guide/review-penalty.html", "/guide/map-missing.html", "/guide/place-plus.html"]),
+        ("광고비 효율", "1페이지 위 칸을 가장 적은 돈으로", ["/guide/ads.html", "/local/8-powerlink.html", "/guide/powerlink.html", "/guide/agency-call.html", "/guide/support-money.html"]),
+    ],
+}
+
+
+def chan_levels_html(pages, lang, cat):
+    """채널 페이지 본문: 초급·중급·고급 세 묶음(제목만) + 그 밖의 글(제목만)."""
+    lv = CHAN_LEVELS.get(cat)
+    if not lv:
+        return board(pages, lang, cat, show_cat=False, meta=False)
+    by = {p["url"]: p for p in pages}
+    used, out = set(), []
+    setups = {slug: (name, urls) for slug, name, lead, pl, urls in SETUPS}
+    for i, (label, goal, src) in enumerate(lv, 1):
+        if isinstance(src, str) and src.startswith("setup:"):
+            name, urls = setups[src[6:]]
+            head = f'<a class="lv-head" href="/setup/{src[6:]}/"><span class="n">{i}</span><b>{esc(label)}</b><span class="goal">{esc(goal)}</span></a>'
+        else:
+            urls = src
+            head = f'<div class="lv-head"><span class="n">{i}</span><b>{esc(label)}</b><span class="goal">{esc(goal)}</span></div>'
+        lis = "".join(f'<li><a href="{u}">{esc(by[u].get("nav") or by[u]["title"])}</a></li>' for u in urls if u in by)
+        used.update(urls)
+        out.append(f'<section class="lv">{head}<ol>{lis}</ol></section>')
+    rest = [p for p in posts(pages, lang, cat) if p["url"] not in used]
+    if rest:
+        out.append('<h2>그 밖의 글</h2>' + board([p for p in rest], lang, picks=[p["url"] for p in rest], show_cat=False, meta=False))
+    return "".join(out)
+
 
 def platform_pages(pages):
     """플랫폼마다 페이지 하나 (운영자 2026-09-11 "누르면 이동이 아니라 각 플랫폼별 페이지"). 본문은 채널별 목록."""
@@ -817,11 +856,10 @@ def meta_line(page):
     text = strip_tags(page["body"])
     if page["lang"] == "en":
         mins = max(1, round(len(text.split()) / 220))
-        parts = [f"Published {page.get('date')}", f"Updated {page.get('updated')}", f"{mins} min read"]
+        parts = [f"Published {page.get('date')}", f"Updated {page.get('updated')}"]
     else:
         mins = max(1, round(len(text) / 450))
-        parts = [f"발행 {page.get('date')}", f"수정 {page.get('updated')}",
-                 f"읽는 시간 약 {mins}분"]
+        parts = [f"발행 {page.get('date')}", f"수정 {page.get('updated')}"]
     line = '<p class="meta-line">' + "".join(f"<span>{esc(x)}</span>" for x in parts) + "</p>"
     body = page["body"]
     ms = list(re.finditer(r'<p class="lead(?: answer)?">.*?</p>', body, re.S))
@@ -1005,7 +1043,7 @@ def posts(pages, lang, cat=None):
     return pool
 
 
-def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True):
+def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True, meta=True):
     """커뮤니티식 글 목록 한 줄 = [게시판] 제목 / 한 줄 요약 / 날짜 · 읽는 시간. picks 는 url 목록(먼저 읽을 글)."""
     items = [p for p in pages if p["url"] in picks] if picks else posts(pages, lang, cat)
     if picks:
@@ -1016,11 +1054,9 @@ def board(pages, lang, cat=None, limit=None, picks=None, show_cat=True):
         return f'<p class="empty">{EMPTY[lang]}</p>'
     rows = []
     for p in items:
-        mins = read_minutes(p)
-        meta = f"{p.get('date')} · {mins} min" if lang == "en" else f"{p.get('date')} · 약 {mins}분"
         chip = f'<span class="cat {plat_class(p["cat"])}">{esc(cat_label(p["cat"]))}</span>' if show_cat else ""
-        rows.append(f'<li><a href="{p["url"]}"{"" if show_cat else " class=\"nocat\""}>{chip}<b>{esc(p["title"])}</b>'
-                    f'<span class="meta">{esc(meta)}</span></a></li>')
+        mt = f'<span class="meta">{esc(p.get("date"))}</span>' if meta else ""
+        rows.append(f'<li><a href="{p["url"]}"{"" if show_cat else " class=\"nocat\""}>{chip}<b>{esc(p["title"])}</b>{mt}</a></li>')
     return '<ol class="board">' + "".join(rows) + "</ol>"
 
 
@@ -1215,7 +1251,8 @@ def diag_html(pages, lang):
                 pp = posts(pages, lang, f"{top}/{target}")
                 url, label = (pp[0]["url"], target) if pp else (plat_url(lang, top), target)
             pp2 = next((p for p in pages if p["url"] == url), None)
-            meta = f'<em>{read_minutes(pp2)}분 · {step_cost(split_cat(pp2["cat"])[1])[1]}</em>' if pp2 and pp2.get("cat") and pp2.get("kind") == "howto" else ""
+            cst = step_cost(split_cat(pp2["cat"])[1])[1] if pp2 and pp2.get("cat") and pp2.get("kind") == "howto" else ""
+            meta = f'<em>{cst}</em>' if cst else ""
             recs.append(f'<a class="rec" id="rec{k}" href="{url}"><b>{esc(label)}</b><span>{esc(line)}</span>{meta}</a>')
         out.append(f'<div class="r r-{code}"><p class="r-head"><span class="who">{esc(TRACK_INFO[top]["who"])}</span><b class="{plat_class(top)}">{esc(top)} 코스</b>'
                    f'<a class="btn" href="{start}">1단계부터 시작하기</a></p><div class="recs">{"".join(recs)}</div>'
@@ -1382,7 +1419,8 @@ def howto_index_html(pages, lang):
         lis = []
         for name, url, line in items:
             pg = by.get(url)
-            meta = f'<span class="meta">{read_minutes(pg)}분 · {"참고" if ("help-index" in url or "faq-" in url) else step_cost(split_cat(pg["cat"])[1])[1]}</span>' if pg else ""   # 색인 글은 돈이 드는 단계가 아니다 (2026-09-19)
+            cst = "" if (not pg or "help-index" in url or "faq-" in url) else step_cost(split_cat(pg["cat"])[1])[1]
+            meta = f'<span class="meta">{cst}</span>' if cst else ""
             lis.append(f'<li><a href="{url}"><b>{esc(name)}</b><span class="line">{esc(line)}</span>{meta}</a></li>')
         out.append(f'<h3 id="{gid}" class="plat-{gid}">{esc(gname)}</h3><ul class="hix-list">{"".join(lis)}</ul>')
     out.append('<p class="small">업종별로 순서대로 가고 싶으면 <a href="/p/local/">동네 매장</a> · <a href="/p/online/">온라인 판매</a> · <a href="/p/service/">예약·상담</a> · <a href="/p/foreign/">외국 손님</a> 코스가 있어요.</p></section>')
@@ -1465,6 +1503,13 @@ def keys_box(body):
         return body
     paras = [re.sub(r"^한 줄 답부터\.\s*", "", m.group(1).strip()) for m in ms]
     sents = [x.strip() for t in paras for x in re.split(r"(?<=[.?!])\s+(?=[^<])", t) if x.strip()]   # 문장마다 한 줄 (Key Takeaways 는 짧은 줄 여러 개). 태그 안에서는 안 가른다
+    merged = []                                                                   # 「그러면 무엇을 봐야 하나요?」 같은 물음은 다음 문장과 한 줄로
+    for x in sents:
+        if merged and merged[-1].endswith("?"):
+            merged[-1] += " " + x
+        else:
+            merged.append(x)
+    sents = merged
     items = [f"<li>{t}</li>" for t in (sents if 2 <= len(sents) <= 6 else paras)]
     box = '<aside class="keys" aria-label="핵심 정리"><span class="keys-head">핵심 정리</span><ul>' + "".join(items) + "</ul></aside>\n"
     return body[:ms[0].start()] + box + body[ms[-1].end():]
@@ -1553,8 +1598,8 @@ def setup_steps_html(pages, urls):
         p = by.get(u)
         if not p:
             continue
-        cost = step_cost(split_cat(p["cat"])[1]) if p.get("kind") == "howto" else ("free", "설명")
-        lis.append(f'<li class="{cost[0]}"><a href="{u}"><b>{esc(p.get("nav") or p["title"])}</b><span class="time"><span class="badge">{cost[1]}</span>{read_minutes(p)}분</span></a>{step_subs(p)}</li>')
+        cost = step_cost(split_cat(p["cat"])[1]) if p.get("kind") == "howto" else ("free", "")
+        lis.append(f'<li class="{cost[0]}"><a href="{u}"><b>{esc(p.get("nav") or p["title"])}</b>{badge(cost)}</a>{step_subs(p)}</li>')
     return '<ol class="course roadmap setup-steps">' + "".join(lis) + "</ol>"
 
 
@@ -1563,16 +1608,16 @@ def setup_pages(pages):
     for slug, name, lead, pl, urls in SETUPS:
         by = {p["url"]: p for p in pages}
         mins = sum(read_minutes(by[u]) for u in urls if u in by)
-        body = (f'<p class="kicker">세팅 순서</p>\n<h1>{esc(name)}</h1>\n<p class="lead">{esc(lead)}. 위에서부터 순서대로 하면 돼요. 한 번에 다 안 해도 되고, 한 단계 끝내고 돌아와도 돼요.</p>\n'
-                f'<div class="hix-top"><span></span><a class="diag-btn" href="{urls[0]}">1번부터 시작</a></div>\n' + setup_steps_html(pages, urls) +
-                f'\n<p class="small">막히면 각 단계 글 아래 「막히면」에 답이 있어요. 다른 세팅은 <a href="/setup/">세팅 순서 전부</a>에 있어요.</p>\n')
-        out.append({"title": f"{name}, 순서대로 {len(urls)}단계 · 약 {mins}분", "description": f"{lead}. {len(urls)}단계를 순서대로 따라 하면 끝나요. " + " → ".join(by[u].get("nav") or by[u]["title"] for u in urls if u in by), "lang": "ko", "section": "guide", "nav": name, "date": "2026-09-21", "updated": "2026-09-21",
+        # 부차 설명 없이 제목 + 순서만 (운영자 2026-09-22 "페이지에 들어가서 뭘 해야할지 직관적으로 알수 있을정도로 간결하고 깔끔한 구성")
+        body = (f'<p class="kicker">세팅 순서</p>\n<h1>{esc(name)}</h1>\n<p class="lead">위에서부터 순서대로 하면 돼요.</p>\n' + setup_steps_html(pages, urls) +
+                f'\n<p class="small"><a href="/setup/">다른 세팅</a></p>\n')
+        out.append({"title": f"{name}, 순서대로 {len(urls)}단계", "description": f"{lead}. {len(urls)}단계를 순서대로 따라 하면 끝나요. " + " → ".join(by[u].get("nav") or by[u]["title"] for u in urls if u in by), "lang": "ko", "section": "guide", "nav": name, "date": "2026-09-21", "updated": "2026-09-21",
                     "setup": slug, "plat": pl, "rel": f"setup/{slug}/index.html", "url": f"/setup/{slug}/", "body": body})
     # 세팅 순서 전부
     info = {slug: (name, lead, pl, urls) for slug, name, lead, pl, urls in SETUPS}
     cards = ""
     for gname, gplat, slugs in SETUP_GROUPS:
-        items = "".join(f'<li><a href="/setup/{slug}/"><b>{esc(SETUP_SHORT.get(slug, info[slug][0]))}</b><span class="k">{len(info[slug][3])}단계 · {esc(info[slug][1])}</span></a></li>' for slug in slugs)
+        items = "".join(f'<li><a href="/setup/{slug}/"><b>{esc(SETUP_SHORT.get(slug, info[slug][0]))}</b></a></li>' for slug in slugs)
         cards += f'<div class="hub-item"><b class="hub-g {plat_class(gplat)}">{esc(gname)}</b><ul class="hub-setups">{items}</ul></div>'
     out.append({"title": "세팅 순서 전부, 따라만 하면 되는 묶음 10개", "description": "플레이스·리뷰·예약·스마트스토어·파워링크·구글·카카오·당근·유튜브·홈페이지. 지금 하려는 것 하나를 골라 1번부터 순서대로.", "lang": "ko", "section": "guide", "nav": "세팅 순서",
                 "date": "2026-09-21", "updated": "2026-09-21", "rel": "setup/index.html", "url": "/setup/", "body": '<p class="kicker">세팅 순서</p>\n<h1>지금 하려는 것 하나만 고르세요</h1>\n<p class="lead">묶음마다 3~4단계예요. 누르면 순서가 나오고, 1번부터 따라 하면 끝나요.</p>\n<div class="hub">' + cards + "</div>\n"})
@@ -1621,10 +1666,11 @@ def do_box(page, pages):
         if u == "/check/":
             links.append('<a href="/check/">1분 자가진단</a>')
         elif p.get("kind") != "howto":
-            links.append(f'<a href="{u}">{esc(p.get("nav", p["title"]))} 보기<span>{read_minutes(p)}분</span></a>')
+            links.append(f'<a href="{u}">{esc(p.get("nav", p["title"]))} 보기</a>')
         else:
             sub = split_cat(p["cat"])[1]
-            links.append(f'<a href="{u}">{esc(p.get("nav") or sub)} 따라 하기<span>{read_minutes(p)}분 · {step_cost(sub)[1]}</span></a>')   # 글 이름(nav)으로. 「비즈프로필 따라 하기」가 단골·쿠폰 글을 가리키던 것(2026-09-20)
+            cst = step_cost(sub)[1]
+            links.append(f'<a href="{u}">{esc(p.get("nav") or sub)} 따라 하기{("<span>" + cst + "</span>") if cst else ""}</a>')   # 글 이름(nav)으로. 「비즈프로필 따라 하기」가 단골·쿠폰 글을 가리키던 것(2026-09-20)
     return '<div class="do"><b>바로 하려면</b>' + "".join(links) + "</div>" if links else ""
 
 
@@ -1660,7 +1706,7 @@ def fill_boards(page, pages):
         body = body.replace("<!--profile-->", profile_html(page))
     body = re.sub(r"<!--boards:([^>]+)-->", lambda m: boards_by_cat(pages, page["lang"], only=m.group(1).strip()), body)
     body = body.replace("<!--boards-->", boards_by_cat(pages, page["lang"]))
-    body = re.sub(r"<!--chan:([^/>]+)/([^>]+)-->", lambda m: board(pages, page["lang"], f"{m.group(1).strip()}/{m.group(2).strip()}", show_cat=False) or '<p class="small">아직 글이 없어요.</p>', body)
+    body = re.sub(r"<!--chan:([^/>]+)/([^>]+)-->", lambda m: chan_levels_html(pages, page["lang"], f"{m.group(1).strip()}/{m.group(2).strip()}") or '<p class="small">아직 글이 없어요.</p>', body)
     body = body.replace("<!--hub-->", guide_hub_html(pages, page["lang"]))
     body = re.sub(r"<!--board:(\d+)-->", lambda m: board(pages, page["lang"], limit=int(m.group(1))), body)
     body = body.replace("<!--board-->", board(pages, page["lang"], limit=20))
@@ -1756,7 +1802,7 @@ def render(page, pages, verify):
     # 「근거」 footer 는 화면에 안 보인다 (운영자 2026-09-16 "굳이 근거까지 말해줄 필요없어 빼", D43). 원본(_src)에는 남겨 두고 인용 대조(Q1)에만 쓴다
     page = dict(page, body=re.sub(r'<footer class="sources">.*?</footer>', "", page["body"], flags=re.S))
     # 인용 줄 (2026-09-19, 실험 목표 「사람이 인용하는 사이트」): 설명·방법 글 끝에 그대로 복사할 수 있는 한 줄
-    if lang == "ko" and page.get("section") in ("guide",) or page.get("kind") == "howto":
+    if (lang == "ko" and page.get("section") in ("guide",) or page.get("kind") == "howto") and not page.get("setup") and not page.get("plat"):   # 세팅·채널 목록 페이지에는 인용 줄을 안 넣는다 (2026-09-22 간결)
         cite = (f'<p class="cite">이 글을 인용할 때. 사장님 마케팅 교실, 「{esc(page["title"])}」, {page.get("updated") or page.get("date")} 수정, {SITE_URL}{page["url"]}. '
                 f'글 안의 큰따옴표 문장은 각 기관 원문이니 그 기관을 출처로 적어 주세요.</p>')
         page = dict(page, body=page["body"] + chr(10) + cite)
