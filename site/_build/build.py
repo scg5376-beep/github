@@ -1192,7 +1192,10 @@ def plat_art(slug, cls="plat-art"):
     """플랫폼 시각 보조 그림 (site/img/plat/<slug>.png, 코덱스 렌더. 운영자 2026-09-22 "개념쪽에 시각보조자료 … 각 플랫폼 연상가능한 느낌"). 없으면 빈 문자열."""
     if not slug or not (ROOT / "img" / "plat" / f"{slug}.png").exists():
         return ""
-    return f'<img class="{cls}" src="/img/plat/{slug}.png" alt="" width="1200" height="480" loading="lazy">'
+    img = f'<img class="{cls}" src="/img/plat/{slug}.png" alt="" width="1200" height="480" loading="lazy">'
+    if (ROOT / "img" / "logo" / f"{slug}.png").exists():                          # 가운데 로고 모형 (운영자 2026-09-22 "각 가운데에 로고모형을 제작해서 박아 저작권안걸리게")
+        return f'<span class="plat-wrap">{img}<img class="plat-logo" src="/img/logo/{slug}.png" alt="" width="512" height="512" loading="lazy"></span>'
+    return img
 
 
 def add_plat_art(page, body):

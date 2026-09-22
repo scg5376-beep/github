@@ -1093,3 +1093,9 @@ div.plat-band img { display:block; width:100%; height:auto; aspect-ratio:1200 / 
 .hub-item:has(.hub-art) .tile-img { top:auto; bottom:auto; }
 .hub-item:has(.hub-art) .tile-img { display:none; }
 
+/* 플랫폼 그림 가운데 로고 모형 (2026-09-22) */
+.plat-wrap { position:relative; display:block; }
+.plat-wrap .plat-logo { position:absolute; left:50%; top:50%; width:112px; height:112px; transform:translate(-50%,-50%); filter:drop-shadow(0 6px 16px rgba(0,0,0,.28)); }
+.hub-item .plat-wrap .plat-logo { width:72px; height:72px; }
+@media (max-width:520px) { .plat-wrap .plat-logo { width:80px; height:80px; } .hub-item .plat-wrap .plat-logo { width:56px; height:56px; } }
+
