@@ -647,7 +647,11 @@ def platform_pages(pages):
                 curl = url + CHAN_SLUG.get(sub, cat_id(lang, top, sub)) + "/"
                 cbody = (f'<p class="kicker">{esc(top)}</p>\n<h1>{esc(sub)}</h1>\n<p class="lead">{esc(line)}</p>\n<!--chan:{top}/{sub}-->\n'
                          f'<p class="small"><a href="{url}">{esc(top)} 전체 보기</a></p>\n')
-                out.append({"title": f"{top} · {sub}" if lang == "en" else f"{top} {sub} 글 모음", "description": line, "lang": lang,
+                lv = CHAN_LEVELS.get(f"{top}/{sub}") if lang == "ko" else None
+                # 검색 결과 설명이 9~42자라 무슨 쪽인지 안 보였다 → 단계 묶음을 설명·제목에 (발전 2026-09-23)
+                cdesc = (line + " " + ", ".join(f"{lb.split(' · ')[0]}은 {g}" for lb, g, _ in lv) + ".") if lv else line
+                ctitle = f"{top} {sub} 세팅부터 운영까지, 단계별 글" if lv else f"{top} {sub} 글 모음"
+                out.append({"title": f"{top} · {sub}" if lang == "en" else ctitle, "description": cdesc, "lang": lang,
                             "section": "guide" if lang == "ko" else "en", "nav": sub, "date": "2026-09-20", "updated": "2026-09-20",
                             "plat": top, "chan": sub, "rel": curl.strip("/") + "/index.html", "url": curl, "body": cbody})
     return out
