@@ -1188,6 +1188,25 @@ def add_tiles(body):
     return re.sub(r'(<div class="hub-item"><a class="hub-card[^"]*" href="/(?:p|terms)/([a-z]+)/">)', rep_, body)
 
 
+def plat_art(slug, cls="plat-art"):
+    """플랫폼 시각 보조 그림 (site/img/plat/<slug>.png, 코덱스 렌더. 운영자 2026-09-22 "개념쪽에 시각보조자료 … 각 플랫폼 연상가능한 느낌"). 없으면 빈 문자열."""
+    if not slug or not (ROOT / "img" / "plat" / f"{slug}.png").exists():
+        return ""
+    return f'<img class="{cls}" src="/img/plat/{slug}.png" alt="" width="1200" height="480" loading="lazy">'
+
+
+def add_plat_art(page, body):
+    """플랫폼·채널 페이지: h1 아래 그림 띠. 개념 허브 카드: 카드 위 그림."""
+    if page.get("plat") and page["lang"] == "ko":
+        slug = PLAT_SLUG.get(page["plat"])
+        art = plat_art(slug)
+        if art:
+            body = re.sub(r"(<p class=\"lead\">.*?</p>)", lambda m: m.group(1) + chr(10) + f'<div class="plat-band">{art}</div>', body, count=1, flags=re.S)
+    if page["url"] == "/guide/":
+        body = re.sub(r'(<div class="hub-item">)(<a class="hub-card[^"]*" href="/p/([a-z]+)/">)', lambda m: m.group(1) + plat_art(m.group(3), "hub-art") + m.group(2), body)
+    return body
+
+
 def guide_hub_html(pages, lang):
     """/guide/ 첫 화면: 플랫폼 카드 → 플랫폼 페이지, 채널 이름 → 채널 페이지. # 앵커로 한 장을 오르내리지 않는다 (D83)."""
     out = []
@@ -1869,6 +1888,7 @@ def render(page, pages, verify):
     page = fill_boards(page, pages)
     page = add_toc(lift_todo(dict(page, body=meta_line(page))))
     page = dict(page, body=keys_box(page["body"]))                                   # R1 핵심 정리 상자
+    page = dict(page, body=add_plat_art(page, page["body"]))                         # 플랫폼 그림 띠 (2026-09-22)
     if page["url"].startswith("/terms/"):
         bd = add_tiles(page["body"])
         kind = page["url"].strip("/").split("/")[-1] if page["url"] != "/terms/" else ""

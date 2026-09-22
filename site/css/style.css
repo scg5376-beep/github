@@ -1083,3 +1083,13 @@ main.home .tiles.hc a.tile.has-img img { position:static; width:84px; height:84p
 @media (max-width:760px) { main.home .tiles.hc a.tile.has-img img { width:64px; height:64px; } main.home .tiles.hc a.tile.has-img { padding-right:16px; } }
 main.wrap.home { padding-left:22px; padding-right:22px; }                      /* 배너·민트 판의 -22px 가 딱 맞게 */
 @media (max-width:760px) { main.wrap.home { padding-left:16px; padding-right:16px; } main.home h1.home, main.home section.hc-topics { margin-left:-16px; margin-right:-16px; } main.home section.hc-topics { border-radius:0; } }
+
+/* 플랫폼 시각 보조 그림 (코덱스, 2026-09-22): 플랫폼·채널 페이지 띠, 개념 허브 카드 머리 */
+div.plat-band { margin:18px 0 26px; border-radius:14px; overflow:hidden; border:1px solid var(--line); }
+div.plat-band img { display:block; width:100%; height:auto; aspect-ratio:1200 / 480; object-fit:cover; }
+.hub-item:has(.hub-art) { padding:0 0 12px; overflow:hidden; }
+.hub-item .hub-art { display:block; width:100%; height:auto; aspect-ratio:1200 / 480; object-fit:cover; border-bottom:1px solid var(--line); margin-bottom:10px; }
+.hub-item:has(.hub-art) .hub-card, .hub-item:has(.hub-art) .hub-chans { padding-left:16px; padding-right:16px; }
+.hub-item:has(.hub-art) .tile-img { top:auto; bottom:auto; }
+.hub-item:has(.hub-art) .tile-img { display:none; }
+
