@@ -1025,3 +1025,26 @@ p.more-chans { margin:28px 0 0; padding-top:14px; border-top:1px solid var(--lin
 p.more-chans span { color:var(--ink-soft); font-size:.9rem; }
 p.more-chans a { font-weight:700; text-decoration:none; }
 
+/* 타일 그림: 허브·용어 카드, 용어 갈래 머리, 대표 글 그림 (운영자 2026-09-22) */
+.hub-item .tile-img { position:absolute; top:10px; right:12px; width:64px; height:64px; object-fit:contain; }
+.hub-item:has(.tile-img)::before { display:none; }
+.hub-item:has(.tile-img) .hub-card b, .hub-item:has(.tile-img) .hub-g { padding-right:64px; display:block; }
+.page-tile { float:right; width:88px; height:88px; object-fit:contain; margin:0 0 8px 16px; }
+main.home section.featured .hero .ph.has-img { position:relative; overflow:hidden; padding:0; height:auto; aspect-ratio:16 / 9; }
+main.home section.featured .hero .ph.has-img img { display:block; width:100%; height:100%; object-fit:cover; }
+main.home section.featured .hero .ph.has-img p.ans { position:absolute; left:0; right:0; bottom:0; margin:0; padding:44px 24px 18px; color:#fff; background:linear-gradient(to top, rgba(0,0,0,.66), rgba(0,0,0,0)); font-size:1.3rem; }
+@media (max-width:520px) { .hub-item .tile-img { width:52px; height:52px; } .page-tile { width:64px; height:64px; } }
+
+/* 플랫폼 색으로 영역 구분 (운영자 2026-09-22 "색감도 따로 영역이 구분되게끔 플랫폼컬러에 맞춰서") — 옅은 바탕 --pt, 진한 테두리·글자 --pa */
+main.home section.featured .side.setups li.grp { background:var(--pt, var(--card, #fff)); border-color:color-mix(in srgb, var(--pa, var(--accent)) 35%, transparent); }
+main.home section.featured .side.setups li.grp .g { border-right-color:color-mix(in srgb, var(--pa, var(--accent)) 35%, transparent); }
+ul.chan-cards li a { background:var(--pt, var(--card, #fff)); }
+body.plat-naver ul.chan-cards li a, body.plat-google ul.chan-cards li a, body.plat-instagram ul.chan-cards li a, body.plat-youtube ul.chan-cards li a, body.plat-ai ul.chan-cards li a, body.plat-sell ul.chan-cards li a, body.plat-kakao ul.chan-cards li a, body.plat-daangn ul.chan-cards li a, body.plat-record ul.chan-cards li a { border-color:color-mix(in srgb, var(--pa) 35%, transparent); }
+section.lv { background:var(--pt, var(--card, #fff)); border-color:color-mix(in srgb, var(--pa, var(--accent)) 35%, transparent); }
+section.lv ol li { border-top-color:color-mix(in srgb, var(--pa, var(--accent)) 25%, transparent); }
+.hub-item:has(.plat-naver) { --pt:#e8f6ea; --pa:#0b6b34; } .hub-item:has(.plat-google) { --pt:#fff0e0; --pa:#a5460b; } .hub-item:has(.plat-instagram) { --pt:#fde8f0; --pa:#a8235e; } .hub-item:has(.plat-youtube) { --pt:#fdeaea; --pa:#a51b1b; } .hub-item:has(.plat-ai) { --pt:#e6f4f5; --pa:#0b6a75; } .hub-item:has(.plat-sell) { --pt:#fbf4d9; --pa:#7a5c00; } .hub-item:has(.plat-kakao) { --pt:#fdf6d8; --pa:#6b5300; } .hub-item:has(.plat-daangn) { --pt:#fff1e6; --pa:#b4460f; } .hub-item:has(.plat-record) { --pt:#eceff4; --pa:#3f4a5c; } .hub-item:has(.plat-local) { --pt:#eef2f8; --pa:#0f4c9c; } .hub-item:has(.plat-online) { --pt:#eef2f8; --pa:#2c4f7c; } .hub-item:has(.plat-service) { --pt:#eef2f8; --pa:#3b4a63; } .hub-item:has(.plat-foreign) { --pt:#eef2f8; --pa:#274c6b; }
+.hub-item { background:var(--pt, var(--card, #fff)); border-left:4px solid var(--pa, var(--line)); border-radius:0 14px 14px 0; }
+.hub-item .hub-card b { color:var(--pa, var(--ink)); }
+/* 용어 허브 카드(정적) */
+.hub-item:has(a[href="/terms/naver/"]) { --pt:#e8f6ea; --pa:#0b6b34; } .hub-item:has(a[href="/terms/google/"]) { --pt:#fff0e0; --pa:#a5460b; } .hub-item:has(a[href="/terms/instagram/"]) { --pt:#fde8f0; --pa:#a8235e; } .hub-item:has(a[href="/terms/kakao/"]) { --pt:#fdf6d8; --pa:#6b5300; } .hub-item:has(a[href="/terms/sell/"]) { --pt:#fbf4d9; --pa:#7a5c00; } .hub-item:has(a[href="/terms/record/"]) { --pt:#eceff4; --pa:#3f4a5c; }
+

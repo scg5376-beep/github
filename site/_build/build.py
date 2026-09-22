@@ -265,11 +265,10 @@ def hero_answer(m):
     mm = re.search(r'<p class="lead answer">(.*?)</p>', m["body"], re.S)
     t = re.sub(r"<[^>]+>", "", mm.group(1)) if mm else m["description"]
     t = re.sub(r"^\s*(<b>)?한 줄 답부터\.?(</b>)?\s*", "", t).strip()
+    if m.get("hero"):
+        return m["hero"]
     sents = re.split(r"(?<=[.!?요다])\s+", t)
-    out = sents[0]
-    if len(out) < 40 and len(sents) > 1:
-        out += " " + sents[1]
-    return out[:110]
+    return sents[0][:48]
 
 
 def featured_html(pages, lang, main_url, side_urls):
@@ -283,7 +282,9 @@ def featured_html(pages, lang, main_url, side_urls):
     side = "".join(f'<li><a href="{by[u]["url"]}"><span class="cat {plat_class(by[u]["cat"])}">{esc(cat_label(by[u]["cat"]))}</span><b>{esc(re.sub(r"\s*\([^)]*코스 \d+단계\)", "", by[u]["title"]))}</b></a></li>' for u in side_urls if u in by)
     if side_urls == ["setups"]:
         # 첫 화면 대표 글: 글 안 도표를 줄여 넣으면 글자가 안 보여 「한 줄 답」 판을 쓴다. 날짜 옆 「약 N분」은 뺀다 (운영자 2026-09-21 "크기가 너무 작아서 잘 안보이고 밑에 날짜옆에 10분 이런거 하지말라니까")
-        art = f'<div class="ph {plat_class(m["cat"])}"><p class="ans">{esc(hero_answer(m))}</p></div>'
+        slug = m["url"].rstrip("/").split("/")[-1].replace(".html", "")
+        hero_img = f'<img src="/img/hero/{slug}.png" alt="" width="1200" height="675" loading="eager">' if (ROOT / "img" / "hero" / f"{slug}.png").exists() else ""
+        art = f'<div class="ph {plat_class(m["cat"])}{" has-img" if hero_img else ""}">{hero_img}<p class="ans">{esc(hero_answer(m))}</p></div>'
         return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
                 f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
                 f'<span class="meta">{esc(m.get("date"))}</span></a>' + home_setups_html(pages) + '</section>')
@@ -1164,6 +1165,26 @@ def boards_by_cat(pages, lang, only=None):
     return "".join(out)
 
 
+# 플랫폼·용어 갈래 → 타일 그림 (site/img/tiles/*.png, 코덱스 렌더. 운영자 2026-09-22 "용어 개념탭도 코덱스사용해서 이미지좀 만들어서 꾸밀것 … 각 플랫폼 연상이 가능한 디자인")
+TILE_OF = {"naver": "naver", "google": "google", "instagram": "instagram", "youtube": "youtube", "ai": "ai", "sell": "online", "kakao": "kakao", "daangn": "daangn", "record": "record",
+           "local": "local", "online": "online", "service": "booking", "foreign": "foreign", "terms": "terms"}
+
+
+def tile_img(key, size=64):
+    f = TILE_OF.get(key)
+    if not f or not (ROOT / "img" / "tiles" / f"{f}.png").exists():
+        return ""
+    return f'<img class="tile-img" src="/img/tiles/{f}.png" alt="" width="{size}" height="{size}" loading="lazy">'
+
+
+def add_tiles(body):
+    """hub-item 카드(/p/<slug>/ · /terms/<kind>/)마다 타일 그림을 넣는다."""
+    def rep_(m):
+        key = m.group(2)
+        return m.group(1) + tile_img(key)
+    return re.sub(r'(<div class="hub-item"><a class="hub-card[^"]*" href="/(?:p|terms)/([a-z]+)/">)', rep_, body)
+
+
 def guide_hub_html(pages, lang):
     """/guide/ 첫 화면: 플랫폼 카드 → 플랫폼 페이지, 채널 이름 → 채널 페이지. # 앵커로 한 장을 오르내리지 않는다 (D83)."""
     out = []
@@ -1173,7 +1194,7 @@ def guide_hub_html(pages, lang):
         links = " ".join(f'<a href="{plat_url(lang, top, c)}">{esc(c)}</a>' for c in chans)
         kind = ("코스 · 순서대로" if top in TRACKS else "설명 글") if lang == "ko" else ("Course" if top in TRACKS else "Posts")
         out.append(f'<a class="hub-card {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span class="k">{kind}</span></a><p class="hub-chans">{links}</p>')
-    return '<div class="hub">' + "".join(f"<div class=\"hub-item\">{x}</div>" for x in out) + "</div>"
+    return add_tiles('<div class="hub">' + "".join(f"<div class=\"hub-item\">{x}</div>" for x in out) + "</div>")
 
 
 def cat_box(page, pages):
@@ -1845,6 +1866,12 @@ def render(page, pages, verify):
     page = fill_boards(page, pages)
     page = add_toc(lift_todo(dict(page, body=meta_line(page))))
     page = dict(page, body=keys_box(page["body"]))                                   # R1 핵심 정리 상자
+    if page["url"].startswith("/terms/"):
+        bd = add_tiles(page["body"])
+        kind = page["url"].strip("/").split("/")[-1] if page["url"] != "/terms/" else ""
+        if kind and tile_img(kind):
+            bd = re.sub(r"(<h1[^>]*>)", tile_img(kind, 88).replace('class="tile-img"', 'class="page-tile"') + r"\1", bd, count=1)
+        page = dict(page, body=bd)
     bd = page["body"]
     ml = re.search(r'<p class="meta-line">.*?</p>\n?', bd, re.S)
     if ml:                                                                          # 발행·수정 줄은 목차(없으면 할 일 상자) 뒤로 (운영자 2026-09-22: 위쪽은 뭘 할지만)
