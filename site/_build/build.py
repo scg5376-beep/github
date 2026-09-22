@@ -256,8 +256,16 @@ def card_grid(pages, lang, items, brief=False):
         meta = f"{p.get('date')}"
         pc = plat_class(p["cat"])
         icon = "/img/mark-basic.svg" if pc == "plat-none" else f"/img/icons/{pc[5:]}.svg"
-        out.append(f'<a class="card {pc}" href="{p["url"]}"><span class="art"><img src="{icon}" alt="" width="120" height="120" loading="lazy"></span><span class="cat">{esc(cat_label(p["cat"]))}</span><b>{esc(p["title"])}</b>{"" if brief else "<small>" + esc(p["description"][:90]) + "…</small>"}<span class="meta">{esc(meta)}</span></a>')
+        out.append(f'<a class="card {pc}" href="{p["url"]}"><span class="art"><img src="{icon}" alt="" width="120" height="120" loading="lazy"></span><span class="cat">{esc(cat_label(p["cat"]))}</span><b>{esc(p["title"])}</b>{"" if brief else "<small>" + esc(clip_sent(p["description"], 90)) + "</small>"}<span class="meta">{esc(meta)}</span></a>')
     return '<div class="cards">' + "".join(out) + "</div>"
+
+
+def clip_sent(t, n):
+    """설명을 n자 안에서 문장 끝으로 자른다. 문장 중간에서 끊기면(「…리뷰 감소, 필터」) 읽다 멈춘다 (발전 2026-09-23)."""
+    if len(t) <= n:
+        return t
+    cut = t.rfind(". ", 0, n + 1)
+    return t[:cut + 1].rstrip() if cut > n // 3 else t[:n].rstrip() + "…"
 
 
 def hero_answer(m):
@@ -286,10 +294,10 @@ def featured_html(pages, lang, main_url, side_urls):
         hero_img = f'<img src="/img/hero/{slug}.png" alt="" width="1200" height="675" loading="eager">' if (ROOT / "img" / "hero" / f"{slug}.png").exists() else ""
         art = f'<div class="ph {plat_class(m["cat"])}{" has-img" if hero_img else ""}">{hero_img}<p class="ans">{esc(hero_answer(m))}</p></div>'
         return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
-                f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
+                f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(clip_sent(m["description"], 120))}</small>'
                 f'<span class="meta">{esc(m.get("date"))}</span></a>' + home_setups_html(pages) + '</section>')
     return (f'<section class="featured"><a class="hero {plat_class(m["cat"])}" href="{m["url"]}">{art}'
-            f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(m["description"][:120])}</small>'
+            f'<span class="cat">{esc(cat_label(m["cat"]))}</span><b>{esc(m["title"])}</b><small>{esc(clip_sent(m["description"], 120))}</small>'
             f'<span class="meta">{esc(m.get("date"))} · {"%d min" % mins if lang == "en" else "약 %d분" % mins}</span></a>'
             f'<div class="side"><span class="rail-head">{head}</span><ul>{side}</ul></div></section>')
 
