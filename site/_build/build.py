@@ -478,6 +478,8 @@ def order_html(pages, top):
 
 
 def trust_strip(pages, lang):
+    return ""                                                                  # 「글 115편 · 원문 574건」 같은 수치 띠는 전부 뺐다 (운영자 2026-09-22 "이런표기들 진짜 안했으면좋겠어 모든곳에")
+
     ko = [p for p in pages if p["lang"] == "ko" and p.get("cat") and "order" in p]
     q = sum(quote_count(p) for p in ko)
     originals = len(list((ROOT.parent / "marketing-doctor" / "지식" / "원전" / "원문").rglob("*.md")))
@@ -656,7 +658,8 @@ def nav_html(page, pages):
         base = "/en/"
         all_label = "All"
     else:
-        items = [("/", "길라잡이", "how"), ("/terms/", "용어", "terms"), ("/guide/", "개념", "guide"), ("/why/", "효과", "why"), ("/updates/", "업데이트", "updates"), ("/about.html", "소개", "about")]
+        # 머리 탭은 4개 + English (운영자 2026-09-22 "필요없는 탭도 많아보이는데 5개 이하로"). 효과·업데이트는 발자국(footer)에만
+        items = [("/", "길라잡이", "how"), ("/guide/", "개념", "guide"), ("/terms/", "용어", "terms"), ("/about.html", "소개", "about")]
         alt = page.get("alt") or "/en/"
         toggle = f'<a class="lang" href="{alt}" lang="en" hreflang="en">English</a>'
         base = "/guide/"

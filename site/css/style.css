@@ -1048,3 +1048,38 @@ section.lv ol li { border-top-color:color-mix(in srgb, var(--pa, var(--accent)) 
 /* 용어 허브 카드(정적) */
 .hub-item:has(a[href="/terms/naver/"]) { --pt:#e8f6ea; --pa:#0b6b34; } .hub-item:has(a[href="/terms/google/"]) { --pt:#fff0e0; --pa:#a5460b; } .hub-item:has(a[href="/terms/instagram/"]) { --pt:#fde8f0; --pa:#a8235e; } .hub-item:has(a[href="/terms/kakao/"]) { --pt:#fdf6d8; --pa:#6b5300; } .hub-item:has(a[href="/terms/sell/"]) { --pt:#fbf4d9; --pa:#7a5c00; } .hub-item:has(a[href="/terms/record/"]) { --pt:#eceff4; --pa:#3f4a5c; }
 
+/* ── 첫 화면 새 톤 (운영자 2026-09-22: 너드월렛식 흰 머리·민트 판 위 흰 카드는 적용, 띠 색은 초록 아니어도 됨. 「사장마케팅」 글자 가운데·자간·굴곡 서체) ── */
+@font-face { font-family:"WM-Myeongjo"; src:url(/fonts/wordmark/nanummyeongjo-wordmark.woff2) format("woff2"); font-display:swap; }
+@font-face { font-family:"WM-Batang"; src:url(/fonts/wordmark/gowunbatang-wordmark.woff2) format("woff2"); font-display:swap; }
+@font-face { font-family:"WM-Hahmlet"; src:url(/fonts/wordmark/hahmlet-wordmark.woff2) format("woff2"); font-display:swap; }
+:root { --paper:#ffffff; --paper-2:#f4f5f7; --card:#ffffff; --line:#e2e5ea; --band:#183a66; --band-ink:#ffffff; --wm-font:"WM-Myeongjo", serif; }
+body { background:#fff; }
+header.top { background:#fff; border-bottom:1px solid #e6e6e6; }
+header.top a.brand, header.top span.brand { color:#1b1e22; font-size:1.15rem; }
+header.top nav a { color:#1b1e22; font-weight:700; }
+header.top nav a.lang { color:var(--accent); border-color:var(--accent); }
+main.wrap.home { padding-top:0; }
+main.home h1.home { margin:0 -22px 28px; padding:64px 22px 56px; background:#f4f1ea url(/img/banner/ink-paper.png) center / cover no-repeat; color:#1b1e22; text-align:center; font-size:3rem; font-weight:800; line-height:1.1; letter-spacing:0; }   /* 배너 1번 한지·먹 (운영자 2026-09-22 "1번으로 해"), 그림은 코덱스 렌더 */
+main.home h1.home .wm { display:inline-block; font-family:var(--wm-font); letter-spacing:.32em; margin-right:-.32em; }
+main.home section.featured .hero .ph { border-radius:18px; }
+main.home section.featured .side.setups li.grp { border-radius:14px; border-left-width:1px; }
+main.home section.hc-topics { margin:36px -22px 0; padding:28px 22px 30px; background:#eaf7ef; border-radius:22px; }
+main.home .tiles.hc a.tile { background:#fff; color:#1b1e22; border:1px solid #dfe8e2; border-radius:16px; text-align:center; padding:22px 16px 18px; display:flex; flex-direction:column; align-items:center; gap:6px; grid-template-columns:1fr; }
+main.home .tiles.hc a.tile b { color:#1b1e22; font-size:1.08rem; }
+main.home .tiles.hc a.tile span, main.home .tiles.hc a.tile small { color:#5b6168; }
+main.home .tiles.hc a.tile img { position:static; transform:none; width:84px; height:84px; margin:0 auto 6px; order:-1; }
+main.home .tiles.hc a.tile::before, main.home .tiles.hc a.tile::after { display:none; }
+main.home .hc-tools-grid a { border:1px solid #dfe8e2; background:#fff; border-radius:16px; }
+@media (max-width:520px) { main.home h1.home { font-size:2.1rem; padding:44px 16px 38px; } main.home h1.home .wm { letter-spacing:.22em; margin-right:-.22em; } }
+
+/* 위 새 톤이 검은 머리 규칙(875줄 근처)보다 뒤에 오도록 같은 선택자로 다시 */
+header.top > .wrap a.brand, header.top > .wrap span.brand { color:#1b1e22; }
+header.top > .wrap nav a { color:#1b1e22; }
+header.top > .wrap nav a[aria-current="page"] { color:var(--accent); border-bottom-color:var(--accent); }
+header.top > .wrap nav a.lang { color:var(--accent); border-color:var(--accent); }
+header.top > .wrap form.search input[type="search"] { border-color:#d8dde3; }
+main.home .tiles.hc a.tile.has-img { min-height:0; padding-right:16px; }
+main.home .tiles.hc a.tile.has-img img { position:static; width:84px; height:84px; margin:0 auto 6px; }
+@media (max-width:760px) { main.home .tiles.hc a.tile.has-img img { width:64px; height:64px; } main.home .tiles.hc a.tile.has-img { padding-right:16px; } }
+main.wrap.home { padding-left:22px; padding-right:22px; }                      /* 배너·민트 판의 -22px 가 딱 맞게 */
+@media (max-width:760px) { main.wrap.home { padding-left:16px; padding-right:16px; } main.home h1.home, main.home section.hc-topics { margin-left:-16px; margin-right:-16px; } main.home section.hc-topics { border-radius:0; } }
