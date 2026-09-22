@@ -975,7 +975,7 @@ def add_toc(page):
         body = term_ids(body)
     heads = []
     def rep(m):
-        text = re.sub(r"^\d+\.\s*", "", re.sub(r"<[^>]+>", "", m.group(2)).strip())   # 「1. 」 머리 번호는 목차에서 뺀다
+        text = re.sub(r"<[^>]+>", "", m.group(2)).strip()   # 「1. 」 머리 번호는 그대로 둔다. 빼고 자동 번호를 붙이면 번호 없는 첫 절 때문에 본문과 하나씩 어긋났다 (2026-09-23)
         has = re.search(r'id="([^"]+)"', m.group(1))                                   # 이미 id 가 있으면(게시판 h2) 그대로 쓴다
         hid = has.group(1) if has else "s%d" % (len(heads) + 1)
         heads.append((hid, text))
@@ -987,7 +987,8 @@ def add_toc(page):
     body = re.sub(r"<h2([^>]*)>(.*?)</h2>", rep, head_part, flags=re.S) + tail_part
     if len(heads) >= 3 and page["url"] not in ("/", "/en/", "/guide/", "/why/", "/check/", "/updates/", "/terms/") and not page.get("noindex") and not page.get("plat") and not page.get("course"):
         label = "In this article" if page["lang"] == "en" else "목차"
-        toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
+        own = any(re.match(r"\d+\.\s", t) for _, t in heads)                           # 제목에 번호가 있으면 자동 번호를 끈다
+        toc = '<nav class="intoc" aria-label="' + label + '"><span>' + label + '</span><ol' + (' class="own"' if own else '') + '>' + "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in heads) + "</ol></nav>"
         m = re.search(r'<div class="note todo">.*?</div>', body, re.S) or re.search(r'<p class="meta-line">.*?</p>', body, re.S)   # 「바로 할 일」 뒤, 없으면 메타 줄 뒤
         body = body[:m.end()] + chr(10) + toc + body[m.end():] if m else toc + body
     return dict(page, body=body)
