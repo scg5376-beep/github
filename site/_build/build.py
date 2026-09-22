@@ -1568,7 +1568,7 @@ HOME_TOOLS = [("/check/", "1분 자가진단", "질문 7개로 지금 할 일 �
 
 
 def rules_table_html(n=5):
-    """첫 화면 「이번 주 바뀐 규칙」 — 업데이트 페이지 맨 위 n개를 날짜·어디·무엇 표로."""
+    """첫 화면 「최근 바뀐 규칙」(「이번 주」는 한 주가 지나면 틀린 말이 되어 바꿈, 2026-09-23) — 업데이트 페이지 맨 위 n개를 날짜·어디·무엇 표로."""
     src = (SRC / "updates/index.html").read_text(encoding="utf-8")
     rows = []
     for d, b in re.findall(r"<dt>(.*?)</dt><dd>(.*?)</dd>", src, re.S)[:n]:
@@ -1577,7 +1577,7 @@ def rules_table_html(n=5):
         date = date.replace("확인", "").strip()
         what = re.split(r"(?<=[.요다])\s", re.sub(r"<[^>]+>", "", b).strip())[0]
         rows.append(f"<tr><td>{esc(date)}</td><td>{esc(where.strip())}</td><td>{what}</td></tr>")
-    return ('<section class="hc-rules"><h2>이번 주 바뀐 규칙</h2><table class="rules"><thead><tr><th>날짜</th><th>어디</th><th>무엇</th></tr></thead><tbody>'
+    return ('<section class="hc-rules"><h2>최근 바뀐 규칙</h2><table class="rules"><thead><tr><th>날짜</th><th>어디</th><th>무엇</th></tr></thead><tbody>'
             + "".join(rows) + '</tbody></table><p class="more"><a href="/updates/">바뀐 것 전부 보기</a></p></section>')
 
 
