@@ -1624,7 +1624,7 @@ def keys_box(body):
     ms = list(re.finditer(r'<p class="lead answer">(.*?)</p>\s*', body, re.S))
     if not ms:
         return body
-    paras = [re.sub(r"^한 줄 답부터\.\s*", "", m.group(1).strip()) for m in ms]
+    paras = [re.sub(r"^(<b>)?한 줄 답부터\.?(</b>)?\s*", "", m.group(1).strip()) for m in ms]   # <b> 로 싼 머리말도 뺀다 (2026-09-23, 14곳에 「한 줄 답부터.」가 항목으로 남았다)
     sents = [x.strip() for t in paras for x in re.split(r"(?<=[.?!])\s+(?=[^<])", t) if x.strip()]   # 문장마다 한 줄 (Key Takeaways 는 짧은 줄 여러 개). 태그 안에서는 안 가른다
     merged = []                                                                   # 「그러면 무엇을 봐야 하나요?」 같은 물음은 다음 문장과 한 줄로
     for x in sents:
@@ -1632,7 +1632,7 @@ def keys_box(body):
             merged[-1] += " " + x
         else:
             merged.append(x)
-    sents = merged
+    sents = [x for x in merged if not re.match(r"^(원문|근거|출처)[은는]? 아래", x)]         # 「원문은 아래에 있어요」 같은 안내 줄은 정리가 아니다
     items = [f"<li>{t}</li>" for t in (sents if 2 <= len(sents) <= 6 else paras)]
     box = '<aside class="keys" aria-label="핵심 정리"><span class="keys-head">핵심 정리</span><ul>' + "".join(items) + "</ul></aside>\n"
     return body[:ms[0].start()] + box + body[ms[-1].end():]
