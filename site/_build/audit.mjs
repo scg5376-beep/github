@@ -49,6 +49,12 @@ const expr = `(()=>{
     const ts=[...s.querySelectorAll('text')].map(t=>[t,t.getBoundingClientRect()]);
     for(let i=0;i<ts.length;i++) for(let j=i+1;j<ts.length;j++){const a=ts[i][1],b=ts[j][1]; if(a.width&&b.width&&a.left<b.right-2&&b.left<a.right-2&&a.top<b.bottom-2&&b.top<a.bottom-2) out.push('SVGOVERLAP '+ts[i][0].textContent.trim().slice(0,20)+' / '+ts[j][0].textContent.trim().slice(0,20));}
   }
+  // 표가 제 상자 안에서 가로로 밀어야 보이는 경우 (2026-09-23: fee-table 셋째 칸이 400폭에서 잘려 한두 글자씩 줄바꿈)
+  for(const t of document.querySelectorAll('main table:not(.sheet)')){   // .sheet 은 인쇄용 여러 칸 표라 가로 스크롤을 허용
+    let w=t.parentElement; while(w && w!==document.body && !/(auto|scroll)/.test(getComputedStyle(w).overflowX)) w=w.parentElement;
+    const box=(w && w!==document.body)? w : t.parentElement;
+    if(t.scrollWidth>box.clientWidth+2) out.push('TSCROLL '+path(t)+' table='+t.scrollWidth+' box='+box.clientWidth+' head='+((t.querySelector('th')||{}).textContent||'').trim().slice(0,20));
+  }
   const sw=document.documentElement.scrollWidth; if(sw>vw+1) out.unshift('PAGE scrollWidth '+sw+' > '+vw);
   return out.slice(0,40);
 })()`;
