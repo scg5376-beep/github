@@ -1,0 +1,5 @@
+#!/bin/sh
+# 커밋 전 민감 정보 검사(운영자 2026-09-29). 본문은 .githooks/민감검사.py
+PY="C:/Users/USER/AppData/Local/Programs/Python/Python312/python.exe"
+[ -x "$PY" ] || PY=python
+exec "$PY" "$(git rev-parse --show-toplevel)/.githooks/민감검사.py"

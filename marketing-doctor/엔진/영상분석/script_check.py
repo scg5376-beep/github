@@ -12,10 +12,11 @@
  T2 첫 줄은 2초 안에 끝난다 (①② 단점: 느린 도입·로고 시작)
  T3 머리말 길이 줄에 9:16·자막 100%
  D1 자막(공백 제외)이 초당 10자를 넘지 않는다 (독립 검수 1차 기준)
+ N1 내레이션이 초당 8음절을 넘지 않는다 — 숫자·단위는 읽는 소리로 센다(2025=이천이십오 5음절, ㎡=제곱미터 4). (음악만)은 뺀다 (대본6 검수 2차: 검사기가 내레이션 속도를 안 재서 놓침)
  D2 같은 고지가 이어지는 구간에서 고지(공백 제외)가 초당 10자를 넘지 않는다
  R1 이유 칸 20자 이상, 빈말로 시작하지 않음
  R2 레퍼런스 칸 ID 가 refs.json 에 있음
- R3 주 레퍼런스(①~⑤)의 기법을 세 줄 이상에서 씀
+ R3 주 레퍼런스(①~⑨)의 기법을 세 줄 이상에서 씀 (⑥~⑧은 2026-09-28 조사 10-브랜드광고구조)
  F1 자막·내레이션에 숫자·교통·시설 낱말이 있으면 근거 칸에 F ID
  F2 공통 금지 표현과 facts banned 가 자막·내레이션에 없음 (화면 지시는 「쓰지 않음」류 부정이면 예외)
  F3 대본에 5호선이 나오면 예타·기본계획·목표 중 하나가 어딘가 있음
@@ -23,8 +24,9 @@
  F5 시간 줄이 근거로 인용한 사실에 고지가 있으면, 그 고지를 「·」로 나눈 조각이 전부 같은 줄 고지에 있음 (검수 2차: F02 거리 미정 누락)
  C2 5호선 줄의 화면이 「지도」를 쓰면 「모식도」여야 함 (역 위치 협의 중)
  C4 화면에 견본주택·내부 영상·원테이크 → 고지에 「옵션」, CG → 고지에 「CG」, 모델 → 고지에 「모델 연출」
+    (AI 가상인물이면 「모델 연출」 대신 「가상인물」 — 추천보증 심사지침 2026-06-01, 2026-09-27 추가)
  L1 「입주 예정」 자막
- L2 마지막 시간 줄 자막에 단지명과 [대표번호]
+ L2 마지막 시간 줄 자막에 단지명과 [대표번호] — 단지명은 facts.json 의 "_단지명"(없으면 「분양 단지」, 2026-09-27 단지 교체로 일반화)
  L3 선착순·극소량·마감 임박은 [ ] 자리표시 밖에서 금지
  L4 마지막 시간 줄은 4초 이상 (⑤ 대표번호 화면 약 4초)
  L5 마지막 시간 줄 「자막」에 행동 요청(연락·문의·상담·만나)이 있다 — 소리를 끄고 보는 사람에게도 닿아야 함(검수 4차) (⑤ 「관심 있는 분은 연락 주세요」, 검수 1·2·3차 반복 지적)
@@ -39,7 +41,7 @@ GLOBAL_BANNED = [r"곧\s*개통", r"개통\s*확정", r"확정된\s*역", r"초�
                  r"검암역까지"]
 CLAIM = re.compile(r"(역|호선|개통|예타|세대|㎡|\d+\s*m\b|\dm\b|km|\d+\s*분|분대|억|만\s*명|천\s*명|%|입주|분양가|학교|초등|마트|병원|노선)")
 EMPTY_REASON = re.compile(r"^(좋|효과적|임팩트|강력|최고|눈길|시선을 끈다)")
-NUM = {"①": "R1", "②": "R2", "③": "R3", "④": "R4", "⑤": "R5"}
+NUM = {"①": "R1", "②": "R2", "③": "R3", "④": "R4", "⑤": "R5", "⑥": "R6", "⑦": "R7", "⑧": "R8", "⑨": "R9"}
 COLS = ["초", "화면", "자막", "고지", "내레이션", "이유", "레퍼런스", "근거"]
 
 
@@ -66,6 +68,33 @@ def nchar(s):
     s = s.replace("[대표번호]", "0000-0000")                         # 실제 번호 길이(9자)로 센다 (검수 4차)
     s = re.sub(r"\[([^\]]*)\]", r"\1", s)
     return len(re.sub(r"\s", "", s)) if s not in ("—", "-") else 0
+
+
+def num_syl(n):
+    """한자어 수 읽기 음절: 2025=이천이십오(5), 10=십(1), 500=오백(2). 네 자리 넘으면 자리마다 대충 2"""
+    ds = str(int(n))
+    if len(ds) > 4:
+        return 2 * len(ds)
+    k = 0
+    for pos, d in enumerate(reversed(ds)):
+        d = int(d)
+        if d:
+            k += 1 if pos == 0 else (1 if d == 1 else 2)
+    return max(k, 1)
+
+
+def syllables(s):
+    """내레이션을 소리 내 읽을 때의 음절 수(어림)"""
+    if s.strip() in ("—", "-") or s.strip().startswith("(음악"):
+        return 0
+    s = s.replace("[대표번호]", "공삼이 일이삼 사오육칠")                      # 번호는 숫자를 하나씩 읽는다(11음절)
+    s = re.sub(r"\[([^\]]*)\]", r"", s)
+    s = s.replace("㎡", "제곱미터").replace("~", "에서").replace("%", "퍼센트")
+    s = re.sub(r"(\d)\s*m", r"미터", s).replace("km", "킬로미터")
+    k = sum(num_syl(m) for m in re.findall(r"\d+", s))
+    k += len(re.findall(r"[가-힣]", s))
+    k += len(re.findall(r"[A-Za-z]", s))
+    return k
 
 
 def secs(r):
@@ -102,6 +131,11 @@ def check(path, facts, refs):
         s = secs(r)
         if s and nchar(r["자막"]) / s > 10:
             errs.append(f"D1 {r['초']}: 자막 {nchar(r['자막'])}자/{s}초 = 초당 {nchar(r['자막'])/s:.1f}자 (>10)")
+    for r in timed:
+        s = secs(r)
+        n = syllables(r["내레이션"])
+        if s and n / s > 8:
+            errs.append(f"N1 {r['초']}: 내레이션 {n}음절/{s}초 = 초당 {n/s:.1f}음절 (>8)")
     i = 0
     while i < len(timed):                                                     # 같은 고지가 이어지는 구간
         g, j, s = timed[i]["고지"], i, 0
@@ -160,8 +194,8 @@ def check(path, facts, refs):
             errs.append(f"C4 {tag}: 견본주택 화면인데 고지에 옵션 표기 없음")
         if "CG" in scr and "CG" not in r["고지"]:
             errs.append(f"C4 {tag}: CG 화면인데 고지에 CG 표기 없음")
-        if "모델" in scr and "모델 연출" not in r["고지"]:
-            errs.append(f"C4 {tag}: 모델 출연인데 고지에 「광고 모델 연출」 없음")
+        if "모델" in scr and "모델 연출" not in r["고지"] and "가상인물" not in r["고지"]:
+            errs.append(f"C4 {tag}: 모델 출연인데 고지에 「광고 모델 연출」·「가상인물」 없음")
         all_text += " " + text + " " + r["고지"]
     if main and main_hits < 3:
         errs.append(f"R3 주 레퍼런스({main}) 기법을 쓴 줄이 {main_hits}개 (<3)")
@@ -171,7 +205,7 @@ def check(path, facts, refs):
         errs.append("L1 「입주 예정」 자막 없음")
     if timed:
         last = timed[-1]
-        if "푸르지오 더 파크" not in last["자막"] or "[대표번호]" not in last["자막"]:
+        if facts.get("_단지명", "분양 단지") not in last["자막"] or "[대표번호]" not in last["자막"]:
             errs.append("L2 마지막 줄 자막에 단지명·[대표번호] 가 없음")
         if not re.search(r"(연락|문의|상담|만나)", last["자막"]):
             errs.append("L5 마지막 줄 자막에 행동 요청(연락·문의·상담·만나) 없음")

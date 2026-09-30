@@ -22,3 +22,24 @@ outputs/_inbox/*
 *.tmp
 docs/발전/예산.json
 참고/
+
+# 민감·대용량 — 공개 레포(운영자 2026-09-29 「레포에 민감한거 안올라가게만」). 커밋 전 검사는 .githooks/민감검사.py
+.githooks/민감어.local.txt
+광고주자료/
+운영자대본/
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.zip
+*.7z
+*.rar
+*.aac
+*.m4a
+*.wav
+*.mp3
+*.aep
+*.prproj
+*.blend
+*.psd
+docs/민감어_대응.local.md
