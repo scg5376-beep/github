@@ -1,5 +1,10 @@
 #!/bin/sh
-# 커밋 전 민감 정보 검사(운영자 2026-09-29). 본문은 .githooks/민감검사.py
+# 커밋 전 검사(운영자 2026-09-29 민감 정보, 2026-09-30 규칙 감사)
+# 1) 민감 정보 — .githooks/민감검사.py
+# 2) 규칙 감사 — site/_build/rule_audit.py --staged (규칙 문서·길라잡이·rule-inject.json 이 바뀐 커밋만). 고아 파일·번호 중복·없는 경로면 막는다
 PY="C:/Users/USER/AppData/Local/Programs/Python/Python312/python.exe"
 [ -x "$PY" ] || PY=python
-exec "$PY" "$(git rev-parse --show-toplevel)/.githooks/민감검사.py"
+TOP="$(git rev-parse --show-toplevel)"
+"$PY" "$TOP/.githooks/민감검사.py" || exit 1
+"$PY" "$TOP/site/_build/rule_audit.py" --staged || { echo "⛔ 규칙 감사 오류 — 위 ✗ 를 고친 뒤 다시 커밋하세요"; exit 1; }
+exit 0

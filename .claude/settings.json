@@ -1,0 +1,48 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/USER/AppData/Local/Programs/Python/Python312/python.exe\" \"$CLAUDE_PROJECT_DIR/.claude/hooks/rule_inject.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/USER/AppData/Local/Programs/Python/Python312/python.exe\" \"$CLAUDE_PROJECT_DIR/.claude/hooks/rule_guards.py\" ae",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__.*(generate_video|generate_image|generate_audio|execute_preset|upscale|motion_control|dubbing).*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/USER/AppData/Local/Programs/Python/Python312/python.exe\" \"$CLAUDE_PROJECT_DIR/.claude/hooks/rule_guards.py\" credit",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/USER/AppData/Local/Programs/Python/Python312/python.exe\" \"$CLAUDE_PROJECT_DIR/.claude/hooks/rule_guards.py\" korean",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
