@@ -1172,3 +1172,6 @@ details.vx-more > .box { padding-left:0; border-left:0; }
 .vx-faq .vx-q.open > .box { margin:0; color:var(--ink-soft); }
 .vx-sub > p { margin:0 0 6px; }
 @media (max-width:400px) { main table:not(.sheet) { font-size:.84rem; letter-spacing:-.02em; } }   /* 둥근 고딕이 조금 넓어 360폭 표가 4px 넘쳤다(2026-10-06) */
+
+/* 제목 글꼴: 나눔스퀘어라운드 아주 굵게(EB) — 운영자 2026-10-06 시안 ① 선택 «1로 고» (D101) */
+main h1, main h2, main ol.steps.vx-steps > li > b, header.top a.brand, header.top span.brand { font-family:"NanumSquareRound",Pretendard,"Malgun Gothic",sans-serif; font-weight:800; letter-spacing:-.01em; }
