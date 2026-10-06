@@ -31,11 +31,14 @@ SITE_URL = "https://sajangmarketing.com"
 SITE_NAME = "사장님 마케팅 교실"
 SITE_NAME_EN = "Sajang Marketing — Korea marketing, explained"
 DEFAULT_OG = {"home": "/img/og-home.png", "guide": "/img/og-ko.png",
-              "en": "/img/og-en.png", "en-legal": "/img/og-en.png", "about": "/img/og-home.png", "why": "/img/og-ko.png", "diag": "/img/og-home.png", "terms": "/img/og-ko.png", "updates": "/img/og-ko.png"}
+              "en": "/img/og-en.png", "en-legal": "/img/og-en.png", "about": "/img/og-home.png", "why": "/img/og-ko.png", "diag": "/img/og-home.png", "terms": "/img/og-ko.png", "updates": "/img/og-ko.png", "journal": "/img/og-ko.png"}
 SITECFG = json.loads((ROOT / "_build" / "site.json").read_text(encoding="utf-8"))
 VERIFY = ROOT / "_build" / "verify.json"   # {"naver": "...", "google": "..."} — 소유확인 코드 (없으면 생략)
 
 META_RE = re.compile(r"^\s*<!--meta\s*(\{.*?\})\s*-->\s*", re.S)
+# 오늘(한국 시각). 저널 예약 발행의 기준. 미리 보기는 JOURNAL_TODAY=2026-10-30 처럼 바꿔서 빌드한다(커밋하지 않는다)
+JOURNAL_TODAY = os.environ.get("JOURNAL_TODAY") or datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).strftime("%Y-%m-%d")
+JOURNAL_KIND = {"change": "이달의 바뀐 것", "number": "숫자 한 장", "qa": "질문 하나 답 하나", "case": "실측 사례"}
 
 
 
@@ -75,6 +78,10 @@ def read_pages():
         if not m:
             sys.exit(f"메타 블록이 없다: {p}")
         meta = json.loads(m.group(1))
+        if meta.get("kind") == "journal":                                      # 저널: 발행일이 안 된 글은 빌드하지 않는다(예약 발행, 2026-10-07 D102)
+            if meta["published"] > JOURNAL_TODAY:
+                continue
+            meta["date"] = meta["published"]
         body = raw[m.end():]
         rel = p.relative_to(SRC).as_posix()                 # e.g. en/legal.html
         url = "/" + rel
@@ -729,7 +736,7 @@ def page_area(page):
         return "about"
     if page.get("section") == "diag" or page["url"] == "/check/":
         return "diag"
-    if page.get("section") in ("terms", "updates"):
+    if page.get("section") in ("terms", "updates", "journal"):
         return page["section"]
     return "guide"
 
@@ -844,13 +851,13 @@ def head_html(page, verify):
 
 
 def crumbs(page):
-    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/", "/terms/", "/updates/"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/", "/terms/", "/updates/", "/journal/"):
         return ""
     if page["lang"] == "en":
         return '<p class="crumbs"><a href="/en/">Start here</a> › ' + esc(page.get("nav", page["title"])) + '</p>'
-    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/", "/terms/", "/updates/"):
+    if page["url"] in ("/", "/en/", "/guide/", "/why/", "/check/", "/terms/", "/updates/", "/journal/"):
         return ""
-    root = {"how": ("/", "길라잡이"), "why": ("/why/", "효과"), "guide": ("/guide/", "개념"), "about": ("/", "길라잡이"), "diag": ("/", "길라잡이"), "terms": ("/terms/", "용어"), "updates": ("/updates/", "업데이트")}.get(page_area(page), ("/", "길라잡이"))
+    root = {"how": ("/", "길라잡이"), "why": ("/why/", "효과"), "guide": ("/guide/", "개념"), "about": ("/", "길라잡이"), "diag": ("/", "길라잡이"), "terms": ("/terms/", "용어"), "updates": ("/updates/", "업데이트"), "journal": ("/journal/", "저널")}.get(page_area(page), ("/", "길라잡이"))
     mid = ""
     if page.get("plat"):
         return f'<p class="crumbs"><a href="/guide/">개념</a> › {esc(page["plat"])}</p>'
@@ -870,7 +877,7 @@ def footer_html(page):
     return '''<footer class="site">
   <p>이 사이트는 특정 가게에 속하지 않아요. 예시 가게 이름은 전부 지어낸 거예요. 화면 속 아이콘은 우리가 만든 것이고 각 회사 상표가 아니에요. 각 상표는 해당 회사 소유이며 이 사이트는 그 회사들과 관계가 없어요.<br>
   물건을 팔지 않고, 손님 정보를 받지 않아요. 광고 자리에는 「광고」라고 적어요.</p>
-  <p><a href="/">길라잡이</a> · <a href="/terms/">용어</a> · <a href="/guide/">개념</a> · <a href="/why/">효과</a> · <a href="/updates/">업데이트</a> · <a href="/about.html">소개</a> · <a href="https://ask.sajangmarketing.com/">묻고 답하기</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
+  <p><a href="/">길라잡이</a> · <a href="/terms/">용어</a> · <a href="/guide/">개념</a> · <a href="/why/">효과</a> · <a href="/updates/">업데이트</a> · <a href="/journal/">저널</a> · <a href="/about.html">소개</a> · <a href="https://ask.sajangmarketing.com/">묻고 답하기</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
 
 
@@ -1590,10 +1597,12 @@ def home_c_html(pages):
     by = {p["url"]: p for p in pages}
     tiles = "".join(f'<a class="tile {plat_class(pl)}{" has-img" if (ROOT / "img/tiles" / (img + ".png")).exists() else ""}" href="{u}">' + (f'<img src="/img/tiles/{img}.png" alt="" width="96" height="96" loading="lazy">' if (ROOT / "img/tiles" / (img + ".png")).exists() else "") + f'<b>{esc(name)}</b><span>{esc(sub)}</span></a>' for name, u, pl, sub, img in HOME_TOPICS)
     tools = "".join(f'<a href="{u}"><b>{esc(t)}</b><span>{esc(l)}</span></a>' for u, t, l in HOME_TOOLS if u in by or u == "/check/")
-    return (f'<section class="hc-topics"><h2>주제로 찾기</h2><div class="tiles hc">{tiles}</div></section>'
+    jr = (f'<section class="hc-journal"><h2>저널</h2>{journal_list_html(pages, 3)}<p class="hc-more"><a href="/journal/">저널 전체 보기</a></p></section>'
+          if any(p.get("kind") == "journal" for p in pages) else "")          # 발행된 저널이 있을 때만 (2026-10-07 D102)
+    return (f'<section class="hc-topics"><h2>주제로 찾기</h2><div class="tiles hc">{tiles}</div></section>' + jr +
             f'<section class="hc-tools"><h2>도구</h2><div class="hc-tools-grid">{tools}</div></section>'
             + rules_table_html()
-            + '<p class="small hc-all">글 전부: <a href="/guide/">설명 글</a> · <a href="/p/local/">동네 매장</a> · <a href="/p/online/">온라인 판매</a> · <a href="/p/service/">예약·상담</a> · <a href="/p/foreign/">외국 손님</a> · <a href="/updates/">업데이트</a> · <a href="/en/">English</a></p>')
+            + '<p class="small hc-all">글 전부: <a href="/guide/">설명 글</a> · <a href="/p/local/">동네 매장</a> · <a href="/p/online/">온라인 판매</a> · <a href="/p/service/">예약·상담</a> · <a href="/p/foreign/">외국 손님</a> · <a href="/updates/">업데이트</a> · <a href="/journal/">저널</a> · <a href="/en/">English</a></p>')
 
 
 # ── 세팅 순서(따라만 하면 되는 묶음). 운영자 2026-09-21 "먼저읽을글을 왜 네가 판단해 … 특정단계에 해당되는 사람들이 들어와서 순서대로 따라할 수 있게 '네이버 플레이스 세팅' 이런식으로 항목들을 만들어줘 그거 눌러서 따라만 하면 플레이스 설정할 수 있도록" (D84)
@@ -1816,9 +1825,24 @@ def cases_html(pages):
             f'<h2 id="bad">조심할 것</h2><ul class="cases">{"".join(bad)}</ul>')
 
 
+def journal_list_html(pages, n=None):
+    """저널 목록(최신 순). 발행일이 된 글만 pages 에 있다(read_pages). n 이 있으면 첫 화면 띠."""
+    js = sorted([p for p in pages if p.get("kind") == "journal"], key=lambda p: (p["published"], p["url"]), reverse=True)
+    if n:
+        js = js[:n]
+    if not js:
+        return '<p class="jr-empty">첫 글을 준비하고 있어요.</p>'
+    li = "".join(
+        f'<li><a href="{p["url"]}"><span class="jr-kind jr-{p.get("jkind", "")}">{esc(JOURNAL_KIND.get(p.get("jkind"), "저널"))}</span>'
+        f'<strong>{esc(p.get("nav") or p["title"])}</strong><span class="jr-desc">{esc(clip_sent(p["description"], 70))}</span>'
+        f'<span class="jr-date">{p["published"].replace("-", ". ")}.</span></a></li>' for p in js)
+    return f'<ul class="jr-list">{li}</ul>'
+
+
 def fill_boards(page, pages):
-    """본문 자리표: <!--board--> 전체 최신 · <!--boards--> 게시판별 · <!--picks:/a,/b--> 지정 글."""
+    """본문 자리표: <!--board--> 전체 최신 · <!--boards--> 게시판별 · <!--picks:/a,/b--> 지정 글 · <!--journal--> 저널 목록 · <!--journal:3--> 최신 3편."""
     body = page["body"]
+    body = re.sub(r"<!--journal(?::(\d+))?-->", lambda m: journal_list_html(pages, int(m.group(1)) if m.group(1) else None), body)
     if "<!--analytics-->" in body:                                                  # 개인정보 처리방침: GA4 를 켰을 때만 분석 도구 문단이 들어간다 (운영자 2026-09-18)
         on = GA_ID != ""
         body = body.replace("<!--analytics-->", ('<p>저희가 붙인 방문자 분석 도구는 구글 애널리틱스 하나예요. 어느 글을 몇 명이 봤는지 세는 용도이고, IP 주소는 익명으로 처리하며 광고 맞춤 신호는 꺼 두었어요. 구글이 이 자료를 어떻게 다루는지는 구글의 개인정보 방침에 있어요. 브라우저에서 구글 애널리틱스 차단 확장을 쓰면 세지 않습니다.</p>' if on else '<p>저희 쪽에서 붙인 방문자 분석 도구는 없어요.</p>'))
@@ -1987,6 +2011,10 @@ def strip_tags(s):
 def build():
     verify = json.loads(VERIFY.read_text(encoding="utf-8")) if VERIFY.exists() else {}
     pages = read_pages()
+    live = {p["rel"] for p in pages}                                                 # 저널: 발행일이 안 된 글의 옛 빌드 결과(미리 보기 등)를 지운다 — 남으면 예약 전에 공개된다 (D102)
+    for f in (ROOT / "journal").glob("*.html") if (ROOT / "journal").is_dir() else []:
+        if f"journal/{f.name}" not in live:
+            f.unlink()
     global PAGES_ALL
     PAGES_ALL = pages
     pages += setup_pages(pages)
@@ -2019,7 +2047,7 @@ def build():
     write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /_build/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
 
     # feed.xml — 네이버: "최신글은 본문 전체를 포함하여 RSS 피드에" (NS-01)
-    arts = sorted([p for p in indexable if p["url"] not in ("/", "/en/", "/guide/", "/why/", "/check/", "/terms/", "/updates/") and not p.get("plat")],
+    arts = sorted([p for p in indexable if p["url"] not in ("/", "/en/", "/guide/", "/why/", "/check/", "/terms/", "/updates/", "/journal/") and not p.get("plat")],
                   key=lambda p: (p.get("updated") or "", p["url"]), reverse=True)
     items = []
     for p in arts[:30]:

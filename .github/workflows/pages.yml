@@ -8,6 +8,8 @@ on:
       - 'marketing-doctor/지식/원전/원문/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '5 22 * * *'   # 매일 07:05 (한국 시각) — 발행일이 된 저널 글을 빌드해 올린다 (2026-10-07 D102)
 
 permissions:
   contents: read
@@ -38,6 +40,7 @@ jobs:
       - name: 설계기준 검사 (오류 1개면 실패)
         run: python site/_build/check.py
       - name: 빌드 결과가 커밋과 같은지
+        if: github.event_name != 'schedule'   # 예약 발행 날에는 새 저널 글만큼 다르다(정상)
         run: git diff --exit-code -- site ':!site/_src' ':!site/_build' ':!site/img' ':!site/docs' || (echo "빌드 결과가 커밋된 파일과 다르다. 로컬에서 build.py 를 돌리고 커밋하라." && exit 1)
 
       - uses: actions/configure-pages@v5
@@ -50,3 +53,11 @@ jobs:
           path: /tmp/public
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: 새 글 알림 (IndexNow, 네이버·빙)
+        continue-on-error: true
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            python site/_build/indexnow.py changed "${{ github.event.before }}" "${{ github.sha }}"
+          else
+            python site/_build/indexnow.py today
+          fi

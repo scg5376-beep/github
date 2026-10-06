@@ -190,6 +190,6 @@ def apply(page, body):
         return stuck(steps(prep(body)))
     if url in ("/", "/start/", "/about.html", "/privacy.html") or url.startswith(("/terms/", "/updates/")) or page.get("plat") or page.get("setup"):
         return body
-    if page.get("section") == "guide" or url.startswith("/why/"):
+    if page.get("section") == "guide" or url.startswith("/why/") or page.get("kind") == "journal":
         return fold_sections(body)
     return body
