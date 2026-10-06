@@ -95,7 +95,7 @@ def check_tone(rel, prose_html, stats=True):
     body = re.sub(r"<aside class=\"keys\".*?</aside>|<section class=\"terms-in\">.*?</section>", " ", body, flags=re.S)             # 핵심 정리 상자(R1)·이 글의 용어(R5)는 자동 생성 요약이라 통계에서 뺀다
     body = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", " ", body, flags=re.S)          # 등급 표시(A · 공식 문서)는 문장이 아니다
     body = re.sub(r"<(ol|ul) class=\"(legend|check)\">.*?</>", " ", body, flags=re.S)    # 그림 범례·점검표는 조각이어도 된다
-    paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|cite|ex|vx-tap|box qa)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
+    paras = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|cite|ex|vx-tap|box qa|vx-scr-note|vx-scr-top)\")[^>]*>(.*?)</(?:p|li|div)>", body, re.S)]
     paras = [x for x in paras if len(x) > 8]
     plain = " ".join(paras)
     L = TONE["limit"]
@@ -106,7 +106,7 @@ def check_tone(rel, prose_html, stats=True):
         err(rel, "S2-17", f"연결어미 뒤 쉼표 {len(cec)}회 > {L['conj_ending_comma_max']}회 … {', '.join(cec[:4])}")
     # 범례의 표제어(「파워링크.」)는 문장 통계에서 뺀다
     body_nolabel = re.sub(r"<li>\s*<span class=\"num\">\d+</span>\s*<div>\s*<b>[^<]*</b>", "<li><div>", body)
-    paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|cite|ex|vx-tap|box qa)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
+    paras_stat = [strip(x) for x in re.findall(r"<(?:p|li|div)\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|cite|ex|vx-tap|box qa|vx-scr-note|vx-scr-top)\")[^>]*>(.*?)</(?:p|li|div)>", body_nolabel, re.S)]
     paras_stat = [x for x in paras_stat if len(x) > 8]
     L = TONE["limit"]
     # S1 금지

@@ -20,7 +20,7 @@ if os.path.exists(lp):
     words = [w.strip() for w in open(lp, encoding="utf-8") if w.strip() and not w.startswith("#")]
 ALLOW_EMAIL = re.compile(r"noreply@anthropic\.com|@example\.(com|org)|^no-?reply@(youtube|google|naver)\.com$")
 # 사이트 글에 이미 실린 플랫폼 고객센터 대표번호(공개 번호, 2026-10-06). 대표번호를 통째로 풀지 않는다 — 광고주 분양 대표번호도 1xxx 라서
-ALLOW_PHONE = {"1588-3821", "1599-1598"}
+ALLOW_PHONE = {"1588-3821", "1599-1598", "1644-3910", "1533-0600"}   # 네이버 고객센터·Npay·네이버 확인 전화 발신·정부 바우처 콜센터
 problems = []
 for f in files:
     if BAD_PATH.search(f): problems.append(f"{f}: 올리면 안 되는 폴더(광고주 자료·결과물)")
