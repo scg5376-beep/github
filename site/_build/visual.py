@@ -18,6 +18,8 @@
 """
 import re
 
+SHORT = 110   # 이 글자 수 이하(휴대폰 3줄쯤)는 접지 않는다
+
 ICON = {  # 24x24 선 아이콘(직접 그림, 외부 자원 없음)
     "bag": '<path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
     "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
@@ -75,8 +77,10 @@ def steps(body):
         why = "".join(re.findall(r'<details class="why">.*?</details>', rest, re.S))
         rest = re.sub(r'<details class="why">.*?</details>', "", rest, flags=re.S).strip()
         tap = taps(rest)
-        if text_len(rest) <= 45:
-            more = f'<p class="vx-sub">{rest}</p>' if rest else ""
+        if text_len(rest) <= SHORT:   # 짧은 설명은 접지 않고 그대로 (운영자 10-06 «글 길지않은건 자세히 같은거 넣어놓지마»)
+            if tap:                                                  # 경로는 위 단추 그림에 있으니 글에서는 마지막 메뉴 이름만(두 번 보이지 않게)
+                rest = PATH.sub(lambda m: '<span class="ui">' + re.split(r"\s*(?:&gt;|>)\s*", m.group(1))[-1].strip() + "</span>", rest, count=1)
+            more = f'<div class="vx-sub">{rest}</div>' if rest else ""
         else:
             more = f'<details class="more"><summary>자세히</summary><div class="box">{rest}</div></details>'
         return f'<li{attrs}>{head}{tap}{more}{why}</li>'
@@ -113,7 +117,9 @@ def stuck(body):
         qa = re.findall(r"<dt>(.*?)</dt>\s*<dd>(.*?)</dd>", m.group(1), re.S)
         if not qa:
             return m.group(0)
-        items = "".join(f'<details class="more vx-q"><summary>{icon("q")}{q}</summary><div class="box qa">{a}</div></details>' for q, a in qa)
+        items = "".join(
+            f'<div class="vx-q open"><p class="vx-qh">{icon("q")}{q}</p><div class="box qa">{a}</div></div>' if text_len(a) <= SHORT else
+            f'<details class="more vx-q"><summary>{icon("q")}{q}</summary><div class="box qa">{a}</div></details>' for q, a in qa)
         ask = ('<p class="vx-ask"><a href="https://ask.sajangmarketing.com/new">여기 없는 막힘은 <b>묻고 답하기</b>에 남겨 주세요</a></p>')
         return f'<div class="vx-faq">{items}</div>{ask}'
     return re.sub(r'<dl class="stuck">(.*?)</dl>', rep, body, flags=re.S)
@@ -124,7 +130,7 @@ def stuck(body):
 BLOCK = re.compile(r"(<(p|ul|ol|table|dl|div|figure|blockquote|aside|section|details|h3)\b[^>]*>.*?</\2>)", re.S)
 
 
-def fold_sections(body, min_rest=180):
+def fold_sections(body, min_rest=300):
     """h2 절마다 첫 블록만 보이고 나머지는 접는다. 그림·표만 있는 절은 그림은 두고 표만 접는다."""
     parts = re.split(r"(<h2\b[^>]*>.*?</h2>)", body, flags=re.S)
     out = [parts[0]]

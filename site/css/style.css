@@ -1162,3 +1162,8 @@ p.vx-ask { margin:-12px 0 26px; }
 p.vx-ask a { display:flex; align-items:center; justify-content:center; min-height:56px; padding:10px 16px; border:2px dashed var(--accent); border-radius:var(--radius); background:var(--accent-soft); color:var(--accent); font-weight:700; text-decoration:none; text-align:center; }
 .vx-faq { grid-template-columns:minmax(0,1fr); } .vx-faq details.vx-q { min-width:0; overflow-wrap:anywhere; }
 details.vx-more > .box { padding-left:0; border-left:0; }
+.vx-faq .vx-q.open { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px 16px; }
+.vx-faq .vx-q.open .vx-qh { display:flex; gap:6px; margin:0 0 6px; font-weight:700; line-height:1.45; }
+.vx-faq .vx-q.open .vx-qh .vx-i { width:24px; height:24px; color:var(--accent); }
+.vx-faq .vx-q.open > .box { margin:0; color:var(--ink-soft); }
+.vx-sub > p { margin:0 0 6px; }
