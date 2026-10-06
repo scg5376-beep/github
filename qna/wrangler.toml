@@ -1,0 +1,14 @@
+# 묻고 답하기 — ask.sajangmarketing.com (README.md)
+name = "sajang-qna"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = false
+
+routes = [{ pattern = "ask.sajangmarketing.com", custom_domain = true }]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sajang-qna"
+database_id = "92694b1c-c0e5-422e-a9ee-f89fa0aa84b5"
+
+# 비밀값(레포에 넣지 않는다): npx wrangler secret put TOKEN_SECRET / ADMIN_KEY

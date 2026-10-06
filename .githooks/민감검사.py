@@ -18,7 +18,9 @@ words = []
 lp = os.path.join(ROOT, ".githooks", "민감어.local.txt")
 if os.path.exists(lp):
     words = [w.strip() for w in open(lp, encoding="utf-8") if w.strip() and not w.startswith("#")]
-ALLOW_EMAIL = re.compile(r"noreply@anthropic\.com|@example\.(com|org)")
+ALLOW_EMAIL = re.compile(r"noreply@anthropic\.com|@example\.(com|org)|^no-?reply@(youtube|google|naver)\.com$")
+# 사이트 글에 이미 실린 플랫폼 고객센터 대표번호(공개 번호, 2026-10-06). 대표번호를 통째로 풀지 않는다 — 광고주 분양 대표번호도 1xxx 라서
+ALLOW_PHONE = {"1588-3821", "1599-1598"}
 problems = []
 for f in files:
     if BAD_PATH.search(f): problems.append(f"{f}: 올리면 안 되는 폴더(광고주 자료·결과물)")
@@ -30,7 +32,7 @@ for f in files:
         if not ln.startswith("+") or ln.startswith("+++"): continue
         for name, rx in PAT:
             m = rx.search(ln)
-            if m and not (name == "이메일" and ALLOW_EMAIL.search(m.group(0))):
+            if m and not (name == "이메일" and ALLOW_EMAIL.search(m.group(0))) and not (name == "전화번호" and m.group(0) in ALLOW_PHONE):
                 problems.append(f"{f}: {name} 「{m.group(0)[:40]}」")
         for w in words:
             if w and w in ln: problems.append(f"{f}: 민감어 「{w}」")

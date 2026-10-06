@@ -23,7 +23,7 @@ _src/pages/**/*.html  →  site/**/*.html  (레이아웃·메타·JSON-LD 를 �
   noindex      true 면 검색 제외 (404 등)
 """
 import json, os, re, sys, pathlib, html, datetime
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent)); import emphasis
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent)); import emphasis, visual
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]          # site/
 SRC  = ROOT / "_src" / "pages"
@@ -671,7 +671,7 @@ def nav_html(page, pages):
         all_label = "All"
     else:
         # 머리 탭은 4개 + English (운영자 2026-09-22 "필요없는 탭도 많아보이는데 5개 이하로"). 효과·업데이트는 발자국(footer)에만
-        items = [("/", "길라잡이", "how"), ("/guide/", "개념", "guide"), ("/terms/", "용어", "terms"), ("/about.html", "소개", "about")]
+        items = [("/", "길라잡이", "how"), ("/guide/", "개념", "guide"), ("/terms/", "용어", "terms"), ("https://ask.sajangmarketing.com/", "묻고 답하기", "ask")]   # 소개는 발자국에 있어 머리 탭 5개를 지키려고 자리를 넘김 (2026-10-06 묻고 답하기)
         alt = page.get("alt") or "/en/"
         toggle = f'<a class="lang" href="{alt}" lang="en" hreflang="en">English</a>'
         base = "/guide/"
@@ -870,7 +870,7 @@ def footer_html(page):
     return '''<footer class="site">
   <p>이 사이트는 특정 가게에 속하지 않아요. 예시 가게 이름은 전부 지어낸 거예요. 화면 속 아이콘은 우리가 만든 것이고 각 회사 상표가 아니에요. 각 상표는 해당 회사 소유이며 이 사이트는 그 회사들과 관계가 없어요.<br>
   물건을 팔지 않고, 손님 정보를 받지 않아요. 광고 자리에는 「광고」라고 적어요.</p>
-  <p><a href="/">길라잡이</a> · <a href="/terms/">용어</a> · <a href="/guide/">개념</a> · <a href="/why/">효과</a> · <a href="/updates/">업데이트</a> · <a href="/about.html">소개</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
+  <p><a href="/">길라잡이</a> · <a href="/terms/">용어</a> · <a href="/guide/">개념</a> · <a href="/why/">효과</a> · <a href="/updates/">업데이트</a> · <a href="/about.html">소개</a> · <a href="https://ask.sajangmarketing.com/">묻고 답하기</a> · <a href="/privacy.html">개인정보 처리방침</a> · <a href="/feed.xml">RSS</a></p>
 </footer>'''
 
 
@@ -1947,6 +1947,8 @@ def render(page, pages, verify):
         cite = (f'<p class="cite">이 글을 인용할 때. 사장님 마케팅 교실, 「{esc(page["title"])}」, {page.get("updated") or page.get("date")} 수정, {SITE_URL}{page["url"]}. '
                 f'글 안의 큰따옴표 문장은 각 기관 원문이니 그 기관을 출처로 적어 주세요.</p>')
         page = dict(page, body=page["body"] + chr(10) + cite)
+    fq = faq_ld(page)                                                              # FAQ 구조화 데이터는 접기 전 dt/dd 로 만든다
+    page = dict(page, body=visual.apply(page, page["body"]))                         # 그림 안내 — 글 줄이고 그림 부품·접기 (운영자 2026-10-06, D99)
     # 「이어서 읽을 글」 자동 목록은 뺐다 (2026-09-11 재개편: 글마다 손으로 고른 「다음 글」이 있어 중복. 게시판 상자가 같은 플랫폼 글을 이미 보여 준다)
     side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
     cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] == "/" else '<div class="cols one">')   # 영어 첫 화면은 기둥이 없으니 한 칸   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
@@ -1954,7 +1956,7 @@ def render(page, pages, verify):
 <html lang="{lang}">
 <head>
 {head_html(page, verify)}
-{breadcrumb_ld(page)}{faq_ld(page)}
+{breadcrumb_ld(page)}{fq}
 </head>
 <body class="{plat_class(page.get('cat') or page.get('plat'))}" id="top">
 <a class="skip" href="#main">{'Skip to content' if lang == 'en' else '본문 바로가기'}</a>

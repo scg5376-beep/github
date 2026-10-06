@@ -7,6 +7,216 @@
   <description>장사하시는 사장님을 위한 마케팅 교실. 출처 없는 숫자는 쓰지 않습니다.</description>
   <language>ko</language>
   <item>
+    <title>개인정보 처리방침</title>
+    <link>https://sajangmarketing.com/privacy.html</link>
+    <guid isPermaLink="true">https://sajangmarketing.com/privacy.html</guid>
+    <pubDate>Tue, 06 Oct 2026 09:00:00 +0900</pubDate>
+    <description>사장님 마케팅 교실은 이름, 전화, 이메일을 받지 않아요. 묻고 답하기에는 닉네임과 비밀번호만 받고, 비밀번호는 풀 수 없는 모양으로 바꿔 저장해요. 다만 광고를 붙이면 구글이 쿠키를 써서 광고를 고르고, 그건 광고 설정에서 끌 수 있어요. 무엇을 모으고 무엇을 모으지 않는지 적었어요.</description>
+    <content:encoded><![CDATA[<p class="kicker">약속 · 개인정보</p>
+<h1>개인정보 처리방침</h1>
+<p class="lead">이 사이트는 사장님의 이름, 전화, 이메일을 한 건도 받지 않아요. 묻고 답하기에도 닉네임과 비밀번호만 적으시면 되거든요.</p>
+<p class="lead">그래도 처리방침을 적어 두는 이유가 둘 있어요. 사이트를 여는 순간 서버에 기록이 남고 광고를 붙이면 구글이 쿠키를 써요.</p>
+<p class="lead">둘 다 아래에 무엇을 모으고 무엇을 모으지 않는지 적었어요.</p>
+
+<h2>직접 모으는 정보</h2>
+<p>회원 가입, 뉴스레터, 댓글이 없어요. 위에 「글 찾기」 칸이 하나 있어요. 거기 적은 말은 구글 검색으로 넘어가 구글 결과 화면이 열려요.</p>
+<p>그 검색어는 저희 서버에는 남지 않고 구글로만 넘어가요.</p>
+<p>틀린 곳을 알려 주시려면 공개 저장소의 이슈 페이지를 쓰시게 돼요. 그건 깃허브 계정으로 하는 일이라 깃허브의 방침을 따라요.</p>
+
+<h2>묻고 답하기</h2>
+<p>궁금한 것을 남기는 <a href="https://ask.sajangmarketing.com/">묻고 답하기</a>가 따로 있어요. 거기서 받는 것은 닉네임, 비밀번호, 제목, 내용 네 가지예요.</p>
+<p>비밀번호는 되돌려 풀 수 없는 모양(PBKDF2)으로 바꿔 저장해서 저희도 원래 비밀번호를 볼 수 없어요. 글을 고치거나 지울 때 닉네임과 비밀번호가 맞는지만 맞춰 봐요.</p>
+<p>글에 전화번호나 메일 주소를 적으시면 저장할 때 별표로 가려요. 도배와 비밀번호 맞히기를 막으려고 접속한 IP 주소를 알아볼 수 없게 바꾼 값을 이틀 동안만 두고 지워요.</p>
+<p>글은 누구나 볼 수 있어요. 글쓴이가 비밀번호로 언제든 지울 수 있고, 광고나 욕설 글은 운영자가 숨겨요. 서버와 저장소는 클라우드플레어(Cloudflare)가 맡아요.</p>
+
+<h2>서버 기록</h2>
+<p>이 사이트는 깃허브 페이지에서 열려요. 어느 웹서버든 접속한 기기의 IP 주소와 브라우저 종류, 연 시각을 잠시 기록해요. 그 기록은 깃허브가 관리하고 저희는 볼 수 없어요.</p>
+<p>깃허브가 무엇을 얼마나 보관하는지는 깃허브의 개인정보 방침에 적혀 있어요.</p>
+<!--analytics-->
+
+<h2>쿠키와 광고</h2>
+<p>사이트 자체는 쿠키를 만들지 않는데 로그인이 없으니 필요가 없거든요.</p>
+<p>다만 이 사이트는 구글 애드센스 광고를 붙일 수 있어요. 광고가 켜져 있으면 구글을 비롯한 광고 제공자가 쿠키를 써서 광고를 골라요. 사장님이 전에 어떤 사이트를 봤는지에 따라 광고가 달라지는 방식이에요.</p>
+<p>이 쿠키는 구글이 만들고 읽는 것이라 저희는 손댈 수 없어요.</p>
+<table>
+  <tr><th>무엇</th><th>누가</th><th>왜</th></tr>
+  <tr><td>광고 쿠키</td><td>구글과 그 광고 파트너</td><td>방문 기록에 맞춘 광고를 고르려고</td></tr>
+  <tr><td>접속 기록</td><td>깃허브(서버)</td><td>서버 운영과 보안</td></tr>
+<!--analytics-row-->
+</table>
+<p>맞춤 광고를 원치 않으시면 <a href="https://www.google.com/settings/ads" rel="noopener">구글 광고 설정</a>에서 끌 수 있어요. 구글 밖의 광고 제공자는 <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>에서 한꺼번에 끌 수 있고요. 브라우저 설정에서 쿠키를 아예 막으셔도 이 사이트의 글은 그대로 읽혀요.</p>
+<p class="small">지금 이 사이트에 광고가 붙어 있는지는 화면을 보시면 알 수 있어요. 광고 자리에는 「광고」라고 적어 둬요. 광고가 없는 동안에는 위의 광고 쿠키도 없어요.</p>
+
+<h2>만 14세 미만</h2>
+<p>이 사이트는 가게를 하시는 분을 위한 글이라 아동을 대상으로 하지 않고 아동의 정보를 따로 모으지도 않아요.</p>
+
+<h2>변경 기록</h2>
+<table>
+  <tr><th>날짜</th><th>무엇을 바꿨나</th></tr>
+  <tr><td>2026-10-06</td><td>묻고 답하기를 열면서 받는 것 네 가지와 비밀번호 저장 방식을 넣었어요.</td></tr>
+  <tr><td>2026-09-11</td><td>처음 적었어요. 광고를 붙일 수 있다는 것과 쿠키를 끄는 방법을 넣었어요.</td></tr>
+</table>
+<p>이 사이트에는 연락처를 두지 않아요. 개인정보를 주고받지 않기 위해서예요. 방침에 대해 물으실 게 있으면 <a href="https://ask.sajangmarketing.com/">묻고 답하기</a>에 적어 주세요.</p>
+
+<div class="next">
+  <a href="/about.html">이 교실이 지키는 것</a>
+  <a href="/guide/">전체 글</a>
+</div>
+
+<footer class="sources">
+  <h2>근거</h2>
+  <ul>
+    <li>개인정보 보호법 제30조는 처리방침에 자동 수집 장치의 설치와 거부에 관한 사항을 적으라고 해요. 이 문서의 쿠키 항목은 그 조항을 따른 거예요.</li>
+    <li>구글 애드센스는 사이트에 광고를 붙일 때 제3자 쿠키 사용과 끄는 방법을 방문자에게 알리라고 요구해요. 위의 「쿠키와 광고」 항목이 그거예요.</li>
+  </ul>
+  <p>이 문서는 2026년 9월 기준이에요.</p>
+</footer>]]></content:encoded>
+  </item>
+  <item>
+    <title>쇼핑몰 마케팅 효과 12주 기록하는 방법 (온라인 판매 코스 9단계)</title>
+    <link>https://sajangmarketing.com/online/9-record.html</link>
+    <guid isPermaLink="true">https://sajangmarketing.com/online/9-record.html</guid>
+    <pubDate>Tue, 06 Oct 2026 09:00:00 +0900</pubDate>
+    <description>매주 같은 요일 5분씩 적는 표를 만드는 순서예요. 첫 줄은 내가 직접 데려온 주문의 비율이고 정산액은 실제 입금액으로 적습니다. 한 주에 한 가지만 바꿉니다.</description>
+    <content:encoded><![CDATA[<p class="kicker">온라인 판매</p>
+<h1>쇼핑몰 마케팅 효과 12주 기록하는 방법</h1>
+<p class="lead">앞에서 한 일이 효과가 있었는지 알아내는 틀이에요. 온라인 판매는 첫 줄이 정해져 있는데 직접 데려온 주문의 비율입니다.</p>
+<dl class="kv prep"><dt>준비물</dt><dd><ul><li>공책이나 휴대폰 메모</li><li>스마트스토어센터 로그인</li></ul></dd><dt>걸리는 시간</dt><dd>매주 5분</dd><dt>돈</dt><dd>무료</dd></dl>
+
+<h2>따라 하기</h2>
+<ol class="steps"><li><b>달력에 매주 같은 요일 5분을 잡으세요.</b></li><li><b>표를 만드세요.</b> 세로칸은 「바꾼 것 / 광고비 / 주문 수 / 직접 데려온 주문 수 / 정산액(입금액) / 새 리뷰 수 / 비고」 일곱 개입니다.</li><li><b>직접 데려온 주문 수는 「정산관리 > 정산 내역(일별/건별) > 건별 정산내역」에서 판매자 마케팅 수수료가 붙은 건을 세어 적으세요.</b> 이 수를 전체 주문 수로 나눈 비율이 첫 줄이에요.<details class="why"><summary>왜 이렇게 하나요</summary><div class="box">내가 데려온 주문은 수수료가 내려가고 장터 검색·광고에 기대는 비중이 줄어요. 이 한 줄이 블로그·인스타그램 효과를 보여 줍니다. <a href="/guide/record.html">12주 기록 설명</a></div></details></li><li><b>첫 주는 「바꾼 것 없음」으로 적으세요.</b></li><li><b>한 주에 한 가지만 바꾸세요.</b> 글을 올린 주에는 광고를 켜지 않고 광고를 켠 주에는 가격을 바꾸지 않습니다. 메타 광고도 소재를 바꾸면 학습이 다시 시작돼요.</li><li><b>노출 수·순위는 적지 않고 모르는 값은 빈칸으로 두세요.</b></li><li><b>12주 뒤 첫 줄과 마지막 줄을 비교해, 직접 데려온 주문 비율과 정산액이 늘어난 주에 무엇을 바꿨는지 보세요.</b> 효과 있던 일은 계속하고 6단계 블로그로 돌아가 다음 12주를 시작합니다.</li></ol>
+<h2>다 됐는지 확인</h2>
+<ul class="check"><li>달력에 요일이 잡혀 있다</li><li>첫 줄에 직접 데려온 주문 비율이 적혀 있다</li></ul>
+<div class="note course end"><b>코스 끝. 지금 가게에 있어야 하는 것</b><ul><li>수수료를 알고 정한 가격</li><li>통신판매업 신고와 서면 준비</li><li>내 도메인과 검색에 나오는 홈페이지</li><li>블로그와 인스타그램으로 데려오는 손님</li><li>광고를 켜고 끄는 기준</li><li>12주 기록표</li></ul><p>빠진 게 있으면 그 단계로 돌아가세요. 다 있으면 다음은 <a href="/kakao/1-channel.html">카카오톡 채널 만들기</a>예요.</p></div><h2>막히면</h2>
+<dl class="stuck"><dt>판매자 마케팅 수수료 건이 0이에요</dt><dd>블로그·인스타그램 링크로 들어온 주문이 아직 없는 거예요. 6·7단계 글과 게시물에 상품 링크가 붙어 있는지 확인하세요.</dd></dl>
+<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/record.html">12주 기록, 판단은 정산액으로</a>에 있어요.</p>
+
+<div class="next">
+  <a href="/p/online/">온라인 판매 코스 처음으로</a>
+  <a href="/guide/record.html">설명. 12주 기록, 판단은 정산액으로</a>
+</div>
+
+<footer class="sources">
+  <h2>근거</h2>
+  <ul><li><span class="grade a">A</span> <a href="https://help.sell.smartstore.naver.com/faq/content.help?faqId=3558" rel="noopener">네이버 스마트스토어 고객센터 「정산 기준 수수료율」</a> (2026-09-14 확인)</li><li><span class="grade">설명</span> 이 사이트의 설명 글 <a href="/guide/record.html">12주 기록, 판단은 정산액으로</a></li></ul>
+  <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-14 기준이에요.</p>
+</footer>]]></content:encoded>
+  </item>
+  <item>
+    <title>당근 비즈프로필 만드는 방법, 동네 이웃에게 가게 알리는 순서</title>
+    <link>https://sajangmarketing.com/daangn/1-profile.html</link>
+    <guid isPermaLink="true">https://sajangmarketing.com/daangn/1-profile.html</guid>
+    <pubDate>Tue, 06 Oct 2026 09:00:00 +0900</pubDate>
+    <description>당근 비즈프로필 만들기. 당근 앱에서 무료로 만들고 사업자 인증을 받고 첫 소식을 올리는 순서예요. 이름·업종·주소·사진·소개·전화번호 입력부터 인증 서류, 소식 노출 자리까지 당근비즈니스 가이드 순서 그대로예요.</description>
+    <content:encoded><![CDATA[<p class="kicker">당근</p>
+<h1>당근 비즈프로필 만드는 방법, 동네 이웃에게 가게 알리는 순서</h1>
+<p class="lead">당근 앱을 쓰는 동네 이웃에게 가게를 보여 주는 자리예요. 만들기, 소식 올리기, 쿠폰까지 무료이고 광고만 돈이 듭니다. 사업자 인증을 받으면 인증 표시가 붙고 예약·견적 같은 도구를 쓸 수 있어요.</p>
+<dl class="kv prep"><dt>준비물</dt><dd><ul><li>당근 앱 <span class="pn">(나의 당근 메뉴)</span></li><li>가게 사진 여러 장</li><li>사업자등록증 사진 <span class="pn">(인증용)</span></li><li>가게 전화번호</li></ul></dd><dt>누가</dt><dd>사업자등록증의 대표자 (직원이면 위임장·인감증명서가 더 필요)</dd><dt>결과까지</dt><dd>사업자 인증 검수 뒤 인증 표시</dd><dt>걸리는 시간</dt><dd>30분 <span class="pn">(인증 검수 1~3영업일)</span></dd><dt>돈</dt><dd>무료</dd></dl>
+
+<div class="note course"><b>3단계를 마치면 가게에 생기는 것</b><ul><li>당근 동네지도와 검색에 나오는 비즈프로필</li><li>인증 표시</li><li>무료로 나가는 소식</li><li>단골과 쿠폰</li><li>동네를 골라 하루 1만 원으로 켜 본 광고와 그 성과표</li></ul></div><h2>따라 하기</h2>
+<ol class="steps"><li><b>당근 앱에서 「나의 당근」 > 「비즈프로필 만들기」를 누르세요.</b> 등록부터 사용까지 무료예요. 한 사람이 만들 수 있는 비즈프로필은 3개까지입니다.</li><li><b>가게 이름과 업종을 넣으세요.</b> 이름은 간판에 적힌 실제 상호로 30자까지예요. 업종은 사업자등록증 종목이나 가게를 나타내는 말로 검색해 고릅니다. 검수에서 더 맞는 업종으로 바뀔 수 있어요.</li><li><b>주소를 넣고 지도 핀을 맞추세요.</b> 주소가 맞으면 동네지도에도 올라가요. 찾아오는 매장이 없으면 「주소가 없어요」를 고르고 활동 지역으로 이웃에게 보입니다.</li><li><b>프로필 사진, 매장 사진, 소개 문구를 넣으세요.</b> 정보를 채워야 이웃에게 보인다고 적혀 있어요. 사진은 한 번에 20장까지, 대표 사진은 2장까지 고정할 수 있고 소개 문구는 검색 결과에도 같이 나옵니다.</li><li><b>전화번호와 부가정보를 넣으세요.</b> 둘 다 선택이에요. 전화번호는 안심 번호를 쓸 수 있고, 결제 수단·시설 같은 부가정보는 업종에 따라 항목이 달라요.</li><li><b>사업자등록증을 올려 사업자 인증을 신청하세요.</b> 비즈프로필 이름·주소·업종이 사업자등록증과 같아야 하고 다르면 소명 자료가 필요해요. 결과는 1~3영업일 안에 채팅으로 와요. 반려되면 홈 상단 「반려사유 보기」를 본 뒤 다시 신청합니다.</li><li><b>첫 소식을 올리세요.</b> 소식은 홈 피드(중고거래 글 사이)와 동네지도 검색 결과에 무료로 나가요. 사진과 글을 섞는 에디터는 사진 20장, 영상 1개(1분·200MB 이내)까지이고 쿠폰을 같이 붙일 수 있습니다.</li></ol>
+<h2>다 됐는지 확인</h2>
+<ul class="check"><li>당근에서 가게 이름을 검색하면 비즈프로필이 나온다</li><li>홈에 인증 표시가 보인다(사업자 인증 완료)</li><li>소식 하나가 올라가 있다</li></ul>
+<h2>막히면</h2>
+<dl class="stuck"><dt>인증 없이 그냥 써도 되나요</dt><dd>통신판매업·휴대폰 판매업·부동산중개업은 인증 없이는 이용이 막히고, 예약·견적·상품판매·포장주문 도구도 인증이 있어야 써요. 인증 업체가 위에 나올 수 있다고도 적혀 있어요.</dd><dt>사업자등록이 아직 없어요</dt><dd><p>비즈프로필은 만들 수 있지만 사업자 인증을 못 받으니 인증 표시와 예약·견적·상품판매·포장주문 도구는 못 써요. 물건을 팔 거면 사업자등록과 통신판매업 신고부터 하세요.</p><p>가이드는 통신판매업은 인증 없이는 이용이 제한된다고 적어 뒀어요.</p></dd><dt>인증이 반려됐어요</dt><dd>비즈프로필 이름·주소·업종과 사업자등록증이 다르면 관계 증빙과 소명 자료를 내야 해요. 직원 명의면 대표자 위임장과 인감증명서가 필요합니다.</dd><dt>포장 주문·예약·견적 도구는 돈이 드나요</dt><dd>당근 가이드 기준으로 포장 주문은 중개수수료 0%이고 결제수수료만 붙어요(배달앱 7.8% 예시와 비교표가 가이드에 있어요). 예약 관리는 사업자 인증이 있어야 예약 요청을 받을 수 있고, 견적 받기(전문가 서비스)는 일부 지역 시범 운영이라 지금은 수수료가 없다고 적혀 있어요. 포장 주문 입점은 사업자등록증·영업신고증·메뉴판 사진이면 되고 첫 입점에 3,000원 쿠폰 3장을 당근이 대신 줍니다.</dd><dt>당근 광고도 해야 하나요</dt><dd>비즈프로필과 소식은 무료예요. 광고(간편모드)는 동네·성별·연령을 골라 내보내고 이웃이 클릭할 때만 돈이 나가요. 소식을 먼저 몇 주 올리고 12주 기록에 적은 뒤 정하세요.</dd><dt>광고비를 지원해 준다는 게 뭔가요</dt><dd><p>「당근사장님 지원 프로그램」이에요. 첫 광고 계정을 만들면 1만 원, 유료 캐시를 처음 쓴 날부터 7일간 쓴 돈의 50%(최대 5만 원) 환급, 이번 달 쓴 금액에 따라 다음 달 2~5%(최대 20만 원) 추가 충전이에요.</p><p>「최대 26만 원」은 셋을 다 더한 수이고 광고에만 쓰는 캐시라 현금으로는 못 받아요.</p></dd></dl>
+<p class="why">왜 이걸 하는지, 무엇을 근거로 하는지는 <a href="/guide/numbers.html">손님은 지금 어디서 찾나</a>에 있어요.</p>
+
+<div class="next">
+  <a href="/local/4-reviews.html">이어서. 리뷰 답글</a>
+  <a href="/kakao/1-channel.html">같이 보기. 카카오톡 채널 만들기</a>
+</div>
+
+<footer class="sources">
+  <h2>근거</h2>
+  <ul><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/create" rel="noopener">당근비즈니스 가이드 「비즈프로필 만들기」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/inspection" rel="noopener">「사업자 인증」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/start/post" rel="noopener">「비즈프로필 소식」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/ads-lite/start" rel="noopener">「당근 광고 시작하기」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://business.daangn.com/event/support-program" rel="noopener">「당근사장님 지원 프로그램」</a> (2026-09-17 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/tools/pickup" rel="noopener">「포장 주문」(수수료 안내)</a> (2026-09-18 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/tools/reservation" rel="noopener">「예약 관리」</a> (2026-09-18 확인)</li><li><span class="grade a">A</span> <a href="https://businessdaangn.gitbook.io/business.daangn/profile/tools/estimate" rel="noopener">「견적 받기」</a> (2026-09-18 확인)</li></ul>
+  <p>화면과 메뉴 이름은 플랫폼이 바꿀 수 있어요. 이 글은 2026-09-17 기준이에요.</p>
+</footer>]]></content:encoded>
+  </item>
+  <item>
+    <title>이 교실은 누가 어떻게 쓰나</title>
+    <link>https://sajangmarketing.com/about.html</link>
+    <guid isPermaLink="true">https://sajangmarketing.com/about.html</guid>
+    <pubDate>Tue, 06 Oct 2026 09:00:00 +0900</pubDate>
+    <description>사장님 마케팅 교실을 누가 쓰고, 근거를 어떻게 다루고, 무엇을 하지 않는지 적었어요. 틀린 곳을 알리는 방법과 정정 기록도 여기 있어요.</description>
+    <content:encoded><![CDATA[<p class="kicker">이 교실은</p>
+<h1>이 교실은 누가 어떻게 쓰나</h1>
+<p class="lead">사장님 마케팅 교실은 특정 가게나 대행사에 속하지 않는 교육 사이트예요. 물건을 팔지 않고 손님 정보를 받지 않아요. 운영비는 구글 광고로 충당할 수 있어요.</p>
+<p class="lead">광고 자리에는 「광고」라고 적어서 글과 섞이지 않게 해요.</p>
+<p class="lead">그러니 본문 가운데 사장님께 돈을 쓰게 하려는 문장은 없어요.</p>
+
+<h2 id="intro">하는 것과 안 하는 것</h2>
+<p>특정 가게나 대행사에 속하지 않는 교육 사이트예요. 물건을 팔지 않고 손님 정보를 받지 않아요. 글은 플랫폼 공식 문서와 법령 원문을 근거로 써요.</p>
+<p>큰따옴표 안 문장은 원문과 자동으로 대조해요.</p>
+<p>원문을 못 찾은 건 못 찾았다고 그대로 적어요.</p>
+<table>
+  <tr><th>해요</th><th>안 해요</th></tr>
+  <tr><td>플랫폼과 법이 직접 적은 문장을 큰따옴표로 옮겨요</td><td>출처 없는 숫자. "손님 70%가…" 같은 말은 여기 없어요</td></tr>
+  <tr><td>확실하지 않은 건 "~라고 해요"로 써요</td><td>겁주기. "이러면 저품질 됩니다"는 근거가 없어요</td></tr>
+  <tr><td>글마다 발행일, 수정일, 근거 등급을 적어요</td><td>특별한 요령. 전부 공식 문서에 적혀 있는 것들이에요</td></tr>
+</table>
+
+<h2 id="howto">이용법</h2>
+<ol class="steps">
+  <li><b>첫 화면의 문 다섯 가운데 하나를 고르세요.</b> 하는 방법은 「길라잡이」, 모르는 말은 「용어」, 왜 그런지는 「개념」, 뭐가 효과 있었는지는 「효과」, 규칙이 바뀐 건 「업데이트」에 있어요.</li>
+  <li><b>뭐부터 할지 모르겠으면 「1분 자가진단」을 누르세요.</b> 여덟 가지만 고르면 지금 볼 단계를 골라 줘요. 답은 화면에만 있고 어디로도 안 보내요.</li>
+  <li><b>길라잡이는 플랫폼별로 있어요.</b> 네이버, 판매, 구글, 인스타그램·메타, 카카오, 당근, 유튜브, AI·법·기록. 글마다 준비물·걸리는 시간·돈이 맨 위에 있고 화면 캡처를 따라가면 돼요.</li>
+  <li><b>따라 하다 이유가 궁금하면 「왜 이렇게 하나요」를 여세요.</b> 단계마다 접혀 있고 설명 글로 이어져요.</li>
+  <li><b>업종 순서대로 가고 싶으면 코스를 쓰세요.</b> 동네 매장·온라인 판매·예약·상담·외국 손님 넷이 있고 한 주에 하나만 바꾸는 게 <a href="/guide/record.html">12주 기록</a>의 규칙이에요.</li>
+</ol>
+
+<h2>쓰는 사람</h2>
+<p>편집자 한 명이 쓰는데 안경원 한 곳의 마케팅을 맡아서 네이버 플레이스와 블로그, 인스타그램을 직접 운영하고 있어요.</p>
+<p>그러면서 공식 문서와 법령을 하나씩 원문으로 확인해 자료를 모아 왔어요.</p>
+<p>이 사이트는 그 자료를 사장님이 읽을 수 있는 말로 옮긴 거예요. 이름과 연락처는 적지 않아요.</p>
+<p>개인정보를 공개하지 않는 것도 이 사이트가 지키는 것 가운데 하나거든요.</p>
+
+<h2>근거 등급</h2>
+<table>
+  <tr><th>표시</th><th>뜻</th></tr>
+  <tr><td><span class="grade a">A</span></td><td>플랫폼이나 법령의 원문 전문을 확보했어요. 큰따옴표 안은 원문 그대로이고 글을 올릴 때마다 인용문이 원문 보관본에 있는지 프로그램이 대조해요.</td></tr>
+  <tr><td><span class="grade">B</span></td><td>믿을 만한 2차 자료 여럿이 일치하지만 원문은 못 봤어요. "~라고 해요"로 쓰고 숫자는 단정하지 않아요.</td></tr>
+  <tr><td>못 찾음</td><td>찾아봤지만 확인할 수 없었던 거예요. 그렇다고 적어 둬요. AEO의 학술 정의, 국내 업종별 전환율, 토스 광고의 공식 문서가 그래요.</td></tr>
+</table>
+<p>숫자에는 연도와 조사 기관을 붙이고 그게 없는 숫자는 쓰지 않아요. 두 자료를 이어 붙여 만든 해석은 "편집자 주"라고 밝혀요.</p>
+
+<h2>다시 보는 주기</h2>
+<table>
+  <tr><th>무엇</th><th>주기</th></tr>
+  <tr><td>네이버, 구글, 메타의 규칙</td><td>반년</td></tr>
+  <tr><td>AI 답변 관련</td><td>3개월. 가장 빨리 바뀌어요</td></tr>
+  <tr><td>법령</td><td>개정 때마다. 2027년 1월 21일 전자상거래법 개정 시행이 예정돼 있어요</td></tr>
+  <tr><td>국내 조사 숫자</td><td>1년</td></tr>
+</table>
+<p>각 글 머리에 발행일과 수정일이 있어요. 수정일이 반년 넘게 지난 플랫폼 글은 낡았을 수 있다고 보시면 돼요.</p>
+
+<h2>틀린 곳 알리기</h2>
+<p>이 사이트의 글과 코드는 공개 저장소에 있어요. 틀린 곳이나 낡은 곳을 발견하시면 <a href="https://github.com/scg5376-beep/github/issues">저장소의 이슈 페이지</a>에 적어 주세요. 이메일이나 전화는 두지 않는데 개인정보를 주고받지 않기 위해서예요.</p>
+<p>고친 내용은 아래 정정 기록에 남겨요.</p>
+
+<h2>정정 기록</h2>
+<table>
+  <tr><th>날짜</th><th>무엇을 고쳤나</th></tr>
+  <tr><td>2026-09-11</td><td>첫 발행. 초안에 있던 내부 용어와 장식 기호를 없애고 설계기준에 맞춰 다시 썼어요. 같은 날 말투를 합쇼체에서 해요체로 바꾸고 말투 규칙을 검사기에 넣었어요.</td></tr>
+</table>
+
+<h2>기술적 약속</h2>
+<ul>
+  <li>방문 기록을 남기는 분석 도구가 없어요. 글꼴과 그림은 이 사이트 안에서만 불러와요.</li>
+  <li>외부 코드는 구글 광고 하나뿐이에요. 광고가 켜져 있을 때만 붙고 무엇을 하는지는 <a href="/privacy.html">개인정보 처리방침</a>에 적었어요.</li>
+  <li>이 사이트의 입력 칸은 「글 찾기」와 자가진단의 선택 단추뿐이에요. 찾기는 구글 검색으로 넘길 뿐이고 자가진단 답은 화면에만 있어서 저희가 받지 않아요. 따로 연 <a href="https://ask.sajangmarketing.com/">묻고 답하기</a>도 닉네임과 비밀번호만 받고, 이름·전화·이메일은 한 건도 받지 않아요.</li>
+  <li>이 사이트는 HTTPS로만 열려서 오가는 내용이 암호화돼요.</li>
+</ul>
+<p class="small">이 약속들은 사이트를 만드는 프로그램이 매번 검사해요. 검사 기준은 저장소의 「설계기준」 문서에 있어요.</p>
+
+<footer class="sources">
+  <h2>근거</h2>
+  <ul>
+    <li>이 페이지가 말하는 약속의 검사 기준은 저장소의 「설계기준」 문서와 검사 프로그램에 있어요. 근거 등급 체계는 편집자의 「출처등급」 문서를 따라요.</li>
+  </ul>
+  <p>이 글은 2026년 9월 기준이에요.</p>
+</footer>]]></content:encoded>
+  </item>
+  <item>
     <title>유튜브 쇼츠 3분 규칙과 수익 조건, 2026년 9월 변경</title>
     <link>https://sajangmarketing.com/guide/youtube-shorts.html</link>
     <guid isPermaLink="true">https://sajangmarketing.com/guide/youtube-shorts.html</guid>
@@ -2339,242 +2549,6 @@
   </ul>
   <p>플랫폼 규칙은 반년마다 다시 봐요. 이 글은 2026년 9월 기준이에요.</p>
 </footer>]]></content:encoded>
-  </item>
-  <item>
-    <title>플레이스 리뷰 어뷰징 페널티, 리뷰가 전부 사라지는 7가지와 영수증 인증 기준 (도움말 원문)</title>
-    <link>https://sajangmarketing.com/guide/review-penalty.html</link>
-    <guid isPermaLink="true">https://sajangmarketing.com/guide/review-penalty.html</guid>
-    <pubDate>Tue, 22 Sep 2026 09:00:00 +0900</pubDate>
-    <description>네이버 플레이스는 조작된 방문·리뷰가 한 건이라도 확인되면 예고 없이 그 업체의 리뷰 전부를 미노출하고 AI 브리핑도 지워요. 걸리는 여덟 가지, 영수증이 인증되는 조건, 남의 가게 리뷰가 잘못 붙었을 때 처리를 MY플레이스 고객센터 원문으로 정리했어요.</description>
-    <content:encoded><![CDATA[<p class="kicker">네이버 · 리뷰</p>
-<h1>플레이스 리뷰 어뷰징 페널티, 리뷰가 전부 사라지는 7가지와 영수증 인증 기준</h1>
-<p class="lead">사장님, 리뷰 200개를 쌓았는데 어느 날 전부 안 보이는 가게가 있어요. 대행사가 넣은 리뷰 몇 개가 걸린 거예요.</p>
-<p class="lead">네이버가 「업체 단위 페널티」라고 부르는 이 조치의 기준을 MY플레이스 고객센터 도움말에서 그대로 옮겼어요. 사장님이 무심코 하는 일이 목록에 여럿 들어 있어요.</p>
-<p class="lead answer">한 줄 답부터. 조작된 방문이나 리뷰가 한 건이라도 확인되면 예고 없이 그 업체의 리뷰가 전부 미노출되고 AI 브리핑 메뉴도 지워집니다.</p>
-<p class="lead answer">무엇이 걸리나요? 가짜 영수증, 허위 예약, 대행사·리워드 앱 리뷰, 직원이 손님 영수증을 대신 찍어 주는 것이 앞의 넷이에요. 답글로 괴롭히기, 손님 개인정보를 특정하는 것, 4점 이상을 요구하는 것, 기준에 안 맞는 영수증을 반복해 내는 것이 뒤의 넷입니다. 리뷰를 써 달라고 안내하는 것 자체는 걸리지 않아요.</p>
-<div class="note todo"><b>바로 할 일</b>계산대에 「영수증은 손님이 직접 찍으세요」를 붙이고 직원에게 손님 휴대폰을 받아 대신 찍어 주지 말라고 말하세요. 대행사에 리뷰를 맡겼다면 오늘 끊으세요. 한 건이면 전부 사라져요.</div>
-
-<h2>무엇이 걸리나요?</h2>
-<blockquote class="official">
-  <span class="who">네이버 MY플레이스 고객센터, 「방문자리뷰 업체 단위 페널티 안내」 (2026-09-20 원문 확인)</span>
-  <q>비정상/조작 행위가 확인되는 방문 증거 또는 리뷰가 1회라도 확인되는 업체 리뷰는 사전 통보없이 해당 업체의 리뷰 신뢰도에 심각한 문제가 있다고 판단하고 리뷰 이용자의 권리 보호를 위해 등록된 모든 리뷰가 미노출 됩니다.</q>
-</blockquote>
-<table>
-  <tr><th>원문의 예시</th><th>가게에서 흔히 벌어지는 모양</th></tr>
-  <tr><td>1. 이미지 편집·AI로 조작한 가짜 영수증 리뷰</td><td>대행사가 만든 영수증</td></tr>
-  <tr><td>2. 허위 예약으로 만든 리뷰. 리뷰용 가짜 예약 상품 운영도 포함</td><td>100원짜리 예약 상품을 열어 리뷰만 받기</td></tr>
-  <tr><td>3. 광고·홍보 목적, 금전·혜택 목적으로 방문·경험 없이 쓴 리뷰</td><td>대행사, 미션 보상 리워드 앱, 남의 영수증으로 쓰기, 직원이 영수증을 대신 찍어 주거나 손님 휴대폰을 받아 가게에서 한꺼번에 찍기</td></tr>
-  <tr><td>4. 사업주 답글로 욕설·비방·위협을 반복해 올리고 지우기</td><td>낮은 리뷰에 화난 답글을 달았다 지웠다 하기</td></tr>
-  <tr><td>5. 방문 정보나 고객관리 시스템으로 리뷰 작성자를 특정·공개하거나 연락해 압박</td><td>「그날 오후 3시에 오신 분이죠」 하고 답글 달기, 예약 번호로 전화하기</td></tr>
-  <tr><td>6. 특정 점수·내용을 강요·통제</td><td>4점 이상 요구, 좋은 말 지시, 수정·삭제 반복 요구, 쓰는 화면을 옆에서 확인</td></tr>
-  <tr><td>7. 기준에 안 맞는 영수증을 반복 제출, 금지 행위를 계속 시도</td><td>리뷰 이벤트용으로 100원 결제 영수증 발행</td></tr>
-</table>
-<p>원문은 「단순히 리뷰 작성을 안내하거나 참여를 요청하는 행위 자체는 이에 해당하지 않습니다」라고 따로 적었어요. 부탁은 되고 점수 요구와 대신 찍기는 안 되는 거예요.</p>
-<p>적용 여부는 업체 리뷰 전반과 작성 패턴을 종합해 정하고 반복되면 상시 모니터링 대상이 돼요. 페널티가 걸렸으면 주인 아이디로 로그인해 원문 아래의 소명 접수로 문의할 수 있어요.</p>
-
-<h2>영수증은 어떤 것이 인증되나요?</h2>
-<blockquote class="official">
-  <span class="who">「영수증 제출 기준 안내」 (2026-09-20 원문 확인)</span>
-  <q>- 동반자와 함께 방문한 경우, 반드시 영수증을 각자 촬영하여 인증해야 합니다.</q>
-</blockquote>
-<p>인증되는 영수증은 업체명, 주소, 전화번호나 사업자등록번호, 결제 수단, 결제 일시, 승인번호, 금액이 다 보이는 종이·전자 영수증이고 장소와 날짜가 있는 티켓도 돼요. 손님 본인이 방문해 직접 찍어야 해요.</p>
-<p>그러면 어떤 영수증이 인증에서 떨어지나요? 카톡·밴드로 주고받거나 내려받은 영수증, 가족·지인이 다녀온 영수증, 환불된 영수증, 중간계산서·주문서, 승인번호 없는 현금영수증, 수기 영수증이 먼저예요.</p>
-<p>세금계산서, 배달 내역, 할인권, 대기표, 지역화폐 내역, 은행·가계부 앱 캡처, 해외 결제, 조작 영수증도 안 됩니다. 예를 들어 손님이 카톡으로 받은 영수증 사진을 올리면 인증이 안 돼요.</p>
-<p>택시·푸드트럭·택배처럼 장소를 특정하기 어려운 것과 상품 가액보다 크게 낮은 금액, 리뷰 이벤트용으로 임의 발행한 낮은 금액도 안 돼요.</p>
-<p>사장님 쪽에서 챙길 것은 둘이에요. 영수증에 업체명·주소·전화번호나 사업자등록번호가 찍히는지 포스 설정을 확인하고, 리뷰 이벤트라고 100원짜리 결제를 만들어 주지 않는 것이에요. 낮은 금액 영수증은 인증이 안 되고 7번 항목으로 업체 페널티까지 가요.</p>
-
-<h2>남의 가게 리뷰가 우리 가게에 붙었어요</h2>
-<blockquote class="official">
-  <span class="who">「내 업체의 영수증/카드 결제 리뷰가 아닌 경우」 (2026-09-20 원문 확인)</span>
-  <q>고객 결제 정보 화면에서 타업체의 영수증/카드 결제 정보로 확인된 경우만 매칭 확인 신청을 하시기 바랍니다.</q>
-</blockquote>
-<table>
-  <tr><th>순서</th><th>할 것</th></tr>
-  <tr><td>1</td><td>스마트플레이스 주인 권한 아이디로 그 리뷰의 「고객 결제 정보 보기」를 연다. 업체명·주소·전화번호·사업자번호·결제일이 보인다</td></tr>
-  <tr><td>2</td><td>다른 업체 정보로 확인될 때만 「매칭 확인 신청」. 카드 결제 리뷰는 사업자등록번호를 넣어야 대조가 된다</td></tr>
-  <tr><td>3</td><td>검토는 영업일 2~5일. 대량 신청은 더 걸린다</td></tr>
-</table>
-<p>영수증 글자를 잘못 읽었거나 카드 결제 때 사업자등록번호가 안 맞아 다른 가게로 매칭되는 일이에요. 예전에 운영하던 업체의 리뷰가 남은 것과 단순히 마음에 안 드는 리뷰는 이 절차로 못 지워요. 비방·명예훼손 리뷰는 <a href="/local/4-reviews.html">리뷰 답글 따라 하기</a>의 권리침해 신고 절차예요.</p>
-
-<h2>네이버가 사장님을 보호하는 쪽은요?</h2>
-<blockquote class="official">
-  <span class="who">「MY플레이스 사업주 보호 정책 안내」 (2026-09-20 원문 확인)</span>
-  <q>2. 부가적인 설명없이 지속적으로 낮은 별점을 주는 경우</q>
-</blockquote>
-<p>리뷰어 쪽도 같은 모니터링을 받아요. 방문 없이 쓴 리뷰, 설명 없이 낮은 별점을 계속 주는 계정, 여러 계정으로 광고성 리뷰나 악플을 쓰는 것, 매크로 같은 비정상 패턴이 탐지되면 그 계정이 제재되고 리뷰는 미노출돼요. 그러니 별점 테러가 걱정돼도 답글로 다투거나 손님을 특정하지 마세요.</p>
-<p>그 순간 페널티는 사장님 쪽으로 넘어와요. 별점 기준은 <a href="/guide/star-rating.html">별점 표시 설정 글</a>에, 답글 문안은 <a href="/guide/reply-examples.html">답글 예시 28개</a>에 있어요.</p>
-
-<h2>정리</h2>
-<p>사장님, 리뷰는 손님이 직접 찍고 직접 쓰게 두는 게 유일한 안전선이에요. 대행사와 리워드 앱은 한 건이면 전부를 잃고, 직원이 대신 찍어 주는 것도 같은 항목이에요.</p>
-<p>부탁은 되지만 점수는 요구하지 마세요. 리뷰 이벤트를 걸 때 표시 규칙은 <a href="/guide/reviews.html">리뷰 이벤트 글</a>에 있어요.</p>
-<div class="next">
-<a href="/local/4-reviews.html">따라 하기. 리뷰 답글, 리뷰 부탁하는 법</a>
-<a href="/guide/reviews.html">설명. 리뷰 이벤트 규정, 공정위 기준</a>
-</div>
-
-<footer class="sources">
-  <h2>근거</h2>
-  <ul>
-    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/19485/contents/25056" rel="noopener">네이버 MY플레이스 고객센터 「방문자리뷰 업체 단위 페널티 안내」</a> · <a href="https://help.naver.com/service/19485/contents/24961" rel="noopener">「업체 단위 페널티 적용 대상 비정상 행위(어뷰징) 안내」</a> · 같은 문서의 사업주 고객센터 판 <a href="https://help.naver.com/service/30026/contents/25088" rel="noopener">스마트플레이스 25088</a> (2026-09-20 원문 확인). 표 왼쪽 칸은 원문 항목을 줄인 것이고 큰따옴표 안은 원문 그대로예요.</li>
-    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/19485/contents/9766" rel="noopener">「영수증 제출 기준 안내」</a> · <a href="https://help.naver.com/service/19485/contents/11549" rel="noopener">「내 업체의 영수증/카드 결제 리뷰가 아닌 경우」</a> · <a href="https://help.naver.com/service/19485/contents/12377" rel="noopener">「MY플레이스 사업주 보호 정책 안내」</a> (2026-09-20 원문 확인)</li>
-    <li><span class="grade">미확인</span> 표 오른쪽 칸의 「가게에서 흔히 벌어지는 모양」은 원문 항목을 가게 상황으로 풀어 쓴 것이라 네이버 문서가 아니에요. 페널티가 풀리는 기간과 소명 처리 기간은 원문에 없어요.</li>
-  </ul>
-  <p>이 글은 2026년 9월 기준이에요.</p>
-</footer>]]></content:encoded>
-  </item>
-  <item>
-    <title>네이버 예약 노쇼·취소 수수료·환불 기준, 네이버가 정한 규칙</title>
-    <link>https://sajangmarketing.com/guide/reservation-noshow.html</link>
-    <guid isPermaLink="true">https://sajangmarketing.com/guide/reservation-noshow.html</guid>
-    <pubDate>Tue, 22 Sep 2026 09:00:00 +0900</pubDate>
-    <description>네이버 예약에서 노쇼 위약금과 취소 수수료를 걸 수 있는지, 환불 기준을 어디까지 정할 수 있는지(방문 10일 전, 숙박 30일 전, 비율은 뒤로 갈수록 같거나 작게), Npay 매장결제로 위약금을 청구하는 방법까지 스마트플레이스 고객센터·약관 원문으로 정리했어요.</description>
-    <content:encoded><![CDATA[<p class="kicker">네이버 · 예약</p>
-<h1>네이버 예약 노쇼·취소 수수료·환불 기준</h1>
-<p class="lead">미용실, 네일샵, 공방, 식당 사장님이 네이버 예약을 켜고 나서 가장 먼저 부딪히는 게 노쇼예요. 「예약금을 받을 수 있나」「취소 수수료를 걸어도 되나」「환불은 어디까지 내가 정하나」 이 셋을 네이버가 써 둔 문장으로 답합니다. 저희 의견은 마지막 절에만 있어요.</p>
-<p class="lead answer">한 줄 답부터. 네이버 예약의 예약금과 취소 수수료는 Npay 결제 예약에 걸 수 있고, 환불 비율은 방문 10일 전(숙박 30일 전)까지 사장님이 정해요.</p>
-<p class="lead answer">2026년 8월 약관 개정으로 손님이 「Npay 매장결제」를 고르면 선결제 없이도 노쇼·취소 위약금을 나중에 청구할 수 있게 됐습니다.</p>
-<div class="note todo"><b>바로 할 일</b>스마트플레이스 > 예약/주문 > 업체명 > 솔루션 > 사용중인 솔루션 > 「Npay에서 환불기준 수정」을 열어 지금 어떤 환불 비율이 걸려 있는지 보세요. 한 번도 안 만졌으면 기본값이에요.</div>
-
-<h2>예약금과 취소 수수료를 걸 수 있나요?</h2>
-<blockquote class="official">
-  <span class="who">네이버 스마트플레이스 사업주 고객센터, 「예약/주문 환불 기준 설정 방법」 (2026-09-18 원문 확인)</span>
-  <q>Npay로 결제한 건에만 환불 기준이 적용됩니다.</q>
-</blockquote>
-<p>그러니까 손님이 예약할 때 Npay로 돈을 냈을 때만 환불 기준이 붙어요. 현장 결제 예약에는 걸 게 없어요. 예약금을 받고 싶으면 예약 상품에 Npay 결제를 붙이는 게 먼저예요.</p>
-
-<h2>환불 기준은 어디까지 정하나요?</h2>
-<blockquote class="official">
-  <span class="who">같은 도움말</span>
-  <q>그 외 유형: 최대 방문 10일 전까지 환불 기준을 설정할 수 있습니다. (방문일 포함 최대 11개)</q>
-</blockquote>
-<blockquote class="official">
-  <span class="who">같은 도움말</span>
-  <q>환불 비율은 전일보다 크게 설정할 수 없으며, 같거나 작게 설정해야 합니다.</q>
-</blockquote>
-<p>미용실·공방·식당은 방문 10일 전부터 당일까지 날짜별로 환불 비율을 적어요. 숙박은 30일 전까지(방문일 포함 31칸)예요. 3일 전 40%로 적었으면 2일 전은 40% 이하여야 해요.</p>
-<p>상품마다 따로는 못 정하고 한 업체에 한 기준이에요. 기준을 바꾸면 그 뒤 새 예약부터 적용되고 이미 동의한 예약에는 예전 기준이 그대로 갑니다.</p>
-
-<h2>선결제 없이 노쇼 위약금을 받을 수는 없나요?</h2>
-<blockquote class="official">
-  <span class="who">스마트플레이스 비즈니스 이용약관 개정 안내, 제2조 제12항 「Npay 매장결제」 (2026-08-24 공지, 2026-09-18 원문 확인)</span>
-  <q>"회원"이 "이용자"가 "업체"를 사전 예약함에 있어 예약금 및 취소·노쇼에 따른 위약금(이하 “취소수수료”)을 수취하도록 설정하고, "이용자"가 예약 신청 시점에 "Npay 매장결제" 방식을 선택 한 경우</q>
-</blockquote>
-<blockquote class="official">
-  <span class="who">같은 약관 제12조의3 제5항</span>
-  <q>"회원"은 "Npay 매장결제"를 희망하는 “이용자”에게 부과되는 “취소수수료” 금액을 합리적인 수준에서 자율적으로 정할 수 있습니다. 다만, "취소수수료"는 부당하게 과다하지 아니한 범위 내에서 정하여야 하며</q>
-</blockquote>
-<p>2026년 8월 약관 개정으로 생긴 길이에요. 손님이 예약할 때 「Npay 매장결제」를 고르면 등록해 둔 결제수단으로 노쇼·취소 위약금을 나중에 청구할 수 있어요. 방문 뒤 최종 금액도 같은 방식으로 결제 요청이 돼요.</p>
-<p>미용실에 있던 기능을 음식점으로 넓힌 개정이에요. 위약금 액수는 사장님이 정하되 「부당하게 과다하지 아니한 범위」라는 조건이 붙어 있고, 손님이 다른 결제수단을 쓰라고 요구하거나 결제수단 등록을 풀라고 하면 안 된다는 조항도 같이 있어요.</p>
-
-<h2>수수료는요?</h2>
-<p>네이버 예약 가입과 이용 자체에는 비용이 없다고 고객센터에 적혀 있어요. 예약금을 Npay로 받으면 그 결제에 Npay 수수료가 붙고, 그 요율은 <a href="/guide/selling.html">판매 수수료 글</a>의 Npay 등급표와 같은 체계예요. 대행사(공식 파트너사)를 끼면 그 계약대로 정산됩니다.</p>
-
-<h2>취소·노쇼를 누른 뒤에 되돌릴 수 있나요?</h2>
-<blockquote class="official">
-  <span class="who">네이버 예약주문 사업자 고객센터, 「[환불] 확정 상태 예약 취소하며 환불하는 방법」 (2026-09-20 원문 확인)</span>
-  <q>취소/노쇼 처리 후 복구(철회)는 불가합니다.</q>
-</blockquote>
-<table>
-  <tr><th>누른 것</th><th>되돌리기</th><th>대신 할 것</th></tr>
-  <tr><td>예약 취소·노쇼</td><td>안 됨</td><td>손님이 다시 예약하게 안내. 취소 사유는 필수 입력이고 손님에게 그대로 보이니 납득할 말로</td></tr>
-  <tr><td>이용완료(손님이 실수로)</td><td>확정으로 못 바꿈</td><td>가게 재량으로 그 예약을 따로 적어 두고 방문 때 쓰게 함. 예방은 「운영설정 &gt; 모바일티켓 내 이용완료 버튼」에 1~4자리 이용완료 코드</td></tr>
-  <tr><td>일괄 취소</td><td>안 됨</td><td>Npay 결제 건은 건마다 이미 적용된 환불 기준으로 취소되고 따로 기준을 못 정하니 다른 기준을 쓰려면 개별 취소</td></tr>
-</table>
-<p>Npay 결제 예약을 사장님이 취소할 때는 전액·정률·정액 환불 가운데 고르고 환불 금액을 확인한 뒤 취소해요. 부분취소를 켜 둔 상품과 무통장 입금 예약에는 노쇼 기능이 없어요. 손님에게 돈이 돌아가는 기간은 카드 3~5영업일, 계좌 간편결제·Npay 머니는 즉시, Npay 머니카드 2~3영업일이에요.</p>
-
-<h2>저희 생각</h2>
-<p>노쇼를 줄이는 순서는 예약 확인 메시지, 전날 알림, 그다음이 예약금이에요. 예약금을 처음부터 걸면 새 손님이 줄어드는 가게도 있어서 <a href="/local/9-record.html">12주 기록</a>에 노쇼 수를 4주 적어 보고 정하시길 권해요. 위약금은 손님에게 미리 보이는 환불 기준 화면이 곧 계약이니 「방문 2일 전까지 전액, 전날 50%, 당일 0%」처럼 손님이 계산할 수 있게 단순히 두세요.</p>
-
-<div class="next">
-<a href="/service/2-place.html">따라 하기. 예약·상담 플레이스 등록</a>
-<a href="/service/8-record.html">따라 하기. 12주 기록</a>
-</div>
-
-<footer class="sources">
-  <h2>근거</h2>
-  <ul>
-    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/11712/contents/18720" rel="noopener">네이버 예약주문 사업자 고객센터 「[환불] 확정 상태 예약 취소하며 환불하는 방법」</a> · <a href="https://help.naver.com/service/11712/contents/11200" rel="noopener">「Npay로 결제하지 않은 예약 취소 방법」</a> · <a href="https://help.naver.com/service/11712/contents/18654" rel="noopener">「아직 사용 전인데 잘못 완료(사용처리)한 경우」</a> (2026-09-20 원문 확인)</li>
-    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/20751" rel="noopener">네이버 스마트플레이스 사업주 고객센터 「예약/주문 환불 기준 설정 방법」</a> (2026-09-18 원문 확인)</li>
-    <li><span class="grade a">A</span> <a href="https://smartplace.naver.com/notices/1092" rel="noopener">스마트플레이스 공지 「비즈니스 이용약관 및 운영정책 개정 안내」</a> (2026-08-24, Npay 매장결제 조항, 2026-09-18 원문 확인)</li>
-    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/30026/contents/20558" rel="noopener">「사업자의 예약/주문 가입 방법」</a> (이용 비용 없음, 2026-09-18 확인)</li>
-  </ul>
-</footer>]]></content:encoded>
-  </item>
-  <item>
-    <title>네이버 예약주문 사업자 고객센터 도움말 색인 147개, 제작·정산·환불·주문 번호로 찾기</title>
-    <link>https://sajangmarketing.com/guide/reservation-help-index.html</link>
-    <guid isPermaLink="true">https://sajangmarketing.com/guide/reservation-help-index.html</guid>
-    <pubDate>Tue, 22 Sep 2026 09:00:00 +0900</pubDate>
-    <description>네이버 예약주문 사업자 고객센터(help.naver.com/service/11712) 도움말 147개를 번호와 제목으로 주제별로 모았어요. 가입·제작·검수, 상품·일정 등록, 예약 받기·취소·환불, 알림, Npay 정산·수수료, 노출·혜택, 네이버 주문(QR·위젯), 리뷰·통계, 권한·탈퇴. 번호를 누르면 네이버 원문이 열리고 이 사이트에서 풀어 쓴 글이 있으면 같이 연결했어요.</description>
-    <content:encoded><![CDATA[<p class="kicker">네이버 · 예약</p>
-<h1>네이버 예약주문 사업자 고객센터 도움말 색인 147개</h1>
-<p class="lead">사장님, 네이버 예약·주문 고객센터는 스마트플레이스 고객센터와 따로 있고 항목을 눌러야 열려서 검색으로 잘 안 잡혀요. 도움말 번호와 제목을 주제별로 모았어요. 번호를 누르면 네이버 원문이 열리고 오른쪽 칸은 이 사이트에서 그 내용을 풀어 쓴 글이에요.</p>
-<p class="lead answer">한 줄 답부터. 주소는 help.naver.com/service/11712/contents/번호 꼴이에요. 아래 표에서 화면에 뜬 말(「검수 보류」 「현재 예약 불가합니다」 「Npay 보류」)로 제목을 찾아 번호를 누르세요. 42개는 이 사이트 글과 이어져 있고 나머지는 원문만 있어요.</p>
-<div class="note todo"><b>바로 할 일</b>예약 버튼이 안 보이면 「예약 받기·운영」의 23176을, 정산이 궁금하면 「Npay·정산·수수료」의 7625를 먼저 여세요. 스마트플레이스(업체 등록·리뷰) 쪽 도움말은 <a href="/guide/smartplace-help-index.html">스마트플레이스 도움말 색인</a>에 따로 있어요.</div>
-<h2>가입·제작·검수</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/7587" rel="noopener">7587</a></th><td>사업자의 예약/주문 가입 방법</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7594" rel="noopener">7594</a></th><td>법인(단체) 아이디로 예약/주문 사업자 가입 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/12706" rel="noopener">12706</a></th><td>예약/주문 제작 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10289" rel="noopener">10289</a></th><td>예약/주문 기본정보 입력 방법(제작 2단계 &#x27;정보입력&#x27;)</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/8854" rel="noopener">8854</a></th><td>[공통] 예약/주문 교육 및 예약 제작 요청 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/8492" rel="noopener">8492</a></th><td>[식당] 예약 제작 요청</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10141" rel="noopener">10141</a></th><td>[헤어샵/네일샵] 예약 제작 요청</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/8380" rel="noopener">8380</a></th><td>[헤어샵/네일샵] 예약 시간 단위 변경 제작 요청</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9163" rel="noopener">9163</a></th><td>[공방] 예약 제작 요청</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9119" rel="noopener">9119</a></th><td>[공연.전시.축제.행사] 예약 제작 요청</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10511" rel="noopener">10511</a></th><td>[주문] 제작 요청</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/11466" rel="noopener">11466</a></th><td>네이버 주문 제작 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7609" rel="noopener">7609</a></th><td>예약/주문 검수 신청 방법</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9454" rel="noopener">9454</a></th><td>[보류] 이미지 기준 위반 해소 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9457" rel="noopener">9457</a></th><td>[보류] 개인정보수집 해소 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/20883" rel="noopener">20883</a></th><td>[보류] 계좌번호 노출 해소 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24827" rel="noopener">24827</a></th><td>예약 서비스 유형 및 시간 단위 변경 불가 안내</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24232" rel="noopener">24232</a></th><td>프로그램 상품 등록 및 검수 신청 방법</td><td></td></tr></tbody></table>
-<h2>상품·일정 등록</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/17285" rel="noopener">17285</a></th><td>[식당] 일반형 예약 상품 및 일정 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/25510" rel="noopener">25510</a></th><td>[식당] 식당형 예약 상품 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/17291" rel="noopener">17291</a></th><td>[헤어샵/네일샵] 뷰티형 예약 상품 및 일정 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/17323" rel="noopener">17323</a></th><td>[병의원] 병의원형 예약 상품 및 일정 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/17294" rel="noopener">17294</a></th><td>[숙박] 숙박형 예약 상품 및 일정 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/17329" rel="noopener">17329</a></th><td>[공연/전시/행사/축제] 날짜선택형 예약 상품 및 일정 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/17334" rel="noopener">17334</a></th><td>[공간대여 등] 시작-종료시간 선택형 예약 상품 및 일정 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10290" rel="noopener">10290</a></th><td>[회차형] 회차 수정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10292" rel="noopener">10292</a></th><td>옵션/시술메뉴/메뉴/예약금 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10291" rel="noopener">10291</a></th><td>기간별 재고 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9104" rel="noopener">9104</a></th><td>상품 노출 시각 및 예약 오픈일 설정 방법</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24052" rel="noopener">24052</a></th><td>예약(주문)상품 노출/미노출 이력 확인 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/15259" rel="noopener">15259</a></th><td>ID당 구매수량 제한 및 이용 가능 연령 정보 노출 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9444" rel="noopener">9444</a></th><td>공연/행사 장소 및 기간 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9608" rel="noopener">9608</a></th><td>예약/주문 주차안내 입력 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/11476" rel="noopener">11476</a></th><td>예약/주문 부가정보 및 좌석정보 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/11477" rel="noopener">11477</a></th><td>예약/주문 배경 색상 선택 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/11478" rel="noopener">11478</a></th><td>예약/주문 상품 목록 템플릿 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/22502" rel="noopener">22502</a></th><td>예약자 정보 요청 기능 안내(추가 정보)</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/17577" rel="noopener">17577</a></th><td>예약/주문 브레이크 타임 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/22514" rel="noopener">22514</a></th><td>당일 예약 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7605" rel="noopener">7605</a></th><td>예약 확정 방식 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7580" rel="noopener">7580</a></th><td>예약 확정/사업자 취소 시 자동 안내 문구 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7824" rel="noopener">7824</a></th><td>예약/주문 환불 기준 설정 방법</td><td><a href="/guide/reservation-noshow.html">노쇼·환불 기준</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9162" rel="noopener">9162</a></th><td>[숙박형] 연박 할인 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/15263" rel="noopener">15263</a></th><td>[숙박형] 오늘의 딜 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7601" rel="noopener">7601</a></th><td>[숙박형] 주말/성수기 가격 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18623" rel="noopener">18623</a></th><td>[직접 관리] 펜션 실시간 예약 가입/탈퇴</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18624" rel="noopener">18624</a></th><td>[제휴사 관리] 펜션 실시간 예약 가입/탈퇴</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/19586" rel="noopener">19586</a></th><td>네이버 펜션예약 가입 후 검색결과 반영 소요 시간 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18251" rel="noopener">18251</a></th><td>공연예술통합전산망(KOPIS) 연동 안내</td><td></td></tr></tbody></table>
-<h2>예약 받기·운영</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/7616" rel="noopener">7616</a></th><td>예약/주문 받기 설정 방법</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/23176" rel="noopener">23176</a></th><td>예약/주문받기 중지(미노출) 해결 방법</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/23189" rel="noopener">23189</a></th><td>예약/예매가 마감(또는 비활성)된 경우</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/20650" rel="noopener">20650</a></th><td>&quot;현재 예약 불가합니다.&quot;로 확인되는 경우</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7574" rel="noopener">7574</a></th><td>예약 신청 건 확정 방법</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7577" rel="noopener">7577</a></th><td>예약 확정 건 이용완료 방법</td><td><a href="/guide/reservation-settlement.html">예약금 정산·수수료</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7578" rel="noopener">7578</a></th><td>예약등록(관리자등록) 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7581" rel="noopener">7581</a></th><td>예약 건 일정 변경 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18654" rel="noopener">18654</a></th><td>아직 사용 전인데 잘못 완료(사용처리)한 경우</td><td><a href="/guide/reservation-noshow.html">노쇼·환불 기준</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/23613" rel="noopener">23613</a></th><td>모바일 티켓 내 이용완료 버튼 기능 안내</td><td><a href="/guide/reservation-noshow.html">노쇼·환불 기준</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/11200" rel="noopener">11200</a></th><td>Npay로 결제하지 않은 예약 취소 방법</td><td><a href="/guide/reservation-noshow.html">노쇼·환불 기준</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18720" rel="noopener">18720</a></th><td>[환불] 확정 상태 예약 취소하며 환불하는 방법</td><td><a href="/guide/reservation-noshow.html">노쇼·환불 기준</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/19427" rel="noopener">19427</a></th><td>[환불] 완료 상태 예약 취소 및 환불 방법</td><td><a href="/guide/reservation-settlement.html">예약금 정산·수수료</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18733" rel="noopener">18733</a></th><td>[환불] 취소 상태 예약 환불 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24660" rel="noopener">24660</a></th><td>쿠폰 사용 시 취소수수료 산정 기준 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7630" rel="noopener">7630</a></th><td>무통장입금 기한 및 확인 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7579" rel="noopener">7579</a></th><td>예약자/주문자 조회 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7582" rel="noopener">7582</a></th><td>예약자/주문자 목록 다운로드 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7583" rel="noopener">7583</a></th><td>예약자/주문자 목록 사용 가능 범위 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/22666" rel="noopener">22666</a></th><td>예약자가 입력한 방문자정보(대리예약) 확인 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18646" rel="noopener">18646</a></th><td>예약·주문자 메뉴 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7825" rel="noopener">7825</a></th><td>고객 메뉴 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7586" rel="noopener">7586</a></th><td>블랙리스트 지정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/22560" rel="noopener">22560</a></th><td>개인정보보호 마스킹 적용 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/12245" rel="noopener">12245</a></th><td>이용제한 소명자료 제출 및 이의 신청 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/19270" rel="noopener">19270</a></th><td>예약/주문 운영 시 오류가 발생할 경우</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7593" rel="noopener">7593</a></th><td>&quot;죄송합니다.요청하신 서비스를 찾을 수 없습니다.&quot;문구가 확인될 경우</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18722" rel="noopener">18722</a></th><td>[환불] 확정 상태 예약 완료하며 환불하는 방법</td><td><a href="/guide/reservation-noshow.html">노쇼·환불 기준</a></td></tr></tbody></table>
-<h2>알림</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/7606" rel="noopener">7606</a></th><td>전화 음성 알림 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/15377" rel="noopener">15377</a></th><td>PC 실시간 알림 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/23178" rel="noopener">23178</a></th><td>예약 상품별 알림 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/22237" rel="noopener">22237</a></th><td>리마인드 알림 기능 안내</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10604" rel="noopener">10604</a></th><td>[스마트플레이스 앱] 예약 서비스 정보 확인 방법</td><td></td></tr></tbody></table>
-<h2>Npay·정산·수수료</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/10629" rel="noopener">10629</a></th><td>Npay 가입 방법</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7622" rel="noopener">7622</a></th><td>Npay 가입 시 필요 서류 안내</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7627" rel="noopener">7627</a></th><td>Npay 보류 사유 확인 방법</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18598" rel="noopener">18598</a></th><td>&quot;죄송합니다. 사업자등록증 OCR이 진행중입니다.&quot; 해결 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18599" rel="noopener">18599</a></th><td>&quot;등록하신 사업자등록증으로는 가입심사를 진행할 수 없습니다.&quot; 해결 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18602" rel="noopener">18602</a></th><td>대표자 명의 불일치로 Npay 이용불가 시 해소 요청</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/21687" rel="noopener">21687</a></th><td>가입한 Npay를 예약상품에 적용하는 방법</td><td><a href="/service/2-place.html">예약 켜기 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7625" rel="noopener">7625</a></th><td>Npay 정산 및 수수료 안내</td><td><a href="/guide/reservation-settlement.html">예약금 정산·수수료</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24230" rel="noopener">24230</a></th><td>프로그램 수수료 및 정산 안내</td><td><a href="/guide/reservation-settlement.html">정산·수수료 글</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10753" rel="noopener">10753</a></th><td>[헤어샵/네일샵] 매장방문 결제 설정 방법(예약금)</td><td><a href="/guide/reservation-settlement.html">예약금 정산·수수료</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/11656" rel="noopener">11656</a></th><td>[헤어샵/네일샵] 매장방문 결제 설정 요청</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24293" rel="noopener">24293</a></th><td>운동 관련 업종 Npay 결제 할부 제한 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24862" rel="noopener">24862</a></th><td>Npay 후불결제 취급 제한 상품 및 주의사항 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24303" rel="noopener">24303</a></th><td>외국인 손님 대상 해외 카드 결제 시 차지백(Chargeback) 안내</td><td><a href="/foreign/2-place.html">외국 손님 플레이스 2단계</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/12238" rel="noopener">12238</a></th><td>통신판매업 신고증 미등록 이용정지 안내</td><td><a href="/online/3-law.html">통신판매업 신고</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18604" rel="noopener">18604</a></th><td>예약/주문에 연동한 Npay 해지(탈퇴) 방법</td><td></td></tr></tbody></table>
-<h2>노출·혜택</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/17901" rel="noopener">17901</a></th><td>네이버 주문 버튼 노출 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7827" rel="noopener">7827</a></th><td>공연/전시 정보에 예약 버튼 노출 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9592" rel="noopener">9592</a></th><td>헤어샵 실시간예약 노출 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18629" rel="noopener">18629</a></th><td>[헤어샵/네일샵] N예약 혜택 노출/수정/삭제</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18627" rel="noopener">18627</a></th><td>[숙박] N예약 혜택 노출/수정/삭제</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18630" rel="noopener">18630</a></th><td>[그 외] N예약 혜택 노출/수정/삭제</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18375" rel="noopener">18375</a></th><td>[보류/식당] 유효하지 않은 혜택 해소 방법</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18377" rel="noopener">18377</a></th><td>[보류/뷰티] 유효하지 않은 혜택 해소 방법</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18379" rel="noopener">18379</a></th><td>[보류/그 외] 유효하지 않은 혜택 해소 방법</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24735" rel="noopener">24735</a></th><td>지도앱 예약탭 소개</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24736" rel="noopener">24736</a></th><td>예약홈 노출 기준 안내</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24738" rel="noopener">24738</a></th><td>예약 추천 카테고리 노출 기준 안내</td><td><a href="/service/2-place.html">예약 따라 하기</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24739" rel="noopener">24739</a></th><td>예약탭 내 배지(badge) 노출 기준 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24740" rel="noopener">24740</a></th><td>예약검색 결과 내 노출되는 정보 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24234" rel="noopener">24234</a></th><td>프로그램 상품 노출 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/24301" rel="noopener">24301</a></th><td>외국인 예약·주문받기 기능 안내</td><td><a href="/foreign/2-place.html">외국 손님 플레이스 2단계</a></td></tr></tbody></table>
-<h2>네이버 주문(테이블·포장)</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/18029" rel="noopener">18029</a></th><td>네이버 주문 메뉴 수정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/22244" rel="noopener">22244</a></th><td>네이버 주문 시간 수정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18109" rel="noopener">18109</a></th><td>네이버 주문 QR스티커 일련번호 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/17674" rel="noopener">17674</a></th><td>네이버 주문 홍보물 신청 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/11517" rel="noopener">11517</a></th><td>네이버 주문 위젯 설치 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/11787" rel="noopener">11787</a></th><td>네이버 주문 위젯과 프린터가 연결되지 않는 경우</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/10823" rel="noopener">10823</a></th><td>네이버 주문 이용자향 전화알림 설정 방법(픽업콜)</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18090" rel="noopener">18090</a></th><td>네이버 주문 프로모션 등록 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/21419" rel="noopener">21419</a></th><td>일회용 컵 보증금 설정 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/14120" rel="noopener">14120</a></th><td>네이버 주문-푸드테크 연동 요청</td><td></td></tr></tbody></table>
-<h2>리뷰·통계</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/7584" rel="noopener">7584</a></th><td>예약/주문자 리뷰 확인 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7585" rel="noopener">7585</a></th><td>예약/주문자 리뷰 답글 작성 방법</td><td><a href="/local/4-reviews.html">리뷰 답글</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/21624" rel="noopener">21624</a></th><td>리뷰 답글이 숨김 처리된 경우</td><td><a href="/local/4-reviews.html">리뷰 답글</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7636" rel="noopener">7636</a></th><td>비방성/명예훼손 리뷰 제외 요청 방법</td><td><a href="/local/4-reviews.html">리뷰 답글</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/14458" rel="noopener">14458</a></th><td>별점/키워드형 리뷰 노출 안내</td><td><a href="/guide/star-rating.html">별점 표시 설정</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18709" rel="noopener">18709</a></th><td>[직접 운영] 예약 리뷰 이관 요청</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7569" rel="noopener">7569</a></th><td>예약·주문 통계 기능 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7570" rel="noopener">7570</a></th><td>예약지표 기능 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7571" rel="noopener">7571</a></th><td>유입경로 기능 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7572" rel="noopener">7572</a></th><td>고객 분석 기능 안내</td><td></td></tr></tbody></table>
-<h2>권한·계정·연동·탈퇴</h2>
-<table class="sheet"><thead><tr><th>번호</th><th>도움말 제목</th><th>이 사이트의 글</th></tr></thead><tbody><tr><th><a href="https://help.naver.com/service/11712/contents/7596" rel="noopener">7596</a></th><td>예약/주문 주인 권한 위임 방법</td><td><a href="/guide/place-owner.html">주인 변경</a></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/9445" rel="noopener">9445</a></th><td>예약X스마트플레이스 권한 통합 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7592" rel="noopener">7592</a></th><td>예약/주문 사업자의 회원정보 변경 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7597" rel="noopener">7597</a></th><td>아이디/비밀번호를 분실한 경우</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7607" rel="noopener">7607</a></th><td>네이버 톡톡 연동 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18305" rel="noopener">18305</a></th><td>핸드SOS 연동 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/18313" rel="noopener">18313</a></th><td>뷰카프로 연동 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/23755" rel="noopener">23755</a></th><td>PayN POS 제휴 안내</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7608" rel="noopener">7608</a></th><td>예약/주문 삭제 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7590" rel="noopener">7590</a></th><td>사업자의 예약/주문 탈퇴 방법</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/7591" rel="noopener">7591</a></th><td>사업자의 예약/주문 탈퇴가 불가한 경우</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/12909" rel="noopener">12909</a></th><td>문의 해결하기</td><td></td></tr><tr><th><a href="https://help.naver.com/service/11712/contents/20305" rel="noopener">20305</a></th><td>채팅 문의하기</td><td></td></tr></tbody></table>
-<h2>정리</h2>
-<p>사장님, 예약·주문 도움말은 2026년 9월 20일에 네이버 검색으로 번호를 모은 것이라 검색에 안 잡힌 항목이 더 있을 수 있고 네이버가 항목을 바꾸면 빈 번호가 생길 수 있어요. 그때는 고객센터 검색창에 제목을 그대로 넣어 보세요. 예약을 켜는 순서는 <a href="/service/2-place.html">예약·상담 코스 2단계</a>에 있어요.</p>
-<div class="next">
-<a href="/service/2-place.html">따라 하기. 네이버 예약 켜기</a>
-<a href="/guide/reservation-settlement.html">설명. 예약금 정산 시점과 Npay 수수료율</a>
-</div>
-
-<footer class="sources">
-  <h2>근거</h2>
-  <ul>
-    <li><span class="grade a">A</span> <a href="https://help.naver.com/service/11712/category/bookmark" rel="noopener">네이버 예약주문 사업자 고객센터</a> 도움말 147건 (2026-09-20, 네이버 웹문서 검색으로 번호·제목 수집). 제목은 네이버 것이고 본문은 옮기지 않았어요.</li>
-    <li><span class="grade">미확인</span> 고객센터 분류 페이지가 화면에서만 열려 전체 항목 수를 확인하지 못했어요. 검색에 안 잡힌 항목이 있을 수 있어요.</li>
-  </ul>
-  <p>이 글은 2026년 9월 기준이에요.</p>
-</footer>]]></content:encoded>
-  </item>
-  <item>
-    <title>12주 기록표, 인쇄해서 쓰는 빈 표</title>
-    <link>https://sajangmarketing.com/guide/record-sheet.html</link>
-    <guid isPermaLink="true">https://sajangmarketing.com/guide/record-sheet.html</guid>
-    <pubDate>Tue, 22 Sep 2026 09:00:00 +0900</pubDate>
-    <description>12주 기록에 쓰는 빈 표예요. 가로 12주, 세로 「바꾼 것·광고비·전화 수·새 리뷰 수·답글 단 수·정산액·비고」 일곱 칸. 인쇄하거나 CSV로 내려받아 엑셀에서 쓰세요.</description>
-    <content:encoded><![CDATA[<p class="kicker">기록 · 12주 기록표</p>
-<h1>12주 기록표, 인쇄해서 쓰는 빈 표</h1>
-<p class="lead">「12주 기록」 9단계에서 만들라고 한 표를 그대로 만들어 뒀어요. 이 화면을 인쇄하면 한 장에 들어가고, 엑셀이나 구글 시트에서 쓰려면 아래 CSV를 내려받으세요. 첫 줄은 「바꾼 것 없음」으로 시작해요.</p>
-<div class="note todo"><b>바로 할 일</b>인쇄해서 계산대 옆에 붙이고, 매주 같은 요일 5분에 한 줄을 채우세요. 모르는 칸은 빈칸으로 둡니다. 0과 모름은 다르니까요.</div>
-<p><a href="/files/12주-기록표.csv" download>CSV 내려받기 (엑셀·구글 시트용)</a></p>
-<table class="sheet"><thead><tr><th>주차</th><th>바꾼 것</th><th>광고비</th><th>전화 수</th><th>새 리뷰 수</th><th>답글 단 수</th><th>정산액</th><th>비고</th></tr></thead><tbody>
-<tr><th>1주</th><td>바꾼 것 없음</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>2주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>3주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>4주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>5주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>6주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>7주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>8주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>9주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>10주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>11주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>12주</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-</tbody></table>
-<p class="small">전화 수는 네이버 스마트콜(무료 050 번호, 날짜·횟수·부재중까지 기록)이나 가게 전화기 기록 가운데 하나로 12주 내내 같은 것을 쓰고, 정산액은 통장에 실제 들어온 돈을 적어요. 노출 수·클릭 수·순위는 적지 않습니다. 배달앱을 쓰면 비고에 중개수수료·배달비를 같이 적어 두세요.</p>
-<div class="next">
-<a href="/local/9-record.html">따라 하기. 12주 기록</a>
-<a href="/guide/record.html">설명. 12주 기록, 판단은 정산액으로</a>
-</div>]]></content:encoded>
   </item>
 </channel>
 </rss>

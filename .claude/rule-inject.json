@@ -84,6 +84,41 @@
       "scan_files": 0
     },
     {
+      "name": "그림 안내(글 줄이기)",
+      "keys": [
+        "그림 위주",
+        "이미지위주",
+        "시각",
+        "글이 많",
+        "글이너무",
+        "어르신",
+        "따라하기 편"
+      ],
+      "files": [
+        "docs/규칙/레이아웃.md",
+        "site/_build/visual.py"
+      ],
+      "scan_files": 0,
+      "note": "원본 글은 지우지 않고 visual.py 가 빌드 때 접는다(D99). 설명 글은 절의 첫 문단이 결론이어야 한다."
+    },
+    {
+      "name": "묻고 답하기(게시판)",
+      "keys": [
+        "문의",
+        "묻고 답하기",
+        "게시판",
+        "질문 게시",
+        "답변 달",
+        "ask.sajang"
+      ],
+      "files": [
+        "qna/README.md",
+        "docs/규칙/보안.md"
+      ],
+      "scan_files": 0,
+      "note": "ask.sajangmarketing.com = Cloudflare Worker sajang-qna + D1. 본 사이트에 폼을 들이지 않는다(D100). 표 칸 삭제는 운영 데이터 삭제라 먼저 묻는다."
+    },
+    {
       "name": "레이아웃·캡처",
       "keys": [
         "레이아웃",
