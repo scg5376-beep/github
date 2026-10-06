@@ -1,0 +1,4 @@
+나눔스퀘어라운드 (NanumSquareRound) — Copyright (c) NAVER Corporation.
+SIL Open Font License, Version 1.1 (https://openfontlicense.org). 나눔글꼴은 OFL 로 배포된다(https://hangeul.naver.com/font).
+EB(아주 굵게)는 @kfonts/nanum-square-round 0.2.0(OFL-1.1) 원본을 같은 글자 범위로 줄였다.
+이 폴더의 파일은 한글 2,350자 등으로 줄인 부분집합(세컨페이스 레포 site/public/fonts 와 같은 파일)이다.

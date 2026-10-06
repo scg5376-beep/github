@@ -43,3 +43,4 @@ docs/발전/예산.json
 *.blend
 *.psd
 docs/민감어_대응.local.md
+site/_preview/

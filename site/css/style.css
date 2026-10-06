@@ -15,11 +15,15 @@
 }
 * { box-sizing:border-box; }
 html { font-size:18px; }
+/* 나눔스퀘어라운드(네이버, SIL OFL 1.1) — 한글 2,350자+ 부분집합(세컨페이스와 같은 파일). 레포 안에 두어 외부 요청 없음 */
+@font-face { font-family:"NanumSquareRound"; font-weight:300 500; font-display:swap; src:url(/fonts/nanumsquareround/NanumSquareRoundR-s1.woff2) format("woff2"); }
+@font-face { font-family:"NanumSquareRound"; font-weight:600 750; font-display:swap; src:url(/fonts/nanumsquareround/NanumSquareRoundB-s1.woff2) format("woff2"); }
+@font-face { font-family:"NanumSquareRound"; font-weight:760 900; font-display:swap; src:url(/fonts/nanumsquareround/NanumSquareRoundEB-s1.woff2) format("woff2"); }
 body {
   margin:0;
   background:var(--paper);
   color:var(--ink);
-  font-family:Pretendard,"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
+  font-family:"NanumSquareRound",Pretendard,"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;   /* 둥근 고딕 본문 (운영자 2026-10-06, D101). 기호(›·※ 등)는 Pretendard 가 채운다 */
   line-height:1.78;
   word-break:keep-all;
   overflow-wrap:break-word;
@@ -1167,3 +1171,4 @@ details.vx-more > .box { padding-left:0; border-left:0; }
 .vx-faq .vx-q.open .vx-qh .vx-i { width:24px; height:24px; color:var(--accent); }
 .vx-faq .vx-q.open > .box { margin:0; color:var(--ink-soft); }
 .vx-sub > p { margin:0 0 6px; }
+@media (max-width:400px) { main table:not(.sheet) { font-size:.84rem; letter-spacing:-.02em; } }   /* 둥근 고딕이 조금 넓어 360폭 표가 4px 넘쳤다(2026-10-06) */
