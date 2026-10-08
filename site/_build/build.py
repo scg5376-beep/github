@@ -1265,7 +1265,9 @@ def guide_hub_html(pages, lang):
         n = len(posts(pages, lang, top))
         links = " ".join(f'<a href="{plat_url(lang, top, c)}">{esc(c)}</a>' for c in chans)
         kind = ("코스 · 순서대로" if top in TRACKS else "설명 글") if lang == "ko" else ("Course" if top in TRACKS else "Posts")
-        out.append(f'<a class="hub-card {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span class="k">{kind}</span></a><p class="hub-chans">{links}</p>')
+        # 한국어 목록은 플랫폼 카드 하나만 누를 곳으로 둔다(D103 쉬운 화면). 채널 이름은 플랫폼 쪽에서 고른다.
+        chans_html = "" if lang == "ko" else f'<p class="hub-chans">{links}</p>'
+        out.append(f'<a class="hub-card {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span class="k">{kind}</span></a>{chans_html}')
     return add_tiles('<div class="hub">' + "".join(f"<div class=\"hub-item\">{x}</div>" for x in out) + "</div>")
 
 
