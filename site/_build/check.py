@@ -90,7 +90,7 @@ def check_tone(rel, prose_html, stats=True):
     """prose_html: <main> 에서 인용·표·그림·근거를 뺀 HTML 조각. stats=False 면 금지 표현(S1)만 보고 문장 통계·H 규칙은 건너뛴다(따라 하기 글: 짧은 지시문이 정상)"""
     body = re.sub(r"<(table|figure|footer|svg|nav|h[1-6])\b.*?</\1>", " ", prose_html, flags=re.S)
     body = re.sub(r"<div class=\"next\">.*?</div>", " ", body, flags=re.S)
-    body = re.sub(r"<div class=\"do\">.*?</div>", " ", body, flags=re.S)                    # 설명→방법 문은 단추라 문장이 아니다
+    body = re.sub(r"<div class=\"do(?: first)?\">.*?</div>", " ", body, flags=re.S)                    # 설명→방법 문은 단추라 문장이 아니다
     body = re.sub(r"<details class=\"why\">.*?</details>", " ", body, flags=re.S)        # 접은 본문(details.more, 그림 안내 2026-10-06)은 그대로 검사한다 · 접힌 이유 상자는 통계에서 뺀다(설명 글의 요약)   # 다음 글 링크·제목·내비는 문장 통계에서 뺀다
     body = re.sub(r"<aside class=\"keys\".*?</aside>|<section class=\"terms-in\">.*?</section>", " ", body, flags=re.S)             # 핵심 정리 상자(R1)·이 글의 용어(R5)는 자동 생성 요약이라 통계에서 뺀다
     body = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", " ", body, flags=re.S)          # 등급 표시(A · 공식 문서)는 문장이 아니다

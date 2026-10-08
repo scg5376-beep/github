@@ -1292,3 +1292,17 @@ nav.bignext a.go { flex:1; background:var(--accent); color:#fff; font-size:1.2re
 nav.bignext a.stuck { flex:0 0 36%; background:var(--card); border:2px solid var(--warm); color:#a5460b; font-size:1.02rem; }
 main.howto p.crumbs, main.howto nav.prevnext { display:none; }
 nav.bignext a.go::after { content:""; width:12px; height:12px; margin-left:12px; border-top:3px solid #fff; border-right:3px solid #fff; transform:rotate(45deg); }
+/* 설명 글 위쪽 정리 (D103 2차): 경로·둘째 lead 숨김, 「먼저 이것부터」 큰 단추, 목차는 가로 칩 */
+main.guide p.crumbs, main.wrap:not(.howto):not(.home) p.crumbs { display:none; }
+main.wrap:not(.howto) p.lead + p.lead { display:none; }
+.do.first { margin:14px 0 22px; padding:14px 16px; border:0; border-radius:16px; background:var(--accent-soft); }
+.do.first b { display:block; width:100%; font-size:.9rem; color:var(--accent); letter-spacing:0; }
+.do.first a { min-height:56px; justify-content:center; font-size:1.08rem; border-radius:12px; flex:1; }
+.do.first a span { display:none; }
+nav.intoc { padding:10px 0 4px; background:none; border:0; }
+nav.intoc > span { display:none; }
+nav.intoc ol { display:flex; flex-wrap:nowrap; overflow-x:auto; gap:8px; padding:0 0 8px; scrollbar-width:thin; grid-template-columns:none; counter-reset:toc; }
+nav.intoc li { flex:none; }
+nav.intoc li a { min-height:40px; height:auto; padding:6px 12px 6px 8px; border-radius:999px; font-size:.86rem; white-space:nowrap; }
+nav.intoc li a::before { width:22px; height:22px; font-size:.76rem; }
+p.vx-ask a { display:block; text-align:center; line-height:1.5; }

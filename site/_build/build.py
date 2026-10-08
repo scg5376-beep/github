@@ -1841,7 +1841,7 @@ def do_box(page, pages):
             sub = split_cat(p["cat"])[1]
             cst = step_cost(sub)[1]
             links.append(f'<a href="{u}">{esc(p.get("nav") or sub)} 따라 하기{("<span>" + cst + "</span>") if cst else ""}</a>')   # 글 이름(nav)으로. 「비즈프로필 따라 하기」가 단골·쿠폰 글을 가리키던 것(2026-09-20)
-    return '<div class="do"><b>바로 하려면</b>' + "".join(links) + "</div>" if links else ""
+    return '<div class="do"><b>먼저 이것부터</b>' + "".join(links) + "</div>" if links else ""
 
 
 def cases_html(pages):
@@ -1997,8 +1997,8 @@ def render(page, pages, verify):
         box = do_box(page, pages)
         if box:
             bd = page["body"]
-            ml = re.search(r'<div class="note todo">.*?</div>', bd, re.S) or re.search(r'<aside class="keys".*?</aside>', bd, re.S) or re.search(r'<p class="meta-line">.*?</p>', bd, re.S)   # 「바로 할 일」 바로 뒤 (2026-09-22)
-            bd = bd[:ml.end()] + box + bd[ml.end():] if ml else box + bd
+            ml = re.search(r'<p class="lead">.*?</p>', bd, re.S) or re.search(r'<h1[^>]*>.*?</h1>', bd, re.S)   # 첫 lead 바로 뒤 = 제목 아래 「먼저 이것부터」 (D103 2차, 2026-10-08)
+            bd = bd[:ml.end()] + box.replace('<div class="do">', '<div class="do first">', 1) + bd[ml.end():] if ml else box + bd
             nx = bd.rfind('<div class="next">')
             bd = bd[:nx] + box + bd[nx:] if nx > 0 else bd + box
             page = dict(page, body=bd)
