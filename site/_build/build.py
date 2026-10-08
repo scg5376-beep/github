@@ -826,6 +826,8 @@ def head_html(page, verify):
         f'<title>{esc(page["title"])}</title>',
         f'<meta name="description" content="{esc(page["description"])}">',
         f'<link rel="canonical" href="{url}">',
+        '<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/nanumsquareround/NanumSquareRoundR-s1.woff2">',   # 본문 글꼴 먼저(첫 방문 글자 바뀜 줄임, 2026-10-08)
+        '<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/nanumsquareround/NanumSquareRoundEB-s1.woff2">',
         f'<link rel="stylesheet" href="/fonts/pretendard/pretendard.css">',
         f'<link rel="stylesheet" href="/css/style.css?v={css_ver()}">',
         *(['<link rel="stylesheet" href="/css/diag.css">'] if page.get("kind") == "diag" else []),
