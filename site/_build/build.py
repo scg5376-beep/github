@@ -1758,7 +1758,7 @@ def step_subs(p):
         hs = [h for h in hs if h not in ("막히면", "정리", "근거", "다음", "이 글에서") and not h.startswith("자주 ")][:3]
     if not hs:
         return ""
-    return '<ul class="sub">' + "".join(f"<li>{esc(h)}</li>" for h in hs) + "</ul>"
+    return f'<span class="sub1">{esc(hs[0])}</span>'                                  # 할 일 한 줄만 (D103 5차)
 
 
 def setup_steps_html(pages, urls):
@@ -1779,8 +1779,10 @@ def setup_pages(pages):
         by = {p["url"]: p for p in pages}
         mins = sum(read_minutes(by[u]) for u in urls if u in by)
         # 부차 설명 없이 제목 + 순서만 (운영자 2026-09-22 "페이지에 들어가서 뭘 해야할지 직관적으로 알수 있을정도로 간결하고 깔끔한 구성")
-        body = (f'<p class="kicker">세팅 순서</p>\n<h1>{esc(name)}</h1>\n<p class="lead">위에서부터 순서대로 진행하세요.</p>\n' + setup_steps_html(pages, urls) +
-                f'\n<p class="small"><a href="/setup/">다른 세팅</a></p>\n')
+        first = next((u for u in urls if u in by), "/")                               # 큰 「1단계 시작」 단추 + 단계 카드 (D103 5차, 2026-10-08: 목록이 글로 보였다)
+        body = (f'<p class="kicker">세팅 순서</p>\n<h1>{esc(name)}</h1>\n<p class="lead">{len(urls)}단계예요. 위에서부터 차례로 하면 끝나요.</p>\n'
+                f'<a class="setup-start" href="{first}">1단계 시작</a>\n' + setup_steps_html(pages, urls) +
+                f'\n<p class="small"><a href="/setup/">다른 일 고르기</a></p>\n')
         out.append({"title": f"{name}, 순서대로 {len(urls)}단계", "description": f"{lead}. {len(urls)}단계를 순서대로 따라 하면 끝나요. " + " → ".join(by[u].get("nav") or by[u]["title"] for u in urls if u in by), "lang": "ko", "section": "guide", "nav": name, "date": "2026-09-21", "updated": "2026-09-21",
                     "setup": slug, "plat": pl, "rel": f"setup/{slug}/index.html", "url": f"/setup/{slug}/", "body": body})
     # 세팅 순서 전부

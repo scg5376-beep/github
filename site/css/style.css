@@ -1319,3 +1319,27 @@ section.terms-in details.more > .box li { padding:6px 0; border-bottom:1px dashe
 /* 목차 칩: 긴 제목이 360폭에서 칸 밖으로 나가던 것 — 칩이 줄어들고 글이 안에서 꺾이게 */
 nav.intoc li { flex:0 1 auto; min-width:0; max-width:100%; }
 nav.intoc li a { display:inline-flex; max-width:100%; overflow-wrap:anywhere; white-space:normal; }
+/* 세팅 묶음 쪽: 큰 시작 단추 + 단계 카드 (D103 5차) */
+a.setup-start { display:flex; align-items:center; justify-content:center; min-height:64px; margin:6px 0 18px; border-radius:16px; background:var(--accent); color:#fff; font-weight:800; font-size:1.2rem; text-decoration:none; }
+a.setup-start::after { content:""; width:12px; height:12px; margin-left:12px; border-top:3px solid #fff; border-right:3px solid #fff; transform:rotate(45deg); }
+ol.course.roadmap.setup-steps { display:grid; gap:12px; margin:0 0 20px; padding:0; list-style:none; counter-reset:ss; }
+ol.setup-steps > li { counter-increment:ss; position:relative; margin:0; padding:0; border:0; background:none; }
+ol.setup-steps > li::before, ol.setup-steps > li::after { display:none; content:none; }
+ol.setup-steps > li > a { display:grid; grid-template-columns:48px 1fr; gap:4px 12px; align-items:center; padding:14px 16px; background:var(--card); border:2px solid var(--line); border-radius:16px; text-decoration:none; color:var(--ink); box-shadow:var(--shadow); min-height:72px; }
+ol.setup-steps > li > a::before { content:counter(ss); grid-row:1 / span 2; width:44px; height:44px; border-radius:50%; background:var(--accent); color:#fff; display:grid; place-items:center; font-weight:800; font-size:1.2rem; }
+ol.setup-steps > li > a > b { font-size:1.12rem; font-weight:800; line-height:1.35; }
+ol.setup-steps > li > a .badge { justify-self:start; }
+ol.setup-steps .sub1 { display:block; margin:-8px 0 0 60px; color:var(--ink-soft); font-size:.92rem; }
+ol.setup-steps > li:hover > a { border-color:var(--accent); }
+/* 세팅 카드: 긴 주소가 한 줄 부제를 밀어 카드가 넓어지던 것 (360폭 /setup/google/) */
+ol.setup-steps > li { min-width:0; }
+ol.setup-steps > li > a { min-width:0; grid-template-columns:48px minmax(0,1fr); }
+ol.setup-steps > li > a > b, ol.setup-steps .sub1 { min-width:0; overflow-wrap:anywhere; word-break:break-word; }
+ol.setup-steps .sub1 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+/* 세팅 카드: 옛 roadmap 들여쓰기 제거, 부제를 카드 안으로 */
+ol.course.roadmap.setup-steps, ol.course.roadmap.setup-steps > li { margin-left:0 !important; padding-left:0 !important; }
+ol.setup-steps > li > a { grid-template-rows:auto auto; }
+ol.setup-steps > li > a::before { grid-row:1 / span 2; align-self:center; }
+ol.setup-steps > li > a > b { grid-column:2; }
+ol.setup-steps > li > a .badge { grid-column:2; }
+ol.setup-steps .sub1 { position:absolute; left:-9999px; }   /* 카드 밖으로 밀리던 부제: 숨기고 단추 하나만 */
