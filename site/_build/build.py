@@ -1744,7 +1744,7 @@ def terms_in_html(page, pages):
     if len(found) < 2:
         return ""
     lis = "".join(f'<li><a href="{u}">{esc(n)}</a><span>{esc(f)}</span></li>' for n, f, u in found)
-    return f'<section class="terms-in"><span class="rail-head">이 글의 용어</span><ul>{lis}</ul></section>'
+    return f'<section class="terms-in"><details class="more"><summary>이 글에 나온 말 {len(found)}개</summary><div class="box"><ul>{lis}</ul></div></details></section>'
 
 
 def step_subs(p):
@@ -1999,8 +1999,7 @@ def render(page, pages, verify):
             bd = page["body"]
             ml = re.search(r'<p class="lead">.*?</p>', bd, re.S) or re.search(r'<h1[^>]*>.*?</h1>', bd, re.S)   # 첫 lead 바로 뒤 = 제목 아래 「먼저 이것부터」 (D103 2차, 2026-10-08)
             bd = bd[:ml.end()] + box.replace('<div class="do">', '<div class="do first">', 1) + bd[ml.end():] if ml else box + bd
-            nx = bd.rfind('<div class="next">')
-            bd = bd[:nx] + box + bd[nx:] if nx > 0 else bd + box
+            pass                                                                    # 글 끝 두 번째 상자는 뺐다 — 위 「먼저 이것부터」 하나로 (D103 3차, 2026-10-08)
             page = dict(page, body=bd)
     if lang == "ko" and page.get("cat") and "order" in page and not page.get("plat") and not page.get("course"):   # 강조 장치 (D44)
         page = dict(page, body=emphasis.apply(page["body"], "howto" if page.get("kind") == "howto" else "guide", page["url"]))

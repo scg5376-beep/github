@@ -1,5 +1,859 @@
 {
  "360": {
+  "/404.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/about.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/aeo.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/geo.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/privacy.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/seo.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/check/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/daangn/1-profile.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/daangn/2-coupon.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/daangn/3-ads.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/foreign/1-start.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/foreign/2-place.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/foreign/3-google.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/foreign/4-domain.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/foreign/5-homepage.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/foreign/6-instagram.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/foreign/7-record.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/academy.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/ads.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/aeo.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/agency-call.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/agency-contract.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/before-selling.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/blog-removed.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/blog.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/blogger.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/daangn-reviews.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/delivery-fees.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/disclosure.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/domain.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/fee-table.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/followers.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/free-tools.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/geo.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/google-content.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/google-profile.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/google-suspended.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/hair-salon.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/help-indexes.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/homepage.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/industry-ad-rules.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/instagram.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/kakao-channel.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/kakao-membership.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/map-missing.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/meta-review.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/naver-clip.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/numbers.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/place-owner.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/place-photos.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/place-plus.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/place.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/powerlink.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=461 vw=360 text=칸이 몇 개나 있나요?",
+   "OVER a right=461 vw=360 text=칸이 몇 개나 있나요?",
+   "OVER li right=692 vw=360 text=네이버 밖에서도 나가나요?",
+   "OVER a right=692 vw=360 text=네이버 밖에서도 나가나요?",
+   "OVER li right=927 vw=360 text=최소 입찰가는 왜 오르나요?",
+   "OVER a right=927 vw=360 text=최소 입찰가는 왜 오르나요?",
+   "OVER li right=1190 vw=360 text=「월 얼마에 상위 노출」 제안은요?",
+   "OVER a right=1190 vw=360 text=「월 얼마에 상위 노출」 제안은요?",
+   "OVER li right=1279 vw=360 text=정리",
+   "OVER a right=1279 vw=360 text=정리"
+  ],
+  "/guide/quick-settlement.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=457 vw=360 text=수수료가 붙나요?",
+   "OVER a right=457 vw=360 text=수수료가 붙나요?",
+   "OVER li right=674 vw=360 text=누가 어떻게 신청하나요?",
+   "OVER a right=674 vw=360 text=누가 어떻게 신청하나요?",
+   "OVER li right=877 vw=360 text=왜 갑자기 중단됐나요?",
+   "OVER a right=877 vw=360 text=왜 갑자기 중단됐나요?",
+   "OVER li right=1153 vw=360 text=정산중지·지급보류와는 다른가요?",
+   "OVER a right=1153 vw=360 text=정산중지·지급보류와는 다른가요?",
+   "OVER li right=1241 vw=360 text=정리",
+   "OVER a right=1241 vw=360 text=정리"
+  ],
+  "/guide/rank-drop.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=491 vw=360 text=2. 최근에 정보를 바꿨나요?",
+   "OVER a right=491 vw=360 text=2. 최근에 정보를 바꿨나요?",
+   "OVER li right=679 vw=360 text=3. 리뷰가 줄었나요?",
+   "OVER a right=679 vw=360 text=3. 리뷰가 줄었나요?",
+   "OVER li right=945 vw=360 text=4. 대행사가 무슨 작업을 했나요?",
+   "OVER a right=945 vw=360 text=4. 대행사가 무슨 작업을 했나요?",
+   "OVER li right=1230 vw=360 text=5. 손님이 어떤 필터로 보고 있나요?",
+   "OVER a right=1230 vw=360 text=5. 손님이 어떤 필터로 보고 있나요?",
+   "OVER li right=1506 vw=360 text=6. 거리와 카테고리 선호도인가요?",
+   "OVER a right=1506 vw=360 text=6. 거리와 카테고리 선호도인가요?",
+   "OVER li right=1801 vw=360 text=순위를 다시 올리려면 무엇을 하나요?",
+   "OVER a right=1801 vw=360 text=순위를 다시 올리려면 무엇을 하나요?",
+   "OVER li right=1889 vw=360 text=정리",
+   "OVER a right=1889 vw=360 text=정리"
+  ],
+  "/guide/record-sheet.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/record.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=401 vw=360 text=무엇을 지켜야 하나요?",
+   "OVER a right=401 vw=360 text=무엇을 지켜야 하나요?",
+   "OVER li right=636 vw=360 text=내가 데려온 주문이 뭔가요?",
+   "OVER a right=636 vw=360 text=내가 데려온 주문이 뭔가요?",
+   "OVER li right=843 vw=360 text=매주 어떤 칸을 적나요?",
+   "OVER a right=843 vw=360 text=매주 어떤 칸을 적나요?",
+   "OVER li right=1120 vw=360 text=성과처럼 보이지만 아닌 숫자는요?",
+   "OVER a right=1120 vw=360 text=성과처럼 보이지만 아닌 숫자는요?",
+   "OVER li right=1360 vw=360 text=12주 뒤에는 어떻게 읽나요?",
+   "OVER a right=1360 vw=360 text=12주 뒤에는 어떻게 읽나요?",
+   "OVER li right=1448 vw=360 text=정리",
+   "OVER a right=1448 vw=360 text=정리"
+  ],
+  "/guide/reply-examples.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=590 vw=360 text=별점만 있고 글이 없는 리뷰",
+   "OVER a right=590 vw=360 text=별점만 있고 글이 없는 리뷰",
+   "OVER li right=770 vw=360 text=음식이 늦게 나왔다",
+   "OVER a right=770 vw=360 text=음식이 늦게 나왔다",
+   "OVER li right=1011 vw=360 text=음식이 식었거나 맛이 달랐다",
+   "OVER a right=1011 vw=360 text=음식이 식었거나 맛이 달랐다",
+   "OVER li right=1159 vw=360 text=이물이 나왔다",
+   "OVER a right=1159 vw=360 text=이물이 나왔다",
+   "OVER li right=1336 vw=360 text=직원이 불친절했다",
+   "OVER a right=1336 vw=360 text=직원이 불친절했다",
+   "OVER li right=1470 vw=360 text=값이 비싸다",
+   "OVER a right=1470 vw=360 text=값이 비싸다",
+   "OVER li right=1711 vw=360 text=배달이 늦었거나 포장이 샜다",
+   "OVER a right=1711 vw=360 text=배달이 늦었거나 포장이 샜다",
+   "OVER li right=2015 vw=360 text=배달앱 리뷰, 메뉴가 빠졌거나 별점 1개",
+   "OVER a right=2015 vw=360 text=배달앱 리뷰, 메뉴가 빠졌거나 별점 1개",
+   "OVER li right=2231 vw=360 text=손님이 잘못 알고 쓴 리뷰",
+   "OVER a right=2231 vw=360 text=손님이 잘못 알고 쓴 리뷰",
+   "OVER li right=2426 vw=360 text=예약하고 다녀간 손님",
+   "OVER a right=2426 vw=360 text=예약하고 다녀간 손님",
+   "OVER li right=2610 vw=360 text=사진을 올려 준 손님",
+   "OVER a right=2610 vw=360 text=사진을 올려 준 손님",
+   "OVER li right=2766 vw=360 text=여러 번 온 단골",
+   "OVER a right=2766 vw=360 text=여러 번 온 단골",
+   "OVER li right=2854 vw=360 text=정리",
+   "OVER a right=2854 vw=360 text=정리"
+  ],
+  "/guide/reservation-noshow.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=599 vw=360 text=환불 기준은 어디까지 정하나요?",
+   "OVER a right=599 vw=360 text=환불 기준은 어디까지 정하나요?",
+   "OVER li right=944 vw=360 text=선결제 없이 노쇼 위약금을 받을 수는 없나요?",
+   "OVER a right=944 vw=360 text=선결제 없이 노쇼 위약금을 받을 수는 없나요?",
+   "OVER li right=1083 vw=360 text=수수료는요?",
+   "OVER a right=1083 vw=360 text=수수료는요?",
+   "OVER li right=1403 vw=360 text=취소·노쇼를 누른 뒤에 되돌릴 수 있나요?",
+   "OVER a right=1403 vw=360 text=취소·노쇼를 누른 뒤에 되돌릴 수 있나요?",
+   "OVER li right=1523 vw=360 text=저희 생각",
+   "OVER a right=1523 vw=360 text=저희 생각"
+  ],
+  "/guide/reservation-settlement.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=407 vw=360 text=수수료는 얼마인가요?",
+   "OVER a right=407 vw=360 text=수수료는 얼마인가요?",
+   "OVER li right=686 vw=360 text=「프로그램」 상품은 4%가 더 붙어요",
+   "OVER a right=686 vw=360 text=「프로그램」 상품은 4%가 더 붙어요",
+   "OVER li right=990 vw=360 text=이미 이용 완료된 예약을 환불해야 해요",
+   "OVER a right=990 vw=360 text=이미 이용 완료된 예약을 환불해야 해요",
+   "OVER li right=1079 vw=360 text=정리",
+   "OVER a right=1079 vw=360 text=정리"
+  ],
+  "/guide/review-penalty.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=471 vw=360 text=영수증은 어떤 것이 인증되나요?",
+   "OVER a right=471 vw=360 text=영수증은 어떤 것이 인증되나요?",
+   "OVER li right=776 vw=360 text=남의 가게 리뷰가 우리 가게에 붙었어요",
+   "OVER a right=776 vw=360 text=남의 가게 리뷰가 우리 가게에 붙었어요",
+   "OVER li right=1067 vw=360 text=네이버가 사장님을 보호하는 쪽은요?",
+   "OVER a right=1067 vw=360 text=네이버가 사장님을 보호하는 쪽은요?",
+   "OVER li right=1155 vw=360 text=정리",
+   "OVER a right=1155 vw=360 text=정리"
+  ],
+  "/guide/review-rules-compare.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=535 vw=360 text=부탁은 어디까지 되나요?",
+   "OVER a right=535 vw=360 text=부탁은 어디까지 되나요?",
+   "OVER li right=756 vw=360 text=어느 글에 원문이 있나요?",
+   "OVER a right=756 vw=360 text=어느 글에 원문이 있나요?",
+   "OVER li right=844 vw=360 text=정리",
+   "OVER a right=844 vw=360 text=정리"
+  ],
+  "/guide/reviews.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=535 vw=360 text=답글은 어떻게 써야 하나요?",
+   "OVER a right=535 vw=360 text=답글은 어떻게 써야 하나요?",
+   "OVER li right=844 vw=360 text=네이버에서는 리뷰가 무슨 일을 하나요?",
+   "OVER a right=844 vw=360 text=네이버에서는 리뷰가 무슨 일을 하나요?",
+   "OVER li right=1157 vw=360 text=리뷰 키워드는 사장님이 고를 수 있나요?",
+   "OVER a right=1157 vw=360 text=리뷰 키워드는 사장님이 고를 수 있나요?",
+   "OVER li right=1392 vw=360 text=리뷰를 사면 어떻게 되나요?",
+   "OVER a right=1392 vw=360 text=리뷰를 사면 어떻게 되나요?",
+   "OVER li right=1481 vw=360 text=정리",
+   "OVER a right=1481 vw=360 text=정리"
+  ],
+  "/guide/selling.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=527 vw=360 text=스마트스토어는 뭐가 붙나요?",
+   "OVER a right=527 vw=360 text=스마트스토어는 뭐가 붙나요?",
+   "OVER li right=879 vw=360 text=네이버쇼핑 검색 순위는 무엇으로 정해지나요?",
+   "OVER a right=879 vw=360 text=네이버쇼핑 검색 순위는 무엇으로 정해지나요?",
+   "OVER li right=1096 vw=360 text=쿠팡은 어떻게 다른가요?",
+   "OVER a right=1096 vw=360 text=쿠팡은 어떻게 다른가요?",
+   "OVER li right=1377 vw=360 text=인스타그램에서 바로 팔 수 있나요?",
+   "OVER a right=1377 vw=360 text=인스타그램에서 바로 팔 수 있나요?",
+   "OVER li right=1616 vw=360 text=법으로 해야 하는 건 뭔가요?",
+   "OVER a right=1616 vw=360 text=법으로 해야 하는 건 뭔가요?",
+   "OVER li right=1704 vw=360 text=정리",
+   "OVER a right=1704 vw=360 text=정리"
+  ],
+  "/guide/seo.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=503 vw=360 text=네이버는 무엇을 보나요?",
+   "OVER a right=503 vw=360 text=네이버는 무엇을 보나요?",
+   "OVER li right=674 vw=360 text=구글은 다른가요?",
+   "OVER a right=674 vw=360 text=구글은 다른가요?",
+   "OVER li right=762 vw=360 text=정리",
+   "OVER a right=762 vw=360 text=정리"
+  ],
+  "/guide/shop-video.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=638 vw=360 text=AI로 만든 사람이나 장면이 나오면요?",
+   "OVER a right=638 vw=360 text=AI로 만든 사람이나 장면이 나오면요?",
+   "OVER li right=887 vw=360 text=음악은 어디서 골라야 하나요?",
+   "OVER a right=887 vw=360 text=음악은 어디서 골라야 하나요?",
+   "OVER li right=1168 vw=360 text=가격이나 혜택 숫자를 넣을 때는요?",
+   "OVER a right=1168 vw=360 text=가격이나 혜택 숫자를 넣을 때는요?",
+   "OVER li right=1431 vw=360 text=길이와 비율은 어떻게 맞추나요?",
+   "OVER a right=1431 vw=360 text=길이와 비율은 어떻게 맞추나요?",
+   "OVER li right=1519 vw=360 text=정리",
+   "OVER a right=1519 vw=360 text=정리"
+  ],
+  "/guide/smartstore-ads.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=422 vw=360 text=누가 켤 수 있나요?",
+   "OVER a right=422 vw=360 text=누가 켤 수 있나요?",
+   "OVER li right=706 vw=360 text=ADVoost 쇼핑과 무엇이 다른가요?",
+   "OVER a right=706 vw=360 text=ADVoost 쇼핑과 무엇이 다른가요?",
+   "OVER li right=863 vw=360 text=얼마가 드나요?",
+   "OVER a right=863 vw=360 text=얼마가 드나요?",
+   "OVER li right=951 vw=360 text=정리",
+   "OVER a right=951 vw=360 text=정리"
+  ],
+  "/guide/smartstore-faq-orders.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=412 vw=360 text=구매확정 내역",
+   "OVER a right=412 vw=360 text=구매확정 내역",
+   "OVER li right=532 vw=360 text=취소 관리",
+   "OVER a right=532 vw=360 text=취소 관리",
+   "OVER li right=652 vw=360 text=반품 관리",
+   "OVER a right=652 vw=360 text=반품 관리",
+   "OVER li right=740 vw=360 text=정리",
+   "OVER a right=740 vw=360 text=정리"
+  ],
+  "/guide/smartstore-faq-products.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=530 vw=360 text=상품정보 검색품질(SEO)",
+   "OVER a right=530 vw=360 text=상품정보 검색품질(SEO)",
+   "OVER li right=682 vw=360 text=검색 순위 진단",
+   "OVER a right=682 vw=360 text=검색 순위 진단",
+   "OVER li right=770 vw=360 text=정리",
+   "OVER a right=770 vw=360 text=정리"
+  ],
+  "/guide/smartstore-faq-run.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=440 vw=360 text=혜택 등록",
+   "OVER a right=440 vw=360 text=혜택 등록",
+   "OVER li right=560 vw=360 text=광고 등록",
+   "OVER a right=560 vw=360 text=광고 등록",
+   "OVER li right=680 vw=360 text=광고 관리",
+   "OVER a right=680 vw=360 text=광고 관리",
+   "OVER li right=839 vw=360 text=결제 관리(광고)",
+   "OVER a right=839 vw=360 text=결제 관리(광고)",
+   "OVER li right=959 vw=360 text=문의 관리",
+   "OVER a right=959 vw=360 text=문의 관리",
+   "OVER li right=1108 vw=360 text=기본정보 관리",
+   "OVER a right=1108 vw=360 text=기본정보 관리",
+   "OVER li right=1196 vw=360 text=정리",
+   "OVER a right=1196 vw=360 text=정리"
+  ],
+  "/guide/smartstore-faq-start.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=569 vw=360 text=상품정보 검색품질(SEO)",
+   "OVER a right=569 vw=360 text=상품정보 검색품질(SEO)",
+   "OVER li right=721 vw=360 text=검색 순위 진단",
+   "OVER a right=721 vw=360 text=검색 순위 진단",
+   "OVER li right=869 vw=360 text=구매확정 내역",
+   "OVER a right=869 vw=360 text=구매확정 내역",
+   "OVER li right=1063 vw=360 text=정산 내역(일별/건별)",
+   "OVER a right=1063 vw=360 text=정산 내역(일별/건별)",
+   "OVER li right=1229 vw=360 text=항목별 정산 내역",
+   "OVER a right=1229 vw=360 text=항목별 정산 내역",
+   "OVER li right=1346 vw=360 text=빠른정산",
+   "OVER a right=1346 vw=360 text=빠른정산",
+   "OVER li right=1554 vw=360 text=중소상공인 수수료 전반",
+   "OVER a right=1554 vw=360 text=중소상공인 수수료 전반",
+   "OVER li right=1759 vw=360 text=초보판매자 정산가이드",
+   "OVER a right=1759 vw=360 text=초보판매자 정산가이드",
+   "OVER li right=1950 vw=360 text=우대수수료 환급내역",
+   "OVER a right=1950 vw=360 text=우대수수료 환급내역",
+   "OVER li right=2038 vw=360 text=정리",
+   "OVER a right=2038 vw=360 text=정리"
+  ],
+  "/guide/star-rating.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=475 vw=360 text=평균 별점은 언제 붙나요?",
+   "OVER a right=475 vw=360 text=평균 별점은 언제 붙나요?",
+   "OVER li right=732 vw=360 text=사장님이 끌 수 있는 건 뭔가요?",
+   "OVER a right=732 vw=360 text=사장님이 끌 수 있는 건 뭔가요?",
+   "OVER li right=958 vw=360 text=낮은 별점 테러가 걱정돼요",
+   "OVER a right=958 vw=360 text=낮은 별점 테러가 걱정돼요",
+   "OVER li right=1207 vw=360 text=별점이 검색 순위를 올리나요?",
+   "OVER a right=1207 vw=360 text=별점이 검색 순위를 올리나요?",
+   "OVER li right=1295 vw=360 text=정리",
+   "OVER a right=1295 vw=360 text=정리"
+  ],
+  "/guide/store-ipr.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=535 vw=360 text=신고하면 어떻게 진행되나요?",
+   "OVER a right=535 vw=360 text=신고하면 어떻게 진행되나요?",
+   "OVER li right=784 vw=360 text=신고당했어요. 어떻게 하나요?",
+   "OVER a right=784 vw=360 text=신고당했어요. 어떻게 하나요?",
+   "OVER li right=1047 vw=360 text=신고가 반려되는 건 언제인가요?",
+   "OVER a right=1047 vw=360 text=신고가 반려되는 건 언제인가요?",
+   "OVER li right=1135 vw=360 text=정리",
+   "OVER a right=1135 vw=360 text=정리"
+  ],
+  "/guide/store-listing-rules.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=572 vw=360 text=손님을 속이는 것으로 보는 판매 방식",
+   "OVER a right=572 vw=360 text=손님을 속이는 것으로 보는 판매 방식",
+   "OVER li right=760 vw=360 text=아예 팔 수 없는 물건",
+   "OVER a right=760 vw=360 text=아예 팔 수 없는 물건",
+   "OVER li right=849 vw=360 text=정리",
+   "OVER a right=849 vw=360 text=정리"
+  ],
+  "/guide/store-penalty.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=439 vw=360 text=발송기한은 언제까지인가요?",
+   "OVER a right=439 vw=360 text=발송기한은 언제까지인가요?",
+   "OVER li right=610 vw=360 text=언제 제재되나요?",
+   "OVER a right=610 vw=360 text=언제 제재되나요?",
+   "OVER li right=877 vw=360 text=점수 없이 바로 제재되는 것은요?",
+   "OVER a right=877 vw=360 text=점수 없이 바로 제재되는 것은요?",
+   "OVER li right=965 vw=360 text=정리",
+   "OVER a right=965 vw=360 text=정리"
+  ],
+  "/guide/store-scam.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=538 vw=360 text=사칭 전화·문자의 특징은 뭔가요?",
+   "OVER a right=538 vw=360 text=사칭 전화·문자의 특징은 뭔가요?",
+   "OVER li right=741 vw=360 text=입점은 어떻게 하나요?",
+   "OVER a right=741 vw=360 text=입점은 어떻게 하나요?",
+   "OVER li right=996 vw=360 text=이미 결제했거나 정보를 줬어요",
+   "OVER a right=996 vw=360 text=이미 결제했거나 정보를 줬어요",
+   "OVER li right=1084 vw=360 text=정리",
+   "OVER a right=1084 vw=360 text=정리"
+  ],
+  "/guide/store-sheet.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/guide/support-money.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=489 vw=360 text=네이버는 어떻게 주나요?",
+   "OVER a right=489 vw=360 text=네이버는 어떻게 주나요?",
+   "OVER li right=706 vw=360 text=카카오는 어떻게 주나요?",
+   "OVER a right=706 vw=360 text=카카오는 어떻게 주나요?",
+   "OVER li right=965 vw=360 text=스마트스토어는 어떻게 주나요?",
+   "OVER a right=965 vw=360 text=스마트스토어는 어떻게 주나요?",
+   "OVER li right=1168 vw=360 text=당근은 어떻게 주나요?",
+   "OVER a right=1168 vw=360 text=당근은 어떻게 주나요?",
+   "OVER li right=1484 vw=360 text=정부 배달·택배비 지원은 어떻게 됐나요?",
+   "OVER a right=1484 vw=360 text=정부 배달·택배비 지원은 어떻게 됐나요?",
+   "OVER li right=1572 vw=360 text=정리",
+   "OVER a right=1572 vw=360 text=정리"
+  ],
+  "/guide/talktalk.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=631 vw=360 text=상담시간과 자동 인사말은 어디서 정하나요?",
+   "OVER a right=631 vw=360 text=상담시간과 자동 인사말은 어디서 정하나요?",
+   "OVER li right=862 vw=360 text=응답률은 어떻게 매기나요?",
+   "OVER a right=862 vw=360 text=응답률은 어떻게 매기나요?",
+   "OVER li right=1151 vw=360 text=단체 메시지는 몇 번 보낼 수 있나요?",
+   "OVER a right=1151 vw=360 text=단체 메시지는 몇 번 보낼 수 있나요?",
+   "OVER li right=1400 vw=360 text=도움말 번호는 어디에 있나요?",
+   "OVER a right=1400 vw=360 text=도움말 번호는 어디에 있나요?",
+   "OVER li right=1488 vw=360 text=정리",
+   "OVER a right=1488 vw=360 text=정리"
+  ],
+  "/guide/threads.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=573 vw=360 text=팔로워가 없어도 보이나요?",
+   "OVER a right=573 vw=360 text=팔로워가 없어도 보이나요?",
+   "OVER li right=819 vw=360 text=스레드에도 광고가 나가나요?",
+   "OVER a right=819 vw=360 text=스레드에도 광고가 나가나요?",
+   "OVER li right=1025 vw=360 text=가게가 할 일은 뭔가요?",
+   "OVER a right=1025 vw=360 text=가게가 할 일은 뭔가요?",
+   "OVER li right=1114 vw=360 text=정리",
+   "OVER a right=1114 vw=360 text=정리"
+  ],
+  "/guide/voucher-2026.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=383 vw=360 text=얼마를 어디에 쓰나요?",
+   "OVER a right=383 vw=360 text=얼마를 어디에 쓰나요?",
+   "OVER li right=568 vw=360 text=어떻게 신청하나요?",
+   "OVER a right=568 vw=360 text=어떻게 신청하나요?",
+   "OVER li right=752 vw=360 text=무엇을 주의하나요?",
+   "OVER a right=752 vw=360 text=무엇을 주의하나요?",
+   "OVER li right=841 vw=360 text=정리",
+   "OVER a right=841 vw=360 text=정리"
+  ],
+  "/guide/youtube-search.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=531 vw=360 text=추천은 무엇으로 정하나요?",
+   "OVER a right=531 vw=360 text=추천은 무엇으로 정하나요?",
+   "OVER li right=738 vw=360 text=문서에 없는 건 뭔가요?",
+   "OVER a right=738 vw=360 text=문서에 없는 건 뭔가요?",
+   "OVER li right=826 vw=360 text=정리",
+   "OVER a right=826 vw=360 text=정리"
+  ],
+  "/guide/youtube-shorts.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실",
+   "OVER li right=530 vw=360 text=1분을 넘기면 뭐가 달라지나요?",
+   "OVER a right=530 vw=360 text=1분을 넘기면 뭐가 달라지나요?",
+   "OVER li right=747 vw=360 text=수익은 언제부터 나나요?",
+   "OVER a right=747 vw=360 text=수익은 언제부터 나나요?",
+   "OVER li right=955 vw=360 text=45%는 무슨 뜻인가요?",
+   "OVER a right=955 vw=360 text=45%는 무슨 뜻인가요?",
+   "OVER li right=1144 vw=360 text=쉬면 어떻게 되나요?",
+   "OVER a right=1144 vw=360 text=쉬면 어떻게 되나요?",
+   "OVER li right=1411 vw=360 text=AI로 만든 영상은 밝혀야 하나요?",
+   "OVER a right=1411 vw=360 text=AI로 만든 영상은 밝혀야 하나요?",
+   "OVER li right=1697 vw=360 text=AI로 찍어 낸 영상도 수익이 되나요?",
+   "OVER a right=1697 vw=360 text=AI로 찍어 낸 영상도 수익이 되나요?",
+   "OVER li right=1785 vw=360 text=정리",
+   "OVER a right=1785 vw=360 text=정리"
+  ],
+  "/kakao/1-channel.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/kakao/2-message.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/kakao/3-map.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/1-law.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/1-start.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/2-numbers.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/2-place.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/3-place.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/3-rank.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/4-rank.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/4-reviews.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/5-reviews.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/5-search.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/6-blog.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/6-search.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/7-blog.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/7-law.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/8-powerlink.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/local/9-record.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/1-start.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/2-fees.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/3-law.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/4-domain.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/5-homepage.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/6-blog.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/7-instagram.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/8-ads.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/online/9-record.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/ai/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/ai/answers/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/ai/terms/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/daangn/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/daangn/ads/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/daangn/profile/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/foreign/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/google/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/google/blogger/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/google/domain/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/google/search/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/google/tistory/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/instagram/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/instagram/account/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/instagram/ads/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/instagram/reels/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/instagram/threads/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/kakao/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/kakao/channel/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/kakao/message/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/local/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/naver/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/naver/blog/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/naver/booking/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/naver/cafe/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/naver/place/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/naver/powerlink/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/naver/reviews/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/naver/search/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/online/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/record/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/record/record/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/sell/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/sell/coupang/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/sell/delivery/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/sell/law/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/sell/own-site/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/sell/smartstore/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/service/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/youtube/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/youtube/channel/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/p/youtube/shorts/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/service/1-start.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/service/2-place.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/service/3-homepage.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/service/4-content.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/service/5-reviews.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/service/6-law.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/service/7-ai.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/service/8-record.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/ads/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/booking/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/daangn/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/google/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/homepage/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/kakao/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/place/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/reviews/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/store/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/setup/youtube/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/start/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/terms/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/terms/google/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/terms/instagram/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/terms/kakao/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/terms/naver/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/terms/record/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/terms/sell/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/updates/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/why/cases.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/why/": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/youtube/1-channel.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
+  "/youtube/2-profile.html": [
+   "CLIP a.brand sw=198 cw=166 text=사장님 마케팅 교실"
+  ],
   "/_build/og/og-en.html": [
    "PAGE scrollWidth 1200 > 980"
   ],
@@ -11,6 +865,826 @@
   ]
  },
  "400": {
+  "/about.html": [
+   "OVER li right=448 vw=400 text=쓰는 사람",
+   "OVER a right=448 vw=400 text=쓰는 사람",
+   "OVER li right=568 vw=400 text=근거 등급",
+   "OVER a right=568 vw=400 text=근거 등급",
+   "OVER li right=720 vw=400 text=다시 보는 주기",
+   "OVER a right=720 vw=400 text=다시 보는 주기",
+   "OVER li right=872 vw=400 text=틀린 곳 알리기",
+   "OVER a right=872 vw=400 text=틀린 곳 알리기",
+   "OVER li right=993 vw=400 text=정정 기록",
+   "OVER a right=993 vw=400 text=정정 기록",
+   "OVER li right=1127 vw=400 text=기술적 약속",
+   "OVER a right=1127 vw=400 text=기술적 약속"
+  ],
+  "/aeo.html": [
+   "OVER li right=475 vw=400 text=제안서는 어떻게 읽나요?",
+   "OVER a right=475 vw=400 text=제안서는 어떻게 읽나요?",
+   "OVER li right=563 vw=400 text=정리",
+   "OVER a right=563 vw=400 text=정리"
+  ],
+  "/geo.html": [
+   "OVER li right=550 vw=400 text=무엇이 확인됐고 무엇이 아닌가요?",
+   "OVER a right=550 vw=400 text=무엇이 확인됐고 무엇이 아닌가요?",
+   "OVER li right=799 vw=400 text=국내에서 확실한 길은 뭔가요?",
+   "OVER a right=799 vw=400 text=국내에서 확실한 길은 뭔가요?",
+   "OVER li right=887 vw=400 text=정리",
+   "OVER a right=887 vw=400 text=정리"
+  ],
+  "/privacy.html": [
+   "OVER li right=458 vw=400 text=서버 기록",
+   "OVER a right=458 vw=400 text=서버 기록",
+   "OVER li right=592 vw=400 text=쿠키와 광고",
+   "OVER a right=592 vw=400 text=쿠키와 광고",
+   "OVER li right=735 vw=400 text=만 14세 미만",
+   "OVER a right=735 vw=400 text=만 14세 미만",
+   "OVER li right=855 vw=400 text=변경 기록",
+   "OVER a right=855 vw=400 text=변경 기록"
+  ],
+  "/seo.html": [
+   "OVER li right=503 vw=400 text=네이버는 무엇을 보나요?",
+   "OVER a right=503 vw=400 text=네이버는 무엇을 보나요?",
+   "OVER li right=674 vw=400 text=구글은 다른가요?",
+   "OVER a right=674 vw=400 text=구글은 다른가요?",
+   "OVER li right=762 vw=400 text=정리",
+   "OVER a right=762 vw=400 text=정리"
+  ],
+  "/guide/academy.html": [
+   "OVER li right=581 vw=400 text=2. 플레이스에 과정별 수강료를 넣는다",
+   "OVER a right=581 vw=400 text=2. 플레이스에 과정별 수강료를 넣는다",
+   "OVER li right=853 vw=400 text=3. 상담은 네이버 예약으로 받는다",
+   "OVER a right=853 vw=400 text=3. 상담은 네이버 예약으로 받는다",
+   "OVER li right=1111 vw=400 text=4. 블로그는 한 과목으로 꾸준히",
+   "OVER a right=1111 vw=400 text=4. 블로그는 한 과목으로 꾸준히",
+   "OVER li right=1411 vw=400 text=5. 카카오톡 채널은 학부모 공지용으로",
+   "OVER a right=1411 vw=400 text=5. 카카오톡 채널은 학부모 공지용으로",
+   "OVER li right=1674 vw=400 text=순서를 지키면 무엇이 바뀌나요?",
+   "OVER a right=1674 vw=400 text=순서를 지키면 무엇이 바뀌나요?",
+   "OVER li right=1762 vw=400 text=정리",
+   "OVER a right=1762 vw=400 text=정리"
+  ],
+  "/guide/ads.html": [
+   "OVER li right=612 vw=400 text=2. 파워링크는 칸이 몇 개인가요?",
+   "OVER a right=612 vw=400 text=2. 파워링크는 칸이 몇 개인가요?",
+   "OVER li right=900 vw=400 text=3. 메타 광고는 왜 바꾸면 안 되나요?",
+   "OVER a right=900 vw=400 text=3. 메타 광고는 왜 바꾸면 안 되나요?",
+   "OVER li right=1226 vw=400 text=4. 카카오맵 광고는 어떻게 돈이 나가나요?",
+   "OVER a right=1226 vw=400 text=4. 카카오맵 광고는 어떻게 돈이 나가나요?",
+   "OVER li right=1510 vw=400 text=5. 토스 광고는 동네 가게에 맞나요?",
+   "OVER a right=1510 vw=400 text=5. 토스 광고는 동네 가게에 맞나요?",
+   "OVER li right=1745 vw=400 text=광고는 언제 효과가 있나요?",
+   "OVER a right=1745 vw=400 text=광고는 언제 효과가 있나요?",
+   "OVER li right=2026 vw=400 text=대행사와 계약하기 전에 뭘 보나요?",
+   "OVER a right=2026 vw=400 text=대행사와 계약하기 전에 뭘 보나요?",
+   "OVER li right=2114 vw=400 text=정리",
+   "OVER a right=2114 vw=400 text=정리"
+  ],
+  "/guide/aeo.html": [
+   "OVER li right=475 vw=400 text=제안서는 어떻게 읽나요?",
+   "OVER a right=475 vw=400 text=제안서는 어떻게 읽나요?",
+   "OVER li right=563 vw=400 text=정리",
+   "OVER a right=563 vw=400 text=정리"
+  ],
+  "/guide/agency-call.html": [
+   "OVER li right=571 vw=400 text=정말 이런 전화로 돈을 잃나요?",
+   "OVER a right=571 vw=400 text=정말 이런 전화로 돈을 잃나요?",
+   "OVER li right=760 vw=400 text=이미 돈을 냈으면요?",
+   "OVER a right=760 vw=400 text=이미 돈을 냈으면요?",
+   "OVER li right=977 vw=400 text=그래도 맡기고 싶으면요?",
+   "OVER a right=977 vw=400 text=그래도 맡기고 싶으면요?"
+  ],
+  "/guide/agency-contract.html": [
+   "OVER li right=596 vw=400 text=「언제든 해지」가 왜 돈이 안 돌아오나요?",
+   "OVER a right=596 vw=400 text=「언제든 해지」가 왜 돈이 안 돌아오나요?",
+   "OVER li right=817 vw=400 text=계약 전에 무엇을 보나요?",
+   "OVER a right=817 vw=400 text=계약 전에 무엇을 보나요?",
+   "OVER li right=1072 vw=400 text=이미 계약했고 위약금이 과해요",
+   "OVER a right=1072 vw=400 text=이미 계약했고 위약금이 과해요",
+   "OVER li right=1160 vw=400 text=정리",
+   "OVER a right=1160 vw=400 text=정리"
+  ],
+  "/guide/before-selling.html": [
+   "OVER li right=456 vw=400 text=1. 사업자등록은 했나요?",
+   "OVER a right=456 vw=400 text=1. 사업자등록은 했나요?",
+   "OVER li right=736 vw=400 text=2. 통신판매업 신고를 해야 하나요?",
+   "OVER a right=736 vw=400 text=2. 통신판매업 신고를 해야 하나요?",
+   "OVER li right=1092 vw=400 text=3. 홈페이지에 무엇을 적어야 하나요? (제10조)",
+   "OVER a right=1092 vw=400 text=3. 홈페이지에 무엇을 적어야 하나요? (제10조)",
+   "OVER li right=1388 vw=400 text=4. 광고에는 무엇을 적나요? (제13조)",
+   "OVER a right=1388 vw=400 text=4. 광고에는 무엇을 적나요? (제13조)",
+   "OVER li right=1729 vw=400 text=4-1. 먹는 것을 팔면 광고 문구에 선이 있어요",
+   "OVER a right=1729 vw=400 text=4-1. 먹는 것을 팔면 광고 문구에 선이 있어요",
+   "OVER li right=2006 vw=400 text=5. 청약철회는 어떻게 안내하나요?",
+   "OVER a right=2006 vw=400 text=5. 청약철회는 어떻게 안내하나요?",
+   "OVER li right=2378 vw=400 text=6. 개인정보 처리방침은 작은 가게도 해야 하나요?",
+   "OVER a right=2378 vw=400 text=6. 개인정보 처리방침은 작은 가게도 해야 하나요?",
+   "OVER li right=2467 vw=400 text=정리",
+   "OVER a right=2467 vw=400 text=정리"
+  ],
+  "/guide/blog-removed.html": [
+   "OVER li right=461 vw=400 text=어떤 경우에 걸리나요?",
+   "OVER a right=461 vw=400 text=어떤 경우에 걸리나요?",
+   "OVER li right=692 vw=400 text=목록에 없으면 괜찮은가요?",
+   "OVER a right=692 vw=400 text=목록에 없으면 괜찮은가요?",
+   "OVER li right=955 vw=400 text=안 보이면 무엇부터 확인하나요?",
+   "OVER a right=955 vw=400 text=안 보이면 무엇부터 확인하나요?",
+   "OVER li right=1172 vw=400 text=고쳤으면 어떻게 하나요?",
+   "OVER a right=1172 vw=400 text=고쳤으면 어떻게 하나요?",
+   "OVER li right=1260 vw=400 text=정리",
+   "OVER a right=1260 vw=400 text=정리"
+  ],
+  "/guide/blog.html": [
+   "OVER li right=585 vw=400 text=사장님이 움직일 수 있는 건 뭔가요?",
+   "OVER a right=585 vw=400 text=사장님이 움직일 수 있는 건 뭔가요?",
+   "OVER li right=756 vw=400 text=얼마나 걸리나요?",
+   "OVER a right=756 vw=400 text=얼마나 걸리나요?",
+   "OVER li right=973 vw=400 text=저품질이라는 게 있나요?",
+   "OVER a right=973 vw=400 text=저품질이라는 게 있나요?",
+   "OVER li right=1250 vw=400 text=그러면 어떻게 운영하라는 건가요?",
+   "OVER a right=1250 vw=400 text=그러면 어떻게 운영하라는 건가요?",
+   "OVER li right=1338 vw=400 text=정리",
+   "OVER a right=1338 vw=400 text=정리"
+  ],
+  "/guide/blogger.html": [
+   "OVER li right=471 vw=400 text=어떻게 만드나요?",
+   "OVER a right=471 vw=400 text=어떻게 만드나요?",
+   "OVER li right=720 vw=400 text=내 도메인은 어떻게 붙이나요?",
+   "OVER a right=720 vw=400 text=내 도메인은 어떻게 붙이나요?",
+   "OVER li right=941 vw=400 text=무엇을 올리면 안 되나요?",
+   "OVER a right=941 vw=400 text=무엇을 올리면 안 되나요?",
+   "OVER li right=1148 vw=400 text=문서에 없는 건 뭔가요?",
+   "OVER a right=1148 vw=400 text=문서에 없는 건 뭔가요?",
+   "OVER li right=1236 vw=400 text=정리",
+   "OVER a right=1236 vw=400 text=정리"
+  ],
+  "/guide/daangn-reviews.html": [
+   "OVER li right=539 vw=400 text=어떤 후기를 신고할 수 있나요?",
+   "OVER a right=539 vw=400 text=어떤 후기를 신고할 수 있나요?",
+   "OVER li right=783 vw=400 text=이런 건 신고해도 안 지워져요",
+   "OVER a right=783 vw=400 text=이런 건 신고해도 안 지워져요",
+   "OVER li right=872 vw=400 text=정리",
+   "OVER a right=872 vw=400 text=정리"
+  ],
+  "/guide/delivery-fees.html": [
+   "OVER li right=577 vw=400 text=2만 원 주문이면 얼마가 빠지나요?",
+   "OVER a right=577 vw=400 text=2만 원 주문이면 얼마가 빠지나요?",
+   "OVER li right=808 vw=400 text=요기요는 어떻게 다른가요?",
+   "OVER a right=808 vw=400 text=요기요는 어떻게 다른가요?",
+   "OVER li right=1046 vw=400 text=수수료 말고 뭐가 더 있나요?",
+   "OVER a right=1046 vw=400 text=수수료 말고 뭐가 더 있나요?",
+   "OVER li right=1342 vw=400 text=그래서 실제로는 얼마를 내고 있나요?",
+   "OVER a right=1342 vw=400 text=그래서 실제로는 얼마를 내고 있나요?",
+   "OVER li right=1673 vw=400 text=배달앱 말고 포장 주문을 받을 데가 있나요?",
+   "OVER a right=1673 vw=400 text=배달앱 말고 포장 주문을 받을 데가 있나요?",
+   "OVER li right=1865 vw=400 text=이 숫자로 뭘 하나요?",
+   "OVER a right=1865 vw=400 text=이 숫자로 뭘 하나요?"
+  ],
+  "/guide/disclosure.html": [
+   "OVER li right=442 vw=400 text=1. 위치는 어디인가요?",
+   "OVER a right=442 vw=400 text=1. 위치는 어디인가요?",
+   "OVER li right=662 vw=400 text=2. 모양은 어때야 하나요?",
+   "OVER a right=662 vw=400 text=2. 모양은 어때야 하나요?",
+   "OVER li right=854 vw=400 text=3. 무슨 말로 적나요?",
+   "OVER a right=854 vw=400 text=3. 무슨 말로 적나요?",
+   "OVER li right=1060 vw=400 text=4. 어느 언어로 적나요?",
+   "OVER a right=1060 vw=400 text=4. 어느 언어로 적나요?",
+   "OVER li right=1356 vw=400 text=AI로 만든 사람이 가게를 소개하면요?",
+   "OVER a right=1356 vw=400 text=AI로 만든 사람이 가게를 소개하면요?",
+   "OVER li right=1601 vw=400 text=체험단에게 무엇을 보내나요?",
+   "OVER a right=1601 vw=400 text=체험단에게 무엇을 보내나요?",
+   "OVER li right=1916 vw=400 text=「내돈내산」 배너는 체험단 글에 못 붙어요",
+   "OVER a right=1916 vw=400 text=「내돈내산」 배너는 체험단 글에 못 붙어요",
+   "OVER li right=2005 vw=400 text=정리",
+   "OVER a right=2005 vw=400 text=정리"
+  ],
+  "/guide/domain.html": [
+   "OVER li right=503 vw=400 text=홈페이지는 어디에 올리나요?",
+   "OVER a right=503 vw=400 text=홈페이지는 어디에 올리나요?",
+   "OVER li right=742 vw=400 text=공짜 호스팅은 왜 안 되나요?",
+   "OVER a right=742 vw=400 text=공짜 호스팅은 왜 안 되나요?",
+   "OVER li right=963 vw=400 text=도메인 다음엔 뭘 하나요?",
+   "OVER a right=963 vw=400 text=도메인 다음엔 뭘 하나요?",
+   "OVER li right=1169 vw=400 text=아직 모르는 건 뭔가요?",
+   "OVER a right=1169 vw=400 text=아직 모르는 건 뭔가요?",
+   "OVER li right=1258 vw=400 text=정리",
+   "OVER a right=1258 vw=400 text=정리"
+  ],
+  "/guide/fee-table.html": [
+   "OVER li right=591 vw=400 text=이 표로 무엇을 하나요?",
+   "OVER a right=591 vw=400 text=이 표로 무엇을 하나요?"
+  ],
+  "/guide/followers.html": [
+   "OVER li right=567 vw=400 text=팔로워가 많으면 더 많이 보이나요?",
+   "OVER a right=567 vw=400 text=팔로워가 많으면 더 많이 보이나요?",
+   "OVER li right=862 vw=400 text=그러면 팔로워는 아무 의미가 없나요?",
+   "OVER a right=862 vw=400 text=그러면 팔로워는 아무 의미가 없나요?",
+   "OVER li right=1083 vw=400 text=업체 대신 무엇을 하나요?",
+   "OVER a right=1083 vw=400 text=업체 대신 무엇을 하나요?",
+   "OVER li right=1171 vw=400 text=정리",
+   "OVER a right=1171 vw=400 text=정리"
+  ],
+  "/guide/free-tools.html": [
+   "OVER li right=558 vw=400 text=인스타그램 · 유튜브 · 기록",
+   "OVER a right=558 vw=400 text=인스타그램 · 유튜브 · 기록"
+  ],
+  "/guide/geo.html": [
+   "OVER li right=550 vw=400 text=무엇이 확인됐고 무엇이 아닌가요?",
+   "OVER a right=550 vw=400 text=무엇이 확인됐고 무엇이 아닌가요?",
+   "OVER li right=799 vw=400 text=국내에서 확실한 길은 뭔가요?",
+   "OVER a right=799 vw=400 text=국내에서 확실한 길은 뭔가요?",
+   "OVER li right=887 vw=400 text=정리",
+   "OVER a right=887 vw=400 text=정리"
+  ],
+  "/guide/google-content.html": [
+   "OVER li right=476 vw=400 text=E-E-A-T는 무슨 뜻인가요?",
+   "OVER a right=476 vw=400 text=E-E-A-T는 무슨 뜻인가요?",
+   "OVER li right=757 vw=400 text=품질 평가자가 내 순위를 내리나요?",
+   "OVER a right=757 vw=400 text=품질 평가자가 내 순위를 내리나요?",
+   "OVER li right=978 vw=400 text=경험은 왜 재료가 되나요?",
+   "OVER a right=978 vw=400 text=경험은 왜 재료가 되나요?",
+   "OVER li right=1199 vw=400 text=흔한 위험 신호는 뭔가요?",
+   "OVER a right=1199 vw=400 text=흔한 위험 신호는 뭔가요?",
+   "OVER li right=1434 vw=400 text=AI로 썼으면 밝혀야 하나요?",
+   "OVER a right=1434 vw=400 text=AI로 썼으면 밝혀야 하나요?",
+   "OVER li right=1522 vw=400 text=정리",
+   "OVER a right=1522 vw=400 text=정리"
+  ],
+  "/guide/google-profile.html": [
+   "OVER li right=549 vw=400 text=무엇을 지켜야 하나요?",
+   "OVER a right=549 vw=400 text=무엇을 지켜야 하나요?",
+   "OVER li right=752 vw=400 text=어기면 어떻게 되나요?",
+   "OVER a right=752 vw=400 text=어기면 어떻게 되나요?",
+   "OVER li right=1029 vw=400 text=네이버 플레이스와 뭐가 다른가요?",
+   "OVER a right=1029 vw=400 text=네이버 플레이스와 뭐가 다른가요?",
+   "OVER li right=1236 vw=400 text=아직 모르는 건 뭔가요?",
+   "OVER a right=1236 vw=400 text=아직 모르는 건 뭔가요?",
+   "OVER li right=1324 vw=400 text=정리",
+   "OVER a right=1324 vw=400 text=정리"
+  ],
+  "/guide/google-suspended.html": [
+   "OVER li right=638 vw=400 text=주소·전화·영업시간은 어떻게 적나요?",
+   "OVER a right=638 vw=400 text=주소·전화·영업시간은 어떻게 적나요?",
+   "OVER li right=872 vw=400 text=카테고리는 몇 개 고르나요?",
+   "OVER a right=872 vw=400 text=카테고리는 몇 개 고르나요?",
+   "OVER li right=1136 vw=400 text=정지됐어요. 어떻게 되살리나요?",
+   "OVER a right=1136 vw=400 text=정지됐어요. 어떻게 되살리나요?",
+   "OVER li right=1224 vw=400 text=정리",
+   "OVER a right=1224 vw=400 text=정리"
+  ],
+  "/guide/hair-salon.html": [
+   "OVER li right=622 vw=400 text=2. 네이버 예약과 Npay 매장결제를 켠다",
+   "OVER a right=622 vw=400 text=2. 네이버 예약과 Npay 매장결제를 켠다",
+   "OVER li right=884 vw=400 text=3. 노쇼 위약금을 미리 정해 둔다",
+   "OVER a right=884 vw=400 text=3. 노쇼 위약금을 미리 정해 둔다",
+   "OVER li right=1177 vw=400 text=4. 값은 가게 안 요금표와 같게 적는다",
+   "OVER a right=1177 vw=400 text=4. 값은 가게 안 요금표와 같게 적는다",
+   "OVER li right=1531 vw=400 text=5. 인스타그램은 릴스로, 비포 앤 애프터는 빼고",
+   "OVER a right=1531 vw=400 text=5. 인스타그램은 릴스로, 비포 앤 애프터는 빼고",
+   "OVER li right=1794 vw=400 text=순서를 지키면 무엇이 바뀌나요?",
+   "OVER a right=1794 vw=400 text=순서를 지키면 무엇이 바뀌나요?",
+   "OVER li right=1883 vw=400 text=정리",
+   "OVER a right=1883 vw=400 text=정리"
+  ],
+  "/guide/help-indexes.html": [
+   "OVER li right=449 vw=400 text=정리",
+   "OVER a right=449 vw=400 text=정리"
+  ],
+  "/guide/homepage.html": [
+   "OVER li right=521 vw=400 text=페이지 제목은 어떻게 하나요?",
+   "OVER a right=521 vw=400 text=페이지 제목은 어떻게 하나요?",
+   "OVER li right=720 vw=400 text=오픈그래프가 뭔가요?",
+   "OVER a right=720 vw=400 text=오픈그래프가 뭔가요?",
+   "OVER li right=997 vw=400 text=지점마다 사이트를 따로 만들까요?",
+   "OVER a right=997 vw=400 text=지점마다 사이트를 따로 만들까요?",
+   "OVER li right=1260 vw=400 text=안 보이면 무엇부터 확인하나요?",
+   "OVER a right=1260 vw=400 text=안 보이면 무엇부터 확인하나요?",
+   "OVER li right=1570 vw=400 text=네이버 검색 고객센터는 뭐라고 하나요?",
+   "OVER a right=1570 vw=400 text=네이버 검색 고객센터는 뭐라고 하나요?",
+   "OVER li right=1891 vw=400 text=robots.txt로 막으면 검색에서 빠지나요?",
+   "OVER a right=1891 vw=400 text=robots.txt로 막으면 검색에서 빠지나요?",
+   "OVER li right=2183 vw=400 text=수집요청을 누르면 바로 올라가나요?",
+   "OVER a right=2183 vw=400 text=수집요청을 누르면 바로 올라가나요?",
+   "OVER li right=2385 vw=400 text=사이트맵은 왜 내나요?",
+   "OVER a right=2385 vw=400 text=사이트맵은 왜 내나요?",
+   "OVER li right=2474 vw=400 text=정리",
+   "OVER a right=2474 vw=400 text=정리"
+  ],
+  "/guide/industry-ad-rules.html": [
+   "OVER li right=489 vw=400 text=미용실은 값을 어떻게 적나요?",
+   "OVER a right=489 vw=400 text=미용실은 값을 어떻게 적나요?",
+   "OVER li right=724 vw=400 text=음식점은 무엇을 못 쓰나요?",
+   "OVER a right=724 vw=400 text=음식점은 무엇을 못 쓰나요?",
+   "OVER li right=849 vw=400 text=술집은요?",
+   "OVER a right=849 vw=400 text=술집은요?",
+   "OVER li right=1016 vw=400 text=공인중개사는요?",
+   "OVER a right=1016 vw=400 text=공인중개사는요?",
+   "OVER li right=1104 vw=400 text=정리",
+   "OVER a right=1104 vw=400 text=정리"
+  ],
+  "/guide/instagram.html": [
+   "OVER li right=559 vw=400 text=도달은 무엇으로 정해지나요?",
+   "OVER a right=559 vw=400 text=도달은 무엇으로 정해지나요?",
+   "OVER li right=822 vw=400 text=그러면 팔로워는 의미가 없나요?",
+   "OVER a right=822 vw=400 text=그러면 팔로워는 의미가 없나요?",
+   "OVER li right=1065 vw=400 text=무료로 할 수 있는 건 뭔가요?",
+   "OVER a right=1065 vw=400 text=무료로 할 수 있는 건 뭔가요?",
+   "OVER li right=1268 vw=400 text=무료의 한계는 뭔가요?",
+   "OVER a right=1268 vw=400 text=무료의 한계는 뭔가요?",
+   "OVER li right=1475 vw=400 text=릴스는 몇 분이 좋나요?",
+   "OVER a right=1475 vw=400 text=릴스는 몇 분이 좋나요?",
+   "OVER li right=1724 vw=400 text=해시태그는 몇 개까지 다나요?",
+   "OVER a right=1724 vw=400 text=해시태그는 몇 개까지 다나요?",
+   "OVER li right=2037 vw=400 text=내 개인 계정으로 가게를 올려도 되나요?",
+   "OVER a right=2037 vw=400 text=내 개인 계정으로 가게를 올려도 되나요?",
+   "OVER li right=2125 vw=400 text=정리",
+   "OVER a right=2125 vw=400 text=정리"
+  ],
+  "/guide/kakao-channel.html": [
+   "OVER li right=535 vw=400 text=일반 채널과 비즈니스 채널은 뭐가 다른가요?",
+   "OVER a right=535 vw=400 text=일반 채널과 비즈니스 채널은 뭐가 다른가요?",
+   "OVER li right=720 vw=400 text=무엇이 무료인가요?",
+   "OVER a right=720 vw=400 text=무엇이 무료인가요?",
+   "OVER li right=895 vw=400 text=무엇이 돈 드나요?",
+   "OVER a right=895 vw=400 text=무엇이 돈 드나요?",
+   "OVER li right=1162 vw=400 text=메시지 비용을 받을 길이 있나요?",
+   "OVER a right=1162 vw=400 text=메시지 비용을 받을 길이 있나요?",
+   "OVER li right=1443 vw=400 text=메시지는 아무 때나 보내도 되나요?",
+   "OVER a right=1443 vw=400 text=메시지는 아무 때나 보내도 되나요?",
+   "OVER li right=1617 vw=400 text=배울 데가 있나요?",
+   "OVER a right=1617 vw=400 text=배울 데가 있나요?",
+   "OVER li right=1706 vw=400 text=정리",
+   "OVER a right=1706 vw=400 text=정리"
+  ],
+  "/guide/kakao-membership.html": [
+   "OVER li right=507 vw=400 text=체험단 할인은 어떻게 봐야 하나요?",
+   "OVER a right=507 vw=400 text=체험단 할인은 어떻게 봐야 하나요?",
+   "OVER li right=756 vw=400 text=언제부터 쓰고 언제 끝나나요?",
+   "OVER a right=756 vw=400 text=언제부터 쓰고 언제 끝나나요?",
+   "OVER li right=987 vw=400 text=해지하면 돈을 돌려받나요?",
+   "OVER a right=987 vw=400 text=해지하면 돈을 돌려받나요?",
+   "OVER li right=1075 vw=400 text=정리",
+   "OVER a right=1075 vw=400 text=정리"
+  ],
+  "/guide/map-missing.html": [
+   "OVER li right=645 vw=400 text=2. 이름으로도 안 나오면 등록부터 확인",
+   "OVER a right=645 vw=400 text=2. 이름으로도 안 나오면 등록부터 확인",
+   "OVER li right=921 vw=400 text=3. 등록은 됐는데 마커에 안 보여요",
+   "OVER a right=921 vw=400 text=3. 등록은 됐는데 마커에 안 보여요",
+   "OVER li right=1267 vw=400 text=4. 손님이 보는 화면이 목록형인지 정답형인지",
+   "OVER a right=1267 vw=400 text=4. 손님이 보는 화면이 목록형인지 정답형인지",
+   "OVER li right=1536 vw=400 text=5. 순위가 아니라 「사라진」 거라면",
+   "OVER a right=1536 vw=400 text=5. 순위가 아니라 「사라진」 거라면",
+   "OVER li right=1624 vw=400 text=정리",
+   "OVER a right=1624 vw=400 text=정리"
+  ],
+  "/guide/meta-review.html": [
+   "OVER li right=509 vw=400 text=2. 비포 앤 애프터 사진을 썼나요?",
+   "OVER a right=509 vw=400 text=2. 비포 앤 애프터 사진을 썼나요?",
+   "OVER li right=757 vw=400 text=3. 이미지를 일부러 잘랐나요?",
+   "OVER a right=757 vw=400 text=3. 이미지를 일부러 잘랐나요?",
+   "OVER li right=1052 vw=400 text=4. 특별 광고 카테고리에 해당하나요?",
+   "OVER a right=1052 vw=400 text=4. 특별 광고 카테고리에 해당하나요?",
+   "OVER li right=1300 vw=400 text=5. 비현실적인 약속을 했나요?",
+   "OVER a right=1300 vw=400 text=5. 비현실적인 약속을 했나요?",
+   "OVER li right=1499 vw=400 text=무엇까지 검토하나요?",
+   "OVER a right=1499 vw=400 text=무엇까지 검토하나요?",
+   "OVER li right=1716 vw=400 text=거부되면 어떻게 하나요?",
+   "OVER a right=1716 vw=400 text=거부되면 어떻게 하나요?",
+   "OVER li right=1915 vw=400 text=어디부터 확인하나요?",
+   "OVER a right=1915 vw=400 text=어디부터 확인하나요?",
+   "OVER li right=2003 vw=400 text=정리",
+   "OVER a right=2003 vw=400 text=정리"
+  ],
+  "/guide/naver-clip.html": [
+   "OVER li right=627 vw=400 text=장소 태그와 방문 인증은 어떻게 다른가요?",
+   "OVER a right=627 vw=400 text=장소 태그와 방문 인증은 어떻게 다른가요?",
+   "OVER li right=894 vw=400 text=사장님이 직접 올릴 때 규칙은요?",
+   "OVER a right=894 vw=400 text=사장님이 직접 올릴 때 규칙은요?",
+   "OVER li right=1278 vw=400 text=맛집 크리에이터 모아보기에 우리 가게가 뜨려면요?",
+   "OVER a right=1278 vw=400 text=맛집 크리에이터 모아보기에 우리 가게가 뜨려면요?",
+   "OVER li right=1366 vw=400 text=정리",
+   "OVER a right=1366 vw=400 text=정리"
+  ],
+  "/guide/numbers.html": [
+   "OVER li right=535 vw=400 text=손님은 아직 네이버에 있나요?",
+   "OVER a right=535 vw=400 text=손님은 아직 네이버에 있나요?",
+   "OVER li right=817 vw=400 text=AI로 찾는 사람은 얼마나 늘었나요?",
+   "OVER a right=817 vw=400 text=AI로 찾는 사람은 얼마나 늘었나요?",
+   "OVER li right=1052 vw=400 text=숏폼을 보다가 정말 사나요?",
+   "OVER a right=1052 vw=400 text=숏폼을 보다가 정말 사나요?",
+   "OVER li right=1287 vw=400 text=우리 손님은 어디에 있나요?",
+   "OVER a right=1287 vw=400 text=우리 손님은 어디에 있나요?",
+   "OVER li right=1554 vw=400 text=다른 사장님들은 뭘 하고 있나요?",
+   "OVER a right=1554 vw=400 text=다른 사장님들은 뭘 하고 있나요?",
+   "OVER li right=1642 vw=400 text=정리",
+   "OVER a right=1642 vw=400 text=정리"
+  ],
+  "/guide/place-owner.html": [
+   "OVER li right=619 vw=400 text=ARS 인증은 어떻게 되나요?",
+   "OVER a right=619 vw=400 text=ARS 인증은 어떻게 되나요?",
+   "OVER li right=854 vw=400 text=서류 인증은 무엇을 내나요?",
+   "OVER a right=854 vw=400 text=서류 인증은 무엇을 내나요?",
+   "OVER li right=1099 vw=400 text=주인 변경 버튼이 아예 없어요",
+   "OVER a right=1099 vw=400 text=주인 변경 버튼이 아예 없어요",
+   "OVER li right=1322 vw=400 text=권한이 갑자기 사라졌어요",
+   "OVER a right=1322 vw=400 text=권한이 갑자기 사라졌어요",
+   "OVER li right=1637 vw=400 text=직원이나 인수한 사람에게 넘기고 싶어요",
+   "OVER a right=1637 vw=400 text=직원이나 인수한 사람에게 넘기고 싶어요",
+   "OVER li right=1725 vw=400 text=정리",
+   "OVER a right=1725 vw=400 text=정리"
+  ],
+  "/guide/place-photos.html": [
+   "OVER li right=539 vw=400 text=검색 결과에는 몇 장이 나가나요?",
+   "OVER a right=539 vw=400 text=검색 결과에는 몇 장이 나가나요?",
+   "OVER li right=838 vw=400 text=지도 위 작은 사진은 어떻게 정하나요?",
+   "OVER a right=838 vw=400 text=지도 위 작은 사진은 어떻게 정하나요?",
+   "OVER li right=1147 vw=400 text=미용실 시술 사진은 무엇이 지워지나요?",
+   "OVER a right=1147 vw=400 text=미용실 시술 사진은 무엇이 지워지나요?",
+   "OVER li right=1235 vw=400 text=정리",
+   "OVER a right=1235 vw=400 text=정리"
+  ],
+  "/guide/place-plus.html": [
+   "OVER li right=429 vw=400 text=누가 신청할 수 있나요?",
+   "OVER a right=429 vw=400 text=누가 신청할 수 있나요?",
+   "OVER li right=655 vw=400 text=우리 포스가 목록에 없어요",
+   "OVER a right=655 vw=400 text=우리 포스가 목록에 없어요",
+   "OVER li right=900 vw=400 text=네이버가 무엇을 가져가나요?",
+   "OVER a right=900 vw=400 text=네이버가 무엇을 가져가나요?",
+   "OVER li right=989 vw=400 text=정리",
+   "OVER a right=989 vw=400 text=정리"
+  ],
+  "/guide/place.html": [
+   "OVER li right=527 vw=400 text=순위는 무엇으로 정해지나요?",
+   "OVER a right=527 vw=400 text=순위는 무엇으로 정해지나요?",
+   "OVER li right=791 vw=400 text=「상위 노출 보장」 전화가 오면요?",
+   "OVER a right=791 vw=400 text=「상위 노출 보장」 전화가 오면요?",
+   "OVER li right=980 vw=400 text=AI 브리핑은 뭔가요?",
+   "OVER a right=980 vw=400 text=AI 브리핑은 뭔가요?",
+   "OVER li right=1318 vw=400 text=음식점 메뉴판이 검색에 통째로 나온다고요?",
+   "OVER a right=1318 vw=400 text=음식점 메뉴판이 검색에 통째로 나온다고요?",
+   "OVER li right=1581 vw=400 text=손님이 지도에 말로 물어보면요?",
+   "OVER a right=1581 vw=400 text=손님이 지도에 말로 물어보면요?",
+   "OVER li right=1884 vw=400 text=AI가 리뷰 답글을 써 준다는 건 뭔가요?",
+   "OVER a right=1884 vw=400 text=AI가 리뷰 답글을 써 준다는 건 뭔가요?",
+   "OVER li right=2101 vw=400 text=순위가 어제랑 다른데요?",
+   "OVER a right=2101 vw=400 text=순위가 어제랑 다른데요?",
+   "OVER li right=2190 vw=400 text=정리",
+   "OVER a right=2190 vw=400 text=정리"
+  ],
+  "/guide/powerlink.html": [
+   "OVER li right=461 vw=400 text=칸이 몇 개나 있나요?",
+   "OVER a right=461 vw=400 text=칸이 몇 개나 있나요?",
+   "OVER li right=692 vw=400 text=네이버 밖에서도 나가나요?",
+   "OVER a right=692 vw=400 text=네이버 밖에서도 나가나요?",
+   "OVER li right=927 vw=400 text=최소 입찰가는 왜 오르나요?",
+   "OVER a right=927 vw=400 text=최소 입찰가는 왜 오르나요?",
+   "OVER li right=1190 vw=400 text=「월 얼마에 상위 노출」 제안은요?",
+   "OVER a right=1190 vw=400 text=「월 얼마에 상위 노출」 제안은요?",
+   "OVER li right=1279 vw=400 text=정리",
+   "OVER a right=1279 vw=400 text=정리"
+  ],
+  "/guide/quick-settlement.html": [
+   "OVER li right=457 vw=400 text=수수료가 붙나요?",
+   "OVER a right=457 vw=400 text=수수료가 붙나요?",
+   "OVER li right=674 vw=400 text=누가 어떻게 신청하나요?",
+   "OVER a right=674 vw=400 text=누가 어떻게 신청하나요?",
+   "OVER li right=877 vw=400 text=왜 갑자기 중단됐나요?",
+   "OVER a right=877 vw=400 text=왜 갑자기 중단됐나요?",
+   "OVER li right=1153 vw=400 text=정산중지·지급보류와는 다른가요?",
+   "OVER a right=1153 vw=400 text=정산중지·지급보류와는 다른가요?",
+   "OVER li right=1241 vw=400 text=정리",
+   "OVER a right=1241 vw=400 text=정리"
+  ],
+  "/guide/rank-drop.html": [
+   "OVER li right=491 vw=400 text=2. 최근에 정보를 바꿨나요?",
+   "OVER a right=491 vw=400 text=2. 최근에 정보를 바꿨나요?",
+   "OVER li right=679 vw=400 text=3. 리뷰가 줄었나요?",
+   "OVER a right=679 vw=400 text=3. 리뷰가 줄었나요?",
+   "OVER li right=945 vw=400 text=4. 대행사가 무슨 작업을 했나요?",
+   "OVER a right=945 vw=400 text=4. 대행사가 무슨 작업을 했나요?",
+   "OVER li right=1230 vw=400 text=5. 손님이 어떤 필터로 보고 있나요?",
+   "OVER a right=1230 vw=400 text=5. 손님이 어떤 필터로 보고 있나요?",
+   "OVER li right=1506 vw=400 text=6. 거리와 카테고리 선호도인가요?",
+   "OVER a right=1506 vw=400 text=6. 거리와 카테고리 선호도인가요?",
+   "OVER li right=1801 vw=400 text=순위를 다시 올리려면 무엇을 하나요?",
+   "OVER a right=1801 vw=400 text=순위를 다시 올리려면 무엇을 하나요?",
+   "OVER li right=1889 vw=400 text=정리",
+   "OVER a right=1889 vw=400 text=정리"
+  ],
+  "/guide/record.html": [
+   "OVER li right=401 vw=400 text=무엇을 지켜야 하나요?",
+   "OVER a right=401 vw=400 text=무엇을 지켜야 하나요?",
+   "OVER li right=636 vw=400 text=내가 데려온 주문이 뭔가요?",
+   "OVER a right=636 vw=400 text=내가 데려온 주문이 뭔가요?",
+   "OVER li right=843 vw=400 text=매주 어떤 칸을 적나요?",
+   "OVER a right=843 vw=400 text=매주 어떤 칸을 적나요?",
+   "OVER li right=1120 vw=400 text=성과처럼 보이지만 아닌 숫자는요?",
+   "OVER a right=1120 vw=400 text=성과처럼 보이지만 아닌 숫자는요?",
+   "OVER li right=1360 vw=400 text=12주 뒤에는 어떻게 읽나요?",
+   "OVER a right=1360 vw=400 text=12주 뒤에는 어떻게 읽나요?",
+   "OVER li right=1448 vw=400 text=정리",
+   "OVER a right=1448 vw=400 text=정리"
+  ],
+  "/guide/reply-examples.html": [
+   "OVER li right=590 vw=400 text=별점만 있고 글이 없는 리뷰",
+   "OVER a right=590 vw=400 text=별점만 있고 글이 없는 리뷰",
+   "OVER li right=770 vw=400 text=음식이 늦게 나왔다",
+   "OVER a right=770 vw=400 text=음식이 늦게 나왔다",
+   "OVER li right=1011 vw=400 text=음식이 식었거나 맛이 달랐다",
+   "OVER a right=1011 vw=400 text=음식이 식었거나 맛이 달랐다",
+   "OVER li right=1159 vw=400 text=이물이 나왔다",
+   "OVER a right=1159 vw=400 text=이물이 나왔다",
+   "OVER li right=1336 vw=400 text=직원이 불친절했다",
+   "OVER a right=1336 vw=400 text=직원이 불친절했다",
+   "OVER li right=1470 vw=400 text=값이 비싸다",
+   "OVER a right=1470 vw=400 text=값이 비싸다",
+   "OVER li right=1711 vw=400 text=배달이 늦었거나 포장이 샜다",
+   "OVER a right=1711 vw=400 text=배달이 늦었거나 포장이 샜다",
+   "OVER li right=2015 vw=400 text=배달앱 리뷰, 메뉴가 빠졌거나 별점 1개",
+   "OVER a right=2015 vw=400 text=배달앱 리뷰, 메뉴가 빠졌거나 별점 1개",
+   "OVER li right=2231 vw=400 text=손님이 잘못 알고 쓴 리뷰",
+   "OVER a right=2231 vw=400 text=손님이 잘못 알고 쓴 리뷰",
+   "OVER li right=2426 vw=400 text=예약하고 다녀간 손님",
+   "OVER a right=2426 vw=400 text=예약하고 다녀간 손님",
+   "OVER li right=2610 vw=400 text=사진을 올려 준 손님",
+   "OVER a right=2610 vw=400 text=사진을 올려 준 손님",
+   "OVER li right=2766 vw=400 text=여러 번 온 단골",
+   "OVER a right=2766 vw=400 text=여러 번 온 단골",
+   "OVER li right=2854 vw=400 text=정리",
+   "OVER a right=2854 vw=400 text=정리"
+  ],
+  "/guide/reservation-noshow.html": [
+   "OVER li right=599 vw=400 text=환불 기준은 어디까지 정하나요?",
+   "OVER a right=599 vw=400 text=환불 기준은 어디까지 정하나요?",
+   "OVER li right=944 vw=400 text=선결제 없이 노쇼 위약금을 받을 수는 없나요?",
+   "OVER a right=944 vw=400 text=선결제 없이 노쇼 위약금을 받을 수는 없나요?",
+   "OVER li right=1083 vw=400 text=수수료는요?",
+   "OVER a right=1083 vw=400 text=수수료는요?",
+   "OVER li right=1403 vw=400 text=취소·노쇼를 누른 뒤에 되돌릴 수 있나요?",
+   "OVER a right=1403 vw=400 text=취소·노쇼를 누른 뒤에 되돌릴 수 있나요?",
+   "OVER li right=1523 vw=400 text=저희 생각",
+   "OVER a right=1523 vw=400 text=저희 생각"
+  ],
+  "/guide/reservation-settlement.html": [
+   "OVER li right=407 vw=400 text=수수료는 얼마인가요?",
+   "OVER a right=407 vw=400 text=수수료는 얼마인가요?",
+   "OVER li right=686 vw=400 text=「프로그램」 상품은 4%가 더 붙어요",
+   "OVER a right=686 vw=400 text=「프로그램」 상품은 4%가 더 붙어요",
+   "OVER li right=990 vw=400 text=이미 이용 완료된 예약을 환불해야 해요",
+   "OVER a right=990 vw=400 text=이미 이용 완료된 예약을 환불해야 해요",
+   "OVER li right=1079 vw=400 text=정리",
+   "OVER a right=1079 vw=400 text=정리"
+  ],
+  "/guide/review-penalty.html": [
+   "OVER li right=471 vw=400 text=영수증은 어떤 것이 인증되나요?",
+   "OVER a right=471 vw=400 text=영수증은 어떤 것이 인증되나요?",
+   "OVER li right=776 vw=400 text=남의 가게 리뷰가 우리 가게에 붙었어요",
+   "OVER a right=776 vw=400 text=남의 가게 리뷰가 우리 가게에 붙었어요",
+   "OVER li right=1067 vw=400 text=네이버가 사장님을 보호하는 쪽은요?",
+   "OVER a right=1067 vw=400 text=네이버가 사장님을 보호하는 쪽은요?",
+   "OVER li right=1155 vw=400 text=정리",
+   "OVER a right=1155 vw=400 text=정리"
+  ],
+  "/guide/review-rules-compare.html": [
+   "OVER li right=535 vw=400 text=부탁은 어디까지 되나요?",
+   "OVER a right=535 vw=400 text=부탁은 어디까지 되나요?",
+   "OVER li right=756 vw=400 text=어느 글에 원문이 있나요?",
+   "OVER a right=756 vw=400 text=어느 글에 원문이 있나요?",
+   "OVER li right=844 vw=400 text=정리",
+   "OVER a right=844 vw=400 text=정리"
+  ],
+  "/guide/reviews.html": [
+   "OVER li right=535 vw=400 text=답글은 어떻게 써야 하나요?",
+   "OVER a right=535 vw=400 text=답글은 어떻게 써야 하나요?",
+   "OVER li right=844 vw=400 text=네이버에서는 리뷰가 무슨 일을 하나요?",
+   "OVER a right=844 vw=400 text=네이버에서는 리뷰가 무슨 일을 하나요?",
+   "OVER li right=1157 vw=400 text=리뷰 키워드는 사장님이 고를 수 있나요?",
+   "OVER a right=1157 vw=400 text=리뷰 키워드는 사장님이 고를 수 있나요?",
+   "OVER li right=1392 vw=400 text=리뷰를 사면 어떻게 되나요?",
+   "OVER a right=1392 vw=400 text=리뷰를 사면 어떻게 되나요?",
+   "OVER li right=1481 vw=400 text=정리",
+   "OVER a right=1481 vw=400 text=정리"
+  ],
+  "/guide/selling.html": [
+   "OVER li right=527 vw=400 text=스마트스토어는 뭐가 붙나요?",
+   "OVER a right=527 vw=400 text=스마트스토어는 뭐가 붙나요?",
+   "OVER li right=879 vw=400 text=네이버쇼핑 검색 순위는 무엇으로 정해지나요?",
+   "OVER a right=879 vw=400 text=네이버쇼핑 검색 순위는 무엇으로 정해지나요?",
+   "OVER li right=1096 vw=400 text=쿠팡은 어떻게 다른가요?",
+   "OVER a right=1096 vw=400 text=쿠팡은 어떻게 다른가요?",
+   "OVER li right=1377 vw=400 text=인스타그램에서 바로 팔 수 있나요?",
+   "OVER a right=1377 vw=400 text=인스타그램에서 바로 팔 수 있나요?",
+   "OVER li right=1616 vw=400 text=법으로 해야 하는 건 뭔가요?",
+   "OVER a right=1616 vw=400 text=법으로 해야 하는 건 뭔가요?",
+   "OVER li right=1704 vw=400 text=정리",
+   "OVER a right=1704 vw=400 text=정리"
+  ],
+  "/guide/seo.html": [
+   "OVER li right=503 vw=400 text=네이버는 무엇을 보나요?",
+   "OVER a right=503 vw=400 text=네이버는 무엇을 보나요?",
+   "OVER li right=674 vw=400 text=구글은 다른가요?",
+   "OVER a right=674 vw=400 text=구글은 다른가요?",
+   "OVER li right=762 vw=400 text=정리",
+   "OVER a right=762 vw=400 text=정리"
+  ],
+  "/guide/shop-video.html": [
+   "OVER li right=638 vw=400 text=AI로 만든 사람이나 장면이 나오면요?",
+   "OVER a right=638 vw=400 text=AI로 만든 사람이나 장면이 나오면요?",
+   "OVER li right=887 vw=400 text=음악은 어디서 골라야 하나요?",
+   "OVER a right=887 vw=400 text=음악은 어디서 골라야 하나요?",
+   "OVER li right=1168 vw=400 text=가격이나 혜택 숫자를 넣을 때는요?",
+   "OVER a right=1168 vw=400 text=가격이나 혜택 숫자를 넣을 때는요?",
+   "OVER li right=1431 vw=400 text=길이와 비율은 어떻게 맞추나요?",
+   "OVER a right=1431 vw=400 text=길이와 비율은 어떻게 맞추나요?",
+   "OVER li right=1519 vw=400 text=정리",
+   "OVER a right=1519 vw=400 text=정리"
+  ],
+  "/guide/smartstore-ads.html": [
+   "OVER li right=422 vw=400 text=누가 켤 수 있나요?",
+   "OVER a right=422 vw=400 text=누가 켤 수 있나요?",
+   "OVER li right=706 vw=400 text=ADVoost 쇼핑과 무엇이 다른가요?",
+   "OVER a right=706 vw=400 text=ADVoost 쇼핑과 무엇이 다른가요?",
+   "OVER li right=863 vw=400 text=얼마가 드나요?",
+   "OVER a right=863 vw=400 text=얼마가 드나요?",
+   "OVER li right=951 vw=400 text=정리",
+   "OVER a right=951 vw=400 text=정리"
+  ],
+  "/guide/smartstore-faq-orders.html": [
+   "OVER li right=412 vw=400 text=구매확정 내역",
+   "OVER a right=412 vw=400 text=구매확정 내역",
+   "OVER li right=532 vw=400 text=취소 관리",
+   "OVER a right=532 vw=400 text=취소 관리",
+   "OVER li right=652 vw=400 text=반품 관리",
+   "OVER a right=652 vw=400 text=반품 관리",
+   "OVER li right=740 vw=400 text=정리",
+   "OVER a right=740 vw=400 text=정리"
+  ],
+  "/guide/smartstore-faq-products.html": [
+   "OVER li right=530 vw=400 text=상품정보 검색품질(SEO)",
+   "OVER a right=530 vw=400 text=상품정보 검색품질(SEO)",
+   "OVER li right=682 vw=400 text=검색 순위 진단",
+   "OVER a right=682 vw=400 text=검색 순위 진단",
+   "OVER li right=770 vw=400 text=정리",
+   "OVER a right=770 vw=400 text=정리"
+  ],
+  "/guide/smartstore-faq-run.html": [
+   "OVER li right=440 vw=400 text=혜택 등록",
+   "OVER a right=440 vw=400 text=혜택 등록",
+   "OVER li right=560 vw=400 text=광고 등록",
+   "OVER a right=560 vw=400 text=광고 등록",
+   "OVER li right=680 vw=400 text=광고 관리",
+   "OVER a right=680 vw=400 text=광고 관리",
+   "OVER li right=839 vw=400 text=결제 관리(광고)",
+   "OVER a right=839 vw=400 text=결제 관리(광고)",
+   "OVER li right=959 vw=400 text=문의 관리",
+   "OVER a right=959 vw=400 text=문의 관리",
+   "OVER li right=1108 vw=400 text=기본정보 관리",
+   "OVER a right=1108 vw=400 text=기본정보 관리",
+   "OVER li right=1196 vw=400 text=정리",
+   "OVER a right=1196 vw=400 text=정리"
+  ],
+  "/guide/smartstore-faq-start.html": [
+   "OVER li right=569 vw=400 text=상품정보 검색품질(SEO)",
+   "OVER a right=569 vw=400 text=상품정보 검색품질(SEO)",
+   "OVER li right=721 vw=400 text=검색 순위 진단",
+   "OVER a right=721 vw=400 text=검색 순위 진단",
+   "OVER li right=869 vw=400 text=구매확정 내역",
+   "OVER a right=869 vw=400 text=구매확정 내역",
+   "OVER li right=1063 vw=400 text=정산 내역(일별/건별)",
+   "OVER a right=1063 vw=400 text=정산 내역(일별/건별)",
+   "OVER li right=1229 vw=400 text=항목별 정산 내역",
+   "OVER a right=1229 vw=400 text=항목별 정산 내역",
+   "OVER li right=1346 vw=400 text=빠른정산",
+   "OVER a right=1346 vw=400 text=빠른정산",
+   "OVER li right=1554 vw=400 text=중소상공인 수수료 전반",
+   "OVER a right=1554 vw=400 text=중소상공인 수수료 전반",
+   "OVER li right=1759 vw=400 text=초보판매자 정산가이드",
+   "OVER a right=1759 vw=400 text=초보판매자 정산가이드",
+   "OVER li right=1950 vw=400 text=우대수수료 환급내역",
+   "OVER a right=1950 vw=400 text=우대수수료 환급내역",
+   "OVER li right=2038 vw=400 text=정리",
+   "OVER a right=2038 vw=400 text=정리"
+  ],
+  "/guide/star-rating.html": [
+   "OVER li right=475 vw=400 text=평균 별점은 언제 붙나요?",
+   "OVER a right=475 vw=400 text=평균 별점은 언제 붙나요?",
+   "OVER li right=732 vw=400 text=사장님이 끌 수 있는 건 뭔가요?",
+   "OVER a right=732 vw=400 text=사장님이 끌 수 있는 건 뭔가요?",
+   "OVER li right=958 vw=400 text=낮은 별점 테러가 걱정돼요",
+   "OVER a right=958 vw=400 text=낮은 별점 테러가 걱정돼요",
+   "OVER li right=1207 vw=400 text=별점이 검색 순위를 올리나요?",
+   "OVER a right=1207 vw=400 text=별점이 검색 순위를 올리나요?",
+   "OVER li right=1295 vw=400 text=정리",
+   "OVER a right=1295 vw=400 text=정리"
+  ],
+  "/guide/store-ipr.html": [
+   "OVER li right=535 vw=400 text=신고하면 어떻게 진행되나요?",
+   "OVER a right=535 vw=400 text=신고하면 어떻게 진행되나요?",
+   "OVER li right=784 vw=400 text=신고당했어요. 어떻게 하나요?",
+   "OVER a right=784 vw=400 text=신고당했어요. 어떻게 하나요?",
+   "OVER li right=1047 vw=400 text=신고가 반려되는 건 언제인가요?",
+   "OVER a right=1047 vw=400 text=신고가 반려되는 건 언제인가요?",
+   "OVER li right=1135 vw=400 text=정리",
+   "OVER a right=1135 vw=400 text=정리"
+  ],
+  "/guide/store-listing-rules.html": [
+   "OVER li right=572 vw=400 text=손님을 속이는 것으로 보는 판매 방식",
+   "OVER a right=572 vw=400 text=손님을 속이는 것으로 보는 판매 방식",
+   "OVER li right=760 vw=400 text=아예 팔 수 없는 물건",
+   "OVER a right=760 vw=400 text=아예 팔 수 없는 물건",
+   "OVER li right=849 vw=400 text=정리",
+   "OVER a right=849 vw=400 text=정리"
+  ],
+  "/guide/store-penalty.html": [
+   "OVER li right=439 vw=400 text=발송기한은 언제까지인가요?",
+   "OVER a right=439 vw=400 text=발송기한은 언제까지인가요?",
+   "OVER li right=610 vw=400 text=언제 제재되나요?",
+   "OVER a right=610 vw=400 text=언제 제재되나요?",
+   "OVER li right=877 vw=400 text=점수 없이 바로 제재되는 것은요?",
+   "OVER a right=877 vw=400 text=점수 없이 바로 제재되는 것은요?",
+   "OVER li right=965 vw=400 text=정리",
+   "OVER a right=965 vw=400 text=정리"
+  ],
+  "/guide/store-scam.html": [
+   "OVER li right=538 vw=400 text=사칭 전화·문자의 특징은 뭔가요?",
+   "OVER a right=538 vw=400 text=사칭 전화·문자의 특징은 뭔가요?",
+   "OVER li right=741 vw=400 text=입점은 어떻게 하나요?",
+   "OVER a right=741 vw=400 text=입점은 어떻게 하나요?",
+   "OVER li right=996 vw=400 text=이미 결제했거나 정보를 줬어요",
+   "OVER a right=996 vw=400 text=이미 결제했거나 정보를 줬어요",
+   "OVER li right=1084 vw=400 text=정리",
+   "OVER a right=1084 vw=400 text=정리"
+  ],
+  "/guide/support-money.html": [
+   "OVER li right=489 vw=400 text=네이버는 어떻게 주나요?",
+   "OVER a right=489 vw=400 text=네이버는 어떻게 주나요?",
+   "OVER li right=706 vw=400 text=카카오는 어떻게 주나요?",
+   "OVER a right=706 vw=400 text=카카오는 어떻게 주나요?",
+   "OVER li right=965 vw=400 text=스마트스토어는 어떻게 주나요?",
+   "OVER a right=965 vw=400 text=스마트스토어는 어떻게 주나요?",
+   "OVER li right=1168 vw=400 text=당근은 어떻게 주나요?",
+   "OVER a right=1168 vw=400 text=당근은 어떻게 주나요?",
+   "OVER li right=1484 vw=400 text=정부 배달·택배비 지원은 어떻게 됐나요?",
+   "OVER a right=1484 vw=400 text=정부 배달·택배비 지원은 어떻게 됐나요?",
+   "OVER li right=1572 vw=400 text=정리",
+   "OVER a right=1572 vw=400 text=정리"
+  ],
+  "/guide/talktalk.html": [
+   "OVER li right=631 vw=400 text=상담시간과 자동 인사말은 어디서 정하나요?",
+   "OVER a right=631 vw=400 text=상담시간과 자동 인사말은 어디서 정하나요?",
+   "OVER li right=862 vw=400 text=응답률은 어떻게 매기나요?",
+   "OVER a right=862 vw=400 text=응답률은 어떻게 매기나요?",
+   "OVER li right=1151 vw=400 text=단체 메시지는 몇 번 보낼 수 있나요?",
+   "OVER a right=1151 vw=400 text=단체 메시지는 몇 번 보낼 수 있나요?",
+   "OVER li right=1400 vw=400 text=도움말 번호는 어디에 있나요?",
+   "OVER a right=1400 vw=400 text=도움말 번호는 어디에 있나요?",
+   "OVER li right=1488 vw=400 text=정리",
+   "OVER a right=1488 vw=400 text=정리"
+  ],
+  "/guide/threads.html": [
+   "OVER li right=573 vw=400 text=팔로워가 없어도 보이나요?",
+   "OVER a right=573 vw=400 text=팔로워가 없어도 보이나요?",
+   "OVER li right=819 vw=400 text=스레드에도 광고가 나가나요?",
+   "OVER a right=819 vw=400 text=스레드에도 광고가 나가나요?",
+   "OVER li right=1025 vw=400 text=가게가 할 일은 뭔가요?",
+   "OVER a right=1025 vw=400 text=가게가 할 일은 뭔가요?",
+   "OVER li right=1114 vw=400 text=정리",
+   "OVER a right=1114 vw=400 text=정리"
+  ],
+  "/guide/voucher-2026.html": [
+   "OVER li right=568 vw=400 text=어떻게 신청하나요?",
+   "OVER a right=568 vw=400 text=어떻게 신청하나요?",
+   "OVER li right=752 vw=400 text=무엇을 주의하나요?",
+   "OVER a right=752 vw=400 text=무엇을 주의하나요?",
+   "OVER li right=841 vw=400 text=정리",
+   "OVER a right=841 vw=400 text=정리"
+  ],
+  "/guide/youtube-search.html": [
+   "OVER li right=531 vw=400 text=추천은 무엇으로 정하나요?",
+   "OVER a right=531 vw=400 text=추천은 무엇으로 정하나요?",
+   "OVER li right=738 vw=400 text=문서에 없는 건 뭔가요?",
+   "OVER a right=738 vw=400 text=문서에 없는 건 뭔가요?",
+   "OVER li right=826 vw=400 text=정리",
+   "OVER a right=826 vw=400 text=정리"
+  ],
+  "/guide/youtube-shorts.html": [
+   "OVER li right=530 vw=400 text=1분을 넘기면 뭐가 달라지나요?",
+   "OVER a right=530 vw=400 text=1분을 넘기면 뭐가 달라지나요?",
+   "OVER li right=747 vw=400 text=수익은 언제부터 나나요?",
+   "OVER a right=747 vw=400 text=수익은 언제부터 나나요?",
+   "OVER li right=955 vw=400 text=45%는 무슨 뜻인가요?",
+   "OVER a right=955 vw=400 text=45%는 무슨 뜻인가요?",
+   "OVER li right=1144 vw=400 text=쉬면 어떻게 되나요?",
+   "OVER a right=1144 vw=400 text=쉬면 어떻게 되나요?",
+   "OVER li right=1411 vw=400 text=AI로 만든 영상은 밝혀야 하나요?",
+   "OVER a right=1411 vw=400 text=AI로 만든 영상은 밝혀야 하나요?",
+   "OVER li right=1697 vw=400 text=AI로 찍어 낸 영상도 수익이 되나요?",
+   "OVER a right=1697 vw=400 text=AI로 찍어 낸 영상도 수익이 되나요?",
+   "OVER li right=1785 vw=400 text=정리",
+   "OVER a right=1785 vw=400 text=정리"
+  ],
   "/_build/og/og-en.html": [
    "PAGE scrollWidth 1200 > 980"
   ],
@@ -19,6 +1693,420 @@
   ],
   "/_build/og/og-ko.html": [
    "PAGE scrollWidth 1200 > 980"
+  ]
+ },
+ "1366": {
+  "/about.html": [
+   "OVER li right=1418 vw=1351 text=정정 기록",
+   "OVER a right=1418 vw=1351 text=정정 기록",
+   "OVER li right=1572 vw=1351 text=기술적 약속",
+   "OVER a right=1572 vw=1351 text=기술적 약속"
+  ],
+  "/guide/academy.html": [
+   "OVER li right=1476 vw=1351 text=4. 블로그는 한 과목으로 꾸준히",
+   "OVER a right=1476 vw=1351 text=4. 블로그는 한 과목으로 꾸준히",
+   "OVER li right=1796 vw=1351 text=5. 카카오톡 채널은 학부모 공지용으로",
+   "OVER a right=1796 vw=1351 text=5. 카카오톡 채널은 학부모 공지용으로",
+   "OVER li right=2079 vw=1351 text=순서를 지키면 무엇이 바뀌나요?",
+   "OVER a right=2079 vw=1351 text=순서를 지키면 무엇이 바뀌나요?",
+   "OVER li right=2187 vw=1351 text=정리",
+   "OVER a right=2187 vw=1351 text=정리"
+  ],
+  "/guide/ads.html": [
+   "OVER li right=1592 vw=1351 text=4. 카카오맵 광고는 어떻게 돈이 나가나요?",
+   "OVER a right=1592 vw=1351 text=4. 카카오맵 광고는 어떻게 돈이 나가나요?",
+   "OVER li right=1896 vw=1351 text=5. 토스 광고는 동네 가게에 맞나요?",
+   "OVER a right=1896 vw=1351 text=5. 토스 광고는 동네 가게에 맞나요?",
+   "OVER li right=2151 vw=1351 text=광고는 언제 효과가 있나요?",
+   "OVER a right=2151 vw=1351 text=광고는 언제 효과가 있나요?",
+   "OVER li right=2452 vw=1351 text=대행사와 계약하기 전에 뭘 보나요?",
+   "OVER a right=2452 vw=1351 text=대행사와 계약하기 전에 뭘 보나요?",
+   "OVER li right=2560 vw=1351 text=정리",
+   "OVER a right=2560 vw=1351 text=정리"
+  ],
+  "/guide/agency-contract.html": [
+   "OVER li right=1377 vw=1351 text=이미 계약했고 위약금이 과해요",
+   "OVER a right=1377 vw=1351 text=이미 계약했고 위약금이 과해요",
+   "OVER li right=1465 vw=1351 text=정리",
+   "OVER a right=1465 vw=1351 text=정리"
+  ],
+  "/guide/before-selling.html": [
+   "OVER li right=1458 vw=1351 text=3. 홈페이지에 무엇을 적어야 하나요? (제10조)",
+   "OVER a right=1458 vw=1351 text=3. 홈페이지에 무엇을 적어야 하나요? (제10조)",
+   "OVER li right=1773 vw=1351 text=4. 광고에는 무엇을 적나요? (제13조)",
+   "OVER a right=1773 vw=1351 text=4. 광고에는 무엇을 적나요? (제13조)",
+   "OVER li right=2135 vw=1351 text=4-1. 먹는 것을 팔면 광고 문구에 선이 있어요",
+   "OVER a right=2135 vw=1351 text=4-1. 먹는 것을 팔면 광고 문구에 선이 있어요",
+   "OVER li right=2431 vw=1351 text=5. 청약철회는 어떻게 안내하나요?",
+   "OVER a right=2431 vw=1351 text=5. 청약철회는 어떻게 안내하나요?",
+   "OVER li right=2824 vw=1351 text=6. 개인정보 처리방침은 작은 가게도 해야 하나요?",
+   "OVER a right=2824 vw=1351 text=6. 개인정보 처리방침은 작은 가게도 해야 하나요?",
+   "OVER li right=2932 vw=1351 text=정리",
+   "OVER a right=2932 vw=1351 text=정리"
+  ],
+  "/guide/blog-removed.html": [
+   "OVER li right=1477 vw=1351 text=고쳤으면 어떻게 하나요?",
+   "OVER a right=1477 vw=1351 text=고쳤으면 어떻게 하나요?",
+   "OVER li right=1566 vw=1351 text=정리",
+   "OVER a right=1566 vw=1351 text=정리"
+  ],
+  "/guide/blog.html": [
+   "OVER li right=1556 vw=1351 text=그러면 어떻게 운영하라는 건가요?",
+   "OVER a right=1556 vw=1351 text=그러면 어떻게 운영하라는 건가요?",
+   "OVER li right=1644 vw=1351 text=정리",
+   "OVER a right=1644 vw=1351 text=정리"
+  ],
+  "/guide/blogger.html": [
+   "OVER li right=1453 vw=1351 text=문서에 없는 건 뭔가요?",
+   "OVER a right=1453 vw=1351 text=문서에 없는 건 뭔가요?",
+   "OVER li right=1541 vw=1351 text=정리",
+   "OVER a right=1541 vw=1351 text=정리"
+  ],
+  "/guide/delivery-fees.html": [
+   "OVER li right=1412 vw=1351 text=수수료 말고 뭐가 더 있나요?",
+   "OVER a right=1412 vw=1351 text=수수료 말고 뭐가 더 있나요?",
+   "OVER li right=1727 vw=1351 text=그래서 실제로는 얼마를 내고 있나요?",
+   "OVER a right=1727 vw=1351 text=그래서 실제로는 얼마를 내고 있나요?",
+   "OVER li right=2078 vw=1351 text=배달앱 말고 포장 주문을 받을 데가 있나요?",
+   "OVER a right=2078 vw=1351 text=배달앱 말고 포장 주문을 받을 데가 있나요?",
+   "OVER li right=2291 vw=1351 text=이 숫자로 뭘 하나요?",
+   "OVER a right=2291 vw=1351 text=이 숫자로 뭘 하나요?"
+  ],
+  "/guide/disclosure.html": [
+   "OVER li right=1445 vw=1351 text=4. 어느 언어로 적나요?",
+   "OVER a right=1445 vw=1351 text=4. 어느 언어로 적나요?",
+   "OVER li right=1761 vw=1351 text=AI로 만든 사람이 가게를 소개하면요?",
+   "OVER a right=1761 vw=1351 text=AI로 만든 사람이 가게를 소개하면요?",
+   "OVER li right=2026 vw=1351 text=체험단에게 무엇을 보내나요?",
+   "OVER a right=2026 vw=1351 text=체험단에게 무엇을 보내나요?",
+   "OVER li right=2362 vw=1351 text=「내돈내산」 배너는 체험단 글에 못 붙어요",
+   "OVER a right=2362 vw=1351 text=「내돈내산」 배너는 체험단 글에 못 붙어요",
+   "OVER li right=2470 vw=1351 text=정리",
+   "OVER a right=2470 vw=1351 text=정리"
+  ],
+  "/guide/domain.html": [
+   "OVER li right=1475 vw=1351 text=아직 모르는 건 뭔가요?",
+   "OVER a right=1475 vw=1351 text=아직 모르는 건 뭔가요?",
+   "OVER li right=1563 vw=1351 text=정리",
+   "OVER a right=1563 vw=1351 text=정리"
+  ],
+  "/guide/followers.html": [
+   "OVER li right=1389 vw=1351 text=업체 대신 무엇을 하나요?",
+   "OVER a right=1389 vw=1351 text=업체 대신 무엇을 하나요?",
+   "OVER li right=1477 vw=1351 text=정리",
+   "OVER a right=1477 vw=1351 text=정리"
+  ],
+  "/guide/google-content.html": [
+   "OVER li right=1584 vw=1351 text=흔한 위험 신호는 뭔가요?",
+   "OVER a right=1584 vw=1351 text=흔한 위험 신호는 뭔가요?",
+   "OVER li right=1840 vw=1351 text=AI로 썼으면 밝혀야 하나요?",
+   "OVER a right=1840 vw=1351 text=AI로 썼으면 밝혀야 하나요?",
+   "OVER li right=1948 vw=1351 text=정리",
+   "OVER a right=1948 vw=1351 text=정리"
+  ],
+  "/guide/google-profile.html": [
+   "OVER li right=1541 vw=1351 text=아직 모르는 건 뭔가요?",
+   "OVER a right=1541 vw=1351 text=아직 모르는 건 뭔가요?",
+   "OVER li right=1630 vw=1351 text=정리",
+   "OVER a right=1630 vw=1351 text=정리"
+  ],
+  "/guide/google-suspended.html": [
+   "OVER li right=1441 vw=1351 text=정지됐어요. 어떻게 되살리나요?",
+   "OVER a right=1441 vw=1351 text=정지됐어요. 어떻게 되살리나요?",
+   "OVER li right=1529 vw=1351 text=정리",
+   "OVER a right=1529 vw=1351 text=정리"
+  ],
+  "/guide/hair-salon.html": [
+   "OVER li right=1543 vw=1351 text=4. 값은 가게 안 요금표와 같게 적는다",
+   "OVER a right=1543 vw=1351 text=4. 값은 가게 안 요금표와 같게 적는다",
+   "OVER li right=1917 vw=1351 text=5. 인스타그램은 릴스로, 비포 앤 애프터는 빼고",
+   "OVER a right=1917 vw=1351 text=5. 인스타그램은 릴스로, 비포 앤 애프터는 빼고",
+   "OVER li right=2200 vw=1351 text=순서를 지키면 무엇이 바뀌나요?",
+   "OVER a right=2200 vw=1351 text=순서를 지키면 무엇이 바뀌나요?",
+   "OVER li right=2308 vw=1351 text=정리",
+   "OVER a right=2308 vw=1351 text=정리"
+  ],
+  "/guide/homepage.html": [
+   "OVER li right=1363 vw=1351 text=지점마다 사이트를 따로 만들까요?",
+   "OVER a right=1363 vw=1351 text=지점마다 사이트를 따로 만들까요?",
+   "OVER li right=1646 vw=1351 text=안 보이면 무엇부터 확인하나요?",
+   "OVER a right=1646 vw=1351 text=안 보이면 무엇부터 확인하나요?",
+   "OVER li right=1975 vw=1351 text=네이버 검색 고객센터는 뭐라고 하나요?",
+   "OVER a right=1975 vw=1351 text=네이버 검색 고객센터는 뭐라고 하나요?",
+   "OVER li right=2317 vw=1351 text=robots.txt로 막으면 검색에서 빠지나요?",
+   "OVER a right=2317 vw=1351 text=robots.txt로 막으면 검색에서 빠지나요?",
+   "OVER li right=2628 vw=1351 text=수집요청을 누르면 바로 올라가나요?",
+   "OVER a right=2628 vw=1351 text=수집요청을 누르면 바로 올라가나요?",
+   "OVER li right=2851 vw=1351 text=사이트맵은 왜 내나요?",
+   "OVER a right=2851 vw=1351 text=사이트맵은 왜 내나요?",
+   "OVER li right=2959 vw=1351 text=정리",
+   "OVER a right=2959 vw=1351 text=정리"
+  ],
+  "/guide/industry-ad-rules.html": [
+   "OVER li right=1409 vw=1351 text=정리",
+   "OVER a right=1409 vw=1351 text=정리"
+  ],
+  "/guide/instagram.html": [
+   "OVER li right=1431 vw=1351 text=무료로 할 수 있는 건 뭔가요?",
+   "OVER a right=1431 vw=1351 text=무료로 할 수 있는 건 뭔가요?",
+   "OVER li right=1654 vw=1351 text=무료의 한계는 뭔가요?",
+   "OVER a right=1654 vw=1351 text=무료의 한계는 뭔가요?",
+   "OVER li right=1880 vw=1351 text=릴스는 몇 분이 좋나요?",
+   "OVER a right=1880 vw=1351 text=릴스는 몇 분이 좋나요?",
+   "OVER li right=2149 vw=1351 text=해시태그는 몇 개까지 다나요?",
+   "OVER a right=2149 vw=1351 text=해시태그는 몇 개까지 다나요?",
+   "OVER li right=2482 vw=1351 text=내 개인 계정으로 가게를 올려도 되나요?",
+   "OVER a right=2482 vw=1351 text=내 개인 계정으로 가게를 올려도 되나요?",
+   "OVER li right=2591 vw=1351 text=정리",
+   "OVER a right=2591 vw=1351 text=정리"
+  ],
+  "/guide/kakao-channel.html": [
+   "OVER li right=1547 vw=1351 text=메시지 비용을 받을 길이 있나요?",
+   "OVER a right=1547 vw=1351 text=메시지 비용을 받을 길이 있나요?",
+   "OVER li right=1848 vw=1351 text=메시지는 아무 때나 보내도 되나요?",
+   "OVER a right=1848 vw=1351 text=메시지는 아무 때나 보내도 되나요?",
+   "OVER li right=2043 vw=1351 text=배울 데가 있나요?",
+   "OVER a right=2043 vw=1351 text=배울 데가 있나요?",
+   "OVER li right=2151 vw=1351 text=정리",
+   "OVER a right=2151 vw=1351 text=정리"
+  ],
+  "/guide/kakao-membership.html": [
+   "OVER li right=1381 vw=1351 text=정리",
+   "OVER a right=1381 vw=1351 text=정리"
+  ],
+  "/guide/map-missing.html": [
+   "OVER li right=1572 vw=1351 text=4. 손님이 보는 화면이 목록형인지 정답형인지",
+   "OVER a right=1572 vw=1351 text=4. 손님이 보는 화면이 목록형인지 정답형인지",
+   "OVER li right=1841 vw=1351 text=5. 순위가 아니라 「사라진」 거라면",
+   "OVER a right=1841 vw=1351 text=5. 순위가 아니라 「사라진」 거라면",
+   "OVER li right=1929 vw=1351 text=정리",
+   "OVER a right=1929 vw=1351 text=정리"
+  ],
+  "/guide/meta-review.html": [
+   "OVER li right=1417 vw=1351 text=4. 특별 광고 카테고리에 해당하나요?",
+   "OVER a right=1417 vw=1351 text=4. 특별 광고 카테고리에 해당하나요?",
+   "OVER li right=1685 vw=1351 text=5. 비현실적인 약속을 했나요?",
+   "OVER a right=1685 vw=1351 text=5. 비현실적인 약속을 했나요?",
+   "OVER li right=1905 vw=1351 text=무엇까지 검토하나요?",
+   "OVER a right=1905 vw=1351 text=무엇까지 검토하나요?",
+   "OVER li right=2141 vw=1351 text=거부되면 어떻게 하나요?",
+   "OVER a right=2141 vw=1351 text=거부되면 어떻게 하나요?",
+   "OVER li right=2360 vw=1351 text=어디부터 확인하나요?",
+   "OVER a right=2360 vw=1351 text=어디부터 확인하나요?",
+   "OVER li right=2469 vw=1351 text=정리",
+   "OVER a right=2469 vw=1351 text=정리"
+  ],
+  "/guide/naver-clip.html": [
+   "OVER li right=1583 vw=1351 text=맛집 크리에이터 모아보기에 우리 가게가 뜨려면요?",
+   "OVER a right=1583 vw=1351 text=맛집 크리에이터 모아보기에 우리 가게가 뜨려면요?",
+   "OVER li right=1672 vw=1351 text=정리",
+   "OVER a right=1672 vw=1351 text=정리"
+  ],
+  "/guide/numbers.html": [
+   "OVER li right=1417 vw=1351 text=숏폼을 보다가 정말 사나요?",
+   "OVER a right=1417 vw=1351 text=숏폼을 보다가 정말 사나요?",
+   "OVER li right=1672 vw=1351 text=우리 손님은 어디에 있나요?",
+   "OVER a right=1672 vw=1351 text=우리 손님은 어디에 있나요?",
+   "OVER li right=1959 vw=1351 text=다른 사장님들은 뭘 하고 있나요?",
+   "OVER a right=1959 vw=1351 text=다른 사장님들은 뭘 하고 있나요?",
+   "OVER li right=2067 vw=1351 text=정리",
+   "OVER a right=2067 vw=1351 text=정리"
+  ],
+  "/guide/place-owner.html": [
+   "OVER li right=1484 vw=1351 text=주인 변경 버튼이 아예 없어요",
+   "OVER a right=1484 vw=1351 text=주인 변경 버튼이 아예 없어요",
+   "OVER li right=1727 vw=1351 text=권한이 갑자기 사라졌어요",
+   "OVER a right=1727 vw=1351 text=권한이 갑자기 사라졌어요",
+   "OVER li right=2062 vw=1351 text=직원이나 인수한 사람에게 넘기고 싶어요",
+   "OVER a right=2062 vw=1351 text=직원이나 인수한 사람에게 넘기고 싶어요",
+   "OVER li right=2170 vw=1351 text=정리",
+   "OVER a right=2170 vw=1351 text=정리"
+  ],
+  "/guide/place-photos.html": [
+   "OVER li right=1453 vw=1351 text=미용실 시술 사진은 무엇이 지워지나요?",
+   "OVER a right=1453 vw=1351 text=미용실 시술 사진은 무엇이 지워지나요?",
+   "OVER li right=1541 vw=1351 text=정리",
+   "OVER a right=1541 vw=1351 text=정리"
+  ],
+  "/guide/place.html": [
+   "OVER li right=1703 vw=1351 text=음식점 메뉴판이 검색에 통째로 나온다고요?",
+   "OVER a right=1703 vw=1351 text=음식점 메뉴판이 검색에 통째로 나온다고요?",
+   "OVER li right=1986 vw=1351 text=손님이 지도에 말로 물어보면요?",
+   "OVER a right=1986 vw=1351 text=손님이 지도에 말로 물어보면요?",
+   "OVER li right=2310 vw=1351 text=AI가 리뷰 답글을 써 준다는 건 뭔가요?",
+   "OVER a right=2310 vw=1351 text=AI가 리뷰 답글을 써 준다는 건 뭔가요?",
+   "OVER li right=2547 vw=1351 text=순위가 어제랑 다른데요?",
+   "OVER a right=2547 vw=1351 text=순위가 어제랑 다른데요?",
+   "OVER li right=2655 vw=1351 text=정리",
+   "OVER a right=2655 vw=1351 text=정리"
+  ],
+  "/guide/powerlink.html": [
+   "OVER li right=1496 vw=1351 text=「월 얼마에 상위 노출」 제안은요?",
+   "OVER a right=1496 vw=1351 text=「월 얼마에 상위 노출」 제안은요?",
+   "OVER li right=1584 vw=1351 text=정리",
+   "OVER a right=1584 vw=1351 text=정리"
+  ],
+  "/guide/quick-settlement.html": [
+   "OVER li right=1459 vw=1351 text=정산중지·지급보류와는 다른가요?",
+   "OVER a right=1459 vw=1351 text=정산중지·지급보류와는 다른가요?",
+   "OVER li right=1547 vw=1351 text=정리",
+   "OVER a right=1547 vw=1351 text=정리"
+  ],
+  "/guide/rank-drop.html": [
+   "OVER li right=1615 vw=1351 text=5. 손님이 어떤 필터로 보고 있나요?",
+   "OVER a right=1615 vw=1351 text=5. 손님이 어떤 필터로 보고 있나요?",
+   "OVER li right=1911 vw=1351 text=6. 거리와 카테고리 선호도인가요?",
+   "OVER a right=1911 vw=1351 text=6. 거리와 카테고리 선호도인가요?",
+   "OVER li right=2227 vw=1351 text=순위를 다시 올리려면 무엇을 하나요?",
+   "OVER a right=2227 vw=1351 text=순위를 다시 올리려면 무엇을 하나요?",
+   "OVER li right=2335 vw=1351 text=정리",
+   "OVER a right=2335 vw=1351 text=정리"
+  ],
+  "/guide/record.html": [
+   "OVER li right=1506 vw=1351 text=성과처럼 보이지만 아닌 숫자는요?",
+   "OVER a right=1506 vw=1351 text=성과처럼 보이지만 아닌 숫자는요?",
+   "OVER li right=1766 vw=1351 text=12주 뒤에는 어떻게 읽나요?",
+   "OVER a right=1766 vw=1351 text=12주 뒤에는 어떻게 읽나요?",
+   "OVER li right=1874 vw=1351 text=정리",
+   "OVER a right=1874 vw=1351 text=정리"
+  ],
+  "/guide/reply-examples.html": [
+   "OVER li right=1397 vw=1351 text=음식이 식었거나 맛이 달랐다",
+   "OVER a right=1397 vw=1351 text=음식이 식었거나 맛이 달랐다",
+   "OVER li right=1565 vw=1351 text=이물이 나왔다",
+   "OVER a right=1565 vw=1351 text=이물이 나왔다",
+   "OVER li right=1762 vw=1351 text=직원이 불친절했다",
+   "OVER a right=1762 vw=1351 text=직원이 불친절했다",
+   "OVER li right=1916 vw=1351 text=값이 비싸다",
+   "OVER a right=1916 vw=1351 text=값이 비싸다",
+   "OVER li right=2176 vw=1351 text=배달이 늦었거나 포장이 샜다",
+   "OVER a right=2176 vw=1351 text=배달이 늦었거나 포장이 샜다",
+   "OVER li right=2500 vw=1351 text=배달앱 리뷰, 메뉴가 빠졌거나 별점 1개",
+   "OVER a right=2500 vw=1351 text=배달앱 리뷰, 메뉴가 빠졌거나 별점 1개",
+   "OVER li right=2737 vw=1351 text=손님이 잘못 알고 쓴 리뷰",
+   "OVER a right=2737 vw=1351 text=손님이 잘못 알고 쓴 리뷰",
+   "OVER li right=2951 vw=1351 text=예약하고 다녀간 손님",
+   "OVER a right=2951 vw=1351 text=예약하고 다녀간 손님",
+   "OVER li right=3156 vw=1351 text=사진을 올려 준 손님",
+   "OVER a right=3156 vw=1351 text=사진을 올려 준 손님",
+   "OVER li right=3332 vw=1351 text=여러 번 온 단골",
+   "OVER a right=3332 vw=1351 text=여러 번 온 단골",
+   "OVER li right=3440 vw=1351 text=정리",
+   "OVER a right=3440 vw=1351 text=정리"
+  ],
+  "/guide/reservation-noshow.html": [
+   "OVER li right=1389 vw=1351 text=수수료는요?",
+   "OVER a right=1389 vw=1351 text=수수료는요?",
+   "OVER li right=1709 vw=1351 text=취소·노쇼를 누른 뒤에 되돌릴 수 있나요?",
+   "OVER a right=1709 vw=1351 text=취소·노쇼를 누른 뒤에 되돌릴 수 있나요?",
+   "OVER li right=1829 vw=1351 text=저희 생각",
+   "OVER a right=1829 vw=1351 text=저희 생각"
+  ],
+  "/guide/reservation-settlement.html": [
+   "OVER li right=1384 vw=1351 text=정리",
+   "OVER a right=1384 vw=1351 text=정리"
+  ],
+  "/guide/review-penalty.html": [
+   "OVER li right=1372 vw=1351 text=네이버가 사장님을 보호하는 쪽은요?",
+   "OVER a right=1372 vw=1351 text=네이버가 사장님을 보호하는 쪽은요?",
+   "OVER li right=1461 vw=1351 text=정리",
+   "OVER a right=1461 vw=1351 text=정리"
+  ],
+  "/guide/reviews.html": [
+   "OVER li right=1463 vw=1351 text=리뷰 키워드는 사장님이 고를 수 있나요?",
+   "OVER a right=1463 vw=1351 text=리뷰 키워드는 사장님이 고를 수 있나요?",
+   "OVER li right=1698 vw=1351 text=리뷰를 사면 어떻게 되나요?",
+   "OVER a right=1698 vw=1351 text=리뷰를 사면 어떻게 되나요?",
+   "OVER li right=1786 vw=1351 text=정리",
+   "OVER a right=1786 vw=1351 text=정리"
+  ],
+  "/guide/selling.html": [
+   "OVER li right=1461 vw=1351 text=쿠팡은 어떻게 다른가요?",
+   "OVER a right=1461 vw=1351 text=쿠팡은 어떻게 다른가요?",
+   "OVER li right=1762 vw=1351 text=인스타그램에서 바로 팔 수 있나요?",
+   "OVER a right=1762 vw=1351 text=인스타그램에서 바로 팔 수 있나요?",
+   "OVER li right=2021 vw=1351 text=법으로 해야 하는 건 뭔가요?",
+   "OVER a right=2021 vw=1351 text=법으로 해야 하는 건 뭔가요?",
+   "OVER li right=2129 vw=1351 text=정리",
+   "OVER a right=2129 vw=1351 text=정리"
+  ],
+  "/guide/shop-video.html": [
+   "OVER li right=1474 vw=1351 text=가격이나 혜택 숫자를 넣을 때는요?",
+   "OVER a right=1474 vw=1351 text=가격이나 혜택 숫자를 넣을 때는요?",
+   "OVER li right=1737 vw=1351 text=길이와 비율은 어떻게 맞추나요?",
+   "OVER a right=1737 vw=1351 text=길이와 비율은 어떻게 맞추나요?",
+   "OVER li right=1825 vw=1351 text=정리",
+   "OVER a right=1825 vw=1351 text=정리"
+  ],
+  "/guide/smartstore-faq-run.html": [
+   "OVER li right=1385 vw=1351 text=문의 관리",
+   "OVER a right=1385 vw=1351 text=문의 관리",
+   "OVER li right=1553 vw=1351 text=기본정보 관리",
+   "OVER a right=1553 vw=1351 text=기본정보 관리",
+   "OVER li right=1662 vw=1351 text=정리",
+   "OVER a right=1662 vw=1351 text=정리"
+  ],
+  "/guide/smartstore-faq-start.html": [
+   "OVER li right=1469 vw=1351 text=정산 내역(일별/건별)",
+   "OVER a right=1469 vw=1351 text=정산 내역(일별/건별)",
+   "OVER li right=1655 vw=1351 text=항목별 정산 내역",
+   "OVER a right=1655 vw=1351 text=항목별 정산 내역",
+   "OVER li right=1791 vw=1351 text=빠른정산",
+   "OVER a right=1791 vw=1351 text=빠른정산",
+   "OVER li right=2020 vw=1351 text=중소상공인 수수료 전반",
+   "OVER a right=2020 vw=1351 text=중소상공인 수수료 전반",
+   "OVER li right=2245 vw=1351 text=초보판매자 정산가이드",
+   "OVER a right=2245 vw=1351 text=초보판매자 정산가이드",
+   "OVER li right=2455 vw=1351 text=우대수수료 환급내역",
+   "OVER a right=2455 vw=1351 text=우대수수료 환급내역",
+   "OVER li right=2563 vw=1351 text=정리",
+   "OVER a right=2563 vw=1351 text=정리"
+  ],
+  "/guide/star-rating.html": [
+   "OVER li right=1513 vw=1351 text=별점이 검색 순위를 올리나요?",
+   "OVER a right=1513 vw=1351 text=별점이 검색 순위를 올리나요?",
+   "OVER li right=1601 vw=1351 text=정리",
+   "OVER a right=1601 vw=1351 text=정리"
+  ],
+  "/guide/store-ipr.html": [
+   "OVER li right=1353 vw=1351 text=신고가 반려되는 건 언제인가요?",
+   "OVER a right=1353 vw=1351 text=신고가 반려되는 건 언제인가요?",
+   "OVER li right=1441 vw=1351 text=정리",
+   "OVER a right=1441 vw=1351 text=정리"
+  ],
+  "/guide/store-scam.html": [
+   "OVER li right=1390 vw=1351 text=정리",
+   "OVER a right=1390 vw=1351 text=정리"
+  ],
+  "/guide/support-money.html": [
+   "OVER li right=1554 vw=1351 text=당근은 어떻게 주나요?",
+   "OVER a right=1554 vw=1351 text=당근은 어떻게 주나요?",
+   "OVER li right=1890 vw=1351 text=정부 배달·택배비 지원은 어떻게 됐나요?",
+   "OVER a right=1890 vw=1351 text=정부 배달·택배비 지원은 어떻게 됐나요?",
+   "OVER li right=1998 vw=1351 text=정리",
+   "OVER a right=1998 vw=1351 text=정리"
+  ],
+  "/guide/talktalk.html": [
+   "OVER li right=1457 vw=1351 text=단체 메시지는 몇 번 보낼 수 있나요?",
+   "OVER a right=1457 vw=1351 text=단체 메시지는 몇 번 보낼 수 있나요?",
+   "OVER li right=1706 vw=1351 text=도움말 번호는 어디에 있나요?",
+   "OVER a right=1706 vw=1351 text=도움말 번호는 어디에 있나요?",
+   "OVER li right=1794 vw=1351 text=정리",
+   "OVER a right=1794 vw=1351 text=정리"
+  ],
+  "/guide/threads.html": [
+   "OVER li right=1419 vw=1351 text=정리",
+   "OVER a right=1419 vw=1351 text=정리"
+  ],
+  "/guide/youtube-shorts.html": [
+   "OVER li right=1529 vw=1351 text=쉬면 어떻게 되나요?",
+   "OVER a right=1529 vw=1351 text=쉬면 어떻게 되나요?",
+   "OVER li right=1817 vw=1351 text=AI로 만든 영상은 밝혀야 하나요?",
+   "OVER a right=1817 vw=1351 text=AI로 만든 영상은 밝혀야 하나요?",
+   "OVER li right=2122 vw=1351 text=AI로 찍어 낸 영상도 수익이 되나요?",
+   "OVER a right=2122 vw=1351 text=AI로 찍어 낸 영상도 수익이 되나요?",
+   "OVER li right=2231 vw=1351 text=정리",
+   "OVER a right=2231 vw=1351 text=정리"
   ]
  }
 }
