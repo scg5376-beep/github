@@ -1358,3 +1358,24 @@ main.howto ol.steps.vx-steps > li > .vx-act-check { background:#e6f4ea; color:#1
 main.howto dl.kv.prep.vx-prep { display:flex; flex-wrap:wrap; }
 main.howto dl.kv.prep.vx-prep .vx-prep-c { flex:1 1 200px; min-width:0; }
 main.howto dl.kv.prep.vx-prep .vx-prep-c.wide { flex-basis:100%; }
+
+/* D103 7차 — 순서도 그림을 카드 줄로: 넓으면 가로, 좁으면 세로(894px SVG 는 400폭에서 글자 6px) */
+figure.vx-flow-fig { margin:22px 0 30px; }
+figure.vx-flow-fig .vx-flow-t { margin:0 0 10px; font-size:.92rem; font-weight:800; color:var(--accent); }
+ol.vx-flow { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:10px; counter-reset:none; }
+ol.vx-flow > li { position:relative; flex:1 1 150px; min-width:0; padding:14px 14px 14px 52px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); line-height:1.5; }
+ol.vx-flow > li .vx-kn { position:absolute; left:14px; top:14px; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-weight:800; font-size:.95rem; display:flex; align-items:center; justify-content:center; }
+ol.vx-flow > li b { display:block; font-size:1.02rem; }
+ol.vx-flow > li .sub { display:block; margin-top:2px; font-size:.9rem; color:var(--ink-soft); }
+figure.vx-flow-fig .vx-flow-n { margin:10px 0 0; font-size:.9rem; color:var(--ink-soft); }
+figure.vx-flow-fig figcaption { margin-top:8px; }
+@media (max-width:480px) {
+  ol.vx-flow > li { flex-basis:100%; }
+  ol.vx-flow > li:not(:last-child)::after { content:"↓"; position:absolute; left:22px; bottom:-12px; font-size:.9rem; color:var(--accent); line-height:1; }
+  /* 핵심 정리 카드가 있는 설명 글은 좁은 화면에서 목차 칩을 뺀다 — 본문 전 요약이 4겹(핵심 정리·바로 할 일·목차·순서도)이라 1겹 줄임 */
+  main.wrap:has(aside.keys) nav.intoc { display:none; }
+}
+@media (min-width:481px) {
+  ol.vx-flow > li { flex:1 1 110px; padding:12px 12px 12px 12px; }
+  ol.vx-flow > li .vx-kn { position:static; margin-bottom:6px; }
+}

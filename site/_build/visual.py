@@ -240,6 +240,37 @@ def fold_tables(sec):
     return re.sub(r"<table\b.*?</table>", rep, sec, flags=re.S)
 
 
+FIG_SVG = re.compile(r'<figure>\s*<svg[^>]*aria-labelledby="fig1t"[^>]*>(.*?)</svg>\s*(<figcaption>.*?</figcaption>)?\s*</figure>', re.S)
+
+
+def flow_fig(body):
+    """fig_steps.py 가 만든 가로 순서도 SVG(894px 고정) → HTML 카드 줄. 좁은 화면에서는 세로로 쌓여 글자가 안 줄어든다(D103 7차).
+    원본은 그대로 두고 빌드 때만 바꾼다. 못 읽는 모양이면 손대지 않는다."""
+    def rep(m):
+        inner, cap = m.group(1), m.group(2) or ""
+        title = re.search(r"<title[^>]*>(.*?)</title>", inner, re.S)
+        texts = re.findall(r'<text x="(\d+)" y="(\d+)"([^>]*)>(.*?)</text>', inner, re.S)
+        steps, note = [], ""
+        for x, y, attrs, t in texts:
+            x, y = int(x), int(y)
+            if 'text-anchor="middle"' in attrs:
+                steps.append({"n": t, "t": "", "sub": []})
+            elif 'font-size="16"' in attrs and steps:
+                steps[-1]["t"] = t
+            elif 'font-size="13"' in attrs:
+                if x == 20 and y >= 280:
+                    note = t
+                elif steps:
+                    steps[-1]["sub"].append(t)
+        if len(steps) < 2 or not all(st["t"] for st in steps):
+            return m.group(0)
+        lis = "".join(f'<li><span class="vx-kn">{st["n"]}</span><b>{st["t"]}</b>' + (f'<span class="sub">{" ".join(st["sub"])}</span>' if st["sub"] else "") + "</li>" for st in steps)
+        head = f'<p class="vx-flow-t">{title.group(1)}</p>' if title else ""
+        tail = f'<p class="vx-flow-n">{note}</p>' if note else ""
+        return f'<figure class="vx-flow-fig">{head}<ol class="vx-flow">{lis}</ol>{tail}{cap}</figure>'
+    return FIG_SVG.sub(rep, body, count=1)
+
+
 def keys_cards(body):
     """핵심 정리 상자 → 번호 카드."""
     def rep(m):
@@ -291,5 +322,5 @@ def apply(page, body):
     if url in ("/", "/start/", "/about.html", "/privacy.html") or url.startswith(("/terms/", "/updates/")) or page.get("plat") or page.get("setup"):
         return body
     if page.get("section") == "guide" or url.startswith("/why/") or page.get("kind") == "journal":
-        return fold_sections(keys_cards(body))
+        return fold_sections(flow_fig(keys_cards(body)))
     return body
