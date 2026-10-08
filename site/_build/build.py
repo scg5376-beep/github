@@ -711,14 +711,22 @@ def nav_html(page, pages):
             return plat_url(lang, cur_top, c)
         chans = "".join(f'<a href="{sub_href(c)}"{" aria-current=\"page\"" if cur_sub == c else ""}>{esc(c)}</a>' for c in subs(lang, cur_top))
         sub_row = f'<div class="subs {plat_class(cur_top)}"><div class="wrap"><a class="of" href="{plat_url(lang, cur_top)}">{esc(cur_top)}</a>{chans}</div></div>'
+    # 머리 = 사이트 이름 + 「묻기」 하나(+English). 플랫폼·채널 탭 줄은 없앴다 — 한 화면 누를 곳 7개 안팎(D103, 2026-10-08). 찾기 칸은 첫 화면·발자국에만
+    is_home = page["url"] in ("/", "/en/")
+    home_href = "/en/" if lang == "en" else "/"
+    brand_html = (f'<span class="brand"><img src="/img/mark-reverse.svg" alt="" width="28" height="28">{brand}</span>' if is_home
+                  else f'<a class="brand" href="{home_href}"><img src="/img/mark-reverse.svg" alt="" width="28" height="28">{brand}</a>')
+    if lang == "en":
+        right = "".join(out) + toggle
+    else:
+        right = ('' if is_home else '<a class="hb home" href="/">처음으로</a>') + '<a class="hb ask" href="https://ask.sajangmarketing.com/">묻기</a>' + toggle
     return f'''<header class="top">
   <div class="wrap">
-    {'<span class="brand">' if page["url"] in ("/", "/en/") else '<a class="brand" href="' + ('/en/' if lang == 'en' else '/') + '">'}<img src="/img/mark-reverse.svg" alt="" width="28" height="28">{brand}{'</span>' if page["url"] in ("/", "/en/") else '</a>'}
-    <nav>{"".join(out)}{toggle}</nav>
-    <form class="search" action="https://www.google.com/search" method="get" role="search"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="{'Search' if lang == 'en' else '예: 리뷰 답글, 수수료'}" aria-label="{'Search this site' if lang == 'en' else '이 사이트 안에서 찾기'}"><button type="submit">{'Search' if lang == 'en' else '찾기'}</button></form>
+    {brand_html}
+    <nav>{right}</nav>
   </div>
-  {('<nav class="tabs" aria-label="' + ("Boards" if lang == "en" else "게시판") + '"><div class="wrap">' + "".join(tabs) + '</div>' + sub_row + '</nav>') if tabs else ''}
 </header>'''
+
 
 
 WHY_URLS = ["/why/cases.html", "/guide/numbers.html", "/guide/seo.html", "/guide/reviews.html", "/guide/ads.html", "/guide/record.html", "/guide/geo.html", "/guide/aeo.html"]
@@ -915,6 +923,25 @@ def prev_next(page, pages):
     a = f'<a class="prev" href="{prv["url"]}"><small>{pl}</small>{esc(prv.get("nav", prv["title"]))}</a>' if prv else "<span></span>"
     b = f'<a class="next" href="{nxt["url"]}"><small>{nl}</small>{esc(nxt.get("nav", nxt["title"]))}</a>' if nxt else "<span></span>"
     return f'<nav class="prevnext" aria-label="{esc(top)} 안 이동">{a}{b}</nav>'
+
+
+def big_next(page, pages):
+    """따라 하기 글 맨 아래: 「막혔어요」(묻고 답하기) + 「다음 단계 →」(세팅 묶음 다음 → 코스 다음 → 세팅 전부)."""
+    pos = setup_pos(page["url"])
+    nxt = None
+    if pos:
+        slug, name, urls, i = pos
+        nxt = (urls[i + 1], "다음 단계") if i + 1 < len(urls) else ("/setup/", "다 했어요, 다른 일 고르기")
+    if not nxt:
+        cp = _course_pos(page)
+        if cp:
+            top, ss, cur = cp
+            n = next((posts(pages, "ko", f"{top}/{s_}") for s_ in ss[cur + 1:] if posts(pages, "ko", f"{top}/{s_}")), None)
+            nxt = (n[0]["url"], "다음 단계") if n else ("/setup/", "다 했어요, 다른 일 고르기")
+    if not nxt:
+        nxt = ("/", "처음으로")
+    return (f'<nav class="bignext" aria-label="다음 할 일"><a class="stuck" href="https://ask.sajangmarketing.com/new">막혔어요</a>'
+            f'<a class="go" href="{nxt[0]}">{esc(nxt[1])}</a></nav>')
 
 
 def author_block(page):
@@ -1593,16 +1620,27 @@ def rules_table_html(n=5):
             + "".join(rows) + '</tbody></table><p class="more"><a href="/updates/">바뀐 것 전부 보기</a></p></section>')
 
 
+HOME_DOORS = [   # 첫 화면 문 6개 — 「무엇을 하고 싶으세요?」(D103 쉬운 화면, 2026-10-08). (이름, 아래 작은 글, 주소, 그림 tiles/)
+    ("지도에<br>가게 올리기", "네이버 플레이스", "/setup/place/", "place"),
+    ("리뷰 받고<br>답글 달기", "손님 후기", "/setup/reviews/", "reviews"),
+    ("인터넷으로<br>팔기", "스마트스토어", "/setup/store/", "online"),
+    ("광고<br>켜기", "파워링크 · 인스타", "/setup/ads/", "ads"),
+    ("단골<br>만들기", "카카오톡 · 당근", "/setup/kakao/", "kakao"),
+    ("수수료 ·<br>지원금 보기", "숫자 한 장", "/guide/fee-table.html", "record"),
+]
+
+
 def home_c_html(pages):
-    by = {p["url"]: p for p in pages}
-    tiles = "".join(f'<a class="tile {plat_class(pl)}{" has-img" if (ROOT / "img/tiles" / (img + ".png")).exists() else ""}" href="{u}">' + (f'<img src="/img/tiles/{img}.png" alt="" width="96" height="96" loading="lazy">' if (ROOT / "img/tiles" / (img + ".png")).exists() else "") + f'<b>{esc(name)}</b><span>{esc(sub)}</span></a>' for name, u, pl, sub, img in HOME_TOPICS)
-    tools = "".join(f'<a href="{u}"><b>{esc(t)}</b><span>{esc(l)}</span></a>' for u, t, l in HOME_TOOLS if u in by or u == "/check/")
-    jr = (f'<section class="hc-journal"><h2>저널</h2>{journal_list_html(pages, 3)}<p class="hc-more"><a href="/journal/">저널 전체 보기</a></p></section>'
-          if any(p.get("kind") == "journal" for p in pages) else "")          # 발행된 저널이 있을 때만 (2026-10-07 D102)
-    return (f'<section class="hc-topics"><h2>주제로 찾기</h2><div class="tiles hc">{tiles}</div></section>' + jr +
-            f'<section class="hc-tools"><h2>도구</h2><div class="hc-tools-grid">{tools}</div></section>'
-            + rules_table_html()
-            + '<p class="small hc-all">글 전부: <a href="/guide/">설명 글</a> · <a href="/p/local/">동네 매장</a> · <a href="/p/online/">온라인 판매</a> · <a href="/p/service/">예약·상담</a> · <a href="/p/foreign/">외국 손님</a> · <a href="/updates/">업데이트</a> · <a href="/journal/">저널</a> · <a href="/en/">English</a></p>')
+    """첫 화면 = 질문 한 줄 + 그림 문 6개 + 큰 「막혔어요」 + 찾기 + 작은 단추 둘 + 저널(있을 때). 한 화면 누를 곳 7개 안팎(D103)."""
+    doors = "".join(f'<a class="door" href="{u}"><img src="/img/tiles/{img}.png" alt="" width="72" height="72" loading="lazy"><b>{name}</b><span>{esc(sub)}</span></a>' for name, sub, u, img in HOME_DOORS)
+    jr = (f'<section class="hc-journal"><h2>새 글</h2>{journal_list_html(pages, 3)}<p class="hc-more"><a href="/journal/">저널 전체 보기</a></p></section>'
+          if any(p.get("kind") == "journal" for p in pages) else "")
+    return (f'<h1 class="ask">무엇을 하고 싶으세요?</h1><p class="ask-sub">하나만 누르세요. 순서대로 따라 하면 돼요.</p>'
+            f'<nav class="hdoors" aria-label="하고 싶은 일">{doors}'
+            f'<a class="door help" href="https://ask.sajangmarketing.com/"><img src="/img/tiles/terms.png" alt="" width="44" height="44" loading="lazy"><b>막혔어요, 물어볼래요</b></a></nav>'
+            f'<form class="search" action="https://www.google.com/search" method="get" role="search" id="hfind"><input type="hidden" name="as_sitesearch" value="sajangmarketing.com"><input type="search" name="q" placeholder="찾는 말을 쓰세요 (예: 리뷰 답글)" aria-label="이 사이트 안에서 찾기"><button type="submit">찾기</button></form>'
+            f'<p class="hmini"><a href="/terms/">모르는 말 찾기</a><a href="/updates/">바뀐 규칙</a><a href="/check/">1분 자가진단</a><a href="/setup/">세팅 전부</a></p>'
+            + jr)
 
 
 # ── 세팅 순서(따라만 하면 되는 묶음). 운영자 2026-09-21 "먼저읽을글을 왜 네가 판단해 … 특정단계에 해당되는 사람들이 들어와서 순서대로 따라할 수 있게 '네이버 플레이스 세팅' 이런식으로 항목들을 만들어줘 그거 눌러서 따라만 하면 플레이스 설정할 수 있도록" (D84)
@@ -1762,9 +1800,9 @@ def setup_box(page):
     if not pos:
         return ""
     slug, name, urls, i = pos
-    prev_ = f'<a href="{urls[i-1]}">이전</a>' if i > 0 else ""
-    next_ = f'<a class="next" href="{urls[i+1]}">다음 단계</a>' if i + 1 < len(urls) else '<a class="next" href="/setup/">다 했어요. 다른 세팅</a>'
-    return f'<div class="setup-nav"><a class="name" href="/setup/{slug}/">{esc(name)}</a><span>{i+1}/{len(urls)}</span>{prev_}{next_}</div>'
+    pct = int((i + 1) / len(urls) * 100)                                          # 진행 막대 모양 (D103, 2026-10-08)
+    return (f'<div class="setup-nav"><a class="name" href="/setup/{slug}/">{esc(name)}</a><span class="cnt">{i+1} / {len(urls)} 단계</span>'
+            f'<span class="bar" aria-hidden="true"><i style="width:{pct}%"></i></span></div>')
 
 
 # 첫 화면 세팅 목록은 플랫폼별로 묶는다 (운영자 2026-09-21 "각 플랫폼 별로 네이버 하고 밑에 ·플레이스 ·스마트 스토어 이런식으로")
@@ -1872,12 +1910,20 @@ def fill_boards(page, pages):
     body = body.replace("<!--homec-->", home_c_html(pages) if page["lang"] == "ko" else "")
     sn = step_nav(page, pages)
     sb = setup_box(page)
-    if sb:
+    if page.get("kind") == "howto":                                                 # 따라 하기: 위엔 진행 막대 하나, 아래엔 큰 단추 둘 (D103, 2026-10-08)
+        top_bar = sb or sn
+        if top_bar:
+            body = top_bar + chr(10) + body
+        big = big_next(page, pages)
         cut = body.find('<footer class="sources">')
-        body = (body[:cut] + sb + chr(10) + body[cut:]) if cut > 0 else body + chr(10) + sb
-        body = sb + chr(10) + body
-    if sn:
-        body = sn + "\n" + body
+        body = (body[:cut] + big + chr(10) + body[cut:]) if cut > 0 else body + chr(10) + big
+    else:
+        if sb:
+            cut = body.find('<footer class="sources">')
+            body = (body[:cut] + sb + chr(10) + body[cut:]) if cut > 0 else body + chr(10) + sb
+            body = sb + chr(10) + body
+        if sn:
+            body = sn + "\n" + body
     if "<!--homeside-->" in body:
         body = body.replace("<!--homeside-->", home_side(pages, page["lang"])).rstrip() + "\n</div>"
     body = body.replace("<!--trust-->", trust_strip(pages, page["lang"]))

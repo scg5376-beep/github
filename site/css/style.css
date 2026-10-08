@@ -1242,3 +1242,53 @@ main.howto ol.steps .vx-scr-path li::before, ol.steps .vx-scr-path li::before { 
 aside.keys ol.vx-keys li, aside.keys ol.vx-keys li > span:last-child, .vx-point .vx-pt-b, nav.intoc li a { min-width:0; overflow-wrap:anywhere; }
 .vx-point .vx-pt-b { flex:1 1 auto; }
 .vx-scr-path li { white-space:normal; overflow:visible; text-overflow:clip; }
+
+/* ── 쉬운 화면 1차 (운영자 2026-10-08 «초등학생들 교육할때 어떤식으로 하는지 … 그정도로 이해하기 쉽게» · «글을 읽어야 아는게아니라 레이아웃으로 한번에 알수 잇게끔», D103) ──
+   근거: 토스 사장님(첫 화면 고르기 4~6개) · NN/G 숨은 메뉴 발견 20%↓ · KRDS 단추 44px·대비 4.5:1 · 은행권 공동지침(아이콘+글자) */
+header.top > .wrap { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:60px; }
+header.top > .wrap nav { display:flex; gap:8px; align-items:center; }
+header.top > .wrap nav a.hb { display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border-radius:12px; border:2px solid var(--accent); color:var(--accent); font-weight:800; font-size:.98rem; text-decoration:none; }
+header.top > .wrap nav a.hb.ask { background:var(--warm); border-color:var(--warm); color:#fff; }
+header.top > .wrap nav a.lang { min-height:44px; display:inline-flex; align-items:center; }
+h1.ask { font-size:1.75rem; line-height:1.3; margin:10px 0 2px; font-weight:800; color:var(--ink); }
+p.ask-sub { color:var(--ink-soft); margin:0 0 16px; font-size:1.02rem; }
+nav.hdoors { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0 0 20px; }
+nav.hdoors a.door { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; min-height:170px; padding:18px 12px 16px; background:var(--card); border:2px solid var(--line); border-radius:18px; text-align:center; text-decoration:none; color:var(--ink); box-shadow:var(--shadow); }
+nav.hdoors a.door:hover { border-color:var(--accent); }
+nav.hdoors a.door img { width:72px; height:72px; object-fit:contain; }
+nav.hdoors a.door b { font-size:1.22rem; line-height:1.3; font-weight:800; }
+nav.hdoors a.door span { font-size:.84rem; color:var(--ink-soft); line-height:1.4; }
+nav.hdoors a.door.help { grid-column:1 / -1; flex-direction:row; min-height:64px; padding:12px 16px; border-color:var(--warm); background:var(--warm-soft); }
+nav.hdoors a.door.help img { width:44px; height:44px; }
+nav.hdoors a.door.help b { color:#a5460b; font-size:1.15rem; }
+form.hfind { display:flex; margin:6px 0 10px; border:2px solid #9aa1a9; border-radius:14px; overflow:hidden; background:#fff; }
+form.hfind input[type="search"] { flex:1; min-width:0; border:0; padding:14px; font:inherit; font-size:1rem; }
+form.hfind button { border:0; background:var(--accent); color:#fff; font:inherit; font-weight:800; padding:0 18px; min-height:52px; cursor:pointer; }
+p.hmini { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px; }
+p.hmini a { display:inline-flex; align-items:center; min-height:44px; padding:0 14px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:.92rem; text-decoration:none; }
+main.home section.hc-journal h2 { font-size:1.25rem; }
+@media (max-width:640px) { nav.hdoors { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } nav.hdoors a.door { min-height:150px; } nav.hdoors a.door b { font-size:1.12rem; } }
+/* 첫 화면 한 칸 배치 — 왼쪽 패널 없음 */
+.cols.wide > main.wrap { display:block; max-width:760px; }
+.cols.wide { grid-template-columns:minmax(0,760px); }
+/* 머리: 좁은 화면에서 단추가 겹치지 않게 (1차 캡처에서 묻기·English 겹침) */
+header.top > .wrap { flex-wrap:nowrap; }
+header.top > .wrap nav { flex:none; }
+header.top > .wrap a.brand, header.top > .wrap span.brand { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+@media (max-width:480px) { header.top > .wrap nav a.hb { padding:0 12px; font-size:.9rem; } header.top > .wrap nav a.lang { display:none; } }
+/* 첫 화면 찾기 칸: 공용 .search 모양 덮어쓰기 */
+form.search#hfind { display:flex; width:100%; max-width:none; margin:6px 0 10px; border:2px solid #9aa1a9; border-radius:14px; overflow:hidden; background:#fff; }
+form.search#hfind input[type="search"] { border-radius:0; border:0; min-height:52px; }
+form.search#hfind button { border-radius:0; min-height:52px; padding:0 18px; }
+/* 따라 하기: 위 진행 막대 · 아래 큰 단추 둘 (D103) */
+.setup-nav { display:grid; grid-template-columns:1fr auto; gap:4px 12px; align-items:center; margin:4px 0 16px; padding:12px 14px; background:var(--card); border:1px solid var(--line); border-radius:14px; }
+.setup-nav a.name { font-weight:800; color:var(--accent); text-decoration:none; font-size:1rem; }
+.setup-nav .cnt { font-weight:800; color:var(--accent); font-size:.95rem; }
+.setup-nav .bar { grid-column:1 / -1; display:block; height:12px; border-radius:6px; background:var(--line); overflow:hidden; }
+.setup-nav .bar i { display:block; height:100%; background:var(--accent); }
+nav.bignext { display:flex; gap:10px; margin:26px 0 10px; }
+nav.bignext a { display:flex; align-items:center; justify-content:center; min-height:64px; border-radius:16px; font-weight:800; text-decoration:none; }
+nav.bignext a.go { flex:1; background:var(--accent); color:#fff; font-size:1.2rem; }
+nav.bignext a.stuck { flex:0 0 36%; background:var(--card); border:2px solid var(--warm); color:#a5460b; font-size:1.02rem; }
+main.howto p.crumbs, main.howto nav.prevnext { display:none; }
+nav.bignext a.go::after { content:""; width:12px; height:12px; margin-left:12px; border-top:3px solid #fff; border-right:3px solid #fff; transform:rotate(45deg); }
