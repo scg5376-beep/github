@@ -1381,3 +1381,5 @@ figure.vx-flow-fig figcaption { margin-top:8px; }
 }
 /* D103 — 첫 화면 찾기 칸은 줄 끝까지 늘어난다(머리 폼의 190px 고정 폭을 덮음) */
 form.search#hfind input[type="search"] { flex:1 1 auto; width:auto; min-width:0; }
+/* D103 — 세팅 묶음 쪽은 목록이라 발행·수정 날짜 줄을 보이지 않는다 */
+main.wrap.setup p.meta-line { display:none; }

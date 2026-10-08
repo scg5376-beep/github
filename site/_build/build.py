@@ -2044,7 +2044,7 @@ def render(page, pages, verify):
 <a class="skip" href="#main">{'Skip to content' if lang == 'en' else '본문 바로가기'}</a>
 {nav_html(page, pages)}
 {cols}
-<main class="wrap{" " + page["kind"] if page.get("kind") else ""}{" home" if page["url"] == "/" else ""}" id="main">
+<main class="wrap{" " + page["kind"] if page.get("kind") else ""}{" home" if page["url"] == "/" else ""}{" setup" if page.get("setup") or page["url"] == "/setup/" else ""}" id="main">
 {crumbs(page)}
 {page["body"].strip()}
 {'' if page["url"] in ("/", "/en/") else ('<a class="totop" href="#top">' + ('Back to top' if lang == 'en' else '맨 위로') + '</a>')}
