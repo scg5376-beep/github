@@ -1343,3 +1343,14 @@ ol.setup-steps > li > a::before { grid-row:1 / span 2; align-self:center; }
 ol.setup-steps > li > a > b { grid-column:2; }
 ol.setup-steps > li > a .badge { grid-column:2; }
 ol.setup-steps .sub1 { position:absolute; left:-9999px; }   /* 카드 밖으로 밀리던 부제: 숨기고 단추 하나만 */
+
+/* D103 6차 — 단계 동작 표시: 글만 있는 단계에도 「무엇을 하는 단계」가 아이콘+글자로 먼저 보인다(메이어 신호 주기·은행권 아이콘+글자) */
+main.howto ol.steps.vx-steps > li > .vx-act { display:inline-flex; align-items:center; gap:5px; margin:0 0 6px; padding:3px 10px 3px 7px; border-radius:999px; font-size:.84rem; font-weight:700; line-height:1.3; background:var(--accent-soft); color:var(--accent); }
+main.howto ol.steps.vx-steps > li > .vx-act .vx-i { width:18px; height:18px; }
+main.howto ol.steps.vx-steps > li > .vx-act-warn { background:#fdecec; color:#b3261e; }
+main.howto ol.steps.vx-steps > li > .vx-act-check { background:#e6f4ea; color:#1e7b45; }
+/* D103 6차 — 좁은 화면: 머리는 로고만(이름이 단추와 겹치지 않게), 준비물 카드는 한 줄에 하나 */
+@media (max-width:480px) {
+  header.top > .wrap a.brand, header.top > .wrap span.brand { font-size:0; gap:0; }
+  main.howto dl.kv.prep.vx-prep { grid-template-columns:1fr; }
+}

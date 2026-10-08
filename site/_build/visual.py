@@ -29,7 +29,47 @@ ICON = {  # 24x24 선 아이콘(직접 그림, 외부 자원 없음)
     "warn": '<path d="M12 3.5 21.5 20h-19L12 3.5z"/><path d="M12 10v4.5"/><path d="M12 17.5h.01"/>',
     "check": '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16.5 9.5"/>',
     "info": '<circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7.5h.01"/>',
+    # 단계 동작 표시용(D103 6차 — 글만 있는 단계에도 「무엇을 하는 단계」가 한눈에 보이게)
+    "write": '<path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M13.5 8.5l3 3"/>',
+    "pick": '<path d="M5 6h9"/><path d="M5 12h9"/><path d="M5 18h9"/><path d="M17 11l1.6 1.6L21.5 9.5"/>',
+    "upload": '<path d="M12 16V5"/><path d="M8 9l4-4 4 4"/><path d="M4 16v2.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V16"/>',
+    "eye": '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
+    "toggle": '<rect x="2.5" y="7" width="19" height="10" rx="5"/><circle cx="15.5" cy="12" r="3"/>',
+    "plus": '<circle cx="12" cy="12" r="9"/><path d="M12 8v8"/><path d="M8 12h8"/>',
+    "search": '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
+    "send": '<path d="M3.5 11.5 20.5 4l-4 16-4.5-6.5-8.5-2z"/><path d="M12 13.5 20.5 4"/>',
+    "card": '<rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 10h19"/><path d="M6.5 14.5h4"/>',
+    "shield": '<path d="M12 3.5 19.5 6v5.5c0 4.4-3.1 7.7-7.5 9-4.4-1.3-7.5-4.6-7.5-9V6L12 3.5z"/><path d="M9 12l2.2 2.2L15.5 9.8"/>',
 }
+
+# 단계 제목 끝 동사 → (아이콘, 두 글자 표시). 앞에서부터 먼저 맞는 것. 「하지 마세요」류는 주의.
+ACT = [
+    (re.compile(r"마세요\.?$"), ("warn", "주의")),
+    (re.compile(r"(확인|점검|대조|맞춰 보|비교)"), ("check", "확인")),
+    (re.compile(r"(누르|클릭|탭하|선택하|제출|신청|저장|발행|게시)"), ("tap", "누르기")),
+    (re.compile(r"(올리|업로드|첨부)"), ("upload", "올리기")),
+    (re.compile(r"(검색하|찾으|찾아)"), ("search", "찾기")),
+    (re.compile(r"(보내|답하|답장|전송|발송|메시지)"), ("send", "보내기")),
+    (re.compile(r"(충전|결제|입금|내|지불)하세요"), ("card", "결제")),
+    (re.compile(r"(켜|끄|설정하|바꾸|고치|조정|정하)"), ("toggle", "설정")),
+    (re.compile(r"(고르|정하|선택)"), ("pick", "고르기")),
+    (re.compile(r"(만드|생성|등록하|개설|가입|시작하|열|여세요|들어가|가세요)"), ("plus", "만들기")),
+    (re.compile(r"(보관|지키|보호|백업|메모)"), ("shield", "보관")),
+    (re.compile(r"(보세요|읽으|살펴|둘러)"), ("eye", "보기")),
+    (re.compile(r"(넣|적으|적어|쓰세요|입력|채우|작성|기록)"), ("write", "적기")),
+    (re.compile(r"(로그인|전환|옮기)"), ("toggle", "설정")),
+    (re.compile(r"(두세요|잡으세요|붙이세요|모아|정리|준비)"), ("pick", "준비")),
+    (re.compile(r"(하세요|해 보세요)\.?$"), ("pick", "할 일")),
+]
+
+
+def act_badge(head_html):
+    """단계 제목(<b>…</b>)의 동사를 보고 「무엇을 하는 단계」 표시를 만든다. 못 맞추면 빈 문자열."""
+    t = re.sub(r"<[^>]+>", "", head_html).strip()
+    for rx, (ic, label) in ACT:
+        if rx.search(t):
+            return f'<span class="vx-act vx-act-{ic}">{icon(ic)}{label}</span>'
+    return ""
 
 
 def icon(name, cls="vx-i"):
@@ -90,7 +130,7 @@ def steps(body):
             more = f'<div class="vx-sub">{rest}</div>' if rest else ""
         else:
             more = f'<details class="more"><summary>자세히</summary><div class="box">{rest}</div></details>'
-        return f'<li{attrs}>{head}{tap}{more}{why}</li>'
+        return f'<li{attrs}>{act_badge(head)}{head}{tap}{more}{why}</li>'
 
     def ol(m):
         return '<ol class="steps vx-steps">' + "".join(li(x) for x in top_li(m.group(1))) + "</ol>"
