@@ -35,6 +35,7 @@ if (cmd === "dom") {
 }
 
 if (cmd === "submit") {
+  if (!t.url.includes("searchadvisor.naver.com/console")) { console.log("서치어드바이저 콘솔 화면이 아님(로그인 전?) — 제출하지 않음:", t.url.slice(0, 60)); ws.close(); process.exit(2); }   // 2026-10-08 로그인 화면 아이디 칸에 주소를 입력한 사고 방지
   const urls = fs.readFileSync(process.argv[3], "utf8").split(/\r?\n/).map(s => s.trim()).filter(s => s.startsWith("http"));
   const n = +(process.argv[4] || urls.length);
   const log = [];
