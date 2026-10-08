@@ -1316,3 +1316,6 @@ nav.intoc li a { white-space:normal; line-height:1.3; }
 main.wrap:not(.howto) nav.prevnext { display:none; }
 section.terms-in details.more > .box ul { list-style:none; margin:8px 0 0; padding:0; }
 section.terms-in details.more > .box li { padding:6px 0; border-bottom:1px dashed var(--line); }
+/* 목차 칩: 긴 제목이 360폭에서 칸 밖으로 나가던 것 — 칩이 줄어들고 글이 안에서 꺾이게 */
+nav.intoc li { flex:0 1 auto; min-width:0; max-width:100%; }
+nav.intoc li a { display:inline-flex; max-width:100%; overflow-wrap:anywhere; white-space:normal; }
