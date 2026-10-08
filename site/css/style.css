@@ -1354,3 +1354,7 @@ main.howto ol.steps.vx-steps > li > .vx-act-check { background:#e6f4ea; color:#1
   header.top > .wrap a.brand, header.top > .wrap span.brand { font-size:0; gap:0; }
   main.howto dl.kv.prep.vx-prep { grid-template-columns:1fr; }
 }
+/* D103 6차 — 준비물 카드: 혼자 남은 카드가 줄을 다 채우게(격자 1칸에 갇혀 글자가 세로로 깨지던 것) */
+main.howto dl.kv.prep.vx-prep { display:flex; flex-wrap:wrap; }
+main.howto dl.kv.prep.vx-prep .vx-prep-c { flex:1 1 200px; min-width:0; }
+main.howto dl.kv.prep.vx-prep .vx-prep-c.wide { flex-basis:100%; }
