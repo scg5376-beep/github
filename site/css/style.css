@@ -1379,3 +1379,5 @@ figure.vx-flow-fig figcaption { margin-top:8px; }
   ol.vx-flow > li { flex:1 1 110px; padding:12px 12px 12px 12px; }
   ol.vx-flow > li .vx-kn { position:static; margin-bottom:6px; }
 }
+/* D103 — 첫 화면 찾기 칸은 줄 끝까지 늘어난다(머리 폼의 190px 고정 폭을 덮음) */
+form.search#hfind input[type="search"] { flex:1 1 auto; width:auto; min-width:0; }
