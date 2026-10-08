@@ -812,9 +812,16 @@ def css_ver():
     # CRLF 는 LF 로 맞춰 잰다. 윈도우 편집기가 CRLF 로 저장해도 git(eol=lf)·CI 와 같은 값이 나오게 (2026-09-19 CI 불일치)
     return hashlib.sha256((ROOT / "css" / "style.css").read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:8]
 
+def og_slug(url):
+    """쪽마다 공유 그림 파일 이름 — og_pages.py 와 같은 규칙 (D104)."""
+    s = re.sub(r"\.html$", "", url.strip("/"))
+    return (s or "home").replace("/", "-")
+
+
 def head_html(page, verify):
     url = SITE_URL + page["url"]
-    og = SITE_URL + page.get("og", DEFAULT_OG[page["section"]])
+    og_page = f"/img/og/{og_slug(page['url'])}.jpg"                       # 쪽마다 그림이 있으면 그것, 없으면 섹션 기본 (D104, 2026-10-08)
+    og = SITE_URL + page.get("og", og_page if (ROOT / og_page.lstrip("/")).exists() else DEFAULT_OG[page["section"]])
     parts = [
         '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',

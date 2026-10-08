@@ -32,12 +32,34 @@ def norm_quote(s):
     return re.sub(r"[\s*\"“”·)\[\]‘’'…]", "", s)
 
 def png_size(p):
+    """PNG·JPEG 의 가로·세로. 공유 그림이 JPEG 로 바뀌어(D104) JPEG 도 읽는다."""
     with open(p, "rb") as f:
         head = f.read(24)
-    if head[:8] != b"\x89PNG\r\n\x1a\n":
-        return None
-    w, h = struct.unpack(">II", head[16:24])
-    return w, h
+        if head[:8] == b"\x89PNG\r\n\x1a\n":
+            w, h = struct.unpack(">II", head[16:24])
+            return w, h
+        if head[:2] != b"\xff\xd8":
+            return None
+        f.seek(2)
+        while True:                      # JPEG 세그먼트를 따라가며 SOF(크기가 든 머리)를 찾는다
+            b = f.read(1)
+            if not b:
+                return None
+            if b != b"\xff":
+                continue
+            m = f.read(1)
+            while m == b"\xff":
+                m = f.read(1)
+            if not m:
+                return None
+            if m[0] in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                f.read(3)
+                h, w = struct.unpack(">HH", f.read(4))
+                return w, h
+            if m[0] in (0xD8, 0x01) or 0xD0 <= m[0] <= 0xD7:
+                continue
+            ln = struct.unpack(">H", f.read(2))[0]
+            f.seek(ln - 2, 1)
 
 def rel_lum(hexcol):
     hexcol = hexcol.lstrip("#")
