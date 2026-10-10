@@ -72,6 +72,83 @@ def act_badge(head_html):
     return ""
 
 
+def act_kind(head_html):
+    """단계 제목 동사의 종류(아이콘 이름). 못 맞추면 빈 문자열."""
+    t = re.sub(r"<[^>]+>", "", head_html).strip()
+    for rx, (ic, _label) in ACT:
+        if rx.search(t):
+            return ic
+    return ""
+
+
+def target_label(head_html, rest_html=""):
+    """단계에서 「무엇을」 — 「」 안 단추 이름 → <span class="ui"> 메뉴 → 제목의 목적어 순. 못 찾으면 빈 문자열."""
+    t = re.sub(r"<[^>]+>", "", head_html).strip()
+    m = re.search(r"「([^」]{1,26})」", t)
+    if not m:
+        m = re.search(r'<span class="ui">([^<]{1,40})</span>', head_html + rest_html)
+    if m:
+        lab = m.group(1)
+        return re.split(r"\s*(?:&gt;|>)\s*", lab)[-1].strip()
+    m = re.match(r"(.{1,22}?)(?:을|를)\s", t)                                # 첫 목적어 (「주소를 넣고 지도 핀을…」 → 주소)
+    if m:
+        return m.group(1).strip()
+    m = re.match(r"(.{2,24}?(?:는지|인지|었는지|았는지))\s", t)                    # 「~있는지 확인하세요」
+    if m:
+        return m.group(1).strip()
+    m = re.match(r"(.{2,24}?)(?:은|는|에서|에|으로|로)\s+(?:\S+\s+)?\S+(?:세요|해요|돼요)\.?$", t)
+    return m.group(1).strip() if m else ""
+
+
+MOCK_VERB = {"tap": "누르기", "plus": "만들기", "write": "적기", "pick": "고르기", "toggle": "켜기·바꾸기", "upload": "올리기", "search": "찾기",
+             "check": "확인", "memo": "할 일", "send": "보내기", "eye": "보기", "warn": "주의", "card": "결제", "shield": "보관"}
+
+
+def action_mock(head_html, rest_html="", where=""):
+    """실제 캡처·메뉴 경로가 없는 단계용 화면 모형 (D105, 운영자 2026-10-11 «정보를 도와주는 이미지가 최대한 많이»).
+    동사 종류마다 모양이 다르다: 누르기=단추, 적기=입력칸, 고르기=목록, 켜기=스위치, 올리기=사진 칸, 찾기=검색창, 확인=체크 목록."""
+    k = act_kind(head_html)
+    lab = target_label(head_html, rest_html)
+    if not k:
+        return ""
+    if not lab:                                                                     # 목적어를 못 찾으면 할 일 메모 카드 (제목 앞부분)
+        t = re.sub(r"<[^>]+>", "", head_html).strip().rstrip(".")
+        lab = t if len(t) <= 22 else t[:21].rstrip(" ,·") + "…"
+        k = "memo"
+    L = lab
+    row = '<span class="mk-row"></span>'
+    tap = icon("tap", "vx-i mk-tap")
+    seq = [re.split(r"\s*(?:&gt;|>)\s*", x)[-1].strip() for x in re.findall(r"「([^」]{1,26})」", re.sub(r"<[^>]+>", "", head_html))]
+    if k in ("tap", "plus") and len(seq) >= 2:                                       # 「나의 당근」 > 「비즈프로필 만들기」: 앞은 지나가는 칸, 마지막이 누를 곳
+        L = seq[-1]
+        body = "".join(f'<span class="mk-pass">{x}<span class="mk-go" aria-hidden="true">›</span></span>' for x in seq[:-1]) +                f'<span class="mk-btn">{L}{tap}<span class="mk-here">여기</span></span>'
+    elif k in ("tap", "plus"):
+        body = f'{row}{row}<span class="mk-btn">{"+ " if k == "plus" else ""}{L}{tap}<span class="mk-here">여기</span></span>'
+    elif k == "write":
+        body = f'<span class="mk-lab">{L}</span><span class="mk-input"><i class="mk-caret"></i></span>{row}'
+    elif k == "pick":
+        body = f'{row}<span class="mk-opt on">{icon("check", "vx-i")}{L}</span>{row}'
+    elif k == "toggle":
+        body = f'{row}<span class="mk-sw-row"><span>{L}</span><span class="mk-sw on"><i></i></span></span>{row}'
+    elif k == "upload":
+        body = f'<span class="mk-drop">{icon("upload", "vx-i")}<span>{L}</span></span>'
+    elif k == "search":
+        body = f'<span class="mk-search">{icon("search", "vx-i")}<span>{L}</span></span>{row}{row}'
+    elif k == "check":
+        body = f'<span class="mk-opt on">{icon("check", "vx-i")}{L}</span>{row}{row}'
+    elif k == "send":
+        body = f'{row}<span class="mk-bubble">{L}</span>'
+    elif k == "memo":
+        body = f'<span class="mk-memo">{icon("check", "vx-i")}<span>{L}</span></span>{row}'
+    elif k == "warn":
+        body = f'<span class="mk-warn">{icon("warn", "vx-i")}<span>{L}</span></span>'
+    else:
+        body = f'<span class="mk-card">{icon(k if k in ICON else "info", "vx-i")}<span>{L}</span></span>{row}'
+    top = f'<p class="vx-scr-top"><span class="vx-scr-dot" aria-hidden="true"></span>{where}</p>' if where else ""
+    return (f'<div class="vx-mock vx-mock-{k}" role="img" aria-label="화면 모형: {L} {MOCK_VERB.get(k, "")}">{top}'
+            f'<div class="mk-body">{body}</div><p class="vx-scr-note">화면 모형 · 실제 화면과 모양이 다를 수 있어요</p></div>')
+
+
 def icon(name, cls="vx-i"):
     return f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">{ICON[name]}</svg>'
 
@@ -317,6 +394,8 @@ def apply(page, body):
     url = page["url"]
     if page.get("kind") == "howto":
         return stuck(steps(prep(body)))
+    if page.get("kind") == "step":                 # 단계 쪽은 lessons.py 가 이미 그림 부품을 붙여 만든다 (D105)
+        return body
     if url.startswith("/terms/") and url != "/terms/":
         return terms_cards(body)
     if url in ("/", "/start/", "/about.html", "/privacy.html") or url.startswith(("/terms/", "/updates/")) or page.get("plat") or page.get("setup"):

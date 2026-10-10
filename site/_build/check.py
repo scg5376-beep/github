@@ -112,6 +112,7 @@ def check_tone(rel, prose_html, stats=True):
     """prose_html: <main> 에서 인용·표·그림·근거를 뺀 HTML 조각. stats=False 면 금지 표현(S1)만 보고 문장 통계·H 규칙은 건너뛴다(따라 하기 글: 짧은 지시문이 정상)"""
     body = re.sub(r"<(table|figure|footer|svg|nav|h[1-6])\b.*?</\1>", " ", prose_html, flags=re.S)
     body = re.sub(r"<div class=\"next\">.*?</div>", " ", body, flags=re.S)
+    body = re.sub(r'<div class="vx-(?:mock|screen).*?<p class="vx-scr-note">.*?</p>\s*</div>', " ", body, flags=re.S)   # 화면 모형은 그림이라 문장이 아니다 (D105)
     body = re.sub(r"<div class=\"do(?: first)?\">.*?</div>", " ", body, flags=re.S)                    # 설명→방법 문은 단추라 문장이 아니다
     body = re.sub(r"<details class=\"why\">.*?</details>", " ", body, flags=re.S)        # 접은 본문(details.more, 그림 안내 2026-10-06)은 그대로 검사한다 · 접힌 이유 상자는 통계에서 뺀다(설명 글의 요약)   # 다음 글 링크·제목·내비는 문장 통계에서 뺀다
     body = re.sub(r"<aside class=\"keys\".*?</aside>|<section class=\"terms-in\">.*?</section>", " ", body, flags=re.S)             # 핵심 정리 상자(R1)·이 글의 용어(R5)는 자동 생성 요약이라 통계에서 뺀다
@@ -200,7 +201,7 @@ def check_tone(rel, prose_html, stats=True):
             warn(rel, "S2-14", f"문장 {len(s)}자: {s[:36]}…")
     # S2-16 조각문: 본문 p 의 문장이 서술어 없이 끝나면(「사진은 오늘, 언급은 6단계에서.」) 말이 안 된다 (조사 자연스러운-구어체 2026-09-13: 유시민 주어+서술어, 개조식 비판)
     body_ng = re.sub(r"<span class=\"grade[^\"]*\">.*?</span>", "", body, flags=re.S)
-    p_only = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|empty|banner|trust|cite)\")[^>]*>(.*?)</p>", body_ng, re.S)]
+    p_only = [strip(x) for x in re.findall(r"<p\b(?![^>]*class=\"(?:small|src|crumbs|meta-line|kicker|empty|banner|trust|cite|vx-scr-note|vx-scr-top|jf-t)\")[^>]*>(.*?)</p>", body_ng, re.S)]
     frags = [x for para in p_only for x in sentences_ko(para) if not re.search(r"(요|죠|다|까|네|게|고요|는데요|거든요)[.?!]$", x) and not re.search(r"[)\]」]$", x.rstrip(".")) and len(x) > 8]
     if len(frags) > L["fragment_max"]:
         err(rel, "S2-16", f"서술어 없이 끝나는 조각 문장 {len(frags)}개 > {L['fragment_max']}개: {frags[0][:30]}…")
@@ -421,16 +422,17 @@ def check_page(p, all_titles):
 
     if ko:
         # 이름표(제목·문·타일·탭·머리말)는 본문 통계에서 빠지므로 S1-13 만 따로 돈다 — 목차 페이지 포함
+        is_step = 'class="wrap step"' in raw                                     # 단계 쪽(D105): 제목은 강의 본문의 지시문 그대로라 이름표 검사에서 뺀다
         labels = " | ".join(strip(x) for x in re.findall(r"<(?:h1|h2|h3|a class=\"door\"|a class=\"tile[^\"]*\"|p class=\"kicker\"|span class=\"k\")[^>]*>(.*?)</(?:h1|h2|h3|a|p|span)>", main, re.S))
         tt = re.search(r"<title>(.*?)</title>", head, re.S); dd = re.search(r'name="description" content="([^"]*)"', head)
-        labels = " | ".join([labels, tt.group(1) if tt else "", dd.group(1) if dd else ""])
+        labels = " | ".join([labels, tt.group(1) if tt else "", dd.group(1) if dd else ""]) if not is_step else ""
         for key in ("S1-13 이름표 호객", "S1-14 수사 나열 예고"):
             for pat in TONE["ban_s1"].get(key, []):
                 m = re.search(pat, labels)
                 if m:
                     err(rel, key.split()[0], f"{key}: '{m.group(0)}' … {labels[max(0, m.start()-12): m.end()+12]}")
     if ko and not is_index:
-        check_tone(rel, prose, stats='class="wrap howto"' not in raw and 'class="wrap diag"' not in raw)
+        check_tone(rel, prose, stats='class="wrap howto"' not in raw and 'class="wrap diag"' not in raw and 'class="wrap step"' not in raw)
 
     # ── Q 인용 ──
     if ORIG.is_dir():
@@ -447,7 +449,7 @@ def check_page(p, all_titles):
         pass                                                                    # R1(근거 footer)은 폐지 — 화면에 안 보인다 (D43). 인용 대조 Q1 은 그대로
         if not re.search(r'"dateModified":\s*"\d{4}-\d{2}-\d{2}"', head):
             err(rel, "R2", "수정일이 없다")
-        if not re.search(r'class="meta-line"', main):
+        if not re.search(r'class="meta-line"', main) and 'class="wrap step"' not in raw:   # 단계 쪽은 강의 쪽에 날짜 줄이 있다 (D105)
             err(rel, "R3", "글 머리의 발행·수정·근거 줄(.meta-line)이 없다")
 
 

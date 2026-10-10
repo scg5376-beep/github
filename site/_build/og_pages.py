@@ -14,6 +14,7 @@
 import hashlib, json, os, pathlib, re, subprocess, sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+os.environ["JOURNAL_TODAY"] = "9999-12-31"   # 예약 저널도 미리 그림을 만든다 — 공개 날 아침 자동 빌드(서버)는 그림을 못 만들어서 (D105)
 import build  # noqa: E402
 
 ROOT = build.ROOT

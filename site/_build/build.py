@@ -23,7 +23,7 @@ _src/pages/**/*.html  →  site/**/*.html  (레이아웃·메타·JSON-LD 를 �
   noindex      true 면 검색 제외 (404 등)
 """
 import json, os, re, sys, pathlib, html, datetime
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent)); import emphasis, visual
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent)); import emphasis, visual, lessons
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]          # site/
 SRC  = ROOT / "_src" / "pages"
@@ -819,7 +819,7 @@ def og_slug(url):
 
 
 def head_html(page, verify):
-    url = SITE_URL + page["url"]
+    url = SITE_URL + page.get("canonical", page["url"])                              # 단계 쪽은 강의 쪽을 대표 주소로 (D105)
     og_page = f"/img/og/{og_slug(page['url'])}.jpg"                       # 쪽마다 그림이 있으면 그것, 없으면 섹션 기본 (D104, 2026-10-08)
     og = SITE_URL + page.get("og", og_page if (ROOT / og_page.lstrip("/")).exists() else DEFAULT_OG[page["section"]])
     parts = [
@@ -838,7 +838,7 @@ def head_html(page, verify):
         f'<link rel="stylesheet" href="/fonts/pretendard/pretendard.css">',
         f'<link rel="stylesheet" href="/css/style.css?v={css_ver()}">',
         *(['<link rel="stylesheet" href="/css/diag.css">'] if page.get("kind") == "diag" else []),
-        *(['<link rel="stylesheet" href="/css/shots.css">'] if page.get("kind") == "howto" else []),
+        *(['<link rel="stylesheet" href="/css/shots.css">'] if page.get("kind") in ("howto", "step") else []),
         '<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">',
         f'<link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)}" href="{SITE_URL}/feed.xml">',
         # 오픈그래프 — 네이버 검색로봇도 본다 (NS-01)
@@ -932,6 +932,23 @@ def prev_next(page, pages):
     a = f'<a class="prev" href="{prv["url"]}"><small>{pl}</small>{esc(prv.get("nav", prv["title"]))}</a>' if prv else "<span></span>"
     b = f'<a class="next" href="{nxt["url"]}"><small>{nl}</small>{esc(nxt.get("nav", nxt["title"]))}</a>' if nxt else "<span></span>"
     return f'<nav class="prevnext" aria-label="{esc(top)} 안 이동">{a}{b}</nav>'
+
+
+def next_target(page, pages):
+    """이 강의(따라 하기 글)를 마친 뒤 갈 곳 (주소, 단추 글자). 세팅 묶음 다음 → 코스 다음 → 세팅 전부. big_next·단계 쪽이 같이 쓴다 (D105)."""
+    pos = setup_pos(page["url"])
+    if pos:
+        slug, name, urls, i = pos
+        if i + 1 < len(urls):
+            nx = next((p for p in pages if p["url"] == urls[i + 1]), None)
+            return urls[i + 1], ("다음 강의: " + nx.get("nav", "")) if nx else "다음 강의"
+        return "/setup/", "다 했어요, 다른 일 고르기"
+    cp = _course_pos(page)
+    if cp:
+        top, ss, cur = cp
+        n = next((posts(pages, "ko", f"{top}/{s_}") for s_ in ss[cur + 1:] if posts(pages, "ko", f"{top}/{s_}")), None)
+        return (n[0]["url"], "다음 강의: " + n[0].get("nav", "")) if n else ("/setup/", "다 했어요, 다른 일 고르기")
+    return "/", "처음으로"
 
 
 def big_next(page, pages):
@@ -1815,7 +1832,7 @@ def setup_box(page):
     slug, name, urls, i = pos
     pct = int((i + 1) / len(urls) * 100)                                          # 진행 막대 모양 (D103, 2026-10-08)
     return (f'<div class="setup-nav"><a class="name" href="/setup/{slug}/">{esc(name)}</a><span class="cnt">{i+1} / {len(urls)} 단계</span>'
-            f'<span class="bar" aria-hidden="true"><i style="width:{pct}%"></i></span></div>')
+            f'<span class="bar" aria-hidden="true"><i class="w{round(pct / 5) * 5}"></i></span></div>')
 
 
 # 첫 화면 세팅 목록은 플랫폼별로 묶는다 (운영자 2026-09-21 "각 플랫폼 별로 네이버 하고 밑에 ·플레이스 ·스마트 스토어 이런식으로")
@@ -1876,6 +1893,57 @@ def cases_html(pages):
             f'<h2 id="bad">조심할 것</h2><ul class="cases">{"".join(bad)}</ul>')
 
 
+_SERIES = None
+
+
+def journal_series_all():
+    """연재 목록 {series: [(part, published, title, url), …]} — 아직 발행 전인 편도 포함(다음 편 날짜 안내용). 원본 메타만 읽는다 (D105)."""
+    global _SERIES
+    if _SERIES is None:
+        _SERIES = {}
+        for f in sorted((SRC / "journal").glob("*.html")):
+            m = META_RE.match(f.read_text(encoding="utf-8"))
+            if not m:
+                continue
+            meta = json.loads(m.group(1))
+            if meta.get("series"):
+                _SERIES.setdefault(meta["series"], []).append((meta["part"], meta["published"], meta.get("nav") or meta["title"], "/journal/" + f.name, meta.get("series_title", "")))
+        for v in _SERIES.values():
+            v.sort()
+    return _SERIES
+
+
+WEEKDAY = "월화수목금토일"
+
+
+def series_boxes(page):
+    """연재 글 위 진행 막대 + 아래 연재 차례. 발행 전 편은 링크 없이 「M월 D일(요일) 올라와요」 (D105)."""
+    sr = page.get("series")
+    if not sr:
+        return "", ""
+    parts = journal_series_all().get(sr, [])
+    n = len(parts)
+    cur = page.get("part", 1)
+    stitle = page.get("series_title") or (parts[0][4] if parts else "")
+    pct = round(cur / max(n, 1) * 100 / 5) * 5
+    top = (f'<div class="lesson-nav series"><a class="name" href="/journal/">연재 · {esc(stitle)}</a><span class="cnt">{cur} / {n}편</span>'
+           f'<span class="bar" aria-hidden="true"><i class="w{pct}"></i></span></div>')
+    lis, nxt = [], None
+    for part, pub, title, url, _st in parts:
+        if part == cur:
+            lis.append(f'<li class="now"><span class="sn">{part}편</span><b>{esc(title)}</b><span class="sw">지금 읽는 글</span></li>')
+        elif pub <= JOURNAL_TODAY:
+            lis.append(f'<li><a href="{url}"><span class="sn">{part}편</span><b>{esc(title)}</b></a></li>')
+            if part == cur + 1:
+                nxt = (url, f"{part}편 읽기")
+        else:
+            d = datetime.date.fromisoformat(pub)
+            lis.append(f'<li class="soon"><span class="sn">{part}편</span><b>{esc(title)}</b><span class="sw">{d.month}월 {d.day}일({WEEKDAY[d.weekday()]}) 올라와요</span></li>')
+    btn = f'<a class="series-next" href="{nxt[0]}">{esc(nxt[1])}</a>' if nxt else ""
+    bottom = f'<nav class="series-list" aria-label="연재 차례"><b class="sl-h">연재 차례</b><ol>{"".join(lis)}</ol>{btn}</nav>'
+    return top, bottom
+
+
 def journal_list_html(pages, n=None):
     """저널 목록(최신 순). 발행일이 된 글만 pages 에 있다(read_pages). n 이 있으면 첫 화면 띠."""
     js = sorted([p for p in pages if p.get("kind") == "journal"], key=lambda p: (p["published"], p["url"]), reverse=True)
@@ -1885,6 +1953,7 @@ def journal_list_html(pages, n=None):
         return '<p class="jr-empty">첫 글을 준비하고 있어요.</p>'
     li = "".join(
         f'<li><a href="{p["url"]}"><span class="jr-kind jr-{p.get("jkind", "")}">{esc(JOURNAL_KIND.get(p.get("jkind"), "저널"))}</span>'
+        + (f'<span class="jr-series">연재 {p.get("part")}편</span>' if p.get("series") else "") +
         f'<strong>{esc(p.get("nav") or p["title"])}</strong><span class="jr-desc">{esc(clip_sent(p["description"], 70))}</span>'
         f'<span class="jr-date">{p["published"].replace("-", ". ")}.</span></a></li>' for p in js)
     return f'<ul class="jr-list">{li}</ul>'
@@ -1985,6 +2054,14 @@ def place_ads(page):
 def render(page, pages, verify):
     lang = page["lang"]
     page = fill_boards(page, pages)
+    if page.get("kind") == "howto" and lang == "ko":                               # 강의 쪽: 단계 카드 + 1단계 시작, 원래 단계는 접기 (D105)
+        page = dict(page, body=lessons.overview(page))
+    if page.get("kind") == "journal" and page.get("series"):                         # 연재: 위 진행 막대, 아래 연재 차례 (D105)
+        top_s, bot_s = series_boxes(page)
+        bd = page["body"]
+        i = bd.find('<footer class="sources">')
+        bd = (bd[:i] + bot_s + chr(10) + bd[i:]) if i >= 0 else bd + bot_s
+        page = dict(page, body=top_s + chr(10) + bd)
     page = add_toc(lift_todo(dict(page, body=meta_line(page))))
     page = dict(page, body=keys_box(page["body"]))                                   # R1 핵심 정리 상자
     page = dict(page, body=add_plat_art(page, page["body"]))                         # 플랫폼 그림 띠 (2026-09-22)
@@ -2025,7 +2102,7 @@ def render(page, pages, verify):
     # 「근거」 footer 는 화면에 안 보인다 (운영자 2026-09-16 "굳이 근거까지 말해줄 필요없어 빼", D43). 원본(_src)에는 남겨 두고 인용 대조(Q1)에만 쓴다
     page = dict(page, body=re.sub(r'<footer class="sources">.*?</footer>', "", page["body"], flags=re.S))
     # 인용 줄 (2026-09-19, 실험 목표 「사람이 인용하는 사이트」): 설명·방법 글 끝에 그대로 복사할 수 있는 한 줄
-    if (lang == "ko" and page.get("section") in ("guide",) or page.get("kind") == "howto") and not page.get("setup") and not page.get("plat"):   # 세팅·채널 목록 페이지에는 인용 줄을 안 넣는다 (2026-09-22 간결)
+    if (lang == "ko" and page.get("section") in ("guide",) or page.get("kind") == "howto") and not page.get("setup") and not page.get("plat") and page.get("kind") != "step":   # 세팅·채널 목록·단계 쪽에는 인용 줄을 안 넣는다 (2026-09-22 간결)
         cite = (f'<p class="cite">이 글을 인용할 때. 사장님 마케팅 교실, 「{esc(page["title"])}」, {page.get("updated") or page.get("date")} 수정, {SITE_URL}{page["url"]}. '
                 f'글 안의 큰따옴표 문장은 각 기관 원문이니 그 기관을 출처로 적어 주세요.</p>')
         page = dict(page, body=page["body"] + chr(10) + cite)
@@ -2076,6 +2153,14 @@ def build():
     global PAGES_ALL
     PAGES_ALL = pages
     pages += setup_pages(pages)
+    steps_ = lessons.step_pages(pages, next_target, esc)                            # 따라 하기 → 한 화면에 한 단계 (D105)
+    live_steps = {sp["rel"] for sp in steps_}
+    for sp_dir in {pathlib.PurePosixPath(sp["rel"]).parent for sp in steps_}:       # 단계가 줄어든 강의의 옛 단계 파일 정리
+        d = ROOT / sp_dir
+        for f in d.glob("*.html") if d.is_dir() else []:
+            if f"{sp_dir}/{f.name}" not in live_steps:
+                f.unlink()
+    pages += steps_
     PAGES_ALL = pages
     for p in pages:
         write(ROOT / p["rel"], render(p, pages, verify))
