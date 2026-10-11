@@ -89,9 +89,9 @@ def key_sentences(html, url):
     missing = []
     for head in KEYS.get(url, []):
         i = html.find(head)
-        if i < 0 or re.search(r"<(q|a|strong)[^>]*>[^<]*$", html[max(0, i - 300):i]):
+        if i < 0 or re.search(r"<(q|a|strong)\b[^>]*>[^<]*$", html[max(0, i - 300):i]):
             missing.append(head); continue
-        m = re.compile(r"(?:[^.?!<]|<(?!/?p)[^>]+>)*?[.?!]").match(html, i)
+        m = re.compile(r"(?:[^.?!<]|<(?!/?p\b)[^>]+>)*?[.?!]").match(html, i)
         if not m:
             missing.append(head); continue
         html = html[:i] + '<strong class="key">' + m.group(0) + "</strong>" + html[m.end():]

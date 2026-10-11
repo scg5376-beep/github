@@ -200,7 +200,7 @@ def steps(body):
         head, rest = h.group(1), h.group(2)
         why = "".join(re.findall(r'<details class="why">.*?</details>', rest, re.S))
         rest = re.sub(r'<details class="why">.*?</details>', "", rest, flags=re.S).strip()
-        tap = "" if re.search(r"<img|<figure", rest) else taps(rest)   # 실제 캡처가 있으면 모형을 안 그린다
+        tap = "" if re.search(r"<img\b|<figure\b", rest) else taps(rest)   # 실제 캡처가 있으면 모형을 안 그린다
         if text_len(rest) <= SHORT:   # 짧은 설명은 접지 않고 그대로 (운영자 10-06 «글 길지않은건 자세히 같은거 넣어놓지마»)
             if tap:                                                  # 경로는 위 단추 그림에 있으니 글에서는 마지막 메뉴 이름만(두 번 보이지 않게)
                 rest = PATH.sub(lambda m: '<span class="ui">' + re.split(r"\s*(?:&gt;|>)\s*", m.group(1))[-1].strip() + "</span>", rest, count=1)

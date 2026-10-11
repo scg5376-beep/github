@@ -199,10 +199,10 @@ ol.steps b { display:block; }
 .door span:last-child { display:block; color:var(--ink-soft); font-size:.84rem; }
 .tiles { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0 10px; }
 .tile { display:block; padding:14px; background:var(--pt); color:var(--pa); text-decoration:none; }
-.tile b, .tile span, .tile em { display:block; }
+.tile b, .tile span, .tile .e { display:block; }
 .tile b { font-size:1.04rem; }
 .tile span, .tile em { font-size:.77rem; }
-.tile em { font-style:normal; }
+.tile .e { font-style:normal; }
 
 /* 단계 목록 — Ghost resources 관찰: 큰 가벼운 번호, 가는 선, 오른쪽에 분 */
 ol.course { list-style:none; counter-reset:c; margin:16px 0 28px; padding:0; }
@@ -366,7 +366,7 @@ ol.course li.free .badge { border-color:#7fc39a; color:#0b6b34; background:#e8f6
 nav.steps { display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px; margin:30px 0 -24px; padding:10px 0; border-bottom:1px solid var(--line); }
 nav.steps .steps-head { color:var(--pa); font-size:.8rem; font-weight:700; text-decoration:none; }
 nav.steps .steps-count { color:var(--ink-soft); font-size:.78rem; }
-nav.steps .steps-count em { display:none; font-style:normal; color:var(--pa); font-weight:700; }
+nav.steps .steps-count .e { display:none; font-style:normal; color:var(--pa); font-weight:700; }
 nav.steps ol { display:flex; flex:1 1 100%; list-style:none; margin:6px 0 0; padding:0; gap:4px; }
 nav.steps li { flex:1 1 0; min-width:0; }
 nav.steps li a, nav.steps li.soon { display:block; text-decoration:none; color:var(--ink-soft); }
@@ -400,7 +400,7 @@ nav.prevnext a.next { background:var(--pt); border-color:var(--pa); }
   ol.today a { padding-right:16px; }
   ol.today .time { position:static; display:block; margin-top:4px; }
   nav.steps .s { display:none; }
-  nav.steps .steps-count em { display:inline; }
+  nav.steps .steps-count .e { display:inline; }
 }
 @media (max-width:900px) {
   /* 좁은 화면 첫 화면: 왼쪽 기둥의 목록은 위 탭과 같으니 숨기고, 업종 고르기 카드가 제목 바로 아래 오게 */
@@ -590,8 +590,8 @@ nav.intoc ol.own { list-style:none; padding-left:0; }
   nav.tabs .subs a { flex:0 0 auto; }
 }
 
-.diag .rec em { margin-left:auto; padding:2px 8px; border-radius:10px; background:var(--paper-2); color:var(--ink-soft); font-style:normal; font-size:.76rem; white-space:nowrap; }
-@media (max-width:560px) { .diag .rec em { margin-left:0; } }
+.diag .rec .e { margin-left:auto; padding:2px 8px; border-radius:10px; background:var(--paper-2); color:var(--ink-soft); font-style:normal; font-size:.76rem; white-space:nowrap; }
+@media (max-width:560px) { .diag .rec .e { margin-left:0; } }
 
 /* ── 디자인 4차 (D59, 운영자 2026-09-18 "색감이나 형태가 정성이 없어 보여") ─────────────────────────
    따뜻한 종이색 바탕 + 흰 카드, 남색 하나에 살구색 강조 하나, 둥근 모서리 14px, 얕은 그림자. 움직임은 그대로 없음.
@@ -1505,3 +1505,22 @@ main.step figure.shot .pic { position:relative; }
 main.step figure.shot img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; }
 main.step figure.shot .n { position:absolute; transform:translate(-60%,-60%); min-width:22px; height:22px; padding:0 6px; border-radius:11px; background:#e52626; color:#fff; font-size:.8rem; font-weight:800; line-height:22px; text-align:center; box-shadow:0 0 0 2px #fff; }
 main.step figure.shot figcaption { margin-top:6px; font-size:.82rem; color:var(--ink-soft); }
+/* D106 설명 글 질문 쪽 */
+main.step .vx-act-q { background:#fff4e5; color:#a5460b; }
+main.step .step-text.art > :first-child { margin-top:0; }
+main.step .step-text.art h3 { margin-top:20px; }
+ol.lesson-steps.q .lt b { font-weight:700; }
+main.step p.step-parent { margin:4px 0 0; font-weight:800; font-size:.95rem; color:var(--ink-soft); }
+ol.lesson-steps .lt small.lp { font-size:.8rem; font-weight:700; color:var(--ink-soft); }
+/* 360폭 질문 쪽(D106)에서 펼쳐진 표가 8~29px 넘쳤다 — 380px 이하에서만 칸 여백·글자를 더 줄이고, 첫 칸 줄바꿈 금지를 푼다(낱말 안은 안 끊음) */
+@media (max-width:380px) {
+  main table:not(.sheet) th, main table:not(.sheet) td { padding:8px 4px; }
+  main table:not(.sheet) { font-size:.8rem; letter-spacing:-.03em; }
+  table.fee th:first-child, table.profile th, table.kinds th { white-space:normal; word-break:keep-all; }
+}
+@media (max-width:400px) { main table:not(.sheet) th, main table:not(.sheet) td { word-break:normal; overflow-wrap:break-word; } }   /* 행 제목 칸의 띄어쓰기 없는 긴 말(「취소(선물하기」)이 360·400폭 표를 밀었다 (D106) */
+/* 좁은 화면에서는 행 제목도 줄을 바꾸고 폭을 40% 안으로 — 오른쪽 칸이 글자 단위로 쪼개지지 않게 (D106) */
+@media (max-width:400px) {
+  main table:not(.sheet) tbody tr:not(:first-child) th:first-child { white-space:normal; width:38%; word-break:keep-all; }
+  main table:not(.sheet) td { word-break:keep-all; overflow-wrap:break-word; }
+}

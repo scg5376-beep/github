@@ -122,3 +122,105 @@ def step_pages(pages, next_target, esc):
                         "noindex": True, "canonical": p["url"], "parent": p["url"],
                         "url": step_url(p["url"], i), "rel": step_url(p["url"], i).lstrip("/"), "body": body})
     return out
+
+
+# ── 설명 글 → 질문 하나씩 (D106, 2026-10-11) ─────────────────────────────
+# 운영자 2026-10-11 «1번가» (설명 글도 커리큘럼으로, 직전 제안 1번).
+# 글 쪽: 핵심 정리까지는 그대로 + 「1번 질문부터 읽기」·질문 카드, 본문 절은 「한 쪽에 모두 보기」로 접는다.
+# 질문 쪽(/guide/<글>/N.html): h2 절 하나(작은 제목 h3 가 둘 이상이면 h3 하나)씩, 「더 읽기」 접기는 풀어서 다 보인다.
+
+ART_END = re.compile(r'<div class="next">|<nav class="prevnext"|<section class="terms-in"|<p class="cite"|<a class="totop"')
+ART_SKIP = re.compile(r"help-index|faq-|indexes|sheet|/index\.html$|/guide/$")
+
+
+def article_ok(page):
+    u = page["url"]
+    return (page.get("lang") == "ko" and page.get("section") == "guide" and page.get("kind") not in ("howto", "step", "journal")
+            and page.get("cat") and "order" in page and not page.get("plat") and not page.get("noindex") and not ART_SKIP.search(u))
+
+
+def _unfold(html):
+    """「더 읽기」 접기를 풀어 내용만 남긴다(질문 쪽은 한 가지만 보이니 접을 까닭이 없다)."""
+    html = re.sub(r'<details class="more vx-more"><summary>.*?</summary><div class="box">(.*?)</div></details>', r"\1", html, flags=re.S)
+    return re.sub(r'<details class="more vx-more[^"]*"><summary>.*?</summary>(.*?)</details>', r"\1", html, flags=re.S)
+
+
+def _sections(region):
+    """h2 절 → [(제목 html, 내용 html)]. 절 안 h3 가 둘 이상이면 h3 마다 나눈다(h2 머리말은 첫 h3 쪽 앞에)."""
+    out = []
+    nonum = lambda x: re.sub(r"^\d+\.\s*", "", x)                                 # 원래 소제목 번호(「1.」)는 떼고 카드 번호만 쓴다
+    parts = re.split(r"(<h2[^>]*>.*?</h2>)", region, flags=re.S)
+    for i in range(1, len(parts), 2):
+        h2 = nonum(re.sub(r"</?h2[^>]*>", "", parts[i]).strip())
+        content = parts[i + 1] if i + 1 < len(parts) else ""
+        subs = re.split(r"(<h3[^>]*>.*?</h3>)", content, flags=re.S)
+        if len(subs) >= 5:                                                          # h3 가 둘 이상
+            intro = subs[0]
+            for j in range(1, len(subs), 2):
+                h3 = nonum(re.sub(r"</?h3[^>]*>", "", subs[j]).strip())
+                body = (intro if j == 1 else "") + subs[j + 1]
+                out.append((h3, body, h2))
+        else:
+            out.append((h2, content, ""))
+    return out
+
+
+def article_overview(page, body):
+    """렌더가 끝난 설명 글 body → (글 쪽 body, 질문 목록). 대상이 아니거나 절이 셋 미만이면 (body, [])."""
+    first = re.search(r"<h2[^>]*>", body)
+    if not first:
+        return body, []
+    end = ART_END.search(body, first.start())
+    stop = end.start() if end else len(body)
+    region = body[first.start():stop]
+    secs = _sections(region)
+    if len(secs) < 3:
+        return body, []
+    n = len(secs)
+    base = re.sub(r"\.html$", "", page["url"])
+    cards = "".join(f'<li><a href="{base}/{i}.html"><span class="ln">{i}</span><span class="lt">'
+                    + (f'<small class="lp">{_plain(par)}</small>' if par else "") + f'<b>{_plain(t)}</b></span></a></li>'
+                    for i, (t, _c, par) in enumerate(secs, 1))
+    block = (f'<h2>읽는 순서</h2>\n<p class="lesson-lead">질문 {n}개를 한 화면에 하나씩 넘기며 읽을 수 있어요.</p>\n'
+             f'<a class="lesson-start" href="{base}/1.html">1번 질문부터 읽기</a>\n<ol class="lesson-steps q">{cards}</ol>\n'
+             f'<details class="more lesson-all"><summary>한 쪽에 모두 보기</summary>{region}</details>\n')
+    body = body[:first.start()] + block + body[stop:]
+    body = re.sub(r'<nav class="intoc".*?</nav>\s*', "", body, count=1, flags=re.S)  # 목차 칩은 질문 카드가 대신한다
+    return body, secs
+
+
+def article_pages(stash, esc, howto_of):
+    """stash: {글 주소: (글 쪽 dict, 질문 목록)} → 질문 쪽 dict 목록."""
+    out, seen = [], set()
+    for url, (p, secs) in stash.items():
+        n = len(secs)
+        nav = p.get("nav", p["title"])
+        base = re.sub(r"\.html$", "", url)
+        how = howto_of(url)
+        for i, (t, content, par) in enumerate(secs, 1):
+            tp = _plain(t)
+            body_c = re.sub(r"<(/?)h3\b", r"<\1h2", _unfold(content).strip())     # 질문 쪽 제목이 h1 이라 안의 작은 제목은 h2 로
+            pct = round(i / n * 100 / 5) * 5
+            prev = (url, "처음 화면") if i == 1 else (f"{base}/{i - 1}.html", "이전 질문")
+            go = (f"{base}/{i + 1}.html", f"{i + 1}번 질문") if i < n else ((how[0], "이제 따라 하기") if how else (url, "처음 화면으로"))
+            body = (f'<div class="lesson-nav"><a class="name" href="{url}">{esc(nav)}</a><span class="cnt">{i} / {n} 질문</span>'
+                    f'<span class="bar" aria-hidden="true"><i class="w{pct}"></i></span></div>\n'
+                    f'<div class="step-head"><span class="step-n">{i}</span><span class="vx-act vx-act-q">질문</span></div>\n'
+                    + (f'<p class="step-parent">{par}</p>\n' if par else "")
+                    + f'<h1 class="step-title">{t}</h1>\n<div class="step-text art">{body_c}</div>\n'
+                    + (f'<p class="lesson-done">질문 {n}개를 다 읽었어요. 직접 해 볼 순서는 <a href="{how[0]}">{esc(how[1])}</a>에 있어요.</p>\n' if i == n and how else "")
+                    + f'<nav class="bignext stepnav" aria-label="질문 이동"><a class="prev" href="{prev[0]}">{esc(prev[1])}</a>'
+                    f'<a class="stuck" href="{ASK}">묻기</a><a class="go" href="{go[0]}">{esc(go[1])}</a></nav>')
+            title = f"{tp} ({nav} {i}/{n})" if not par else f"{tp} — {_plain(par)} ({nav} {i}/{n})"
+            if title in seen:
+                title = f"{tp} ({p.get('cat', '').split('/')[0]} {nav} {i}/{n})"
+            seen.add(title)
+            desc = _plain(body_c)
+            if len(desc) < 50:
+                desc = f"{nav} 질문 {n}개 가운데 {i}번. {tp}. " + desc
+            desc = desc[:150].rstrip(" ,.·") + ("…" if len(desc) > 150 else "")
+            out.append({"title": title, "description": desc, "lang": "ko", "section": "guide", "kind": "step",
+                        "cat": p.get("cat"), "nav": f"{nav} 질문 {i}", "date": p.get("date"), "updated": p.get("updated"),
+                        "noindex": True, "canonical": url, "parent": url,
+                        "url": f"{base}/{i}.html", "rel": f"{base}/{i}.html".lstrip("/"), "body": body})
+    return out

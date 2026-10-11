@@ -292,7 +292,7 @@ def featured_html(pages, lang, main_url, side_urls):
     m = by[main_url]
     mins = read_minutes(m)
     fig = re.search(r"<figure\b.*?</figure>", m["body"], re.S)
-    art = ("<div class=\"art\">" + re.sub(r"</?figure[^>]*>", "", re.sub(r"<figcaption.*?</figcaption>", "", fig.group(0), flags=re.S)) + "</div>") if fig else f'<div class="ph {plat_class(m["cat"])}"><p class="ans">{esc(hero_answer(m))}</p></div>'
+    art = ("<div class=\"art\">" + re.sub(r"</?figure[^>]*>", "", re.sub(r"<figcaption\b.*?</figcaption>", "", fig.group(0), flags=re.S)) + "</div>") if fig else f'<div class="ph {plat_class(m["cat"])}"><p class="ans">{esc(hero_answer(m))}</p></div>'
     head = "Start here" if lang == "en" else "먼저 읽을 글"
     side = "".join(f'<li><a href="{by[u]["url"]}"><span class="cat {plat_class(by[u]["cat"])}">{esc(cat_label(by[u]["cat"]))}</span><b>{esc(re.sub(r"\s*\([^)]*코스 \d+단계\)", "", by[u]["title"]))}</b></a></li>' for u in side_urls if u in by)
     if side_urls == ["setups"]:
@@ -442,7 +442,7 @@ def step_nav(page, pages):
         else:
             dots.append(f'<li class="{cls} soon"><span class="n">{i+1}</span><span class="s">{esc(s)}</span></li>')
     return (f'<nav class="steps" aria-label="{esc(top)} 코스 진행"><a class="steps-head" href="{plat_url("ko", top)}">{esc(top)} 코스</a>'
-            f'<span class="steps-count">{cur+1}/{len(ss)}단계<em> · {esc(ss[cur])}</em></span><ol>{"".join(dots)}</ol></nav>')
+            f'<span class="steps-count">{cur+1}/{len(ss)}단계<span class="e"> · {esc(ss[cur])}</span></span><ol>{"".join(dots)}</ol></nav>')
 
 
 def course_rail(page, pages):
@@ -511,7 +511,7 @@ def tiles_html(pages, lang):
     for top, chans in TAXO[lang]:
         n = len(posts(pages, lang, top))
         label = ("posts" if lang == "en" else "글")
-        out.append(f'<a class="tile {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span>{esc(" · ".join(chans[:4]))}</span><em>{n} {label}</em></a>')
+        out.append(f'<a class="tile {plat_class(top)}" href="{plat_url(lang, top)}"><b>{esc(top)}</b><span>{esc(" · ".join(chans[:4]))}</span><span class="e">{n} {label}</span></a>')
     return '<div class="tiles">' + "".join(out) + "</div>"
 
 
@@ -1437,7 +1437,7 @@ def diag_html(pages, lang):
                 url, label = (pp[0]["url"], target) if pp else (plat_url(lang, top), target)
             pp2 = next((p for p in pages if p["url"] == url), None)
             cst = step_cost(split_cat(pp2["cat"])[1])[1] if pp2 and pp2.get("cat") and pp2.get("kind") == "howto" else ""
-            meta = f'<em>{cst}</em>' if cst else ""
+            meta = f'<span class="e">{cst}</span>' if cst else ""
             recs.append(f'<a class="rec" id="rec{k}" href="{url}"><b>{esc(label)}</b><span>{esc(line)}</span>{meta}</a>')
         out.append(f'<div class="r r-{code}"><p class="r-head"><span class="who">{esc(TRACK_INFO[top]["who"])}</span><b class="{plat_class(top)}">{esc(top)} 코스</b>'
                    f'<a class="btn" href="{start}">1단계부터 시작하기</a></p><div class="recs">{"".join(recs)}</div>'
@@ -1894,6 +1894,18 @@ def cases_html(pages):
 
 
 _SERIES = None
+ARTICLE_STASH = {}
+
+
+def howto_of(url):
+    """설명 글의 마지막 질문 뒤 「이제 따라 하기」로 갈 첫 따라 하기 글 (주소, 이름). 없으면 None (D106)."""
+    for u in GUIDE_TO_HOWTO.get(url, []):
+        if u == "/check/":
+            continue
+        p = next((x for x in PAGES_ALL if x["url"] == u), None)
+        if p:
+            return u, p.get("nav", p["title"])
+    return None
 
 
 def journal_series_all():
@@ -2108,6 +2120,11 @@ def render(page, pages, verify):
         page = dict(page, body=page["body"] + chr(10) + cite)
     fq = faq_ld(page)                                                              # FAQ 구조화 데이터는 접기 전 dt/dd 로 만든다
     page = dict(page, body=visual.apply(page, page["body"]))                         # 그림 안내 — 글 줄이고 그림 부품·접기 (운영자 2026-10-06, D99)
+    if lessons.article_ok(page):                                                    # 설명 글: 질문 카드 + 한 화면에 질문 하나 (D106)
+        bd_a, secs_a = lessons.article_overview(page, page["body"])
+        if secs_a:
+            ARTICLE_STASH[page["url"]] = (page, secs_a)
+            page = dict(page, body=bd_a)
     # 「이어서 읽을 글」 자동 목록은 뺐다 (2026-09-11 재개편: 글마다 손으로 고른 「다음 글」이 있어 중복. 게시판 상자가 같은 플랫폼 글을 이미 보여 준다)
     side = "" if page["url"] in ("/", "/en/") else rail(page, pages)
     cols = '<div class="cols">' if side else ('<div class="cols wide">' if page["url"] == "/" else '<div class="cols one">')   # 영어 첫 화면은 기둥이 없으니 한 칸   # 기둥이 없는 페이지(첫 화면 등)는 한 칸으로 가운데 정렬
@@ -2162,8 +2179,18 @@ def build():
                 f.unlink()
     pages += steps_
     PAGES_ALL = pages
+    ARTICLE_STASH.clear()
     for p in pages:
         write(ROOT / p["rel"], render(p, pages, verify))
+    arts = lessons.article_pages(ARTICLE_STASH, esc, howto_of)                      # 설명 글 질문 쪽 (D106) — 렌더가 끝난 본문에서 나눈다
+    live_a = {a["rel"] for a in arts}
+    for a_dir in {pathlib.PurePosixPath(a["rel"]).parent for a in arts}:
+        d = ROOT / a_dir
+        for f in d.glob("*.html") if d.is_dir() else []:
+            if f"{a_dir}/{f.name}" not in live_a:
+                f.unlink()
+    for a in arts:
+        write(ROOT / a["rel"], render(a, pages, verify))
 
     indexable = [p for p in pages if not p.get("noindex")]
     # sitemap.xml — 절대 URL (네이버: 상대 경로·호스트 불일치는 수집 안 함)
