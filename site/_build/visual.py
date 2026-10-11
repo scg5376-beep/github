@@ -270,6 +270,53 @@ def action_mock(head_html, rest_html="", where=""):
             f'<div class="mk-body">{body}</div><p class="vx-scr-note">화면 모형 · 실제 화면과 모양이 다를 수 있어요</p></div>')
 
 
+_SCREENS = None
+
+
+def screen_mock(url, head_html):
+    """화면 구성 모형 (D109) — 할 칸 하나만 그리면 실제 화면에서 어디인지 못 찾는다.
+    운영자 2026-10-12 «아까 그 이미지가 업종만보여서 다른게안보여서 구분하기 어렵지않을까».
+    _build/screens.json 에 공식 도움말의 칸 목록이 있는 단계만: 같은 화면의 다른 칸은 흐리게, 할 칸은 빨강, 채울 칸은 파랑.
+    위에는 등록 순서(공식 도움말의 Step 이름)에서 지금 자리. 칸 목록이 없는 단계는 빈 문자열(동작 모형으로)."""
+    global _SCREENS
+    if _SCREENS is None:
+        import json, pathlib
+        f = pathlib.Path(__file__).with_name("screens.json")
+        _SCREENS = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {"screens": [], "flows": {}}
+    t = re.sub(r"<[^>]+>", "", head_html)
+    sc = next((s for s in _SCREENS["screens"] if url in s["lessons"] and s["match"] in t), None)
+    if not sc:
+        return ""
+    flow = ""
+    if sc.get("flow"):
+        steps = _SCREENS["flows"][sc["flow"]]
+        flow = '<ol class="mk-flow" aria-label="등록 순서">' + "".join(
+            f'<li class="{"on" if i == sc["at"] else "done" if i < sc["at"] else ""}"><b>{i}</b>{x}</li>'
+            for i, x in enumerate(steps, 1)) + "</ol>"
+    rows, says = [], []
+    for r in sc["rows"]:
+        st = " on" if r.get("on") else " todo" if r.get("todo") else (" dim" if r["t"] != "hint" else "")
+        here = '<span class="mk-here">여기</span>' if r.get("here") else ""
+        tag = f'<small>{r["tag"]}</small>' if r.get("tag") else ""
+        if r.get("on"):
+            says.append(r["text"])
+        if r["t"] == "hint":
+            rows.append(f'<span class="mk-hint">{r["text"]}</span>')
+        elif r["t"] == "search":
+            rows.append(f'<span class="mk-search{st}">{icon("search", "vx-i")}<span>{r["text"]}</span>{here}</span>')
+        elif r["t"] == "opt":
+            rows.append(f'<span class="mk-opt{st}">{icon("check", "vx-i")}<span>{r["text"]}</span>{here}</span>')
+        elif r["t"] == "btn":
+            rows.append(f'<span class="mk-btn{st}">{r["text"]}{tag}{icon("tap", "vx-i mk-tap") if r.get("on") else ""}{here}</span>')
+        else:
+            rows.append(f'<span class="mk-field{st}"><b>{r["text"]}</b>{tag}{here}</span>')
+    lab = f'{sc["top"]} 화면. 할 곳: {", ".join(says) or "표시한 칸"}'
+    return (f'<div class="vx-mock vx-mock-screen" role="img" aria-label="화면 모형: {lab}">'
+            f'<p class="vx-scr-top"><span class="vx-scr-dot" aria-hidden="true"></span>{sc["top"]}</p>{flow}'
+            f'<div class="mk-body">{"".join(rows)}</div>'
+            f'<p class="vx-scr-note">화면 모형 · 칸 이름은 네이버 공식 도움말 기준, 실제 배치와 다를 수 있어요</p></div>')
+
+
 def icon(name, cls="vx-i"):
     return f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">{ICON[name]}</svg>'
 

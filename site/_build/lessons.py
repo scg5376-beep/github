@@ -64,11 +64,11 @@ def overview(page):
     return body
 
 
-def _visual(head, rest):
-    """단계 그림: 원본 캡처가 있으면 그것(본문 안에 그대로), 없으면 메뉴 경로 모형, 그것도 없으면 동작 모형."""
+def _visual(head, rest, url=""):
+    """단계 그림: 원본 캡처가 있으면 그것(본문 안에 그대로), 없으면 화면 구성 모형(공식 도움말 칸 목록, D109) → 메뉴 경로 모형 → 동작 모형."""
     if re.search(r"<img|<figure", rest):
         return ""
-    return visual.taps(rest) or visual.action_mock("<b>" + head + "</b>", rest)
+    return visual.screen_mock(url, head) or visual.taps(rest) or visual.action_mock("<b>" + head + "</b>", rest)
 
 
 def step_pages(pages, next_target, esc):
@@ -85,7 +85,7 @@ def step_pages(pages, next_target, esc):
         for i, (_a, head, rest) in enumerate(items, 1):
             why = "".join(re.findall(r'<details class="why">.*?</details>', rest, re.S))
             text = re.sub(r'<details class="why">.*?</details>', "", rest, flags=re.S).strip()
-            pic = _visual(head, text)
+            pic = _visual(head, text, p["url"])
             hp = _plain(head).rstrip(".")
             pct = int(i / n * 100)
             prev = (p["url"], "준비물 보기") if i == 1 else (step_url(p["url"], i - 1), "이전 단계")

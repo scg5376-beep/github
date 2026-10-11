@@ -1,0 +1,112 @@
+{
+  "_설명": "단계 그림에 실제 화면의 다른 칸도 같이 보이게 한다 (운영자 2026-10-12 «아까 그 이미지가 업종만보여서 다른게안보여서 구분하기 어렵지않을까»). 칸 이름은 공식 도움말에 적힌 것만 쓴다. 지어내지 않는다. 행 종류: hint(작은 안내) · search(검색창) · opt(목록 한 줄) · field(입력 칸, tag=필수/선택) · btn(단추). on=지금 할 곳(빨강), todo=채울 칸(파랑), here=「여기」 표시, 나머지는 흐리게.",
+  "flows": {
+    "place-new": ["업종 검색", "사업자 정보 확인", "중복 확인", "기본 정보 입력", "등록 검토", "부가 정보 입력"]
+  },
+  "screens": [
+    {
+      "lessons": ["/local/2-place.html"],
+      "match": "업종을 검색해",
+      "top": "스마트플레이스 · 업체 신규 등록",
+      "flow": "place-new", "at": 1,
+      "rows": [
+        {"t": "hint", "text": "업체 성격에 맞는 업종을 검색창에 입력"},
+        {"t": "search", "text": "미용실", "on": true},
+        {"t": "opt", "text": "미용실", "on": true, "here": true},
+        {"t": "hint", "text": "종목(사업자등록증)이나 가게를 대표하는 말로 검색"}
+      ],
+      "src": "https://help.naver.com/service/30026/contents/20366"
+    },
+    {
+      "lessons": ["/local/2-place.html"],
+      "match": "사업자 정보를 확인",
+      "top": "스마트플레이스 · 업체 신규 등록",
+      "flow": "place-new", "at": 2,
+      "rows": [
+        {"t": "hint", "text": "두 방법 가운데 하나로 확인"},
+        {"t": "btn", "text": "사업자등록증으로 확인", "tag": "사진 파일", "on": true, "here": true},
+        {"t": "btn", "text": "사업자등록증 없이 확인", "tag": "네이버 인증서"}
+      ],
+      "src": "https://help.naver.com/service/30026/contents/20366"
+    },
+    {
+      "lessons": ["/local/2-place.html"],
+      "match": "기본 정보를 넣",
+      "top": "스마트플레이스 · 업체 신규 등록",
+      "flow": "place-new", "at": 4,
+      "rows": [
+        {"t": "field", "text": "업체명", "tag": "필수", "on": true, "here": true},
+        {"t": "field", "text": "업종", "tag": "자동 입력"},
+        {"t": "field", "text": "업체 사진·상세 설명·찾아오는길", "tag": "선택"},
+        {"t": "field", "text": "대표키워드", "tag": "선택"},
+        {"t": "field", "text": "전화번호", "tag": "필수", "on": true},
+        {"t": "field", "text": "주소 및 지도 위치", "tag": "필수", "on": true},
+        {"t": "btn", "text": "다음"}
+      ],
+      "src": "https://help.naver.com/service/30026/contents/20366"
+    },
+    {
+      "lessons": ["/local/2-place.html"],
+      "match": "대표 키워드를 최대 5개",
+      "top": "스마트플레이스 · 업체 신규 등록",
+      "flow": "place-new", "at": 4,
+      "rows": [
+        {"t": "field", "text": "업체명", "tag": "필수"},
+        {"t": "field", "text": "업종", "tag": "자동 입력"},
+        {"t": "field", "text": "업체 사진·상세 설명·찾아오는길", "tag": "선택"},
+        {"t": "field", "text": "대표키워드", "tag": "최대 5개", "on": true, "here": true},
+        {"t": "field", "text": "전화번호", "tag": "필수"},
+        {"t": "field", "text": "주소 및 지도 위치", "tag": "필수"},
+        {"t": "btn", "text": "다음"}
+      ],
+      "src": "https://help.naver.com/service/30026/contents/20366"
+    },
+    {
+      "lessons": ["/local/2-place.html"],
+      "match": "「다음」을 누르고 검토",
+      "top": "스마트플레이스 · 업체 신규 등록",
+      "flow": "place-new", "at": 4,
+      "rows": [
+        {"t": "field", "text": "업체명", "tag": "필수"},
+        {"t": "field", "text": "업종", "tag": "자동 입력"},
+        {"t": "field", "text": "업체 사진·상세 설명·찾아오는길", "tag": "선택"},
+        {"t": "field", "text": "대표키워드", "tag": "선택"},
+        {"t": "field", "text": "전화번호", "tag": "필수"},
+        {"t": "field", "text": "주소 및 지도 위치", "tag": "필수"},
+        {"t": "btn", "text": "다음", "on": true, "here": true}
+      ],
+      "src": "https://help.naver.com/service/30026/contents/20366"
+    },
+    {
+      "lessons": ["/local/2-place.html"],
+      "match": "부가 정보를 채우",
+      "top": "스마트플레이스 · 부가 정보",
+      "flow": "place-new", "at": 6,
+      "rows": [
+        {"t": "field", "text": "제공 서비스", "tag": "선택", "todo": true},
+        {"t": "field", "text": "홈페이지", "tag": "선택", "todo": true},
+        {"t": "field", "text": "주차 정보", "tag": "선택", "todo": true},
+        {"t": "field", "text": "가격 정보", "tag": "선택", "todo": true},
+        {"t": "field", "text": "휴무일/영업시간", "tag": "선택", "todo": true},
+        {"t": "hint", "text": "음식점·미용실·숙박은 메뉴·시술·객실 정보 하나 이상 필수"}
+      ],
+      "src": "https://help.naver.com/service/30026/contents/20366"
+    },
+    {
+      "lessons": ["/local/2-place.html"],
+      "match": "휴무일과 영업시간을 넣",
+      "top": "내 업체 › 정보 수정 › 업체정보 › 휴무일, 영업시간",
+      "rows": [
+        {"t": "hint", "text": "휴무일"},
+        {"t": "opt", "text": "휴무일이 있어요 / 휴무일이 없어요", "on": true, "here": true},
+        {"t": "field", "text": "정기 휴무일", "tag": "매주·격주·매월", "todo": true},
+        {"t": "field", "text": "공휴일 중 휴무일", "tag": "선택", "todo": true},
+        {"t": "field", "text": "임시공휴일 · 특정일 휴무", "tag": "선택"},
+        {"t": "hint", "text": "영업시간"},
+        {"t": "field", "text": "기본 영업시간", "tag": "요일별·5분 단위", "todo": true},
+        {"t": "field", "text": "임시 영업 일정", "tag": "선택"}
+      ],
+      "src": "https://help.naver.com/service/30026/contents/20380"
+    }
+  ]
+}

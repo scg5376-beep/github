@@ -1532,3 +1532,23 @@ details.lesson-stuck[open], details.lesson-check[open] { padding:0 12px 12px; }
 details.lesson-stuck > summary, details.lesson-check > summary { display:flex; align-items:center; justify-content:space-between; border:0; border-radius:12px; background:none; box-shadow:none; width:auto; margin:0; }
 .vx-mock .mk-opt { position:relative; }
 .vx-mock .mk-search + .mk-opt, .vx-mock .mk-search + .mk-row + .mk-btn { margin-top:12px; }
+
+/* D109 화면 구성 모형 — 같은 화면의 다른 칸은 흐리게, 할 칸은 빨강, 채울 칸은 파랑, 위에는 등록 순서에서 지금 자리 */
+.vx-mock .mk-flow { display:flex; flex-wrap:wrap; gap:5px 6px; margin:0; padding:10px 14px 0; list-style:none; }
+.vx-mock .mk-flow li { display:flex; align-items:center; gap:4px; margin:0; padding:3px 9px 3px 4px; border-radius:999px; background:#f1f3f6; color:#5b6168; font-size:.78rem; font-weight:700; }
+.vx-mock .mk-flow li b { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:#aab1b9; color:#fff; font-size:.7rem; }
+.vx-mock .mk-flow li.done b { background:#1e7b45; }
+.vx-mock .mk-flow li.on { background:#d7261e; color:#fff; }
+.vx-mock .mk-flow li.on b { background:#fff; color:#d7261e; }
+.vx-mock-screen .mk-body { gap:8px; padding-top:14px; }
+.vx-mock .mk-field { display:flex; align-items:center; gap:8px; min-height:44px; padding:6px 12px; border:2px solid #dde2e8; border-radius:10px; background:#fff; overflow-wrap:anywhere; }
+.vx-mock .mk-field b { font-weight:800; font-size:.95rem; }
+.vx-mock .mk-field small, .vx-mock .mk-btn small { flex:none; margin-left:auto; padding:2px 7px; border-radius:6px; background:#f1f3f6; color:#4a5058; font-size:.74rem; font-weight:700; }
+.vx-mock .mk-btn small { margin-left:4px; }
+.vx-mock .mk-field.on { border:3px solid #d7261e; }
+.vx-mock .mk-field.todo, .vx-mock .mk-opt.todo { border:3px solid #1f5fbf; background:#f3f7ff; }
+.vx-mock .mk-field.dim, .vx-mock .mk-btn.dim, .vx-mock .mk-opt.dim, .vx-mock .mk-search.dim { border:2px solid #dde2e8; background:#fff; opacity:.55; }
+.vx-mock .mk-hint { font-size:.84rem; color:#4a5058; font-weight:700; overflow-wrap:anywhere; }
+.vx-mock-screen .mk-here { position:static; flex:none; margin-left:6px; padding:1px 7px; border-radius:6px; background:#d7261e; color:#fff; font-size:.74rem; }
+.vx-mock-screen .mk-btn { padding-right:46px; }
+.vx-mock-screen .mk-btn.dim { padding-right:16px; }
