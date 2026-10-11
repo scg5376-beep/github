@@ -1530,3 +1530,5 @@ details.lesson-stuck > summary, details.lesson-check > summary { padding:14px 16
 details.lesson-stuck > summary { color:#a5460b; }
 details.lesson-stuck[open], details.lesson-check[open] { padding:0 12px 12px; }
 details.lesson-stuck > summary, details.lesson-check > summary { display:flex; align-items:center; justify-content:space-between; border:0; border-radius:12px; background:none; box-shadow:none; width:auto; margin:0; }
+.vx-mock .mk-opt { position:relative; }
+.vx-mock .mk-search + .mk-opt, .vx-mock .mk-search + .mk-row + .mk-btn { margin-top:12px; }

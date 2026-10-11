@@ -40,45 +40,113 @@ ICON = {  # 24x24 선 아이콘(직접 그림, 외부 자원 없음)
     "send": '<path d="M3.5 11.5 20.5 4l-4 16-4.5-6.5-8.5-2z"/><path d="M12 13.5 20.5 4"/>',
     "card": '<rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 10h19"/><path d="M6.5 14.5h4"/>',
     "shield": '<path d="M12 3.5 19.5 6v5.5c0 4.4-3.1 7.7-7.5 9-4.4-1.3-7.5-4.6-7.5-9V6L12 3.5z"/><path d="M9 12l2.2 2.2L15.5 9.8"/>',
+    "memo": '<rect x="4.5" y="3.5" width="15" height="17" rx="2"/><path d="M8 8.5h8"/><path d="M8 12.5h8"/><path d="M8 16.5h5"/>',
 }
 
-# 단계 제목 끝 동사 → (아이콘, 두 글자 표시). 앞에서부터 먼저 맞는 것. 「하지 마세요」류는 주의.
+# 단계 제목 동사 → (아이콘, 두 글자 표시). 제목에서 가장 뒤에 나오는 동사(한국어는 끝 동사가 할 일)를 쓴다 — act().
+# 운영자 2026-10-11 «1단계를하면 이 이미지 업종칸이 바로보이는거야»: 「업종을 검색해 고르세요」를 고르기 목록으로 그렸다.
+#   → 검색은 언제나 검색창부터, 「단골 알림 보내기」처럼 「」 안 단추 이름의 동사는 할 일로 치지 않는다.
+NAV = ("tap", "열기")
+FALLBACK = ("준비", "할 일")
 ACT = [
     (re.compile(r"마세요\.?$"), ("warn", "주의")),
     (re.compile(r"(확인|점검|대조|맞춰 보|비교)"), ("check", "확인")),
-    (re.compile(r"(누르|클릭|탭하|선택하|제출|신청|저장|발행|게시)"), ("tap", "누르기")),
+    (re.compile(r"(검색해|검색하|검색창|찾으|찾아(?!오))"), ("search", "찾기")),
+    (re.compile(r"(누르|눌러|클릭|탭하|선택하|(?:제출|신청|저장|발행|게시|발급)(?=하|해|받|을 |를 ))"), ("tap", "누르기")),   # 「발행일」은 누르기가 아니다
+    (re.compile(r"」\s*(?:을|를|로|으로)?\s*(?:탭을\s*)?(열어|열고|여세요|들어가)"), NAV),       # 「」 메뉴를 열 때만 단추. 「오래된 순으로 여세요」는 할 일
     (re.compile(r"(올리|업로드|첨부)"), ("upload", "올리기")),
-    (re.compile(r"(검색하|찾으|찾아)"), ("search", "찾기")),
-    (re.compile(r"(보내|답하|답장|전송|발송|메시지)"), ("send", "보내기")),
-    (re.compile(r"(충전|결제|입금|내|지불)하세요"), ("card", "결제")),
-    (re.compile(r"(켜|끄|설정하|바꾸|고치|조정|정하)"), ("toggle", "설정")),
-    (re.compile(r"(고르|정하|선택)"), ("pick", "고르기")),
-    (re.compile(r"(만드|생성|등록하|개설|가입|시작하|열|여세요|들어가|가세요)"), ("plus", "만들기")),
+    (re.compile(r"(보내|답하|답장|전송|발송|답글을 다|답글을 달)"), ("send", "보내기")),
+    (re.compile(r"(충전|결제|입금|지불)하세요"), ("card", "결제")),
+    (re.compile(r"(켜|끄세요|설정하|바꾸|조정)"), ("toggle", "설정")),
+    (re.compile(r"(고르|골라|정하|선택)"), ("pick", "고르기")),
+    (re.compile(r"(만드|만들|생성|등록하|개설|가입)"), ("plus", "만들기")),
     (re.compile(r"(보관|지키|보호|백업|메모)"), ("shield", "보관")),
-    (re.compile(r"(보세요|읽으|살펴|둘러)"), ("eye", "보기")),
-    (re.compile(r"(넣|적으|적어|쓰세요|입력|채우|작성|기록)"), ("write", "적기")),
+    (re.compile(r"((?<![어아해] )보세요|읽으|읽어|살펴|둘러)"), ("eye", "보기")),   # 「열어 보세요」의 보세요는 보조 동사
+    (re.compile(r"(넣|적으|적어|쓰세요|입력|채우|작성|기록|고치|고쳐)"), ("write", "적기")),
     (re.compile(r"(로그인|전환|옮기)"), ("toggle", "설정")),
-    (re.compile(r"(두세요|잡으세요|붙이세요|모아|정리|준비)"), ("pick", "준비")),
-    (re.compile(r"(하세요|해 보세요)\.?$"), ("pick", "할 일")),
+    (re.compile(r"(두세요|잡으세요|잡아 두|붙이세요|모아|정리|준비)"), ("memo", "준비")),
+    (re.compile(r"세요\.?$"), ("memo", "할 일")),
 ]
+
+
+def _verb_text(head_html):
+    """(제목 글자, 「」 안을 같은 길이의 □로 가린 글자) — 단추 이름 속 동사를 할 일로 읽지 않으려고."""
+    t = re.sub(r"<[^>]+>", "", head_html).strip()
+    return t, re.sub(r"「[^」]*」", lambda m: "「" + "□" * (len(m.group(0)) - 2) + "」", t)
+
+
+def act(head_html):
+    """(아이콘, 표시, 동사 시작 위치). 검색이 있으면 검색, 아니면 가장 뒤 동사, 그것도 없으면 준비·할 일. 못 맞추면 None."""
+    t, v = _verb_text(head_html)
+    m = re.search(r"(검색해|검색하|검색창)", v)
+    if m:
+        return ("search", "찾기", m.start())
+    best = None
+    for rx, val in ACT:
+        if val[1] in FALLBACK:
+            continue
+        ms = list(rx.finditer(v))
+        if ms and (best is None or ms[-1].end() > best[2]):
+            best = (val[0], val[1], ms[-1].end(), ms[-1].start(1) if ms[-1].groups() else ms[-1].start())
+    if best:
+        return (best[0], best[1], best[3])
+    for rx, val in ACT:
+        if val[1] in FALLBACK and rx.search(v):
+            return (val[0], val[1], len(v))
+    return None
 
 
 def act_badge(head_html):
     """단계 제목(<b>…</b>)의 동사를 보고 「무엇을 하는 단계」 표시를 만든다. 못 맞추면 빈 문자열."""
-    t = re.sub(r"<[^>]+>", "", head_html).strip()
-    for rx, (ic, label) in ACT:
-        if rx.search(t):
-            return f'<span class="vx-act vx-act-{ic}">{icon(ic)}{label}</span>'
-    return ""
+    a = act(head_html)
+    return f'<span class="vx-act vx-act-{a[0]}">{icon(a[0])}{a[1]}</span>' if a else ""
 
 
 def act_kind(head_html):
     """단계 제목 동사의 종류(아이콘 이름). 못 맞추면 빈 문자열."""
-    t = re.sub(r"<[^>]+>", "", head_html).strip()
-    for rx, (ic, _label) in ACT:
-        if rx.search(t):
-            return ic
-    return ""
+    a = act(head_html)
+    return a[0] if a else ""
+
+
+_PART = re.compile(r"(에서|에게|에는|에|은|는|을|를|고|면|서|로|도|며|해|어|아|러|려|워|쳐|져|의|만|는지|인지|할지|을지|까지|부터|,|\))$")
+_STOP = {"동안", "때", "뒤", "후", "전", "중", "먼저", "지금", "그대로", "다시", "더", "모두", "직접", "따로", "꼭", "반드시"}
+_NOUN_END = ("신고", "광고", "재고", "창고", "공고", "화면", "지도", "순서", "경로", "주문서", "신청서", "계약서")
+
+
+def _mod_ok(w):
+    """목적어 앞에 붙여도 되는 꾸밈 낱말인가 — 「가게」 이름, 「청약철회 7일」 안내, 「가격정보와」 사진. 조사·어미로 끝나면 아니다."""
+    if not w or "「" in w or "」" in w or w in _STOP:
+        return False
+    if _PART.search(w) and not w.endswith(_NOUN_END):
+        return False
+    if len(w) == 3 and re.search(r"[이가]$", w):                                   # 손님이·업종이 (부가·디스플레이는 살린다)
+        return False
+    return len(w) <= 8 or "·" in w or bool(re.search(r"[와과]$", w))
+
+
+def _obj_before(t, pos):
+    """동사 바로 앞 목적어 — 「」 단추 이름 또는 「○○을/를」(꾸밈 낱말 둘까지, 「○와/과」로 이어지면 넷까지). 못 찾으면 빈 문자열."""
+    p = t[:pos]
+    last = None
+    for m in re.finditer(r"「([^」]{1,26})」|([^\s「」()]+(?:\([^)]*\))?)(?:을|를)(?=\s)", p):
+        last = m
+    if not last:
+        return ""
+    if not last.group(1):
+        before = p[:last.start(2)].rstrip()
+        q = re.search(r"「([^」]{1,26})」$", before)
+        if q and last.group(2) in ("탭", "메뉴", "단추", "버튼", "칸"):               # 「단골」 탭을 → 단골
+            last = q
+    if last.group(1):
+        return re.split(r"\s*(?:&gt;|>)\s*", last.group(1))[-1].strip()
+    head, lim = [last.group(2)], 2
+    for w in reversed(p[:last.start(2)].split()[-4:]):
+        if len(head) > lim or not _mod_ok(w):
+            break
+        head.insert(0, w)
+        if re.search(r"[와과]$", w):                                               # 「소개 한 줄과 쇼핑몰 링크」
+            lim = 4
+    return " ".join(head)
 
 
 def target_label(head_html, rest_html=""):
@@ -107,39 +175,92 @@ MOCK_VERB = {"tap": "누르기", "plus": "만들기", "write": "적기", "pick":
 def action_mock(head_html, rest_html="", where=""):
     """실제 캡처·메뉴 경로가 없는 단계용 화면 모형 (D105, 운영자 2026-10-11 «정보를 도와주는 이미지가 최대한 많이»).
     동사 종류마다 모양이 다르다: 누르기=단추, 적기=입력칸, 고르기=목록, 켜기=스위치, 올리기=사진 칸, 찾기=검색창, 확인=체크 목록."""
-    k = act_kind(head_html)
-    lab = target_label(head_html, rest_html)
-    if not k:
+    a = act(head_html)
+    if not a:
         return ""
-    if not lab:                                                                     # 목적어를 못 찾으면 할 일 메모 카드 (제목 앞부분)
-        t = re.sub(r"<[^>]+>", "", head_html).strip().rstrip(".")
-        lab = t if len(t) <= 22 else t[:21].rstrip(" ,·") + "…"
-        k = "memo"
+    k, pos = a[0], a[2]
+    t = re.sub(r"<[^>]+>", "", head_html).strip()
+    short = t.rstrip(".") if len(t) <= 34 else t[:33].rstrip(" ,·") + "…"
+    seq = [re.split(r"\s*(?:&gt;|>)\s*", x)[-1].strip() for x in re.findall(r"「([^」]{1,26})」", t)]
+    lab = target_label(head_html, rest_html)
+    fix = re.search(r"「([^」]+)」(?:\s*또는\s*「[^」]+」)*\s*(?:으로|로)\s*고(?:치|쳐)", t)
+    if k == "write" and fix:                                                        # 「수정」 또는 「삭제」로 고치세요 → 단추
+        k, pos = "tap", fix.end()
+    if k in ("pick", "write", "upload", "toggle", "tap", "plus", "card"):           # 동사 바로 앞 목적어(「디스플레이 광고를 고르고」 → 디스플레이 광고)
+        lab = fix.group(1) if (fix and k == "tap") else _obj_before(t, pos)
+        if k == "toggle" and "사진" in lab:                                         # 「프로필 사진」을 로고로 바꾸세요 → 사진 올리기
+            k = "upload"
+        if k == "upload":
+            ph = re.search(r"((?:[^\s「」]{1,6}\s){0,2}[^\s「」]*(?:사진|게시물))", t)
+            if ph:
+                ws = ph.group(1).split()
+                while len(ws) > 1 and not _mod_ok(ws[0]):
+                    ws.pop(0)
+                lab = " ".join(ws)
+        nv = re.match(r"(신청|저장|발행|게시|제출|발급|가입|개설)", t[pos:]) if k in ("tap", "plus") else None
+        if nv:                                                                      # 「이웃 신청을 하세요」 → 이웃 신청
+            w = (t[:pos].split() or [""])[-1]
+            w = re.sub(r"(을|를|에|에서)$", "", w)
+            lab = (w + " " if w and not _PART.search(w) and "」" not in w else "") + nv.group(1)
+        if k == "write":
+            if not lab:                                                             # 「가격은 숫자로 넣으세요」 → 가격
+                tm = re.match(r"((?:[^\s「」]+\s)?[^\s「」]+?)(?:은|는)\s", t)
+                lab = tm.group(1) if tm else ""
+            if re.search(r"지 (않|마)|(는지|인지) 적", t) or (len(lab) <= 1 and (lab in "칸것곳수돈건" or "「" not in t[:pos])):
+                lab = ""                                                            # 「적지 않으세요」·「있는지 적어 두세요」·「돈」 한 글자는 칸으로 못 그린다
+    elif k == "check":                                                              # 「쿠팡도 쓰면 … 카테고리를 확인하세요」 → 카테고리
+        lab = _obj_before(t, pos) or lab
+    if k in ("shield", "memo") or (k == "eye" and "「" not in t) or (not lab and k != "search"):
+        lab, k = short, ("shield" if k == "shield" else "memo")                    # 단추·칸으로 못 그리는 할 일은 제목 그대로 메모 카드
     L = lab
     row = '<span class="mk-row"></span>'
     tap = icon("tap", "vx-i mk-tap")
-    seq = [re.split(r"\s*(?:&gt;|>)\s*", x)[-1].strip() for x in re.findall(r"「([^」]{1,26})」", re.sub(r"<[^>]+>", "", head_html))]
-    if k in ("tap", "plus") and len(seq) >= 2:                                       # 「나의 당근」 > 「비즈프로필 만들기」: 앞은 지나가는 칸, 마지막이 누를 곳
-        L = seq[-1]
-        body = "".join(f'<span class="mk-pass">{x}<span class="mk-go" aria-hidden="true">›</span></span>' for x in seq[:-1]) +                f'<span class="mk-btn">{L}{tap}<span class="mk-here">여기</span></span>'
-    elif k in ("tap", "plus"):
-        body = f'{row}{row}<span class="mk-btn">{"+ " if k == "plus" else ""}{L}{tap}<span class="mk-here">여기</span></span>'
-    elif k == "write":
-        body = f'<span class="mk-lab">{L}</span><span class="mk-input"><i class="mk-caret"></i></span>{row}'
-    elif k == "pick":
-        body = f'{row}<span class="mk-opt on">{icon("check", "vx-i")}{L}</span>{row}'
+    if k == "send":                                                                 # 말풍선에는 무엇을 보내는지(답글·댓글)
+        L = "답글" if re.search(r"리뷰|답글", t) else "댓글" if re.search(r"댓글|후기", t) else L
+    pre = re.findall(r"「([^」]{1,26})」", t[:fix.start() if (fix and k == "tap") else pos])   # 동사 앞에 나온 「」만 지나가는 칸
+    pre = [re.split(r"\s*(?:&gt;|>)\s*", x)[-1].strip() for x in pre]
+    pas = "".join(f'<span class="mk-pass">{x}<span class="mk-go" aria-hidden="true">›</span></span>' for x in [x for x in pre if x != L][-2:])
+    if k in ("tap", "plus"):                                                        # 「나의 당근」 > 「비즈프로필 만들기」: 앞은 지나가는 칸, 마지막이 누를 곳
+        body = (pas or f'{row}{row}') + f'<span class="mk-btn">{"+ " if k == "plus" else ""}{L}{tap}<span class="mk-here">여기</span></span>'
+    elif k == "write":                                                              # 지나가는 칸(「소식」) → 적을 칸
+        body = f'{pas}<span class="mk-lab">{L}</span><span class="mk-input"><i class="mk-caret"></i></span>{"" if pas else row}'
+    elif k == "pick":                                                               # 「새 광고 만들기」에서 … 고르고 → 지나가는 칸 + 고를 줄
+        body = f'{pas}{row}<span class="mk-opt on">{icon("check", "vx-i")}{L}</span>{row}'
     elif k == "toggle":
-        body = f'{row}<span class="mk-sw-row"><span>{L}</span><span class="mk-sw on"><i></i></span></span>{row}'
+        body = f'{pas or row}<span class="mk-sw-row"><span>{L}</span><span class="mk-sw on"><i></i></span></span>{row}'
     elif k == "upload":
-        body = f'<span class="mk-drop">{icon("upload", "vx-i")}<span>{L}</span></span>'
-    elif k == "search":
-        body = f'<span class="mk-search">{icon("search", "vx-i")}<span>{L}</span></span>{row}{row}'
+        body = f'{pas}<span class="mk-drop">{icon("upload", "vx-i")}<span>{L}</span></span>'
+    elif k == "search":                                                             # 검색창에 무엇을 넣는지 보인다(운영자 2026-10-11 «업종칸이 바로보이는거야»)
+        t = re.sub(r"<[^>]+>", "", head_html).strip()
+        ex = re.search(r"(?:이를테면|예를 들어|예컨대|예:)\s*「([^」>]{1,12})」", re.sub(r"<[^>]+>", "", rest_html))
+        hq = re.search(r"「([^」>]{1,20})」\s*(?:으로|로|을|를)\s*검색", t)
+        obj = re.search(r"(가게 이름|우리 가게|가게|업종|제품|블로그)(?:을|를|으로|로)\s", t)
+        q = ex.group(1) if ex else hq.group(1) if hq else obj.group(1) if obj else (L or "검색어")
+        q = "가게 이름" if q == "가게" else q
+        wm = re.search(r"((?:구글 )?지도|네이버|정부24|등록대행자(?: 사이트)?|인스타그램)에서\s", t)
+        top_lab = f"{wm.group(1)}에서 검색" if wm else f"{obj.group(1)} 검색" if obj else "검색"
+        btn = re.search(r"(?:검색|찾아)\S*\s.*「([^」]{1,26})」\s*(?:을|를)?\s*누르", t)
+        if not re.search(r"검색", t) and not L:
+            k, L = "memo", short
+            body = f'<span class="mk-memo">{icon("memo", "vx-i")}<span>{L}</span></span>{row}'
+        elif not re.search(r"검색", t):                                             # 「찾아」만 있으면 검색창이 아니라 목록에서 찾는 일
+            body = f'{row}<span class="mk-opt on">{icon("search", "vx-i")}{L}<span class="mk-here">여기</span></span>{row}'
+        else:
+            body = f'<span class="mk-lab">{top_lab}</span><span class="mk-search">{icon("search", "vx-i")}<span>{q}</span></span>'
+            if btn:                                                                 # 검색해 「지금 관리」를 누르세요 → 검색창 + 단추
+                L = re.split(r"\s*(?:&gt;|>)\s*", btn.group(1))[-1].strip()
+                body += f'{row}<span class="mk-btn">{L}{tap}<span class="mk-here">여기</span></span>'
+            elif re.search(r"고르", t):                                             # 검색해 고르세요 → 결과에서 하나 고르기
+                body += f'<span class="mk-opt on">{icon("check", "vx-i")}{q}<span class="mk-here">여기</span></span>{row}'
+            else:
+                body += f'{row}{row}'
+            L = L if btn else q
     elif k == "check":
-        body = f'<span class="mk-opt on">{icon("check", "vx-i")}{L}</span>{row}{row}'
+        body = f'{pas}<span class="mk-opt on">{icon("check", "vx-i")}{L}</span>{row}{"" if pas else row}'
     elif k == "send":
-        body = f'{row}<span class="mk-bubble">{L}</span>'
+        body = f'{pas or row}<span class="mk-bubble">{L}</span>'
     elif k == "memo":
-        body = f'<span class="mk-memo">{icon("check", "vx-i")}<span>{L}</span></span>{row}'
+        body = f'<span class="mk-memo">{icon("memo", "vx-i")}<span>{L}</span></span>{row}'
     elif k == "warn":
         body = f'<span class="mk-warn">{icon("warn", "vx-i")}<span>{L}</span></span>'
     else:
