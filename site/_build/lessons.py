@@ -224,3 +224,19 @@ def article_pages(stash, esc, howto_of):
                         "noindex": True, "canonical": url, "parent": url,
                         "url": f"{base}/{i}.html", "rel": f"{base}/{i}.html".lstrip("/"), "body": body})
     return out
+
+
+def overview_tail(body):
+    """강의 쪽 아래: 「다 했는지 확인」 점검표와 「막히면」 질문 묶음을 접는다 (D107, 운영자 2026-10-11 «이어서진행»).
+    내용은 HTML 에 그대로 있어 검색·자주 묻는 질문 정보는 남는다. 점검표는 마지막 단계 쪽에도 보인다."""
+    m = re.search(r'<h2[^>]*>([^<]*)</h2>\s*(<ul class="check">.*?</ul>)', body, re.S)
+    if m:
+        body = body[:m.start()] + f'<details class="more lesson-check"><summary>{m.group(1).strip()} · 점검표</summary>{m.group(2)}</details>' + body[m.end():]
+    m = re.search(r'<h2[^>]*>막히면</h2>', body)
+    if m:
+        end = re.compile(r'<nav class="bignext"|<section class="terms-in"|<p class="cite"|<a class="totop"').search(body, m.end())
+        stop = end.start() if end else len(body)
+        inner = body[m.end():stop]
+        n = len(re.findall(r'<details class="more vx-q"|<div class="vx-q', inner)) or len(re.findall(r"<dt>", inner))
+        body = (body[:m.start()] + f'<details class="more lesson-stuck" id="stuck"><summary>막혔을 때 볼 것 · 질문 {n}개</summary>{inner}</details>\n' + body[stop:])
+    return body

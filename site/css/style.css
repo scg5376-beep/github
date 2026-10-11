@@ -1524,3 +1524,9 @@ ol.lesson-steps .lt small.lp { font-size:.8rem; font-weight:700; color:var(--ink
   main table:not(.sheet) tbody tr:not(:first-child) th:first-child { white-space:normal; width:38%; word-break:keep-all; }
   main table:not(.sheet) td { word-break:keep-all; overflow-wrap:break-word; }
 }
+/* D107 강의 쪽 아래 접기 — 막혔을 때 볼 것·점검표 */
+details.lesson-stuck, details.lesson-check { margin:12px 0; border:2px solid var(--line); border-radius:14px; background:var(--card); }
+details.lesson-stuck > summary, details.lesson-check > summary { padding:14px 16px; font-weight:800; cursor:pointer; min-height:44px; }
+details.lesson-stuck > summary { color:#a5460b; }
+details.lesson-stuck[open], details.lesson-check[open] { padding:0 12px 12px; }
+details.lesson-stuck > summary, details.lesson-check > summary { display:flex; align-items:center; justify-content:space-between; border:0; border-radius:12px; background:none; box-shadow:none; width:auto; margin:0; }
