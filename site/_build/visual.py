@@ -294,7 +294,10 @@ def screen_mock(url, head_html):
             f'<li class="{"on" if i == sc["at"] else "done" if i < sc["at"] else ""}"><b>{i}</b>{x}</li>'
             for i, x in enumerate(steps, 1)) + "</ol>"
     rows, says = [], []
-    for r in sc["rows"]:
+    first_on = next((k for k, r in enumerate(sc["rows"]) if r.get("on")), -1)
+    auto_here = not any(r.get("here") for r in sc["rows"])                         # 「여기」가 없으면 첫 빨강 칸에
+    for k, r in enumerate(sc["rows"]):
+        r = dict(r, here=r.get("here") or (auto_here and k == first_on))
         st = " on" if r.get("on") else " todo" if r.get("todo") else (" dim" if r["t"] != "hint" else "")
         here = '<span class="mk-here">여기</span>' if r.get("here") else ""
         tag = f'<small>{r["tag"]}</small>' if r.get("tag") else ""
@@ -314,7 +317,15 @@ def screen_mock(url, head_html):
     return (f'<div class="vx-mock vx-mock-screen" role="img" aria-label="화면 모형: {lab}">'
             f'<p class="vx-scr-top"><span class="vx-scr-dot" aria-hidden="true"></span>{sc["top"]}</p>{flow}'
             f'<div class="mk-body">{"".join(rows)}</div>'
-            f'<p class="vx-scr-note">화면 모형 · 칸 이름은 네이버 공식 도움말 기준, 실제 배치와 다를 수 있어요</p></div>')
+            f'<p class="vx-scr-note">화면 모형 · 칸 이름은 {_by(url)} 공식 도움말 기준, 실제 배치와 다를 수 있어요</p></div>')
+
+
+def _by(url):
+    """화면 모형 근거가 어느 회사 도움말인지 — 강의 주소로 정한다."""
+    for k, v in (("/daangn/", "당근"), ("/kakao/", "카카오"), ("/youtube/", "유튜브"), ("google", "구글"), ("instagram", "인스타그램")):
+        if k in url:
+            return v
+    return "네이버"
 
 
 def icon(name, cls="vx-i"):

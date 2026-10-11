@@ -1,112 +1,1508 @@
 {
-  "_설명": "단계 그림에 실제 화면의 다른 칸도 같이 보이게 한다 (운영자 2026-10-12 «아까 그 이미지가 업종만보여서 다른게안보여서 구분하기 어렵지않을까»). 칸 이름은 공식 도움말에 적힌 것만 쓴다. 지어내지 않는다. 행 종류: hint(작은 안내) · search(검색창) · opt(목록 한 줄) · field(입력 칸, tag=필수/선택) · btn(단추). on=지금 할 곳(빨강), todo=채울 칸(파랑), here=「여기」 표시, 나머지는 흐리게.",
-  "flows": {
-    "place-new": ["업종 검색", "사업자 정보 확인", "중복 확인", "기본 정보 입력", "등록 검토", "부가 정보 입력"]
-  },
-  "screens": [
-    {
-      "lessons": ["/local/2-place.html"],
-      "match": "업종을 검색해",
-      "top": "스마트플레이스 · 업체 신규 등록",
-      "flow": "place-new", "at": 1,
-      "rows": [
-        {"t": "hint", "text": "업체 성격에 맞는 업종을 검색창에 입력"},
-        {"t": "search", "text": "미용실", "on": true},
-        {"t": "opt", "text": "미용실", "on": true, "here": true},
-        {"t": "hint", "text": "종목(사업자등록증)이나 가게를 대표하는 말로 검색"}
-      ],
-      "src": "https://help.naver.com/service/30026/contents/20366"
-    },
-    {
-      "lessons": ["/local/2-place.html"],
-      "match": "사업자 정보를 확인",
-      "top": "스마트플레이스 · 업체 신규 등록",
-      "flow": "place-new", "at": 2,
-      "rows": [
-        {"t": "hint", "text": "두 방법 가운데 하나로 확인"},
-        {"t": "btn", "text": "사업자등록증으로 확인", "tag": "사진 파일", "on": true, "here": true},
-        {"t": "btn", "text": "사업자등록증 없이 확인", "tag": "네이버 인증서"}
-      ],
-      "src": "https://help.naver.com/service/30026/contents/20366"
-    },
-    {
-      "lessons": ["/local/2-place.html"],
-      "match": "기본 정보를 넣",
-      "top": "스마트플레이스 · 업체 신규 등록",
-      "flow": "place-new", "at": 4,
-      "rows": [
-        {"t": "field", "text": "업체명", "tag": "필수", "on": true, "here": true},
-        {"t": "field", "text": "업종", "tag": "자동 입력"},
-        {"t": "field", "text": "업체 사진·상세 설명·찾아오는길", "tag": "선택"},
-        {"t": "field", "text": "대표키워드", "tag": "선택"},
-        {"t": "field", "text": "전화번호", "tag": "필수", "on": true},
-        {"t": "field", "text": "주소 및 지도 위치", "tag": "필수", "on": true},
-        {"t": "btn", "text": "다음"}
-      ],
-      "src": "https://help.naver.com/service/30026/contents/20366"
-    },
-    {
-      "lessons": ["/local/2-place.html"],
-      "match": "대표 키워드를 최대 5개",
-      "top": "스마트플레이스 · 업체 신규 등록",
-      "flow": "place-new", "at": 4,
-      "rows": [
-        {"t": "field", "text": "업체명", "tag": "필수"},
-        {"t": "field", "text": "업종", "tag": "자동 입력"},
-        {"t": "field", "text": "업체 사진·상세 설명·찾아오는길", "tag": "선택"},
-        {"t": "field", "text": "대표키워드", "tag": "최대 5개", "on": true, "here": true},
-        {"t": "field", "text": "전화번호", "tag": "필수"},
-        {"t": "field", "text": "주소 및 지도 위치", "tag": "필수"},
-        {"t": "btn", "text": "다음"}
-      ],
-      "src": "https://help.naver.com/service/30026/contents/20366"
-    },
-    {
-      "lessons": ["/local/2-place.html"],
-      "match": "「다음」을 누르고 검토",
-      "top": "스마트플레이스 · 업체 신규 등록",
-      "flow": "place-new", "at": 4,
-      "rows": [
-        {"t": "field", "text": "업체명", "tag": "필수"},
-        {"t": "field", "text": "업종", "tag": "자동 입력"},
-        {"t": "field", "text": "업체 사진·상세 설명·찾아오는길", "tag": "선택"},
-        {"t": "field", "text": "대표키워드", "tag": "선택"},
-        {"t": "field", "text": "전화번호", "tag": "필수"},
-        {"t": "field", "text": "주소 및 지도 위치", "tag": "필수"},
-        {"t": "btn", "text": "다음", "on": true, "here": true}
-      ],
-      "src": "https://help.naver.com/service/30026/contents/20366"
-    },
-    {
-      "lessons": ["/local/2-place.html"],
-      "match": "부가 정보를 채우",
-      "top": "스마트플레이스 · 부가 정보",
-      "flow": "place-new", "at": 6,
-      "rows": [
-        {"t": "field", "text": "제공 서비스", "tag": "선택", "todo": true},
-        {"t": "field", "text": "홈페이지", "tag": "선택", "todo": true},
-        {"t": "field", "text": "주차 정보", "tag": "선택", "todo": true},
-        {"t": "field", "text": "가격 정보", "tag": "선택", "todo": true},
-        {"t": "field", "text": "휴무일/영업시간", "tag": "선택", "todo": true},
-        {"t": "hint", "text": "음식점·미용실·숙박은 메뉴·시술·객실 정보 하나 이상 필수"}
-      ],
-      "src": "https://help.naver.com/service/30026/contents/20366"
-    },
-    {
-      "lessons": ["/local/2-place.html"],
-      "match": "휴무일과 영업시간을 넣",
-      "top": "내 업체 › 정보 수정 › 업체정보 › 휴무일, 영업시간",
-      "rows": [
-        {"t": "hint", "text": "휴무일"},
-        {"t": "opt", "text": "휴무일이 있어요 / 휴무일이 없어요", "on": true, "here": true},
-        {"t": "field", "text": "정기 휴무일", "tag": "매주·격주·매월", "todo": true},
-        {"t": "field", "text": "공휴일 중 휴무일", "tag": "선택", "todo": true},
-        {"t": "field", "text": "임시공휴일 · 특정일 휴무", "tag": "선택"},
-        {"t": "hint", "text": "영업시간"},
-        {"t": "field", "text": "기본 영업시간", "tag": "요일별·5분 단위", "todo": true},
-        {"t": "field", "text": "임시 영업 일정", "tag": "선택"}
-      ],
-      "src": "https://help.naver.com/service/30026/contents/20380"
-    }
+ "_설명": "단계 그림에 실제 화면의 다른 칸도 같이 보이게 한다 (운영자 2026-10-12 «아까 그 이미지가 업종만보여서 다른게안보여서 구분하기 어렵지않을까»). 칸 이름은 공식 도움말에 적힌 것만 쓴다. 지어내지 않는다. 행 종류: hint(작은 안내) · search(검색창) · opt(목록 한 줄) · field(입력 칸, tag=필수/선택) · btn(단추). on=지금 할 곳(빨강), todo=채울 칸(파랑), here=「여기」 표시, 나머지는 흐리게.",
+ "flows": {
+  "place-new": [
+   "업종 검색",
+   "사업자 정보 확인",
+   "중복 확인",
+   "기본 정보 입력",
+   "등록 검토",
+   "부가 정보 입력"
+  ],
+  "daangn-profile": [
+   "비즈프로필 생성 시작",
+   "기본 정보 설정",
+   "위치 정보 설정",
+   "프로필 사진 및 소개 등록",
+   "연락처 및 부가정보 설정"
+  ],
+  "daangn-ad": [
+   "광고할 내용 선택",
+   "광고 사진과 제목 작성",
+   "광고 사진/제목 추가",
+   "광고 그룹 설정",
+   "광고 생성 완료"
+  ],
+  "powerlink": [
+   "캠페인 만들기",
+   "광고 그룹 만들기",
+   "광고 만들기(키워드/소재)"
   ]
+ },
+ "screens": [
+  {
+   "lessons": [
+    "/local/2-place.html"
+   ],
+   "match": "업종을 검색해",
+   "top": "스마트플레이스 · 업체 신규 등록",
+   "flow": "place-new",
+   "at": 1,
+   "rows": [
+    {
+     "t": "hint",
+     "text": "업체 성격에 맞는 업종을 검색창에 입력"
+    },
+    {
+     "t": "search",
+     "text": "미용실",
+     "on": true
+    },
+    {
+     "t": "opt",
+     "text": "미용실",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "hint",
+     "text": "종목(사업자등록증)이나 가게를 대표하는 말로 검색"
+    }
+   ],
+   "src": "https://help.naver.com/service/30026/contents/20366"
+  },
+  {
+   "lessons": [
+    "/local/2-place.html"
+   ],
+   "match": "사업자 정보를 확인",
+   "top": "스마트플레이스 · 업체 신규 등록",
+   "flow": "place-new",
+   "at": 2,
+   "rows": [
+    {
+     "t": "hint",
+     "text": "두 방법 가운데 하나로 확인"
+    },
+    {
+     "t": "btn",
+     "text": "사업자등록증으로 확인",
+     "tag": "사진 파일",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "btn",
+     "text": "사업자등록증 없이 확인",
+     "tag": "네이버 인증서"
+    }
+   ],
+   "src": "https://help.naver.com/service/30026/contents/20366"
+  },
+  {
+   "lessons": [
+    "/local/2-place.html"
+   ],
+   "match": "기본 정보를 넣",
+   "top": "스마트플레이스 · 업체 신규 등록",
+   "flow": "place-new",
+   "at": 4,
+   "rows": [
+    {
+     "t": "field",
+     "text": "업체명",
+     "tag": "필수",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "업종",
+     "tag": "자동 입력"
+    },
+    {
+     "t": "field",
+     "text": "업체 사진·상세 설명·찾아오는길",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "대표키워드",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "전화번호",
+     "tag": "필수",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "주소 및 지도 위치",
+     "tag": "필수",
+     "on": true
+    },
+    {
+     "t": "btn",
+     "text": "다음"
+    }
+   ],
+   "src": "https://help.naver.com/service/30026/contents/20366"
+  },
+  {
+   "lessons": [
+    "/local/2-place.html"
+   ],
+   "match": "대표 키워드를 최대 5개",
+   "top": "스마트플레이스 · 업체 신규 등록",
+   "flow": "place-new",
+   "at": 4,
+   "rows": [
+    {
+     "t": "field",
+     "text": "업체명",
+     "tag": "필수"
+    },
+    {
+     "t": "field",
+     "text": "업종",
+     "tag": "자동 입력"
+    },
+    {
+     "t": "field",
+     "text": "업체 사진·상세 설명·찾아오는길",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "대표키워드",
+     "tag": "최대 5개",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "전화번호",
+     "tag": "필수"
+    },
+    {
+     "t": "field",
+     "text": "주소 및 지도 위치",
+     "tag": "필수"
+    },
+    {
+     "t": "btn",
+     "text": "다음"
+    }
+   ],
+   "src": "https://help.naver.com/service/30026/contents/20366"
+  },
+  {
+   "lessons": [
+    "/local/2-place.html"
+   ],
+   "match": "「다음」을 누르고 검토",
+   "top": "스마트플레이스 · 업체 신규 등록",
+   "flow": "place-new",
+   "at": 4,
+   "rows": [
+    {
+     "t": "field",
+     "text": "업체명",
+     "tag": "필수"
+    },
+    {
+     "t": "field",
+     "text": "업종",
+     "tag": "자동 입력"
+    },
+    {
+     "t": "field",
+     "text": "업체 사진·상세 설명·찾아오는길",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "대표키워드",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "전화번호",
+     "tag": "필수"
+    },
+    {
+     "t": "field",
+     "text": "주소 및 지도 위치",
+     "tag": "필수"
+    },
+    {
+     "t": "btn",
+     "text": "다음",
+     "on": true,
+     "here": true
+    }
+   ],
+   "src": "https://help.naver.com/service/30026/contents/20366"
+  },
+  {
+   "lessons": [
+    "/local/2-place.html"
+   ],
+   "match": "부가 정보를 채우",
+   "top": "스마트플레이스 · 부가 정보",
+   "flow": "place-new",
+   "at": 6,
+   "rows": [
+    {
+     "t": "field",
+     "text": "제공 서비스",
+     "tag": "선택",
+     "todo": true
+    },
+    {
+     "t": "field",
+     "text": "홈페이지",
+     "tag": "선택",
+     "todo": true
+    },
+    {
+     "t": "field",
+     "text": "주차 정보",
+     "tag": "선택",
+     "todo": true
+    },
+    {
+     "t": "field",
+     "text": "가격 정보",
+     "tag": "선택",
+     "todo": true
+    },
+    {
+     "t": "field",
+     "text": "휴무일/영업시간",
+     "tag": "선택",
+     "todo": true
+    },
+    {
+     "t": "hint",
+     "text": "음식점·미용실·숙박은 메뉴·시술·객실 정보 하나 이상 필수"
+    }
+   ],
+   "src": "https://help.naver.com/service/30026/contents/20366"
+  },
+  {
+   "lessons": [
+    "/local/2-place.html"
+   ],
+   "match": "휴무일과 영업시간을 넣",
+   "top": "내 업체 › 정보 수정 › 업체정보 › 휴무일, 영업시간",
+   "rows": [
+    {
+     "t": "hint",
+     "text": "휴무일"
+    },
+    {
+     "t": "opt",
+     "text": "휴무일이 있어요 / 휴무일이 없어요",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "정기 휴무일",
+     "tag": "매주·격주·매월",
+     "todo": true
+    },
+    {
+     "t": "field",
+     "text": "공휴일 중 휴무일",
+     "tag": "선택",
+     "todo": true
+    },
+    {
+     "t": "field",
+     "text": "임시공휴일 · 특정일 휴무",
+     "tag": "선택"
+    },
+    {
+     "t": "hint",
+     "text": "영업시간"
+    },
+    {
+     "t": "field",
+     "text": "기본 영업시간",
+     "tag": "요일별·5분 단위",
+     "todo": true
+    },
+    {
+     "t": "field",
+     "text": "임시 영업 일정",
+     "tag": "선택"
+    }
+   ],
+   "src": "https://help.naver.com/service/30026/contents/20380"
+  },
+  {
+   "lessons": [
+    "/daangn/1-profile.html"
+   ],
+   "match": "이름과 업종을 넣으세요",
+   "top": "당근 비즈프로필 · 기본 정보 설정",
+   "flow": "daangn-profile",
+   "at": 2,
+   "rows": [
+    {
+     "t": "field",
+     "text": "비즈프로필 이름",
+     "tag": "최대 30자",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "업종",
+     "tag": "검색해 선택",
+     "on": true
+    }
+   ],
+   "src": "https://businessdaangn.gitbook.io/business.daangn/profile/start/create"
+  },
+  {
+   "lessons": [
+    "/daangn/1-profile.html"
+   ],
+   "match": "주소를 넣고 지도 핀을 맞추세요",
+   "top": "당근 비즈프로필 · 위치 정보 설정",
+   "flow": "daangn-profile",
+   "at": 3,
+   "rows": [
+    {
+     "t": "field",
+     "text": "주소",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "지도에서 핀 위치"
+    },
+    {
+     "t": "opt",
+     "text": "주소가 없어요"
+    }
+   ],
+   "src": "https://businessdaangn.gitbook.io/business.daangn/profile/start/create"
+  },
+  {
+   "lessons": [
+    "/daangn/1-profile.html"
+   ],
+   "match": "프로필 사진, 매장 사진, 소개 문구를 넣으세요",
+   "top": "당근 비즈프로필 · 사진·소개 등록",
+   "flow": "daangn-profile",
+   "at": 4,
+   "rows": [
+    {
+     "t": "field",
+     "text": "프로필 사진",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "매장/서비스 사진",
+     "tag": "한 번에 최대 20장",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "소개 문구",
+     "on": true
+    }
+   ],
+   "src": "https://businessdaangn.gitbook.io/business.daangn/profile/start/create"
+  },
+  {
+   "lessons": [
+    "/daangn/1-profile.html"
+   ],
+   "match": "전화번호와 부가정보를 넣으세요",
+   "top": "당근 비즈프로필 · 연락처·부가정보",
+   "flow": "daangn-profile",
+   "at": 5,
+   "rows": [
+    {
+     "t": "field",
+     "text": "전화번호",
+     "tag": "선택",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "부가정보",
+     "tag": "선택",
+     "on": true
+    }
+   ],
+   "src": "https://businessdaangn.gitbook.io/business.daangn/profile/start/create"
+  },
+  {
+   "lessons": [
+    "/daangn/2-coupon.html"
+   ],
+   "match": "「쿠폰 관리」에서 쿠폰을 만드세요",
+   "top": "당근 비즈프로필 · 쿠폰 관리",
+   "rows": [
+    {
+     "t": "field",
+     "text": "발급 대상",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "발급 수량",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "이용 조건",
+     "on": true
+    }
+   ],
+   "src": "https://businessdaangn.gitbook.io/business.daangn/profile/manage/coupon"
+  },
+  {
+   "lessons": [
+    "/daangn/3-ads.html"
+   ],
+   "match": "디스플레이 광고를 고르고 광고할 내용으로",
+   "top": "당근비즈니스 · 새 광고 만들기",
+   "flow": "daangn-ad",
+   "at": 1,
+   "rows": [
+    {
+     "t": "hint",
+     "text": "랜딩페이지 유형"
+    },
+    {
+     "t": "opt",
+     "text": "비즈프로필",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "opt",
+     "text": "웹사이트"
+    },
+    {
+     "t": "hint",
+     "text": "비즈프로필 랜딩페이지"
+    },
+    {
+     "t": "opt",
+     "text": "홈"
+    },
+    {
+     "t": "opt",
+     "text": "소식",
+     "on": true
+    },
+    {
+     "t": "opt",
+     "text": "스토리"
+    },
+    {
+     "t": "opt",
+     "text": "상품"
+    }
+   ],
+   "src": "https://businessdaangn.gitbook.io/business.daangn/ads-lite/create/native"
+  },
+  {
+   "lessons": [
+    "/daangn/3-ads.html"
+   ],
+   "match": "사진과 제목을 넣으세요",
+   "top": "당근비즈니스 · 광고 사진과 제목",
+   "flow": "daangn-ad",
+   "at": 2,
+   "rows": [
+    {
+     "t": "field",
+     "text": "광고 사진",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "광고 제목",
+     "on": true
+    },
+    {
+     "t": "btn",
+     "text": "AI 추천받기",
+     "tag": "최대 3개"
+    }
+   ],
+   "src": "https://businessdaangn.gitbook.io/business.daangn/ads-lite/create/native"
+  },
+  {
+   "lessons": [
+    "/daangn/3-ads.html"
+   ],
+   "match": "하루 예산과 기간을 정하세요",
+   "top": "당근비즈니스 · 광고 그룹 설정",
+   "flow": "daangn-ad",
+   "at": 4,
+   "rows": [
+    {
+     "t": "field",
+     "text": "지역"
+    },
+    {
+     "t": "field",
+     "text": "하루 예산",
+     "tag": "최소 5,000원",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "일정",
+     "tag": "최소 2일",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "성별 및 연령"
+    }
+   ],
+   "src": "https://businessdaangn.gitbook.io/business.daangn/ads-lite/create/native"
+  },
+  {
+   "lessons": [
+    "/kakao/1-channel.html"
+   ],
+   "match": "채널 정보를 넣으세요",
+   "top": "카카오비즈니스 · 채널 개설",
+   "rows": [
+    {
+     "t": "field",
+     "text": "채널 이름",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "검색용 아이디"
+    },
+    {
+     "t": "field",
+     "text": "카테고리",
+     "on": true,
+     "here": true
+    }
+   ],
+   "src": "https://kakaobusiness.gitbook.io/main/partner/smb/channel/step1/channel_start"
+  },
+  {
+   "lessons": [
+    "/kakao/2-message.html"
+   ],
+   "match": "「소식」을 열고 글을 쓰세요",
+   "top": "카카오톡 채널 관리자센터 · 소식 쓰기",
+   "rows": [
+    {
+     "t": "field",
+     "text": "제목",
+     "tag": "선택",
+     "todo": true
+    },
+    {
+     "t": "field",
+     "text": "본문",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "hint",
+     "text": "첨부는 하나만"
+    },
+    {
+     "t": "opt",
+     "text": "사진"
+    },
+    {
+     "t": "opt",
+     "text": "동영상"
+    },
+    {
+     "t": "opt",
+     "text": "링크"
+    },
+    {
+     "t": "opt",
+     "text": "쿠폰"
+    },
+    {
+     "t": "opt",
+     "text": "카드뷰"
+    }
+   ],
+   "src": "https://kakaobusiness.gitbook.io/main/channel/run/post"
+  },
+  {
+   "lessons": [
+    "/kakao/2-message.html"
+   ],
+   "match": "발행 시간을 고르세요",
+   "top": "카카오톡 채널 관리자센터 · 소식 쓰기",
+   "rows": [
+    {
+     "t": "opt",
+     "text": "지금",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "opt",
+     "text": "임시저장"
+    },
+    {
+     "t": "opt",
+     "text": "예약",
+     "tag": "30분 뒤~30일 안"
+    },
+    {
+     "t": "field",
+     "text": "공개 기간"
+    }
+   ],
+   "src": "https://kakaobusiness.gitbook.io/main/channel/run/post"
+  },
+  {
+   "lessons": [
+    "/kakao/2-message.html"
+   ],
+   "match": "메시지 유형을 고르세요",
+   "top": "카카오톡 채널 관리자센터 · 메시지 작성",
+   "rows": [
+    {
+     "t": "opt",
+     "text": "기본 텍스트형",
+     "tag": "400자",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "opt",
+     "text": "카탈로그형",
+     "tag": "최대 7개"
+    },
+    {
+     "t": "opt",
+     "text": "와이드 이미지형"
+    },
+    {
+     "t": "opt",
+     "text": "스포트라이트 메시지"
+    }
+   ],
+   "src": "https://kakaobusiness.gitbook.io/main/channel/run/message"
+  },
+  {
+   "lessons": [
+    "/kakao/3-map.html"
+   ],
+   "match": "영업시간을 넣으세요",
+   "top": "카카오비즈니스센터 · 매장정보 · 영업시간",
+   "rows": [
+    {
+     "t": "hint",
+     "text": "요일 선택(모든 요일·평일만·주말만)"
+    },
+    {
+     "t": "opt",
+     "text": "영업일",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "휴게시간",
+     "tag": "선택"
+    },
+    {
+     "t": "opt",
+     "text": "휴무일",
+     "tag": "매주·매월"
+    },
+    {
+     "t": "field",
+     "text": "공휴일 영업시간",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "공휴일 휴무일",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "임시 영업시간",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "날짜 지정 휴무일",
+     "tag": "선택"
+    },
+    {
+     "t": "opt",
+     "text": "조기영업마감"
+    }
+   ],
+   "src": "https://kakaobusiness.gitbook.io/main/channel/run/mystore"
+  },
+  {
+   "lessons": [
+    "/kakao/3-map.html"
+   ],
+   "match": "가격정보와 사진을 넣으세요",
+   "top": "카카오비즈니스센터 · 매장정보",
+   "rows": [
+    {
+     "t": "hint",
+     "text": "가격정보 탭"
+    },
+    {
+     "t": "field",
+     "text": "상품명",
+     "tag": "필수",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "가격",
+     "tag": "필수",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "사진",
+     "tag": "선택"
+    },
+    {
+     "t": "field",
+     "text": "소개글",
+     "tag": "선택"
+    },
+    {
+     "t": "hint",
+     "text": "매장사진 탭"
+    },
+    {
+     "t": "field",
+     "text": "매장 사진",
+     "tag": "최대 100장",
+     "todo": true
+    }
+   ],
+   "src": "https://kakaobusiness.gitbook.io/main/channel/run/mystore"
+  },
+  {
+   "lessons": [
+    "/kakao/3-map.html"
+   ],
+   "match": "부가정보에 홈페이지",
+   "top": "카카오비즈니스센터 · 매장정보 · 부가정보",
+   "rows": [
+    {
+     "t": "field",
+     "text": "사이트/SNS",
+     "tag": "홈페이지 등",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "제공 서비스",
+     "tag": "주차 등",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "태그",
+     "tag": "최대 5개",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "한줄소개말",
+     "tag": "최대 50자",
+     "on": true
+    }
+   ],
+   "src": "https://kakaobusiness.gitbook.io/main/channel/run/mystore"
+  },
+  {
+   "lessons": [
+    "/foreign/3-google.html"
+   ],
+   "match": "프로필이 없으면",
+   "top": "business.google.com/add · 비즈니스 추가",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름",
+     "tag": "필수",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "주소",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "카테고리",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "웹사이트 및 전화번호"
+    },
+    {
+     "t": "field",
+     "text": "영업시간"
+    }
+   ],
+   "src": "https://support.google.com/business/answer/2911778?hl=ko"
+  },
+  {
+   "lessons": [
+    "/foreign/3-google.html"
+   ],
+   "match": "다른 사람이 이미 인증해 관리 중이면",
+   "top": "business.google.com/add · 소유권 요청",
+   "rows": [
+    {
+     "t": "field",
+     "text": "비즈니스의 이름",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "주소",
+     "on": true
+    },
+    {
+     "t": "btn",
+     "text": "액세스 요청",
+     "on": true
+    }
+   ],
+   "src": "https://support.google.com/business/answer/4566671?hl=ko"
+  },
+  {
+   "lessons": [
+    "/foreign/3-google.html"
+   ],
+   "match": "메모장의 여섯 가지",
+   "top": "Google 비즈니스 프로필 · 프로필 수정",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "주소"
+    },
+    {
+     "t": "field",
+     "text": "카테고리"
+    },
+    {
+     "t": "field",
+     "text": "웹사이트 및 전화번호"
+    },
+    {
+     "t": "field",
+     "text": "영업시간"
+    },
+    {
+     "t": "field",
+     "text": "비즈니스 설명",
+     "on": true,
+     "here": true
+    }
+   ],
+   "src": "https://support.google.com/business/answer/3038177?hl=ko"
+  },
+  {
+   "lessons": [
+    "/online/7-instagram.html"
+   ],
+   "match": "카테고리를 고르고",
+   "top": "Instagram · 프로페셔널 계정으로 전환",
+   "rows": [
+    {
+     "t": "hint",
+     "text": "비즈니스를 가장 잘 나타내는 카테고리를 선택"
+    },
+    {
+     "t": "opt",
+     "text": "카테고리",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "opt",
+     "text": "비즈니스",
+     "on": true
+    },
+    {
+     "t": "opt",
+     "text": "크리에이터"
+    }
+   ],
+   "src": "https://www.facebook.com/business/help/502981923235522"
+  },
+  {
+   "lessons": [
+    "/online/7-instagram.html"
+   ],
+   "match": "사진 속 제품을 눌러 검색해 고르고",
+   "top": "Instagram · 게시물 만들기 · 제품 태그",
+   "rows": [
+    {
+     "t": "hint",
+     "text": "사진이나 동영상에서 태그할 제품을 누르세요"
+    },
+    {
+     "t": "search",
+     "text": "태그할 제품",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "opt",
+     "text": "검색창에 표시된 제품",
+     "on": true
+    },
+    {
+     "t": "btn",
+     "text": "공유"
+    }
+   ],
+   "src": "https://ko-kr.facebook.com/business/help/373467539912975"
+  },
+  {
+   "lessons": [
+    "/youtube/1-channel.html"
+   ],
+   "match": "프로필 사진, 채널 이름, 핸들을 정하고",
+   "top": "YouTube · 새 채널 만들기",
+   "rows": [
+    {
+     "t": "field",
+     "text": "프로필 사진",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "이름",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "핸들",
+     "on": true
+    },
+    {
+     "t": "btn",
+     "text": "채널 만들기"
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/1646861"
+  },
+  {
+   "lessons": [
+    "/youtube/1-channel.html"
+   ],
+   "match": "제목을 넣고 공개 범위를",
+   "top": "YouTube 앱 · Shorts 동영상 세부정보",
+   "rows": [
+    {
+     "t": "field",
+     "text": "제목",
+     "tag": "영문 기준 최대 100자",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "동영상 공개 범위 설정",
+     "tag": "공개·비공개·일부 공개",
+     "on": true
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/10343433"
+  },
+  {
+   "lessons": [
+    "/youtube/2-profile.html"
+   ],
+   "match": "「프로필」을 여세요",
+   "top": "YouTube 스튜디오 · 맞춤설정 › 프로필",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름",
+     "tag": "14일에 2회까지"
+    },
+    {
+     "t": "field",
+     "text": "핸들",
+     "tag": "14일에 2회까지"
+    },
+    {
+     "t": "field",
+     "text": "설명"
+    },
+    {
+     "t": "field",
+     "text": "링크",
+     "tag": "최대 14개"
+    },
+    {
+     "t": "field",
+     "text": "연락처 정보",
+     "tag": "이메일"
+    },
+    {
+     "t": "field",
+     "text": "프로필 사진",
+     "tag": "98×98픽셀"
+    },
+    {
+     "t": "field",
+     "text": "배너 이미지",
+     "tag": "2048×1152 이상"
+    },
+    {
+     "t": "btn",
+     "text": "게시"
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/2657964"
+  },
+  {
+   "lessons": [
+    "/youtube/2-profile.html"
+   ],
+   "match": "채널 이름이 가게 이름과",
+   "top": "YouTube 스튜디오 · 맞춤설정 › 프로필",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름",
+     "tag": "14일에 2회까지",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "핸들"
+    },
+    {
+     "t": "field",
+     "text": "설명"
+    },
+    {
+     "t": "field",
+     "text": "링크"
+    },
+    {
+     "t": "field",
+     "text": "연락처 정보"
+    },
+    {
+     "t": "field",
+     "text": "프로필 사진"
+    },
+    {
+     "t": "field",
+     "text": "배너 이미지"
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/2657964"
+  },
+  {
+   "lessons": [
+    "/youtube/2-profile.html"
+   ],
+   "match": "「설명」에 가게 소개를 넣으세요",
+   "top": "YouTube 스튜디오 · 맞춤설정 › 프로필",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름"
+    },
+    {
+     "t": "field",
+     "text": "핸들"
+    },
+    {
+     "t": "field",
+     "text": "설명",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "링크"
+    },
+    {
+     "t": "field",
+     "text": "연락처 정보"
+    },
+    {
+     "t": "field",
+     "text": "프로필 사진"
+    },
+    {
+     "t": "field",
+     "text": "배너 이미지"
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/2657964"
+  },
+  {
+   "lessons": [
+    "/youtube/2-profile.html"
+   ],
+   "match": "「링크」 > 「링크 추가」로",
+   "top": "YouTube 스튜디오 · 맞춤설정 › 프로필",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름"
+    },
+    {
+     "t": "field",
+     "text": "핸들"
+    },
+    {
+     "t": "field",
+     "text": "설명"
+    },
+    {
+     "t": "field",
+     "text": "링크",
+     "tag": "최대 14개",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "연락처 정보"
+    },
+    {
+     "t": "field",
+     "text": "프로필 사진"
+    },
+    {
+     "t": "field",
+     "text": "배너 이미지"
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/2657964"
+  },
+  {
+   "lessons": [
+    "/youtube/2-profile.html"
+   ],
+   "match": "「연락처 정보」에 문의용",
+   "top": "YouTube 스튜디오 · 맞춤설정 › 프로필",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름"
+    },
+    {
+     "t": "field",
+     "text": "핸들"
+    },
+    {
+     "t": "field",
+     "text": "설명"
+    },
+    {
+     "t": "field",
+     "text": "링크"
+    },
+    {
+     "t": "field",
+     "text": "연락처 정보",
+     "tag": "이메일",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "프로필 사진"
+    },
+    {
+     "t": "field",
+     "text": "배너 이미지"
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/2657964"
+  },
+  {
+   "lessons": [
+    "/youtube/2-profile.html"
+   ],
+   "match": "「프로필 사진」을 간판이나",
+   "top": "YouTube 스튜디오 · 맞춤설정 › 프로필",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름"
+    },
+    {
+     "t": "field",
+     "text": "핸들"
+    },
+    {
+     "t": "field",
+     "text": "설명"
+    },
+    {
+     "t": "field",
+     "text": "링크"
+    },
+    {
+     "t": "field",
+     "text": "연락처 정보"
+    },
+    {
+     "t": "field",
+     "text": "프로필 사진",
+     "tag": "98×98픽셀",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "배너 이미지"
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/10456525"
+  },
+  {
+   "lessons": [
+    "/youtube/2-profile.html"
+   ],
+   "match": "「배너 이미지」에 가로로",
+   "top": "YouTube 스튜디오 · 맞춤설정 › 프로필",
+   "rows": [
+    {
+     "t": "field",
+     "text": "이름"
+    },
+    {
+     "t": "field",
+     "text": "핸들"
+    },
+    {
+     "t": "field",
+     "text": "설명"
+    },
+    {
+     "t": "field",
+     "text": "링크"
+    },
+    {
+     "t": "field",
+     "text": "연락처 정보"
+    },
+    {
+     "t": "field",
+     "text": "프로필 사진"
+    },
+    {
+     "t": "field",
+     "text": "배너 이미지",
+     "tag": "2048×1152 이상",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "btn",
+     "text": "게시",
+     "on": true
+    }
+   ],
+   "src": "https://support.google.com/youtube/answer/10456525"
+  },
+  {
+   "lessons": [
+    "/local/8-powerlink.html"
+   ],
+   "match": "캠페인을 만드세요",
+   "top": "네이버 광고주센터 · 새 캠페인 만들기",
+   "flow": "powerlink",
+   "at": 1,
+   "rows": [
+    {
+     "t": "field",
+     "text": "캠페인 유형",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "캠페인 이름",
+     "tag": "1~30자"
+    },
+    {
+     "t": "field",
+     "text": "하루 예산",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "opt",
+     "text": "예산을 하루 동안 시간별로 균등하게 배분합니다."
+    },
+    {
+     "t": "btn",
+     "text": "저장하고 계속하기"
+    }
+   ],
+   "src": "https://ads.naver.com/help/faq/1480"
+  },
+  {
+   "lessons": [
+    "/local/8-powerlink.html"
+   ],
+   "match": "광고그룹을 만드세요",
+   "top": "네이버 광고주센터 · 광고 그룹 만들기",
+   "flow": "powerlink",
+   "at": 2,
+   "rows": [
+    {
+     "t": "field",
+     "text": "광고 그룹 이름"
+    },
+    {
+     "t": "field",
+     "text": "URL",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "사이트 이름",
+     "tag": "광고에 노출"
+    },
+    {
+     "t": "field",
+     "text": "기본 입찰가",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "하루 예산"
+    }
+   ],
+   "src": "https://ads.naver.com/help/faq/1480"
+  },
+  {
+   "lessons": [
+    "/local/8-powerlink.html"
+   ],
+   "match": "「고급 옵션」에서 매체를 확인하세요",
+   "top": "네이버 광고주센터 · 광고 그룹 · 고급 옵션",
+   "flow": "powerlink",
+   "at": 2,
+   "rows": [
+    {
+     "t": "opt",
+     "text": "광고를 노출할 매체",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "추천 및 콘텐츠 지면 전용입찰가"
+    },
+    {
+     "t": "field",
+     "text": "PC/모바일 입찰가 가중치"
+    },
+    {
+     "t": "btn",
+     "text": "저장하고 계속하기"
+    }
+   ],
+   "src": "https://ads.naver.com/help/faq/1480"
+  },
+  {
+   "lessons": [
+    "/local/8-powerlink.html"
+   ],
+   "match": "키워드를 직접 입력하세요",
+   "top": "네이버 광고주센터 · 키워드/소재 만들기",
+   "flow": "powerlink",
+   "at": 3,
+   "rows": [
+    {
+     "t": "field",
+     "text": "키워드 직접 입력",
+     "tag": "한 줄에 한 개씩",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "opt",
+     "text": "연관 키워드 선택"
+    }
+   ],
+   "src": "https://ads.naver.com/help/faq/1480"
+  },
+  {
+   "lessons": [
+    "/local/8-powerlink.html"
+   ],
+   "match": "소재(광고 문구)를 쓰세요",
+   "top": "네이버 광고주센터 · 키워드/소재 만들기",
+   "flow": "powerlink",
+   "at": 3,
+   "rows": [
+    {
+     "t": "field",
+     "text": "제목",
+     "tag": "최대 15자",
+     "on": true
+    },
+    {
+     "t": "field",
+     "text": "설명",
+     "tag": "20~45자",
+     "on": true,
+     "here": true
+    },
+    {
+     "t": "field",
+     "text": "연결 URL",
+     "tag": "광고그룹 URL 자동 입력"
+    },
+    {
+     "t": "btn",
+     "text": "광고 만들기"
+    }
+   ],
+   "src": "https://ads.naver.com/help/faq/1480"
+  }
+ ]
 }
