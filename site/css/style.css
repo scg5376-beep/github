@@ -1552,3 +1552,16 @@ details.lesson-stuck > summary, details.lesson-check > summary { display:flex; a
 .vx-mock-screen .mk-here { position:static; flex:none; margin-left:6px; padding:1px 7px; border-radius:6px; background:#d7261e; color:#fff; font-size:.74rem; }
 .vx-mock-screen .mk-btn { padding-right:46px; }
 .vx-mock-screen .mk-btn.dim { padding-right:16px; }
+
+/* D111 실무자 노하우 상자 — 공식 문서와 섞이지 않게 색·이름표를 따로 (운영자 2026-10-12 «실무자노하우라고 밝혀») */
+.note.practice { margin:22px 0; border-left:4px solid #6d4ad6; background:#f4f1fd; }
+.note.practice > b:first-child { display:block; margin:0 0 8px; color:#5535c4; font-size:.9rem; letter-spacing:.02em; }
+.note.practice > p { margin:8px 0 0; }
+.note.practice figure.jr-fig { margin:12px 0 4px; background:#fff; }
+.note.practice .who-said { margin:10px 0 0; font-size:.86rem; color:var(--ink-soft); }
+
+/* D111 휴대폰용으로 좁게 그린 그림(viewBox 폭 360) — 넓은 그림의 최소 폭 560px 규칙에서 빼고, 큰 화면에서는 너무 커지지 않게 */
+figure svg.narrow { max-width:440px; margin:0 auto; }
+@media (max-width:600px) { figure svg.narrow { min-width:0; } }
+
+.vx-mock .mk-opt small { flex:none; margin-left:auto; padding:2px 7px; border-radius:6px; background:#f1f3f6; color:#4a5058; font-size:.74rem; font-weight:700; }

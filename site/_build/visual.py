@@ -308,7 +308,7 @@ def screen_mock(url, head_html):
         elif r["t"] == "search":
             rows.append(f'<span class="mk-search{st}">{icon("search", "vx-i")}<span>{r["text"]}</span>{here}</span>')
         elif r["t"] == "opt":
-            rows.append(f'<span class="mk-opt{st}">{icon("check", "vx-i")}<span>{r["text"]}</span>{here}</span>')
+            rows.append(f'<span class="mk-opt{st}">{icon("check", "vx-i")}<span>{r["text"]}</span>{tag}{here}</span>')
         elif r["t"] == "btn":
             rows.append(f'<span class="mk-btn{st}">{r["text"]}{tag}{icon("tap", "vx-i mk-tap") if r.get("on") else ""}{here}</span>')
         else:
@@ -317,7 +317,7 @@ def screen_mock(url, head_html):
     return (f'<div class="vx-mock vx-mock-screen" role="img" aria-label="화면 모형: {lab}">'
             f'<p class="vx-scr-top"><span class="vx-scr-dot" aria-hidden="true"></span>{sc["top"]}</p>{flow}'
             f'<div class="mk-body">{"".join(rows)}</div>'
-            f'<p class="vx-scr-note">화면 모형 · 칸 이름은 {_by(url)} 공식 도움말 기준, 실제 배치와 다를 수 있어요</p></div>')
+            f'<p class="vx-scr-note">화면 모형 · 칸 이름은 {sc.get('by') or _by(url)} 공식 도움말 기준, 실제 배치와 다를 수 있어요</p></div>')
 
 
 def _by(url):

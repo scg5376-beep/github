@@ -124,3 +124,81 @@
   확인한곳:
   - https://transparency.meta.com/policies/ad-standards/
   - https://www.facebook.com/business/ads/review-policy-guidelines
+
+- id: MT-08
+  이름: Meta 광고 관리자 — 캠페인 구조·목표·타겟·지표·크리에이티브 사양
+  저자: Meta
+  기관: Meta 비즈니스 지원 센터 (한국어판) · Facebook 광고 가이드
+  등급: A
+  근거: 공식
+  원문확인: true
+  확인자: 서치-소넷 (fetch_text.mjs 로 전문 확보)
+  확인일: 2026-10-12
+  원문보관: 절차/메타/
+  전문확인:
+  - 캠페인·광고 세트·광고 구조 + 성과 목표 종류 (「광고」 문서 안에 포함)
+  - Meta 광고 관리자 광고 목표 선택하기 (6가지 간소화된 목표)
+  - 어드밴티지+ 타겟 정보
+  - 최적화 이벤트
+  - 결과 (지표)
+  - 빈도 (지표)
+  - Meta 광고 관리자의 링크 클릭 정보
+  - '클릭(전체)'과 '링크 클릭'의 차이 이해
+  - Facebook 피드의 인지도 이미지 광고 사양 (Facebook 광고 가이드, 피드+이미지 조합만)
+  - Meta 광고 용어집 (자바스크립트 탭 중 '0-B' 탭만 — 나머지 탭은 못 받음)
+  공식문서:
+  - 이름: 광고 (캠페인·광고 세트·광고 구조, 성과 목표)
+    url: https://ko-kr.facebook.com/business/help/479372825462214
+    원문보관: 절차/메타/메타광고-캠페인구조와성과목표.md
+  - 이름: Meta 광고 관리자 광고 목표 선택하기
+    url: https://ko-kr.facebook.com/business/help/1438417719786914
+    원문보관: 절차/메타/메타광고-광고목표선택.md
+  - 이름: 어드밴티지+ 타겟 정보
+    url: https://ko-kr.facebook.com/business/help/273363992030035
+    원문보관: 절차/메타/메타광고-어드밴티지플러스타겟.md
+  - 이름: 최적화 이벤트
+    url: https://ko-kr.facebook.com/business/help/139628083350822
+    원문보관: 절차/메타/메타광고-최적화이벤트.md
+  - 이름: 결과
+    url: https://ko-kr.facebook.com/business/help/611432918970668
+    원문보관: 절차/메타/메타광고-결과지표.md
+  - 이름: 빈도
+    url: https://ko-kr.facebook.com/business/help/1546570362238584
+    원문보관: 절차/메타/메타광고-빈도지표.md
+  - 이름: Meta 광고 관리자의 링크 클릭 정보
+    url: https://ko-kr.facebook.com/business/help/659185130844708
+    원문보관: 절차/메타/메타광고-링크클릭지표.md
+  - 이름: '클릭(전체)'과 '링크 클릭'의 차이 이해
+    url: https://ko-kr.facebook.com/business/help/674769555983979
+    원문보관: 절차/메타/메타광고-클릭전체와링크클릭차이.md
+  - 이름: Facebook 피드의 인지도 이미지 광고 사양
+    url: https://www.facebook.com/business/ads-guide/update/image
+    원문보관: 절차/메타/메타광고-이미지광고사양-피드.md
+  - 이름: Meta 광고 용어집 (0-B 탭)
+    url: https://ko-kr.facebook.com/business/help/447834205249495
+    원문보관: 절차/메타/메타광고-용어집-0B탭.md
+  - 이름: 어드밴티지+ 타겟의 타겟 관리 및 타겟 추천 정보 (설계자 추가, 2026-10-12)
+    url: https://ko-kr.facebook.com/business/help/938372127764391
+    원문보관: 절차/메타/메타광고-어드밴티지타겟-관리와추천.md
+  - 이름: Meta 광고 관리자에서 노출 위치별로 지원되는 화면 비율 (설계자 추가 — 스토리·릴스 9:16 추천은 여기서 확인)
+    url: https://ko-kr.facebook.com/business/help/682655495435254
+    원문보관: 절차/메타/메타광고-화면비율.md
+  - 이름: 노출 위치에 따른 권장 이미지 픽셀 최소 요구 사항 (설계자 추가)
+    url: https://ko-kr.facebook.com/business/help/469767027114079
+    원문보관: 절차/메타/메타광고-권장픽셀.md
+  - 이름: Meta 광고 보고서 정보 (설계자 추가)
+    url: https://ko-kr.facebook.com/business/help/487269218011981
+    원문보관: 절차/메타/메타광고-보고서정보.md
+  못한것: |
+    도달(Reach)·노출(Impressions)·CTR(클릭률)·CPC(클릭당 비용)·구매 ROAS 다섯은
+    독립된 공식 도움말 문서를 못 찾았다(검색으로 안 걸림). Meta 광고 용어집
+    페이지는 영문 알파벳 구간별 탭(0-B | C | D-H | I-K | L-N | O | P-T | U-V | W-Z)으로
+    나뉜 자바스크립트 위젯인데, 받기 도구는 클릭을 못 해 기본값인 '0-B' 탭 내용만
+    받았다. 저 다섯 용어의 정의는 이번에 못 받았다 — "못 받음" 으로 둔다.
+    광고 가이드의 노출 위치별 이미지·동영상 사양도 '노출 위치/목표/형식'을
+    바꿔 고르는 위젯이라 기본값(Facebook 피드 + 인지도 + 이미지)만 받았다.
+    스토리·릴스 사양, 동영상 사양, 글자 수 상한 전체 표는 못 받았다.
+  승급조건: |
+    위 다섯 지표의 개별 도움말 URL을 찾거나, 탭을 클릭할 수 있는 받기 도구로
+    용어집 전체 탭을 받으면 승급. 광고 가이드도 노출 위치 선택기를 조작할 수
+    있는 도구로 다시 받으면 스토리·릴스·동영상 사양까지 승급.
