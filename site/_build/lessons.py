@@ -101,7 +101,7 @@ def step_pages(pages, next_target, esc):
                     f'<span class="bar" aria-hidden="true"><i class="w{round(pct / 5) * 5}"></i></span></div>\n'
                     f'<div class="step-head"><span class="step-n">{i}</span>{visual.act_badge("<b>" + head + "</b>")}</div>\n'
                     f'<h1 class="step-title">{head}</h1>\n'
-                    f'{pic}\n<div class="step-text">{text}</div>\n{why}\n{done}\n'
+                    f'{pic}\n<div class="step-text">{fold_quotes(text)}</div>\n{why}\n{done}\n'
                     f'<nav class="bignext stepnav" aria-label="단계 이동"><a class="prev" href="{prev[0]}">{esc(prev[1])}</a>'
                     f'<a class="stuck" href="{ASK}">막혔어요</a><a class="go" href="{go[0]}">{esc(go[1])}</a></nav>')
             ht = re.sub(r"「([^」]*)」", lambda mm: "「" + re.split(r"\s*(?:&gt;|>)\s*", mm.group(1))[-1] + "」", hp)   # 제목에는 메뉴 경로의 마지막 이름만
@@ -143,6 +143,19 @@ def _unfold(html):
     """「더 읽기」 접기를 풀어 내용만 남긴다(질문 쪽은 한 가지만 보이니 접을 까닭이 없다)."""
     html = re.sub(r'<details class="more vx-more"><summary>.*?</summary><div class="box">(.*?)</div></details>', r"\1", html, flags=re.S)
     return re.sub(r'<details class="more vx-more[^"]*"><summary>.*?</summary>(.*?)</details>', r"\1", html, flags=re.S)
+
+
+_QRUN = re.compile(r'(<blockquote class="official">.*?</blockquote>)((?:\s*<blockquote class="official">.*?</blockquote>)+)', re.S)
+
+
+def fold_quotes(html):
+    """연달아 쌓인 원문 인용은 첫 개만 보이고 나머지는 「원문 N개 더 보기」로 접는다 (D112-2, 운영자 2026-10-12 «진행해»).
+    한 화면에 인용 상자가 서너 개 이어지면 설명보다 인용이 먼저 길게 나와서. 접힌 인용도 HTML 에 남아 Q1 대조가 그대로 본다."""
+    def rep(m):
+        rest = m.group(2)
+        n = rest.count('<blockquote class="official">')
+        return m.group(1) + f'\n<details class="more quotes"><summary>원문 {n}개 더 보기</summary>{rest}\n</details>'
+    return _QRUN.sub(rep, html)
 
 
 def _sections(region):
@@ -199,7 +212,7 @@ def article_pages(stash, esc, howto_of):
         how = howto_of(url)
         for i, (t, content, par) in enumerate(secs, 1):
             tp = _plain(t)
-            body_c = re.sub(r"<(/?)h3\b", r"<\1h2", _unfold(content).strip())     # 질문 쪽 제목이 h1 이라 안의 작은 제목은 h2 로
+            body_c = fold_quotes(re.sub(r"<(/?)h3\b", r"<\1h2", _unfold(content).strip()))   # 질문 쪽 제목이 h1 이라 안의 작은 제목은 h2 로 · 연달은 인용은 접기
             pct = round(i / n * 100 / 5) * 5
             prev = (url, "처음 화면") if i == 1 else (f"{base}/{i - 1}.html", "이전 질문")
             go = (f"{base}/{i + 1}.html", f"{i + 1}번 질문") if i < n else ((how[0], "이제 따라 하기") if how else (url, "처음 화면으로"))

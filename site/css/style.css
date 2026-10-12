@@ -1565,3 +1565,13 @@ figure svg.narrow { max-width:440px; margin:0 auto; }
 @media (max-width:600px) { figure svg.narrow { min-width:0; } }
 
 .vx-mock .mk-opt small { flex:none; margin-left:auto; padding:2px 7px; border-radius:6px; background:#f1f3f6; color:#4a5058; font-size:.74rem; font-weight:700; }
+
+/* D112-1 휴대폰에서 파란 설명 상자의 한 줄을 길게 — 아이콘 칸을 따로 두지 않고 첫 줄 앞에 띄워 글이 아이콘 아래까지 흐르게 (운영자 2026-10-12 «편하게 보는 방법») */
+@media (max-width:600px) {
+  .vx-point { display:block; padding:12px 14px; border-left-width:4px; }
+  .vx-point::after { content:""; display:block; clear:both; }
+  .vx-i.vx-pt-i { float:left; width:24px; height:24px; margin:4px 8px 0 0; }
+}
+details.more.quotes { margin:6px 0 14px; }
+details.more.quotes[open] > summary { margin-bottom:8px; }
+figure.jr-fig .jf-n { margin:10px 0 0; font-size:.92rem; color:var(--ink-soft); line-height:1.6; }
